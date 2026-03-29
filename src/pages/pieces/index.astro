@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PIECES } from '../../content/pieces';
+---
+
+<Layout
+  title="Pièces — Choisir son ampoule"
+  description="Toutes nos pages par pièce : cuisine, salon, garage… avec conseils et sélections de produits via liens partenaires Amazon."
+>
+  <section class="mt-10">
+    <h1 class="text-3xl font-extrabold tracking-tight">Pièces</h1>
+    <p class="mt-3 max-w-2xl text-white/75">
+      Choisis une pièce pour obtenir des conseils concrets et une sélection de produits adaptés (liens partenaires Amazon).
+    </p>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {PIECES.map((p) => (
+        <a class="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10" href={`/pieces/${p.slug}`}>
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <p class="text-xs font-semibold text-white/60">{p.hero.eyebrow ?? 'Pièce'}</p>
+              <h2 class="mt-1 text-base font-bold text-white">{p.title}</h2>
+              <p class="mt-2 line-clamp-3 text-sm text-white/70">{p.description}</p>
+            </div>
+            <img class="h-14 w-14 shrink-0 rounded-xl bg-white/5 p-2 ring-1 ring-inset ring-white/10" src={p.hero.image} alt={p.hero.imageAlt} />
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>
+

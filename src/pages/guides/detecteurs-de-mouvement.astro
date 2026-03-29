@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="Détecteurs de mouvement : où les mettre et quoi choisir — Choisir son ampoule"
+  description="Placards, escaliers, garage, extérieur : placements, réglages (temporisation, sensibilité) et sélections de détecteurs/lampes à capteur."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Détecteurs de mouvement</h1>
+      <p class="mt-4 max-w-2xl text-white/75">
+        Un bon détecteur = confort (ça s’allume tout seul) + économies. La clé, c’est le placement : angle, hauteur, et temporisation.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Placements qui marchent (souvent)</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Couloir : au plafond, centré, temporisation courte.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Escalier : en bas ou en haut, angle couvrant les marches.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Garage : proche de la porte, évite les zones masquées.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Extérieur : sous avancée/toit, orienté vers la zone de passage.</span></li>
+        </ul>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Réglages utiles</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Temporisation : 30–90 s pour passage, plus long pour garage.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Crépusculaire : évite l’allumage en plein jour.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Sensibilité : baisse-la si animaux/voitures déclenchent trop.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">Produits (Amazon partenaire)</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <ProductCard title="Détecteur de mouvement plafond (intérieur)" subtitle="Couloirs, garage" keywords="detecteur de mouvement plafond interieur" />
+        <ProductCard title="Détecteur PIR mural (extérieur)" subtitle="Crépusculaire + IP" keywords="detecteur mouvement exterieur mural ip65" />
+        <ProductCard title="Plafonnier LED avec capteur" subtitle="Simple, tout-en-un" keywords="plafonnier led avec detecteur mouvement" />
+        <ProductCard title="Réglette placard avec capteur" subtitle="Placards/dressing" keywords="lampe placard detecteur mouvement rechargeable" />
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">Pour aller plus loin</h2>
+      <p class="mt-2 text-sm text-white/75">
+        Si tu veux adapter l'ambiance, pense aux ampoules <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmables</a>.
+        Pour la qualité : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> et
+        <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>.
+      </p>
+    </section>
+  </section>
+</Layout>
+

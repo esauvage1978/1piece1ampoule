@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+
+  <!-- Corridor frame -->
+  <path d="M78 72h100v20H98v96H78V72Z" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <path d="M98 92h80v124h-80V92Z" fill="#0F1730" stroke="#2B3B66" stroke-width="6"/>
+
+  <!-- Angle corner highlight -->
+  <path d="M178 92v50h-30" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Lights -->
+  <circle cx="128" cy="140" r="16" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="6"/>
+  <circle cx="108" cy="116" r="10" fill="#FBBF24" fill-opacity="0.20" stroke="#FDE68A" stroke-width="4"/>
+</svg>
+

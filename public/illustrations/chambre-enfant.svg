@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Bed -->
+  <rect x="56" y="120" width="144" height="66" rx="16" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <rect x="72" y="98" width="112" height="30" rx="14" fill="#0F1730" stroke="#2B3B66" stroke-width="5"/>
+  <!-- Pillows -->
+  <rect x="86" y="112" width="34" height="26" rx="12" fill="#141F3E" stroke="#2B3B66" stroke-width="4"/>
+  <rect x="136" y="112" width="34" height="26" rx="12" fill="#141F3E" stroke="#2B3B66" stroke-width="4"/>
+  <!-- Star / decoration -->
+  <path d="M106 78l7 16 17 2-13 11 4 17-15-9-15 9 4-17-13-11 17-2Z" fill="#A78BFA" fill-opacity="0.25"/>
+  <!-- Night lamp -->
+  <circle cx="166" cy="106" r="16" fill="#FBBF24" fill-opacity="0.20" stroke="#FDE68A" stroke-width="6"/>
+</svg>
+

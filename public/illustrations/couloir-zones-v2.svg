@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070B14"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="200" y1="170" x2="1200" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1730"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <style>
+      .zoneText{font-family:ui-sans-serif,system-ui;font-size:24px;font-weight:900;fill:#FDE68A}
+      .label{font-family:ui-sans-serif,system-ui;font-size:22px;font-weight:800;fill:#E5E7EB}
+    </style>
+  </defs>
+
+  <rect width="1400" height="900" rx="56" fill="url(#bg)"/>
+  <circle cx="260" cy="210" r="180" fill="#FBBF24" fill-opacity="0.12" filter="url(#glow)"/>
+  <circle cx="1120" cy="240" r="220" fill="#38BDF8" fill-opacity="0.10" filter="url(#glow)"/>
+
+  <rect x="180" y="140" width="1040" height="700" rx="40" fill="url(#floor)" stroke="#2B3B66" stroke-width="4"/>
+
+  <!-- Corridor path (L-shape) -->
+  <rect x="250" y="220" width="350" height="430" rx="34" fill="#0B1220" fill-opacity="0.45" stroke="#2B3B66" stroke-width="4"/>
+  <rect x="565" y="535" width="350" height="280" rx="34" fill="#0B1220" fill-opacity="0.45" stroke="#2B3B66" stroke-width="4"/>
+
+  <!-- Zone overlays -->
+  <rect x="290" y="250" width="270" height="120" rx="26" fill="#FBBF24" fill-opacity="0.10" stroke="#FBBF24" stroke-opacity="0.75" stroke-width="3"/>
+  <text x="320" y="315" class="zoneText">Zone 1: entree</text>
+
+  <rect x="290" y="390" width="270" height="220" rx="26" fill="#38BDF8" fill-opacity="0.08" stroke="#38BDF8" stroke-opacity="0.60" stroke-width="3"/>
+  <text x="320" y="520" class="zoneText" fill="#BAE6FD">Zone 2: troncon sombre</text>
+
+  <rect x="595" y="515" width="240" height="120" rx="26" fill="#A78BFA" fill-opacity="0.10" stroke="#A78BFA" stroke-opacity="0.70" stroke-width="3"/>
+  <text x="625" y="585" class="zoneText" fill="#E9D5FF">Zone 3: angle / coude</text>
+
+  <rect x="595" y="650" width="290" height="120" rx="26" fill="#34D399" fill-opacity="0.07" stroke="#34D399" stroke-opacity="0.60" stroke-width="3"/>
+  <text x="625" y="725" class="zoneText" fill="#A7F3D0">Zone 4: sol / securite</text>
+
+  <!-- Title strip -->
+  <rect x="90" y="70" width="1220" height="56" rx="18" fill="#0B1220" stroke="#2B3B66" stroke-width="3"/>
+  <text x="120" y="108" class="label">Couloir sombre en angle decoupe en zones</text>
+</svg>
+

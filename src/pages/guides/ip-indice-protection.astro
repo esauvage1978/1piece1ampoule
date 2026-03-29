@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="IP : indices de protection — Choisir son éclairage"
+  description="Comprendre les indices IP (IP44, IP65...) pour choisir les bons luminaires en salle de bain, douche et zones humides."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">IP : indice de protection</h1>
+      <p class="mt-4 max-w-3xl text-white/75">
+        L’indice <strong>IP</strong> indique le niveau de protection d’un luminaire contre :
+        la poussière/objets (1er chiffre) et l’eau/ruissellement (2e chiffre).
+        En salle de bain, c’est un point crucial pour éviter les mauvaises surprises.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">1) Le 1er chiffre : solides</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/75">
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>0</strong> : aucune protection</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>4</strong> : pas d’accès aux poussières gênantes</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>5–6</strong> : bon niveau contre la poussière</span></li>
+      </ul>
+    </article>
+
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">2) Le 2e chiffre : eau</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/75">
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>4</strong> : éclaboussures (ex. ruissellement)</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>5</strong> : jets d’eau</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>6</strong> : paquets/forts jets + conditions plus sévères</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>X</strong> : selon si l’eau n’est pas spécifiée</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+    <h2 class="text-xl font-extrabold">Salle de bain : repères pratiques (sans prise de risque)</h2>
+    <p class="mt-3 max-w-3xl text-sm text-white/75">
+      En salle de bain, tu dois surtout respecter les <strong>règles de pose</strong> (zones/volumes) et la <strong>notice fabricant</strong>.
+      Pour simplifier :
+    </p>
+    <ul class="mt-4 space-y-2 text-sm text-white/75">
+      <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>IP44</strong> : souvent un minimum pour “zone humide” selon installation.</span></li>
+      <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>IP65</strong> : plus adapté aux zones exposées au ruissellement/jet proche (ex. douche), selon distance.</span></li>
+      <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Si tu es dans une zone à risque, vise la valeur indiquée dans la notice et/ou la conformité électrique.</span></li>
+    </ul>
+    <p class="mt-3 text-sm text-white/70">
+      Bon réflexe : regarde aussi la <strong>température de couleur (Kelvin)</strong> et la <strong>fidélité des couleurs (IRC)</strong> pour un rendu naturel sur le visage.
+      Pour ça : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+    <p class="mt-1 text-sm text-white/70">Recherches ciblées pour luminaires/LED adaptés aux pièces humides.</p>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <ProductCard title="Reglette LED miroir salle de bain (IP44)" subtitle="Lumiere de face, utile" keywords="reglette led miroir salle de bain ip44" badge="IP44" />
+      <ProductCard title="Spot LED salle de bain IP65" subtitle="Zones proches douche" keywords="spot led salle de bain ip65" badge="IP65" />
+      <ProductCard title="Ruban LED etanche salle de bain IP65" subtitle="Accent protege" keywords="ruban led etanche ip65 salle de bain 24v" badge="IP65" />
+      <ProductCard title="Applique LED vasque (IP44)" subtitle="Eclairage mural" keywords="applique led salle de bain ip44" badge="IP44" />
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <h2 class="text-lg font-bold">Pour aller plus loin</h2>
+    <p class="mt-2 text-sm text-white/75">
+      Combine toujours IP + teinte + couleurs :
+      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>,
+      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>,
+      et le format (culot) si besoin : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a>.
+    </p>
+  </section>
+</Layout>
+

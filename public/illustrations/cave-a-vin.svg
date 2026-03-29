@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Bottle -->
+  <path d="M118 58h20v22c0 6 18 10 18 30v76c0 12-10 22-22 22h-32c-12 0-22-10-22-22V110c0-20 18-24 18-30V58Z" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <!-- Wine glass highlight -->
+  <path d="M129 92c12 4 18 14 18 30v26c0 10-8 18-18 18" stroke="#FDE68A" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <!-- Small light dots -->
+  <circle cx="84" cy="118" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+  <circle cx="170" cy="118" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+</svg>
+

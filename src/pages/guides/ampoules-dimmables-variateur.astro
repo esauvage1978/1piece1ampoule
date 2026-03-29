@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="Ampoules dimmables & variateur — Choisir son éclairage"
+  description="Définition du dimmable (régler l'intensité) et comment choisir ampoule compatible + variateur pour une ambiance cuisine, salon, etc."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Ampoules dimmables : régler l'intensité</h1>
+      <p class="mt-4 max-w-3xl text-white/75">
+        “<strong>dimmable</strong>” signifie que l’ampoule accepte de <strong>régler la luminosité</strong> (plus clair / plus doux).
+        En pratique, ça nécessite un <strong>variateur compatible</strong> (et parfois une référence précise d’ampoule).
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">Dimmable vs “variateur” : la relation</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/75">
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Le <strong>variateur</strong> pilote l’intensité.</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>L’ampoule <strong>dimmable</strong> accepte la variation.</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Sans compatibilité : scintillement, “bourdonnement”, ou dim impossible.</span></li>
+      </ul>
+    </article>
+
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">Checklist compatibilité (avant achat)</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/75">
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Vérifier “dimmable” sur la fiche produit.</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Vérifier le type de variateur (souvent LED/compatible LED).</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Tenir compte du <strong>culot</strong> (E27/E14/GU10…).</span></li>
+        <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choisir une teinte <strong>Kelvin</strong> cohérente avec l’ambiance.</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+    <h2 class="text-xl font-extrabold">Où mettre le dimmable ? (exemples rapides)</h2>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+        <h3 class="text-lg font-bold">Cuisine</h3>
+        <p class="mt-2 text-sm text-white/75">
+          Pour passer d’un éclairage de travail (plus lumineux) à une ambiance le soir (plus doux).
+          Commence par le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+        <h3 class="text-lg font-bold">Salon / chambre</h3>
+        <p class="mt-2 text-sm text-white/75">
+          Pour créer des zones lecture/détente et régler le confort visuel.
+          Complète avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et
+          <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+    <p class="mt-1 text-sm text-white/70">Liens vers recherches Amazon pour trouver ampoules dimmables et variateurs compatibles.</p>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <ProductCard title="Ampoules LED dimmables E27" subtitle="Ambiance réglable" keywords="ampoule led dimmable e27 variateur compatible" badge="Dimmable" />
+      <ProductCard title="Ampoules LED dimmables E14" subtitle="Petits luminaires" keywords="ampoule led dimmable e14 variateur compatible" badge="Dimmable" />
+      <ProductCard title="Variateur compatible LED" subtitle="Pour contrôler l'intensite" keywords="variateur compatible led dimmable" badge="Variante" />
+      <ProductCard title="Spots LED dimmables GU10" subtitle="Cuisine, couloir" keywords="spot led dimmable gu10 variateur" badge="Dimmable" />
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <h2 class="text-lg font-bold">Liens utiles (maillage interne)</h2>
+    <p class="mt-2 text-sm text-white/75">
+      Pour choisir la meilleure ambiance : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>,
+      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>,
+      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>,
+      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a>.
+      Si tu automatises l’allumage, regarde aussi <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/detecteurs-de-mouvement">détecteurs de mouvement</a>.
+    </p>
+  </section>
+</Layout>
+

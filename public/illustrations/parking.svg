@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Road / base -->
+  <rect x="56" y="86" width="144" height="110" rx="18" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <!-- Parking lines -->
+  <path d="M92 100v82" stroke="#FDE68A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M128 100v82" stroke="#FDE68A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M164 100v82" stroke="#FDE68A" stroke-width="6" stroke-linecap="round"/>
+  <!-- Light dot -->
+  <circle cx="92" cy="70" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+</svg>
+

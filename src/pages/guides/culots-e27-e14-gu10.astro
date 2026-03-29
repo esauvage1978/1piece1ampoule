@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="Culots E27, E14, GU10… bien choisir — Choisir son ampoule"
+  description="Guide simple pour identifier un culot (E27, E14, GU10, G9…) et acheter la bonne ampoule LED."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Culots : E27, E14, GU10…</h1>
+      <p class="mt-4 max-w-2xl text-white/75">
+        Le culot, c’est la “base” de l’ampoule. Pour éviter les erreurs, repère le type (vis, broches) et le diamètre (E27 vs E14).
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Les plus courants</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>E27</strong> : “grosse vis”, plafonniers/lampes classiques.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>E14</strong> : “petite vis”, lampes de chevet, luminaires compacts.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>GU10</strong> : spots à baïonnette (1/4 tour), cuisine/couloir.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><strong>G9</strong> : petites broches, souvent sur lampes design.</span></li>
+        </ul>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Check-list avant achat</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Dimensions : certaines ampoules LED sont plus longues/plus larges.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Température de couleur : 2700K cosy, 4000K neutre, 6500K froid.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span><a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">Dimmable</a> : seulement si tu as un variateur compatible.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>IRC : vise ≥ 90 pour cuisine/visage/maquillage.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">Produits (Amazon partenaire)</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <ProductCard title="Ampoules LED E27" subtitle="Usage général" keywords="ampoule led e27 lot" />
+        <ProductCard title="Ampoules LED E14" subtitle="Petits luminaires" keywords="ampoule led e14 lot" />
+        <ProductCard title="Spots LED GU10" subtitle="Spots plafond" keywords="ampoule led gu10 lot" />
+        <ProductCard title="Ampoules LED G9" subtitle="Lampes design" keywords="ampoule led g9" />
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">Pour aller plus loin</h2>
+      <p class="mt-2 text-sm text-white/75">
+        Les culots, c’est la forme ; ensuite, choisis la teinte <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>,
+        puis la fidélité des couleurs avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>.
+        Pour la puissance, regarde <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.
+        Enfin, si tu veux régler l'intensité, passe par <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+      </p>
+    </section>
+  </section>
+</Layout>
+

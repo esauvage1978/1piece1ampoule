@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+type Props = {
+  title: string;
+  description?: string;
+  showChrome?: boolean;
+};
+
+const { title, description, showChrome = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="ZpKyZugAYO-StQF5wYwIXKgFGAXNVVxtyeR8hwGwdvc" />
+
+    <!-- Google Analytics (chargé uniquement après consentement cookies "statistiques") -->
+    <script is:inline>
+      (function () {
+        const storageKey = 'cookie_consent_v1';
+        const tagId = 'G-Q6KFL7KKJD';
+
+        function loadGtag() {
+          if (window.__gtagLoaded) return;
+          window.__gtagLoaded = true;
+
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function gtag() { window.dataLayer.push(arguments); };
+
+          const s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + tagId;
+          document.head.appendChild(s);
+
+          window.gtag('js', new Date());
+          window.gtag('config', tagId);
+        }
+
+        window.__enableAnalyticsConsent = loadGtag;
+
+        const existing = localStorage.getItem(storageKey);
+        if (existing === 'analytics') {
+          loadGtag();
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-dvh bg-slate-950 text-white antialiased">
+    {showChrome && <Header />}
+    <main class="mx-auto max-w-6xl px-4">
+      <slot />
+    </main>
+    {showChrome && <Footer />}
+
+    <CookieConsent />
+  </body>
+</html>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+
+  <!-- Pergola / ambiance base -->
+  <path d="M56 150h144v54a18 18 0 0 1-18 18H74a18 18 0 0 1-18-18v-54Z" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <path d="M74 138c18-16 38-24 54-24s36 8 54 24" stroke="#2B3B66" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Lights (dots) -->
+  <circle cx="94" cy="110" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+  <circle cx="128" cy="100" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+  <circle cx="162" cy="110" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+
+  <!-- Grass -->
+  <path d="M64 206c10-14 24-22 40-22s30 8 40 22" stroke="#34D399" stroke-width="8" stroke-linecap="round" fill="none"/>
+</svg>
+

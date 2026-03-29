@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Flashlight body -->
+  <rect x="104" y="74" width="48" height="124" rx="18" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <rect x="112" y="60" width="32" height="22" rx="10" fill="#0F1730" stroke="#2B3B66" stroke-width="5"/>
+  <!-- Light beam -->
+  <path d="M152 106c34-12 44 10 44 30s-10 42-44 30" fill="none" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+  <!-- Bright core -->
+  <circle cx="140" cy="132" r="14" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="6"/>
+</svg>
+

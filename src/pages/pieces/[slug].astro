@@ -1,0 +1,1851 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { PIECES } from '../../content/pieces';
+
+export function getStaticPaths() {
+  return PIECES.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const page = PIECES.find((p) => p.slug === slug);
+if (!page) throw new Error(`Pièce introuvable: ${slug}`);
+
+const isCuisine = slug === 'cuisine';
+const isGarage = slug === 'garage';
+const isSalon = slug === 'salon';
+const isSalleDeBain = slug === 'salle-de-bain';
+const isSalleManger = slug === 'salle-manger';
+const isJardin = slug === 'jardin';
+const isCouloir = slug === 'couloir';
+
+const isSpecialLayout =
+  isCuisine || isGarage || isSalon || isSalleDeBain || isSalleManger || isJardin || isCouloir;
+const isGenericLayout = !isSpecialLayout;
+
+const zoneLayoutSlugs = new Set([
+  'bureau-adulte',
+  'bureau-enfant',
+  'cave-a-vin',
+  'chambre-adulte',
+  'chambre-enfant',
+  'toilettes',
+  'parking',
+  'cave-voutee',
+  'couloir-long-etroit',
+  'cave-sans-electricite',
+]);
+
+function normalizeText(input: string) {
+  return input
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function extractZoneTitleFromPoint(point: string) {
+  // Matches: Zone “poste de travail” : ...
+  const quoted = point.match(/zone\s*[“"]([^”"]+)[”"]\s*:/i);
+  if (quoted?.[1]) return quoted[1].trim();
+
+  // Matches: Miroir/vasque : ...
+  const colon = point.match(/^([^:]+?)\s*:\s*/);
+  if (colon?.[1]) {
+    return colon[1]
+      .replace(/^zone\s+/i, '')
+      .replace(/[“”"]/g, '')
+      .trim();
+  }
+
+  // Fallback: keep as-is (shortened)
+  return point.slice(0, 40).trim();
+}
+
+function splitProductsByZone({
+  products,
+  zoneTitles,
+}: {
+  products: Array<{ title: string; badge?: string }>;
+  zoneTitles: string[];
+}) {
+  const normalizedZoneTitles = zoneTitles.map(normalizeText);
+  const used = new Set<string>();
+  const assigned: Array<typeof products> = zoneTitles.map(() => []);
+
+  for (const p of products) {
+    const badgeNorm = p.badge ? normalizeText(p.badge) : '';
+    let bestIdx = -1;
+    for (let i = 0; i < normalizedZoneTitles.length; i++) {
+      const z = normalizedZoneTitles[i];
+      if (!badgeNorm || !z) continue;
+      if (badgeNorm.includes(z) || z.includes(badgeNorm)) {
+        bestIdx = i;
+        break;
+      }
+    }
+    if (bestIdx >= 0) {
+      assigned[bestIdx].push(p as any);
+      used.add(p.title);
+    }
+  }
+
+  // Fallback distribution if some zones are empty
+  const allEmpty = assigned.every((a) => a.length === 0);
+  if (allEmpty) {
+    const perZone = Math.max(1, Math.ceil(products.length / zoneTitles.length));
+    return zoneTitles.map((_, i) => products.slice(i * perZone, (i + 1) * perZone));
+  }
+
+  return assigned.map((arr, i) => {
+    if (arr.length > 0) return arr;
+    // If a zone is empty but others have data, distribute remaining products to it.
+    const remaining = products.filter((p) => !used.has(p.title));
+    if (remaining.length === 0) return arr;
+    return [remaining.shift() as any].filter(Boolean);
+  });
+}
+
+const genericProductsPerSection = Math.max(
+  1,
+  Math.ceil(page.products.length / Math.max(page.sections.length, 1)),
+);
+const cuisineFaq = [
+  {
+    q: 'Combien de lumens pour une cuisine ?',
+    a: 'Ça dépend des zones. Pour le plan de travail, vise un éclairage “ciblé” puissant (souvent autour de 450 lux sur la zone). Pour l’éclairage central, vise un niveau confortable et homogène sur l’ensemble de la pièce. Le plus efficace est de répartir le flux en plusieurs sources (plafond + sous-meubles + ambiance).',
+  },
+  {
+    q: 'Combien de lumen pour une cuisine ?',
+    a: 'Le bon repère dépend des zones : plan de travail (plus puissant) vs central (homogène) vs ambiance (plus doux). Le plus simple est de répartir la lumière en plusieurs sources plutôt que de chercher “une ampoule très puissante”.',
+  },
+  {
+    q: 'Quelle température de couleur (Kelvin) pour une cuisine ?',
+    a: 'Le plus polyvalent est le blanc neutre (environ 4000K), surtout pour cuisiner et nettoyer. Pour l’ambiance/coin repas, tu peux descendre vers 2700–3000K.',
+  },
+  {
+    q: 'Faut-il un IRC élevé en cuisine ?',
+    a: 'Oui si tu veux des couleurs fidèles (aliments, cuisson, déco). Cherche un IRC ≥ 90 pour les zones de travail.',
+  },
+  {
+    q: 'Spots, bandeaux ou suspensions : que choisir ?',
+    a: 'Idéalement : bandeaux/réglettes sous-meubles pour le plan de travail, un plafonnier/spots pour l’éclairage central, et une touche d’ambiance (suspension, ruban LED indirect) pour le confort.',
+  },
+  {
+    q: 'Quelle ampoule pour une cuisine ?',
+    a: 'Pour une cuisine, il vaut mieux combiner : une lumière ciblée pour le plan de travail et une lumière plus homogène pour circuler/repas. Une seule ampoule ne couvre généralement pas bien toutes les zones.',
+  },
+  {
+    q: 'Ampoule cuisine',
+    a: 'Pour une cuisine efficace : (1) plan de travail = éclairage ciblé (réglettes/bandeaux), (2) central = lumière homogène, (3) ambiance = plus chaud/dimmable, (4) électroménager = ampoules spécifiques. Cette superposition évite les ombres et donne un rendu plus “vendeur”.',
+  },
+  {
+    q: 'Ampoule cuisine : que choisir ?',
+    a: 'Le meilleur choix dépend de la zone. Commence par éclairer correctement le plan de travail (ciblé, souvent blanc neutre) puis ajoute un central homogène et une ambiance plus chaude le soir.',
+  },
+  {
+    q: 'Ampoule pour cuisine',
+    a: 'Privilégie une solution par zones plutôt qu’un seul point lumineux : tu évites les ombres sur le plan de travail et tu obtiens un résultat plus confortable. Ensuite, ajuste Kelvin (souvent 4000K en travail) et IRC (>= 90 si possible).',
+  },
+  {
+    q: 'Quelle ampoule led pour cuisine ?',
+    a: 'Opte pour des LED avec une teinte blanche neutre (~4000K) pour cuisiner et un rendu fidèle (IRC élevé) sur les zones de préparation. Pour l’ambiance, ajoute du 2700–3000K (suspension ou éclairage indirect).',
+  },
+  {
+    q: 'Quelle puissance ampoule pour cuisine ?',
+    a: 'La puissance (W) seule ne suffit pas : regarde les lumens. L’idée est d’obtenir le bon niveau de lumière sur chaque zone (travail vs ambiance) plutôt que de viser un “gros nombre” partout.',
+  },
+  {
+    q: 'Quelle puissance ampoule pour cuisine',
+    a: 'Ne raisonne pas uniquement en watts : compare en lumens et répartis l’éclairage entre plan de travail, central et ambiance. Tu obtiens plus de confort et moins d’éblouissement.',
+  },
+  {
+    q: 'Quelle couleur d’ampoule pour une cuisine ?',
+    a: 'Pour cuisiner : blanc neutre autour de 4000K. Pour le soir et l’ambiance : 2700–3000K. Le choix dépend aussi de la couleur des murs et de la lumière naturelle.',
+  },
+];
+
+const cuisineJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: cuisineFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const garageFaq = [
+  {
+    q: 'Quelle température de couleur pour un garage ?',
+    a: 'En général, un garage se gère bien avec une lumière neutre à froid (souvent 4000K–5000K) pour voir les détails et travailler sans fatigue.',
+  },
+  {
+    q: 'Quel IRC vise pour le garage ?',
+    a: 'Pour un rendu plus naturel (outils, marquages, visserie, peau), on vise souvent un IRC élevé (souvent >= 90) surtout sur les zones de travail.',
+  },
+  {
+    q: 'Où placer un détecteur de mouvement dans un garage ?',
+    a: 'En général, près de la porte d’entrée (et/ou sur l’axe de passage). Régle la temporisation et privilégie un angle qui couvre le trajet sans déclencher en permanence.',
+  },
+  {
+    q: 'Quel eclairage pour garage ?',
+    a: 'Combine une lumière homogène au plafond (pour circuler) et des sources ciblées sur l’établi et le rangement. Si tu veux améliorer le confort, ajoute du dimmable pour moduler l’ambiance.',
+  },
+  {
+    q: 'Quelle eclairage pour un garage ?',
+    a: 'L’approche la plus efficace est de découper le garage en zones : éclairage homogène pour circuler/stationner + éclairage ciblé sur l’établi + éclairage pour les étagères/rangements. C’est exactement ce que propose la page avec des liens produits par zone.',
+  },
+  {
+    q: 'Quel éclairage pour un garage ?',
+    a: 'Découpe en zones : (1) circulation/stationnement = lumière homogène, (2) établi = faisceau dirigé, (3) rangement = réglettes/diffuse, (4) entrée = détection. Ensuite ajuste Kelvin (souvent neutre/froid) et, si possible, un IRC élevé sur la zone de travail.',
+  },
+  {
+    q: 'Meilleur éclairage garage : quoi choisir ?',
+    a: 'Le meilleur résultat vient d’une répartition en plusieurs points : réglettes/LED pour l’établi, plafonniers ou panneaux pour la circulation, et éventuellement un détecteur pour l’entrée. Cible une teinte neutre à froid et un IRC élevé sur le travail.',
+  },
+  {
+    q: 'Combien de lumens pour un garage ?',
+    a: 'Le bon repère se fait plutôt en lux : pour un garage “utile” (bricolage), vise souvent 200 à 500 lux selon l’activité. Ensuite, convertis en lumens en fonction de la surface et de la façon dont les luminaires répartissent la lumière.',
+  },
+  {
+    q: 'Combien de lumen pour un garage ?',
+    a: 'Il n’y a pas un seul chiffre magique : vise d’abord un objectif de lux (intensité) puis répartis les lumens en plusieurs points. Sur un établi, tu as besoin de plus (zone de travail) que sur une simple circulation.',
+  },
+  {
+    q: 'Combien de lumens par m2 pour un garage ?',
+    a: 'En pratique, “lux” et “lumens” sont liés : si tu vises une intensité (lux) donnée, tu obtiens un total de lumens à partir de la surface. Comme les pertes dépendent de l’ambiance et des luminaires, ajuste plutôt par zones (travail vs circulation) que sur une règle unique.',
+  },
+];
+
+const garageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: garageFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const salonFaq = [
+  {
+    q: 'Quelle température de couleur pour un salon ?',
+    a: 'Pour une ambiance cosy le soir, vise souvent 2700K à 3000K. Pour les moments plus “actifs” (lecture en journée), tu peux rester sur du 3500K à 4000K selon le rendu souhaité.',
+  },
+  {
+    q: 'Comment éviter l’éblouissement sur la TV ?',
+    a: 'Utilise de la lumière indirecte et/ou un ruban LED derrière la TV (bias light). Évite les sources directes face à l’écran et privilégie un éclairage diffus et stable.',
+  },
+  {
+    q: 'Quel IRC choisir pour le salon ?',
+    a: 'Un IRC élevé (souvent >= 90) donne des couleurs plus naturelles et un rendu plus qualitatif (tissus, peau, objets).',
+  },
+  {
+    q: 'Faut-il des ampoules dimmables dans le salon ?',
+    a: 'Oui, si tu veux ajuster l’ambiance : une ou plusieurs zones (TV/lecture) bénéficient de plusieurs niveaux lumineux. Assure-toi que l’ampoule est compatible avec le variateur.',
+  },
+];
+
+const salonJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: salonFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const salleBainFaq = [
+  {
+    q: 'Quel Kelvin pour une salle de bain ?',
+    a: 'En général, pour une salle de bain confortable, vise souvent 2700K à 4000K selon la luminosité du lieu. Pour un rendu plus naturel sur le visage, reste plutôt autour de 3500–4000K.',
+  },
+  {
+    q: 'Quel IRC pour le miroir / vasque ?',
+    a: 'Un IRC élevé (souvent >= 90) aide à conserver des couleurs naturelles (peau, maquillage, dents).',
+  },
+  {
+    q: 'Luminaires salle de bain : quel IP viser ?',
+    a: 'Pour les zones humides (douche/baignoire), privilégie des luminaires prévus pour les pièces humides (ex. indices IP adaptés) et un placement conforme aux règles de sécurité.',
+  },
+  {
+    q: 'Est-ce utile d’avoir un détecteur dans la salle de bain ?',
+    a: 'Oui si tu veux du confort (surtout le soir) : un détecteur de mouvement ou un éclairage adapté à la zone peut éviter d’allumer “pour rien”.',
+  },
+  {
+    q: 'Quelle ampoule led pour salle de bain ?',
+    a: 'Cherche une ampoule/LED avec un bon rendu (IRC élevé si possible), une teinte adaptée au visage (souvent vers 3500–4000K) et surtout un luminaire compatible avec la zone (IP adapté).',
+  },
+  {
+    q: 'Combien de lumens pour une salle de bain ?',
+    a: 'Comme le niveau dépend des zones (miroir vs douche vs circulation), vise un éclairage assez uniforme. Pour le miroir, l’objectif est d’avoir une lumière nette sans ombres ; pour le reste, une intensité confortable suffit souvent.',
+  },
+  {
+    q: 'Lampe de salle de bain : quelle couleur de lumière choisir ?',
+    a: 'Pour le visage et le maquillage : blanc neutre autour de 3500–4000K. Pour l’ambiance du soir : tu peux descendre vers 2700–3000K avec une source dédiée ou du dimmable.',
+  },
+];
+
+const salleBainJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: salleBainFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const salleMangerFaq = [
+  {
+    q: 'Quelle température de couleur pour une salle à manger ?',
+    a: 'Pour une ambiance conviviale le soir, vise souvent 2700K à 3000K. Pour des usages plus “actifs” (travail, lumière du jour), tu peux monter vers 3500K–4000K selon ton rendu.',
+  },
+  {
+    q: 'Comment éviter les ombres sur les visages pendant le repas ?',
+    a: 'Évite un seul plafonnier au centre. Combine une lumière mise en valeur sur la table (suspension ou spots) avec des points plus doux (indirect) pour réduire les ombres en face.',
+  },
+  {
+    q: 'Quel IRC pour la salle à manger ?',
+    a: 'Un IRC élevé (souvent >= 90) rend les couleurs plus naturelles : aliments, tissus, objets et ambiance paraissent plus qualitatifs.',
+  },
+  {
+    q: 'Faut-il des ampoules dimmables en salle à manger ?',
+    a: 'Oui, si tu veux ajuster l’ambiance entre le repas, la discussion et le moment “décontracté”. Assure-toi d’avoir un variateur compatible.',
+  },
+  {
+    q: 'Quelle ampoule pour salle à manger ?',
+    a: 'Pour valoriser la table, privilégie une suspension/points au bon endroit, puis ajoute une lumière d’ambiance (indirecte, ruban LED, applique) pour que les visages restent bien éclairés sans ombres fortes.',
+  },
+  {
+    q: 'Lumen salle à manger : combien faut-il ?',
+    a: 'Vise un éclairage confortable et surtout réparti : une partie pour la mise en valeur de la table, et une partie pour l’ambiance. Pour calculer précisément, pense lux sur les zones plutôt que “un chiffre” unique.',
+  },
+  {
+    q: 'Ampoule salle a manger : quelle intensité lumineuse ?',
+    a: 'Pour le quotidien : un niveau suffisant pour voir clairement. Pour le soir : baisse l’intensité via du dimmable, afin de garder une ambiance chaleureuse et éviter un rendu trop froid.',
+  },
+];
+
+const salleMangerJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: salleMangerFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const jardinFaq = [
+  {
+    q: 'Quelle température de couleur pour un jardin ?',
+    a: 'Pour le soir et la détente, vise souvent 2700K à 3000K. Si tu veux aussi voir les détails (allée, rangement), tu peux monter autour de 3500K–4000K, mais en répartissant les points pour garder une ambiance agréable.',
+  },
+  {
+    q: 'Quel IRC viser pour un éclairage extérieur ?',
+    a: 'Un IRC élevé (souvent >= 90) rend les couleurs plus naturelles : fleurs, bois, mobilier de jardin et aliments (barbecue) paraissent plus flatteurs.',
+  },
+  {
+    q: 'Quel indice IP choisir pour la pergola et le jardin ?',
+    a: 'En extérieur, privilégie des luminaires prévus pour la pluie : IP65 est un bon repère pour une utilisation “courante”. Pour des zones plus exposées, regarde les indications IP et les zones d’installation (selon le montage).',
+  },
+  {
+    q: 'Faut-il des lumières dimmables pour le jardin ?',
+    a: 'Oui, c’est souvent ce qui fait “l’effet waouh”. Des sources dimmables (ou un variateur compatible) permettent d’ajuster l’ambiance entre repas, discussion et moment plus calme.',
+  },
+];
+
+const jardinJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: jardinFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const couloirFaq = [
+  {
+    q: 'Quelle température de couleur pour un couloir sombre ?',
+    a: 'Pour “déboucher” un couloir sombre, vise souvent 3500K–4000K : la lumière paraît plus claire sans tomber dans le trop froid. Si tu veux un rendu plus cosy, tu peux descendre vers 3000K, mais en compensant avec plus de points lumineux.',
+  },
+  {
+    q: 'Comment éviter les ombres dans un couloir en angle ?',
+    a: 'Évite le “tout plafond” : place plusieurs sources réparties et privilégie un éclairage indirect sur les murs (type ruban LED ou applique orientée). Sur un angle/coude, ajoute un point doux supplémentaire pour “lier” les deux parties.',
+  },
+  {
+    q: 'Quel IRC viser dans un couloir ?',
+    a: 'Un IRC élevé (souvent >= 90) améliore la fidélité des couleurs (portes, peinture, objets) et rend le couloir plus qualitatif. Très utile si le couloir présente des éléments décoratifs.',
+  },
+  {
+    q: 'Faut-il un éclairage dimmable dans un couloir ?',
+    a: 'Oui : un variateur compatible (et des sources dimmables) permet d’adapter l’intensité selon l’heure, surtout le soir ou la nuit.',
+  },
+  {
+    q: 'Quel luminaire pour un couloir ?',
+    a: 'Dans un couloir, le plus important est d’éviter les “trous” : utilise plusieurs sources (spots répartis, applique orientée, ruban LED), et assure-toi que la lumière suit le trajet sans ombres marquées.',
+  },
+  {
+    q: 'Plafonnier pour couloir étroit : que choisir ?',
+    a: 'Pour un couloir étroit, privilégie un éclairage qui se répartit le long de la longueur : spots/appuis répartis ou applique orientée plutôt qu’un seul plafonnier centré.',
+  },
+  {
+    q: 'Comment éclairer un couloir long et étroit ?',
+    a: 'Découpe visuellement : répartis plusieurs points ou des appliques le long du trajet, avec une teinte plutôt neutre (souvent 3500–4000K). Ajoute éventuellement un balisage doux pour sécuriser le sol.',
+  },
+  {
+    q: 'Applique murale pour couloir sombre : où la placer ?',
+    a: 'Mets l’applique sur les murs pour créer de la lumière rebondie : vise le contrôle des ombres plutôt que la lumière directe. Sur un angle, ajoute un point supplémentaire pour relier les deux sections.',
+  },
+];
+
+const couloirJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: couloirFaq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+function makeFaqJsonLd(faq: Array<{ q: string; a: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+}
+
+const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
+  'bureau-adulte': [
+    {
+      q: 'Quel éclairage pour un bureau ?',
+      a: 'La méthode la plus simple : découper le bureau en zones (travail, confort, anti-reflets) puis choisir une teinte (Kelvin) adaptée et un IRC suffisant. Sur la page, chaque zone propose des solutions + liens produits Amazon.',
+    },
+    {
+      q: 'Quel éclairage pour un bureau adulte ?',
+      a: 'Découpe le bureau : un éclairage de travail ciblé pour l’écriture/ordinateur et une lumière plus douce pour le confort. Vise une teinte neutre (souvent 3500–5000K) et un IRC élevé si tu manipules des couleurs.',
+    },
+    {
+      q: 'Quelle température de couleur pour un bureau ?',
+      a: 'Pour travailler : blanc neutre vers 4000K. Pour le soir : baisse vers 2700–3000K avec des sources dimmables ou plusieurs circuits.',
+    },
+    {
+      q: 'Combien de lumens pour un bureau ?',
+      a: 'Pense en lux sur la zone de travail, puis répartis plusieurs sources pour limiter les ombres.',
+    },
+    {
+      q: 'Meilleur éclairage LED pour bureau : que choisir ?',
+      a: 'Lampe LED orientable et/ou réglettes pour une lumière stable et répartie, avec objectif de limiter l’éblouissement sur l’écran.',
+    },
+  ],
+  'bureau-enfant': [
+    {
+      q: 'Eclairer bureau enfant : quel éclairage choisir ?',
+      a: 'Lumière stable pour écrire/lire, puis ambiance plus douce pour les pauses. Teinte souvent neutre (vers 4000K), en évitant reflets et ombres marquées.',
+    },
+    {
+      q: 'Quelle température de couleur pour un bureau enfant ?',
+      a: 'Pour les activités : autour de 3500–5000K. En fin de journée : descends vers 2700–3000K via une source dimmable ou un circuit séparé.',
+    },
+    {
+      q: 'Combien de lumens pour un bureau enfant ?',
+      a: 'Le bon niveau dépend de la surface et de la tâche : vise un niveau confortable sur la zone de travail, puis répartis la lumière.',
+    },
+    {
+      q: 'Quel IRC pour un bureau enfant ?',
+      a: 'Un IRC élevé (souvent >= 90) rend les couleurs plus naturelles.',
+    },
+  ],
+  'cave-a-vin': [
+    {
+      q: 'Quelle éclairage pour cave à vin ?',
+      a: 'Découpe la cave : rayonnages sans reflets, accès guidé (entrée/cheminement) et mise en valeur des bouteilles.',
+    },
+    {
+      q: 'Éclairage tubulaire cave à vin : est-ce adapté ?',
+      a: 'Oui si la lumière est bien répartie et anti-éblouissement. L’enjeu est d’éviter un rendu agressif sur les étiquettes.',
+    },
+    {
+      q: 'Quelle température de couleur pour éclairage cave à vin ?',
+      a: 'Souvent 2700–3000K pour un rendu chaleureux. Si tu veux plus de précision (étiquettes), une teinte plus neutre peut aider.',
+    },
+    {
+      q: 'Quel IRC pour cave à vin ?',
+      a: 'Un IRC élevé aide à garder des couleurs fidèles (étiquettes, bois). Vise souvent >= 90 si possible.',
+    },
+    {
+      q: 'Eclairage cave a vin : comment choisir ?',
+      a: 'Découpe en zones (rayonnages, entrée/cheminement, mise en valeur) et évite le blanc trop froid. Répartis plusieurs sources pour limiter les reflets sur les étiquettes.',
+    },
+    {
+      q: 'Eclairage tubulaire cave a vin : est-ce adapte ?',
+      a: 'Oui si la lumière est bien répartie et anti-éblouissement. L’objectif est d’éviter un rendu agressif et de garder une ambiance chaleureuse.',
+    },
+  ],
+  'chambre-adulte': [
+    {
+      q: 'Quelle ampoule pour une chambre ?',
+      a: 'Prévois des ambiances modulables : lumière plus douce le soir, plus nette si tu lis. Dimmable si possible.',
+    },
+    {
+      q: 'Ampoule chambre : quelle couleur de lumière choisir ?',
+      a: 'Souvent, une lumière chaude (environ 2700K) est idéale pour le calme. Pour la lecture, ajoute une source plus adaptée.',
+    },
+    {
+      q: 'Combien de lumens pour une chambre ?',
+      a: 'Le niveau dépend de la taille et des zones (lire vs circuler). Cherche une répartition équilibrée plutôt qu’un point unique trop fort.',
+    },
+  ],
+  'chambre-enfant': [
+    {
+      q: 'Température couleur lampe chambre enfant : quelle teinte ?',
+      a: 'Jour/activité : plutôt neutre (3500–4000K). Soir : plus chaud (2700–3000K), idéalement dimmable.',
+    },
+    {
+      q: 'Quelle ampoule pour une chambre enfant ?',
+      a: 'Lumière confortable et répartie : lecture si besoin, ambiance douce pour les moments calmes. IRC élevé si tu veux des couleurs fidèles.',
+    },
+    {
+      q: 'Lumen chambre enfant : combien faut-il ?',
+      a: 'Plus important que les “lumen” bruts : avoir assez de lumière pour lire clairement sans contrastes agressifs.',
+    },
+    {
+      q: 'Temperature couleur lampe chambre enfant : quelle teinte ?',
+      a: 'Jour/activité : neutre (3500–4000K). Soir : plus chaud (2700–3000K), idéalement avec dimmable pour adapter l’ambiance.',
+    },
+  ],
+  toilettes: [
+    {
+      q: 'Quel éclairage pour des toilettes ?',
+      a: 'Éclaire le miroir/vasque de façon nette, et garde une ambiance plus douce pour le reste.',
+    },
+    {
+      q: 'Quelle température de couleur pour toilettes ?',
+      a: 'Souvent 3000–4000K pour le confort. Le soir, une teinte plus chaude ou dimmable est appréciable.',
+    },
+  ],
+  parking: [
+    {
+      q: 'Un guide complet pour l’éclairage de parking : comment choisir ?',
+      a: 'Répartis la lumière (éviter les zones sombres), vise une teinte adaptée et utilise du matériel prévu pour l’extérieur (IP).',
+    },
+    {
+      q: 'Comment éclairer un parking ?',
+      a: 'Ajoute des sources près des accès et le long des trajets, avec une bonne homogénéité au sol pour la sécurité.',
+    },
+    {
+      q: 'Combien de lumens pour éclairer un parking ?',
+      a: 'Le repère se fait plutôt en lux sur les zones à éclairer. Puis convertis en lumens en fonction de la surface et des pertes.',
+    },
+    {
+      q: "Un guide complet pour l'eclairage de parking : comment choisir ?",
+      a: 'Répartis la lumière (pas de zones sombres), utilise du matériel pour l’extérieur (IP) et ajuste teinte/intensité pour la sécurité et le confort.',
+    },
+  ],
+  'cave-voutee': [
+    {
+      q: 'Éclairage cave voutée : comment guider la lumière ?',
+      a: 'Pour éviter les zones sombres, répartis plusieurs points et utilise un éclairage orienté/indirect pour guider le flux dans les volumes.',
+    },
+    {
+      q: 'Quel éclairage LED pour une cave voutée ?',
+      a: 'LED bien placées et pensées anti-éblouissement. Le placement compte autant que la puissance.',
+    },
+    {
+      q: 'Quelle température de couleur pour cave voutée ?',
+      a: 'Souvent 2700–4000K selon l’objectif. Le soir : plus chaud pour le confort.',
+    },
+    {
+      q: 'Eclairage cave voutee : comment guider la lumiere ?',
+      a: 'Répartis plusieurs points et privilégie une lumière orientée/indirecte pour éviter les zones sombres dans les volumes.',
+    },
+  ],
+  'couloir-long-etroit': [
+    {
+      q: 'Eclairage couloir long et etroit : comment faire ?',
+      a: 'Répartis plusieurs sources le long du trajet pour éviter les “trous” de lumière. Une teinte plutôt neutre aide à la visibilité.',
+    },
+    {
+      q: 'Quel luminaire pour couloir long et étroit ?',
+      a: 'Spots/appuis répartis et/ou appliques orientées, avec éventuellement un balisage doux pour sécuriser le sol.',
+    },
+    {
+      q: 'Plafonnier ou applique : que choisir pour couloir étroit ?',
+      a: 'Dans un couloir étroit, une répartition sur la longueur est préférable. Les appliques orientées réduisent les ombres.',
+    },
+  ],
+  'cave-sans-electricite': [
+    {
+      q: 'Lampe pour cave sans électricité : que choisir ?',
+      a: 'Les solutions rechargeables LED autonomes sont les plus pratiques. Choisis selon l’usage et l’autonomie attendue.',
+    },
+    {
+      q: 'Lumière cave sans électricité : solutions LED rechargeables ?',
+      a: 'Oui : vérifie autonomie, teinte confortable et mode/commande (capteur, minuterie, ou plusieurs modes).',
+    },
+    {
+      q: 'Lampe pour cave sans electricite : que choisir ?',
+      a: 'Prends une solution LED autonome rechargeable. Le bon choix dépend de l’autonomie et du mode (capteur/minuterie selon usage).',
+    },
+    {
+      q: 'Lumiere cave sans electricite : solutions LED rechargeables ?',
+      a: 'Vérifie l’autonomie, la teinte confortable (souvent plus chaude) et la façon de commander l’éclairage dans la cave.',
+    },
+  ],
+};
+---
+
+<Layout title={`${page.title} — Choisir son ampoule`} description={page.description}>
+  <section class="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+    <div class="grid gap-6 p-8 md:grid-cols-[1.4fr_0.6fr] md:items-center">
+      <div>
+        {page.hero.eyebrow && <p class="text-sm font-semibold text-amber-300/90">{page.hero.eyebrow}</p>}
+        <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{page.title}</h1>
+        <p class="mt-4 max-w-2xl text-white/75">{page.description}</p>
+      </div>
+      <div class="justify-self-start md:justify-self-end">
+        <img
+          src={page.hero.image}
+          alt={page.hero.imageAlt}
+          class="h-28 w-28 rounded-2xl bg-white/5 p-4 ring-1 ring-inset ring-white/10"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  {isCuisine && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Cuisine : découper en zones pour choisir la bonne lumière</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          La cuisine se définit en <strong>4 zones</strong> : <strong>plan de travail</strong>, <strong>éclairage central</strong>,
+          <strong>ambiance</strong>, et <strong>électroménager</strong>. Chaque zone a un objectif différent (précision, confort, déco, praticité) — donc des solutions différentes.
+        </p>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/cuisine-zones-v4.svg"
+            alt="Cuisine vue de dessus decoupee en zones : plan de travail, central, ambiance, electromenager"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Schéma : le plan de travail doit être éclairé “ciblé”, le central homogène, l’ambiance douce, l’électroménager spécifique.
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">1) Éclairage de travail (plan de travail)</h3>
+          <p class="mt-3 text-sm text-white/75">
+            C’est la zone où tu coupes, cuisines, lis des étiquettes, nettoies. Le piège : l’ombre créée par ton corps si la lumière vient uniquement du plafond.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solutions top : <strong>réglettes/bandeaux sous-meubles</strong>, <strong>spots</strong> bien placés.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte conseillée : <strong>blanc neutre ~4000K</strong> (couleur des aliments plus naturelle).</span></li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>
+                Qualité : vise <strong><a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC >= 90</a></strong> sur cette zone.
+              </span>
+            </li>
+          </ul>
+
+          <div class="mt-5 grid gap-3">
+            <ProductCard
+              title="Réglette LED sous meuble (cuisine)"
+              subtitle="Plan de travail sans ombre"
+              keywords="reglette led sous meuble cuisine 4000k irc 90"
+              altKeywords="eclairage sous meuble led cuisine 4000k irc 90"
+              badge="Zone 1"
+            />
+            <ProductCard
+              title="Ruban LED + profilé diffuseur"
+              subtitle="Ligne lumineuse “premium”"
+              keywords="ruban led cuisine 24v profilé aluminium diffuseur 4000k"
+              altKeywords="ruban led sous meuble cuisine profilé aluminium diffuseur 4000k"
+              badge="Zone 1"
+            />
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">2) Éclairage central (général)</h3>
+          <p class="mt-3 text-sm text-white/75">
+            Il sert à circuler confortablement et à avoir une lumière globale homogène. L’objectif n’est pas d’éclairer “à fond” le plan de travail : c’est le rôle de la zone 1.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solutions : plafonnier LED, spots encastrés, rail de spots.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte : 3000–4000K selon ambiance souhaitée.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Astuce : plusieurs sources = moins d’éblouissement, meilleure uniformité.</span></li>
+          </ul>
+
+          <div class="mt-5 grid gap-3">
+            <ProductCard
+              title="Plafonnier LED cuisine"
+              subtitle="Éclairage général homogène"
+              keywords="plafonnier led cuisine 4000k irc 90"
+              altKeywords="eclairage plafond led cuisine 4000k irc 90"
+              badge="Zone 2"
+            />
+            <ProductCard
+              title="Spots encastrables (lot)"
+              subtitle="Modulaire et discret"
+              keywords="spot encastrable led gu10 cuisine 4000k irc 90"
+              altKeywords="spots encastres led cuisine 4000k irc 90"
+              badge="Zone 2"
+            />
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">3) Éclairage d’ambiance (cuisine = pièce de vie)</h3>
+          <p class="mt-3 text-sm text-white/75">
+            Pour le coin repas, une cuisine ouverte ou simplement une ambiance agréable le soir, vise une lumière plus douce et plus chaude.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solutions : suspension au-dessus de l’îlot, ruban LED indirect, lampes d’appoint.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte : <strong>2700–3000K</strong> (plus cosy).</span></li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Le “plus vendeur” : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur"><strong>dimmable</strong></a> ou ampoule connectée (scenes).</span>
+            </li>
+          </ul>
+
+          <div class="mt-5 grid gap-3">
+            <ProductCard
+              title="Suspension îlot cuisine"
+              subtitle="Point focal + style"
+              keywords="suspension ilot cuisine ampoule e27"
+              altKeywords="suspension au dessus ilot cuisine led e27"
+              badge="Zone 3"
+            />
+            <ProductCard
+              title="Ampoule dimmable E27 2700K"
+              subtitle="Ambiance modulable"
+              keywords="ampoule led e27 dimmable 2700k"
+              altKeywords="ampoule led e27 variable intensite 2700k"
+              badge="Zone 3"
+            />
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">4) Électroménager (ampoules spécifiques)</h3>
+          <p class="mt-3 text-sm text-white/75">
+            Frigo, hotte, four, parfois micro-ondes : il existe des ampoules dédiées, souvent compactes, avec un culot particulier (ex. E14) et des contraintes de chaleur.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Vérifie : culot (E14/E27…), dimensions, température, compatibilité “four”.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Pour le frigo : faible puissance, allumage instantané, teinte souvent chaude/neutre.</span></li>
+          </ul>
+
+          <div class="mt-5 grid gap-3">
+            <ProductCard
+              title="Ampoule E14 pour réfrigérateur (LED)"
+              subtitle="Compacte, allumage instantané"
+              keywords="ampoule e14 refrigerateur led"
+              altKeywords="ampoule e14 frigo led"
+              badge="Zone 4"
+            />
+            <ProductCard
+              title="Ampoule pour four haute température"
+              subtitle="Spéciale chaleur"
+              keywords="ampoule pour four e14 haute temperature"
+              altKeywords="ampoule four e14 haute temperature led"
+              badge="Zone 4"
+            />
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Mini-checklist “cuisine réussie”</h2>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <ul class="space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Plan de travail : sous-meubles + 4000K + <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC >= 90</a>.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Central : homogène, sans éblouissement.</span></li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Ambiance : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable</a> / scenes.</span>
+            </li>
+          </ul>
+          <ul class="space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Évite les ombres : multiplie les sources.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choisis le bon culot : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">guide culots</a>.</span></li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>
+                Comprends lumens et watts : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a> — Kelvin :
+                <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">température de couleur</a>.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO)</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {cuisineFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+
+        <script type="application/ld+json" set:html={JSON.stringify(cuisineJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isGarage && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Garage : découpe en zones (stockage, établi, stationnement)</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          Un garage confortable, ce n’est pas “juste plus lumineux”. C’est un éclairage adapté à <strong>chaque usage</strong> : retrouver rapidement,
+          travailler sans ombre, circuler en sécurité, et allumer automatiquement quand c’est utile.
+          Ci-dessous, une découpe simple (comme un plan) pour choisir la bonne combinaison (réglettes, projecteurs, plafonniers, détecteurs).
+        </p>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/garage-zones-v2.svg"
+            alt="Garage découpé en zones : stockage, établi, stationnement, entrée"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Découpe : stockage (étagères) = lumière diffusée, établi = faisceau dirigé, stationnement = homogène au sol, entrée = détection.
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 1 : stockage (étagères, boîtes, outils)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : retrouver vite, sans “ombres en face” quand tu ouvres une boîte.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : réglettes/points lumineux à diffusion (idéalement en lignes).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : associe avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> (souvent 4000K–5000K).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Reglette LED atelier (stockage/étagères)"
+                subtitle="Lumiere diffusee, retrouve tes outils vite"
+                keywords="reglette led atelier garage etagere 4000k"
+                badge="Zone 1"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 2 : établi (précision, confort)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : voir la pièce et les détails sans ombre sur la table de travail.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : projecteur/panneau dirigé, ou réglette projetée, avec orientation.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Qualité : pense à <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> pour un rendu plus naturel.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Projecteur LED orientable (établi)"
+                subtitle="Faisceau dirigé, précis et confortable"
+                keywords="projecteur led orientable interieur etabli"
+                badge="Zone 2"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 3 : stationnement / circulation</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les “trous de lumière” (risque, sol glissant, sécurité).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plafonnier/panneau puissant + plusieurs sources pour homogénéiser.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : cadre lumens avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Panneau LED / plafonnier puissant (circulation)"
+                subtitle="Éclairage général homogène"
+                keywords="panneau led plafond garage 4000k"
+                badge="Zone 3"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 4 : entrée (confort + automatismes)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : allumer quand tu arrives, sans manipulation.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : détecteur de mouvement (ou capteur d’ouverture selon configuration).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Réglage : temporisation + angle pour éviter les déclenchements inutiles (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/detecteurs-de-mouvement">détecteurs</a>).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Détecteur de mouvement (entrée)"
+                subtitle="Allumage automatique, utile au quotidien"
+                keywords="detecteur de mouvement interieur plafond 4000k"
+                badge="Zone 4"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO) : garage</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {garageFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(garageJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isSalon && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Salon : découpe en zones (TV, lecture, ambiance, circulation)</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          Un salon réussi, c'est une combinaison de <strong>zones</strong> : éclairage autour de la TV sans reflet, coin lecture confortable,
+          ambiance chaude le soir, et lumière homogène pour circuler. Choisis ensuite les bons niveaux : lumens, Kelvin et IRC.
+        </p>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/salon-zones-v2.svg"
+            alt="Salon découpé en zones : TV, lecture, ambiance, circulation"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Découpe : TV = indirect / bias light, lecture = faisceau dirigé, ambiance = indirect + dimmable, circulation = lumière homogène.
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 1 : TV (anti-reflets)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les reflets sur l’écran.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : lumière indirecte + ruban LED derrière la TV.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choix : Kelvin plutôt chaud (soirée) et IRC élevé pour un rendu naturel (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Ruban LED derrière TV (bias light)"
+                subtitle="Confort visuel + moins de reflet"
+                keywords="ruban led derriere tv bias light 24v"
+                badge="Zone 1"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 2 : lecture (confort)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éclairer la zone où tes yeux travaillent.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : liseuse/lampadaire orienté, ou spot dirigé.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : ajuste tes lumens via le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Liseuse/lampadaire de lecture orienté"
+                subtitle="Faisceau dirigé, sans agresser les yeux"
+                keywords="lampadaire lecture led orientable"
+                badge="Zone 2"
+              />
+              <ProductCard
+                title="Ampoules E27 blanc chaud (lecture)"
+                subtitle="Ambiance cosy"
+                keywords="ampoule led e27 2700k"
+                badge="Zone 2"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 3 : ambiance (dimmable)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : créer une ambiance douce, modulable.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plusieurs sources + éclairage indirect.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Compatibilité : dimmable + variateur (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Variateur + ampoules dimmables"
+                subtitle="Ambiance réglable selon l'heure"
+                keywords="ampoule led dimmable e27 variateur compatible"
+                badge="Zone 3"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 4 : circulation (homogène)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : circuler sans zones trop sombres.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plafonnier/panneau puissant + plusieurs sources.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Rappel : Kelvin et IRC influencent la qualité du rendu (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Plafonnier LED pour éclairage général"
+                subtitle="Lumière homogène"
+                keywords="plafonnier led salon 4000k"
+                badge="Zone 4"
+              />
+              <ProductCard
+                title="Spots encastrés (lot) pour salon"
+                subtitle="Uniformité sans éblouissement"
+                keywords="spot encastrable led salon lot 4000k"
+                badge="Zone 4"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO) : salon</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {salonFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(salonJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isSalleDeBain && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Salle de bain : découpe en zones (miroir, douche, toilettes, ambiance)</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          Une salle de bain réussie, c’est <strong>la bonne lumière au bon endroit</strong> : miroir/visage (net et naturel),
+          douche/zone humide (luminaire prévu pour l’humidité), toilettes (confort), et ambiance (teinte plus chaude le soir).
+        </p>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/salle-bain-zones-v2.svg"
+            alt="Salle de bain découpée en zones : miroir/vasque, douche, toilettes, circulation et ambiance"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Découpe : Zone 1 = miroir (IRC élevé), Zone 2 = douche (IP adapté), Zone 3 = toilettes, Zone 4 = circulation + ambiance.
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 1 : miroir / vasque (visage net)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les ombres sur le visage.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : lumière de face diffusée (barre/réglette/miroir LED).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choix : Kelvin adaptée + <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC élevé</a>.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Reglette LED pour miroir (IP44)"
+                subtitle="Face au visage, sans ombres"
+                keywords="reglette led miroir salle de bain ip44"
+                badge="Zone 1"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 2 : douche / baignoire (humidité)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éclairer la zone humide sans risque.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : luminaires prévus pour salle de bain + placement conforme.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : regarde les indices <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a> et la teinte (<a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Ruban LED etanche IP (zone douche)"
+                subtitle="Accent lumineux protege"
+                keywords="ruban led etanche ip65 salle de bain 24v"
+                badge="Zone 2"
+              />
+              <ProductCard
+                title="Spot/downlight LED salle de bain IP"
+                subtitle="Lumiere diffusee, selection IP"
+                keywords="spot led salle de bain ip65 ip44"
+                badge="Zone 2"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 3 : toilettes (confort)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : une lumière confortable le matin/soir.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plafonnier simple + teinte plus chaude le soir.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Option : détecteur si tu veux limiter l’allumage.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Détecteur de mouvement pour salle de bain"
+                subtitle="Confort + économie"
+                keywords="detecteur mouvement salle de bain ip"
+                badge="Zone 3"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 4 : circulation + ambiance</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les zones trop sombres en circulant.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : éclairage général + une touche dimmable si possible.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : si tu veux moduler, passe par <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Ampoules dimmables E27 (ambiance)"
+                subtitle="Plus doux le soir"
+                keywords="ampoule led dimmable e27 2700k"
+                badge="Zone 4"
+              />
+              <ProductCard
+                title="Plafonnier LED salle de bain"
+                subtitle="Éclairage général"
+                keywords="plafonnier led salle de bain ip44 4000k"
+                badge="Zone 4"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO) : salle de bain</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {salleBainFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(salleBainJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isSalleManger && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Salle à manger : découpe en zones (table, buffet, ambiance, circulation)</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          Pour une salle à manger qui donne envie, tu dois superposer les bons niveaux : <strong>table bien mise en valeur</strong>,
+          <strong>buffet lisible</strong>, <strong>ambiance indirecte</strong> le soir, et <strong>circulation homogène</strong>.
+          Ensuite, optimise la teinte (Kelvin), la fidélité des couleurs (IRC) et éventuellement le dimmable.
+        </p>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/salle-manger-zones-v2.svg"
+            alt="Salle à manger découpée en zones : table, buffet, ambiance et circulation"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Découpe : table = mise en valeur (souvent suspension), buffet = accent / repérage, ambiance = indirect + teinte chaude, circulation = lumière uniforme.
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 1 : table / repas (visages flatteurs)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les ombres sur les visages pendant le repas.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : suspension au centre de la table ou spots bien répartis.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Qualité : vise un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> élevé pour des couleurs plus naturelles.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Suspension au-dessus de la table"
+                subtitle="Mise en valeur"
+                keywords="suspension luminaire salle a manger au dessus table"
+                altKeywords="luminaire suspension table repas"
+                badge="Zone 1"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 2 : buffet / rangement (accent)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : rendre le buffet lisible (verres, déco, rangement).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : ruban LED ou spots discrets (accent) plutôt qu’un éclairage agressif.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : Kelvin + IRC pour un rendu premium (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Ruban LED pour buffet"
+                subtitle="Accent et déco"
+                keywords="ruban led buffet salle a manger 24v"
+                altKeywords="eclairage led buffet cuisine salle a manger 24v"
+                badge="Zone 2"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 3 : ambiance (indirect + dimmable)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : créer une ambiance chaleureuse le soir.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : indirect (mur/rideau) et teinte chaude.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Confort : pense au <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Ampoules dimmables (ambiance)"
+                subtitle="Soir = plus cosy"
+                keywords="ampoule led dimmable e27 2700k"
+                altKeywords="ampoule led dimmable e27 3000k"
+                badge="Zone 3"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 4 : circulation (homogène)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : circuler sans zones trop sombres.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : un éclairage général (plafonnier/panneau) + points doux.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : commence par le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Plafonnier LED pour éclairage général"
+                subtitle="Lumière homogène"
+                keywords="plafonnier led salle a manger 4000k"
+                altKeywords="panneau led plafond salle a manger 4000k"
+                badge="Zone 4"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO) : salle à manger</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {salleMangerFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(salleMangerJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isJardin && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Jardin : découpe en zones (pergola, salon de jardin, allée, repas/barbecue)</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          Pour un jardin qui donne envie, tu dois superposer les bons niveaux : une <strong>pergola en ambiance</strong> (souvent indirecte),
+          un <strong>salon de jardin confortable</strong>, une <strong>allée homogène et sécurisée</strong>, et une <strong>zone repas bien mise en valeur</strong>.
+          Ensuite, optimise la teinte (Kelvin), la fidélité des couleurs (IRC) et éventuellement le dimmable.
+        </p>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/jardin-zones-v2.svg"
+            alt="Jardin découpé en zones : pergola, salon de jardin, allée et zone repas/barbecue"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Découpe : pergola = indirect + ambiance, salon de jardin = confort (souvent dimmable), allée = homogène (sécurité + IP),
+            repas/barbecue = lumière flatteuse (Kelvin + IRC).
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 1 : pergola (indirect + ambiance)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : une lumière “douce” sous la pergola, sans éblouir.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : ruban ou appliques LED orientées vers des surfaces (mur/lambris) pour créer un indirect.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>
+                Repère : vise des luminaires avec un bon <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a> et une teinte agréable (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>).
+              </span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Applique murale LED extérieur IP65 (pergola)"
+                subtitle="Indirect, anti-éblouissement"
+                keywords="applique murale led exterieur ip65 pergola 3000k"
+                badge="Zone 1"
+                altKeywords="ruban led exterieur IP65 indirect pergola 3000k"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 2 : salon de jardin (confort + dimmable)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : rendre le mobilier flatteur, sans “lumière blanche”.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : guirlandes LED / suspensions extérieures + plusieurs points doux.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>
+                Confort : pense au <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a> (soir = ambiance modulée).
+              </span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Guirlande LED extérieure dimmable (salon de jardin)"
+                subtitle="Ambiance chaleureuse, modulable"
+                keywords="guirlande led exterieur dimmable ip65 2700k"
+                altKeywords="suspension exterieur led dimmable ip65 3000k"
+                badge="Zone 2"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 3 : allée / circulation (homogène + sécurité)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : éviter les zones trop sombres sur le chemin.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : bornes/sol encastré + répartition pour un rendu homogène.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Repère : vérifie l’<a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a> et ajuste la teinte via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>.</span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Spot / borne LED extérieur IP67 (allée)"
+                subtitle="Homogène, sans éblouir"
+                keywords="spot sol led exterieur ip67 3000k"
+                altKeywords="borne led exterieur ip65 4000k"
+                badge="Zone 3"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 4 : repas / barbecue (Kelvin + IRC)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : une lumière flatteuse pour les visages et la table.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : suspension extérieure au-dessus de la table + points d’accent.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>
+                Optimise : Kelvin (teinte) et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> (couleurs des aliments).
+              </span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Suspension extérieure LED IP65 (repas)"
+                subtitle="Table mise en valeur, ambiance"
+                keywords="suspension exterieur led ip65 2700k irc 90"
+                altKeywords="ampoule led exterieur ip65 dimmable 3000k irc 90"
+                badge="Zone 4"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO) : jardin</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {jardinFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(jardinJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isCouloir && (
+    <section class="mt-10">
+      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">Couloir : découpe en zones (sombre, angle, circulation)</h2>
+        <p class="mt-3 max-w-3xl text-sm text-white/75">
+          Un couloir en angle ou un couloir sombre se joue sur la <strong>répartition</strong> : tu veux éviter les “taches”
+          et les ombres qui cassent le parcours. Ici, on superpose des niveaux pour la <strong>circulation</strong>, le <strong>coude/angle</strong>,
+          et l’<strong>éclairage d’accueil</strong>, puis on ajuste la teinte (Kelvin) et la fidélité des couleurs (IRC).
+          Option bonus : le <strong>dimmable</strong> pour moduler le soir.
+        </p>
+
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+            <span><strong>Déclinaison sombre :</strong> préfère 3500–4000K et multiplie les points pour supprimer les zones d’ombre.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+            <span><strong>Déclinaison en angle :</strong> ajoute un éclairage indirect sur les murs au niveau du coude pour “lier” les deux parties.</span>
+          </li>
+        </ul>
+
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+          <img
+            src="/illustrations/couloir-zones-v2.svg"
+            alt="Couloir sombre en angle : découpe en zones pour éclairage"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+            Découpe : entrée = accueil, troncon sombre = confort visuel, angle/coude = anti-ombre, sol = sécurité.
+          </figcaption>
+        </figure>
+      </article>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 1 : entrée (accueil)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : donner une première impression chaleureuse, sans éblouir.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : applique murale orientée ou éclairage indirect sur le mur.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Repère : une teinte agréable via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> (souvent 3000–4000K).</span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Applique murale LED indirecte couloir (entrée)"
+                subtitle="Chaud, sans éblouissement"
+                keywords="applique murale led indirecte couloir entree 3000k"
+                altKeywords="applique murale led indirecte couloir 4000k dimmable"
+                badge="Zone 1"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 2 : tronçon sombre (confort)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : éclairer “en continu” pour que ton regard se pose bien.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : plusieurs spots encastrés (ou une barre LED) plutôt qu’un seul point.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Qualité : vise un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> élevé pour des couleurs fidèles (portes, peinture, objets).</span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Spot encastrable LED couloir (tronçon)"
+                subtitle="Uniformité sans trous"
+                keywords="spot encastrable led couloir 4000k irc 90"
+                altKeywords="barre led couloir 4000k irc 90"
+                badge="Zone 2"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 3 : angle / coude (anti-ombre)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : casser la zone d’ombre sur l’angle.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : ruban LED ou applique orientée vers le mur (lumière “rebondie”).</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Option confort : dimmable + variateur via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Ruban LED indirect angle couloir"
+                subtitle="Anti-ombre, lumière rebondie"
+                keywords="ruban led indirect angle couloir 3000k ip20"
+                altKeywords="applique murale led indirecte couloir angle dimmable 2700k"
+                badge="Zone 3"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-bold">Zone 4 : sol / sécurité (circulation)</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/75">
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Objectif : éviter les “trous” de lumière et améliorer la sécurité.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Solution : bandeau LED discret en plinthe/contour ou balisage doux le long du chemin.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span>Repère : commence par les lumens avec le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span>
+            </li>
+          </ul>
+
+          <div class="mt-5">
+            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <div class="mt-3 grid gap-3">
+              <ProductCard
+                title="Bandeau LED discret sol (couloir)"
+                subtitle="Sécurité, sans agresser les yeux"
+                keywords="bandeau led sol couloir 3000k irc 90"
+                altKeywords="balise led sol couloir 2700k dimmable"
+                badge="Zone 4"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-xl font-extrabold">FAQ (SEO) : couloir</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {couloirFaq.map((f) => (
+            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <script type="application/ld+json" set:html={JSON.stringify(couloirJsonLd)} />
+      </section>
+    </section>
+  )}
+
+  {isGenericLayout && (
+    <>
+      {zoneLayoutSlugs.has(slug) ? (
+        <>
+          <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+            <h2 class="text-xl font-extrabold">{page.title}</h2>
+            <p class="mt-3 max-w-3xl text-sm text-white/75">{page.description}</p>
+
+            <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+              <img
+                src={`/illustrations/${slug}-zones-v2.svg`}
+                alt={`${page.title} : découpe en zones`}
+                class="h-auto w-full"
+                loading="lazy"
+              />
+              <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+                {(() => {
+                  const decoupage = page.sections[0];
+                  const zoneTitles = decoupage?.points?.map((pt) => extractZoneTitleFromPoint(pt)) ?? [];
+                  return `Découpe : ${zoneTitles
+                    .slice(0, 4)
+                    .map((t, i) => `Zone ${i + 1} = ${t}`)
+                    .join(', ')}`;
+                })()}
+              </figcaption>
+            </figure>
+          </section>
+
+          {(() => {
+            const decoupage = page.sections[0];
+            const zonePoints = decoupage?.points ?? [];
+            const zoneTitles = zonePoints.map((pt) => extractZoneTitleFromPoint(pt));
+            const zones = zoneTitles.slice(0, 4).map((title, i) => ({
+              title,
+              point: zonePoints[i],
+              idx: i + 1,
+            }));
+
+            const grouped = splitProductsByZone({ products: page.products as any, zoneTitles: zones.map((z) => z.title) });
+
+            return (
+              <div class="mt-6 grid gap-4 md:grid-cols-2">
+                {zones.map((z, i) => (
+                  <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <h3 class="text-lg font-bold">Zone {z.idx} : {z.title}</h3>
+                    <ul class="mt-4 space-y-2 text-sm text-white/75">
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+                        <span set:html={z.point} />
+                      </li>
+                    </ul>
+
+                    {grouped[i]?.length > 0 && (
+                      <div class="mt-5">
+                        <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+                        <div class="mt-3 grid gap-3">
+                          {grouped[i].map((p: any) => (
+                            <ProductCard
+                              title={p.title}
+                              subtitle={p.subtitle}
+                              keywords={p.keywords}
+                              altKeywords={p.altKeywords}
+                              badge={`Zone ${z.idx}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </article>
+                ))}
+              </div>
+            );
+          })()}
+
+          {page.sections.slice(1).length > 0 && (
+            <section class="mt-6 grid gap-4 md:grid-cols-2">
+              {page.sections.slice(1).map((s) => (
+                <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <h3 class="text-lg font-bold">{s.title}</h3>
+                  <ul class="mt-4 space-y-2 text-sm text-white/75">
+                    {s.points.map((pt) => (
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+                        <span set:html={pt} />
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </section>
+          )}
+
+          {(() => {
+            const faq = genericFaqBySlug[slug];
+            if (!faq || faq.length === 0) return null;
+
+            return (
+              <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+                <h2 class="text-xl font-extrabold">FAQ (SEO) : {page.title}</h2>
+                <div class="mt-6 grid gap-4 md:grid-cols-2">
+                  {faq.map((f) => (
+                    <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+                      <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
+                      <p class="mt-3 text-sm text-white/75">{f.a}</p>
+                    </details>
+                  ))}
+                </div>
+                <script
+                  type="application/ld+json"
+                  set:html={JSON.stringify(makeFaqJsonLd(faq))}
+                />
+              </section>
+            );
+          })()}
+        </>
+      ) : (
+        <section class="mt-6 grid gap-4 md:grid-cols-2">
+          {page.sections.map((s, idx) => {
+            const start = idx * genericProductsPerSection;
+            const end = start + genericProductsPerSection;
+            const sectionProducts = page.products.slice(start, end);
+
+            return (
+              <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 class="text-lg font-bold">{s.title}</h3>
+
+                <ul class="mt-4 space-y-2 text-sm text-white/75">
+                  {s.points.map((pt) => (
+                    <li class="flex gap-2">
+                      <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+                      <span set:html={pt} />
+                    </li>
+                  ))}
+                </ul>
+
+                {sectionProducts.length > 0 && (
+                  <div class="mt-5">
+                    <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+                    <div class="mt-3 grid gap-3">
+                      {sectionProducts.map((p) => (
+                        <ProductCard
+                          title={p.title}
+                          subtitle={p.subtitle}
+                          keywords={p.keywords}
+                          altKeywords={p.altKeywords}
+                          badge={p.badge}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </section>
+      )}
+    </>
+  )}
+
+  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <h2 class="text-lg font-bold">À lire aussi</h2>
+    <p class="mt-2 text-sm text-white/75">
+      Besoin de comprendre les bases ? Commence par nos guides : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>, <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>, <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>.
+      Pour un réglage rapide, utilise aussi <a class="font-semibold text-amber-300 hover:text-amber-200" href="/outils">l&apos;outil Lumens/Kelvin/IRC</a>.
+    </p>
+  </section>
+</Layout>
+

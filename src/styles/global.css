@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Base typographique & rendu visuel */
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-feature-settings: "ss01" 1, "ss02" 1;
+}

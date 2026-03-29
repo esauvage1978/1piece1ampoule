@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="Kelvin : température de couleur (blanc chaud/neutre/froid) — Choisir son ampoule"
+  description="Comprendre les Kelvin pour choisir le bon blanc : 2700K cosy, 4000K neutre, 6500K très froid. Exemples + sélections produits."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Kelvin : la température de couleur</h1>
+      <p class="mt-4 max-w-2xl text-white/75">
+        Les Kelvin (\(K\)) décrivent la “teinte” du blanc. En pratique : plus c’est bas, plus c’est chaleureux (jaune/orangé). Plus c’est haut, plus c’est froid (blanc bleuté).
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">2700–3000 K</h2>
+        <p class="mt-2 text-sm text-white/75">Blanc chaud. Salon, chambre, zones détente.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">3500–4500 K</h2>
+        <p class="mt-2 text-sm text-white/75">Blanc neutre. Cuisine, bureau, salle de bain.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">5000–6500 K</h2>
+        <p class="mt-2 text-sm text-white/75">Blanc froid. Garage/atelier, zones techniques.</p>
+      </article>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <ProductCard title="Ampoule E27 2700K" subtitle="Ambiance cosy (salon/chambre)" keywords="ampoule led e27 2700k" />
+        <ProductCard title="Ampoule E27 4000K" subtitle="Blanc neutre (cuisine/bureau)" keywords="ampoule led e27 4000k" />
+        <ProductCard title="Ampoule E27 6500K" subtitle="Blanc froid (garage/atelier)" keywords="ampoule led e27 6500k" />
+        <ProductCard title="Ampoule connectée CCT" subtitle="Blanc réglable 2700–6500K" keywords="ampoule connectée e27 blanc réglable 2700k 6500k" />
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-bold">Pour aller plus loin</h2>
+      <p class="mt-2 text-sm text-white/75">
+        Après la teinte (Kelvin), pense à la qualité des couleurs avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>,
+        et à la puissance utile via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.
+        Pour choisir le bon format : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a>.
+        Et si tu veux régler l'intensité : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+      </p>
+    </section>
+  </section>
+</Layout>
+

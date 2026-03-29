@@ -1,0 +1,25 @@
+---
+import { amazonSearchUrl } from '../lib/amazon';
+
+type Props = {
+  keywords: string;
+  label?: string;
+  class?: string;
+};
+
+const { keywords, label = 'Voir sur Amazon', class: className } = Astro.props;
+const href = amazonSearchUrl(keywords);
+---
+
+<a
+  href={href}
+  class:list={[
+    'inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-amber-300 hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300',
+    className,
+  ]}
+  rel="sponsored nofollow noopener"
+  target="_blank"
+>
+  {label}
+</a>
+

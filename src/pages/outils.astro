@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LumensKelvinIrcTool from '../components/LumensKelvinIrcTool.astro';
+---
+
+<Layout
+  title="Outils utilitaires : Lumens, Kelvin & IRC — Choisir son ampoule"
+  description="Un outil interactif pour régler Lumens, Kelvin et IRC et obtenir une recommandation d’usage (avec estimation watts) + liens vers les guides."
+>
+  <section class="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+    <div class="grid gap-6 p-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+      <div>
+        <p class="text-sm font-semibold text-amber-300/90">Outils utilitaires</p>
+        <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Réglage rapide</h1>
+        <p class="mt-3 max-w-2xl text-white/75">
+          Ajuste les curseurs pour visualiser la teinte (Kelvin), le niveau lumineux (lumens) et la fidélité des couleurs (IRC).
+          Puis prends ton décision avec les guides.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+        <p class="mt-2 text-sm text-white/70">
+          Tu peux compléter avec : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>,
+          <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>,
+          <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> et
+          <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <LumensKelvinIrcTool />
+  
+  <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+    <h2 class="text-xl font-extrabold">Exemples (pour t&apos;aider)</h2>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+        <p class="text-sm font-semibold text-white/90">Garage / atelier</p>
+        <p class="mt-2 text-sm text-white/70">
+          Forte intensite + blanc froid/neutre + IRC eleve si tu veux voir les details (outils, marquages).
+        </p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+        <p class="text-sm font-semibold text-white/90">Salon / chambre</p>
+        <p class="mt-2 text-sm text-white/70">
+          Teinte chaude + intensite moyenne, puis dimmable pour moduler le soir.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+

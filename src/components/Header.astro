@@ -1,0 +1,30 @@
+---
+const nav = [
+  { href: '/', label: 'Accueil' },
+  { href: '/pieces', label: 'Pièces' },
+  { href: '/guides', label: 'Guides' },
+  { href: '/outils', label: 'Outils' },
+  { href: '/zones', label: 'Zones & aménagement' },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/75 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="flex items-center gap-2 font-semibold text-white">
+      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-400 text-slate-900">💡</span>
+      <span class="hidden sm:inline">Choisir son ampoule</span>
+    </a>
+
+    <nav class="flex items-center gap-1">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class="rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/5 hover:text-white"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+

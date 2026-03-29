@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="Éclairage d’escalier : balisage, sécurité, style — Choisir son ampoule"
+  description="Comment éclairer un escalier : rubans LED, spots, marches, détecteurs en bas/haut. Sélections produits via liens partenaires Amazon."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Zone</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Escaliers</h1>
+      <p class="mt-4 max-w-2xl text-white/75">
+        Le but : voir chaque marche sans éblouissement. Le balisage bas + détecteur est souvent la solution la plus “waouh” et la plus utile.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Solutions qui fonctionnent</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Ruban LED sous main courante ou sous nez de marche.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Spots muraux bas (balisage) tous les 2–3 marches.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Détecteur en bas + en haut pour allumage dans les deux sens.</span></li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Réglages conseillés</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte : 2700–3000K pour confort nocturne.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Temporisation : 30–60 s.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Évite la lumière directe dans les yeux : privilégie l’indirect.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">Produits (Amazon partenaire)</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <ProductCard title="Spots muraux de balisage" subtitle="Sécurité + look" keywords="spot mural escalier balisage led encastrable" />
+        <ProductCard title="Ruban LED + diffuseur" subtitle="Sous main courante / marches" keywords="ruban led escalier profilé aluminium diffuseur" />
+        <ProductCard title="Détecteur de mouvement escalier" subtitle="Allumage auto" keywords="detecteur mouvement escalier plafond" />
+        <ProductCard title="Contrôleur + variateur pour ruban LED" subtitle="Ambiance réglable" keywords="variateur ruban led 24v" />
+      </div>
+    </section>
+  </section>
+</Layout>
+

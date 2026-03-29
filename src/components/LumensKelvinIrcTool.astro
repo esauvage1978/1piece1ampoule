@@ -1,0 +1,268 @@
+---
+type Props = {
+  defaultLumens?: number;
+  defaultKelvin?: number;
+  defaultIrc?: number;
+};
+
+const { defaultLumens = 800, defaultKelvin = 3000, defaultIrc = 90 } = Astro.props;
+---
+
+<section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+  <h1 class="text-2xl font-extrabold tracking-tight">Outil : Lumens + Kelvin + IRC</h1>
+  <p class="mt-3 max-w-3xl text-sm text-white/75">
+    Régle les curseurs pour obtenir une recommandation rapide : intensité (lumens), teinte (Kelvin) et qualité des couleurs (IRC).
+  </p>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
+    <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+      <div class="space-y-6">
+        <div class="space-y-2">
+          <div class="flex items-baseline justify-between gap-4">
+            <p class="text-sm font-semibold text-white/90">Lumens (lm)</p>
+            <p class="text-sm font-semibold text-amber-300">
+              <span id="lmValue">{defaultLumens}</span> lm
+            </p>
+          </div>
+          <input
+            id="lumens"
+            type="range"
+            min="100"
+            max="2000"
+            step="50"
+            value={defaultLumens}
+            class="w-full accent-amber-400"
+          />
+          <p id="lmLabel" class="text-xs text-white/60"></p>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-baseline justify-between gap-4">
+            <p class="text-sm font-semibold text-white/90">Kelvin (K)</p>
+            <p class="text-sm font-semibold text-amber-300">
+              <span id="kValue">{defaultKelvin}</span> K
+            </p>
+          </div>
+          <input
+            id="kelvin"
+            type="range"
+            min="2200"
+            max="6500"
+            step="100"
+            value={defaultKelvin}
+            class="w-full accent-amber-400"
+          />
+          <p id="kLabel" class="text-xs text-white/60"></p>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-baseline justify-between gap-4">
+            <p class="text-sm font-semibold text-white/90">IRC</p>
+            <p class="text-sm font-semibold text-amber-300">
+              <span id="ircValue">{defaultIrc}</span>
+            </p>
+          </div>
+          <input
+            id="irc"
+            type="range"
+            min="70"
+            max="98"
+            step="1"
+            value={defaultIrc}
+            class="w-full accent-amber-400"
+          />
+          <p id="ircLabel" class="text-xs text-white/60"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold text-white/90">Résultat</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <!-- Mini-scene : teinte (Kelvin) + ombre variable selon les lumens -->
+          <div
+            id="lightScene"
+            class="relative h-14 w-14 overflow-hidden rounded-full border border-white/10"
+          >
+            <div id="sceneWall" class="absolute inset-0 bg-white" style="background: #ffffff;"></div>
+            <div
+              class="absolute left-1/2 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-transparent"
+              id="sceneBlock"
+              aria-hidden="true"
+            ></div>
+          </div>
+          <p class="mt-2 text-xs font-semibold text-white/70 text-center" id="usageLabel"></p>
+        </div>
+      </div>
+
+      <div class="mt-5 space-y-3 text-sm">
+        <div class="flex items-center justify-between gap-4">
+          <span class="text-white/70">Votre réglage</span>
+          <span class="font-semibold text-white">
+            <span id="resultText">...</span>
+          </span>
+        </div>
+
+        <div class="flex items-center justify-between gap-4">
+          <span class="text-white/70">Estimation watts (approx.)</span>
+          <span class="font-semibold text-white">
+            <span id="wattsText">...</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
+        <p class="text-sm font-semibold text-white">Conseil rapide</p>
+        <p id="adviceText" class="mt-2 text-sm text-white/70"></p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <a class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10" href="/guides/lumens-vs-watts">
+            lumens vs watts
+          </a>
+          <a class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10" href="/guides/kelvin-temperature-couleur">
+            Kelvin
+          </a>
+          <a class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10" href="/guides/irc-indice-rendu-couleur">
+            IRC
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lumens = document.getElementById('lumens');
+    const kelvin = document.getElementById('kelvin');
+    const irc = document.getElementById('irc');
+
+    const lmValue = document.getElementById('lmValue');
+    const kValue = document.getElementById('kValue');
+    const ircValue = document.getElementById('ircValue');
+
+    const lmLabel = document.getElementById('lmLabel');
+    const kLabel = document.getElementById('kLabel');
+    const ircLabel = document.getElementById('ircLabel');
+
+    const sceneWall = document.getElementById('sceneWall');
+    const sceneBlock = document.getElementById('sceneBlock');
+    const usageLabel = document.getElementById('usageLabel');
+    const resultText = document.getElementById('resultText');
+    const wattsText = document.getElementById('wattsText');
+    const adviceText = document.getElementById('adviceText');
+
+    function kelvinToRgb(k) {
+      // Approximation simple pour rendu UI. Non scientifique.
+      let temp = k / 100;
+      let r, g, b;
+      if (temp <= 66) {
+        r = 255;
+        g = temp;
+        g = 99.4708025861 * Math.log(g) - 161.1195681661;
+        b = temp <= 19 ? 0 : 138.5177312231 * Math.log(temp - 10) - 305.0447927307;
+      } else {
+        r = 329.698727446 * Math.pow(temp - 60, -0.1332047592);
+        g = 288.1221695283 * Math.pow(temp - 60, -0.0755148492);
+        b = 255;
+      }
+
+      r = Math.min(255, Math.max(0, r));
+      g = Math.min(255, Math.max(0, g));
+      b = Math.min(255, Math.max(0, b));
+      return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
+    }
+
+    function formatInt(n) {
+      return Math.round(n).toString();
+    }
+
+    function lumensCategory(lm) {
+      if (lm < 300) return { label: 'Plutot faible (ambiance/point)', score: 0 };
+      if (lm < 900) return { label: 'Moyen (usage general)', score: 1 };
+      return { label: 'Fort (travail / securite)', score: 2 };
+    }
+
+    function kelvinCategory(k) {
+      if (k < 3000) return { label: 'Chaud (cosy, salon/chambre)', band: 'warm' };
+      if (k < 4200) return { label: 'Neutre (cuisine, salle de bain)', band: 'neutral' };
+      return { label: 'Froid (garage/atelier, zones techniques)', band: 'cool' };
+    }
+
+    function ircCategory(ra) {
+      if (ra < 80) return { label: 'IRC limite (rendu moins fidele)', tier: 'low' };
+      if (ra < 90) return { label: 'IRC correct (bon rendu)', tier: 'mid' };
+      return { label: 'IRC eleve (couleurs fidele)', tier: 'high' };
+    }
+
+    function advice(lm, k, ra) {
+      const lmCat = lumensCategory(lm);
+      const kCat = kelvinCategory(k);
+      const ircCat = ircCategory(ra);
+
+      let usage = 'ambiance';
+      if (kCat.band === 'cool' && lmCat.score >= 1) usage = 'garage / atelier';
+      else if (kCat.band === 'neutral' && lmCat.score >= 1) usage = 'cuisine / salle de bain';
+      else if (kCat.band === 'warm' && lmCat.score >= 1) usage = 'salon / chambre';
+      else if (lmCat.score === 0) usage = 'point lumineux / chevet';
+
+      let adviceText = `Objectif: ${usage}.`;
+      adviceText += ' Preferer plusieurs sources pour eviter les zones sombres.';
+
+      if (ircCat.tier === 'low') {
+        adviceText += ' Si tu peux, vise un IRC plus eleve (>= 90) pour un rendu plus naturel.';
+      } else if (ircCat.tier === 'high') {
+        adviceText += ' Ton IRC eleve aide a rendre les couleurs plus fidele (visage, aliments, deco).';
+      }
+
+      return { usage, adviceText };
+    }
+
+    function update() {
+      const lm = Number(lumens.value);
+      const k = Number(kelvin.value);
+      const ra = Number(irc.value);
+
+      lmValue.textContent = formatInt(lm);
+      kValue.textContent = formatInt(k);
+      ircValue.textContent = formatInt(ra);
+
+      const lmCat = lumensCategory(lm);
+      const kCat = kelvinCategory(k);
+      const ircCat = ircCategory(ra);
+
+      lmLabel.textContent = lmCat.label;
+      kLabel.textContent = kCat.label;
+      ircLabel.textContent = ircCat.label;
+
+      const rgb = kelvinToRgb(k);
+      // Simulation "ombre portée" : on ajuste la luminosite de la "paroi" et la visibilite de l'ombre.
+      const lmNorm = Math.min(1, Math.max(0, (lm - 100) / (2000 - 100)));
+      const brightness = 0.55 + lmNorm * 0.8; // plus de lm = paroi plus claire
+      const shadowOpacity = 0.55 - lmNorm * 0.45; // plus de lm = ombre moins visible
+      const shadowBlur = 7 - lmNorm * 4; // plus de lm = ombre plus douce
+
+      sceneWall.style.background = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      sceneWall.style.filter = `brightness(${brightness})`;
+      // On simule l'ombre portée directement dans le rond via box-shadow,
+      // sans afficher d'objet rectangulaire.
+      sceneBlock.style.boxShadow = `0px 16px ${shadowBlur}px rgba(0,0,0,${Math.max(0.06, shadowOpacity)})`;
+
+      const { usage, adviceText: adviceTextComputed } = advice(lm, k, ra);
+      usageLabel.textContent = usage;
+
+      const watts = lm / 90; // Hypothese typique LED.
+      wattsText.textContent = `${formatInt(watts)} W (approx.)`;
+
+      resultText.textContent = `${formatInt(lm)} lm + ${formatInt(k)}K + IRC ${formatInt(ra)}`;
+      adviceText.textContent = adviceTextComputed;
+    }
+
+    lumens.addEventListener('input', update);
+    kelvin.addEventListener('input', update);
+    irc.addEventListener('input', update);
+
+    update();
+  </script>
+</section>
+

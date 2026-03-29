@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout
+  title="Placards & dressing : éclairage malin (capteurs, rubans LED) — Choisir son ampoule"
+  description="Idées pour éclairer placards et dressing : détecteur de mouvement, capteur d’ouverture, rubans LED, profilés et barrettes."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <p class="text-sm font-semibold text-amber-300/90">Zone</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Placards & dressing</h1>
+      <p class="mt-4 max-w-2xl text-white/75">
+        L’objectif : voir clairement les vêtements sans te “prendre” une lumière dans les yeux. Le combo gagnant = éclairage doux + capteur + diffusion.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Où mettre la lumière ?</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Sous la tablette du haut, orientée vers l’intérieur.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Sur les côtés (profilés alu) pour une lumière uniforme.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Évite la source au niveau des yeux sans diffuseur.</span></li>
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-lg font-bold">Quel capteur ?</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Mouvement PIR : le plus simple et courant.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Ouverture de porte : parfait pour placards, déclenchement net.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Rechargeable USB : pratique si pas d’alimentation.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">Produits (Amazon partenaire)</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <ProductCard title="Lumière placard rechargeable + capteur" subtitle="Pose simple" keywords="lampe placard led rechargeable detecteur mouvement" />
+        <ProductCard title="Ruban LED + profilé aluminium" subtitle="Diffusion premium" keywords="profilé aluminium ruban led placard diffuseur" />
+        <ProductCard title="Capteur d’ouverture porte (éclairage)" subtitle="Déclenchement net" keywords="interrupteur contact porte placard eclairage" />
+        <ProductCard title="Ruban LED 24V haute densité" subtitle="Ligne de lumière régulière" keywords="ruban led 24v haute densité 4000k" />
+      </div>
+    </section>
+  </section>
+</Layout>
+

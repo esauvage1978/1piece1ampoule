@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Desk surface -->
+  <rect x="52" y="140" width="152" height="44" rx="12" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <!-- Desk legs -->
+  <rect x="62" y="184" width="22" height="30" rx="8" fill="#0F1730" stroke="#2B3B66" stroke-width="4"/>
+  <rect x="172" y="184" width="22" height="30" rx="8" fill="#0F1730" stroke="#2B3B66" stroke-width="4"/>
+  <!-- Lamp arm -->
+  <path d="M132 84c22 12 30 24 30 40" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="158" cy="128" r="16" fill="#FBBF24" fill-opacity="0.20" stroke="#FDE68A" stroke-width="6"/>
+</svg>
+

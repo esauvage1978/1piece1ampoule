@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Long narrow corridor -->
+  <rect x="98" y="64" width="60" height="150" rx="18" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <rect x="112" y="80" width="32" height="118" rx="14" fill="#0F1730" stroke="#2B3B66" stroke-width="4"/>
+  <!-- Light dots along -->
+  <circle cx="128" cy="110" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+  <circle cx="128" cy="148" r="10" fill="#FBBF24" fill-opacity="0.25" stroke="#FDE68A" stroke-width="4"/>
+</svg>
+

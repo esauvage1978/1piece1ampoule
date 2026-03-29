@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <rect x="16" y="28" width="224" height="200" rx="28" fill="#0B1220"/>
+  <!-- Vault arch -->
+  <path d="M72 196c0-66 44-110 56-110s56 44 56 110" fill="#111B33" stroke="#2B3B66" stroke-width="6"/>
+  <path d="M96 196c0-44 28-74 32-74s32 30 32 74" fill="none" stroke="#0F1730" stroke-width="6"/>
+  <!-- Light highlight -->
+  <circle cx="128" cy="120" r="18" fill="#FBBF24" fill-opacity="0.20" stroke="#FDE68A" stroke-width="6"/>
+</svg>
+
