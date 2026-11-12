@@ -1,5 +1,6 @@
 // Groupes de pages traduites (fr / en / de) pour hreflang, sélecteur de langue.
 import { PRIORITY_GROUPS } from './i18n-priority';
+import { LOT3_EN_GROUPS } from './tr-lot3-en';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 export type Group = { fr: string; en?: string; uk?: string; ca?: string; de?: string; nl?: string; es?: string; it?: string };
 export const GROUPS: Group[] = [
@@ -71,6 +72,7 @@ export const GROUPS: Group[] = [
   { fr: '/mentions-legales/', en: '/en/legal-notice/', de: '/de/impressum/', nl: '/nl/colofon/', es: '/es/aviso-legal/', it: '/it/note-legali/' },
   { fr: '/politique-de-cookies/', en: '/en/cookies/', de: '/de/cookies/', nl: '/nl/cookies/', es: '/es/cookies/', it: '/it/cookie/' },
   ...PRIORITY_GROUPS,
+  ...LOT3_EN_GROUPS,
   ...(PAIRES_PARTENAIRES as Group[]),
 ];
 export const langOf = (p: string) =>

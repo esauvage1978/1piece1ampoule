@@ -320,7 +320,7 @@ fromLux();})();
     article: true,
     kicker: 'Tutorials',
     title: 'Lighting tutorials: lux, LED strips, GU10 and smart switches',
-    description: 'Five fully English tutorials plus links to French-only workshops until translated. E26/E27 and GU10 bases for UK and North America.',
+    description: 'Nine step-by-step tutorials in English. E26/E27 and GU10 bases for UK and North America.',
     h1: 'Tutorials',
     lead: 'Step-by-step guides for real wiring and layout. In the UK, check B22 or E27 bases; in Canada and the US, E26 is common alongside E27 — always match voltage on the bulb.',
     body: `<h2>English tutorials (full text on this site)</h2><ol>
@@ -329,8 +329,11 @@ fromLux();})();
 <li><a href="/en/tutorials/light-basement-shed-without-power/">Light a basement or shed without mains power</a> — battery and small solar.</li>
 <li><a href="/en/tutorials/replace-halogen-gu10-mr16-with-led/">Replace halogen GU10 or MR16 with LED</a> — 230 V GU10 vs 12 V MR16 trap.</li>
 <li><a href="/en/tutorials/smart-switch-no-neutral/">Smart switch without neutral wire</a> — bypass and LED flicker.</li>
-</ol>
-<h2>Still in French only</h2><p>These open the French site (same topic, not yet translated): Zigbee no-neutral pairing, home-office lux/CRI, outdoor fairy-light programming, fixing a dead LED chain.</p>`,
+<li><a href="/en/tutorials/pair-zigbee-no-neutral-module-sonoff-aqara/">Pair a no-neutral Zigbee module (SONOFF, Aqara)</a> — hub, routers, range.</li>
+<li><a href="/en/tutorials/home-office-lighting-lux-cri-kelvin/">Home office lighting: lux, CRI, Kelvin</a> — 500 lux on the desk, no glare.</li>
+<li><a href="/en/tutorials/outdoor-christmas-lights-timer-dusk-smart-plug/">Automate outdoor Christmas lights</a> — timer, dusk sensor or smart plug.</li>
+<li><a href="/en/tutorials/fix-led-fairy-lights-section-out/">Fix LED fairy lights with a section out</a> — diagnosis by symptom.</li>
+</ol>`,
   },
   {
     path: 'zones',

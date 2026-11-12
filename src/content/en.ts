@@ -2,6 +2,7 @@
 import { TUTOS_TR } from './tr-tutos';
 import { TR_PRIORITY_EN } from './tr-priority-en';
 import { TR_PRIORITY_LOT2_EN } from './tr-priority-lot2-en';
+import { TR_LOT3_EN } from './tr-lot3-en';
 import { INTENT_EN } from './intentions-gsc';
 const uk = (asin: string, label: string) => `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
 const us = (asin: string, label: string) => `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon US</a>`;
@@ -254,4 +255,5 @@ body: `<table><thead><tr><th>Name</th><th>Purpose</th><th>Duration</th><th>Conse
 EN_PAGES.splice(EN_PAGES.findIndex((p) => p.path === 'tutorials/replace-halogen-gu10-mr16-with-led') + 1, 0, ...TUTOS_TR.en);
 EN_PAGES.push(...TR_PRIORITY_EN);
 EN_PAGES.push(...TR_PRIORITY_LOT2_EN);
+EN_PAGES.push(...TR_LOT3_EN);
 EN_PAGES.push(...INTENT_EN);

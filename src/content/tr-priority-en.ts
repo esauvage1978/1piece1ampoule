@@ -499,10 +499,10 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     article: true,
     kicker: 'Troubleshooting hub',
     title: 'Smart bulbs and LED troubleshooting: error code directory',
-    description: 'Entry point for Hue, Shelly, IKEA, Govee, WiZ, Nanoleaf and dimmer issues — 44 structured fixes on the French catalogue.',
+    description: 'Entry point for Hue, Shelly, IKEA, Govee, WiZ, Nanoleaf and dimmer issues — 44 structured fixes, all in English.',
     h1: 'Smart bulbs & LED: diagnostics and error codes',
     lead: 'Single entry for connected lighting faults: Hue Bridge, Zigbee/Wi-Fi bulbs, Shelly modules, Govee strips, Legrand/Schneider dimmers, flicker and ghosting.',
-    body: `<p>The full interactive directory (filter by brand, symptom, difficulty) lives on the French site with <strong>44 step-by-step sheets</strong> sourced from <code>catalog-fr.json</code>.</p>
+    body: `<p>All <strong>44 step-by-step sheets</strong> are now in English: see the <a href="/en/guides/error-codes/">error code directory</a>, sorted by brand.</p>
 <h2>Priority sheets in English</h2>
 <ul>
 <li><a href="/en/guides/error-code/wiz-bulb-offline/">WiZ bulb offline</a></li>
@@ -520,7 +520,7 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
 <li><a href="/en/guides/matter-thread-matrix-philips-hue-aqara-govee/">Matter / Thread / Zigbee matrix</a></li>
 <li><a href="/en/rooms/">Choose a replacement bulb by room</a></li>
 </ul>
-<p>Complete French repertoire: <a href="https://1piece1ampoule.fr/guides/depannage-ampoules-connectees-led/">depannage hub</a>.</p>`,
+<p>Full list: <a href="/en/guides/error-codes/">all error codes by brand</a>.</p>`,
   },
   {
     path: 'rooms/dining-room',
