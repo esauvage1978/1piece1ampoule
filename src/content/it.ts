@@ -4,6 +4,7 @@ import { HIVER_TR } from './tr-hiver';
 import { TR_PRIORITY_IT } from './tr-priority-it';
 import { TR_PRIORITY_LOT2_IT } from './tr-priority-lot2-it';
 import { TR_LOT3_IT } from './tr-lot3-it';
+import { TR_LOT6_IT } from './tr-lot6-it';
 import { INTENT_IT } from './intentions-gsc';
 import type { EnPage } from './en';
 export const IT_PAGES: EnPage[] = [
@@ -193,4 +194,5 @@ IT_PAGES.splice(IT_PAGES.findIndex((p) => p.path === 'guide/lampadine-led-dimmer
 IT_PAGES.push(...TR_PRIORITY_IT);
 IT_PAGES.push(...TR_PRIORITY_LOT2_IT);
 IT_PAGES.push(...TR_LOT3_IT);
+IT_PAGES.push(...TR_LOT6_IT);
 IT_PAGES.push(...INTENT_IT);

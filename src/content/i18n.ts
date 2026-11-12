@@ -8,6 +8,10 @@ import { LOT3_ES_GROUPS } from './tr-lot3-es';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
 import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
 import { LOT6_EN_GROUPS } from './tr-lot6-en';
+import { LOT6_NL_GROUPS } from './tr-lot6-nl';
+import { LOT6_DE_GROUPS } from './tr-lot6-de';
+import { LOT6_IT_GROUPS } from './tr-lot6-it';
+import { LOT6_ES_GROUPS } from './tr-lot6-es';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 export type Group = { fr: string; en?: string; uk?: string; ca?: string; de?: string; nl?: string; es?: string; it?: string };
 export const GROUPS: Group[] = [
@@ -88,7 +92,13 @@ export const GROUPS: Group[] = [
   }),
   ...LOT4_EN_GROUPS,
   ...LOT5_EN_GROUPS_ALL,
-  ...LOT6_EN_GROUPS,
+  ...LOT6_EN_GROUPS.map((g) => {
+    const nl = LOT6_NL_GROUPS.find((x) => x.fr === g.fr)?.nl;
+    const de = LOT6_DE_GROUPS.find((x) => x.fr === g.fr)?.de;
+    const it = LOT6_IT_GROUPS.find((x) => x.fr === g.fr)?.it;
+    const es = LOT6_ES_GROUPS.find((x) => x.fr === g.fr)?.es;
+    return { ...g, ...(nl ? { nl } : {}), ...(de ? { de } : {}), ...(it ? { it } : {}), ...(es ? { es } : {}) };
+  }),
   ...(PAIRES_PARTENAIRES as Group[]),
 ];
 export const langOf = (p: string) =>
