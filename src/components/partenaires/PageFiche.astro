@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Fiche from './Fiche.astro';
+import { metaPage } from '../../data/partenaires/registre.mjs';
+interface Props { lang: string; slug: string }
+const { lang, slug } = Astro.props;
+const meta = metaPage(lang, slug);
+---
+<Layout title={meta.titre} description={meta.description} byline={false}>
+  <Fiche lang={lang} slug={slug} />
+</Layout>
