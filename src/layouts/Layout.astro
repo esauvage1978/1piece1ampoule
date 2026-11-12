@@ -11,6 +11,7 @@ import { LOT3_EN_GROUPS } from '../content/tr-lot3-en';
 import { LOT3_NL_GROUPS } from '../content/tr-lot3-nl';
 import { LOT3_DE_GROUPS } from '../content/tr-lot3-de';
 import { LOT3_IT_GROUPS } from '../content/tr-lot3-it';
+import { LOT3_ES_GROUPS } from '../content/tr-lot3-es';
 import { LOT4_EN_GROUPS } from '../content/tr-lot4-en';
 import { LOT5_EN_PATHS } from '../content/tr-lot5-en';
 import { LOT6_EN_GROUPS } from '../content/tr-lot6-en';
@@ -35,7 +36,7 @@ const TR_NEW = /^\/(en|de|nl|es|it)\/(tutorial|tutoriales|tutorials|anleitungen|
 const trPublished = path.startsWith('/it/') ? '2026-10-23' : '2026-10-22';
 const trackedMod = MODIFIED_BY_PATH[path];
 const isNewGuide = /\/(e27-vs-b22|e27-oder-b22|e27-o-b22|smart-bulb-deal|smarte-lampe-angebot|slimme-lamp-aanbieding|oferta-bombilla-inteligente|offerta-lampadina-smart)\/$/.test(path);
-const LOT3_NEW = LOT3_EN_GROUPS.some((g) => g.en === path) || LOT3_NL_GROUPS.some((g) => g.nl === path) || LOT3_DE_GROUPS.some((g) => g.de === path) || LOT3_IT_GROUPS.some((g) => g.it === path) || LOT4_EN_GROUPS.some((g) => g.en === path) || LOT5_EN_PATHS.includes(path) || LOT6_EN_GROUPS.some((g) => g.en === path);
+const LOT3_NEW = LOT3_EN_GROUPS.some((g) => g.en === path) || LOT3_NL_GROUPS.some((g) => g.nl === path) || LOT3_DE_GROUPS.some((g) => g.de === path) || LOT3_IT_GROUPS.some((g) => g.it === path) || LOT3_ES_GROUPS.some((g) => g.es === path) || LOT4_EN_GROUPS.some((g) => g.en === path) || LOT5_EN_PATHS.includes(path) || LOT6_EN_GROUPS.some((g) => g.en === path);
 const dates = LOT3_NEW
   ? { published: '2026-11-12', modified: '2026-11-12' }
   : TR_NEW

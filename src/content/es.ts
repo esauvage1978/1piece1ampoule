@@ -3,6 +3,7 @@ import { TUTOS_TR } from './tr-tutos';
 import { HIVER_TR } from './tr-hiver';
 import { TR_PRIORITY_ES } from './tr-priority-es';
 import { TR_PRIORITY_LOT2_ES } from './tr-priority-lot2-es';
+import { TR_LOT3_ES } from './tr-lot3-es';
 import { INTENT_ES } from './intentions-gsc';
 import type { EnPage } from './en';
 export const ES_PAGES: EnPage[] = [
@@ -189,4 +190,5 @@ ES_PAGES.splice(ES_PAGES.findIndex((p) => p.path === 'guias/bombillas-led-regula
 
 ES_PAGES.push(...TR_PRIORITY_ES);
 ES_PAGES.push(...TR_PRIORITY_LOT2_ES);
+ES_PAGES.push(...TR_LOT3_ES);
 ES_PAGES.push(...INTENT_ES);

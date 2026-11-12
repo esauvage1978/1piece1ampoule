@@ -4,6 +4,7 @@ import { LOT3_EN_GROUPS } from './tr-lot3-en';
 import { LOT3_NL_GROUPS } from './tr-lot3-nl';
 import { LOT3_DE_GROUPS } from './tr-lot3-de';
 import { LOT3_IT_GROUPS } from './tr-lot3-it';
+import { LOT3_ES_GROUPS } from './tr-lot3-es';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
 import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
 import { LOT6_EN_GROUPS } from './tr-lot6-en';
@@ -82,7 +83,8 @@ export const GROUPS: Group[] = [
     const nl = LOT3_NL_GROUPS.find((x) => x.fr === g.fr)?.nl;
     const de = LOT3_DE_GROUPS.find((x) => x.fr === g.fr)?.de;
     const it = LOT3_IT_GROUPS.find((x) => x.fr === g.fr)?.it;
-    return { ...g, ...(nl ? { nl } : {}), ...(de ? { de } : {}), ...(it ? { it } : {}) };
+    const es = LOT3_ES_GROUPS.find((x) => x.fr === g.fr)?.es;
+    return { ...g, ...(nl ? { nl } : {}), ...(de ? { de } : {}), ...(it ? { it } : {}), ...(es ? { es } : {}) };
   }),
   ...LOT4_EN_GROUPS,
   ...LOT5_EN_GROUPS_ALL,
