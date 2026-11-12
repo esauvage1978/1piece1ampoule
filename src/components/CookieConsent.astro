@@ -1,56 +1,61 @@
 ---
-const analyticsEnabledByDefault = false;
-// Storage key used to remember user choice (v1, in case we change logic later)
+// Bandeau conforme CNIL : « Tout accepter » / « Tout refuser » au même niveau, aucune case précochée.
 const storageKey = 'cookie_consent_v1';
+const { lang = 'fr' } = Astro.props as { lang?: string };
+const NL: Record<string, string> = {
+  'Cookie settings': 'Cookie-instellingen',
+  'Cookie policy': 'Cookiebeleid',
+  'Statistics (Google Analytics)': 'Statistieken (Google Analytics)',
+  'Save my choices': 'Keuze opslaan', 'Reject all': 'Alles weigeren', 'Accept all': 'Alles accepteren', 'Customise': 'Aanpassen', '/en/cookies/': '/nl/cookies/',
+};
+const ES: Record<string, string> = {
+  'Cookie settings': 'Configuración de cookies', 'Cookie policy': 'Política de cookies', 'Statistics (Google Analytics)': 'Estadísticas (Google Analytics)',
+  'Save my choices': 'Guardar mi elección', 'Reject all': 'Rechazar todo', 'Accept all': 'Aceptar todo', 'Customise': 'Personalizar', '/en/cookies/': '/es/cookies/',
+};
+const tes = (e: string) => ES[e] ?? (e.startsWith('With') ? 'Con su consentimiento, utilizamos cookies de medición de audiencia (Google Analytics) para mejorar el sitio. Puede aceptarlas todas, rechazarlas todas o personalizar su elección, y cambiarla en cualquier momento.' : e.startsWith('Anonymised') ? 'Medición de audiencia anonimizada, solo se carga si marca esta casilla.' : e);
+const IT: Record<string, string> = {
+  'Cookie settings': 'Impostazioni cookie', 'Cookie policy': 'Cookie policy', 'Statistics (Google Analytics)': 'Statistiche (Google Analytics)',
+  'Save my choices': 'Salva le mie scelte', 'Reject all': 'Rifiuta tutto', 'Accept all': 'Accetta tutto', 'Customise': 'Personalizza', '/en/cookies/': '/it/cookie/',
+};
+const tit = (e: string) => IT[e] ?? (e.startsWith('With') ? 'Con il vostro consenso, utilizziamo cookie di misurazione delle visite (Google Analytics) per migliorare il sito. Potete accettarli tutti, rifiutarli tutti o personalizzare la scelta, e modificarla in qualsiasi momento.' : e.startsWith('Anonymised') ? 'Misurazione anonimizzata delle visite, caricata solo se selezionate questa casella.' : e);
+const t = (e: string, f: string, d: string) => lang === 'it' ? tit(e) : lang === 'es' ? tes(e) : (lang === 'en' ? e : lang === 'de' ? d : lang === 'nl' ? (NL[e] ?? (e.startsWith('With') ? 'Met uw toestemming gebruiken wij cookies voor bezoekersstatistieken (Google Analytics) om de website te verbeteren. U kunt alles accepteren, alles weigeren of uw keuze aanpassen, en die altijd wijzigen.' : e.startsWith('Anonymised') ? 'Geanonimiseerde bezoekersmeting, alleen geladen als u dit vakje aanvinkt.' : e)) : f);
+const btn = 'min-w-[9rem] flex-1 rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 shadow-sm hover:bg-stone-50 sm:flex-none';
 ---
 
 <div
   id="cookie-banner"
-  class="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-slate-950/95 backdrop-blur"
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur"
   style="display: none;"
+  role="dialog"
+  aria-label={t("Cookie settings", "Gestion des cookies", "Cookie-Einstellungen")}
+  data-storage-key={storageKey}
 >
   <div class="mx-auto max-w-6xl px-4 py-4">
-    <div class="grid gap-4 md:grid-cols-[1fr_1fr] md:items-start">
+    <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
       <div>
-        <p class="text-sm font-semibold text-white">Gestion des cookies</p>
-        <p class="mt-1 text-sm text-white/70">
-          Nous utilisons des cookies uniquement pour optimiser l’analyse du trafic et améliorer le site. Tu peux accepter ou refuser.
+        <p class="text-sm font-semibold text-stone-900">{t('Cookie settings', 'Gestion des cookies', 'Cookie-Einstellungen')}</p>
+        <p class="mt-1 text-sm text-stone-600">
+          {t('With your consent, we use audience measurement cookies (Google Analytics) to improve the site. You can accept all, reject all or customise your choice, and change it at any time.', 'Avec ton accord, nous utilisons des cookies de mesure d’audience (Google Analytics) pour améliorer le site. Tu peux tout accepter, tout refuser ou personnaliser ton choix, et le modifier à tout moment.', 'Mit Ihrer Einwilligung verwenden wir Cookies zur Reichweitenmessung (Google Analytics), um die Website zu verbessern. Sie können alle akzeptieren, alle ablehnen oder Ihre Auswahl anpassen und jederzeit ändern.')}
+          <a class="underline hover:text-stone-900" href={t("/en/cookies/", "/politique-de-cookies", "/de/cookies/")}>{t("Cookie policy", "Politique de cookies", "Cookie-Richtlinie")}</a>
         </p>
-        <div class="mt-3 space-y-2">
-          <label class="flex items-start gap-3 text-sm text-white/80">
+        <div id="cookie-prefs" class="mt-3 space-y-2" hidden>
+          <label class="flex items-start gap-3 text-sm text-stone-600">
             <input id="cookie-analytics" type="checkbox" class="mt-1" />
             <span>
-              Statistiques (Google Analytics via gtag)
-              <span class="block text-xs text-white/55">
-                Nécessite ton accord pour charger les scripts d’analyse.
-              </span>
+              {t('Statistics (Google Analytics)', 'Statistiques (Google Analytics)', 'Statistik (Google Analytics)')}
+              <span class="block text-xs text-stone-500">{t('Anonymised audience measurement, loaded only if you tick this box.', 'Mesure d’audience anonymisée, chargée seulement si tu coches cette case.', 'Anonymisierte Reichweitenmessung, wird nur geladen, wenn Sie dieses Kästchen ankreuzen.')}</span>
             </span>
           </label>
+          <button id="cookie-save" class="rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 hover:bg-stone-50">{t('Save my choices', 'Enregistrer mes choix', 'Auswahl speichern')}</button>
         </div>
       </div>
 
       <div class="flex flex-col gap-2 md:items-end">
         <div class="flex flex-wrap gap-2">
-          <button
-            id="cookie-save"
-            class="rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-300"
-          >
-            Enregistrer
-          </button>
-          <button
-            id="cookie-accept-all"
-            class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 hover:bg-white/10"
-          >
-            Tout accepter
-          </button>
-          <button
-            id="cookie-reject"
-            class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 hover:bg-white/10"
-          >
-            Refuser
-          </button>
+          <button id="cookie-reject" class={btn}>{t('Reject all', 'Tout refuser', 'Alle ablehnen')}</button>
+          <button id="cookie-accept-all" class={btn}>{t('Accept all', 'Tout accepter', 'Alle akzeptieren')}</button>
         </div>
-        <a class="text-xs text-white/60 hover:text-white" href="/politique-de-cookies">Voir la politique de cookies</a>
+        <button id="cookie-customize" class="text-xs text-stone-600 underline hover:text-stone-900">{t('Customise', 'Personnaliser', 'Anpassen')}</button>
       </div>
     </div>
   </div>
@@ -58,79 +63,36 @@ const storageKey = 'cookie_consent_v1';
 
 <script is:inline>
   (() => {
-    const storageKey = ${JSON.stringify(storageKey)};
     const banner = document.getElementById('cookie-banner');
-    const cbAnalytics = document.getElementById('cookie-analytics');
-    const btnSave = document.getElementById('cookie-save');
-    const btnAcceptAll = document.getElementById('cookie-accept-all');
-    const btnReject = document.getElementById('cookie-reject');
+    if (!banner) return;
+    const storageKey = banner.dataset.storageKey || 'cookie_consent_v1';
+    const cb = document.getElementById('cookie-analytics');
+    const prefs = document.getElementById('cookie-prefs');
+    let existing = null;
+    try { existing = localStorage.getItem(storageKey); } catch (e) {}
 
-    const existing = localStorage.getItem(storageKey);
-
-    function setBannerVisible(visible) {
-      if (!banner) return;
-      banner.style.display = visible ? 'block' : 'none';
-    }
-
+    const show = (v) => { banner.style.display = v ? 'block' : 'none'; };
     function applyChoice(choice) {
-      // choice: 'analytics' | 'none'
-      localStorage.setItem(storageKey, choice);
-      const enableAnalytics = window.__enableAnalyticsConsent;
-      if (choice === 'analytics' && typeof enableAnalytics === 'function') {
-        enableAnalytics();
-      }
+      try { localStorage.setItem(storageKey, choice); } catch (e) {}
+      existing = choice;
+      if (choice === 'analytics' && typeof window.__enableAnalyticsConsent === 'function') window.__enableAnalyticsConsent();
+      show(false);
+      try { document.dispatchEvent(new CustomEvent('cookie-consent-updated')); } catch (e) {}
+    }
+    function showPreferences(open) {
+      cb.checked = existing === 'analytics';
+      prefs.hidden = !open;
+      show(true);
     }
 
-    function showPreferences() {
-      // Initialize checkbox based on saved choice
-      if (existing === 'analytics') cbAnalytics.checked = true;
-      if (existing === 'none') cbAnalytics.checked = false;
-      // If no choice yet, default unchecked
-      if (existing === null) cbAnalytics.checked = ${analyticsEnabledByDefault ? 'true' : 'false'};
-      setBannerVisible(true);
-    }
+    if (existing === null) showPreferences(false);
+    else if (existing === 'analytics' && typeof window.__enableAnalyticsConsent === 'function') window.__enableAnalyticsConsent();
 
-    if (existing === null) {
-      showPreferences();
-    } else {
-      // Respect existing choice
-      if (existing === 'analytics' && typeof window.__enableAnalyticsConsent === 'function') {
-        window.__enableAnalyticsConsent();
-      }
-      setBannerVisible(false);
-    }
+    document.getElementById('cookie-accept-all').addEventListener('click', () => applyChoice('analytics'));
+    document.getElementById('cookie-reject').addEventListener('click', () => applyChoice('none'));
+    document.getElementById('cookie-customize').addEventListener('click', () => { prefs.hidden = !prefs.hidden; });
+    document.getElementById('cookie-save').addEventListener('click', () => applyChoice(cb.checked ? 'analytics' : 'none'));
 
-    if (btnSave) {
-      btnSave.addEventListener('click', () => {
-        const choice = cbAnalytics.checked ? 'analytics' : 'none';
-        applyChoice(choice);
-        existing = choice;
-        setBannerVisible(false);
-      });
-    }
-
-    if (btnAcceptAll) {
-      btnAcceptAll.addEventListener('click', () => {
-        applyChoice('analytics');
-        existing = 'analytics';
-        cbAnalytics.checked = true;
-        setBannerVisible(false);
-      });
-    }
-
-    if (btnReject) {
-      btnReject.addEventListener('click', () => {
-        applyChoice('none');
-        existing = 'none';
-        cbAnalytics.checked = false;
-        setBannerVisible(false);
-      });
-    }
-
-    // Public helper so the cookie policy page (or footer links) can reopen the banner.
-    window.__showCookiePreferences = () => {
-      showPreferences();
-    };
+    window.__showCookiePreferences = () => showPreferences(true);
   })();
 </script>
-

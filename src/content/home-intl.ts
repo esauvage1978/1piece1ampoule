@@ -1,0 +1,205 @@
+// Accueils traduits (/en/, /de/, /it/, /es/, /nl/) sur le modèle de l'accueil français.
+// Liens produits : uniquement des fiches déjà présentes sur le site (en.ts, amz-local.ts) et des marchands Awin déjà intégrés (awin.ts).
+export type Lang = 'en' | 'de' | 'it' | 'es' | 'nl';
+type Card = { href: string; img: string; t: string; d: string };
+type Pick = { label: string; name: string; specs: string[]; use: string; href: string; cta: string; asin?: string };
+type Partner = { mid: string; url: string; name: string; title: string; text: string; cta: string };
+type Row = [string, string, string, string];
+export type HomeIntl = {
+  badge: string; h1a: string; h1b: string; lead: string; heroAlt: string;
+  btn1: [string, string]; btn2: [string, string]; stats: [string, string, string];
+  cardsH: string; cardsP: string; cards: Card[];
+  trust: [string, string][];
+  tableH: string; tableP: string; cols: [string, string, string, string]; rows: Row[];
+  picksH: string; picksSrc: string; picks: Pick[]; picksNote: string;
+  partners: Partner[]; partnerNote: string;
+  listA: [string, [string, string][]]; listB: [string, [string, string][]];
+  more: [string, string]; idealFor: string;
+};
+const il = (f: string) => `/illustrations/${f}.svg?v=3`;
+const amz = (host: string, asin: string, tag: string) => `https://${host}/dp/${asin}?tag=${tag}`;
+
+export const HOME: Record<Lang, HomeIntl> = {
+en: {
+  badge: '💡 Independent guides · updated October 2026', h1a: 'The right bulb,', h1b: 'for every room.',
+  lead: 'Bulb bases, lumens, colour temperature, dimmers: everything you need to buy the right LED the first time, whether you live in the UK or the US.',
+  heroAlt: 'Living room lit in zones: ceiling light, TV strip, reading lamp and wall light',
+  btn1: ['Try the lighting simulator →', '/en/tools/'], btn2: ['Browse the guides', '#guides'],
+  stats: ['practical guides', 'step-by-step tutorials', 'rooms in the simulator'],
+  cardsH: 'Start here', cardsP: 'The questions people ask most before buying a bulb.',
+  cards: [
+    { href: '/en/guides/bulb-bases-b22-e26-e27-gu10/', img: il('salon'), t: 'Bulb bases', d: 'B22, E26, E27, E14, GU10, MR16: identify yours in ten seconds.' },
+    { href: '/en/guides/lumens-vs-watts/', img: il('cuisine'), t: 'Lumens vs watts', d: 'How many lumens replace your old 40, 60 or 100 W bulb.' },
+    { href: '/en/tutorials/how-much-light-per-room-lux-foot-candles/', img: il('bureau-adulte'), t: 'How much light per room', d: 'Lux, foot-candles and a simple formula, worked out.' },
+    { href: '/en/guides/colour-temperature-kelvin/', img: il('chambre-adulte'), t: 'Colour temperature', d: '2700K, 3000K or 4000K: which one suits which room.' },
+    { href: '/en/guides/cri-colour-rendering-index/', img: il('salle-manger'), t: 'Colour rendering (CRI)', d: 'Why CRI 90 makes food and skin tones look right.' },
+    { href: '/en/guides/ip-ratings-bathroom-outdoor/', img: il('salle-bain'), t: 'IP ratings', d: 'UK bathroom zones and US damp or wet locations.' },
+    { href: '/en/guides/dimmable-led-bulbs/', img: il('chambre-enfant'), t: 'Dimmable LEDs', d: 'Stop the flicker and buzz with the right dimmer.' },
+    { href: '/en/tutorials/replace-halogen-gu10-mr16-with-led/', img: il('couloir'), t: 'Replace halogen spots', d: 'GU10 and MR16 to LED, and the transformer trap.' },
+    { href: '/en/tutorials/light-basement-shed-without-power/', img: il('cave-sans-electricite'), t: 'A shed with no power', d: 'Battery and small solar kits, sized in watt-hours.' },
+  ],
+  trust: [['🔎 Clear criteria', 'Lumens, Kelvin, CRI and IP: every tip is tied to how the room is used.'], ['✅ Checked links', 'Each product points to a live Amazon UK or US listing, checked when we update a page.'], ['🤝 Transparency', 'Affiliate links cost you nothing extra. <a class="text-amber-700 underline" href="/en/affiliate-disclosure/">How we earn money</a>']],
+  tableH: 'Room by room, at a glance', tableP: 'The settings that work in most homes.',
+  cols: ['Room', 'Colour temperature', 'What matters', 'Good choice'],
+  rows: [['Living room', '2700K', 'Several light sources, dimmable', 'Warm white B22 or E26 bulb'], ['Kitchen worktop', '3000–4000K', 'CRI 90, no shadows on the worktop', 'LED strip under the cabinets'], ['Bathroom mirror', '3000–4000K', 'IP44 near the basin', 'IP44 mirror light'], ['Bedroom', '2700K or lower', 'Soft bedside light', 'Dimmable warm bulb'], ['Home office', '4000K', 'Enough light on the desk', 'Desk lamp plus ceiling light'], ['Hallway', '3000K', 'Even spacing of spots', 'GU10 LED spots']],
+  picksH: 'Our current picks', picksSrc: 'Prices and stock shown on Amazon',
+  picks: [
+    { label: 'UK · everyday bulb', name: 'Philips Ultra Efficient LED A60 B22, 2700K', specs: ['B22 bayonet', '60 W equivalent', 'Warm white 2700K'], use: 'ceiling lights and lamps in UK homes', href: amz('www.amazon.co.uk', 'B0CDC1ZV8B', 'roboteducatif-21'), cta: 'Check price on Amazon UK', asin: 'B0CDC1ZV8B' },
+    { label: 'UK · GU10 spots', name: 'Philips CorePro LED GU10 4W, 4000K (10-pack)', specs: ['350 lm, 36° beam', 'Dimmable', 'Replaces 50 W halogen'], use: 'kitchen and hallway spotlights', href: amz('www.amazon.co.uk', 'B09N8W4DMT', 'roboteducatif-21'), cta: 'Check price on Amazon UK', asin: 'B09N8W4DMT' },
+    { label: 'US · high CRI', name: 'Philips Ultra Definition LED A19, 2700K (8-pack)', specs: ['E26, 800 lm', 'CRI 95', 'Dimmable, flicker-free'], use: 'living rooms and bedrooms in the US', href: amz('www.amazon.com', 'B0B927WMTY', 'roboteducatif-20'), cta: 'Check price on Amazon US', asin: 'B0B927WMTY' },
+  ],
+  picksNote: 'As an Amazon Associate I earn from qualifying purchases, at no extra cost to you.',
+  partners: [{ mid: '7574', name: 'Lights.co.uk', url: 'https://www.lights.co.uk/c/light-bulbs', title: 'Need LED bulbs with UK delivery?', text: 'Lights.co.uk (Lampenwelt group) lists B22, E27, GU10 and other bulbs — Irish readers can also use our Lights.ie partner block on the guides.', cta: 'See light bulbs at Lights.co.uk' }],
+  partnerNote: 'Partner link: I may earn a commission at no extra cost to you.',
+  listA: ['Technical guides', [['/en/guides/lumens-vs-watts/', 'Lumens vs watts'], ['/en/guides/bulb-bases-b22-e26-e27-gu10/', 'Bulb bases: B22, E26, E27, GU10'], ['/en/guides/colour-temperature-kelvin/', 'Colour temperature in Kelvin'], ['/en/guides/cri-colour-rendering-index/', 'Colour rendering index (CRI)'], ['/en/guides/ip-ratings-bathroom-outdoor/', 'IP ratings for bathrooms and outdoors'], ['/en/guides/dimmable-led-bulbs/', 'Dimmable LED bulbs']]],
+  listB: ['Tutorials', [['/en/tutorials/how-much-light-per-room-lux-foot-candles/', 'How much light each room needs'], ['/en/tutorials/replace-halogen-gu10-mr16-with-led/', 'Replace halogen GU10 and MR16 spots'], ['/en/tutorials/under-cabinet-led-strip-kitchen/', 'Fit an LED strip under kitchen cabinets'], ['/en/tutorials/smart-switch-no-neutral/', 'Smart switch without a neutral wire'], ['/en/tutorials/light-basement-shed-without-power/', 'Light a basement or shed with no power'], ['/en/tools/', 'Lighting simulator']]],
+  more: ['Try the simulator →', '/en/tools/'], idealFor: 'Ideal for:',
+},
+de: {
+  badge: '💡 Unabhängige Ratgeber · aktualisiert im Oktober 2026', h1a: 'Die passende Lampe,', h1b: 'für jeden Raum.',
+  lead: 'Sockel, Lumen, Farbtemperatur, Dimmer: alles, was du wissen musst, um gleich beim ersten Kauf das richtige LED-Leuchtmittel zu finden.',
+  heroAlt: 'Wohnzimmer mit mehreren Lichtzonen: Deckenleuchte, LED-Streifen am Fernseher, Leselampe und Wandleuchte',
+  btn1: ['Lichtsimulator ausprobieren →', '/de/werkzeuge/'], btn2: ['Zu den Ratgebern', '#guides'],
+  stats: ['Ratgeber', 'Anleitungen', 'Räume im Simulator'],
+  cardsH: 'Hier starten', cardsP: 'Die häufigsten Fragen vor dem Lampenkauf.',
+  cards: [
+    { href: '/de/ratgeber/lampensockel-e27-e14-gu10/', img: il('salon'), t: 'Lampensockel', d: 'E27, E14, GU10, GU5.3, G9: in zehn Sekunden erkannt.' },
+    { href: '/de/ratgeber/lumen-watt/', img: il('cuisine'), t: 'Lumen statt Watt', d: 'Wie viele Lumen deine alte 40-, 60- oder 100-W-Birne ersetzen.' },
+    { href: '/de/anleitungen/lux-lumen-pro-raum-berechnen/', img: il('bureau-adulte'), t: 'Wie viel Licht pro Raum?', d: 'Lux und Lumen mit einer einfachen Formel berechnen.' },
+    { href: '/de/ratgeber/farbtemperatur-kelvin/', img: il('chambre-adulte'), t: 'Farbtemperatur', d: '2700 K, 3000 K oder 4000 K: was in welchen Raum passt.' },
+    { href: '/de/ratgeber/farbwiedergabe-cri-ra/', img: il('salle-manger'), t: 'Farbwiedergabe', d: 'Warum Ra 90 in Küche und Bad den Unterschied macht.' },
+    { href: '/de/ratgeber/ip-schutzarten-bad-aussen/', img: il('salle-bain'), t: 'IP-Schutzarten', d: 'Welche Leuchte in welchen Badbereich darf.' },
+    { href: '/de/ratgeber/dimmbare-led-lampen/', img: il('chambre-enfant'), t: 'Dimmbare LED', d: 'Schluss mit Flackern und Brummen am Dimmer.' },
+    { href: '/de/anleitungen/halogen-gu10-mr16-durch-led-ersetzen/', img: il('couloir'), t: 'Halogenspots ersetzen', d: 'GU10 und MR16 auf LED umrüsten, ohne Trafo-Ärger.' },
+    { href: '/de/anleitungen/keller-ohne-strom-beleuchten/', img: il('cave-sans-electricite'), t: 'Keller ohne Strom', d: 'Akku- und kleine Solarlösungen, in Wattstunden gerechnet.' },
+  ],
+  trust: [['🔎 Klare Kriterien', 'Lumen, Kelvin, Farbwiedergabe und IP: jede Empfehlung richtet sich nach der Nutzung des Raums.'], ['📐 Nachvollziehbar', 'Unsere Werte stützen sich auf Normen und Herstellerangaben, Rechnungen zeigen wir offen.'], ['🤝 Transparenz', 'Partnerlinks kosten dich nichts extra. <a class="text-amber-700 underline" href="/de/werbehinweis/">Werbehinweis</a>']],
+  tableH: 'Raum für Raum auf einen Blick', tableP: 'Werte, die in den meisten Wohnungen gut funktionieren.',
+  cols: ['Raum', 'Farbtemperatur', 'Worauf es ankommt', 'Gute Wahl'],
+  rows: [['Wohnzimmer', '2700 K', 'Mehrere Lichtquellen, dimmbar', 'Warmweiße E27-Lampe, dimmbar'], ['Küche (Arbeitsfläche)', '3000–4000 K', 'Ra 90, keine Schatten', 'LED-Streifen unter den Hängeschränken'], ['Bad (Spiegel)', '3000–4000 K', 'IP44 im Bereich 2', 'Spiegelleuchte IP44'], ['Schlafzimmer', '2700 K oder wärmer', 'Sanftes Licht am Bett', 'Dimmbare warmweiße Lampe'], ['Arbeitszimmer', '4000 K', 'Genug Licht auf dem Schreibtisch', 'Schreibtischleuchte plus Deckenlicht'], ['Flur', '3000 K', 'Gleichmäßige Spot-Abstände', 'GU10-LED-Spots']],
+  picksH: 'Unsere aktuellen Empfehlungen', picksSrc: 'Preise und Verfügbarkeit bei Amazon.de',
+  picks: [
+    { label: 'E27 für den ganzen Raum', name: 'Osram LED Base Classic A E27, ersetzt 100 W', specs: ['Rund 1 521 lm', 'Neutralweiß 4 000 K', 'Sockel E27'], use: 'die Hauptleuchte im Raum', href: amz('www.amazon.de', 'B073QSXXCH', 'roboteducat00-21'), cta: 'Bei Amazon.de ansehen', asin: 'B073QSXXCH' },
+    { label: 'GU10-Spots', name: 'Philips LED GU10, ersetzt 50 W, warmweiß (10er-Pack)', specs: ['230 V, ohne Trafo', 'Warmweiß', '10er-Pack'], use: 'den Austausch von Halogenspots', href: amz('www.amazon.de', 'B07665H9B7', 'roboteducat00-21'), cta: 'Bei Amazon.de ansehen', asin: 'B07665H9B7' },
+    { label: 'Smart', name: 'Philips Hue White Ambiance E27', specs: ['Weißton einstellbar', 'App, Bluetooth', 'Auch ohne Bridge'], use: 'alle, die das Licht per Handy steuern wollen', href: amz('www.amazon.de', 'B0FJ8VXHRX', 'roboteducat00-21'), cta: 'Bei Amazon.de ansehen', asin: 'B0FJ8VXHRX' },
+  ],
+  picksNote: 'Amazon-Partnerlinks: Kaufst du darüber ein, erhalten wir eine kleine Provision, für dich ändert sich der Preis nicht.',
+  partners: [
+    { mid: '7619', name: 'Lampenwelt DE', url: 'https://www.lampenwelt.de/c/leuchtmittel', title: 'LED-Leuchtmittel für Deutschland', text: 'Lampenwelt.de führt E27-, E14- und GU10-LEDs mit Versand in Deutschland.', cta: 'Leuchtmittel bei Lampenwelt.de ansehen' },
+    { mid: '9292', name: 'Lampenwelt AT', url: 'https://www.lampenwelt.at/c/leuchtmittel', title: 'Für Österreich', text: 'Lampenwelt.at liefert Leuchtmittel nach Österreich — gleiche Sockel wie in unseren Ratgebern.', cta: 'Leuchtmittel bei Lampenwelt.at ansehen' },
+  ],
+  partnerNote: 'Partnerlink: Ich erhalte eventuell eine Provision, für dich entstehen keine Mehrkosten.',
+  listA: ['Ratgeber', [['/de/ratgeber/lumen-watt/', 'Lumen statt Watt'], ['/de/ratgeber/lampensockel-e27-e14-gu10/', 'Lampensockel: E27, E14, GU10'], ['/de/ratgeber/farbtemperatur-kelvin/', 'Farbtemperatur in Kelvin'], ['/de/ratgeber/farbwiedergabe-cri-ra/', 'Farbwiedergabe (CRI/Ra)'], ['/de/ratgeber/ip-schutzarten-bad-aussen/', 'IP-Schutzarten für Bad und außen'], ['/de/ratgeber/dimmbare-led-lampen/', 'Dimmbare LED-Lampen']]],
+  listB: ['Anleitungen', [['/de/anleitungen/lux-lumen-pro-raum-berechnen/', 'Lux und Lumen pro Raum berechnen'], ['/de/anleitungen/halogen-gu10-mr16-durch-led-ersetzen/', 'Halogen GU10 und MR16 durch LED ersetzen'], ['/de/anleitungen/led-streifen-unter-haengeschraenken/', 'LED-Streifen unter Hängeschränken'], ['/de/anleitungen/smarter-schalter-ohne-neutralleiter/', 'Smarter Schalter ohne Neutralleiter'], ['/de/anleitungen/keller-ohne-strom-beleuchten/', 'Keller ohne Strom beleuchten'], ['/de/werkzeuge/', 'Lichtsimulator']]],
+  more: ['Zum Lichtsimulator →', '/de/werkzeuge/'], idealFor: 'Ideal für:',
+},
+it: {
+  badge: '💡 Guide indipendenti · aggiornate a ottobre 2026', h1a: 'La lampadina giusta,', h1b: 'in ogni stanza.',
+  lead: 'Attacchi, lumen, temperatura di colore, dimmer: tutto quello che serve per comprare la LED giusta al primo colpo.',
+  heroAlt: 'Soggiorno illuminato per zone: plafoniera, striscia LED dietro la TV, lampada da lettura e applique',
+  btn1: ['Prova il simulatore di luce →', '/it/strumenti/'], btn2: ['Sfoglia le guide', '#guides'],
+  stats: ['guide pratiche', 'tutorial passo passo', 'stanze nel simulatore'],
+  cardsH: 'Da dove iniziare', cardsP: 'Le domande più frequenti prima di comprare una lampadina.',
+  cards: [
+    { href: '/it/guide/attacchi-e27-e14-gu10/', img: il('salon'), t: 'Attacchi', d: 'E27, E14, GU10, GU5.3, G9: riconoscerli in dieci secondi.' },
+    { href: '/it/guide/lumen-watt/', img: il('cuisine'), t: 'Lumen, non watt', d: 'Quanti lumen sostituiscono la vecchia lampadina da 40, 60 o 100 W.' },
+    { href: '/it/tutorial/calcolare-lux-lumen-per-stanza/', img: il('bureau-adulte'), t: 'Quanta luce per stanza', d: 'Lux e lumen con una formula semplice.' },
+    { href: '/it/guide/temperatura-colore-kelvin/', img: il('chambre-adulte'), t: 'Temperatura di colore', d: '2700 K, 3000 K o 4000 K: quale per ogni stanza.' },
+    { href: '/it/guide/resa-cromatica-cri-ra/', img: il('salle-manger'), t: 'Resa cromatica', d: 'Perché un CRI 90 fa la differenza in cucina e in bagno.' },
+    { href: '/it/guide/grado-ip-bagno-esterno/', img: il('salle-bain'), t: 'Gradi IP', d: 'Quale lampada in quale zona del bagno.' },
+    { href: '/it/guide/lampadine-led-dimmerabili/', img: il('chambre-enfant'), t: 'LED dimmerabili', d: 'Niente più sfarfallii e ronzii con il variatore.' },
+    { href: '/it/tutorial/sostituire-alogene-gu10-mr16-con-led/', img: il('couloir'), t: 'Sostituire le alogene', d: 'Da GU10 e MR16 a LED, senza sorprese col trasformatore.' },
+    { href: '/it/guide/luci-di-natale-interno-esterno/', img: il('jardin'), t: 'Luci di Natale', d: 'Catene luminose per interni ed esterni, in sicurezza.' },
+  ],
+  trust: [['🔎 Criteri chiari', 'Lumen, kelvin, CRI e IP: ogni consiglio parte dall’uso della stanza.'], ['✅ Link verificati', 'Ogni prodotto rimanda a una scheda Amazon.it attiva, controllata a ogni aggiornamento.'], ['🤝 Trasparenza', 'I link di affiliazione non costano nulla in più. <a class="text-amber-700 underline" href="/it/affiliazione/">Come ci finanziamo</a>']],
+  tableH: 'Stanza per stanza, in sintesi', tableP: 'Le impostazioni che funzionano nella maggior parte delle case.',
+  cols: ['Stanza', 'Temperatura di colore', 'Cosa conta', 'Scelta consigliata'],
+  rows: [['Soggiorno', '2700 K', 'Più punti luce, dimmerabili', 'Lampadina E27 luce calda'], ['Cucina (piano di lavoro)', '3000–4000 K', 'CRI 90, niente ombre', 'Striscia LED sotto i pensili'], ['Bagno (specchio)', '3000–4000 K', 'IP44 vicino al lavabo', 'Lampada da specchio IP44'], ['Camera', '2700 K o meno', 'Luce morbida sul comodino', 'Lampadina calda dimmerabile'], ['Studio', '4000 K', 'Luce sufficiente sulla scrivania', 'Lampada da scrivania + plafoniera'], ['Corridoio', '3000 K', 'Faretti ben distanziati', 'Faretti LED GU10']],
+  picksH: 'I nostri consigli del momento', picksSrc: 'Prezzi e disponibilità su Amazon.it',
+  picks: [
+    { label: 'E27 per tutta la stanza', name: 'Osram LED Base Classic A E27, equivalente 100 W', specs: ['Circa 1 500 lm', 'Bianco neutro 4 000 K', 'Attacco E27'], use: 'il lampadario principale', href: amz('www.amazon.it', 'B073QSXXCH', 'roboteducat0f-21'), cta: 'Vedi su Amazon.it', asin: 'B073QSXXCH' },
+    { label: 'Faretti GU10', name: 'Philips LED GU10 equivalente 50 W, luce calda (10 pezzi)', specs: ['230 V, senza trasformatore', 'Luce calda', 'Confezione da 10'], use: 'sostituire i faretti alogeni', href: amz('www.amazon.it', 'B07665H9B7', 'roboteducat0f-21'), cta: 'Vedi su Amazon.it', asin: 'B07665H9B7' },
+    { label: 'Smart', name: 'Philips Hue White Ambiance E27', specs: ['Bianco regolabile', 'App, Bluetooth', 'Funziona anche senza bridge'], use: 'chi vuole regolare la luce dal telefono', href: amz('www.amazon.it', 'B0FJ8VXHRX', 'roboteducat0f-21'), cta: 'Vedi su Amazon.it', asin: 'B0FJ8VXHRX' },
+  ],
+  picksNote: 'Link di affiliazione Amazon: se acquistate, riceviamo una piccola commissione senza costi per voi.',
+  partners: [{ mid: '10404', name: 'Lampade.it', url: 'https://www.lampade.it/c/lampadine', title: 'Cercate una lampadina particolare?', text: 'Lampade.it, negozio italiano specializzato in illuminazione, offre lampadine LED in tutti gli attacchi, dalle E27 alle GU10 e G9.', cta: 'Vedi le lampadine su Lampade.it' }],
+  partnerNote: 'Link partner: potremmo ricevere una commissione, senza costi aggiuntivi per voi.',
+  listA: ['Guide tecniche', [['/it/guide/lumen-watt/', 'Lumen e watt'], ['/it/guide/attacchi-e27-e14-gu10/', 'Attacchi E27, E14, GU10'], ['/it/guide/temperatura-colore-kelvin/', 'Temperatura di colore in kelvin'], ['/it/guide/grado-ip-bagno-esterno/', 'Gradi IP per bagno ed esterno'], ['/it/guide/fototerapia-luce-mattino-inverno/', 'Luce del mattino in inverno'], ['/it/guide/regalare-lampadine-smart/', 'Regalare lampadine smart']]],
+  listB: ['Tutorial', [['/it/tutorial/calcolare-lux-lumen-per-stanza/', 'Calcolare lux e lumen per stanza'], ['/it/tutorial/sostituire-alogene-gu10-mr16-con-led/', 'Sostituire le alogene GU10 e MR16'], ['/it/tutorial/striscia-led-sotto-pensili-cucina/', 'Striscia LED sotto i pensili'], ['/it/tutorial/interruttore-smart-senza-neutro/', 'Interruttore smart senza neutro'], ['/it/tutorial/illuminare-cantina-senza-corrente/', 'Illuminare una cantina senza corrente'], ['/it/guide/serate-lunghe-luci-notturne/', 'Serate lunghe e luci notturne']]],
+  more: ['Prova il simulatore →', '/it/strumenti/'], idealFor: 'Ideale per:',
+},
+es: {
+  badge: '💡 Guías independientes · actualizadas en octubre de 2026', h1a: 'La bombilla adecuada,', h1b: 'en cada estancia.',
+  lead: 'Casquillos, lúmenes, temperatura de color, reguladores: todo lo que necesitas para acertar con tu bombilla LED a la primera.',
+  heroAlt: 'Salón iluminado por zonas: plafón, tira LED detrás de la tele, lámpara de lectura y aplique',
+  btn1: ['Prueba el simulador de luz →', '/es/herramientas/'], btn2: ['Ver las guías', '#guides'],
+  stats: ['guías prácticas', 'tutoriales paso a paso', 'estancias en el simulador'],
+  cardsH: 'Por dónde empezar', cardsP: 'Las dudas más habituales antes de comprar una bombilla.',
+  cards: [
+    { href: '/es/guias/casquillos-e27-e14-gu10/', img: il('salon'), t: 'Casquillos', d: 'E27, E14, GU10, GU5.3, G9: identifícalo en diez segundos.' },
+    { href: '/es/guias/lumenes-vatios/', img: il('cuisine'), t: 'Lúmenes, no vatios', d: 'Cuántos lúmenes sustituyen tu antigua bombilla de 40, 60 o 100 W.' },
+    { href: '/es/tutoriales/calcular-lux-lumenes-por-estancia/', img: il('bureau-adulte'), t: 'Cuánta luz por estancia', d: 'Lux y lúmenes con una fórmula sencilla.' },
+    { href: '/es/guias/temperatura-color-kelvin/', img: il('chambre-adulte'), t: 'Temperatura de color', d: '2700 K, 3000 K o 4000 K: cuál para cada estancia.' },
+    { href: '/es/guias/reproduccion-cromatica-cri-ra/', img: il('salle-manger'), t: 'Reproducción cromática', d: 'Por qué un CRI 90 se nota en la cocina y el baño.' },
+    { href: '/es/guias/grado-ip-bano-exterior/', img: il('salle-bain'), t: 'Grados IP', d: 'Qué luminaria va en cada volumen del baño.' },
+    { href: '/es/guias/bombillas-led-regulables/', img: il('chambre-enfant'), t: 'LED regulables', d: 'Adiós al parpadeo y al zumbido con el regulador.' },
+    { href: '/es/tutoriales/sustituir-halogenos-gu10-mr16-por-led/', img: il('couloir'), t: 'Sustituir halógenos', d: 'De GU10 y MR16 a LED, sin sustos con el transformador.' },
+    { href: '/es/guias/luces-navidad-interior-exterior/', img: il('jardin'), t: 'Luces de Navidad', d: 'Guirnaldas para interior y exterior, con seguridad.' },
+  ],
+  trust: [['🔎 Criterios claros', 'Lúmenes, kelvin, CRI e IP: cada consejo parte del uso de la estancia.'], ['✅ Enlaces comprobados', 'Cada producto lleva a una ficha activa de Amazon.es, revisada en cada actualización.'], ['🤝 Transparencia', 'Los enlaces de afiliado no te cuestan nada más. <a class="text-amber-700 underline" href="/es/afiliacion/">Cómo nos financiamos</a>']],
+  tableH: 'Estancia por estancia, en resumen', tableP: 'Los ajustes que funcionan en la mayoría de las casas.',
+  cols: ['Estancia', 'Temperatura de color', 'Qué importa', 'Buena elección'],
+  rows: [['Salón', '2700 K', 'Varios puntos de luz, regulables', 'Bombilla E27 de luz cálida'], ['Cocina (encimera)', '3000–4000 K', 'CRI 90, sin sombras', 'Tira LED bajo los muebles'], ['Baño (espejo)', '3000–4000 K', 'IP44 junto al lavabo', 'Aplique de espejo IP44'], ['Dormitorio', '2700 K o menos', 'Luz suave en la mesilla', 'Bombilla cálida regulable'], ['Despacho', '4000 K', 'Luz suficiente en la mesa', 'Flexo + luz de techo'], ['Pasillo', '3000 K', 'Focos bien repartidos', 'Focos LED GU10']],
+  picksH: 'Nuestras recomendaciones del momento', picksSrc: 'Precios y disponibilidad en Amazon.es',
+  picks: [
+    { label: 'E27 para toda la estancia', name: 'Osram LED Base Classic A E27, equivalente a 100 W', specs: ['Unos 1 500 lm', 'Blanco neutro 4 000 K', 'Casquillo E27'], use: 'la lámpara principal del salón o la cocina', href: amz('www.amazon.es', 'B073QSXXCH', 'roboteducat07-21'), cta: 'Ver en Amazon.es', asin: 'B073QSXXCH' },
+    { label: 'Focos GU10', name: 'Philips LED GU10 eq. 50 W, luz cálida, pack de 10', specs: ['230 V, sin transformador', 'Luz cálida', 'Pack de 10'], use: 'sustituir los focos halógenos', href: amz('www.amazon.es', 'B07665H9B7', 'roboteducat07-21'), cta: 'Ver en Amazon.es', asin: 'B07665H9B7' },
+    { label: 'Inteligente', name: 'Philips Hue White Ambiance E27 A60', specs: ['Blanco regulable', 'App y Bluetooth', 'Funciona sin puente'], use: 'ajustar la luz desde el móvil', href: amz('www.amazon.es', 'B0FJ8VXHRX', 'roboteducat07-21'), cta: 'Ver en Amazon.es', asin: 'B0FJ8VXHRX' },
+  ],
+  picksNote: 'Enlace de afiliado de Amazon: si compras, recibimos una pequeña comisión sin coste para ti.',
+  partners: [{ mid: '10548', name: 'Lampara.es', url: 'https://www.lampara.es/c/bombillas', title: '¿Buscas una bombilla concreta?', text: 'Lampara.es, tienda especializada en iluminación, vende bombillas LED en todos los casquillos, de E27 a GU10 y G9.', cta: 'Ver las bombillas en Lampara.es' }],
+  partnerNote: 'Enlace de socio: podemos recibir una comisión, sin coste adicional para ti.',
+  listA: ['Guías técnicas', [['/es/guias/lumenes-vatios/', 'Lúmenes y vatios'], ['/es/guias/casquillos-e27-e14-gu10/', 'Casquillos E27, E14, GU10'], ['/es/guias/temperatura-color-kelvin/', 'Temperatura de color en kelvin'], ['/es/guias/grado-ip-bano-exterior/', 'Grados IP para baño y exterior'], ['/es/guias/luminoterapia-luz-manana-invierno/', 'Luz de la mañana en invierno'], ['/es/guias/regalar-bombillas-inteligentes/', 'Regalar bombillas inteligentes']]],
+  listB: ['Tutoriales', [['/es/tutoriales/calcular-lux-lumenes-por-estancia/', 'Calcular lux y lúmenes por estancia'], ['/es/tutoriales/sustituir-halogenos-gu10-mr16-por-led/', 'Sustituir halógenos GU10 y MR16'], ['/es/tutoriales/tira-led-bajo-muebles-cocina/', 'Tira LED bajo los muebles de cocina'], ['/es/tutoriales/interruptor-inteligente-sin-neutro/', 'Interruptor inteligente sin neutro'], ['/es/tutoriales/iluminar-trastero-sin-electricidad/', 'Iluminar un trastero sin electricidad'], ['/es/guias/noches-largas-luces-nocturnas/', 'Noches largas y luces nocturnas']]],
+  more: ['Prueba el simulador →', '/es/herramientas/'], idealFor: 'Ideal para:',
+},
+nl: {
+  badge: '💡 Onafhankelijke gidsen · bijgewerkt in oktober 2026', h1a: 'De juiste lamp,', h1b: 'in elke ruimte.',
+  lead: 'Fittingen, lumen, kleurtemperatuur, dimmers: alles wat je moet weten om in één keer de juiste ledlamp te kopen, in Nederland en in België.',
+  heroAlt: 'Woonkamer verlicht in zones: plafondlamp, ledstrip achter de tv, leeslamp en wandlamp',
+  btn1: ['Probeer de lichtsimulator →', '/nl/tools/'], btn2: ['Naar de gidsen', '#guides'],
+  stats: ['praktische gidsen', 'stap-voor-stap handleidingen', 'ruimtes in de simulator'],
+  cardsH: 'Begin hier', cardsP: 'De vragen die het vaakst opkomen voor je een lamp koopt.',
+  cards: [
+    { href: '/nl/gidsen/lampfittingen-e27-e14-gu10/', img: il('salon'), t: 'Lampfittingen', d: 'E27, E14, GU10, GU5.3, G9: in tien seconden herkend.' },
+    { href: '/nl/gidsen/lumen-watt/', img: il('cuisine'), t: 'Lumen in plaats van watt', d: 'Hoeveel lumen je oude lamp van 40, 60 of 100 W vervangt.' },
+    { href: '/nl/handleidingen/lux-lumen-per-ruimte-berekenen/', img: il('bureau-adulte'), t: 'Hoeveel licht per ruimte', d: 'Lux en lumen met een eenvoudige formule.' },
+    { href: '/nl/gidsen/kleurtemperatuur-kelvin/', img: il('chambre-adulte'), t: 'Kleurtemperatuur', d: '2700 K, 3000 K of 4000 K: wat past in welke ruimte.' },
+    { href: '/nl/gidsen/kleurweergave-cri-ra/', img: il('salle-manger'), t: 'Kleurweergave', d: 'Waarom Ra 90 het verschil maakt in keuken en badkamer.' },
+    { href: '/nl/gidsen/ip-beschermingsgraad-badkamer-buiten/', img: il('salle-bain'), t: 'IP-codes', d: 'Welke lamp in welke badkamerzone mag.' },
+    { href: '/nl/gidsen/dimbare-led-lampen/', img: il('chambre-enfant'), t: 'Dimbare led', d: 'Geen geflikker of gezoem meer op de dimmer.' },
+    { href: '/nl/handleidingen/halogeen-gu10-mr16-vervangen-door-led/', img: il('couloir'), t: 'Halogeenspots vervangen', d: 'GU10 en MR16 naar led, zonder gedoe met de trafo.' },
+    { href: '/nl/handleidingen/kelder-schuur-zonder-stroom-verlichten/', img: il('cave-sans-electricite'), t: 'Kelder zonder stroom', d: 'Accu en kleine zonnepanelen, berekend in wattuur.' },
+  ],
+  trust: [['🔎 Duidelijke criteria', 'Lumen, kelvin, kleurweergave en IP: elk advies vertrekt vanuit het gebruik van de ruimte.'], ['📐 Na te rekenen', 'Onze waarden komen uit normen en fabrieksgegevens, en we tonen elke berekening.'], ['🤝 Transparant', 'Partnerlinks kosten je niets extra. <a class="text-amber-700 underline" href="/nl/affiliatebeleid/">Affiliatebeleid</a>']],
+  tableH: 'Ruimte per ruimte, in één oogopslag', tableP: 'Instellingen die in de meeste woningen goed werken.',
+  cols: ['Ruimte', 'Kleurtemperatuur', 'Waar het om gaat', 'Goede keuze'],
+  rows: [['Woonkamer', '2700 K', 'Meerdere lichtpunten, dimbaar', 'Warmwitte E27-lamp, dimbaar'], ['Keuken (aanrecht)', '3000–4000 K', 'Ra 90, geen schaduw', 'Ledstrip onder de keukenkastjes'], ['Badkamer (spiegel)', '3000–4000 K', 'IP44 bij de wastafel', 'Spiegellamp IP44'], ['Slaapkamer', '2700 K of warmer', 'Zacht licht bij het bed', 'Dimbare warmwitte lamp'], ['Werkkamer', '4000 K', 'Genoeg licht op het bureau', 'Bureaulamp plus plafondlicht'], ['Gang', '3000 K', 'Spots gelijkmatig verdeeld', 'GU10-ledspots']],
+  picksH: 'Onze aanbevelingen van dit moment', picksSrc: 'Prijs en beschikbaarheid op Amazon.nl',
+  picks: [
+    { label: 'E27 voor de hele ruimte', name: 'Philips Hue White Ambiance E27', specs: ['Wit van warm tot koel', 'App en Bluetooth', 'Werkt ook zonder bridge'], use: 'het licht vanaf de telefoon regelen', href: amz('www.amazon.nl', 'B0FJ8VXHRX', 'manuso0607-21'), cta: 'Bekijk op Amazon.nl', asin: 'B0FJ8VXHRX' },
+    { label: 'E27 warmwit', name: 'Philips Hue White E27, 2-pack', specs: ['Warmwit', 'App en Bluetooth', '2 stuks'], use: 'de hoofdverlichting in de woonkamer', href: amz('www.amazon.nl', 'B099NPGWCQ', 'manuso0607-21'), cta: 'Bekijk op Amazon.nl', asin: 'B099NPGWCQ' },
+    { label: 'Slim kleur', name: 'Tapo L530E Wi-Fi kleur E27', specs: ['Kleur en wit', 'App Tapo', 'Fitting E27'], use: 'een lamp die van kleur verandert', href: amz('www.amazon.nl', 'B08GDC99PX', 'manuso0607-21'), cta: 'Bekijk op Amazon.nl', asin: 'B08GDC99PX' },
+  ],
+  picksNote: 'Amazon-partnerlink: als je via deze link koopt, ontvangen we een kleine commissie, zonder extra kosten voor jou. Geen prijs op deze pagina.',
+  partners: [
+    { mid: '107822', name: 'Besselink Licht', url: 'https://www.besselinklicht.nl/lichtbronnen', title: 'Een ledlamp kopen bij een Nederlandse lampenwinkel', text: 'Besselink Licht verkoopt ledlichtbronnen in alle gangbare fittingen, naast binnen- en buitenverlichting.', cta: 'Bekijk de lichtbronnen bij Besselink Licht' },
+    { mid: '8151', name: 'Lampen24 NL', url: 'https://www.lampen24.nl/c/lichtbronnen', title: 'Nog meer keus in lichtbronnen', text: 'Lampen24 heeft een groot assortiment ledlampen in alle fittingen, van E27 en E14 tot GU10 en G9.', cta: 'Bekijk de lichtbronnen bij Lampen24' },
+    { mid: '10152', name: 'Lampen24 BE', url: 'https://www.lampen24.be/c/lichtbronnen', title: 'Voor onze lezers in België', text: 'Lampen24.be levert hetzelfde assortiment lichtbronnen met verzending binnen België.', cta: 'Bekijk de lichtbronnen bij Lampen24.be' },
+  ],
+  partnerNote: 'Partnerlink: ik kan een commissie ontvangen, zonder extra kosten voor jou.',
+  listA: ['Gidsen', [['/nl/gidsen/lumen-watt/', 'Lumen en watt'], ['/nl/gidsen/lampfittingen-e27-e14-gu10/', 'Lampfittingen E27, E14, GU10'], ['/nl/gidsen/kleurtemperatuur-kelvin/', 'Kleurtemperatuur in kelvin'], ['/nl/gidsen/kleurweergave-cri-ra/', 'Kleurweergave (CRI/Ra)'], ['/nl/gidsen/ip-beschermingsgraad-badkamer-buiten/', 'IP-codes voor badkamer en buiten'], ['/nl/gidsen/dimbare-led-lampen/', 'Dimbare ledlampen']]],
+  listB: ['Handleidingen', [['/nl/handleidingen/lux-lumen-per-ruimte-berekenen/', 'Lux en lumen per ruimte berekenen'], ['/nl/handleidingen/halogeen-gu10-mr16-vervangen-door-led/', 'Halogeen GU10 en MR16 vervangen door led'], ['/nl/handleidingen/ledstrip-onder-keukenkastjes/', 'Ledstrip onder de keukenkastjes'], ['/nl/handleidingen/slimme-schakelaar-zonder-nul/', 'Slimme schakelaar zonder nul'], ['/nl/handleidingen/kelder-schuur-zonder-stroom-verlichten/', 'Kelder of schuur zonder stroom verlichten'], ['/nl/tools/', 'Lichtsimulator']]],
+  more: ['Naar de lichtsimulator →', '/nl/tools/'], idealFor: 'Ideaal voor:',
+},
+};

@@ -1,0 +1,54 @@
+# 1piece1ampoule.fr
+> Pages stratégiques pour crawlers IA et moteurs (Brave Search, GPTBot, Perplexity, Claude, Google-Extended).
+
+## Documentation
+- [Sitemap](https://1piece1ampoule.fr/sitemap-index.xml): index complet du site
+
+## Pages stratégiques
+
+- [Choisir son ampoule LED : guide pièce par pièce (2026)](https://1piece1ampoule.fr/): Page stratégique du site.
+- [Lighting guides with real data: bulb bases, lumens, Kelvin, CRI | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/): Page stratégique du site.
+- [Lighting guides with real data: bulb bases, lumens, Kelvin, CRI | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/index.html): Page stratégique du site.
+- [Lighting guides with real data: bulb bases, lumens, Kelvin, CRI | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/index.html): Page stratégique du site.
+- [Lichtratgeber mit echten Daten: Sockel, Lumen, Kelvin, Farbwiedergabe | 1 pièce 1 ampoule](https://1piece1ampoule.fr/de/): Lichtratgeber mit echten Daten: Sockel, Lumen, Kelvin, Farbwiedergabe. 💡 Unabhängige Ratgeber · aktualisiert im Oktober 2026 Ratgeber, Vergleiche und Tipps auf
+- [Guide all’illuminazione con dati reali: attacchi, lumen, kelvin, CRI | 1 pièce 1 ampoule](https://1piece1ampoule.fr/it/): Guide all’illuminazione con dati reali: attacchi, lumen, kelvin, CRI. 💡 Guide indipendenti · aggiornate a ottobre 2026 Guide pratiche e confronti su
+- [Guías de iluminación con datos reales: casquillos, lúmenes, kelvin, CRI | 1 pièce 1 ampoule](https://1piece1ampoule.fr/es/): Guías de iluminación con datos reales: casquillos, lúmenes, kelvin, CRI. 💡 Guías independientes · actualizadas en octubre de 2026 Guías prácticas y comparativas
+- [Black Friday 2026 : offres par catégorie](https://1piece1ampoule.fr/codes-promo/): Black Friday 2026 : offres par catégorie. Les remises du moment chez les marchands d’éclairage que nous recommandons, avec le code à saisir, les conditions et
+- [Codes promo et bons plans éclairage — octobre 2026](https://1piece1ampoule.fr/codes-promo/): Codes promo et bons plans éclairage. Les remises du moment chez les marchands d’éclairage que nous recommandons, avec le code à saisir, les conditions et la
+- [Guides éclairage LED : lumens, Kelvin, IRC, culots, IP](https://1piece1ampoule.fr/guides/): Guides éclairage LED : lumens, Kelvin, IRC, culots, IP. Les bases pour acheter juste du premier coup. Ensuite, chaque guide propose aussi des liens produits
+- [Halogenspots GU10 und MR16 (GU5.3) durch LED ersetzen](https://1piece1ampoule.fr/de/anleitungen/halogen-gu10-mr16-durch-led-ersetzen/): Halogenspots GU10 und MR16 (GU5.3) durch LED ersetzen. Von Emmanuel Sauvage · Aktualisiert am 22. Oktober 2026 Ratgeber, Vergleiche und Tipps auf
+- [Keller, Gartenhaus oder Garage ohne Strom beleuchten: Akku, 12-V-Solar, Rechnung in Wh](https://1piece1ampoule.fr/de/anleitungen/keller-ohne-strom-beleuchten/): Page stratégique du site.
+- [LED-Streifen unter Hängeschränken: 12 V oder 24 V, Kabelquerschnitt, Netzteil](https://1piece1ampoule.fr/de/anleitungen/led-streifen-unter-haengeschraenken/): Page stratégique du site.
+- [Wie viel Licht braucht ein Raum? Lux und Lumen berechnen (DIN EN 12464-1)](https://1piece1ampoule.fr/de/anleitungen/lux-lumen-pro-raum-berechnen/): Page stratégique du site.
+- [Smarter Lichtschalter ohne Neutralleiter: warum LEDs flackern und was hilft](https://1piece1ampoule.fr/de/anleitungen/smarter-schalter-ohne-neutralleiter/): Page stratégique du site.
+- [Cookie-Richtlinie | 1 pièce 1 ampoule](https://1piece1ampoule.fr/de/cookies/): Cookie. Vor Ihrer Entscheidung wird nur die technisch notwendige Speicherung genutzt. Ratgeber, Vergleiche und Tipps auf 1piece1ampoule.fr. 1piece1ampoule.fr
+- [Datenschutzerklärung | 1 pièce 1 ampoule](https://1piece1ampoule.fr/de/datenschutz/): Welche personenbezogenen Daten 1piece1ampoule.fr verarbeitet (Google Analytics nur mit Einwilligung), Rechtsgrundlage und Ihre Rechte nach DSGVO.
+- [Impressum | 1 pièce 1 ampoule](https://1piece1ampoule.fr/de/impressum/): Impressum. Emmanuel SAUVAGE 10 rue des Acacias 59193 Erquinghem-Lys, Frankreich E-Mail: contact@1piece1ampoule.fr Website: emmanuelsauvage.fr Ratgeber
+- [Dimmbare LED-Lampen: Phasenanschnitt, Phasenabschnitt, Flackern und Brummen](https://1piece1ampoule.fr/de/ratgeber/dimmbare-led-lampen/): Page stratégique du site.
+- [Farbtemperatur: 2700 K, 3000 K, 4000 K oder 6500 K – Raum für Raum](https://1piece1ampoule.fr/de/ratgeber/farbtemperatur-kelvin/): Page stratégique du site.
+- [Farbwiedergabe (CRI/Ra): warum Ra 90 zählt – und was R9 ist](https://1piece1ampoule.fr/de/ratgeber/farbwiedergabe-cri-ra/): Page stratégique du site.
+- [IP-Schutzarten für Leuchten: Badbereiche nach DIN VDE 0100-701 und außen](https://1piece1ampoule.fr/de/ratgeber/ip-schutzarten-bad-aussen/): IP. Von Emmanuel Sauvage · Aktualisiert am 22. Oktober 2026 Ratgeber, Vergleiche und Tipps auf 1piece1ampoule.fr. (1piece1ampoule.fr) — 1piece1ampoule.fr
+- [Lampensockel erkennen: E27, E14, GU10, GU5.3 (MR16), G9, B22](https://1piece1ampoule.fr/de/ratgeber/lampensockel-e27-e14-gu10/): Page stratégique du site.
+- [Lumen statt Watt: LED-Äquivalenztabelle und Energielabel (2026)](https://1piece1ampoule.fr/de/ratgeber/lumen-watt/): Lumen statt Watt: LED. Von Emmanuel Sauvage · Aktualisiert am 22. Oktober 2026 Ratgeber, Vergleiche und Tipps auf 1piece1ampoule.fr. 1piece1ampoule.fr
+- [Werbehinweis und Affiliate-Links | 1 pièce 1 ampoule](https://1piece1ampoule.fr/de/werbehinweis/): Werbehinweis und Affiliate. Einige Links auf den deutschen Seiten sind Affiliate-Links. So funktionieren sie. Ratgeber, Vergleiche und Tipps auf Ratgeber
+- [Lichtsimulator: Lumen, Kelvin und Farbwiedergabe für jeden Raum | 1 pièce 1 ampoule](https://1piece1ampoule.fr/de/werkzeuge/): Page stratégique du site.
+- [Affiliate disclosure | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/affiliate-disclosure/): Affiliate disclosure. As an Amazon Associate I earn from qualifying purchases. Practical guides and comparisons on 1piece1ampoule.fr. 1piece1ampoule.fr
+- [Cookie policy | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/cookies/): Cookie policy. &quot;Accept all&quot; and &quot;Reject all&quot; are shown side by side with equal weight, following CNIL guidance. Rejecting has no effect on access to the site.
+- [Bulb bases explained: B22, E26, E27, E14, GU10, MR16 (UK and US)](https://1piece1ampoule.fr/en/guides/bulb-bases-b22-e26-e27-gu10/): Page stratégique du site.
+- [Colour temperature: 2700K vs 3000K vs 4000K vs 5000K, room by room](https://1piece1ampoule.fr/en/guides/colour-temperature-kelvin/): Page stratégique du site.
+- [CRI explained: why CRI 90 matters (and what R9 is)](https://1piece1ampoule.fr/en/guides/cri-colour-rendering-index/): CRI explained: why CRI 90 matters (and what R9 is). By Emmanuel Sauvage · Updated 22 October 2026 Practical guides and comparisons on 1piece1ampoule.fr.
+- [Dimmable LED bulbs: dimmer compatibility, flicker and buzzing (UK and US)](https://1piece1ampoule.fr/en/guides/dimmable-led-bulbs/): Page stratégique du site.
+- [IP ratings for lights: UK bathroom zones and US damp/wet locations](https://1piece1ampoule.fr/en/guides/ip-ratings-bathroom-outdoor/): Page stratégique du site.
+- [Lumens vs watts: LED equivalence tables for the UK and US (2026)](https://1piece1ampoule.fr/en/guides/lumens-vs-watts/): Page stratégique du site.
+- [Legal notice | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/legal-notice/): Legal notice. Information required under French law (LCEN, article 6). Practical guides and comparisons on 1piece1ampoule.fr. 1piece1ampoule.fr Practical guides
+- [Privacy policy | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/privacy/): Privacy policy. We collect as little as possible: audience statistics only if you accept them. Practical guides and comparisons on 1piece1ampoule.fr.
+- [Lighting simulator: lumens, colour temperature and CRI room by room | 1 pièce 1 ampoule](https://1piece1ampoule.fr/en/tools/): Page stratégique du site.
+- [How much light does a room need? Lux, foot-candles and lumens calculator](https://1piece1ampoule.fr/en/tutorials/how-much-light-per-room-lux-foot-candles/): Page stratégique du site.
+- [Lighting a cellar, shed or garage with no power: batteries, 12V solar kit, Wh maths](https://1piece1ampoule.fr/en/tutorials/light-basement-shed-without-power/): Lighting a cellar, shed or garage with no power: batteries, 12V solar kit, Wh maths. By Emmanuel Sauvage · Updated 23 October 2026 Practical guides and
+- [Replace halogen GU10 and MR16 spotlights with LED (UK and US)](https://1piece1ampoule.fr/en/tutorials/replace-halogen-gu10-mr16-with-led/): Page stratégique du site.
+- [Smart switch with no neutral wire: why LEDs flicker and how to fix it](https://1piece1ampoule.fr/en/tutorials/smart-switch-no-neutral/): Page stratégique du site.
+- [Under-cabinet LED strip lights: 12V or 24V, wire gauge, power supply (UK &amp; US)](https://1piece1ampoule.fr/en/tutorials/under-cabinet-led-strip-kitchen/): Under. By Emmanuel Sauvage · Updated 23 October 2026 Practical guides and comparisons on 1piece1ampoule.fr. (1piece1ampoule.fr) — 1piece1ampoule.fr
+- [¿Cuánta luz necesita una estancia? Calcular lux y lúmenes (UNE-EN 12464-1)](https://1piece1ampoule.fr/es/tutoriales/calcular-lux-lumenes-por-estancia/): Page stratégique du site.
+- [Ampoule LED qui clignote éteinte, grésille ou reste allumée : dépannage](https://1piece1ampoule.fr/guides/ampoule-led-clignote-eteinte-gresille-depannage/): Ampoule LED qui clignote éteinte, grésille ou reste allumée : dépannage. Par Emmanuel Sauvage · Mis à jour le 24 octobre 2026 Guides, comparatifs et conseils
+- [Ampoule dimmable et variateur LED : compatibilité (guide)](https://1piece1ampoule.fr/guides/ampoules-dimmables-variateur/): Page stratégique du site.
+- [Ampoule Govee bloquée après mise à jour firmware : dépannage pas à pas](https://1piece1ampoule.fr/guides/code-erreur/govee-bulb-firmware-brick/): Page stratégique du site.

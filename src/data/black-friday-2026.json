@@ -1,0 +1,2110 @@
+{
+ "site": "1piece1ampoule",
+ "publisher_id": 3127458,
+ "updated": "2026-10-29",
+ "joined_advertisers": 49,
+ "merchants": [
+  {
+   "name": "Tooled Up",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/496.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=496&awinaffid=3127458",
+   "sector": "DIY"
+  },
+  {
+   "name": "Simply LED",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/5190.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=5190&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lights 4 Living",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/5723.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=5723&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Luminaire FR",
+   "region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/7498.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lampen24 NL",
+   "region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/8151.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lampenwelt CH",
+   "region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lampen24 BE",
+   "region": "BE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10152.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lampade IT",
+   "region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10404.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lampara ES",
+   "region": "ES",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10548.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Trotec DACH",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/14288.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=14288&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "ManoMano FR",
+   "region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/17547.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=17547&awinaffid=3127458",
+   "sector": "DIY"
+  },
+  {
+   "name": "Vevor US",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Vevor DE",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28833.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Vevor UK",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28839.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=28839&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "2echoix",
+   "region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/31151.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=31151&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Casa Moro DE",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/31431.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=31431&awinaffid=3127458",
+   "sector": "Furniture & Soft Furnishings"
+  },
+  {
+   "name": "Heimwerkertools DE",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/37928.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=37928&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Rowabi",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/46127.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=46127&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "My Tool Shed",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/49385.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=49385&awinaffid=3127458",
+   "sector": "DIY"
+  },
+  {
+   "name": "Garvee Innovation Inc",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/52725.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=52725&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Gemax DE",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/59747.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=59747&awinaffid=3127458",
+   "sector": "DIY"
+  },
+  {
+   "name": "Gardenreet LLC",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/62217.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=62217&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Trotec - FR",
+   "region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/62319.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=62319&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "NEW IMAGE GIIFTS LIMITED",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/71031.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=71031&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "EcoGear FX, Inc.",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/82955.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=82955&awinaffid=3127458",
+   "sector": "Sports Equipment"
+  },
+  {
+   "name": "Starlight Lighting",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/89797.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=89797&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "IMALENT",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/94223.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "OSRAM Homelighting FR",
+   "region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/98739.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458",
+   "sector": "Electronic Superstore"
+  },
+  {
+   "name": "Trotec - Benelux",
+   "region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/101825.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=101825&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lightsin UK",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/106979.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=106979&awinaffid=3127458",
+   "sector": "Furniture & Soft Furnishings"
+  },
+  {
+   "name": "Besselink Licht",
+   "region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/107822.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=107822&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Trotec - UK",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/115373.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=115373&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Trotec - IT",
+   "region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/115365.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Toolchest.de Werkzeug Shop",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/117285.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=117285&awinaffid=3127458",
+   "sector": "DIY"
+  },
+  {
+   "name": "LitONES",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/117907.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=117907&awinaffid=3127458",
+   "sector": "Electronic Accessories"
+  },
+  {
+   "name": "Vevor Rest of Europe",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118431.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Vevor IT",
+   "region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118433.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Heimwerkertools IT",
+   "region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/119935.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=119935&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Shelly UK",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/121796.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=121796&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Tilswall",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/123694.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=123694&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Regina Andrew Detroit",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/127767.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=127767&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "flymusbath (DE)",
+   "region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/128393.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=128393&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "BeyPan Store",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/129487.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=129487&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "GRABO",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/129497.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=129497&awinaffid=3127458",
+   "sector": "DIY"
+  },
+  {
+   "name": "LightsLux (US)",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/129963.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=129963&awinaffid=3127458",
+   "sector": "Furniture & Soft Furnishings"
+  },
+  {
+   "name": "Formadore NL",
+   "region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/130023.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=130023&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Formadore UK",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/130025.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=130025&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Formadore IT",
+   "region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/130027.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=130027&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Decorbites Decor and furniture (US)",
+   "region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/130113.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=130113&awinaffid=3127458",
+   "sector": "Home & Garden"
+  },
+  {
+   "name": "Lighting Go (UK)",
+   "region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/131044.png",
+   "url": "https://www.awin1.com/cread.php?awinmid=131044&awinaffid=3127458",
+   "sector": "Home & Garden"
+  }
+ ],
+ "offers": [
+  {
+   "merchant": "Luminaire FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/7498.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Jusqu'à -65 % sur toutes les catégories*",
+   "description": "Black November : profitez de jusqu'à -65 % sur toutes les catégories*. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "terms": "Black November : profitez de jusqu'à -65 % sur toutes les catégories*. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "FR"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 NL",
+   "merchant_region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/8151.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Tot wel 65% korting in alle categorieën*",
+   "description": "Black November: Profiteer nu van tot wel 65% korting in alle categorieën*. Deze actie is geldig van 02-11-2026 t/m 08-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "terms": "Black November: Profiteer nu van tot wel 65% korting in alle categorieën*. Deze actie is geldig van 02-11-2026 t/m 08-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-07",
+   "regions": [
+    "NL"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Jusqu'à -65 % sur toutes les catégories*",
+   "description": "Black November : profitez de jusqu'à -65 % sur toutes les catégories*. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "terms": "Black November : profitez de jusqu'à -65 % sur toutes les catégories*. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "CH"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Ffr.lumories.ch%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Bis zu 65% Rabatt in allen Kategorien*",
+   "description": "Black November: Sichern Sie sich jetzt bis zu 65% Rabatt in allen Kategorien*. Die Aktion ist gültig vom 02.11.2026 bis zum 08.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "terms": "Black November: Sichern Sie sich jetzt bis zu 65% Rabatt in allen Kategorien*. Die Aktion ist gültig vom 02.11.2026 bis zum 08.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "CH"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.ch%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 BE",
+   "merchant_region": "BE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10152.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Tot wel 65% korting in alle categorieën*",
+   "description": "Black November: Profiteer nu van tot wel 65% korting in alle categorieën*. Deze actie is geldig van 02-11-2026 t.e.m. 08-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "terms": "Black November: Profiteer nu van tot wel 65% korting in alle categorieën*. Deze actie is geldig van 02-11-2026 t.e.m. 08-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "BE"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.be%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampade IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10404.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Fino al -65% su tutte le categorie*",
+   "description": "Black November: Risparmia ora fino al 65% su tutte le categorie*. Promozione valida dal 02.11.2026 al 08.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "terms": "Black November: Risparmia ora fino al 65% su tutte le categorie*. Promozione valida dal 02.11.2026 al 08.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "IT"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Fsconti",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampara ES",
+   "merchant_region": "ES",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10548.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Hasta el -65% en todas las categorías*",
+   "description": "Black November: Ahorra ahora hasta el 65% en todas las categorías*. La promoción es válida desde el 02.11.2026 hasta el 08.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "terms": "Black November: Ahorra ahora hasta el 65% en todas las categorías*. La promoción es válida desde el 02.11.2026 hasta el 08.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "ES"
+   ],
+   "pct": 65,
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fofertas",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Luminaire FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/7498.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "voucher",
+   "title": "Économisez jusqu'à -13 % suppl. sur presque tout* !",
+   "description": "Black November : profitez de jusqu'à -13 % suppl. sur presque tout*. Avec le code promotionnel, bénéficiez d'une remise suppl. de 13 % à partir d'un montant minimum d'achat de 159 € ou 10 % à partir d'un montant minimum d'achat de 109 €. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "terms": "Black November : profitez de jusqu'à -13 % suppl. sur presque tout*. Avec le code promotionnel, bénéficiez d'une remise suppl. de 13 % à partir d'un montant minimum d'achat de 159 € ou 10 % à partir d'un montant minimum d'achat de 109 €. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "code": "BLACKNOV",
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "FR"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 NL",
+   "merchant_region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/8151.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "voucher",
+   "title": "Bespaar nu tot wel 13% extra op bijna alles*!",
+   "description": "Black November: Profiteer nu van tot wel 13% extra op bijna alles*. Met onze kortingscode bespaar je 13% extra vanaf een minimale bestelwaarde van €159 en 10% extra vanaf een minimale bestelwaarde van €99. Deze actie is geldig van 02-11-2026 t/m 08-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "terms": "Black November: Profiteer nu van tot wel 13% extra op bijna alles*. Met onze kortingscode bespaar je 13% extra vanaf een minimale bestelwaarde van €159 en 10% extra vanaf een minimale bestelwaarde van €99. Deze actie is geldig van 02-11-2026 t/m 08-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "code": "BLACKNOV",
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "NL"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "promotion",
+   "title": "Économisez jusqu'à -13 % suppl. sur presque tout* !",
+   "description": "Black November : profitez de jusqu'à -13 % suppl. sur presque tout*. Avec le code promotionnel BLACKNOV, bénéficiez d'une remise suppl. de 13 % à partir d'un montant minimum d'achat de CHF 199 ou 10 % à partir d'un montant minimum d'achat de CHF 149. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "terms": "Black November : profitez de jusqu'à -13 % suppl. sur presque tout*. Avec le code promotionnel BLACKNOV, bénéficiez d'une remise suppl. de 13 % à partir d'un montant minimum d'achat de CHF 199 ou 10 % à partir d'un montant minimum d'achat de CHF 149. Promotion valable du 02/11/2026 au 08/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "code": null,
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "CH"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Ffr.lumories.ch%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "voucher",
+   "title": "Jetzt bis zu 13% extra auf fast alles sparen*!",
+   "description": "Black November: Sichern Sie sich jetzt bis zu 13% extra auf fast alles*. Mit unserem Rabattcode sparen Sie zusätzlich 13% ab einem Bestellwert von CHF 199 und 10% ab einem Bestellwert von CHF 149. Die Aktion ist gültig vom 02.11.2026 bis zum 08.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "terms": "Black November: Sichern Sie sich jetzt bis zu 13% extra auf fast alles*. Mit unserem Rabattcode sparen Sie zusätzlich 13% ab einem Bestellwert von CHF 199 und 10% ab einem Bestellwert von CHF 149. Die Aktion ist gültig vom 02.11.2026 bis zum 08.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "code": "BLACKNOV",
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "CH"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.ch%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 BE",
+   "merchant_region": "BE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10152.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "voucher",
+   "title": "Bespaar nu tot wel 13% extra op bijna alles*!",
+   "description": "Black November: Profiteer nu van tot wel 13% extra op bijna alles*. Met onze kortingscode bespaar je 13% extra vanaf een minimale bestelwaarde van €159 en 10% extra vanaf een minimale bestelwaarde van €99. Deze actie is geldig van 02-11-2026 t.e.m. 08-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "terms": "Black November: Profiteer nu van tot wel 13% extra op bijna alles*. Met onze kortingscode bespaar je 13% extra vanaf een minimale bestelwaarde van €159 en 10% extra vanaf een minimale bestelwaarde van €99. Deze actie is geldig van 02-11-2026 t.e.m. 08-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "code": "BLACKNOV",
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "BE"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.be%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampade IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10404.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "voucher",
+   "title": "Approfitta subito di uno sconto extra fino al 13% su quasi tutto*!",
+   "description": "Black November: Risparmia ora fino al 13% extra su quasi tutto*. Con il nostro codice sconto ottieni subito il 13% di sconto extra per ordini a partire da 159€ o il 10% di sconto extra per ordini a partire da 109€. Promozione valida dal 02.11.2026 al 08.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "terms": "Black November: Risparmia ora fino al 13% extra su quasi tutto*. Con il nostro codice sconto ottieni subito il 13% di sconto extra per ordini a partire da 159€ o il 10% di sconto extra per ordini a partire da 109€. Promozione valida dal 02.11.2026 al 08.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "code": "BLACKNOV",
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "IT"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Fsconti",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampara ES",
+   "merchant_region": "ES",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10548.png",
+   "bf": true,
+   "status": "upcoming",
+   "type": "voucher",
+   "title": "Aprovecha el descuento extra de hasta el 13% en casi todo*!",
+   "description": "Black November: Ahorra ahora hasta el 13% extra en casi todo*. Con nuestro código de descuento puedes ahorrar un 13% extra en pedidos a partir de 159€ o un 10% extra en pedidos a partir de 109€. La promoción es válida desde el 02.11.2026 hasta el 08.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "terms": "Black November: Ahorra ahora hasta el 13% extra en casi todo*. Con nuestro código de descuento puedes ahorrar un 13% extra en pedidos a partir de 159€ o un 10% extra en pedidos a partir de 109€. La promoción es válida desde el 02.11.2026 hasta el 08.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "code": "BLACKNOV",
+   "start": "2026-11-01",
+   "end": "2026-11-08",
+   "regions": [
+    "ES"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fofertas",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Luminaire FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/7498.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Jusqu'à -70 % sur plus de 20 000 produits*",
+   "description": "Black Mega Sale : profitez de jusqu'à -70 % sur plus de 20 000 produits*. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "terms": "Black Mega Sale : profitez de jusqu'à -70 % sur plus de 20 000 produits*. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "FR"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 NL",
+   "merchant_region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/8151.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Tot wel 70% korting op meer dan 20.000 producten*",
+   "description": "Black Mega Sale: Profiteer nu van tot wel 70% korting op meer dan 20.000 producten*. Deze actie is geldig van 28-10-2026 t/m 01-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "terms": "Black Mega Sale: Profiteer nu van tot wel 70% korting op meer dan 20.000 producten*. Deze actie is geldig van 28-10-2026 t/m 01-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "NL"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Jusqu'à -70 % sur plus de 15 000 produits*",
+   "description": "Black Mega Sale : profitez de jusqu'à -70 % sur plus de 15 000 produits*. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "terms": "Black Mega Sale : profitez de jusqu'à -70 % sur plus de 15 000 produits*. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "CH"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Ffr.lumories.ch%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Bis zu 70% Rabatt auf über 15'000 Produkte*",
+   "description": "Black Mega Sale: Sichern Sie sich jetzt bis zu 70% Rabatt auf über 15'000 Produkte*. Die Aktion ist gültig vom 28.10.2026 bis zum 01.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "terms": "Black Mega Sale: Sichern Sie sich jetzt bis zu 70% Rabatt auf über 15'000 Produkte*. Die Aktion ist gültig vom 28.10.2026 bis zum 01.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "CH"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.ch%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 BE",
+   "merchant_region": "BE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10152.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Tot wel 70% korting op meer dan 20.000 producten*",
+   "description": "Black Mega Sale: Profiteer nu van tot wel 70% korting op meer dan 20.000 producten*. Deze actie is geldig van 28-10-2026 t.e.m. 01-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "terms": "Black Mega Sale: Profiteer nu van tot wel 70% korting op meer dan 20.000 producten*. Deze actie is geldig van 28-10-2026 t.e.m. 01-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "BE"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.be%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampade IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10404.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Fino al -70% su oltre 20.000 prodotti*",
+   "description": "Black Mega Sale: Risparmia ora fino al 70% su oltre 20.000 prodotti*. Promozione valida dal 28.10.2026 al 01.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "terms": "Black Mega Sale: Risparmia ora fino al 70% su oltre 20.000 prodotti*. Promozione valida dal 28.10.2026 al 01.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "IT"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Fsconti",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampara ES",
+   "merchant_region": "ES",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10548.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Hasta el -70% en más de 20.000 artículos*",
+   "description": "Black Mega Sale: Ahorra ahora hasta el 70% en más de 20.000 artículos*. La promoción es válida desde el 28.10.2026 hasta el 01.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "terms": "Black Mega Sale: Ahorra ahora hasta el 70% en más de 20.000 artículos*. La promoción es válida desde el 28.10.2026 hasta el 01.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "ES"
+   ],
+   "pct": 70,
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fofertas",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Decorbites Decor and furniture (US)",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/130113.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Up to 50% Off + Extra 10% Off Your First Order",
+   "description": "Enjoy incredible savings on your favorite products!  Get up to 50% OFF across our store, plus enjoy an extra 10% OFF your first order. Shop now and treat yourself to more for less!",
+   "terms": "### Terms & Conditions\n\n* Enjoy **up to 50% OFF** on selected products.\n* The **additional 10% OFF** is valid for **first-time customers only**.\n* The 10% discount may require a valid coupon code at checkout.\n* The offer is valid for a limited time and may end without prior notice.\n* Discounts cannot be combined with other promotions, coupons, or special offers unless otherwise stated.\n* The disco",
+   "code": "Q410",
+   "start": "2026-10-08",
+   "end": "2027-01-01",
+   "regions": [
+    "GB",
+    "US",
+    "FR",
+    "DE",
+    "NL",
+    "ES",
+    "CH",
+    "SE",
+    "AU",
+    "NZ",
+    "AE"
+   ],
+   "pct": 50,
+   "url": "https://www.awin1.com/cread.php?awinmid=130113&awinaffid=3127458&campaign=home+decor+fall+boost&ued=https%3A%2F%2Fdecorbites.com",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Spring Outdoor Cooking & BBQ Up to 40% OFF",
+   "description": "Get up to 40% off on outdoor cooking and BBQ gear this spring. Limited-time deals on grills, smokers, and more—shop now!",
+   "terms": "",
+   "code": null,
+   "start": "2025-04-10",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 40,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2Fpromotion%2FSpring-Outdoor-Cooking-special-10212.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "LitONES",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/117907.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Bye Summer 35% Sale + 15% Creator discount",
+   "description": "Save big on your next purchase with this exclusive coupon. Use it\nat checkout and get instant 15% saving today.",
+   "terms": "Upgrade Every Workspace with LitONES\n\nWe're looking for passionate creators in the home office, desk setup, gaming, productivity, streaming, and miniature hobby communities to share their authentic experience with LitONES ComforGlow.\n\nLitONES combines powerful task lighting with immersive mood lighting, helping users stay focused during work and instantly switch to a more relaxing atmosphere when ",
+   "code": "BYESUMMER15",
+   "start": "2026-07-07",
+   "end": "2027-01-02",
+   "regions": [
+    "GB",
+    "IE",
+    "US",
+    "CA",
+    "FR",
+    "DE",
+    "AT",
+    "BE",
+    "NL",
+    "ES",
+    "IT",
+    "FI",
+    "PL",
+    "CH",
+    "SE",
+    "NO",
+    "DK",
+    "AU",
+    "BR",
+    "PT",
+    "RU",
+    "CZ",
+    "HU",
+    "RO",
+    "SK",
+    "SI",
+    "UA",
+    "BG",
+    "HR",
+    "GR",
+    "LV",
+    "LT",
+    "NZ",
+    "ZA",
+    "AE",
+    "CN",
+    "IN",
+    "JP",
+    "SG",
+    "AR",
+    "CL",
+    "CO",
+    "MX",
+    "PE",
+    "TR",
+    "BU",
+    "XP"
+   ],
+   "pct": 35,
+   "url": "https://www.awin1.com/cread.php?awinmid=117907&awinaffid=3127458&campaign=us+desk+lamp+boost&ued=https%3A%2F%2Fwww.litones.com",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "OSRAM Homelighting FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/98739.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "OSRAM ALL STARS | Nos meilleures ventes à prix promo!",
+   "description": "Profitez dès maintenant du code ALLSTARS et économisez 25% sur nos meilleures ventes, pour une durée limitée seulement.",
+   "terms": "-",
+   "code": "ALLSTARS",
+   "start": "2026-09-15",
+   "end": "2026-10-31",
+   "regions": [
+    "FR"
+   ],
+   "pct": 25,
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458&ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fall-stars",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Trotec DACH",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/14288.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "20% Rabatt auf ausgewählte Produkte",
+   "description": "20% Rabatt auf ausgewählte Produkte",
+   "terms": "ausgewählte Artikel auf der Landingpage",
+   "code": "DEAL20",
+   "start": "2026-10-29",
+   "end": "2026-11-08",
+   "regions": [
+    "DE"
+   ],
+   "pct": 20,
+   "url": "https://www.awin1.com/cread.php?awinmid=14288&awinaffid=3127458&ued=https%3A%2F%2Fde.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Trotec - FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/62319.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "20 % de réduction sur une sélection de produits",
+   "description": "20 % de réduction sur une sélection de produits",
+   "terms": "Uniquement pour certains articles sur la page de destination",
+   "code": "DEAL20",
+   "start": "2026-10-29",
+   "end": "2026-11-08",
+   "regions": [
+    "FR"
+   ],
+   "pct": 20,
+   "url": "https://www.awin1.com/cread.php?awinmid=62319&awinaffid=3127458&ued=https%3A%2F%2Ffr.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Trotec - Benelux",
+   "merchant_region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/101825.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "20% korting op geselecteerde producten",
+   "description": "ook BE. 20% op geselecteerde producten",
+   "terms": "Alleen voor geselecteerde artikelen op de landingspagina",
+   "code": "DEAL20",
+   "start": "2026-10-29",
+   "end": "2026-11-08",
+   "regions": [
+    "NL"
+   ],
+   "pct": 20,
+   "url": "https://www.awin1.com/cread.php?awinmid=101825&awinaffid=3127458&ued=https%3A%2F%2Fnl.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Trotec - UK",
+   "merchant_region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/115373.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "20% discount on selected products",
+   "description": "20% discount on selected products",
+   "terms": "only products shown on LP",
+   "code": "DEAL20",
+   "start": "2026-10-29",
+   "end": "2026-11-08",
+   "regions": [
+    "GB"
+   ],
+   "pct": 20,
+   "url": "https://www.awin1.com/cread.php?awinmid=115373&awinaffid=3127458&ued=https%3A%2F%2Fen.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Garvee Innovation Inc",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/52725.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "15% Off Coupon for Furniture Porducts",
+   "description": "15% Off for Furniture Porducts, include Bedroom Furniture, Living Room Furniture, Kitchen & Dining Furniture, Entryway Furniture, Kids' Furniture, Office Furniture, Outdoor & Patio Furniture, Pet Furniture, Bathroom Furniture.",
+   "terms": "NO",
+   "code": "SFT5102",
+   "start": "2025-01-04",
+   "end": "2027-05-30",
+   "regions": [
+    "US"
+   ],
+   "pct": 15,
+   "url": "https://www.awin1.com/cread.php?awinmid=52725&awinaffid=3127458&ued=https%3A%2F%2Fwww.garvee.com%2Fcollections%2Ffurniture",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "EcoGear FX, Inc.",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/82955.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Tactical Backpacks - Get 15% OFF",
+   "description": "Tactical Backpack, Flashlights & Outdoor Gear",
+   "terms": "Limit one per customer, cannot be used on sale items",
+   "code": "GEAR15",
+   "start": "2018-02-19",
+   "end": "2050-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 15,
+   "url": "https://www.awin1.com/cread.php?awinmid=82955&awinaffid=3127458&ued=https%3A%2F%2Fwww.ecogearfx.com%2Fproduct-category%2Ftactical-gear%2Ftactical-backpack-shoulder-sling-bags%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "LitONES",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/117907.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Professional Architect Desk Lamp",
+   "description": "Get 15% Off On LitONES Official",
+   "terms": "All relevant order could get a 8% off discount through the coupon code.",
+   "code": "PROLIGHT8",
+   "start": "2026-01-21",
+   "end": "2027-01-21",
+   "regions": [
+    "US"
+   ],
+   "pct": 15,
+   "url": "https://www.awin1.com/cread.php?awinmid=117907&awinaffid=3127458&ued=https%3A%2F%2Fwww.litones.net",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "BeyPan Store",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/129487.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "15%OFFBeypan",
+   "description": "Get 15% off your order on site-wide blown glass chandelier, high-end modern lighting and home decor. Apply code 15OFFbeypan at checkout to redeem this exclusive affiliate offer. Free shipping available on orders over $150. Valid for a limited time only.",
+   "terms": "Can only be used once",
+   "code": "15OFFbeypan",
+   "start": "2026-09-06",
+   "end": "2026-11-06",
+   "regions": [
+    "US"
+   ],
+   "pct": 15,
+   "url": "https://www.awin1.com/cread.php?awinmid=129487&awinaffid=3127458&campaign=us+lighting+fall+promo+2026&ued=https%3A%2F%2Fbeypanstore.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "GRABO",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/129497.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "15% off sitewide at GRABO with code GRABOAW15",
+   "description": "Save 15% on GRABO battery vacuum lifters, lifting tools and accessories for tile, stone, glass and sheet goods at order.grabo.com with code GRABOAW15. Free US shipping on every order.",
+   "terms": "Code GRABOAW15 takes 15% off at order.grabo.com checkout. One code per order, cannot be combined with other codes. US orders. Valid until 31 January 2027.",
+   "code": "GRABOAW15",
+   "start": "2026-10-25",
+   "end": "2027-01-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 15,
+   "url": "https://www.awin1.com/cread.php?awinmid=129497&awinaffid=3127458&ued=https%3A%2F%2Forder.grabo.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Luminaire FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/7498.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Économisez jusqu'à -14 % suppl. sur presque tout* !",
+   "description": "Black Mega Sale : profitez de jusqu'à -14 % suppl. sur presque tout*. Avec le code promotionnel, bénéficiez d'une remise suppl. de 14 % à partir d'un montant minimum d'achat de 179 € ou 11 % à partir d'un montant minimum d'achat de 119 €. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "terms": "Black Mega Sale : profitez de jusqu'à -14 % suppl. sur presque tout*. Avec le code promotionnel, bénéficiez d'une remise suppl. de 14 % à partir d'un montant minimum d'achat de 179 € ou 11 % à partir d'un montant minimum d'achat de 119 €. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.luminaire.fr. En profiter dès maintenant !",
+   "code": "MEGABLACK",
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "FR"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 NL",
+   "merchant_region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/8151.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Bespaar nu tot wel 14% extra op bijna alles*!",
+   "description": "Black Mega Sale: Profiteer nu van tot wel 14% extra op bijna alles*. Met onze kortingscode bespaar je 14% extra vanaf een minimale bestelwaarde van €179 en 11% extra vanaf een minimale bestelwaarde van €109. Deze actie is geldig van 28-10-2026 t/m 01-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "terms": "Black Mega Sale: Profiteer nu van tot wel 14% extra op bijna alles*. Met onze kortingscode bespaar je 14% extra vanaf een minimale bestelwaarde van €179 en 11% extra vanaf een minimale bestelwaarde van €109. Deze actie is geldig van 28-10-2026 t/m 01-11-2026 - enkel op www.lampen24.nl. Nu besparen!",
+   "code": "MEGABLACK",
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "NL"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Économisez jusqu'à -14 % suppl. sur presque tout* !",
+   "description": "Black Mega Sale : profitez de jusqu'à -14 % suppl. sur presque tout*. Avec le code promotionnel MEGABLACK, bénéficiez d'une remise suppl. de 14 % à partir d'un montant minimum d'achat de CHF 209 ou 11 % à partir d'un montant minimum d'achat de CHF 159. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "terms": "Black Mega Sale : profitez de jusqu'à -14 % suppl. sur presque tout*. Avec le code promotionnel MEGABLACK, bénéficiez d'une remise suppl. de 14 % à partir d'un montant minimum d'achat de CHF 209 ou 11 % à partir d'un montant minimum d'achat de CHF 159. Promotion valable du 28/10/2026 au 01/11/2026 — en exclusivité sur www.lumories.ch. En profiter dès maintenant !",
+   "code": null,
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "CH"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Ffr.lumories.ch%2Fc%2Fpromos",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Jetzt bis zu 14% extra auf fast alles sparen*!",
+   "description": "Black Mega Sale: Sichern Sie sich jetzt bis zu 14% extra auf fast alles*. Mit unserem Rabattcode sparen Sie zusätzlich 14% ab einem Bestellwert von CHF 209 und 11% ab einem Bestellwert von CHF 159. Die Aktion ist gültig vom 28.10.2026 bis zum 01.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "terms": "Black Mega Sale: Sichern Sie sich jetzt bis zu 14% extra auf fast alles*. Mit unserem Rabattcode sparen Sie zusätzlich 14% ab einem Bestellwert von CHF 209 und 11% ab einem Bestellwert von CHF 159. Die Aktion ist gültig vom 28.10.2026 bis zum 01.11.2026 — nur auf www.lampenwelt.ch. Jetzt sparen!",
+   "code": "MEGABLACK",
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "CH"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.ch%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 BE",
+   "merchant_region": "BE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10152.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Bespaar nu tot wel 14% extra op bijna alles*!",
+   "description": "Black Mega Sale: Profiteer nu van tot wel 14% extra op bijna alles*. Met onze kortingscode bespaar je 14% extra vanaf een minimale bestelwaarde van €179 en 11% extra vanaf een minimale bestelwaarde van €109. Deze actie is geldig van 28-10-2026 t.e.m. 01-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "terms": "Black Mega Sale: Profiteer nu van tot wel 14% extra op bijna alles*. Met onze kortingscode bespaar je 14% extra vanaf een minimale bestelwaarde van €179 en 11% extra vanaf een minimale bestelwaarde van €109. Deze actie is geldig van 28-10-2026 t.e.m. 01-11-2026 - enkel op www.lampen24.be. Nu besparen!",
+   "code": "MEGABLACK",
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "BE"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.be%2Fc%2Fsale",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampade IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10404.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Approfitta subito di uno sconto extra fino al 14% su quasi tutto*!",
+   "description": "Black Mega Sale: Risparmia ora fino al 14% extra su quasi tutto*. Con il nostro codice sconto ottieni subito il 14% di sconto extra per ordini a partire da 179€ o il 11% di sconto extra per ordini a partire da 119€. Promozione valida dal 28.10.2026 al 01.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "terms": "Black Mega Sale: Risparmia ora fino al 14% extra su quasi tutto*. Con il nostro codice sconto ottieni subito il 14% di sconto extra per ordini a partire da 179€ o il 11% di sconto extra per ordini a partire da 119€. Promozione valida dal 28.10.2026 al 01.11.2026 su www.lampade.it. Non perderti questa offerta a tempo limitato!",
+   "code": "MEGABLACK",
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "IT"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Fsconti",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampara ES",
+   "merchant_region": "ES",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10548.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Aprovecha el descuento extra de hasta el 14% en casi todo*!",
+   "description": "Black Mega Sale: Ahorra ahora hasta el 14% extra en casi todo*. Con nuestro código de descuento puedes ahorrar un 14% extra en pedidos a partir de 179€ o un 11% extra en pedidos a partir de 119€. La promoción es válida desde el 28.10.2026 hasta el 01.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "terms": "Black Mega Sale: Ahorra ahora hasta el 14% extra en casi todo*. Con nuestro código de descuento puedes ahorrar un 14% extra en pedidos a partir de 179€ o un 11% extra en pedidos a partir de 119€. La promoción es válida desde el 28.10.2026 hasta el 01.11.2026 —  solo en www.lampara.es. ¡No dejes pasar esta oferta limitada!",
+   "code": "MEGABLACK",
+   "start": "2026-10-27",
+   "end": "2026-11-01",
+   "regions": [
+    "ES"
+   ],
+   "pct": 14,
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fofertas",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Luminaire FR",
+   "merchant_region": "FR",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/7498.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "13% de remise immédiate pour les clients professionnels",
+   "description": "Profitez de 13 % de remise supplémentaire dès 149 € de minimum d'achat sur de nombreuses marques ! Les produits sont directement réduits dans la boutique en ligne. Valable jusqu'au 31.03.2027. Offre réservée aux clients professionnels.",
+   "terms": "Profitez de 13 % de remise supplémentaire dès 149 € de minimum d'achat sur de nombreuses marques ! Les produits sont directement réduits dans la boutique en ligne. Valable jusqu'au 31.03.2026. Offre réservée aux clients professionnels.",
+   "code": "FRP-DISCOUNT13",
+   "start": "2024-06-18",
+   "end": "2027-03-31",
+   "regions": [
+    "FR"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fb2b-bon-cadeau",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 NL",
+   "merchant_region": "NL",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/8151.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "13% directe korting voor zakelijke klanten",
+   "description": "Ontvang nu direct 13% korting vanaf een minimale bestelwaarde van €149 in je winkelwagen op veel merken. Geldig tot 31-03-2027. Deze aanbieding is alleen geldig voor geregistreerde zakelijke klanten.",
+   "terms": "Ontvang nu direct 13% korting vanaf een minimale bestelwaarde van €149 in je winkelwagen op veel merken. Geldig tot 31-03-2026. Deze aanbieding is alleen geldig voor geregistreerde zakelijke klanten.",
+   "code": "NLP-DISCOUNT13",
+   "start": "2024-06-25",
+   "end": "2027-03-31",
+   "regions": [
+    "NL"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fb2b-waardebon",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampenwelt CH",
+   "merchant_region": "CH",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/9373.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "13 % Willkommensrabatt über WhatsApp News",
+   "description": "Verpassen Sie nicht unseren 13 % Willkommens-Rabatt für die Anmeldung bei WhatsApp News! Melden Sie sich jetzt an und genießen Sie einen zusätzlichen Rabatt von 13 %* ab einem Mindestkaufpreis von CHF 119. Der Gutschein ist 21 Tage lang ab Erhalt gültig. Jetzt anmelden!",
+   "terms": "Verpassen Sie nicht unseren 13 % Willkommens-Rabatt für die Anmeldung bei WhatsApp News! Melden Sie sich jetzt an und genießen Sie einen zusätzlichen Rabatt von 13 %* ab einem Mindestkaufpreis von CHF 119. Der Gutschein ist 21 Tage lang ab Erhalt gültig. Jetzt anmelden!",
+   "code": null,
+   "start": "2025-02-28",
+   "end": "2027-03-31",
+   "regions": [
+    "CH"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.ch%2Funternehmen%2Fwhatsapp",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampen24 BE",
+   "merchant_region": "BE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10152.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "13% directe korting voor zakelijke klanten",
+   "description": "Ontvang nu direct 13% korting vanaf een minimale bestelwaarde van €149 in je winkelwagen op veel merken. Geldig tot 31-03-2027. Deze aanbieding is alleen geldig voor geregistreerde zakelijke klanten.",
+   "terms": "Ontvang nu direct 13% korting vanaf een minimale bestelwaarde van €149 in je winkelwagen op veel merken. Geldig tot 31-03-2026. Deze aanbieding is alleen geldig voor geregistreerde zakelijke klanten.",
+   "code": "BEP-DISCOUNT13",
+   "start": "2024-06-25",
+   "end": "2027-03-31",
+   "regions": [
+    "BE"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.be%2Fb2b-waardebon",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lampade IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/10404.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "13% di sconto immediato per i clienti aziendali",
+   "description": "13% di sconto a partire da 149€ immediato nel vostro carrello su molte marche. Valido fino al 31.03.2027. L'offerta è valida solo per i clienti aziendali.",
+   "terms": "13% di sconto a partire da 149€ immediato nel vostro carrello su molte marche. Valido fino al 31.03.2026. L'offerta è valida solo per i clienti aziendali.",
+   "code": "ITP-DISCOUNT13",
+   "start": "2024-06-20",
+   "end": "2027-03-31",
+   "regions": [
+    "IT"
+   ],
+   "pct": 13,
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fb2b-buono",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Simply LED",
+   "merchant_region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/5190.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "10% Off Your Next Order",
+   "description": "Get 10% off your next order with simplyled.co.uk",
+   "terms": "Standard T&C's apply",
+   "code": "BULBS10",
+   "start": "2020-05-19",
+   "end": "2030-05-30",
+   "regions": [
+    "GB"
+   ],
+   "pct": 10,
+   "url": "https://www.awin1.com/cread.php?awinmid=5190&awinaffid=3127458&ued=https%3A%2F%2Fwww.simplyled.co.uk%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Rowabi",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/46127.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Extra 10% Off",
+   "description": "Welcome New Customers",
+   "terms": "Applies to all commission groups",
+   "code": "A3XTEA286VZD",
+   "start": "2026-02-03",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 10,
+   "url": "https://www.awin1.com/cread.php?awinmid=46127&awinaffid=3127458&ued=https%3A%2F%2Fwww.rowabi.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Gardenreet LLC",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/62217.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "General discount",
+   "description": "This discount code provides customers with a one-time 10% off. It is valid forever.",
+   "terms": "Each customer can only use the discount code once. The discount code is always valid.",
+   "code": "DISCOUNT10",
+   "start": "2025-08-04",
+   "end": "2035-08-04",
+   "regions": [
+    "US"
+   ],
+   "pct": 10,
+   "url": "https://www.awin1.com/cread.php?awinmid=62217&awinaffid=3127458&ued=https%3A%2F%2Fgardenreet.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "EcoGear FX, Inc.",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/82955.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "18650 Flat Top Batteries - Get 10% Off",
+   "description": "18650 Flat Top Batteries - Get 10% Off",
+   "terms": "N/A",
+   "code": "BATTERY10",
+   "start": "2018-02-19",
+   "end": "2050-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 10,
+   "url": "https://www.awin1.com/cread.php?awinmid=82955&awinaffid=3127458&ued=https%3A%2F%2Fwww.ecogearfx.com%2Fproduct%2Fimr-high-drain-18650-rechargeable-batteries%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "IMALENT",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/94223.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "WUPPLES exclusive promo code",
+   "description": "IMALENT flashlight 10% off",
+   "terms": "N/A",
+   "code": "WUPPLES10",
+   "start": "2025-10-30",
+   "end": "2027-11-30",
+   "regions": [
+    "US"
+   ],
+   "pct": 10,
+   "url": "https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "IMALENT",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/94223.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "IMALENT flashlight",
+   "description": "10% off",
+   "terms": "N/A",
+   "code": "DZYJ10YHM",
+   "start": "2022-01-06",
+   "end": "2027-03-27",
+   "regions": [
+    "GB",
+    "US",
+    "CA",
+    "FR",
+    "DE",
+    "AT",
+    "BE",
+    "NL",
+    "ES",
+    "IT",
+    "FI",
+    "PL",
+    "CH",
+    "SE",
+    "NO",
+    "DK",
+    "AU",
+    "PT",
+    "CZ",
+    "HU",
+    "RO",
+    "SK",
+    "SI",
+    "BG",
+    "HR",
+    "GR",
+    "LV",
+    "LT",
+    "TR"
+   ],
+   "pct": 10,
+   "url": "https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Extra 8% off on all Vevor US products",
+   "description": "Extra 8% off on all Vevor US products",
+   "terms": "Extra 8% off on All Vevor US products",
+   "code": "VVOTD",
+   "start": "2026-09-29",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 8,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Extra 8% off on All Vevor US products",
+   "description": "Extra 8% off on All Vevor US products",
+   "terms": "Extra 8% off on all Vevor US products.",
+   "code": "VVGG8",
+   "start": "2026-09-28",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 8,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Garvee Innovation Inc",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/52725.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Enjoy extra 8% off for your orders over $100",
+   "description": "Welcome to GARVEE Official. Enjoy extra 8% off for your orders",
+   "terms": "NO",
+   "code": "SAS8",
+   "start": "2023-05-16",
+   "end": "2027-06-15",
+   "regions": [
+    "US"
+   ],
+   "pct": 8,
+   "url": "https://www.awin1.com/cread.php?awinmid=52725&awinaffid=3127458&ued=https%3A%2F%2Fwww.garvee.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Garvee Innovation Inc",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/52725.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "7% Off Site-wide GARVEE Online Products",
+   "description": "GARVEE Commercial Equipment | Automotive, Business Industrial, Kitchen",
+   "terms": "NO",
+   "code": "AL7FF",
+   "start": "2023-05-17",
+   "end": "2027-06-30",
+   "regions": [
+    "US"
+   ],
+   "pct": 7,
+   "url": "https://www.awin1.com/cread.php?awinmid=52725&awinaffid=3127458&ued=https%3A%2F%2Fwww.garvee.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor DE",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28833.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "6 % Rabatt auf ausgewählte Artikel",
+   "description": "6 % Rabatt auf ausgewählte Artikel",
+   "terms": "/",
+   "code": "VVAF8EU",
+   "start": "2026-01-07",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 6,
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2Fpromotion%2Fhotsale-special-10437.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor Rest of Europe",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118431.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "6% Off Selected Hot Items",
+   "description": "6% Off Selected Hot Items",
+   "terms": "/",
+   "code": "VVAF8EU",
+   "start": "2026-01-07",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 6,
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458&ued=https%3A%2F%2Feur.vevor.com%2Fpromotion%2Fhotsale-special-10486.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118433.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Sconto dell'6% su articoli selezionati",
+   "description": "Sconto dell'6% su articoli selezionati",
+   "terms": "/",
+   "code": "VVAF8EU",
+   "start": "2026-01-07",
+   "end": "2026-12-31",
+   "regions": [
+    "IT"
+   ],
+   "pct": 6,
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.it%2Fpromotion%2Fhotsale-special-10488.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Extra 5% off on all Vevor US products.",
+   "description": "Extra 5% off on all Vevor US products.",
+   "terms": "Code Name: TENMOMO5\nDescription: Extra 5% off on all Vevor US products.\nExxpired Date: 2026/12/31",
+   "code": "TENMOMO5",
+   "start": "2026-09-17",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor DE",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28833.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5 % Rabatt auf Neuwaren",
+   "description": "5 % Rabatt auf Neuwaren",
+   "terms": "/",
+   "code": "NEWARRIVALS5EU",
+   "start": "2026-04-29",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2Fpromotion%2FNew-Arrivals-Drop-special-10453.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor DE",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28833.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5% Rabatt auf Alles",
+   "description": "Exklusiv für Partner",
+   "terms": "/",
+   "code": "VEVORAFF",
+   "start": "2026-02-12",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor UK",
+   "merchant_region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28839.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5% Off All Products",
+   "description": "5% Off All Products",
+   "terms": "/",
+   "code": "VEVORAFF",
+   "start": "2026-09-04",
+   "end": "2026-12-31",
+   "regions": [
+    "GB"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=28839&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.co.uk%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Rowabi",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/46127.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "Extra 5% Off",
+   "description": "Cart Abandonment Voucher",
+   "terms": "Applies to all commission groups",
+   "code": "3Q6D50TQZGY4",
+   "start": "2026-02-03",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=46127&awinaffid=3127458&ued=https%3A%2F%2Fwww.rowabi.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor Rest of Europe",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118431.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5% Off New Arrivals",
+   "description": "5% Off New Arrivals",
+   "terms": "/",
+   "code": "NEWARRIVALS5EU",
+   "start": "2026-04-29",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458&ued=https%3A%2F%2Feur.vevor.com%2Fpromotion%2FNew-Arrivals-Drop-special-10452.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor Rest of Europe",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118431.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5% Off Sitewide",
+   "description": "Use Code VEVORAFF To Get Extra 5% Off All Products",
+   "terms": "/",
+   "code": "VEVORAFF",
+   "start": "2026-02-12",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458&ued=https%3A%2F%2Feur.vevor.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118433.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5% di sconto sui nuovi arrivi",
+   "description": "5% di sconto sui nuovi arrivi",
+   "terms": "/",
+   "code": "NEWARRIVALS5EU",
+   "start": "2026-04-29",
+   "end": "2026-12-31",
+   "regions": [
+    "IT"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.it%2Fpromotion%2FNew-Arrivals-Drop-special-10457.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor IT",
+   "merchant_region": "IT",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/118433.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "5% di sconto su tutto il sito",
+   "description": "Usa VEVORAFF per ottenere un ulteriore 5% di sconto su tutti i prodotti",
+   "terms": "/",
+   "code": "VEVORAFF",
+   "start": "2026-02-12",
+   "end": "2026-12-31",
+   "regions": [
+    "IT"
+   ],
+   "pct": 5,
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.it%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Toolchest.de Werkzeug Shop",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/117285.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "2% Rabatt",
+   "description": "2% Rabatt auf alle Artikel",
+   "terms": "2% Rabatt ab 1 Euro Mindestbestellwert gültig bis 31.12.2026",
+   "code": "SPAREN2026-2",
+   "start": "2025-12-30",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 2,
+   "url": "https://www.awin1.com/cread.php?awinmid=117285&awinaffid=3127458&ued=https%3A%2F%2Fwww.toolchest.de%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Lights 4 Living",
+   "merchant_region": "GB",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/5723.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Free Delivery over £99",
+   "description": "Free Delivery over £99",
+   "terms": "Free delivery is valid on orders place at Lights4living orders over £99",
+   "code": null,
+   "start": "2026-03-20",
+   "end": "2026-12-31",
+   "regions": [
+    "GB"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=5723&awinaffid=3127458&ued=https%3A%2F%2Fwww.lights4living.com",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Vevor Lawn and Garden Tools",
+   "description": "Vevor Lawn and Garden Tools",
+   "terms": "",
+   "code": null,
+   "start": "2025-04-10",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2Flawn-garden-c_10007",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Vevor Best Sellers",
+   "description": "Best sellers at vevor.com.",
+   "terms": "",
+   "code": null,
+   "start": "2024-03-08",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2Fbest-sellers",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor US",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28831.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Vevor",
+   "description": "Tough Tools, Pay Less",
+   "terms": "",
+   "code": null,
+   "start": "2024-03-08",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Vevor DE",
+   "merchant_region": "DE",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/28833.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Coupon-Center",
+   "description": "BELIEBTESTE GUTSCHEINE",
+   "terms": "/",
+   "code": null,
+   "start": "2024-04-22",
+   "end": "2026-12-31",
+   "regions": [
+    "DE"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2Fpromotion%2Fgutschein-zentrum-special-101.html",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "Rowabi",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/46127.png",
+   "bf": false,
+   "status": "active",
+   "type": "voucher",
+   "title": "$30 OFF",
+   "description": "Winback Voucher",
+   "terms": "Applies to all commission groups",
+   "code": "4QQAQKCSGWT3",
+   "start": "2026-02-03",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=46127&awinaffid=3127458&ued=https%3A%2F%2Fwww.rowabi.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  },
+  {
+   "merchant": "GRABO",
+   "merchant_region": "US",
+   "logo": "https://ui.awin.com/images/upload/merchant/profile/129497.png",
+   "bf": false,
+   "status": "active",
+   "type": "promotion",
+   "title": "Free shipping on every US order",
+   "description": "GRABO battery vacuum lifters and lifting tools for tile, stone, glass and sheet goods ship free to any US address, with no minimum order. Free shipping is applied automatically at checkout, no code needed.",
+   "terms": "Free standard shipping to US addresses on all orders at order.grabo.com. No code or minimum spend required.",
+   "code": null,
+   "start": "2026-10-18",
+   "end": "2026-12-31",
+   "regions": [
+    "US"
+   ],
+   "pct": 0,
+   "url": "https://www.awin1.com/cread.php?awinmid=129497&awinaffid=3127458&ued=https%3A%2F%2Forder.grabo.com%2F",
+   "confirmed": true,
+   "source": "Awin Offers API 2026-10-29"
+  }
+ ],
+ "amazon": {
+  "FR": {
+   "domain": "amazon.fr",
+   "tag": "manuso06-21",
+   "url": "https://www.amazon.fr/blackfriday?tag=manuso06-21",
+   "label": "Amazon Black Friday FR",
+   "note": "Page officielle des offres Black Friday Amazon ; dates 2026 à confirmer par Amazon"
+  },
+  "US": {
+   "domain": "amazon.com",
+   "tag": "roboteducatif-20",
+   "url": "https://www.amazon.com/blackfriday?tag=roboteducatif-20",
+   "label": "Amazon Black Friday US",
+   "note": "Page officielle des offres Black Friday Amazon ; dates 2026 à confirmer par Amazon"
+  },
+  "GB": {
+   "domain": "amazon.co.uk",
+   "tag": "roboteducatif-21",
+   "url": "https://www.amazon.co.uk/blackfriday?tag=roboteducatif-21",
+   "label": "Amazon Black Friday GB",
+   "note": "Page officielle des offres Black Friday Amazon ; dates 2026 à confirmer par Amazon"
+  },
+  "DE": {
+   "domain": "amazon.de",
+   "tag": "roboteducat00-21",
+   "url": "https://www.amazon.de/blackfriday?tag=roboteducat00-21",
+   "label": "Amazon Black Friday DE",
+   "note": "Page officielle des offres Black Friday Amazon ; dates 2026 à confirmer par Amazon"
+  },
+  "IT": {
+   "domain": "amazon.it",
+   "tag": "roboteducat0f-21",
+   "url": "https://www.amazon.it/blackfriday?tag=roboteducat0f-21",
+   "label": "Amazon Black Friday IT",
+   "note": "Page officielle des offres Black Friday Amazon ; dates 2026 à confirmer par Amazon"
+  },
+  "ES": {
+   "domain": "amazon.es",
+   "tag": "roboteducat07-21",
+   "url": "https://www.amazon.es/blackfriday?tag=roboteducat07-21",
+   "label": "Amazon Black Friday ES",
+   "note": "Page officielle des offres Black Friday Amazon ; dates 2026 à confirmer par Amazon"
+  }
+ },
+ "teasers": [
+  {
+   "merchant": "Shelly UK",
+   "site_keys": "1piece1ampoule",
+   "status": "offre attendue/à confirmer",
+   "dates": "",
+   "discount": "",
+   "code": "",
+   "region": "UK (us.shelly.com)",
+   "source_url": "https://us.shelly.com/pages/black-friday",
+   "quote": "The Campaign Is Over - But Your Next Deal Isn't",
+   "checked": "2026-10-29"
+  },
+  {
+   "merchant": "ManoMano FR",
+   "site_keys": "1piece1ampoule",
+   "status": "offre attendue/à confirmer",
+   "dates": "Black Friday 27 nov. 2026; Black Week; Cyber Monday 30 nov. 2026",
+   "discount": "Promotions bricolage/maison/jardin annoncées (détails à venir)",
+   "code": "",
+   "region": "FR",
+   "source_url": "https://www.manomano.fr/blackfriday",
+   "quote": "Le Black Friday 2026 aura lieu le vendredi 27 novembre 2026.",
+   "checked": "2026-10-29"
+  }
+ ]
+}

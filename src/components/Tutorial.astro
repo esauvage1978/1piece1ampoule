@@ -1,0 +1,151 @@
+---
+// Gabarit commun des tutoriels : en-tête (durée, budget, niveau), matériel, prérequis,
+// étapes numérotées (HowTo JSON-LD), erreurs fréquentes, dépannage, produits utiles, sources.
+import Layout from '../layouts/Layout.astro';
+import AmazonButton from './AmazonButton.astro';
+import { PRODUCTS } from '../content/products';
+import type { Tutoriel } from '../content/tutoriels';
+import RelatedComparatifs from './RelatedComparatifs.astro';
+import ExtraAwinPartner from './ExtraAwinPartner.astro';
+
+type Props = { t: Tutoriel; heroImage?: { src: string; alt: string } };
+const { t, heroImage } = Astro.props;
+const site = 'https://1piece1ampoule.fr';
+const url = `${site}/tutoriels/${t.slug}/`;
+const strip = (h: string) => h.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+const howTo = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: t.h1,
+  description: t.description,
+  inLanguage: 'fr-FR',
+  totalTime: t.totalTime,
+  estimatedCost: { '@type': 'MonetaryAmount', currency: 'EUR', minValue: t.cost[0], maxValue: t.cost[1] },
+  supply: t.supplies.map((s) => ({ '@type': 'HowToSupply', name: strip(s) })),
+  tool: t.tools.map((s) => ({ '@type': 'HowToTool', name: strip(s) })),
+  step: t.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: strip(s.html), url: `${url}#etape-${i + 1}` })),
+};
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: t.troubleshooting.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: strip(x.a) } })),
+};
+const products = t.products.map((p) => ({ ...p, prod: PRODUCTS[p.asin] })).filter((p) => p.prod);
+const box = 'rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8';
+---
+<Layout title={t.title} description={t.description} type="article" schema={[howTo, faq]}>
+  <article class="mx-auto mt-6 max-w-3xl">
+    <p class="text-sm font-semibold text-amber-700"><a href="/tutoriels/" class="hover:underline">Tutoriels</a> · pas à pas</p>
+    <h1 class="mt-2 text-3xl leading-tight text-stone-900 sm:text-[2.5rem]">{t.h1}</h1>
+    {heroImage && (
+      <figure class="mt-4">
+        <img
+          src={heroImage.src}
+          alt={heroImage.alt}
+          width="1000"
+          height="1500"
+          loading="eager"
+          decoding="async"
+          class="mx-auto max-h-44 w-full max-w-md rounded-2xl object-contain ring-1 ring-stone-200"
+        />
+      </figure>
+    )}
+    <p class="mt-4 text-lg text-stone-600" set:html={t.intro} />
+    <dl class="mt-6 grid grid-cols-3 gap-3 text-sm">
+      <div class="rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-200"><dt class="text-xs font-semibold uppercase tracking-wide text-amber-800">Durée</dt><dd class="mt-1 font-semibold text-stone-900">{t.timeLabel}</dd></div>
+      <div class="rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-200"><dt class="text-xs font-semibold uppercase tracking-wide text-amber-800">Budget</dt><dd class="mt-1 font-semibold text-stone-900">{t.budgetLabel}</dd></div>
+      <div class="rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-200"><dt class="text-xs font-semibold uppercase tracking-wide text-amber-800">Niveau</dt><dd class="mt-1 font-semibold text-stone-900">{t.level}</dd></div>
+    </dl>
+
+    <nav class="mt-6 rounded-2xl border border-stone-200 bg-stone-50 p-4 text-sm" aria-label="Sommaire">
+      <p class="font-semibold text-stone-900">Sommaire</p>
+      <ol class="mt-2 list-decimal space-y-1 pl-5 text-stone-700">
+        <li><a class="hover:text-amber-700" href="#materiel">Matériel et prérequis</a></li>
+        {t.toc.map((x) => <li><a class="hover:text-amber-700" href={`#${x.id}`}>{x.label}</a></li>)}
+        <li><a class="hover:text-amber-700" href="#etapes">Les étapes</a></li>
+        <li><a class="hover:text-amber-700" href="#erreurs">Erreurs fréquentes</a></li>
+        <li><a class="hover:text-amber-700" href="#depannage">Dépannage</a></li>
+        <li><a class="hover:text-amber-700" href="#sources">Sources</a></li>
+      </ol>
+    </nav>
+
+    <section id="materiel" class:list={[box, 'mt-8']}>
+      <h2 class="text-2xl text-stone-900">Matériel et prérequis</h2>
+      <div class="mt-4 grid gap-6 sm:grid-cols-2">
+        <div>
+          <h3 class="font-semibold text-stone-900">Fournitures</h3>
+          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-700">{t.supplies.map((s) => <li set:html={s} />)}</ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-stone-900">Outils</h3>
+          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-700">{t.tools.map((s) => <li set:html={s} />)}</ul>
+        </div>
+      </div>
+      <h3 class="mt-6 font-semibold text-stone-900">Avant de commencer</h3>
+      <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-700">{t.prereq.map((s) => <li set:html={s} />)}</ul>
+    </section>
+
+    <div class="prose-article mt-8"><slot /></div>
+
+    <section id="etapes" class:list={[box, 'mt-8']}>
+      <h2 class="text-2xl text-stone-900">Les étapes</h2>
+      <ol class="mt-4 space-y-6">
+        {t.steps.map((s, i) => (
+          <li id={`etape-${i + 1}`} class="flex gap-4">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-500 font-bold text-white">{i + 1}</span>
+            <div class="min-w-0">
+              <h3 class="font-semibold text-stone-900">{s.name}</h3>
+              <div class="prose-article mt-1 text-[0.95rem]" set:html={s.html} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <div class="prose-article mt-8"><slot name="after" /></div>
+
+    <section id="erreurs" class:list={[box, 'mt-8']}>
+      <h2 class="text-2xl text-stone-900">Erreurs fréquentes</h2>
+      <ul class="mt-4 space-y-3 text-sm text-stone-700">{t.mistakes.map((m) => <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-400"></span><span set:html={m} /></li>)}</ul>
+    </section>
+
+    <section id="depannage" class:list={[box, 'mt-8']}>
+      <h2 class="text-2xl text-stone-900">Dépannage</h2>
+      <dl class="mt-4 space-y-4 text-sm">
+        {t.troubleshooting.map((x) => (
+          <div><dt class="font-semibold text-stone-900">{x.q}</dt><dd class="mt-1 text-stone-700" set:html={x.a} /></div>
+        ))}
+      </dl>
+    </section>
+
+    {products.length > 0 && (
+      <section id="selection" class:list={[box, 'mt-8']}>
+        <h2 class="text-2xl text-stone-900">Le matériel que je conseille</h2>
+        <p class="mt-2 text-sm text-stone-500">Facultatif : le tutoriel fonctionne avec n’importe quel matériel équivalent. Liens partenaires Amazon (disponibilité vérifiée le 19/10/2026, prix non affichés car ils changent souvent).</p>
+        <ul class="mt-4 space-y-4">
+          {products.map((p) => (
+            <li class="flex flex-col gap-3 rounded-2xl border border-stone-200 p-4 sm:flex-row sm:items-center sm:justify-between">
+              <div class="min-w-0"><p class="font-semibold text-stone-900">{p.prod.name}</p><p class="text-sm text-stone-600">{p.why}</p></div>
+              <AmazonButton asin={p.asin} product={p.prod.name} label="Voir sur Amazon" placement={`tuto-${t.slug}`} class="shrink-0" />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section id="sources" class:list={[box, 'mt-8']}>
+      <h2 class="text-2xl text-stone-900">Sources</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-700">
+        {t.sources.map((s) => <li>{s.url ? <a class="text-amber-700 underline" href={s.url} rel="noopener" target="_blank">{s.label}</a> : s.label}{s.note && <span class="text-stone-500"> : {s.note}</span>}</li>)}
+      </ul>
+      <p class="mt-4 text-xs text-stone-500">Schémas et tableaux : réalisés par 1 pièce 1 ampoule pour ce tutoriel. Calculs vérifiés à la main ; en cas de doute sur une installation électrique, fais appel à un électricien qualifié.</p>
+    </section>
+
+    <section class="mt-8 rounded-2xl bg-stone-50 p-5 text-sm">
+      <p class="font-semibold text-stone-900">Pour aller plus loin</p>
+      <ul class="mt-2 grid gap-1 sm:grid-cols-2">{t.related.map((r) => <li><a class="text-amber-700 hover:underline" href={r.href}>{r.label} →</a></li>)}</ul>
+    </section>
+    <RelatedComparatifs slugs={t.comparatifs} title="Les comparatifs 2026 liés à ce tutoriel" />
+    <ExtraAwinPartner />
+  </article>
+</Layout>

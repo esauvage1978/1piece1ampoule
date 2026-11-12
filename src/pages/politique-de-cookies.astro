@@ -4,17 +4,17 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="Politique de cookies — Choisir son ampoule"
-  description="Politique de cookies : catégories, consentement, Google Analytics (statistiques) et gestion des préférences."
+  description="Politique de cookies : catégories, consentement, Google Analytics (statistiques). Cette politique explique quels cookies sont utilisés, pourquoi, et comment"
 >
   <section class="mt-10">
     <h1 class="text-3xl font-extrabold tracking-tight">Politique de cookies</h1>
-    <p class="mt-3 max-w-3xl text-sm text-white/75">
+    <p class="mt-3 max-w-3xl text-sm text-stone-600">
       Cette politique explique quels cookies sont utilisés, pourquoi, et comment gérer ton consentement.
     </p>
   </section>
 
-  <section class="mt-8 space-y-4 text-sm text-white/80">
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+  <section class="mt-8 space-y-4 text-sm text-stone-600">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">1) Cookies et catégories</h2>
       <ul class="mt-3 space-y-2">
         <li><strong>Essentiels</strong> : nécessaires au fonctionnement du site.</li>
@@ -22,18 +22,18 @@ import Layout from '../layouts/Layout.astro';
       </ul>
     </article>
 
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">2) Google Analytics (avec consentement)</h2>
       <p class="mt-2">
         Si tu coches “Statistiques” et que tu enregistres ton choix, le script Google Analytics est chargé
         (via <code>gtag.js</code>) afin de mesurer l’usage du site.
       </p>
-      <p class="mt-2 text-white/70">
+      <p class="mt-2 text-stone-600">
         Les cookies et identifiants générés par Google sont soumis aux politiques de Google.
       </p>
     </article>
 
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">3) Gestion des préférences</h2>
       <p class="mt-2">
         Le site conserve ton choix dans le navigateur (localStorage) sous la clé <code>cookie_consent_v1</code>.
@@ -41,25 +41,25 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="mt-3 flex flex-wrap gap-2">
         <button
-          class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 hover:bg-white/10"
+          class="rounded-xl border border-stone-200 bg-white shadow-sm px-4 py-2 text-sm font-semibold text-stone-700 hover:bg-amber-50"
           onclick="if(window.__showCookiePreferences) window.__showCookiePreferences();"
         >
           Gérer mes cookies
         </button>
       </div>
-      <p class="mt-3 text-white/70">
+      <p class="mt-3 text-stone-600">
         Si tu préfères, tu peux aussi supprimer les données de navigation (ou effacer le localStorage) pour réinitialiser la décision.
       </p>
     </article>
 
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">4) Liens utiles</h2>
       <ul class="mt-3 space-y-2">
         <li>
           Politique de confidentialité :
-          <a class="font-semibold text-amber-300 hover:text-amber-200" href="/politique-de-confidentialite">voir</a>
+          <a class="font-semibold text-amber-700 hover:text-amber-800" href="/politique-de-confidentialite">voir</a>
         </li>
-        <li>Mentions légales : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/mentions-legales">voir</a></li>
+        <li>Mentions légales : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/mentions-legales">voir</a></li>
       </ul>
     </article>
   </section>

@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { MARQUES } from '../../content/marques';
+import { activePromos } from '../../content/promos';
+const mids = new Set(activePromos().map((p) => p.mid));
+---
+<Layout title="Marques et marchands : nos avis, garanties et SAV en France" description="Philips Hue, OSRAM, Steinel, Tapo, Imalent et Luminaire.fr : produits cités sur 1 pièce 1 ampoule, garantie et SAV en France, notre avis en une ligne.">
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marques • mis à jour le 02/11/2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Les marques et marchands de nos comparatifs</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">Avant d’acheter une ampoule, un spot ou un détecteur, il est utile de savoir à qui l’on a affaire. Pour chaque marque, vous trouverez ses produits que nous citons dans nos guides et comparatifs, leurs points forts et leurs limites, la garantie et le SAV en France, et nos conseils pour savoir quand la choisir… ou préférer une autre.</p>
+  </section>
+  <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Tableau résumé</h2>
+    <table class="mt-4 w-full min-w-[640px] text-left text-sm">
+      <thead><tr class="border-b border-stone-200 text-stone-500"><th class="py-2 pr-3">Marque</th><th class="py-2 pr-3">Type</th><th class="py-2 pr-3">Sur le site</th><th class="py-2 pr-3">Garantie / retours</th><th class="py-2 pr-3">Notre avis</th></tr></thead>
+      <tbody>
+        {MARQUES.map((m) => (
+          <tr class="border-b border-stone-100 align-top">
+            <td class="py-2 pr-3"><a class="font-semibold text-amber-800 underline" href={`/marques/${m.slug}/`}>{m.name}</a>{m.promoMid && mids.has(m.promoMid) && <><br /><a class="text-xs font-semibold text-amber-700 underline" href="/codes-promo/">code promo en cours</a></>}</td>
+            <td class="py-2 pr-3">{m.type}</td><td class="py-2 pr-3">{m.produits}</td><td class="py-2 pr-3">{m.garantie}</td><td class="py-2 pr-3">{m.avis}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="mt-4 text-xs text-stone-500">Rappel : la garantie légale de conformité de 2 ans s’applique toujours auprès du vendeur, en plus de toute garantie commerciale du fabricant.</p>
+  </section>
+</Layout>

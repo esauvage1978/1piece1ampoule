@@ -1,0 +1,196 @@
+---
+import { getCatalogFr, urlFicheErreur } from '../data/errors/catalog';
+import { COPY } from '../data/savWave1.mjs';
+import SavWave1Compliance from './SavWave1Compliance.astro';
+
+const catalog = getCatalogFr();
+const errors = catalog.errors;
+const products = catalog.products;
+const categories = catalog.categories;
+const brands = catalog.brands;
+
+const L = {
+  titre: 'Répertoire des codes erreurs et pannes',
+  cat: 'Catégorie',
+  marque: 'Marque',
+  produit: 'Produit / modèle',
+  code: 'Code erreur / panne',
+  tout: '— Tous —',
+  diff: 'Difficulté',
+  temps: 'Temps estimé',
+  cout: 'Coût estimé',
+  outils: 'Outils requis',
+  symptome: 'Symptôme',
+  cause: 'Cause probable',
+  solution: 'Solution pas à pas',
+  fiche: 'Voir la fiche détaillée (SEO)',
+  prudence: 'Prudence',
+  sav: 'Intervention SAV constructeur recommandée',
+  aucun: 'Aucune fiche ne correspond à votre sélection.',
+  mention: COPY.assist,
+};
+
+const bars = (n: number) => '●'.repeat(n) + '○'.repeat(5 - n);
+
+function solutionSteps(text: string): string[] {
+  return text.split(/\n/).map((l) => l.replace(/^\d+\.\s*/, '').trim()).filter(Boolean);
+}
+---
+<section class="err-wrap mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8" aria-labelledby="err-titre">
+  <h2 id="err-titre" class="text-2xl font-bold text-stone-900">{L.titre}</h2>
+  <p class="mt-2 max-w-3xl text-sm text-stone-600">
+    Filtrez par catégorie, marque, modèle ou code. Chaque fiche indique la difficulté (1 à 5), le temps, le coût et les outils pour dépanner Hue, Shelly, IKEA, Govee, variateurs LED 230 V, etc.
+  </p>
+  <div class="err-filtres mt-6" role="search">
+    <label>{L.cat}
+      <select id="err-cat" data-filter="category">
+        <option value="">{L.tout}</option>
+        {categories.map((c) => <option value={c.slug}>{c.name}</option>)}
+      </select>
+    </label>
+    <label>{L.marque}
+      <select id="err-brand" data-filter="brand">
+        <option value="">{L.tout}</option>
+        {brands.map((b) => <option value={b.slug} data-categories={products.filter((p) => p.brand_slug === b.slug).map((p) => p.category_slug).join(',')}>{b.name}</option>)}
+      </select>
+    </label>
+    <label>{L.produit}
+      <select id="err-product" data-filter="product">
+        <option value="">{L.tout}</option>
+        {products.map((p) => <option value={p.slug} data-brand={p.brand_slug} data-category={p.category_slug}>{p.name}</option>)}
+      </select>
+    </label>
+    <label>{L.code}
+      <select id="err-code" data-filter="code">
+        <option value="">{L.tout}</option>
+        {errors.map((e) => <option value={e.slug} data-product={e.product_slug} data-brand={e.brand_slug} data-category={e.category_slug}>{e.error_code} — {e.title}</option>)}
+      </select>
+    </label>
+  </div>
+  <p class="err-aucun mt-4 rounded-xl bg-stone-100 p-3 text-sm" id="err-aucun" hidden>{L.aucun}</p>
+  <div class="err-list mt-6" id="err-list">
+    {errors.map((e) => {
+      const steps = solutionSteps(e.solution);
+      const brand = brands.find((b) => b.slug === e.brand_slug);
+      return (
+        <article
+          class="err-card"
+          id={`err-${e.slug}`}
+          data-slug={e.slug}
+          data-category={e.category_slug}
+          data-brand={e.brand_slug}
+          data-product={e.product_slug}
+        >
+          <header class="err-card-head">
+            <h3 class="text-lg font-bold"><a class="text-amber-800 hover:underline" href={urlFicheErreur(e.slug)}>{e.title}</a></h3>
+            <p class="err-code-label"><code class="rounded bg-stone-100 px-1.5 py-0.5 text-sm">{e.error_code}</code></p>
+          </header>
+          <ul class="err-meta" aria-label="Indicateurs">
+            <li><span class="err-label">{L.diff}</span> <span class="err-bars" title={`${e.difficulty}/5`}>{bars(e.difficulty)}</span> ({e.difficulty}/5)</li>
+            <li><span class="err-label">{L.temps}</span> {e.estimated_time}</li>
+            <li><span class="err-label">{L.cout}</span> {e.estimated_cost}</li>
+            <li><span class="err-label">{L.outils}</span> {e.tools}</li>
+          </ul>
+          {e.requires_official_sav && <p class="err-badge-sav" role="note">{L.sav}</p>}
+          <p class="text-sm text-stone-700"><strong>{L.symptome} :</strong> {e.symptom}</p>
+          {e.cause && <p class="mt-2 text-sm text-stone-700"><strong>{L.cause} :</strong> {e.cause}</p>}
+          <h4 class="mt-3 font-semibold text-stone-900">{L.solution}</h4>
+          <ol class="mt-2 list-decimal pl-5 text-sm text-stone-700">{steps.map((s) => <li class="mb-1">{s}</li>)}</ol>
+          {e.safety_warning && (
+            <p class="err-prudence" role="note"><strong>{L.prudence} :</strong> {e.safety_warning}</p>
+          )}
+          <p class="err-mention">{L.mention}</p>
+          {brand?.support_url && (
+            <p class="err-sav-lien text-sm"><a class="font-semibold text-amber-700" href={brand.support_url} rel="noopener noreferrer" target="_blank">{brand.name} — assistance officielle</a></p>
+          )}
+          <p class="mt-3"><a class="err-lien-fiche font-semibold text-amber-800 underline" href={urlFicheErreur(e.slug)}>{L.fiche}</a></p>
+        </article>
+      );
+    })}
+  </div>
+</section>
+<SavWave1Compliance />
+<script define:vars={{ catalogJson: JSON.stringify(catalog) }}>
+  const catalog = JSON.parse(catalogJson);
+  const selCat = document.getElementById('err-cat');
+  const selBrand = document.getElementById('err-brand');
+  const selProduct = document.getElementById('err-product');
+  const selCode = document.getElementById('err-code');
+  const cards = [...document.querySelectorAll('.err-card')];
+  const aucun = document.getElementById('err-aucun');
+
+  function optionVisible(opt, cat, brand, product) {
+    if (!opt.value) return true;
+    const oCat = opt.dataset.category || opt.dataset.categories;
+    const oBrand = opt.dataset.brand;
+    const oProduct = opt.dataset.product;
+    if (cat && oCat && !oCat.split(',').includes(cat)) return false;
+    if (brand && oBrand && oBrand !== brand) return false;
+    if (product && oProduct && oProduct !== product) return false;
+    if (cat && opt.dataset.categories && !opt.dataset.categories.split(',').includes(cat)) return false;
+    return true;
+  }
+
+  function refreshSelectOptions(sel, cat, brand, product) {
+    if (!sel) return;
+    [...sel.options].forEach((opt) => {
+      if (!opt.value) return;
+      const show = optionVisible(opt, cat, brand, product);
+      opt.hidden = !show;
+      opt.disabled = !show;
+    });
+    if (sel.value && sel.selectedOptions[0]?.disabled) sel.value = '';
+  }
+
+  function applyFilters() {
+    const cat = selCat?.value || '';
+    const brand = selBrand?.value || '';
+    const product = selProduct?.value || '';
+    const code = selCode?.value || '';
+    refreshSelectOptions(selBrand, cat, '', '');
+    refreshSelectOptions(selProduct, cat, brand, '');
+    refreshSelectOptions(selCode, cat, brand, product);
+    let visible = 0;
+    cards.forEach((c) => {
+      const match =
+        (!cat || c.dataset.category === cat) &&
+        (!brand || c.dataset.brand === brand) &&
+        (!product || c.dataset.product === product) &&
+        (!code || c.dataset.slug === code);
+      c.hidden = !match;
+      if (match) visible++;
+    });
+    if (aucun) aucun.hidden = visible > 0;
+  }
+
+  [selCat, selBrand, selProduct, selCode].forEach((s) => s?.addEventListener('change', applyFilters));
+  applyFilters();
+
+  const apiUrl = '/api/errors.php?action=catalog&lang=fr';
+  const fallbackUrl = '/api/errors-fallback.json';
+  fetch(apiUrl)
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .catch(() => fetch(fallbackUrl).then((r) => r.json()))
+    .then((data) => {
+      const lang = data?.fr || data;
+      if (!lang?.errors?.length) return;
+      if (lang.errors.length !== catalog.errors.length) return;
+    })
+    .catch(() => {});
+</script>
+<style>
+  .err-filtres { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+  .err-filtres label { display: grid; gap: .35rem; font-weight: 600; font-size: .92rem; color: #44403c; }
+  .err-filtres select { font: inherit; padding: .5rem .65rem; border-radius: .75rem; border: 1px solid #d6d3d1; max-width: 100%; background: #fff; }
+  .err-list { display: grid; gap: 1.1rem; }
+  .err-card { padding: 1rem 1.15rem; border: 1px solid #e7e5e4; border-radius: 1rem; background: #fffbeb; }
+  .err-card[hidden] { display: none; }
+  .err-code-label { margin: 0 0 .6rem; font-size: .88rem; color: #57534e; }
+  .err-meta { list-style: none; padding: 0; margin: 0 0 .75rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .88rem; }
+  .err-label { font-weight: 700; color: #b45309; }
+  .err-bars { letter-spacing: .12em; color: #d97706; }
+  .err-badge-sav { margin: 0 0 .65rem; padding: .35rem .55rem; background: #eef4ff; border-radius: 6px; font-size: .85rem; font-weight: 600; color: #1e3a6e; }
+  .err-prudence { margin: .85rem 0 0; padding: .55rem .65rem; border-left: 3px solid #c45c26; background: #fff5eb; font-size: .9rem; }
+  .err-mention { margin: .65rem 0 0; font-size: .88rem; font-style: italic; color: #57534e; }
+  .err-sav-lien { margin: .5rem 0 0; }
+</style>

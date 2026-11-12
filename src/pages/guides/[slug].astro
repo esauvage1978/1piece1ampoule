@@ -1,0 +1,46 @@
+---
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import Layout from '../../layouts/Layout.astro';
+import { HIVER } from '../../content/hiver';
+export function getStaticPaths() {
+  return HIVER.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+const { g } = Astro.props;
+const others = HIVER.filter((o) => o.slug !== g.slug);
+---
+<Layout type="article" title={g.title} description={g.description}>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700">Guide hiver et Noël</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{g.h1}</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">{g.lead}</p>
+    </div>
+    <ToolTeaser />
+    <div class="prose-article en-body mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10" set:html={g.body} />
+    <nav class="mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8" aria-label="Autres guides hiver">
+      <h2 class="text-xl font-bold text-stone-900">Les autres guides hiver et Noël</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        {others.map((o) => <a class="block rounded-2xl border border-stone-200 bg-white p-4 hover:bg-amber-50" href={`/guides/${o.slug}/`}><strong class="block text-stone-900">{o.h1}</strong></a>)}
+      </div>
+      <p class="mt-4 text-sm"><a class="font-semibold text-amber-700 underline" href="/guides/">Tous les guides</a></p>
+    </nav>
+  </section>
+</Layout>
+<style is:global>
+  .en-body table { display: table; width: 100%; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: .92rem; margin: 1rem 0; background: #fff; }
+  .en-body th, .en-body td { border: 1px solid #e7e5e4; padding: .45rem .6rem; text-align: left; vertical-align: top; }
+  .en-body th { background: #fef3c7; color: #1c1917; }
+  .en-body a { color: #b45309; font-weight: 600; }
+  .en-body ul, .en-body ol { padding-left: 1.3rem; list-style: disc; } .en-body ol { list-style: decimal; }
+  .en-card { border: 1px solid #e7e5e4; background: #fff; border-radius: 1rem; padding: 1rem 1.2rem; margin: 1rem 0; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .en-card h3 { margin: .2rem 0 .4rem !important; font-size: 1.05rem !important; }
+  .en-card p { margin: .3rem 0 .7rem !important; font-size: .95rem; }
+  .en-flag { font-size: .75rem !important; font-weight: 700; color: #b45309; text-transform: uppercase; letter-spacing: .04em; }
+  .en-amz, .en-body a.en-amz { display: inline-block; background: linear-gradient(to bottom right,#fbbf24,#f97316); color: #fff; font-weight: 700; border-radius: .75rem; padding: .5rem 1rem; text-decoration: none; font-size: .9rem; border: 0; cursor: pointer; }
+  .en-note { font-size: .82rem !important; color: #78716c; }
+  .en-grid { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill,minmax(15rem,1fr)); }
+  .en-tile { display: block; border: 1px solid #e7e5e4; background: #fff; border-radius: 1rem; padding: 1rem; text-decoration: none; }
+  .en-tile strong { display: block; color: #1c1917; } .en-tile span { display: block; color: #57534e; font-weight: 400; font-size: .9rem; margin-top: .2rem; }
+  .en-body > h2:first-child { margin-top: 0; }
+  @media (max-width: 640px) { .en-body table { display: block; overflow-x: auto; } }
+</style>

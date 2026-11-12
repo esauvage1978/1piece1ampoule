@@ -1,0 +1,154 @@
+---
+import FaqBlock from '../../components/FaqBlock.astro';
+import { HIVER_FAQ } from '../../content/hiver-faq';
+import Layout from '../../layouts/Layout.astro';
+import { activePromos, frDate, frDateTime } from '../../content/promos';
+import { awinLink } from '../../content/awin';
+import BlackFridayStrip from '../../components/BlackFridayStrip.astro';
+const promos = activePromos();
+---
+<Layout title="Codes promo éclairage : offres datées (novembre 2026)" description="Codes promo éclairage vérifiés, avec date de fin. Au 9 novembre 2026, aucun code Luminaire.fr ni code ampoule connectée n’est en cours sur cette page.">
+  <section class="mt-10 max-w-3xl mx-auto">
+    <BlackFridayStrip locale="fr" />
+    <h1 class="mt-8 text-3xl font-extrabold tracking-tight">Codes promo et bons plans éclairage</h1>
+    <p class="mt-3 text-stone-600">Les remises du moment chez les marchands d’éclairage que nous recommandons, avec le code à saisir, les conditions et la date de fin de chaque offre. Avant d’acheter, consultez les <a class="font-semibold text-amber-700 underline" href="/guides/lumens-vs-watts/">lumens et watts</a>, l’<a class="font-semibold text-amber-700 underline" href="/guides/irc-indice-rendu-couleur/">IRC d’une ampoule LED</a> et le guide <a class="font-semibold text-amber-700 underline" href="/articles/bon-plan-ampoule-connectee/">bon plan ampoule connectée</a>.</p>
+    <p class="mt-3 text-stone-600"><strong>Code promo Luminaire.fr, code réduction Luminaire.fr :</strong> aucun code vérifié au 9 novembre 2026. L’offre de mi-saison s’est terminée le 25 octobre 2026. Le détail livraison, retours et exclusions est sur la <a class="font-semibold text-amber-700 underline" href="/marques/luminaire-fr/">fiche Luminaire.fr</a>. Une remise ne compte que si elle s’affiche sur le total.</p>
+    <div class="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-5 text-sm text-stone-700">
+      <p class="font-semibold text-stone-900">Comment utiliser un code promo</p>
+      <ol class="mt-2 list-decimal space-y-1 pl-5">
+        <li>Cliquez sur le bouton « Profiter de l’offre » : vous arrivez sur la boutique du marchand.</li>
+        <li>Ajoutez les produits au panier, puis ouvrez la page de commande.</li>
+        <li>Saisissez le code dans le champ prévu (souvent « code promo » ou « bon de réduction ») avant de payer.</li>
+        <li>Vérifiez que la remise apparaît sur le total : si ce n’est pas le cas, relisez les conditions (produits éligibles, montant minimum).</li>
+      </ol>
+      <p class="mt-3 text-xs text-stone-600">Offres sans code : la remise s’applique automatiquement sur les articles concernés. Pour le Black Friday, voir aussi notre page <a class="font-semibold text-amber-800 underline" href="/black-friday-2026/">Black Friday 2026 éclairage</a>.</p>
+    </div>
+    {promos.length > 0 && (
+      <figure class="not-prose mt-8 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+        <table class="w-full min-w-[520px] text-sm">
+          <caption class="px-4 pt-4 text-left text-sm font-semibold text-stone-900">Synthèse des offres en cours (éclairage)</caption>
+          <thead class="bg-stone-50 text-left"><tr><th class="p-3">Marchand</th><th class="p-3">Code</th><th class="p-3">Avantage</th><th class="p-3">Fin (Paris)</th></tr></thead>
+          <tbody>
+            {promos.map((p) => (
+              <tr class="border-t border-stone-100">
+                <td class="p-3 font-medium">{p.marchand}</td>
+                <td class="p-3 font-mono text-xs">{p.code ?? '—'}</td>
+                <td class="p-3 text-stone-600">{p.titre}</td>
+                <td class="p-3 text-stone-600">{frDateTime(p.fin)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </figure>
+    )}
+    <h2 class="mt-10 text-xl font-bold text-stone-900">Offres datées (partenaires éclairage)</h2>
+    <div class="mt-4 space-y-4">
+      {promos.map((p) => (
+        <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-promo data-fin={p.fin}>
+          <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">{p.marchand}</p>
+          <h3 class="mt-1 text-lg font-bold text-stone-900">{p.titre}</h3>
+          <p class="mt-2 text-sm text-stone-600">{p.details}</p>
+          {p.code ? <p class="mt-3 text-sm">Code : <strong class="rounded-lg border border-dashed border-amber-500 bg-amber-50 px-2 py-1 font-mono text-stone-900">{p.code}</strong></p> : <p class="mt-3 text-sm text-stone-700">Sans code : la remise s’applique directement.</p>}
+          <p class="mt-3 text-xs text-stone-500">Valable du {frDate(p.debut)} jusqu’au {frDateTime(p.fin)} (heure de Paris). Vérifiée le {p.verifie}.</p>
+          <a href={p.lien} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={p.mid} data-product={`Promo ${p.marchand} : ${p.titre}`} class="mt-3 inline-flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">Profiter de l’offre chez {p.marchand}</a>
+          {p.marquePage && <p class="mt-2 text-sm"><a class="text-amber-700 underline" href={p.marquePage}>Notre avis sur {p.marchand} : livraison, garantie, SAV</a></p>}
+        </article>
+      ))}
+    </div>
+    <p class="mt-6 text-sm text-stone-600" id="promo-empty" hidden>Aucune offre datée en ce moment. Consultez la boutique <a class="font-semibold text-amber-700 underline" href="https://www.awin1.com/cread.php?awinmid=98739&#38;awinaffid=3127458&#38;ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fall-stars" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="98739">OSRAM LEDVANCE</a> ou nos fiches <a class="font-semibold text-amber-700 underline" href="/marques/osram-ledvance/">OSRAM</a> et <a class="font-semibold text-amber-700 underline" href="/marques/luminaire-fr/">Luminaire.fr</a>.</p>
+    <article class="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Boutique OSRAM (LEDVANCE)</p>
+      <h2 class="mt-1 text-lg font-bold text-stone-900">Ampoules et luminaires OSRAM</h2>
+      <p class="mt-2 text-sm text-stone-600">La sélection « All Stars » de la boutique officielle regroupe les best-sellers LED. Aucun code promo vérifié ce jour (dernière offre datée expirée fin octobre 2026).</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=98739&#38;awinaffid=3127458&#38;ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fall-stars" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="98739" class="mt-3 inline-flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">Voir la boutique OSRAM</a>
+      <p class="mt-2 text-sm"><a class="text-amber-700 underline" href="/marques/osram-ledvance/">Notre avis OSRAM LEDVANCE</a></p>
+    </article>
+    <article class="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261101-mylands>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Mylands — France</p>
+      <h2 class="mt-1 text-lg font-bold text-stone-900">Peintures intérieures et extérieures, échantillons et nuanciers</h2>
+      <p class="mt-2 text-sm text-stone-600">mylands.fr propose des peintures de décoration (couleurs profondes, finitions mate ou satinée), des échantillons et des nuanciers livrés en France. Utile après un changement d’éclairage : tester une teinte sous vos ampoules (voir <a class="font-semibold text-amber-700 underline" href="/guides/kelvin-temperature-couleur/">Kelvin</a>). Aucun code promo vérifié ce jour.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=131679&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fmylands.fr%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="131679" data-product="Mylands peintures" class="mt-3 inline-flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">Voir Mylands</a>
+    </article>
+
+    <h2 class="mt-10 text-xl font-bold text-stone-900">Boutiques Lampenwelt / Lights (DE, AT, UK, IE)</h2>
+    <p class="mt-2 text-sm text-stone-600">Programmes acceptés le 04/11/2026. Aucun code promo vérifié ce jour — consultez les promotions sur le site marchand.</p>
+    <div class="mt-4 space-y-4" data-integration-20261104d-lampenwelt-lights>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261104d-mid-7619>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Lampenwelt — Allemagne</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">LED-Leuchtmittel (lampenwelt.de)</h3>
+      <p class="mt-2 text-sm text-stone-600">Encarts sur les guides <a class="text-amber-700 underline" href="/de/ratgeber/lumen-watt/">DE Lumen/Watt</a>, <a class="text-amber-700 underline" href="/de/ratgeber/lampensockel-e27-e14-gu10/">Sockel</a> et <a class="text-amber-700 underline" href="/de/anleitungen/halogen-gu10-mr16-durch-led-ersetzen/">GU10</a>.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=7619&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.lampenwelt.de%2Fc%2Fleuchtmittel" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="7619" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Lampenwelt.de →</a>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261104d-mid-9292>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Lampenwelt — Autriche</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Leuchtmittel mit Versand AT (lampenwelt.at)</h3>
+      <p class="mt-2 text-sm text-stone-600">Accueil <a class="text-amber-700 underline" href="/de/">DE</a> et encart dédié sur <a class="text-amber-700 underline" href="/de/ratgeber/lumen-watt/">Lumen/Watt</a>.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=9292&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.lampenwelt.at%2Fc%2Fleuchtmittel" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="9292" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Lampenwelt.at →</a>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261104d-mid-7574>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Lights.co.uk — Royaume-Uni</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Light bulbs B22, E27, GU10 (lights.co.uk)</h3>
+      <p class="mt-2 text-sm text-stone-600">Guides <a class="text-amber-700 underline" href="/en/guides/lumens-vs-watts/">EN</a> · accueil <a class="text-amber-700 underline" href="/en/">/en/</a>.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=7574&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.lights.co.uk%2Fc%2Flight-bulbs" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="7574" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Lights.co.uk →</a>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261104d-mid-10896>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Lights.ie — Irlande</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">LED bulbs with IE delivery (lights.ie)</h3>
+      <p class="mt-2 text-sm text-stone-600">Pas de version /ie/ sur le site : encarts sur les guides <a class="text-amber-700 underline" href="/en/guides/bulb-bases-b22-e26-e27-gu10/">EN bases</a> et <a class="text-amber-700 underline" href="/en/tutorials/how-much-light-per-room-lux-foot-candles/">lux par pièce</a>.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=10896&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.lights.ie%2Fc%2Flight-bulbs" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="10896" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Lights.ie →</a>
+    </article>
+    </div>
+    <h2 class="mt-10 text-xl font-bold text-stone-900">Autres partenaires affiliés (hors éclairage)</h2>
+    <p class="mt-2 text-sm text-stone-600">Ces marchands ne vendent pas d’ampoules en priorité. Indiquez le pays de livraison sur leur site avant commande (Allemagne, Italie, etc.).</p>
+    <div class="mt-4 space-y-4">
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Trotec — Italie</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Climat, mesure et ventilation (boutique Trotec Italie)</h3>
+      <p class="mt-2 text-sm text-stone-600">Déshumidificateurs, chauffages, ventilateurs et outils de mesure sur la boutique Trotec Italie. Aucun code promo vérifié ce jour : consultez les offres en cours sur le site marchand.</p>
+      <a href={awinLink('115365', 'https://www.trotec.com/it/shop/')} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="115365" data-product="Trotec IT : boutique" class="mt-3 inline-flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">Voir les offres Trotec IT</a>
+    </article>
+
+
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261102b-dusbad-de>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Dusbad — Allemagne</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Duschsysteme und Badbeleuchtung (dusbad.de)</h3>
+      <p class="mt-2 text-sm text-stone-600">Duschen, Armaturen und LED-Spiegel für deutsche Badezimmer — Livraison DE. Aucun code promo vérifié ce jour. Guide DE : <a class="text-amber-700 underline" href="/de/zonen/badezimmerspiegel/">Badezimmerspiegel</a>.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=116147&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.dusbad.de%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="116147" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Voir Dusbad DE</a>
+    </article>    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261102-anthbot-de>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">ANTHBOT — Allemagne</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Robots tondeuses sans fil (de.anthbot.com)</h3>
+      <p class="mt-2 text-sm text-stone-600">Tonte autonome pour jardins privés — livraison annoncée Allemagne. Aucun code promo vérifié ce jour.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=125144&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fde.anthbot.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="125144" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Voir ANTHBOT DE</a>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261102-anthbot-us>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Anthbot — États-Unis</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Robot lawn mowers (anthbot.com)</h3>
+      <p class="mt-2 text-sm text-stone-600">Marché US : vérifiez la livraison et la tension avant commande depuis l’Europe. Sans code vérifié.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=127129&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fanthbot.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="127129" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Voir Anthbot US</a>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261102-shelly-es>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Shelly — Espagne</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Modules domotique Shelly Gen4 (boutique ES)</h3>
+      <p class="mt-2 text-sm text-stone-600">Relais, dimmers et capteurs sur shelly.com/es — livraison Espagne. Encarts détaillés sur nos guides <a class="text-amber-700 underline" href="/es/tutoriales/interruptor-inteligente-sin-neutro/">ES</a>.</p>
+      <a href="https://www.awin1.com/cread.php?awinmid=128973&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.shelly.com%2Fes" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="128973" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Tienda Shelly ES</a>
+    </article>    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261031b-1p1a17430>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">getgoods DE</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Boutique allemande : informatique, électronique, domotique, outillage et sécurité (livraison DE/AT).</h3>
+      <a href="https://www.awin1.com/cread.php?awinmid=17430&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.getgoods.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="17430" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Voir getgoods DE</a></article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261031b-1p1a102989>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Netzwerkartikel.de</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Câbles réseau, fiches RJ45 et accessoires électrotechniques (Allemagne).</h3>
+      <a href="https://www.awin1.com/cread.php?awinmid=102989&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Fwww.netzwerkartikel.de%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="102989" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Voir Netzwerkartikel.de</a></article>
+    <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-integration-20261031b-1p1a122030>
+      <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">TESSAN</p>
+      <h3 class="mt-1 text-lg font-bold text-stone-900">Multiprises, prises murales USB et adaptateurs de voyage (marque internationale).</h3>
+      <a href="https://www.awin1.com/cread.php?awinmid=122030&amp;awinaffid=3127458&amp;ued=https%3A%2F%2Ftessan.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="122030" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white">Voir TESSAN</a></article>
+    </div>
+    <p class="mt-6 text-sm text-stone-600">Avant d’acheter, comparez les garanties et le SAV de chaque marque sur <a class="font-semibold text-amber-700 underline" href="/marques/">nos fiches marques</a>.</p>
+    <p class="mt-6 text-xs text-stone-500">Liens partenaires : une commission peut m’être versée si vous achetez, sans surcoût pour vous. Conditions complètes sur le site du marchand. <a class="underline" href="/affiliation-amazon/">En savoir plus</a>.</p>
+  </section>
+  <FaqBlock title="Black Friday 2026 et bons plans éclairage" items={HIVER_FAQ['codes-promo']} />
+  <script is:inline>
+    (function(){var n=Date.now(),v=0;document.querySelectorAll('[data-promo]').forEach(function(e){if(new Date(e.dataset.fin).getTime()<=n){e.remove();}else v++;});if(!v){var m=document.getElementById('promo-empty');if(m)m.hidden=false;}})();
+  </script>
+</Layout>

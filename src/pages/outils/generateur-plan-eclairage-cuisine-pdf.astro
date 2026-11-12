@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+---
+
+<Layout description="Configurez l’éclairage de votre cuisine : plan de travail 500 lux, îlot, cuisson. Outils · configurateur Guides, comparatifs et conseils pratiques sur" title="Plan d’éclairage cuisine zone par zone (PDF imprimable)" type="article">
+<section class="mt-10 no-print">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700"><a class="hover:underline" href="/outils/">Outils</a> · configurateur</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Plan d’éclairage cuisine (imprimable)</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        Renseignez les surfaces et longueurs : l’outil propose un <strong>plan zone par zone</strong> (plan de travail <strong>500 lux</strong>, îlot, cuisson, table à manger, circulation),
+        le nombre de <strong>spots GU10</strong>, la <strong>longueur de ruban LED 24 V</strong> sous meuble, une <strong>température Kelvin</strong> cohérente et des sources avec <strong>IRC ≥ 90</strong>.
+        Imprimez la synthèse pour votre artisan ou votre chantier. Voir aussi
+        <a class="font-semibold text-amber-700" href="/zones/plan-de-travail-cuisine/">éclairer le plan de travail</a>,
+        <a class="font-semibold text-amber-700" href="/tutoriels/poser-ruban-led-sous-meuble-cuisine/">poser un ruban sous meuble</a> et
+        <a class="font-semibold text-amber-700" href="/outils/calculateur-ruban-led-alimentation-24v/">dimensionner l’alimentation 24 V</a>.
+      </p>
+</div>
+</section>
+<CrossLinkOutilsDepannage variant="vers-depannage" />
+<section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6 no-print">
+<h2 class="text-xl font-bold">Configurateur</h2>
+<div class="mt-4 grid gap-4 sm:grid-cols-2" id="kitchen-plan-tool">
+<label class="text-sm font-semibold text-stone-800 sm:col-span-2">Nom du projet (sur la feuille imprimée)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-name" maxlength="80" placeholder="Ex. Cuisine 12 m² — rénovation" type="text"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Longueur plan de travail (m)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-bench-len" max="12" min="1" step="0.1" type="number" value="3.6"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Profondeur plan (m)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-bench-d" max="1" min="0.5" step="0.05" type="number" value="0.6"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Surface îlot / péninsule (m²)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-island" max="8" min="0" step="0.1" type="number" value="2"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Surface zone cuisson au plafond (m²)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-cook" max="6" min="0" step="0.1" type="number" value="1.2"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Surface table à manger (m²)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-table" max="12" min="0" step="0.1" type="number" value="2.4"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Surface circulation / passage (m²)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-circ" max="25" min="2" step="0.1" type="number" value="6"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Température de couleur visée
+        <select class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-k">
+<option value="3000">3000 K — blanc chaud (convivial)</option>
+<option selected="" value="4000">4000 K — blanc neutre (cuisine, tâches)</option>
+<option value="2700">2700 K — très chaud (coin repas)</option>
+</select>
+</label>
+<label class="text-sm font-semibold text-stone-800">Flux par spot GU10 (lm)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="kp-gu10-lm" max="800" min="250" step="25" type="number" value="500"/>
+</label>
+<label class="flex items-center gap-2 text-sm font-semibold text-stone-800 sm:col-span-2">
+<input checked="" class="h-4 w-4 rounded border-stone-300" id="kp-irc90" type="checkbox"/>
+        Exiger IRC ≥ 90 sur toutes les sources (aliments, finitions)
+      </label>
+</div>
+<div class="mt-5 flex flex-wrap gap-3">
+<button class="rounded-xl bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-700" id="kp-recalc" type="button">Mettre à jour le plan</button>
+<button class="rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-800 hover:bg-stone-50" id="kp-print" type="button">Imprimer / PDF</button>
+</div>
+</section>
+<section aria-live="polite" class="mt-10 print-plan-wrap" id="kp-print-area">
+<div class="rounded-3xl border border-stone-300 bg-white p-6 sm:p-10 shadow-sm print-shadow-none">
+<header class="border-b border-stone-200 pb-4">
+<p class="text-xs uppercase tracking-wide text-stone-500">1piece1ampoule.fr — plan indicatif</p>
+<h2 class="mt-1 text-2xl font-extrabold text-stone-900" id="kp-title">Plan d’éclairage cuisine</h2>
+<p class="mt-2 text-sm text-stone-600" id="kp-meta"></p>
+</header>
+<table class="mt-6 w-full text-left text-sm" id="kp-table-out">
+<thead>
+<tr class="border-b border-stone-200 text-stone-700">
+<th class="py-2 pr-2 font-bold">Zone</th>
+<th class="py-2 pr-2 font-bold">Cible lux</th>
+<th class="py-2 pr-2 font-bold">Solution</th>
+<th class="py-2 font-bold">Quantité</th>
+</tr>
+</thead>
+<tbody id="kp-tbody"></tbody>
+</table>
+<div class="mt-6 grid gap-4 sm:grid-cols-2 text-sm text-stone-800" id="kp-summary"></div>
+<p class="mt-6 text-xs text-stone-500" id="kp-footnote"></p>
+</div>
+</section>
+<ToolTeaser />
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6 no-print">
+<h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+<ul class="mt-3 space-y-1 text-sm text-stone-600">
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/convertisseur-lux-lumens-watts-surface/">Convertisseur lux ↔ lumens</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/equivalence-halogene-led-gu10-e27-lumens/">Équivalence halogène GU10</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/calculateur-ruban-led-alimentation-24v/">Calculateur ruban LED 24 V</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur/">Kelvin</a> · <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur/">IRC</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/meilleur/meilleur-spot-gu10/">Comparatif spots GU10</a></li>
+</ul>
+</section>
+<style>
+    @media print {
+      body * { visibility: hidden; }
+      .print-plan-wrap, .print-plan-wrap * { visibility: visible; }
+      .print-plan-wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .print-shadow-none { box-shadow: none !important; border-color: #ccc !important; }
+      header[data-site-header], footer, [data-tool-teaser], .no-print, [data-byline] { display: none !important; }
+      main { max-width: none !important; padding: 0 !important; }
+    }
+  </style>
+<script is:inline>
+    (function () {
+      var ZONES = [
+        { key: 'bench', label: 'Plan de travail', lux: 500, kind: 'strip' },
+        { key: 'island', label: 'Îlot / péninsule', lux: 300, kind: 'gu10' },
+        { key: 'cook', label: 'Cuisson (plafond)', lux: 500, kind: 'gu10' },
+        { key: 'table', label: 'Table à manger', lux: 200, kind: 'gu10' },
+        { key: 'circ', label: 'Circulation', lux: 100, kind: 'gu10' },
+      ];
+      var K_CEIL = 1.55;
+      var K_BENCH = 1.4;
+      function el(id) { return document.getElementById(id); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function ceilSpots(lm, per) { return per > 0 ? Math.max(0, Math.ceil(lm / per)) : 0; }
+      function fmtLm(n) { return Math.round(n).toLocaleString('fr-FR'); }
+      function areaFromInput(id) { return num(el(id).value); }
+      function calc() {
+        var name = (el('kp-name').value || '').trim();
+        var benchLen = num(el('kp-bench-len').value);
+        var benchD = num(el('kp-bench-d').value);
+        var island = areaFromInput('kp-island');
+        var cook = areaFromInput('kp-cook');
+        var table = areaFromInput('kp-table');
+        var circ = areaFromInput('kp-circ');
+        var kelvin = el('kp-k').value;
+        var gu10Lm = num(el('kp-gu10-lm').value) || 500;
+        var irc90 = el('kp-irc90').checked;
+        var benchArea = benchLen * benchD;
+        var benchLm = 500 * benchArea * K_BENCH;
+        var lmPerM = benchLen > 0 ? benchLm / benchLen : 0;
+        var stripLen = benchLen;
+        var areas = { island: island, cook: cook, table: table, circ: circ };
+        var totalGu10 = 0;
+        var rows = '';
+        ZONES.forEach(function (z) {
+          var qty = '';
+          var sol = '';
+          if (z.key === 'bench') {
+            if (benchLen <= 0) return;
+            sol = 'Ruban LED 24 V sous meuble (IRC ' + (irc90 ? '≥ 90' : '≥ 80 conseillé') + ')';
+            qty = stripLen.toFixed(1).replace('.', ',') + ' m linéaire · ≈ ' + Math.round(lmPerM) + ' lm/m visés';
+            rows += '<tr class="border-b border-stone-100"><td class="py-2 pr-2">' + z.label + '</td><td class="py-2 pr-2">' + z.lux + ' lx</td><td class="py-2 pr-2">' + sol + '</td><td class="py-2">' + qty + '</td></tr>';
+            return;
+          }
+          var m2 = areas[z.key];
+          if (m2 <= 0) return;
+          var need = z.lux * m2 * K_CEIL;
+          var n = ceilSpots(need, gu10Lm);
+          totalGu10 += n;
+          sol = 'Spots GU10 ' + kelvin + ' K, faisceau 36–60°';
+          qty = n + ' spot' + (n > 1 ? 's' : '') + ' (≈ ' + fmtLm(need) + ' lm)';
+          rows += '<tr class="border-b border-stone-100"><td class="py-2 pr-2">' + z.label + ' (' + m2.toFixed(1).replace('.', ',') + ' m²)</td><td class="py-2 pr-2">' + z.lux + ' lx</td><td class="py-2 pr-2">' + sol + '</td><td class="py-2">' + qty + '</td></tr>';
+        });
+        el('kp-tbody').innerHTML = rows;
+        el('kp-title').textContent = name || 'Plan d’éclairage cuisine';
+        el('kp-meta').textContent =
+          'Teinte cible : ' + kelvin + ' K · IRC ' + (irc90 ? '≥ 90 sur l’ensemble des luminaires' : '≥ 80 minimum, 90 recommandé sur le plan de travail') +
+          ' · Généré le ' + new Date().toLocaleDateString('fr-FR');
+        el('kp-summary').innerHTML =
+          '<div class="rounded-xl border border-stone-200 p-4"><strong>Total spots GU10 plafond :</strong> ' + totalGu10 + '</div>' +
+          '<div class="rounded-xl border border-stone-200 p-4"><strong>Ruban 24 V sous meubles :</strong> ' + stripLen.toFixed(1).replace('.', ',') + ' m (alimentation : voir calculateur 24 V)</div>' +
+          '<div class="rounded-xl border border-stone-200 p-4 sm:col-span-2"><strong>Circuits conseillés :</strong> un circuit variateur pour le coin repas / ambiance, un circuit fort pour plan de travail + cuisson ; séparer l’îlot si possible pour éviter les ombres sur le plan.</div>';
+        el('kp-footnote').textContent =
+          'Estimation basée sur des lux usuels (plan de travail 500 lx, circulation 100 lx) et un facteur de réflexion K ≈ ' + K_CEIL + ' au plafond. ' +
+          'L’homogénéité dépend de la hauteur sous plafond et des finitions. Faites valider le schéma par un électricien pour les zones humides (évier) et la puissance des circuits.';
+      }
+      el('kp-recalc').addEventListener('click', calc);
+      el('kp-print').addEventListener('click', function () { calc(); window.print(); });
+      ['kp-bench-len', 'kp-bench-d', 'kp-island', 'kp-cook', 'kp-table', 'kp-circ', 'kp-k', 'kp-gu10-lm', 'kp-irc90', 'kp-name'].forEach(function (id) {
+        el(id).addEventListener('input', calc);
+        el(id).addEventListener('change', calc);
+      });
+      calc();
+    })();
+  </script>
+</Layout>

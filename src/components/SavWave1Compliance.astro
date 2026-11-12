@@ -1,0 +1,32 @@
+---
+import { COPY, BRANDS } from '../data/savWave1.mjs';
+---
+
+<section class="mt-10 rounded-2xl border border-red-200 bg-red-50 p-6">
+	<h2 class="text-lg font-bold text-red-900">Entretien courant ou électricien qualifié ?</h2>
+  <p class="mt-3 text-sm text-stone-700">
+    <strong>Vous pouvez</strong> remplacer une ampoule LED, poser un bypass Legrand/Shelly ou un condensateur de compensation (~4&nbsp;€), régler un variateur compatible LED, réorienter un capteur Steinel.
+    <strong>Faites appel à un électricien certifié</strong> pour ouvrir le tableau, modifier un circuit 230&nbsp;V / triphasé, ou si vous n’êtes pas à l’aise au plafonnier.
+  </p>
+	<p class="mt-3 text-sm font-semibold text-stone-800">{COPY.assist}</p>
+</section>
+
+<section class="mt-6 rounded-2xl border border-red-300 bg-red-50/80 p-6">
+	<h2 class="text-lg font-bold text-red-900">Clause de non-responsabilité &amp; Sécurité</h2>
+	<p class="mt-3 text-sm text-stone-700"><strong>Clause de non-responsabilité :</strong> {COPY.disclaimer}</p>
+</section>
+
+<section class="mt-6 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+	<h2 class="text-lg font-bold">Contacter l’assistance officielle &amp; SAV constructeur</h2>
+	<ul class="mt-4 space-y-2 text-sm text-stone-700">
+		{BRANDS.map((b) => (
+			<li>
+				<strong class="text-stone-900">{b.name}</strong> —{' '}
+				<a class="font-semibold text-amber-700 hover:text-amber-800" href={b.url} rel="noopener noreferrer" target="_blank">
+					{b.url.replace(/^https?:\/\//, '')}
+				</a>
+				{b.tel && <> · {b.tel}</>}
+			</li>
+		))}
+	</ul>
+</section>

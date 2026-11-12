@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageDates, frDate } from '../../content/dates.mjs';
+
+const dates = pageDates('/tests/imalent-gr35/');
+const buyUrl =
+  'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
+const promoCode = 'DZYJ10YHM';
+
+const faq = [
+  {
+    q: 'La lampe chauffe-t-elle en utilisation ?',
+    a: 'Oui, à pleine puissance on sent nettement la chaleur sur la main quand on se l’éclaire dessus. C’est cohérent avec une torche très lumineuse : une partie de l’énergie électrique se transforme en chaleur au niveau de la LED et du corps.',
+  },
+  {
+    q: 'Le laser vert reste-t-il stable ?',
+    a: 'Oui : le pointeur laser vert est constant pendant l’usage.',
+  },
+  {
+    q: 'Peut-on utiliser le laser en toute sécurité ?',
+    a: 'Un laser ne doit jamais viser les yeux, les personnes, les animaux, les véhicules ou les aéronefs. Gardez la torche hors de portée des enfants et n’utilisez le laser que pour des repères ponctuels, sans braquer le faisceau vers quelqu’un.',
+  },
+  {
+    q: 'La notice est-elle en français ?',
+    a: 'Non, sur l’exemplaire testé elle n’est pas traduite en français. Ce n’est pas obligatoire, mais c’est le principal bémol du pack.',
+  },
+  {
+    q: 'Qu’est-ce qui est fourni avec la torche ?',
+    a: 'Outre la lampe, le coffret comprend une powerbank et une pochette de rangement en tissu gris — deux accessoires appréciés.',
+  },
+];
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  author: { '@type': 'Person', name: 'Emmanuel Sauvage', url: 'https://1piece1ampoule.fr/a-propos/' },
+  itemReviewed: { '@type': 'Thing', name: 'Imalent GR35', url: buyUrl },
+  reviewBody:
+    'Torche Imalent GR35 facile à prendre en main, très puissante, avec variateur pratique, laser vert stable et coffret powerbank apprécié ; notice non traduite en français.',
+  positiveNotes: {
+    '@type': 'ItemList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Qualité perçue et simplicité d’usage' },
+      { '@type': 'ListItem', position: 2, name: 'Powerbank et pochette de rangement dans le coffret' },
+      { '@type': 'ListItem', position: 3, name: 'Puissance élevée et variateur facile' },
+      { '@type': 'ListItem', position: 4, name: 'Laser vert constant' },
+    ],
+  },
+  negativeNotes: {
+    '@type': 'ItemList',
+    itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Notice non traduite en français' }],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Layout
+  title="Test Imalent GR35 : torche, laser vert et coffret powerbank"
+  description="Test Imalent GR35 : torche très puissante, variateur facile, laser vert, coffret powerbank et pochette. Notice pas en français. Lampe offerte ; avis libre."
+  type="article"
+  schema={[reviewSchema, faqSchema]}
+>
+  <nav class="breadcrumb mt-4 text-sm text-stone-500" aria-label="Fil d'Ariane">
+    <a class="font-semibold text-amber-800 hover:underline" href="/">Accueil</a>
+    <span aria-hidden="true"> › </span>
+    <a class="font-semibold text-amber-800 hover:underline" href="/marques/">Marques</a>
+    <span aria-hidden="true"> › </span>
+    <a class="font-semibold text-amber-800 hover:underline" href="/marques/imalent/">Imalent</a>
+    <span aria-hidden="true"> › </span>
+    <span class="text-stone-700">Test GR35</span>
+  </nav>
+
+  <section class="mt-6 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">
+      Test produit · mis à jour le <time datetime={dates.modified}>{frDate(dates.modified)}</time>
+    </p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Test Imalent GR35 : torche, laser vert et coffret powerbank</h1>
+    <p class="mt-4 rounded-2xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-sm text-stone-800">
+      <strong>Lampe offerte par Imalent pour ce test ; aucune contrepartie sur le contenu de l’avis.</strong>
+    </p>
+    <p class="mt-4 max-w-3xl text-stone-600">
+      L’Imalent GR35 n’est pas une ampoule de salon : c’est une lampe torche compacte avec laser vert, variateur et un coffret qui sert aussi de powerbank. Voici ce que nous en retenons après essai.
+    </p>
+    <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200">
+      <img
+        src="/images/tests/imalent-gr35/imalent-gr35-contenu-pochette-powerbank-torche.webp"
+        alt="Contenu de la boîte Imalent GR35 posé sur une table : pochette en tissu gris, powerbank et lampe"
+        width="1600"
+        height="1200"
+        class="h-auto w-full"
+      />
+    </figure>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Déballage</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      Dans la boîte : la torche, le coffret de charge et de rangement, la pochette en tissu gris et la powerbank associée. Le coffret noir et bleu est soigné ; la pochette se range dedans avec son bouton de fixation.
+    </p>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <figure class="overflow-hidden rounded-2xl border border-stone-200">
+        <img
+          src="/images/tests/imalent-gr35/imalent-gr35-torche-dans-son-coffret.webp"
+          alt="Lampe Imalent GR35 dans son coffret noir et bleu à l'ouverture"
+          width="1600"
+          height="1200"
+          loading="lazy"
+          class="h-auto w-full"
+        />
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-stone-200">
+        <img
+          src="/images/tests/imalent-gr35/imalent-gr35-coffret-ouvert-vide.webp"
+          alt="Coffret Imalent ouvert et vide, intérieur noir et bleu"
+          width="1600"
+          height="1200"
+          loading="lazy"
+          class="h-auto w-full"
+        />
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-stone-200">
+        <img
+          src="/images/tests/imalent-gr35/imalent-gr35-coffret-ferme-vue-dessus.webp"
+          alt="Coffret de l'Imalent GR35 vu de dessus, pochette en tissu gris logée dans la boîte"
+          width="1200"
+          height="1600"
+          loading="lazy"
+          class="h-auto w-full"
+        />
+      </figure>
+      <figure class="overflow-hidden rounded-2xl border border-stone-200">
+        <img
+          src="/images/tests/imalent-gr35/imalent-gr35-torche-pochette-tissu-dans-coffret.webp"
+          alt="Pochette de rangement en tissu gris de l'Imalent GR35 avec son bouton, dans le coffret"
+          width="1200"
+          height="1600"
+          loading="lazy"
+          class="h-auto w-full"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Prise en main</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      La qualité nous paraît au rendez-vous et la lampe est facile à utiliser.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Puissance, variateur et laser vert</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      La torche est <strong>très puissante</strong>. Quand on braque le faisceau sur la paume de la main, on sent la chaleur : ce n’est pas anodin pour une lampe de poche. Imalent annonce un flux lumineux maximal de <strong>2 800 lumens</strong> et une portée de <strong>426 m</strong> (chiffres fabricant, non mesurés par nous). Pour situer le flux : une ampoule LED de salon courante tourne plutôt autour de <strong>800 lm</strong> ; 2 800 lm correspond donc à plusieurs fois cette intensité sur un faisceau concentré — d’où l’intérêt pour éclairer loin, et d’où aussi la chaleur ressentie : une partie de l’énergie consommée par la LED est convertie en chaleur dans le corps de la lampe, surtout à pleine puissance.
+    </p>
+    <p class="mt-3 text-sm text-stone-600">
+      Le <strong>variateur est facile</strong> à utiliser pour adapter la luminosité sans repasser par un mode fixe à chaque fois. Côté <strong>laser vert</strong>, le pointeur reste <strong>constant</strong> pendant l’usage. Rappel de prudence : ne jamais viser les yeux, les personnes, les animaux, les véhicules ou les aéronefs ; garder l’appareil hors de portée des enfants.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Powerbank et pochette</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      En dehors de la torche elle-même, ce qui plaît le plus dans le pack, c’est l’association <strong>powerbank + pochette de rangement</strong> intégrée au coffret.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm p-6">
+    <h2 class="text-lg font-bold">Le bémol : la notice</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      Seul vrai regret : la notice n’est pas traduite en français. Ce n’est pas obligatoire, mais une version française aurait été appréciable.
+    </p>
+  </section>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Points forts</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Qualité perçue et prise en main simple.</li>
+        <li>Powerbank et pochette bien pensées dans le coffret.</li>
+        <li>Très puissante ; variateur facile.</li>
+        <li>Laser vert constant.</li>
+      </ul>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Notice pas en français.</li>
+        <li>Chaleur ressentie à forte puissance.</li>
+      </ul>
+    </article>
+  </section>
+
+  <aside class="mt-10 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+    <h2 class="text-lg font-bold text-stone-900">Acheter l’Imalent GR35</h2>
+    <p class="mt-2 text-sm text-stone-600">
+      Prix relevé le 02/11/2026 sur <strong>imalentstore.com</strong> : <strong>72,95 $ US</strong> (prix barré 94,95 $), susceptible d’avoir changé. Livraison et TVA/douanes selon le vendeur.
+    </p>
+    <p class="mt-2 text-sm text-stone-600">
+      Code promo Awin pour la France : <code class="rounded-lg border border-dashed border-amber-400 bg-amber-50 px-2 py-0.5 font-mono text-xs">{promoCode}</code> (−10&nbsp;% sur la boutique IMALENT, valable jusqu’au 27/03/2027, source Awin).
+    </p>
+    <a
+      href={buyUrl}
+      rel="sponsored nofollow noopener"
+      target="_blank"
+      data-awin-link
+      data-awin-mid="94223"
+      data-product="Imalent GR35"
+      data-placement="test-gr35"
+      class="mt-4 inline-flex rounded-xl bg-stone-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-600"
+    >
+      Voir la fiche GR35 (boutique officielle)
+    </a>
+    <p class="mt-3 text-xs text-stone-500">Lien affilié · nous pouvons percevoir une commission sans surcoût pour vous.</p>
+  </aside>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">À qui la conseiller</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      Plutôt à quelqu’un qui cherche une torche puissante, rechargeable via son coffret, avec laser vert et réglage de luminosité. Moins adaptée si vous voulez une notice FR complète. Fiche produit :
+      <a class="font-semibold text-amber-800 underline" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Imalent GR35 sur imalentstore.com</a> (lien affilié). Pour éclairer une cave sans prise, voir plutôt notre
+      <a class="font-semibold text-amber-800 underline" href="/tutoriels/eclairer-cave-sans-electricite/">tutoriel cave sans électricité</a> ; pour une allée, le
+      <a class="font-semibold text-amber-800 underline" href="/zones/entree-allee-exterieure/">guide entrée et allée extérieure</a>. Pour comparer avec un éclairage fixe, voir notre <a class="font-semibold text-amber-800 underline" href="/guides/lumens-vs-watts/">guide lumens ou watts</a>, la <a class="font-semibold text-amber-800 underline" href="/marques/imalent/">fiche de la marque Imalent</a> et <a class="font-semibold text-amber-800 underline" href="/marques/">toutes les marques que nous suivons</a>.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Caractéristiques annoncées par Imalent</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      Chiffres relevés sur la fiche produit du fabricant (pas mesurés par nous) :
+    </p>
+    <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+      <li>Flux maximal annoncé : <strong>2 800 lumens</strong>.</li>
+      <li>Portée annoncée : <strong>426 m</strong>.</li>
+      <li>Coffret de charge : <strong>6 700 mAh</strong>.</li>
+    </ul>
+    <p class="mt-4 text-xs text-stone-500">
+      Source :
+      <a class="underline" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">fiche Imalent GR35 sur imalentstore.com</a>, consultée le 02/11/2026.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Questions fréquentes</h2>
+    <div class="mt-4 space-y-3">
+      {faq.map((f) => (
+        <details class="rounded-xl border border-stone-200 bg-stone-50 p-4">
+          <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+          <p class="mt-2 text-sm text-stone-600">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>

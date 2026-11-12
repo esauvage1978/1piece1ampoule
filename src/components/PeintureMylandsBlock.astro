@@ -1,0 +1,12 @@
+---
+import AwinAffiliateLink from './AwinAffiliateLink.astro';
+const FR_NOTE = 'Lien partenaire Awin (programme Mylands 131679) : une commission peut nous être versée, sans surcoût pour vous.';
+---
+<aside class="mt-10 rounded-2xl border border-stone-200 bg-stone-50 p-6" data-awin-block>
+  <p class="text-sm font-semibold text-stone-900">Mylands — peintures de décoration</p>
+  <p class="mt-2 text-sm text-stone-600">
+    Manufacture londonienne depuis 1884, peintures à l’eau faibles en COV, nuancier « Couleurs de Londres » et échantillons sur mylands.fr (livraison France).
+  </p>
+  <AwinAffiliateLink mid="131679" url="https://mylands.fr/" cta="Voir les peintures Mylands" name="Mylands peintures" withIcon />
+  <p class="mt-2 text-xs text-stone-500">{FR_NOTE}{' '}<a class="underline" href="/affiliation-amazon/">Transparence affiliation</a>.</p>
+</aside>

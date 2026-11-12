@@ -1,0 +1,140 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+const th = 'px-3 py-2 text-left font-semibold';
+const td = 'px-3 py-2 align-top text-stone-600';
+const rows = [
+  { p: 'LED clignote ou luit faiblement à l’arrêt (courant résiduel)', d: 'Facile (1/5)', t: '5 min', c: '≈ 4 €', o: 'Tournevis isolé, bypass Legrand/Shelly ou condensateur bipolaire 0,47 µF' },
+  { p: 'Variateur qui grésille ou bourdonne avec des LED', d: 'Facile à moyen (2/5)', t: '10–30 min', c: '15–35 €', o: 'Tournevis, variateur « toutes lampes » compatible LED' },
+  { p: 'Ruban LED reste allumé faiblement ou surchauffe', d: 'Moyen (3/5)', t: '15–45 min', c: '5–25 €', o: 'Multimètre, alimentation LED dimensionnée, profilé alu' },
+  { p: 'Détecteur Steinel (NightMatic, IS…) reste allumé ou ne s’éteint plus', d: 'Facile (2/5)', t: '5–15 min', c: '0 €', o: 'Tournevis, notice Steinel, masquage capteur crépusculaire' },
+];
+---
+
+<Layout description="LED qui scintille à l’arrêt, variateur qui bourdonne, ruban qui chauffe, détecte. Guide dépannage Guides, comparatifs et conseils pratiques sur Guides" title="Ampoule LED qui clignote éteinte, grésille ou reste allumée : dépannage" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700">Guide dépannage</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">LED : clignotement, grésillement, lueur résiduelle</h1>
+<figure class="mt-4">
+  <img
+    src="/pins/led-clignote.png"
+    alt="Ampoule LED qui clignote ou reste faiblement allumée — illustration dépannage"
+    width="1000"
+    height="1500"
+    loading="eager"
+    decoding="async"
+    class="mx-auto max-h-44 w-full max-w-sm object-contain"
+  />
+</figure>
+<p class="mt-3 text-sm text-stone-600">
+  Ce guide s’inscrit dans la rubrique
+  <a class="font-semibold text-amber-700 underline hover:text-amber-800" href="/guides/">guides éclairage et dépannage</a>.
+</p>
+<p class="mt-4 max-w-3xl text-stone-600">
+        Une ampoule LED qui <strong>clignote éteinte</strong>, un <strong>variateur qui grésille</strong>, un <strong>ruban qui reste allumé ou chauffe</strong>, ou un <strong>détecteur Steinel qui ne coupe plus</strong> : dans la grande majorité des cas, la cause est connue et le réglage prend quelques minutes. Le tableau ci-dessous te donne le ordre de grandeur ; les sections détaillent quoi faire.
+      </p>
+</div>
+</section>
+<section class="mt-8 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-xl font-bold">Tableau de dépannage</h2>
+<div class="mt-4 overflow-x-auto">
+<table class="min-w-[640px] w-full text-sm">
+<thead class="bg-stone-100"><tr><th class={th}>Problème</th><th class={th}>Difficulté</th><th class={th}>Temps</th><th class={th}>Coût</th><th class={th}>Outils</th></tr></thead>
+<tbody>
+          {rows.map((r) => (
+            <tr class="border-t border-stone-200">
+<td class={td}>{r.p}</td>
+<td class={td}><strong class="text-stone-900">{r.d}</strong></td>
+<td class={td}>{r.t}</td>
+<td class={td}>{r.c}</td>
+<td class={td}>{r.o}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+<p class="mt-3 text-xs text-stone-500">Temps et coûts indicatifs pour un bricoleur à l’aise ; coupez toujours le circuit au tableau avant d’ouvrir une boîte de connexion ou un luminaire.</p>
+<p class="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-stone-700"><strong>Prudence — 230 V :</strong> toute intervention au plafonnier, au variateur ou au tableau se fait <strong>hors tension</strong> (disjoncteur coupé, absence de tension vérifiée). Ne touchez pas aux bornes secteur si vous n’êtes pas compétent.</p>
+</section>
+<section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50 p-8">
+<h2 class="text-xl font-extrabold">La solution qui règle ~95 % des lueurs et clignotements à l’arrêt (≈ 4 €, 5 min)</h2>
+<p class="mt-3 max-w-3xl text-sm text-stone-700">
+      Quand l’interrupteur a un <strong>voyant</strong>, qu’il est <strong>connecté sans neutre</strong>, ou qu’un variateur laisse passer une micro-intensité, un petit courant traverse la LED même « éteinte ». Elle charge son condensateur interne, puis <strong>flashe</strong> ou reste faiblement allumée.
+    </p>
+<p class="mt-3 max-w-3xl text-sm text-stone-700">
+      Deux options équivalentes, à poser <strong>au plafonnier</strong> (entre phase/neutre ou selon notice), courant coupé :
+    </p>
+<ul class="mt-4 space-y-2 text-sm text-stone-700">
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-600"></span><span><strong>Bypass / module de compensation</strong> Legrand ou Shelly (environ 4 €) : prévu pour les modules sans neutre et les interrupteurs témoin ; branchement indiqué sur la notice.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-600"></span><span><strong>Condensateur bipolaire</strong> 0,47 µF (450 V) en parallèle sur la lampe : même principe de dérivation du courant fantôme ; vérifie la compatibilité avec ton variateur si tu en as un.</span></li>
+</ul>
+<p class="mt-4 text-sm text-stone-700">
+      Si tu n’es pas à l’aise : remplace l’interrupteur témoin par un modèle sans voyant, ou passe par une <strong>ampoule connectée</strong> avec l’interrupteur laissé en marche (voir le <a class="font-semibold text-amber-800 underline" href="/tutoriels/interrupteur-connecte-sans-neutre/">tutoriel sans neutre</a> et notre <a class="font-semibold text-amber-800 underline" href="/meilleur/meilleure-ampoule-connectee/">comparatif ampoules connectées</a>). Détail des symptômes : <a class="font-semibold text-amber-800 underline" href="/articles/ampoule-led-reste-allumee-faiblement/">ampoule qui reste allumée faiblement</a> et <a class="font-semibold text-amber-800 underline" href="/articles/ampoule-led-qui-clignote/">ampoule qui clignote</a>.
+    </p>
+</section>
+<section class="mt-10 grid gap-4 md:grid-cols-2">
+<article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Variateur : grésillement et scintillement</h2>
+<p class="mt-3 text-sm text-stone-600">
+        Le bruit vient du hachage de la tension : l’électronique de la LED vibre. À faible intensité, une ampoule <strong>non dimmable</strong> ou un variateur « coupure en début d’onde » (leading edge) provoque grésillement et clignotement.
+      </p>
+<ul class="mt-4 space-y-2 text-sm text-stone-600">
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Ampoules marquées <strong>dimmables</strong> uniquement.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Variateur <strong>compatible LED</strong> (trailing edge / « toutes lampes ») avec réglage du minimum.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Charge totale au-dessus du minimum du variateur (souvent 5–10 W en LED).</span></li>
+</ul>
+<p class="mt-3 text-sm text-stone-600">Guide complet : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur/">ampoules dimmables et variateur</a>. Article : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/articles/ampoule-led-gresille-bourdonne/">LED qui grésille</a>.</p>
+</article>
+<article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Ruban LED : reste allumé ou surchauffe</h2>
+<p class="mt-3 text-sm text-stone-600">
+        Un ruban qui <strong>reste légèrement allumé</strong> après extinction partage souvent la même cause (courant résiduel) : bypass au bornier de l’alimentation ou interrupteur sans témoin. Une <strong>surchauffe</strong> du ruban ou de l’alimentation, elle, vient plutôt d’une alim sous-dimensionnée, d’une section de câble trop faible, ou d’un ruban collé sans <strong>profilé aluminium</strong> pour dissiper la chaleur.
+      </p>
+<ul class="mt-4 space-y-2 text-sm text-stone-600">
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Alimentation à <strong>125 %</strong> de la puissance du ruban, qualité correcte.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Profilé alu obligatoire en continu pour les rubans puissants.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Ne jamais enrouler un ruban alimenté sur lui-même (enchevêtrement = surchauffe).</span></li>
+</ul>
+<p class="mt-3 text-sm text-stone-600"><a class="font-semibold text-amber-700 hover:text-amber-800" href="/tutoriels/poser-ruban-led-sous-meuble-cuisine/">Tutoriel ruban LED sous meuble</a> · <a class="font-semibold text-amber-700 hover:text-amber-800" href="/articles/installer-ruban-led/">installer un ruban LED</a>.</p>
+</article>
+</section>
+<section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<h2 class="text-xl font-extrabold">Détecteur Steinel bloqué (lumière qui ne s’éteint plus)</h2>
+<p class="mt-3 max-w-3xl text-sm text-stone-600">
+      Sur une <strong>NightMatic 2000</strong> ou un détecteur encastré type <strong>IS 360</strong>, la lampe qui reste allumée en plein jour vient presque toujours du <strong>capteur crépusculaire</strong> : il « voit » la lumière renvoyée par la lampe qu’il commande, ou un éclairage voisin. La temporisation réglée au maximum peut aussi donner l’impression d’un blocage.
+    </p>
+<ul class="mt-4 space-y-2 text-sm text-stone-600">
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Oriente la cellule crépusculaire <strong>à l’opposé</strong> du flux de la lampe (notice Steinel).</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Baisse le seuil lux ou place un petit cache si le capteur reçoit la lumière du voisinage.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Vérifie la charge LED max. (ex. 350 W LED > 8 W sur l’IS 360) : une surcharge peut perturber la coupure.</span></li>
+<li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Réinitialise temporisation et sensibilité au minimum, puis remonte progressivement.</span></li>
+</ul>
+<p class="mt-3 text-sm text-stone-600">
+      Comparatif fiches et combinaisons : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/eclairage-exterieur-automatique-steinel/">éclairage extérieur Steinel</a>, <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/detecteurs-de-mouvement/">détecteurs de mouvement</a>, <a class="font-semibold text-amber-700 hover:text-amber-800" href="/marques/steinel/">fiche marque Steinel</a>.
+    </p>
+</section>
+<SavWave1Compliance />
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<p class="mt-1 text-sm text-stone-600">Recherches ciblées pour variateur, bypass et ampoules stables.</p>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="Variateur" keywords="variateur led compatible trailing edge" subtitle="Réduire grésillement" title="Variateur LED compatible toutes lampes" />
+<ProductCard badge="Bypass" keywords="bypass legrand sans neutre led" subtitle="Lueur résiduelle" title="Bypass interrupteur sans neutre Legrand" />
+<ProductCard keywords="ampoule led e27 dimmable 806 lumens" subtitle="Remplacement fiable" title="Ampoule LED E27 dimmable 806 lm" />
+<ProductCard keywords="condensateur bipolaire 0.47 uf 450v led" subtitle="Alternative au bypass" title="Condensateur compensation LED 0,47 uF" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Pour aller plus loin</h2>
+<p class="mt-2 text-sm text-stone-600">
+      Test rapide : échange l’ampoule de place — si le défaut suit l’ampoule, change-la ; sinon, regarde interrupteur, variateur ou alimentation.
+      Diagnostic guidé : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/diagnostic-flicker-gu10-variateur-led/">flicker GU10 / E27</a>.
+      Spots halogène : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/tutoriels/remplacer-halogene-gu10-mr16-par-led/">GU10 / MR16 sans clignotement</a>.
+      Salle de bain (IP, volumes) : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/zones-salle-de-bain-ip44-ip65-norme-nfc-15-100/">zones NF C 15-100</a>.
+    </p>
+</section>
+<RelatedComparatifs />
+</Layout>

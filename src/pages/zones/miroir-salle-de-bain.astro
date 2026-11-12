@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ZoneTable from '../../components/ZoneTable.astro';
+import BestPick from '../../components/BestPick.astro';
+import AwinPartner from '../../components/AwinPartner.astro';
+import HouseOfLampsPick from '../../components/HouseOfLampsPick.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import { amazonProductUrl } from '../../lib/amazon';
+const mirrors = [
+  { name: 'Coast miroir LED anti-buée, mémoire', href: 'https://www.awin1.com/pclick.php?p=46317416057&a=3127458&m=31151', shop: '2echoix', cols: ['70 × 50 cm', '79,99 €'] },
+  { name: 'Mirlux miroir rond, LED dimmable, anti-buée, tactile', href: 'https://www.awin1.com/pclick.php?p=46246025083&a=3127458&m=31151', shop: '2echoix', cols: ['Ø 60 cm', '109,00 €'] },
+  { name: 'Mirlux miroir sans cadre, LED, anti-buée', href: 'https://www.awin1.com/pclick.php?p=46390597656&a=3127458&m=31151', shop: '2echoix', cols: ['120 × 60 cm', '139,99 €'] },
+];
+const rows = [
+  { name: 'Lucide ONNO applique miroir LED 11 W, 60 cm', asin: 'B07B4CPRDQ', cols: ['Applique au-dessus du miroir', 'IP44', '3000 K'] },
+  { name: 'SILAMP applique salle de bain 12 W', asin: 'B0BBLYJCFF', cols: ['Applique murale', 'IP44', '6000–8000 K (froid)'] },
+];
+---
+<Layout type="article" title="Éclairage du miroir de salle de bain : volumes, IP44, teinte" description="Où placer la lumière du miroir, quel IP selon les volumes NF C 15-100, quelle teinte pour se maquiller ou se raser : 5 appliques et miroirs LED comparés.">
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700">Zone</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Miroir de salle de bain</h1>
+      <p class="mt-4 max-w-2xl text-stone-600">Un spot au plafond éclaire le haut du crâne et creuse les cernes. Pour se raser ou se maquiller, la lumière doit arriver de face, au niveau du visage.</p>
+      <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
+        <img
+          src="/illustrations/salle-bain-zones-v2.svg?v=3"
+          alt="Schéma des zones d’éclairage autour du miroir et du lavabo en salle de bain"
+          width="960"
+          height="540"
+          loading="eager"
+          decoding="async"
+          class="h-auto w-full"
+        />
+        <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">Lumière de face au niveau des yeux, plutôt qu’un seul spot au plafond.</figcaption>
+      </figure>
+    </div>
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <h2>L’essentiel</h2>
+      <ul>
+        <li><strong>Position :</strong> au-dessus du miroir sur toute sa largeur, ou de part et d’autre à hauteur des yeux (lumière la plus homogène).</li>
+        <li><strong>Niveau :</strong> 300 à 500 lux au visage, repère de notre <a href="/tutoriels/calculer-eclairage-piece-lux/#tableau-lux">tableau des lux par pièce</a>.</li>
+        <li><strong>Teinte :</strong> 3000 à 4000 K. Au-delà, le teint paraît terne ; voir le <a href="/guides/kelvin-temperature-couleur/">guide Kelvin</a>.</li>
+        <li><strong>IRC ≥ 90</strong> si tu te maquilles : les couleurs de peau sont fidèles (<a href="/guides/irc-indice-rendu-couleur/">guide IRC</a>).</li>
+      </ul>
+      <h2>Volumes et indice IP (NF C 15-100)</h2>
+      <ul>
+        <li><strong>Volume 1</strong> (au-dessus de la baignoire ou de la douche, jusqu’à 2,25 m) : IPX4, luminaires en très basse tension de sécurité (TBTS, 12 V) uniquement.</li>
+        <li><strong>Volume 2</strong> (0,60 m autour du volume 1) : IPX4, luminaire de classe II protégé par un différentiel 30 mA, ou TBTS 12 V.</li>
+        <li><strong>Hors volume</strong> (lavabo éloigné de la douche) : pas d’IP imposé, mais une applique IP44 reste le choix prudent face aux éclaboussures et à la vapeur.</li>
+      </ul>
+      <p>Source : NF C 15-100, partie 7-701, version juin 2015, résumée par les guides Legrand, Hager et ABB. Détails et schéma dans notre <a href="/guides/ip-indice-protection/">guide de l’indice IP</a>. En cas de doute, fais valider par un électricien.</p>
+      <h2>Appliques LED comparées</h2>
+    </div>
+    <ZoneTable head={['Type', 'IP', 'Teinte']} rows={rows} source="Données : fiches Amazon.fr des fabricants, vérifiées le 23/10/2026." />
+    <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
+      <img src="/illustrations/salle-bain.svg" alt="Silhouette d’une salle de bain avec miroir et applique latérale" width="640" height="480" loading="lazy" decoding="async" class="mx-auto h-auto w-full max-w-lg object-contain p-4" />
+      <figcaption class="border-t border-stone-200 px-4 py-3 text-sm text-stone-600">
+        Pour le visage au lavabo, une barre LED IP44 au-dessus du miroir reste la base. Une applique latérale décorative peut compléter l’ambiance sur un mur hors volumes de douche — l’encart House of Lamps plus bas propose un exemple pour les lecteurs aux États-Unis.
+      </figcaption>
+    </figure>
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10"><h2>Miroirs lumineux en déstockage</h2><p>Le miroir LED intègre l’éclairage de face. 2echoix en vend en deuxième choix ; leur catalogue n’indique ni l’indice IP ni la teinte : à réserver à un lavabo hors volume, ou à vérifier auprès du vendeur.</p></div>
+    <ZoneTable head={['Dimensions', 'Prix relevé']} rows={mirrors} source="Source : flux produits 2echoix (Awin), prix TTC relevés le 22/10/2026, susceptibles d’avoir changé. Liens partenaires." />
+    <BestPick title="Lucide ONNO applique miroir LED 11 W" why="Elle coche les trois cases : IP44 annoncé, 3000 K flatteur pour le visage, 60 cm de large pour un miroir standard de lavabo." href={amazonProductUrl('B07B4CPRDQ')} asin="B07B4CPRDQ" cta="Voir le prix sur Amazon" />
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <p>Pour toute la pièce : notre page <a href="/pieces/salle-de-bain/">salle de bain</a>, la sélection <a href="/meilleur/meilleure-applique-miroir-salle-de-bain/">appliques miroir</a>, la page <a href="/pieces/toilettes/">toilettes</a> et <a href="/zones/">toutes les zones</a>.</p>
+    </div>
+  </section>
+  <HouseOfLampsPick />
+  <AwinPartner />
+  <RelatedComparatifs />
+</Layout>

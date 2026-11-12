@@ -1,0 +1,163 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import Layout from '../../layouts/Layout.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+type Level = 'full' | 'partial' | 'hub' | 'no' | 'na';
+
+const rows = [
+  { brand: 'Philips Hue', product: 'Ampoules White & Color (E27, GU10)', type: 'ampoule', matter: 'hub', thread: 'hub', zigbee: 'full', ha: 'full', apple: 'hub', google: 'hub', alexa: 'hub', note: 'Zigbee via Bridge ; Matter sur Bridge v2 (firmware récent).' },
+  { brand: 'Philips Hue', product: 'Bridge Hue', type: 'hub', matter: 'full', thread: 'partial', zigbee: 'full', ha: 'full', apple: 'partial', google: 'partial', alexa: 'full', note: 'Passerelle Zigbee ; Matter controller pour ampoules Hue compatibles.' },
+  { brand: 'Aqara', product: 'Ampoules T1 / LED driver', type: 'ampoule', matter: 'partial', thread: 'partial', zigbee: 'full', ha: 'full', apple: 'hub', google: 'partial', alexa: 'partial', note: 'Zigbee 3.0 ; Matter sur modèles récents via hub M3 / M2.' },
+  { brand: 'Aqara', product: 'Hub M3 / M2', type: 'hub', matter: 'full', thread: 'full', zigbee: 'full', ha: 'full', apple: 'full', google: 'partial', alexa: 'partial', note: 'Border router Thread ; pont Zigbee Aqara.' },
+  { brand: 'Aqara', product: 'Interrupteur H1 (sans neutre)', type: 'interrupteur', matter: 'partial', thread: 'partial', zigbee: 'full', ha: 'full', apple: 'hub', google: 'partial', alexa: 'partial', note: 'Zigbee ; exposition Matter selon firmware hub.' },
+  { brand: 'Govee', product: 'Ampoules Wi-Fi RGB', type: 'ampoule', matter: 'partial', thread: 'no', zigbee: 'no', ha: 'partial', apple: 'partial', google: 'partial', alexa: 'full', note: 'Wi-Fi + Bluetooth ; Matter sur gammes récentes (vérifier réf.).' },
+  { brand: 'Govee', product: 'Rubans RGBIC Wi-Fi', type: 'ruban', matter: 'partial', thread: 'no', zigbee: 'no', ha: 'partial', apple: 'partial', google: 'partial', alexa: 'full', note: 'Cloud Govee ; intégration HA via API communautaire.' },
+  { brand: 'Shelly', product: 'Plus 1 / 1PM / Dimmer 2', type: 'interrupteur', matter: 'partial', thread: 'no', zigbee: 'no', ha: 'full', apple: 'partial', google: 'partial', alexa: 'full', note: 'Wi-Fi ; Matter sur Gen3 / firmware selon modèle.' },
+  { brand: 'Nanoleaf', product: 'Panneaux Shapes / Essentials', type: 'ruban', matter: 'full', thread: 'full', zigbee: 'no', ha: 'partial', apple: 'full', google: 'full', alexa: 'full', note: 'Thread natif sur Essentials ; Matter over Thread.' },
+  { brand: 'IKEA', product: 'Dirigera hub', type: 'hub', matter: 'full', thread: 'full', zigbee: 'full', ha: 'full', apple: 'partial', google: 'partial', alexa: 'partial', note: 'Remplace TRÅDFRI ; Matter + Thread border router.' },
+  { brand: 'IKEA', product: 'Ampoules TRÅDFRI', type: 'ampoule', matter: 'hub', thread: 'hub', zigbee: 'full', ha: 'full', apple: 'hub', google: 'hub', alexa: 'hub', note: 'Zigbee IKEA ; exposées Matter via Dirigera.' },
+  { brand: 'IKEA', product: 'Variateur TRÅDFRI', type: 'interrupteur', matter: 'hub', thread: 'hub', zigbee: 'full', ha: 'full', apple: 'hub', google: 'hub', alexa: 'hub', note: 'Zigbee ; gradation limitée avec certaines LED.' },
+];
+
+const legend: Record<Level, string> = {
+  full: 'Natif',
+  partial: 'Partiel / firmware',
+  hub: 'Via hub / pont',
+  no: 'Non',
+  na: '—',
+};
+---
+
+<Layout description="Compatibilité Matter, Thread et Zigbee 3.0 des ampoules, rubans et interrupteurs. Guide technique · protocoles Guides, comparatifs et conseils pratiques sur" title="Matrice Matter, Thread et Zigbee : Hue, Aqara, Govee, Shelly, Nanoleaf, IKEA Dirigera" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700">Guide technique · protocoles</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Matter, Thread et Zigbee : matrice de compatibilité</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        Cette matrice croise <strong>ampoules, rubans et interrupteurs</strong> (Philips Hue, Aqara, Govee, Shelly, Nanoleaf, IKEA Dirigera) avec
+        <strong>Home Assistant</strong>, <strong>Apple Home</strong>, <strong>Google Home</strong> et <strong>Alexa</strong>.
+        Les statuts évoluent avec les firmwares : vérifiez la fiche constructeur avant achat.
+        Voir aussi <a class="font-semibold text-amber-700" href="/articles/ampoule-connectee-wifi-ou-zigbee/">Wi-Fi ou Zigbee</a> et
+        <a class="font-semibold text-amber-700" href="/guides/configurateur-kit-eclairage-connecte-sans-neutre/">configurateur kit connecté</a>.
+      </p>
+</div>
+</section>
+<CrossLinkOutilsDepannage variant="vers-depannage" />
+<section class="mt-8 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-xl font-bold">Filtres</h2>
+<div class="mt-4 flex flex-wrap gap-2 text-sm" id="mt-filters">
+<span class="text-stone-500">Type :</span>
+<button aria-pressed="true" class="mt-t rounded-full border border-stone-300 px-3 py-1 font-semibold" data-t="all" type="button">Tous</button>
+<button class="mt-t rounded-full border border-stone-300 px-3 py-1" data-t="ampoule" type="button">Ampoules</button>
+<button class="mt-t rounded-full border border-stone-300 px-3 py-1" data-t="ruban" type="button">Rubans / panneaux</button>
+<button class="mt-t rounded-full border border-stone-300 px-3 py-1" data-t="interrupteur" type="button">Interrupteurs / modules</button>
+<button class="mt-t rounded-full border border-stone-300 px-3 py-1" data-t="hub" type="button">Hubs</button>
+<span class="ml-2 text-stone-500">Écosystème :</span>
+<button aria-pressed="true" class="mt-e rounded-full border border-stone-300 px-3 py-1 font-semibold" data-e="all" type="button">Tous</button>
+<button class="mt-e rounded-full border border-stone-300 px-3 py-1" data-e="ha" type="button">Home Assistant</button>
+<button class="mt-e rounded-full border border-stone-300 px-3 py-1" data-e="apple" type="button">Apple Home</button>
+<button class="mt-e rounded-full border border-stone-300 px-3 py-1" data-e="google" type="button">Google Home</button>
+<button class="mt-e rounded-full border border-stone-300 px-3 py-1" data-e="alexa" type="button">Alexa</button>
+</div>
+<p class="mt-3 text-xs text-stone-500">
+      Légende : <span class="rounded bg-emerald-100 px-1">Natif</span>
+<span class="rounded bg-amber-100 px-1">Partiel</span>
+<span class="rounded bg-sky-100 px-1">Via hub</span>
+<span class="rounded bg-stone-200 px-1">Non</span>
+</p>
+<div class="mt-4 overflow-x-auto">
+<table class="min-w-[960px] w-full text-sm" id="mt-table">
+<thead class="bg-stone-100">
+<tr>
+<th class="px-2 py-2 text-left">Marque</th>
+<th class="px-2 py-2 text-left">Produit</th>
+<th class="px-2 py-2">Matter</th>
+<th class="px-2 py-2">Thread</th>
+<th class="px-2 py-2">Zigbee 3</th>
+<th class="px-2 py-2">HA</th>
+<th class="px-2 py-2">Apple</th>
+<th class="px-2 py-2">Google</th>
+<th class="px-2 py-2">Alexa</th>
+<th class="px-2 py-2 text-left">Note</th>
+</tr>
+</thead>
+<tbody>
+          {rows.map((r) => (
+            <tr class="border-t border-stone-200 mt-row text-stone-700" data-alexa={r.alexa} data-apple={r.apple} data-google={r.google} data-ha={r.ha} data-type={r.type}>
+<td class="px-2 py-2 font-semibold text-stone-900">{r.brand}</td>
+<td class="px-2 py-2">{r.product}</td>
+              {[r.matter, r.thread, r.zigbee, r.ha, r.apple, r.google, r.alexa].map((lv) => (
+                <td class="px-2 py-2 text-center">
+<span class:list={['rounded px-1.5 py-0.5 text-xs font-semibold', lv === 'full' && 'bg-emerald-100 text-emerald-900', lv === 'partial' && 'bg-amber-100 text-amber-900', lv === 'hub' && 'bg-sky-100 text-sky-900', (lv === 'no' || lv === 'na') && 'bg-stone-200 text-stone-700']}>{legend[lv as Level]}</span>
+</td>
+              ))}
+              <td class="px-2 py-2 text-stone-600">{r.note}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+</section>
+<script is:inline>
+    (function () {
+      var tSel = 'all', eSel = 'all';
+      function paint(btn, on) {
+        btn.classList.toggle('font-semibold', on);
+        btn.classList.toggle('bg-amber-100', on);
+        btn.classList.toggle('border-amber-400', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
+      function ecoOk(tr, e) {
+        if (e === 'all') return true;
+        var v = tr.getAttribute('data-' + e) || '';
+        return v === 'full' || v === 'partial' || v === 'hub';
+      }
+      function apply() {
+        document.querySelectorAll('.mt-row').forEach(function (tr) {
+          var ty = tr.getAttribute('data-type');
+          var show = (tSel === 'all' || tSel === ty) && ecoOk(tr, eSel);
+          tr.style.display = show ? '' : 'none';
+        });
+      }
+      document.querySelectorAll('.mt-t').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tSel = btn.getAttribute('data-t');
+          document.querySelectorAll('.mt-t').forEach(function (b) { paint(b, b === btn); });
+          apply();
+        });
+      });
+      document.querySelectorAll('.mt-e').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          eSel = btn.getAttribute('data-e');
+          document.querySelectorAll('.mt-e').forEach(function (b) { paint(b, b === btn); });
+          apply();
+        });
+      });
+      apply();
+    })();
+  </script>
+<SavWave1Compliance />
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="Hue" keywords="philips hue bridge passerelle" subtitle="Zigbee et Matter" title="Passerelle Philips Hue Bridge" />
+<ProductCard badge="IKEA" keywords="ikea dirigera hub matter" subtitle="Matter et Thread" title="Hub IKEA Dirigera" />
+<ProductCard badge="Matter" keywords="ampoule matter thread e27" subtitle="Multi-écosystème" title="Ampoule connectée Matter" />
+<ProductCard badge="Aqara" keywords="aqara hub m2 zigbee" subtitle="Zigbee et Thread" title="Hub Aqara domotique" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+<ul class="mt-3 space-y-1 text-sm text-stone-600">
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/configurateur-kit-eclairage-connecte-sans-neutre/">Configurateur kit éclairage connecté</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/compatibilite-interrupteur-connecte-sans-neutre/">Interrupteur sans neutre</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/codes-erreurs-eclairage-connecte-depannage/">Codes erreurs éclairage connecté</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/">Simulateur lumens et Kelvin</a></li>
+</ul>
+</section>
+<RelatedComparatifs />
+</Layout>
+</level,>

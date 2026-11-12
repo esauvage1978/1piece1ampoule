@@ -1,0 +1,69 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'eclairer-cave-sans-electricite')!;
+const OPTIONS = [
+  { o: 'Réglettes rechargeables à détecteur (×3)', b: '30 – 60 €', e: '5 à 10 Wh au total', u: 'Passages courts (escalier, couloir, rangement)', l: 'Recharge à prévoir tous les 1 à 2 mois' },
+  { o: 'Lampe frontale rechargeable', b: '25 – 80 €', e: '5 à 15 Wh', u: 'Chercher, bricoler, mains libres', l: 'Éclaire seulement là où on regarde' },
+  { o: 'Station électrique portable + réglette 12V/USB', b: '200 – 450 €', e: '250 à 500 Wh', u: 'Atelier ponctuel, outils légers, coupure de courant', l: 'Lourde à remonter pour la recharge, chère pour l’éclairage seul' },
+  { o: 'Kit solaire 12V (panneau 30 W + batterie LiFePO4 12V 12 Ah)', b: '150 – 250 €', e: '≈ 150 Wh stockés', u: 'Usage quotidien, plusieurs zones, sans recharge manuelle', l: 'Panneau extérieur, passage de câble, production faible en hiver' },
+  { o: 'Ligne électrique 230V depuis le tableau', b: 'devis électricien', e: 'illimitée', u: 'Usage intensif, outils, congélateur', l: 'Travaux NF C 15-100 par un électricien qualifié' },
+];
+---
+<Tutorial t={t}>
+  <p>Commence par découper la cave en zones : l’<strong>accès</strong> (porte, escalier), où la lumière doit venir immédiatement ; le <strong>rangement</strong> (étagères), qui demande un éclairage stable pour lire les étiquettes ; la <strong>circulation</strong>, où un niveau bas suffit pour ne pas trébucher. Ensuite, on calcule et on installe. Privilégie des lampes orientables et légères, et prévois la recharge dès le départ : une lampe souvent vide ne sert à rien. Pour un éclairage ponctuel très lumineux sans installation fixe, voir aussi notre <a href="/tests/imalent-gr35/">test de la lampe torche Imalent GR35</a>.</p>
+
+  <h2 id="besoin">Calculer ton besoin en Wh</h2>
+  <p>Une batterie se mesure en wattheures (Wh). Si la capacité n’est donnée qu’en milliampères-heure, convertis : <strong>Wh = mAh × tension ÷ 1 000</strong>. Une réglette de 2 000 mAh en 3,7 V (une cellule lithium) stocke 2 000 × 3,7 ÷ 1 000 = <strong>7,4 Wh</strong>. Comptes-en environ 80 % d’utilisables (électronique, froid), soit 5,9 Wh.</p>
+  <p class="rounded-2xl bg-amber-50 p-4 text-center ring-1 ring-amber-200"><strong>Autonomie (jours) = énergie utile de la batterie (Wh) ÷ consommation par jour (Wh/jour)</strong></p>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[520px] text-sm">
+      <caption class="px-4 pt-3 text-left text-xs text-stone-500">Exemple : cave d’une maison, 2 passages par jour + 1 h d’atelier par semaine</caption>
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Zone</th><th class="p-3">Lampe</th><th class="p-3">Durée d’allumage</th><th class="p-3">Énergie</th></tr></thead>
+      <tbody>
+        <tr class="border-t border-stone-100"><td class="p-3">Escalier</td><td class="p-3">réglette 2 W</td><td class="p-3">2 × 1 min = 0,033 h/j</td><td class="p-3">0,07 Wh/j</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">Couloir + rangement</td><td class="p-3">2 réglettes 3 W</td><td class="p-3">2 × 5 min = 0,17 h/j</td><td class="p-3">1,0 Wh/j</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">Établi</td><td class="p-3">réglette 12V 15 W</td><td class="p-3">1 h par semaine</td><td class="p-3">2,1 Wh/j en moyenne</td></tr>
+        <tr class="border-t border-stone-200 bg-stone-50 font-semibold"><td class="p-3" colspan="3">Total</td><td class="p-3">≈ 3,2 Wh/j</td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <ul>
+    <li><strong>Réglettes seules</strong> pour l’escalier et le couloir (1,07 Wh/j) : chaque réglette de 5,9 Wh utiles tient environ <strong>3 mois</strong> dans l’escalier et <strong>12 jours</strong> dans le couloir (0,5 Wh/j chacune). Une recharge tous les dix jours pour la plus sollicitée : c’est la limite du confort.</li>
+    <li><strong>Avec l’établi</strong> (3,2 Wh/j), les réglettes ne suffisent plus : une batterie 12V de 12 Ah LiFePO4 (12,8 V × 12 Ah = 154 Wh, 120 Wh utiles) tient <strong>37 jours</strong> sans aucune recharge, et un petit panneau la maintient chargée toute l’année (calcul ci-dessous).</li>
+  </ul>
+
+  <h2 id="comparatif">Comparatif des solutions et budget</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[640px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Solution</th><th class="p-3">Budget indicatif</th><th class="p-3">Énergie disponible</th><th class="p-3">Pour quel usage</th><th class="p-3">Limite</th></tr></thead>
+      <tbody>{OPTIONS.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.o}</th><td class="p-3">{r.b}</td><td class="p-3">{r.e}</td><td class="p-3">{r.u}</td><td class="p-3 text-stone-600">{r.l}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Budgets constatés en octobre 2026 sur des produits courants, hors promotions ; ils varient selon les marques.</figcaption>
+  </figure>
+
+  <h2 id="solaire">Dimensionner un kit solaire 12V</h2>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 230" role="img" aria-labelledby="svg3t" class="h-auto w-full">
+      <title id="svg3t">Schéma d’un kit solaire 12V pour cave : panneau, régulateur, fusible, batterie LiFePO4, réglettes 12V</title>
+      <rect x="0" y="0" width="680" height="70" fill="#e0f2fe" /><text x="668" y="20" font-size="12" text-anchor="end" fill="#075985">extérieur</text>
+      <rect x="0" y="70" width="680" height="160" fill="#f5f5f4" /><text x="12" y="90" font-size="12" fill="#57534e">cave</text>
+      <line x1="0" y1="70" x2="680" y2="70" stroke="#57534e" stroke-width="3" />
+      <rect x="40" y="16" width="110" height="40" fill="#1e3a8a" transform="rotate(-8 95 36)" /><text x="95" y="66" font-size="11" text-anchor="middle" fill="#1c1917">panneau 30 W, plein sud, 60°</text>
+      <path d="M150 36 L 210 36 L 210 140 L 250 140" stroke="#1c1917" stroke-width="2" fill="none" /><text x="216" y="100" font-size="10" fill="#57534e">câble par le soupirail</text>
+      <rect x="250" y="120" width="110" height="44" rx="6" fill="#fff" stroke="#1c1917" /><text x="305" y="139" font-size="12" text-anchor="middle">régulateur</text><text x="305" y="154" font-size="10" text-anchor="middle" fill="#57534e">12V PWM/MPPT</text>
+      <path d="M305 164 L 305 190 L 350 190" stroke="#dc2626" stroke-width="2" fill="none" /><rect x="350" y="182" width="30" height="16" rx="3" fill="#fde68a" stroke="#1c1917" /><text x="365" y="214" font-size="10" text-anchor="middle">fusible 10 A</text>
+      <path d="M380 190 L 420 190" stroke="#dc2626" stroke-width="2" /><rect x="420" y="170" width="100" height="44" rx="6" fill="#065f46" /><text x="470" y="189" font-size="12" text-anchor="middle" fill="#fff">LiFePO4</text><text x="470" y="204" font-size="10" text-anchor="middle" fill="#d1fae5">12,8 V · 12 Ah</text>
+      <path d="M360 142 L 560 142 L 560 110" stroke="#1c1917" stroke-width="2" fill="none" /><text x="450" y="135" font-size="10" text-anchor="middle" fill="#57534e">sortie « charge » (coupure batterie faible)</text>
+      <rect x="530" y="96" width="120" height="10" rx="3" fill="#f59e0b" /><text x="590" y="88" font-size="11" text-anchor="middle">réglettes 12V + détecteur</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma réalisé par 1 pièce 1 ampoule. Ordre de branchement : batterie, puis panneau, puis éclairage ; débranchement dans l’ordre inverse.</figcaption>
+  </figure>
+  <p>Le point dur, c’est l’hiver. D’après <a href="https://re.jrc.ec.europa.eu/pvg_tools/fr/" rel="noopener" target="_blank">PVGIS</a>, un panneau bien incliné dans le Nord produit en décembre de l’ordre de <strong>0,6 à 0,9 kWh par kWc et par jour</strong>, soit 0,6 à 0,9 Wh par watt de panneau. Avec les pertes du régulateur et de la batterie (environ 20 % pour un régulateur PWM), compte <strong>0,5 Wh par watt de panneau et par jour</strong> au plus sombre de l’année.</p>
+  <ul>
+    <li><strong>Panneau</strong> : consommation (Wh/j) ÷ 0,5. Pour 3,2 Wh/j : 6,4 W suffiraient en théorie ; prends 20 à 30 W pour absorber les jours gris et un panneau légèrement ombragé.</li>
+    <li><strong>Batterie</strong> : consommation × nombre de jours sans soleil voulus ÷ 0,8. Pour 10 jours : 3,2 × 10 ÷ 0,8 = 40 Wh, soit une LiFePO4 12V de 6 Ah (77 Wh) ; le 12 Ah laisse une marge pour ajouter un éclairage d’établi plus puissant.</li>
+    <li><strong>Régulateur</strong> : courant de court-circuit du panneau × 1,25. Un panneau de 30 W (environ 1,8 A) se contente d’un régulateur 10 A, compatible LiFePO4 (profil de charge lithium).</li>
+  </ul>
+  <p>Si ta cave sert d’atelier régulier avec des outils électriques, ces chiffres montrent vite la limite : une perceuse de 600 W pendant 15 minutes consomme 150 Wh, l’équivalent de 45 jours d’éclairage. C’est le signe qu’une vraie ligne électrique posée par un électricien est la bonne réponse.</p>
+</Tutorial>

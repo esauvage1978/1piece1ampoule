@@ -1,27 +1,39 @@
 ---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
+import { amazonProductUrl } from '../../lib/amazon';
+const zones = [
+  { href: '/zones/plan-de-travail-cuisine/', name: 'Plan de travail de cuisine', need: '500 lux sur le plan, ≥ 420 lm/m, 4000 K', pick: 'DA LIGHT réglette orientable 56 cm (1 000 lm/m)', asin: 'B07H7HB6LG' },
+  { href: '/zones/miroir-salle-de-bain/', name: 'Miroir de salle de bain', need: '300–500 lux au visage, IP44, 3000–4000 K', pick: 'Lucide ONNO applique miroir 11 W IP44 3000 K', asin: 'B07B4CPRDQ' },
+  { href: '/zones/entree-allee-exterieure/', name: 'Entrée et allée extérieure', need: '2 000–3 000 lm, IP65 sous la pluie, détecteur', pick: 'OREiN projecteur 24 W, 2 800 lm, IP65', asin: 'B0BPX1ZZXJ' },
+  { href: '/zones/escaliers/', name: 'Escaliers', need: '150 lux, allumage automatique aux deux extrémités', pick: 'Osram Star A75 Motion Sensor E27 (radar, 1 055 lm)', asin: 'B0FGD6H3NZ' },
+  { href: '/zones/placards-dressing/', name: 'Placards et dressing', need: 'Sans fil, détecteur d’ouverture ou de mouvement', pick: 'OUILA réglette rechargeable 60 cm à détecteur', asin: 'B0F18462GT' },
+];
 ---
-
-<Layout
-  title="Zones & aménagement — Choisir son ampoule"
-  description="Placards, escaliers, couloirs, extérieur : éclairages et détecteurs adaptés, avec sélections produits via liens partenaires Amazon."
->
+<Layout title="Éclairage par zone : plan de travail, miroir, entrée, escalier, placard" description="Cinq zones de la maison qui demandent un éclairage spécifique : besoins chiffrés (lux, lumens, IP) et meilleur choix pour chacune, avec tableaux comparatifs.">
   <section class="mt-10">
     <h1 class="text-3xl font-extrabold tracking-tight">Zones & aménagement</h1>
-    <p class="mt-3 max-w-2xl text-white/75">
-      Certaines zones demandent des solutions spécifiques : capteurs, éclairage indirect, rubans LED, balisage. Voici nos pages.
-    </p>
-
+    <p class="mt-3 max-w-2xl text-stone-600">Certains endroits demandent une lumière précise : de face au miroir, sans ombre sur le plan de travail, automatique dans l’escalier. Voici le besoin chiffré de chaque zone et notre meilleur choix.</p>
+    <figure class="mt-8 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <table class="w-full min-w-[680px] text-sm">
+        <thead class="bg-amber-50 text-left"><tr><th class="p-3">Zone</th><th class="p-3">Ce qu’il faut</th><th class="p-3">Notre meilleur choix</th></tr></thead>
+        <tbody>{zones.map((z) => (
+          <tr class="border-t border-stone-100 align-top">
+            <th class="p-3 text-left"><a class="font-semibold text-amber-700 underline" href={z.href}>{z.name}</a></th>
+            <td class="p-3 text-stone-700">{z.need}</td>
+            <td class="p-3 text-stone-700">{z.pick} · <a class="font-semibold text-amber-700 underline" href={amazonProductUrl(z.asin)} rel="sponsored nofollow noopener" target="_blank" data-amazon-link data-asin={z.asin} data-product={z.pick}>voir le prix</a></td>
+          </tr>))}
+        </tbody>
+      </table>
+      <figcaption class="border-t border-stone-100 p-3 text-xs text-stone-500">Besoins : <a class="underline" href="/tutoriels/calculer-eclairage-piece-lux/">tableau des lux par pièce</a> et <a class="underline" href="/guides/ip-indice-protection/">NF C 15-100</a>. Produits : fiches Amazon.fr vérifiées le 23/10/2026. Liens partenaires.</figcaption>
+    </figure>
     <div class="mt-8 grid gap-4 md:grid-cols-2">
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/zones/placards-dressing">
-        <h2 class="text-lg font-bold">Placards & dressing</h2>
-        <p class="mt-2 text-sm text-white/70">Capteurs d’ouverture/mouvement, rubans LED, barrettes.</p>
-      </a>
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/zones/escaliers">
-        <h2 class="text-lg font-bold">Escaliers</h2>
-        <p class="mt-2 text-sm text-white/70">Balisage, détecteurs, spots et rubans pour sécurité + style.</p>
-      </a>
+      {zones.map((z) => (
+        <a class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:bg-amber-50" href={z.href}>
+          <h2 class="text-lg font-bold">{z.name}</h2>
+          <p class="mt-2 text-sm text-stone-600">{z.need}</p>
+        </a>))}
     </div>
   </section>
+  <RelatedComparatifs />
 </Layout>
-

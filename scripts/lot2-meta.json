@@ -1,0 +1,58 @@
+{
+  "de": {
+    "guides/error-code/hue-bridge-orange-led": {
+      "title": "Hue Bridge: orange LED (kein Internet)",
+      "description": "Orange Bridge-LED: lokale Lampen ok, Cloud und Sprachassistenten fallen aus. DHCP, DNS, Kabel.",
+      "h1": "Hue Bridge: orange LED ohne Internet",
+      "lead": "Die Bridge-LED bleibt orange statt blau; lokale Steuerung geht oft, Cloud-Automationen nicht."
+    },
+    "guides/error-code/hue-bridge-50-device-limit": {
+      "title": "Hue Bridge: keine neuen Lampen (Zigbee-Limit)",
+      "description": "Pairing scheitert nahe ~50 Leuchten: Geister löschen, nah am Bridge pairen, Kanäle planen.",
+      "h1": "Hue Bridge: Zigbee-Gerätelimit",
+      "lead": "Die App verweigert das Pairing einer blinkenden Lampe, oft ab ~50 Leuchten."
+    }
+  },
+  "nl": {
+    "guides/error-code/hue-bridge-orange-led": {
+      "title": "Hue Bridge: oranje LED (geen internet)",
+      "description": "Oranje Bridge-LED: lokale lampen ok, cloud en spraakassistenten falen. DHCP, DNS, kabel.",
+      "h1": "Hue Bridge: oranje LED zonder internet",
+      "lead": "De Bridge-LED blijft oranje in plaats van blauw; lokaal werkt soms, cloud niet."
+    },
+    "guides/error-code/hue-bridge-50-device-limit": {
+      "title": "Hue Bridge: geen nieuwe lampen (Zigbee-limiet)",
+      "description": "Koppelen mislukt rond ~50 lampen: spookapparaten wissen, dicht bij Bridge koppelen.",
+      "h1": "Hue Bridge: Zigbee-apparaatlimiet",
+      "lead": "De app weigert een knipperende lamp te koppelen, vaak na ~50 lampen."
+    }
+  },
+  "es": {
+    "guides/error-code/hue-bridge-orange-led": {
+      "title": "Hue Bridge: LED naranja (sin internet)",
+      "description": "LED naranja: bombillas locales ok, nube y asistentes fallan. DHCP, DNS, cable.",
+      "h1": "Hue Bridge: LED naranja sin internet",
+      "lead": "La LED del Bridge permanece naranja; control local a veces ok, automatizaciones en la nube no."
+    },
+    "guides/error-code/hue-bridge-50-device-limit": {
+      "title": "Hue Bridge: no se pueden añadir bombillas (límite Zigbee)",
+      "description": "Emparejamiento falla cerca de ~50 luces: borrar fantasmas, emparejar cerca del Bridge.",
+      "h1": "Hue Bridge: límite de dispositivos Zigbee",
+      "lead": "La app rechaza emparejar una bombilla parpadeando, a menudo tras ~50 luces."
+    }
+  },
+  "it": {
+    "guides/error-code/hue-bridge-orange-led": {
+      "title": "Hue Bridge: LED arancione (senza internet)",
+      "description": "LED arancione: lampadine locali ok, cloud e assistenti falliscono. DHCP, DNS, cavo.",
+      "h1": "Hue Bridge: LED arancione senza internet",
+      "lead": "La LED del Bridge resta arancione; controllo locale a volte ok, automazioni cloud no."
+    },
+    "guides/error-code/hue-bridge-50-device-limit": {
+      "title": "Hue Bridge: impossibile aggiungere lampadine (limite Zigbee)",
+      "description": "Associazione fallisce vicino a ~50 luci: rimuovere fantasmi, associare vicino al Bridge.",
+      "h1": "Hue Bridge: limite dispositivi Zigbee",
+      "lead": "L’app rifiuta di associare una lampadina lampeggiante, spesso dopo ~50 luci."
+    }
+  }
+}

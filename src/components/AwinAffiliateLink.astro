@@ -1,0 +1,24 @@
+---
+/** Lien Awin avec &amp; dans le HTML (aligné prod / check-lost-links). */
+import { AWIN_AFFID } from '../content/awin';
+interface Props {
+  mid: string;
+  url: string;
+  cta: string;
+  name: string;
+  class?: string;
+  withIcon?: boolean;
+}
+const { mid, url, cta, name, class: className, withIcon = false } = Astro.props;
+const href = `https://www.awin1.com/cread.php?awinmid=${mid}&amp;awinaffid=${AWIN_AFFID}&amp;ued=${encodeURIComponent(url)}`;
+const cls =
+  className ??
+  'mt-3 inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 hover:border-amber-400';
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const icon = withIcon
+  ? '<svg viewBox="0 0 20 20" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M11 3h6v6h-2V6.4l-6.3 6.3-1.4-1.4L13.6 5H11V3ZM4 5h5v2H5v8h8v-4h2v6H3V5h1Z"/></svg>'
+  : '';
+---
+<Fragment
+  set:html={`<a href="${href}" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="${esc(mid)}" data-product="${esc(name)}" class="${esc(cls)}">${esc(cta)}${icon}</a>`}
+/>

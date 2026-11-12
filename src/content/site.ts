@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Choisir son ampoule',
   baseline: 'Guides & sélections de produits pour éclairer chaque pièce — avec des liens Amazon partenaires.',
-  url: 'http://localhost:4321',
+  url: 'https://1piece1ampoule.fr',
   amazonTag: 'manuso06-21',
 };
 

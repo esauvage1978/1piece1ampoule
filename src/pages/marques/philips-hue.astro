@@ -1,0 +1,96 @@
+---
+import FaqBlock from '../../components/FaqBlock.astro';
+import { HIVER_FAQ } from '../../content/hiver-faq';
+import Layout from '../../layouts/Layout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+import { PRODUCTS } from '../../content/products';
+
+const products = Object.values(PRODUCTS).filter((p) => p.brand === 'Philips Hue');
+const pages = [
+  { href: '/meilleur/meilleure-ampoule-connectee/', label: 'Comparatif : meilleure ampoule connectée E27', note: 'les 3 références Hue ci-dessous, avec leurs fiches EPREL' },
+  { href: '/articles/ampoule-connectee-wifi-ou-zigbee/', label: 'Ampoule connectée : Wi-Fi (Tapo) ou Zigbee (Hue) ?', note: 'quand le pont Hue vaut le coup, et quand une ampoule Wi-Fi suffit' },
+  { href: '/articles/ampoule-dimmable-ou-non/', label: 'Ampoule dimmable ou non ?', note: 'pourquoi une Hue ne se met jamais derrière un variateur classique' },
+  { href: '/articles/ampoule-led-reste-allumee-faiblement/', label: 'Ampoule LED qui reste allumée faiblement', note: 'les ampoules connectées comme solution aux lueurs résiduelles' },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Brand',
+  name: 'Philips Hue',
+  url: 'https://www.philips-hue.com/fr-fr',
+};
+---
+
+<Layout title="Philips Hue : notre avis, produits comparés, garantie et SAV" description="Philips Hue vu par 1 pièce 1 ampoule : les ampoules Hue de nos comparatifs (données EPREL), points forts, limites, garantie 2 ans et SAV en France, notre avis." type="article" schema={schema}>
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marque • mis à jour le 23/10/2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Philips Hue : notre avis sur la marque</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">Philips Hue est la gamme d’éclairage connecté de Signify (ex-Philips Lighting). C’est la référence des ampoules connectées : vous trouverez ici les modèles que nous conseillons, leurs chiffres officiels, ce qu’apporte (ou non) le pont Hue, et ce qu’il faut savoir sur la garantie en France.</p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Nos contenus qui parlent de Philips Hue</h2>
+    <ul class="mt-3 space-y-2 text-sm text-stone-600">
+      {pages.map((p) => <li><a class="font-semibold text-amber-800 underline" href={p.href}>{p.label}</a> : {p.note}.</li>)}
+    </ul>
+    <p class="mt-4 text-sm text-stone-600"><strong>Nos sources :</strong> nous n’avons pas encore testé ces ampoules nous-mêmes (luxmètre, wattmètre). Tout ce qui suit repose sur les fiches officielles (EPREL, fiches d’information produit) et sur les conditions publiées par la marque.</p>
+  </section>
+
+  <ComparisonTable products={products} title="Les ampoules Philips Hue de nos comparatifs" placement="marque-philips-hue" />
+
+  <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Données officielles (EPREL et fiches fabricant)</h2>
+    <table class="mt-4 w-full text-left text-sm">
+      <thead><tr class="border-b border-stone-200 text-stone-500"><th class="py-2 pr-3">Modèle</th><th class="py-2 pr-3">Flux</th><th class="py-2 pr-3">Puissance</th><th class="py-2 pr-3">Teinte</th><th class="py-2 pr-3">IRC</th><th class="py-2 pr-3">Classe</th><th class="py-2 pr-3">Source</th></tr></thead>
+      <tbody>
+        {products.filter((p) => p.data).map((p) => (
+          <tr class="border-b border-stone-100 align-top">
+            <td class="py-2 pr-3 font-semibold">{p.name}</td><td class="py-2 pr-3">{p.data!.lm}</td><td class="py-2 pr-3">{p.data!.w}</td><td class="py-2 pr-3">{p.data!.k}</td><td class="py-2 pr-3">{p.data!.irc}</td><td class="py-2 pr-3">{p.data!.classe}</td>
+            <td class="py-2 pr-3"><a class="underline" href={p.data!.sourceUrl} rel="nofollow noopener" target="_blank">{p.data!.eprel}</a><br /><span class="text-xs text-stone-500">{p.data!.source}</span></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Points forts</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Rendement de la White Ambiance 1 100 lm : environ 136 lm/W (1 100 lm pour 8,1 W), classe D. C’est la meilleure classe énergétique de <a href="/meilleur/meilleure-ampoule-connectee/" class="font-medium text-amber-700 underline">notre comparatif des ampoules connectées</a>.</li>
+        <li>Démarrage sans pont : en Bluetooth, jusqu’à 10 ampoules se pilotent depuis le téléphone.</li>
+        <li>Écosystème évolutif : avec le pont (Zigbee), pilotage à distance, automatisations et ajout d’ampoules d’autres pièces.</li>
+        <li>Choix de teintes : blanc fixe 2 700 K, blanc réglable de 1 000 à 20 000 K, ou couleurs.</li>
+      </ul>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>La White 806 lm et la White &amp; Color sont en classe F (environ 107 et 96 lm/W).</li>
+        <li>Consommation en veille de 0,1 à 0,5 W selon le modèle, soit jusqu’à 4,4 kWh par an et par ampoule laissée sous tension.</li>
+        <li>IRC de 80 sur les trois modèles : correct pour un séjour, juste pour un plan de travail ou un miroir.</li>
+        <li>Pilotage à distance et automatisations avancées : le pont est nécessaire (inclus dans les kits de démarrage).</li>
+        <li>Garantie de 2 ans calculée sur 3 heures d’utilisation moyenne par jour, et logiciel non couvert (voir ci-dessous).</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Garantie et SAV en France</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-stone-600">
+      <li><strong>Garantie fabricant de 2 ans</strong> à compter de la livraison, « sauf si la législation en vigueur impose une durée plus longue ». Elle couvre les défauts matériels ou de fabrication, pour un usage conforme et sur la base de 3 heures d’utilisation moyenne par jour, 7 jours sur 7. Le logiciel n’est pas garanti. Signify choisit de réparer ou de remplacer le produit, et rembourse s’il ne peut faire ni l’un ni l’autre. Main-d’œuvre de pose et de dépose non prise en charge.</li>
+      <li><strong>Garantie légale de conformité</strong> : elle s’ajoute à la garantie fabricant et ne dépend pas d’elle. Elle se fait valoir auprès du vendeur (Amazon ou boutique), pendant 2 ans à compter de la livraison.</li>
+      <li><strong>Démarche</strong> : contacter le support Philips Hue avec la preuve d’achat ; le produit défectueux peut être demandé pour analyse. Si la réclamation n’est pas valable, le retour est à vos frais.</li>
+    </ul>
+    <p class="mt-4 text-xs text-stone-500">Sources consultées le 23/10/2026 : <a class="underline" href="https://www.philips-hue.com/fr-fr/support/legal/terms-conditions-of-sale" rel="nofollow noopener" target="_blank">conditions de vente Philips Hue France (article 7)</a>, <a class="underline" href="https://www.philips-hue.com/fr-fr/support/legal/warranty" rel="nofollow noopener" target="_blank">page Garantie</a>, <a class="underline" href="https://www.philips-hue.com/fr-fr/support/legal/legal-warranty" rel="nofollow noopener" target="_blank">page Garantie légale</a>.</p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre avis</h2>
+    <p class="mt-3 text-sm text-stone-600">Philips Hue reste notre référence pour une installation connectée qui doit grandir pièce après pièce : départ en Bluetooth, puis pont quand on veut des automatisations. Sur le papier, la White Ambiance 1 100 lm est la meilleure affaire de la gamme : plus lumineuse et plus sobre que la White 806 lm, avec le blanc réglable en plus. La White &amp; Color se justifie seulement si tu veux vraiment de la couleur, car elle consomme plus pour moins de lumière. Pour une seule ampoule sans projet domotique, une ampoule Wi-Fi comme la Tapo L530E coûte moins cher (voir <a class="underline" href="/articles/ampoule-connectee-wifi-ou-zigbee/">notre comparaison Wi-Fi / Zigbee</a>).</p>
+    <div class="mt-4 flex flex-wrap gap-3">
+      {products.map((p) => <AmazonButton asin={p.asin} product={p.name} label={`${p.name.replace('Philips Hue ', 'Hue ')} sur Amazon`} placement="marque" />)}
+    </div>
+  </section>
+  <FaqBlock title="Pont Hue, Black Friday, Tapo : tes questions" items={HIVER_FAQ['philips-hue']} />
+</Layout>

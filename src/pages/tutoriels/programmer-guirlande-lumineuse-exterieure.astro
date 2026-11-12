@@ -1,0 +1,82 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'programmer-guirlande-lumineuse-exterieure')!;
+const SOLUTIONS = [
+  { s: 'Minuterie mécanique d’extérieur', allume: 'À heure fixe (segments de 15 min)', plus: 'Très fiable, sans réseau, quelques euros', moins: 'À réajuster selon la saison et après une coupure de courant (elle prend du retard)' },
+  { s: 'Minuterie digitale', allume: 'À heure fixe, plusieurs plages, mode aléatoire', plus: 'Précise, garde l’heure grâce à une pile', moins: 'Réglage par boutons peu intuitif, rarement étanche : à placer à l’abri' },
+  { s: 'Interrupteur crépusculaire', allume: 'À la tombée de la nuit (cellule)', plus: 'Suit les saisons tout seul', moins: 'Éteint au lever du jour ou après une durée fixe ; cellule à placer loin de toute lumière' },
+  { s: 'Prise connectée d’extérieur', allume: 'Au coucher du soleil ou à heure fixe, depuis le téléphone', plus: 'Suit les saisons, extinction précise, pilotage à distance', moins: 'Demande un Wi-Fi correct à l’extérieur ; petite consommation en veille' },
+];
+const SOLEIL = [
+  { v: 'Strasbourg', d1: '16 h 35', d2: '16 h 35', d3: '16 h 48', n: '17 h 13' },
+  { v: 'Lille', d1: '16 h 45', d2: '16 h 44', d3: '16 h 58', n: '17 h 24' },
+  { v: 'Nice', d1: '16 h 54', d2: '16 h 56', d3: '17 h 08', n: '17 h 29' },
+  { v: 'Paris', d1: '16 h 56', d2: '16 h 55', d3: '17 h 09', n: '17 h 33' },
+  { v: 'Lyon', d1: '16 h 57', d2: '16 h 58', d3: '17 h 11', n: '17 h 33' },
+  { v: 'Marseille', d1: '17 h 03', d2: '17 h 05', d3: '17 h 17', n: '17 h 38' },
+  { v: 'Bordeaux', d1: '17 h 22', d2: '17 h 23', d3: '17 h 36', n: '17 h 58' },
+  { v: 'Brest', d1: '17 h 25', d2: '17 h 25', d3: '17 h 38', n: '18 h 02' },
+];
+const CONSO = [
+  { c: 'Guirlande LED de 6 W, programmée 17 h – 23 h', calc: '6 W × 6 h × 40 soirs = 1,44 kWh', cout: '≈ 0,29 €' },
+  { c: 'La même, laissée allumée jour et nuit', calc: '6 W × 24 h × 40 jours = 5,76 kWh', cout: '≈ 1,15 €' },
+  { c: 'Veille d’une prise connectée (0,5 W)', calc: '0,5 W × 24 h × 40 jours = 0,48 kWh', cout: '≈ 0,10 €' },
+  { c: 'Ancienne guirlande de 100 mini-ampoules à incandescence (≈ 40 W), 17 h – 23 h', calc: '40 W × 6 h × 40 soirs = 9,6 kWh', cout: '≈ 1,92 €' },
+];
+---
+<Tutorial t={t}>
+  <p>Une guirlande de façade ou de balcon qu’il faut brancher chaque soir et débrancher avant d’aller se coucher finit toujours par rester allumée toute la nuit, ou par ne plus être allumée du tout. L’automatiser prend une demi-heure et ne coûte pas grand-chose. Le vrai sujet est ailleurs : faire tenir le montage tout l’hiver, sous la pluie et le gel, sans que le différentiel saute.</p>
+
+  <h2 id="solutions">Minuterie, crépusculaire ou prise connectée</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[680px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Solution</th><th class="p-3">Allumage</th><th class="p-3">Points forts</th><th class="p-3">Limites</th></tr></thead>
+      <tbody>{SOLUTIONS.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.s}</th><td class="p-3">{r.allume}</td><td class="p-3">{r.plus}</td><td class="p-3 text-stone-600">{r.moins}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Dehors, choisis un modèle avec indice IP44 au minimum, valable fiche branchée. Une prise connectée qui permet « allumage au coucher du soleil + extinction à heure fixe » combine le meilleur des deux mondes. Attention aussi au format : beaucoup de prises d’extérieur vendues en ligne sont au standard allemand (type F) ; une guirlande à fiche plate s’y branche sans souci, mais un appareil à fiche française avec terre n’y sera pas relié à la terre.</figcaption>
+  </figure>
+
+  <h2 id="coucher-soleil">Heures de coucher du soleil en décembre</h2>
+  <p>Entre l’est et l’ouest de la France, l’écart atteint 50 minutes. C’est pourquoi une heure d’allumage recopiée d’un forum tombe rarement juste chez soi.</p>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[620px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Ville</th><th class="p-3">Coucher du soleil le 1<sup>er</sup> déc.</th><th class="p-3">Le 21 déc.</th><th class="p-3">Le 6 janv.</th><th class="p-3">Nuit (fin du crépuscule civil) le 21 déc.</th></tr></thead>
+      <tbody>{SOLEIL.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.v}</th><td class="p-3">{r.d1}</td><td class="p-3">{r.d2}</td><td class="p-3">{r.d3}</td><td class="p-3">{r.n}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Heures légales de Paris, calculées pour 2026-2027 et arrondies à la minute. Le crépuscule civil se termine quand le soleil passe 6° sous l’horizon : c’est le moment où une guirlande prend tout son éclat.</figcaption>
+  </figure>
+  <p>Deux remarques pratiques. D’abord, les couchers de soleil les plus précoces tombent autour du 10 décembre, et non au solstice : après le 21 décembre, les soirées rallongent déjà alors que les matins continuent de s’assombrir jusqu’au début janvier. Ensuite, un décalage de +15 à +20 minutes après le coucher du soleil correspond à peu près à la nuit tombée : c’est un bon réglage pour une prise connectée.</p>
+
+  <h2 id="branchement">Le branchement étanche</h2>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 280" role="img" aria-labelledby="gbt" class="h-auto w-full">
+      <title id="gbt">Schéma de branchement d’une guirlande extérieure : prise murale IP44, prise connectée, rallonge avec boucle d’égouttement, boîtier étanche et transformateur surélevés</title>
+      <rect x="0" y="0" width="680" height="280" fill="#fafaf9" />
+      <rect x="20" y="20" width="110" height="230" fill="#e7e5e4" /><text x="75" y="40" font-size="11" text-anchor="middle" fill="#57534e">façade</text>
+      <rect x="95" y="110" width="30" height="36" rx="4" fill="#fff" stroke="#57534e" /><text x="75" y="105" font-size="10" text-anchor="middle">prise IP44</text>
+      <rect x="128" y="112" width="34" height="32" rx="6" fill="#fde68a" stroke="#b45309" /><text x="145" y="100" font-size="10" text-anchor="middle" fill="#92400e">prise connectée</text>
+      <path d="M162 128 C 200 128, 200 215, 240 215 C 275 215, 270 160, 300 160" fill="none" stroke="#1c1917" stroke-width="3" />
+      <text x="225" y="238" font-size="10" text-anchor="middle" fill="#b45309">boucle d’égouttement</text>
+      <rect x="300" y="140" width="70" height="40" rx="6" fill="#bae6fd" stroke="#0369a1" /><text x="335" y="132" font-size="10" text-anchor="middle" fill="#075985">boîtier étanche</text>
+      <path d="M370 160 C 400 160, 400 205, 425 205 C 450 205, 445 150, 470 150" fill="none" stroke="#1c1917" stroke-width="3" />
+      <rect x="470" y="135" width="50" height="30" rx="4" fill="#44403c" /><text x="495" y="127" font-size="10" text-anchor="middle">transfo 31 V</text>
+      <path d="M520 150 L 560 60 L 660 60" fill="none" stroke="#1c1917" stroke-width="2" />
+      {[575, 600, 625, 650].map((x) => <circle cx={x} cy="66" r="6" fill="#f59e0b" />)}
+      <text x="615" y="45" font-size="10" text-anchor="middle">guirlande</text>
+      <line x1="140" y1="262" x2="660" y2="262" stroke="#86efac" stroke-width="6" /><text x="400" y="276" font-size="10" text-anchor="middle" fill="#166534">sol : aucune connexion posée dessus</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma réalisé par 1 pièce 1 ampoule. Le câble descend sous chaque connexion puis remonte : l’eau goutte au point bas au lieu d’entrer dans la connexion.</figcaption>
+  </figure>
+  <p>La rallonge se repère à l’inscription imprimée sur sa gaine. <strong>H05VV-F</strong> : gaine en PVC, pour l’intérieur. <strong>H05RN-F</strong> : gaine en caoutchouc, pour un usage extérieur léger et temporaire, ce qui est le cas d’une guirlande de Noël. <strong>H07RN-F</strong> : caoutchouc plus épais, pour un câble qui reste dehors ou qui risque d’être piétiné. Une guirlande LED consomme quelques watts : une section de 1,5 mm² est largement suffisante, la longueur n’est pas un problème.</p>
+
+  <h2 id="consommation">Ce que coûte une saison</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[600px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Cas (40 soirs, de début décembre à mi-janvier)</th><th class="p-3">Calcul</th><th class="p-3">Coût</th></tr></thead>
+      <tbody>{CONSO.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.c}</th><td class="p-3">{r.calc}</td><td class="p-3">{r.cout}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Calcul : énergie (kWh) = puissance (W) × heures ÷ 1 000, puis × prix du kWh. Exemple à 0,20 €/kWh : remplace-le par le prix de ta facture et la puissance par celle écrite sur ton transformateur.</figcaption>
+  </figure>
+  <p>Avec des LED, la facture n’est plus vraiment le sujet : une guirlande programmée coûte quelques dizaines de centimes par saison. La programmation sert surtout à ne pas éclairer la rue toute la nuit et à ménager le transformateur. Un détail amusant : la veille d’une prise connectée peut coûter presque autant que la guirlande programmée elle-même. Si tu veux connaître la consommation exacte de ton installation, un <a href="/articles/economies-led-calcul/">calcul d’économies LED</a> ou un wattmètre branché une soirée donne la réponse.</p>
+</Tutorial>

@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ZoneTable from '../../components/ZoneTable.astro';
+import BestPick from '../../components/BestPick.astro';
+import AwinPartner from '../../components/AwinPartner.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import { amazonProductUrl } from '../../lib/amazon';
+const amz = [
+  { name: 'OREiN projecteur LED 24 W à détecteur', asin: 'B0BPX1ZZXJ', cols: ['2 800 lm', '117 lm/W', '2700 / 4000 / 6500 K', 'IP65', 'Entrée, terrasse'] },
+  { name: 'Projecteur LED 30 W à détecteur + télécommande', asin: 'B0FP4ZKX9Z', cols: ['3 600 lm', '120 lm/W', '3 teintes', 'IP65', 'Allée, garage'] },
+];
+const solar = [
+  { name: 'STEINEL XSolar L-S ONE (applique solaire)', asin: 'B0B272H45X', cols: ['Solaire, batterie LiFePO4', 'Détecteur orientable', 'Abri, portail, façade sans câble'] },
+  { name: 'Ainostone spots solaires à détecteur (lot de 3)', asin: 'B09XMP2CPQ', cols: ['Solaire', 'IP65, piquets', 'Bordure d’allée'] },
+  { name: 'Lucide ST64 ampoule E27 crépusculaire 4 W', asin: 'B07TSKP9JC', cols: ['Secteur (douille E27)', 'Capteur jour/nuit, 2200 K', 'Applique existante, porche'] },
+];
+const ech = [
+  { name: 'Steinel L 12 M, applique E27 sans détecteur (fiche Steinel 069155)', href: 'https://www.awin1.com/pclick.php?p=46381369701&a=3127458&m=31151', shop: '2echoix', cols: ['57,19 €', 'IP44, E27 max. 60 W, à commander par interrupteur ou NightMatic'] },
+  { name: 'Steinel XSolar LH-N, numéro de maison solaire (fiche Steinel 035730)', href: 'https://www.awin1.com/pclick.php?p=45843200190&a=3127458&m=31151', shop: '2echoix', cols: ['70,59 €', 'Solaire, crépusculaire 2 lx, 4 000 K, IP44'] },
+  { name: 'Steinel NightMatic 2000, interrupteur crépusculaire', href: 'https://www.awin1.com/pclick.php?p=46359010299&a=3127458&m=31151', shop: '2echoix', cols: ['23,39 €', 'Rend crépusculaire une applique existante'] },
+  { name: 'Trio Ravi, applique LED d’extérieur 50 cm à détecteur', href: 'https://www.awin1.com/pclick.php?p=46317415938&a=3127458&m=31151', shop: '2echoix', cols: ['179,99 €', 'Aluminium moulé, anthracite'] },
+];
+---
+<Layout type="article" title="Éclairer une entrée et une allée extérieure : détecteur, IP, lumens" description="Projecteur à détecteur, applique solaire ou crépusculaire : lumens nécessaires, indice IP, efficacité calculée (lm/W) et 9 solutions comparées.">
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700">Zone</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Entrée et allée extérieure</h1>
+      <p class="mt-4 max-w-2xl text-stone-600">Trouver la serrure, voir la marche, dissuader : dehors, une lumière qui s’allume seule quand on arrive vaut mieux qu’une lampe allumée toute la nuit.</p>
+    </div>
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <h2>L’essentiel</h2>
+      <ul>
+        <li><strong>Puissance :</strong> 20 à 30 W (2 000 à 3 000 lm) pour une entrée ou une allée ; 50 à 60 W pour une cour ou un parking.</li>
+        <li><strong>Indice IP :</strong> IP44 sous un auvent, IP65 si le luminaire reçoit la pluie directement. Détails dans notre <a href="/guides/ip-indice-protection/">guide de l’indice IP</a>.</li>
+        <li><strong>Commande :</strong> détecteur de mouvement pour le passage, capteur crépusculaire pour un balisage du soir. Voir <a href="/guides/detecteurs-de-mouvement/">bien régler un détecteur</a> et <a href="/articles/ampoule-crepusculaire/">l’ampoule crépusculaire</a>. Une torche puissante ne remplace pas un projecteur fixe, mais peut dépanner : voir aussi notre <a href="/tests/imalent-gr35/">test de la lampe torche Imalent GR35</a>.</li>
+        <li><strong>Teinte :</strong> 2700–3000 K gêne moins le voisinage et la faune qu’un 6500 K.</li>
+      </ul>
+      <h2>Projecteurs à détecteur sur secteur</h2>
+      <p>Efficacité = flux ÷ puissance annoncés : plus elle est élevée, moins le projecteur consomme pour la même lumière.</p>
+    </div>
+    <ZoneTable head={['Flux', 'Efficacité (calculée)', 'Teinte', 'IP', 'Usage']} rows={amz} source="Données : fiches produit Amazon.fr des fabricants, vérifiées le 23/10/2026." />
+    <div class="prose-article mt-6 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10"><p>Pour une cour ou un parking, le <a href="/meilleur/meilleur-projecteur-led-exterieur-detecteur/">CLY 60 W</a> annonce 5 640 lm (94 lm/W calculés) ; sa fiche n’indique pas d’indice IP, à vérifier auprès du vendeur avant une pose sous la pluie.</p></div>
+    <BestPick title="OREiN projecteur LED 24 W à détecteur" why="2 800 lm, la bonne plage pour une entrée, IP65 et surtout une teinte 2700 K sélectionnable : assez de lumière pour la serrure, sans éblouir la rue." href={amazonProductUrl('B0BPX1ZZXJ')} asin="B0BPX1ZZXJ" cta="Voir le prix sur Amazon" />
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10"><h2>Sans tirer de câble : solaire et crépusculaire</h2></div>
+    <ZoneTable head={['Alimentation', 'Points forts', 'Pour']} rows={solar} source="Données : fiches produit Amazon.fr, vérifiées le 23/10/2026." />
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10"><h2>Petit budget : modèles de marque en déstockage</h2><p>2echoix vend des produits de deuxième choix. Prix TTC relevés dans le flux du marchand le 22/10/2026 : ils peuvent avoir changé.</p></div>
+    <ZoneTable head={['Prix relevé', 'Type']} rows={ech} source="Source : flux produits 2echoix (Awin), 22/10/2026. Liens partenaires." />
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <p>Pour aller plus loin : <a href="/meilleur/meilleur-projecteur-led-exterieur-detecteur/">comparatif des projecteurs à détecteur</a>, <a href="/meilleur/meilleure-lampe-solaire-exterieur/">lampes solaires</a>, nos pages <a href="/pieces/jardin/">jardin</a> et <a href="/pieces/parking/">parking</a>, l’article <a href="/articles/eclairage-terrasse/">éclairer une terrasse</a>, et <a href="/zones/">toutes les zones</a>.</p>
+    </div>
+  </section>
+  <AwinPartner />
+  <RelatedComparatifs />
+  <p class="mt-8 text-sm text-stone-600">À lire aussi : <a class="font-semibold text-amber-700 underline" href="/guides/eclairage-exterieur-automatique-steinel/">éclairage extérieur automatique Steinel, 4 produits comparés sur fiche</a>, et <a class="font-semibold text-amber-700 underline" href="/marques/steinel/">notre fiche marque Steinel</a> (garantie, SAV).</p>
+</Layout>

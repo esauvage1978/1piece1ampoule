@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PRODUCTS } from '../content/products';
+import prix from '../data/prix-amazon.json';
+
+type Lang = 'fr' | 'en' | 'uk' | 'ca' | 'de' | 'nl' | 'it' | 'es';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const ui = (lang === 'uk' || lang === 'ca' ? 'en' : lang) as 'fr' | 'en' | 'de' | 'nl' | 'it' | 'es';
+
+const TYPE: Record<string, Record<typeof ui, string>> = {
+  'Alimentation LED 12V': { fr: 'Alimentation LED 12V', en: '12V LED driver', de: '12-V-LED-Netzteil', nl: '12V-leddriver', it: 'Alimentatore LED 12V', es: 'Fuente LED 12V' },
+  'Module connecté sans neutre': { fr: 'Module connecté sans neutre', en: 'No-neutral smart module', de: 'Smartmodul ohne Neutralleiter', nl: 'Slimme module zonder nul', it: 'Modulo smart senza neutro', es: 'Módulo conectado sin neutro' },
+  'Ampoule E27 dimmable': { fr: 'Ampoule E27 dimmable', en: 'Dimmable E27 bulb', de: 'Dimmbare E27-Lampe', nl: 'Dimbaar E27-lamp', it: 'Lampadina E27 dimmerabile', es: 'Bombilla E27 regulable' },
+  'Ampoule GU10 dimmable': { fr: 'Ampoule GU10 dimmable', en: 'Dimmable GU10 bulb', de: 'Dimmbare GU10-Lampe', nl: 'Dimbaar GU10-lamp', it: 'Lampadina GU10 dimmerabile', es: 'Bombilla GU10 regulable' },
+  'Ampoule G9': { fr: 'Ampoule G9', en: 'G9 bulb', de: 'G9-Lampe', nl: 'G9-lamp', it: 'Lampadina G9', es: 'Bombilla G9' },
+  'Ampoule E27 4000K': { fr: 'Ampoule E27 4000K', en: 'E27 bulb 4000K', de: 'E27-Lampe 4000K', nl: 'E27-lamp 4000K', it: 'Lampadina E27 4000K', es: 'Bombilla E27 4000K' },
+  'Ampoule à détecteur': { fr: 'Ampoule à détecteur', en: 'Sensor bulb', de: 'Lampe mit Sensor', nl: 'Lamp met sensor', it: 'Lampadina con sensore', es: 'Bombilla con sensor' },
+  'Ampoule crépusculaire': { fr: 'Ampoule crépusculaire', en: 'Dusk bulb', de: 'Dämmerungslampe', nl: 'Schemerlamp', it: 'Lampadina crepuscolare', es: 'Bombilla crepuscular' },
+  'Ampoule four': { fr: 'Ampoule four', en: 'Oven bulb', de: 'Backofenlampe', nl: 'Ovenlamp', it: 'Lampadina da forno', es: 'Bombilla de horno' },
+  'Ampoule frigo': { fr: 'Ampoule frigo', en: 'Fridge bulb', de: 'Kühlschranklampe', nl: 'Koelkastlamp', it: 'Lampadina da frigo', es: 'Bombilla de nevera' },
+  Variateur: { fr: 'Variateur', en: 'Dimmer', de: 'Dimmer', nl: 'Dimmer', it: 'Dimmer', es: 'Regulador' },
+  'Lampe horticole': { fr: 'Lampe horticole', en: 'Grow light', de: 'Pflanzenlampe', nl: 'Groeilamp', it: 'Lampada per piante', es: 'Lámpara de cultivo' },
+  'Ampoule B22': { fr: 'Ampoule B22', en: 'B22 bulb', de: 'B22-Lampe', nl: 'B22-lamp', it: 'Lampadina B22', es: 'Bombilla B22' },
+  'Alimentation 24V': { fr: 'Alimentation 24V', en: '24V driver', de: '24-V-Netzteil', nl: '24V-voeding', it: 'Alimentatore 24V', es: 'Fuente 24V' },
+  'Spot encastrable': { fr: 'Spot encastrable', en: 'Recessed spotlight', de: 'Einbauspot', nl: 'Inbouwspot', it: 'Faretto da incasso', es: 'Foco empotrable' },
+  'Ampoule connectée Wi-Fi': { fr: 'Ampoule connectée Wi-Fi', en: 'Wi-Fi smart bulb', de: 'WLAN-Smartlampe', nl: 'Wifi-smartlamp', it: 'Lampadina Wi-Fi', es: 'Bombilla Wi-Fi' },
+  'Lampe de chevet': { fr: 'Lampe de chevet', en: 'Bedside lamp', de: 'Nachttischlampe', nl: 'Nachtlamp', it: 'Lampada da comodino', es: 'Lámpara de mesilla' },
+  'Ampoule GU5.3': { fr: 'Ampoule GU5.3', en: 'GU5.3 bulb', de: 'GU5.3-Lampe', nl: 'GU5.3-lamp', it: 'Lampadina GU5.3', es: 'Bombilla GU5.3' },
+  Multimètre: { fr: 'Multimètre', en: 'Multimeter', de: 'Multimeter', nl: 'Multimeter', it: 'Multimetro', es: 'Multímetro' },
+  'Gaine thermorétractable': { fr: 'Gaine thermorétractable', en: 'Heat-shrink tubing', de: 'Schrumpfschlauch', nl: 'Krimpkous', it: 'Guaina termorestringente', es: 'Funda termorretráctil' },
+  Wattmètre: { fr: 'Wattmètre', en: 'Power meter', de: 'Strommessgerät', nl: 'Wattmeter', it: 'Wattmetro', es: 'Vatímetro' },
+  'Ampoule E27': { fr: 'Ampoule E27', en: 'E27 bulb', de: 'E27-Lampe', nl: 'E27-lamp', it: 'Lampadina E27', es: 'Bombilla E27' },
+  'Ampoule E27 puissante': { fr: 'Ampoule E27 puissante', en: 'High-output E27', de: 'Starke E27-Lampe', nl: 'Krachtige E27-lamp', it: 'E27 ad alto flusso', es: 'E27 de alto flujo' },
+  'Ampoule E27 filament': { fr: 'Ampoule E27 filament', en: 'E27 filament bulb', de: 'E27-Fadenlampe', nl: 'E27-filamentlamp', it: 'E27 a filamento', es: 'E27 de filamento' },
+  'Ampoule connectée': { fr: 'Ampoule connectée', en: 'Smart bulb', de: 'Smarte Lampe', nl: 'Slimme lamp', it: 'Lampadina smart', es: 'Bombilla conectada' },
+  'Kit connecté couleur': { fr: 'Kit connecté couleur', en: 'Colour smart kit', de: 'Farb-Smartkit', nl: 'Kleur-smartkit', it: 'Kit smart a colori', es: 'Kit conectado de color' },
+  'Ampoule GU10': { fr: 'Ampoule GU10', en: 'GU10 bulb', de: 'GU10-Lampe', nl: 'GU10-lamp', it: 'Lampadina GU10', es: 'Bombilla GU10' },
+  'Ampoule E14': { fr: 'Ampoule E14', en: 'E14 bulb', de: 'E14-Lampe', nl: 'E14-lamp', it: 'Lampadina E14', es: 'Bombilla E14' },
+  'Réglette sans fil à détecteur': { fr: 'Réglette sans fil à détecteur', en: 'Wireless sensor bar', de: 'Funkleiste mit Sensor', nl: 'Draadloze sensorlijst', it: 'Barra wireless con sensore', es: 'Regleta inalámbrica con sensor' },
+  'Réglette sous meuble 230V': { fr: 'Réglette sous meuble 230V', en: '230V under-cabinet bar', de: 'Unterbauleuchte 230V', nl: 'Onderbouwlamp 230V', it: 'Barra sottopensile 230V', es: 'Regleta bajo mueble 230V' },
+  'Profilé ruban LED': { fr: 'Profilé ruban LED', en: 'LED strip profile', de: 'LED-Streifenprofil', nl: 'LED-stripprofiel', it: 'Profilo per striscia LED', es: 'Perfil para tira LED' },
+  'Ruban LED COB': { fr: 'Ruban LED COB', en: 'COB LED strip', de: 'COB-LED-Streifen', nl: 'COB-ledstrip', it: 'Striscia LED COB', es: 'Tira LED COB' },
+  'Ruban LED COB étanche': { fr: 'Ruban LED COB étanche', en: 'Waterproof COB strip', de: 'Wasserfester COB-Streifen', nl: 'Waterdichte COB-strip', it: 'Striscia COB stagna', es: 'Tira COB estanca' },
+  'Plafonnier LED': { fr: 'Plafonnier LED', en: 'LED ceiling light', de: 'LED-Deckenleuchte', nl: 'LED-plafondlamp', it: 'Plafoniera LED', es: 'Plafón LED' },
+  'Applique salle de bain': { fr: 'Applique salle de bain', en: 'Bathroom wall light', de: 'Bad-Wandleuchte', nl: 'Badkamerwandlamp', it: 'Applique da bagno', es: 'Aplique de baño' },
+  'Réglette étanche IP65': { fr: 'Réglette étanche IP65', en: 'IP65 waterproof batten', de: 'IP65-Feuchtraumleuchte', nl: 'IP65-waterdichte balk', it: 'Barra stagna IP65', es: 'Regleta estanca IP65' },
+  'Projecteur extérieur': { fr: 'Projecteur extérieur', en: 'Outdoor floodlight', de: 'Außenstrahler', nl: 'Buitenschijnwerper', it: 'Proiettore da esterno', es: 'Proyector de exterior' },
+  'Lampe solaire': { fr: 'Lampe solaire', en: 'Solar lamp', de: 'Solarlampe', nl: 'Zonnelamp', it: 'Lampada solare', es: 'Lámpara solar' },
+  'Applique solaire': { fr: 'Applique solaire', en: 'Solar wall light', de: 'Solar-Wandleuchte', nl: 'Zonnewandlamp', it: 'Applique solare', es: 'Aplique solar' },
+  'Guirlande extérieure': { fr: 'Guirlande extérieure', en: 'Outdoor string lights', de: 'Außenlichterkette', nl: 'Buitenlichtsnoer', it: 'Catena da esterno', es: 'Guirnalda de exterior' },
+  'Kit escalier automatique': { fr: 'Kit escalier automatique', en: 'Automatic stair kit', de: 'Automatisches Treppenset', nl: 'Automatische trapset', it: 'Kit scala automatico', es: 'Kit de escalera automático' },
+  'Balisage encastré': { fr: 'Balisage encastré', en: 'Recessed marker light', de: 'Einbau-Markierungslicht', nl: 'Inbouwmarkeringslicht', it: 'Segnapasso da incasso', es: 'Baliza empotrable' },
+  'Lampe de bureau': { fr: 'Lampe de bureau', en: 'Desk lamp', de: 'Schreibtischlampe', nl: 'Bureaulamp', it: 'Lampada da scrivania', es: 'Lámpara de escritorio' },
+  'Barre d’écran': { fr: 'Barre d’écran', en: 'Monitor light bar', de: 'Monitorleuchte', nl: 'Monitorlamp', it: 'Barra per monitor', es: 'Barra de monitor' },
+  Veilleuse: { fr: 'Veilleuse', en: 'Night light', de: 'Nachtlicht', nl: 'Nachtlampje', it: 'Luce notturna', es: 'Luz nocturna' },
+  'Lampe frontale': { fr: 'Lampe frontale', en: 'Headlamp', de: 'Stirnlampe', nl: 'Hoofdlamp', it: 'Lampada frontale', es: 'Linterna frontal' },
+};
+const libType = (type: string) => TYPE[type]?.[ui] || type;
+const UI = {
+  fr: { title: 'Ampoules et accessoires d’éclairage', description: 'Le catalogue déjà vérifié, filtrable par type et par marque, avec ASIN et prix Amazon France quand la fiche existe.', cat: 'Type', marque: 'Marque', tous: 'Tous les types', toutes: 'Toutes les marques', prix: 'Consulter le prix', chercher: 'Chercher ce produit', photo: 'Photo : Amazon', note: 'Prix Amazon relevé le {date}. Le stock peut avoir changé.', noteFiche: 'Le bouton ouvre la fiche Amazon.', noteRecherche: 'Lien vers une recherche au nom du produit. Le prix est celui de la boutique.', intro: 'Chaque carte reprend un produit déjà dans le catalogue, avec son ASIN. Le prix est le montant renvoyé par Amazon pour ce marché à la date indiquée.' },
+  en: { title: 'Bulbs and lighting accessories', description: 'The checked catalogue, filtered by type and brand, with an ASIN and the Amazon price when this marketplace lists it.', cat: 'Type', marque: 'Brand', tous: 'All types', toutes: 'All brands', prix: 'Check the price', chercher: 'Search this product', photo: 'Photo: Amazon', note: 'Amazon price read on {date}. Stock may have changed.', noteFiche: 'The button opens the Amazon listing.', noteRecherche: 'Search link in the product name. The price is the shop’s.', intro: 'Each card is a product already in the catalogue. A price is this marketplace’s Amazon amount on the date shown. Listings absent from this marketplace are not shown.' },
+  de: { title: 'Lampen und Leuchtenzubehör', description: 'Der geprüfte Katalog, filterbar nach Typ und Marke, mit ASIN und Amazon-Preis, wenn das Angebot existiert.', cat: 'Typ', marque: 'Marke', tous: 'Alle Typen', toutes: 'Alle Marken', prix: 'Preis ansehen', chercher: 'Dieses Produkt suchen', photo: 'Foto: Amazon', note: 'Amazon-Preis vom {date}. Der Bestand kann sich geändert haben.', noteFiche: 'Der Button öffnet das Amazon-Angebot.', noteRecherche: 'Suche nach dem Produktnamen. Der Preis ist der des Shops.', intro: 'Jede Karte ist ein bereits im Katalog stehendes Produkt. Ein Preis ist der Amazon-Betrag dieses Marktplatzes am genannten Datum. Fehlende Angebote dieses Marktes werden nicht angezeigt.' },
+  nl: { title: 'Lampen en verlichtingsaccessoires', description: 'De gecontroleerde catalogus, te filteren op type en merk. Op Amazon.nl opent de knop een zoekopdracht, zonder prijs.', cat: 'Type', marque: 'Merk', tous: 'Alle types', toutes: 'Alle merken', prix: 'Prijs bekijken', chercher: 'Dit product zoeken', photo: 'Foto: Amazon', note: 'Amazon-prijs van {date}.', noteFiche: 'De knop opent de Amazon-aanbieding.', noteRecherche: 'Zoeklink op de productnaam. De prijs is die van de winkel.', intro: 'Elke kaart is een product uit de catalogus. Voor Amazon.nl is er geen partnerprijs: de knop opent een zoekopdracht, zonder bedrag.' },
+  it: { title: 'Lampadine e accessori per l’illuminazione', description: 'Il catalogo verificato, filtrabile per tipo e marca, con ASIN e prezzo Amazon quando la scheda esiste.', cat: 'Tipo', marque: 'Marca', tous: 'Tutti i tipi', toutes: 'Tutte le marche', prix: 'Vedi il prezzo', chercher: 'Cerca questo prodotto', photo: 'Foto: Amazon', note: 'Prezzo Amazon del {date}. La disponibilità può essere cambiata.', noteFiche: 'Il pulsante apre la scheda Amazon.', noteRecherche: 'Ricerca con il nome del prodotto. Il prezzo è quello del negozio.', intro: 'Ogni scheda è un prodotto già nel catalogo. Il prezzo è l’importo Amazon di questo marketplace alla data indicata. Le offerte assenti su questo mercato non compaiono.' },
+  es: { title: 'Bombillas y accesorios de iluminación', description: 'El catálogo verificado, filtrable por tipo y marca, con ASIN y precio de Amazon cuando existe la ficha.', cat: 'Tipo', marque: 'Marca', tous: 'Todos los tipos', toutes: 'Todas las marcas', prix: 'Consultar el precio', chercher: 'Buscar este producto', photo: 'Foto: Amazon', note: 'Precio de Amazon del {date}. El stock puede haber cambiado.', noteFiche: 'El botón abre la ficha de Amazon.', noteRecherche: 'Búsqueda con el nombre del producto. El precio es el de la tienda.', intro: 'Cada ficha es un producto que ya está en el catálogo. El precio es el importe de Amazon en este mercado en la fecha indicada. Los anuncios ausentes de este mercado no se muestran.' },
+} as const;
+const t = UI[ui];
+const marcheId = lang === 'en' || lang === 'uk' ? 'uk' : lang === 'ca' || lang === 'nl' ? '' : lang;
+type Fiche = { image?: string; w?: number; h?: number; marches?: Record<string, { url?: string; prix?: string; titre?: string; releve?: string }> };
+const fiches = (prix as { items: Record<string, Fiche> }).items;
+const localeDate = { fr: 'fr-FR', en: 'en-GB', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', nl: 'nl-NL', it: 'it-IT', es: 'es-ES' }[lang];
+const dateDe = (iso?: string) => (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso) ? '' : new Intl.DateTimeFormat(localeDate, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${iso}T12:00:00Z`)));
+const PRIX_JOUR_MS = 24 * 60 * 60 * 1000;
+function prixDuJour(entree?: { prix?: string; releve?: string; releveIso?: string }) {
+  if (!entree?.prix) return '';
+  const iso = entree.releveIso || (entree.releve && /^\d{4}-\d{2}-\d{2}$/.test(entree.releve) ? `${entree.releve}T05:10:00Z` : '');
+  const age = Date.now() - Date.parse(iso);
+  if (!Number.isFinite(age) || age < 0 || age > PRIX_JOUR_MS) return '';
+  return entree.prix;
+}
+const hote = { fr: 'www.amazon.fr', en: 'www.amazon.co.uk', uk: 'www.amazon.co.uk', ca: 'www.amazon.ca', de: 'www.amazon.de', nl: 'www.amazon.nl', it: 'www.amazon.it', es: 'www.amazon.es' }[lang];
+const tg = { fr: 'manuso06-21', en: 'roboteducatif-21', uk: 'roboteducatif-21', ca: 'roboteducatif-20', de: 'roboteducat00-21', nl: 'manuso0607-21', it: 'roboteducat0f-21', es: 'roboteducat07-21' } as Record<string, string>;
+const recherche = (nom: string) => {
+  const q = `https://${hote}/s?k=${encodeURIComponent(nom)}`;
+  return tg[lang] ? `${q}&tag=${tg[lang]}` : q;
+};
+const cartes = Object.values(PRODUCTS).flatMap((p) => {
+  const fiche = fiches[p.asin];
+  const marche = marcheId ? fiche?.marches?.[marcheId] : undefined;
+  if (lang !== 'fr' && lang !== 'ca' && lang !== 'nl' && !marche?.url) return [];
+  return [{ ...p, fiche, marche, nom: lang === 'fr' ? p.name : (marche?.titre || p.name) }];
+});
+const types = [...new Set(cartes.map((c) => c.type))].sort((a, b) => libType(a).localeCompare(libType(b), ui));
+const marques = [...new Set(cartes.map((c) => c.brand))].sort((a, b) => a.localeCompare(b, ui));
+---
+<Layout title={t.title} description={t.description}>
+  <section class="mx-auto max-w-6xl px-4 py-8">
+    <h1 class="text-3xl font-extrabold tracking-tight text-stone-900">{t.title}</h1>
+    <p class="mt-3 max-w-3xl text-stone-600">{t.intro}</p>
+    <form class="mt-6 flex flex-wrap items-end gap-4">
+      <label class="grid gap-1 text-sm font-semibold">{t.cat}
+        <select id="acc-cat" class="rounded-lg border border-stone-300 px-2 py-1 font-normal">
+          <option value="tous">{t.tous}</option>
+          {types.map((id) => <option value={id}>{libType(id)}</option>)}
+        </select>
+      </label>
+      <label class="grid gap-1 text-sm font-semibold">{t.marque}
+        <select id="acc-marque" class="rounded-lg border border-stone-300 px-2 py-1 font-normal">
+          <option value="tous">{t.toutes}</option>
+          {marques.map((id) => <option value={id}>{id}</option>)}
+        </select>
+      </label>
+      <p id="acc-compte" class="text-sm text-stone-500"></p>
+    </form>
+    <ul class="mt-6 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+      {cartes.map((c) => {
+        const date = dateDe(c.marche?.releve);
+        const montant = prixDuJour(c.marche);
+        const ficheLien = Boolean(c.marche?.url);
+        const href = c.marche?.url || recherche(c.name);
+        return (
+          <li data-cat={c.type} data-marque={c.brand} class="rounded-2xl border border-stone-200 bg-white p-4">
+            <p class="text-xs font-bold uppercase tracking-wide text-amber-700">{libType(c.type)} · {c.brand}</p>
+            {c.fiche?.image && ficheLien && (
+              <figure class="mt-2">
+                <img class="h-40 w-full object-contain bg-stone-50" src={c.fiche.image} alt={c.nom} width={c.fiche.w || 500} height={c.fiche.h || 500} loading="lazy" decoding="async" />
+                <figcaption class="text-xs text-stone-500">{t.photo} — ASIN {c.asin}</figcaption>
+              </figure>
+            )}
+            <h2 class="mt-2 text-base font-semibold text-stone-900">{c.nom}</h2>
+            {lang === 'fr' && <p class="mt-1 text-sm text-stone-600">{c.specs}</p>}
+            {montant && <p class="mt-2 text-xl font-extrabold">{montant}{date && <span class="block text-xs font-medium text-stone-500">{date}</span>}</p>}
+            {ficheLien && lang === 'fr' && c.marche?.titre && <p class="mt-1 text-xs text-stone-500">{c.marche.titre}</p>}
+            <p class="mt-3"><a class="inline-block rounded-full bg-amber-600 px-4 py-2 text-sm font-bold text-white no-underline" href={href} target="_blank" rel="sponsored nofollow noopener">{ficheLien ? t.prix : t.chercher}</a></p>
+            <p class="mt-2 text-xs text-stone-500">{montant ? t.note.replace('{date}', date || '') : ficheLien ? t.noteFiche : t.noteRecherche}</p>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+</Layout>
+<script>
+  const cat = document.querySelector<HTMLSelectElement>('#acc-cat');
+  const marque = document.querySelector<HTMLSelectElement>('#acc-marque');
+  const compte = document.querySelector('#acc-compte');
+  const cartes = [...document.querySelectorAll<HTMLElement>('ul > li[data-cat]')];
+  const appliquer = () => {
+    let n = 0;
+    for (const li of cartes) {
+      const ok = (cat?.value === 'tous' || li.dataset.cat === cat?.value) && (marque?.value === 'tous' || li.dataset.marque === marque?.value);
+      li.hidden = !ok;
+      if (ok) n += 1;
+    }
+    if (compte) compte.textContent = String(n);
+  };
+  cat?.addEventListener('change', appliquer);
+  marque?.addEventListener('change', appliquer);
+  const q = new URLSearchParams(location.search);
+  if (cat && q.get('categorie') && [...cat.options].some((o) => o.value === q.get('categorie'))) cat.value = q.get('categorie') || 'tous';
+  if (marque && q.get('marque') && [...marque.options].some((o) => o.value === q.get('marque'))) marque.value = q.get('marque') || 'tous';
+  appliquer();
+</script>
+<style>
+  ul > li[hidden] { display: none !important; }
+</style>

@@ -1,0 +1,173 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+const zones = [
+  { z: 'Volume 0', desc: 'Intérieur baignoire ou receveur de douche', ip: 'IPX7', v: 'TBTS 12 V AC ou 30 V DC max., source hors volumes', c: '230 V interdit pour l’éclairage' },
+  { z: 'Volume 1', desc: 'Au-dessus du volume 0, jusqu’à 2,25 m', ip: 'IPX4 (IPX5 si jets horizontaux)', v: 'TBTS 12 V uniquement pour luminaires', c: 'Pas de 230 V' },
+  { z: 'Volume 2', desc: 'Bande de 0,60 m autour du volume 1', ip: 'IPX4', v: 'Classe II + différentiel 30 mA, ou TBTS 12 V', c: 'Applique IP44 typique au-dessus du miroir' },
+  { z: 'Hors volume', desc: 'Reste de la pièce (ancien volume 3 supprimé en 2015)', ip: 'Pas d’IP imposé par 7-701', v: 'Règles générales du logement', c: 'IP44 reste prudent près de l’évier' },
+];
+const rooms = [
+  { id: 'salon', label: 'Séjour / salon', lux: 125, m2: 20 },
+  { id: 'cuisine', label: 'Cuisine', lux: 200, m2: 12 },
+  { id: 'chambre', label: 'Chambre', lux: 100, m2: 14 },
+  { id: 'sdb', label: 'Salle de bain (général)', lux: 175, m2: 6 },
+  { id: 'miroir', label: 'Salle de bain — miroir', lux: 400, m2: 1.2 },
+  { id: 'couloir', label: 'Couloir', lux: 100, m2: 8 },
+  { id: 'bureau', label: 'Bureau', lux: 300, m2: 10 },
+  { id: 'garage', label: 'Garage', lux: 300, m2: 18 },
+];
+---
+
+<Layout description="Schéma des volumes de salle de bain (zones 0, 1, 2), IP44 et IP65 selon la NF C 15-100, plus convertisseur lux ↔ lumens ↔ watts par type de pièce." title="Salle de bain : volumes 0, 1, 2 NF C 15-100 et IP44 / IP65" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700">Guide technique · norme</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Volumes salle de bain : IP44, IP65 et NF C 15-100</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        En France, la <strong>NF C 15-100</strong> (partie 7-701, baignoire ou douche) définit des <strong>volumes</strong> où l’eau et l’électricité se rapprochent. L’<strong>indice IP</strong> du luminaire doit suivre la zone de pose — ce n’est pas qu’une étiquette marketing. Ce guide résume les volumes 0, 1 et 2, avec un schéma, un tableau IP, et un convertisseur <strong>lux ↔ lumens ↔ watts</strong> par type de pièce.
+      </p>
+</div>
+</section>
+<section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-6 sm:p-8">
+<h2 class="text-xl font-bold">Schéma des volumes (vue en coupe)</h2>
+<p class="mt-2 max-w-3xl text-sm text-stone-600">Repères simplifiés NF C 15-100 (juin 2015) : hauteur volume 1 jusqu’à 2,25 m ; volume 2 = bande horizontale de 0,60 m autour du volume 1. Fais valider par un électricien si ton agencement est atypique.</p>
+<figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 p-4">
+<svg aria-labelledby="bath-svg-title" class="h-auto w-full max-w-3xl mx-auto" role="img" viewbox="0 0 720 380">
+<title id="bath-svg-title">Volumes 0, 1 et 2 en salle de bain selon NF C 15-100</title>
+<rect fill="#fafaf9" height="300" stroke="#a8a29e" stroke-width="2" width="640" x="40" y="40"></rect>
+<line stroke="#78716c" stroke-width="2" x1="40" x2="680" y1="280" y2="280"></line>
+<text fill="#57534e" font-size="12" text-anchor="middle" x="360" y="310">Sol</text>
+<rect fill="#bae6fd" height="80" rx="4" stroke="#0284c7" stroke-width="2" width="160" x="280" y="200"></rect>
+<text fill="#0c4a6e" font-size="13" font-weight="bold" text-anchor="middle" x="360" y="245">Volume 0</text>
+<text fill="#0c4a6e" font-size="11" text-anchor="middle" x="360" y="262">IPX7 · TBTS 12 V</text>
+<rect fill="#fde68a" fill-opacity="0.5" height="80" stroke="#d97706" stroke-dasharray="6 4" stroke-width="2" width="240" x="240" y="120"></rect>
+<text fill="#92400e" font-size="13" font-weight="bold" text-anchor="middle" x="360" y="155">Volume 1</text>
+<text fill="#92400e" font-size="11" text-anchor="middle" x="360" y="172">jusqu’à 2,25 m · IPX4 · 12 V</text>
+<rect fill="none" height="160" stroke="#ea580c" stroke-width="2" width="360" x="180" y="120"></rect>
+<text fill="#c2410c" font-size="12" font-weight="bold" x="520" y="200">Volume 2</text>
+<text fill="#c2410c" font-size="11" x="520" y="216">+0,60 m · IPX4</text>
+<text fill="#c2410c" font-size="11" x="520" y="232">classe II · 30 mA</text>
+<rect fill="#ecfdf5" fill-opacity="0.6" height="240" stroke="#059669" stroke-width="1.5" width="140" x="40" y="40"></rect>
+<text fill="#065f46" font-size="12" font-weight="bold" text-anchor="middle" x="110" y="100">Hors volume</text>
+<text fill="#065f46" font-size="10" text-anchor="middle" x="110" y="118">IP44 prudent</text>
+<text fill="#065f46" font-size="10" text-anchor="middle" x="110" y="134">miroir, plafond</text>
+<line stroke="#78716c" stroke-dasharray="4 3" stroke-width="1" x1="40" x2="680" y1="120" y2="120"></line>
+<text fill="#57534e" font-size="10" x="690" y="124">2,25 m</text>
+<rect fill="#e7e5e4" height="32" stroke="#78716c" width="48" x="500" y="248"></rect>
+<text fill="#44403c" font-size="10" text-anchor="middle" x="524" y="268">Lave-</text>
+<text fill="#44403c" font-size="10" text-anchor="middle" x="524" y="278">main</text>
+</svg>
+<figcaption class="mt-3 text-xs text-stone-500">Schéma pédagogique 1 pièce 1 ampoule — non contractuel. Pour la pose réelle, mesure depuis la baignoire/receveur et consulte la notice du luminaire (IP44, IP65…).</figcaption>
+</figure>
+</section>
+<section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-xl font-bold">Tableau volumes et IP</h2>
+<div class="mt-4 overflow-x-auto">
+<table class="min-w-[560px] w-full text-sm">
+<thead class="bg-stone-100"><tr><th class="px-3 py-2 text-left font-semibold">Zone</th><th class="px-3 py-2 text-left font-semibold">Délimitation</th><th class="px-3 py-2 text-left font-semibold">IP minimum</th><th class="px-3 py-2 text-left font-semibold">Tension / matériel</th><th class="px-3 py-2 text-left font-semibold">Repère pratique</th></tr></thead>
+<tbody>
+          {zones.map((r) => (
+            <tr class="border-t border-stone-200 text-stone-600">
+<td class="px-3 py-2 font-semibold text-stone-900">{r.z}</td>
+<td class="px-3 py-2">{r.desc}</td>
+<td class="px-3 py-2"><strong>{r.ip}</strong></td>
+<td class="px-3 py-2">{r.v}</td>
+<td class="px-3 py-2">{r.c}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+<p class="mt-3 text-sm text-stone-600">
+<strong>IP44</strong> = projections d’eau ; <strong>IP65</strong> = jets d’eau — utile près d’une douche à jet, en extérieur ou pour un spot très exposé. Définitions : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ip-indice-protection/">guide indice IP</a>.
+      Miroir et teinte : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/zones/miroir-salle-de-bain/">éclairer le miroir</a>, <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur/">Kelvin</a>, <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur/">IRC</a>.
+    </p>
+</section>
+<section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6">
+<h2 class="text-xl font-bold">Convertisseur lux ↔ lumens ↔ watts</h2>
+<p class="mt-2 text-sm text-stone-600">Choisis un type de pièce (surface et lux de confort), ou modifie l’une des trois valeurs : les deux autres se recalculent (K ≈ 2 pour l’éclairage général, LED ≈ 100 lm/W). Calcul détaillé : <a class="font-semibold text-amber-800 underline" href="/tutoriels/calculer-eclairage-piece-lux/">tutoriel lux par pièce</a>.</p>
+<div class="mt-5 grid gap-4 sm:grid-cols-2" id="conv-bath">
+<label class="text-sm font-semibold text-stone-800 sm:col-span-2">Type de pièce
+        <select class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="cv-room">
+          {rooms.map((r) => <option data-lux={r.lux} data-m2={r.m2} value={r.id}>{r.label} ({r.lux} lx, {String(r.m2).replace('.', ',')} m²)</option>)}
+        </select>
+</label>
+<label class="text-sm font-semibold text-stone-800">Lux
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="cv-lux" max="2000" min="20" step="5" type="number" value="175"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Surface (m²)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="cv-m2" max="80" min="0.5" step="0.1" type="number" value="6"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Lumens (flux total)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="cv-lm" max="100000" min="50" step="50" type="number" value="2100"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Puissance LED (W)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="cv-w" max="2000" min="1" step="1" type="number" value="21"/>
+</label>
+</div>
+<p aria-live="polite" class="mt-4 text-sm text-stone-700" id="cv-hint">≈ 175 lx × 6 m² × K 2 → 2 100 lm → ≈ 21 W LED</p>
+<p class="mt-1 text-xs text-stone-500">Modifier les lumens ou les watts recalcule les lux pour la surface choisie (K = 2). Modifier lux ou surface recalcule lumens et watts.</p>
+</section>
+<script is:inline>
+    (function () {
+      var K = 2;
+      var LM_W = 100;
+      var lock = null;
+      function el(id) { return document.getElementById(id); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function fmt(n) { return Math.round(n).toLocaleString('fr-FR'); }
+      function fromLux() {
+        var lux = num(el('cv-lux').value), m2 = num(el('cv-m2').value);
+        var lm = lux * m2 * K;
+        el('cv-lm').value = Math.round(lm);
+        el('cv-w').value = Math.max(1, Math.round(lm / LM_W));
+        el('cv-hint').textContent = '≈ ' + fmt(lux) + ' lx × ' + m2.toFixed(1).replace('.', ',') + ' m² × K ' + K + ' → ' + fmt(lm) + ' lm → ≈ ' + fmt(lm / LM_W) + ' W LED';
+      }
+      function fromLm() {
+        var lm = num(el('cv-lm').value), m2 = num(el('cv-m2').value);
+        var lux = m2 > 0 ? lm / (m2 * K) : 0;
+        el('cv-lux').value = Math.round(lux);
+        el('cv-w').value = Math.max(1, Math.round(lm / LM_W));
+        el('cv-hint').textContent = fmt(lm) + ' lm → ≈ ' + fmt(lux) + ' lx (surface ' + m2.toFixed(1).replace('.', ',') + ' m²) · ≈ ' + fmt(lm / LM_W) + ' W LED';
+      }
+      function fromW() {
+        var w = num(el('cv-w').value);
+        el('cv-lm').value = Math.round(w * LM_W);
+        fromLm();
+      }
+      el('cv-room').addEventListener('change', function () {
+        var o = this.options[this.selectedIndex];
+        el('cv-lux').value = o.getAttribute('data-lux');
+        el('cv-m2').value = o.getAttribute('data-m2');
+        fromLux();
+      });
+      el('cv-lux').addEventListener('input', function () { if (lock) return; lock = 'lux'; fromLux(); lock = null; });
+      el('cv-m2').addEventListener('input', function () { if (lock) return; lock = 'lux'; fromLux(); lock = null; });
+      el('cv-lm').addEventListener('input', function () { if (lock) return; lock = 'lm'; fromLm(); lock = null; });
+      el('cv-w').addEventListener('input', function () { if (lock) return; lock = 'w'; fromW(); lock = null; });
+      fromLux();
+    })();
+  </script>
+<SavWave1Compliance />
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="IP44" keywords="applique led salle de bain ip44 miroir" subtitle="Volume 2 / hors volume" title="Applique miroir salle de bain IP44" />
+<ProductCard badge="IP65" keywords="spot led salle de bain ip65" subtitle="Zones humides exposées" title="Spot encastrable salle de bain IP65" />
+<ProductCard badge="IP44" keywords="reglette led miroir salle de bain ip44" subtitle="Lumière de face" title="Reglette miroir LED IP44" />
+<ProductCard keywords="transformateur 12v etanche ip67 led salle bain" subtitle="Volume 0–1 en basse tension" title="Transformateur 12V TBTS douche" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Pour aller plus loin</h2>
+<p class="mt-2 text-sm text-stone-600">
+      Pièce complète : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/pieces/salle-de-bain/">éclairage salle de bain</a>.
+      Dépannage LED (lueur, grésillement) : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">guide dépannage LED</a>.
+      Équivalence ampoules : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts/">lumens vs watts</a>.
+    </p>
+</section>
+<RelatedComparatifs />
+</Layout>

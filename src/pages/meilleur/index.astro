@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+import PageBreadcrumb from '../../components/PageBreadcrumb.astro';
+import ProductVisual from '../../components/ProductVisual.astro';
+import { COMPARATIFS } from '../../content/comparatifs';
+import { PRODUCTS } from '../../content/products';
+
+const editorSlugs = ['meilleure-reglette-led-sous-meuble', 'meilleure-ampoule-connectee'] as const;
+const editorPicks = editorSlugs.flatMap((slug) => {
+  const c = COMPARATIFS.find((x) => x.slug === slug)!;
+  const indices = slug === 'meilleure-ampoule-connectee' ? [0, 1] : [0];
+  return indices.map((i) => {
+    const p = PRODUCTS[c.asins[i]];
+    if (!p) return null;
+    return {
+      comparatifSlug: slug,
+      comparatifTitle: c.h1.replace(/ en 2026$/, ''),
+      product: p,
+    };
+  }).filter(Boolean);
+}) as { comparatifSlug: string; comparatifTitle: string; product: (typeof PRODUCTS)[string] }[];
+
+const heroPick = editorPicks[0];
+const heroPickImage = '/pins/ruban.png';
+const heroPickImageAlt =
+  'Réglette LED sous meuble — illustration du choix rédaction DA LIGHT pour plan de travail';
+
+const schema = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'Comparatifs éclairage 2026',
+  itemListElement: COMPARATIFS.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: `https://1piece1ampoule.fr/meilleur/${c.slug}/`, name: c.h1 })),
+};
+---
+<Layout title="Comparatifs éclairage 2026 : ampoules, spots, LED" description="Tous nos comparatifs 2026 : meilleure ampoule E27, spot GU10, ampoule connectée, ruban LED, réglette garage, lampe solaire, lampe de bureau…" schema={schema}>
+  <PageBreadcrumb
+    items={[
+      { href: '/', label: 'Accueil' },
+      { label: 'Comparatifs' },
+    ]}
+  />
+  <p class="mt-3 max-w-3xl text-sm text-stone-600">
+    Cette rubrique complète l’
+    <a class="font-semibold text-amber-800 underline hover:text-amber-900" href="/">accueil 1 pièce 1 ampoule</a>
+    avec nos comparatifs produits. Pour le cadrage technique (lumens, Kelvin, culots), reprenez aussi le hub
+    <a class="font-semibold text-amber-800 underline hover:text-amber-900" href="/guides/">guides éclairage LED</a>.
+  </p>
+
+  <section class="mt-6 rounded-3xl border border-stone-200 bg-white shadow-sm p-6 sm:p-8">
+    <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Comparatifs éclairage 2026</h1>
+    {heroPick && (
+      <figure class="mt-4 overflow-hidden rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm">
+        <img
+          src={heroPickImage}
+          alt={heroPickImageAlt}
+          width="1000"
+          height="1500"
+          loading="eager"
+          decoding="async"
+          class="max-h-56 w-full object-cover object-center sm:max-h-64"
+        />
+        <figcaption class="border-t border-amber-100 px-4 py-3 text-sm text-stone-700">
+          <span class="text-xs font-bold uppercase tracking-wide text-amber-700">Choix de la rédaction</span>
+          <span class="mt-1 block font-semibold text-stone-900">{heroPick.product.name}</span>
+          <a
+            class="mt-1 inline-block font-semibold text-amber-700 underline hover:text-amber-800"
+            href={`/meilleur/${heroPick.comparatifSlug}/`}
+          >
+            Comparatif complet : {heroPick.comparatifTitle} →
+          </a>
+        </figcaption>
+      </figure>
+    )}
+    <div class="mt-4 max-w-3xl space-y-3 text-stone-600">
+      <p>
+        Hub de nos tests produits : chaque page reprend un tableau comparatif, des critères de choix et une FAQ.
+        Pour les bases (lumens, Kelvin, culots), commencez par nos
+        <a class="font-semibold text-amber-800 underline hover:text-amber-900" href="/guides/lumens-vs-watts/">guides lumens et watts</a>
+        et
+        <a class="font-semibold text-amber-800 underline hover:text-amber-900" href="/guides/culots-e27-e14-gu10/">culots d’ampoule</a>.
+      </p>
+      <p>
+        Ici, nous regroupons les sélections que nous mettons à jour régulièrement : ampoules E27 et GU10, éclairage connecté, rubans et réglettes LED, luminaires extérieurs ou de bureau. Chaque comparatif s’appuie sur les caractéristiques annoncées par les fabricants et sur la cohérence avec nos guides pratiques.
+      </p>
+      <p>
+        Vous y trouverez un modèle « coup de cœur », un tableau pour comparer les fiches, puis les critères qui ont guidé le classement (lumens, teinte, compatibilité variateur, indice de protection, etc.). Les liens d’achat renvoient vers Amazon.fr ; nous indiquons aussi, quand c’est pertinent, des pages pièce par pièce ou des zones (plan de travail, miroir, garage).
+      </p>
+      <p>
+        Les dates de mise à jour figurent sur chaque fiche. Si vous hésitez entre deux formats (par exemple réglette 230 V ou ruban 24 V sous meuble), ouvrez le comparatif dédié : la FAQ rappelle les compromis sans refaire tout le calcul depuis zéro.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-stone-200 bg-stone-50 p-6 shadow-sm">
+    <p class="text-xs font-bold uppercase tracking-wide text-stone-500">Choix de la rédaction</p>
+    <ul class="mt-4 divide-y divide-stone-200">
+      {editorPicks.map((pick, i) => (
+        <li class="flex flex-col gap-3 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex min-w-0 gap-3 sm:items-center">
+            {i > 0 && <ProductVisual product={pick.product} size="sm" />}
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-stone-900">{pick.product.name}</p>
+              <p class="mt-1 text-sm text-stone-600">{pick.product.specs} — {pick.product.usage}</p>
+              <a
+                class="mt-2 inline-block text-sm font-semibold text-amber-700 underline hover:text-amber-800"
+                href={`/meilleur/${pick.comparatifSlug}/`}
+              >
+                Comparatif complet : {pick.comparatifTitle} →
+              </a>
+            </div>
+          </div>
+          <AmazonButton
+            asin={pick.product.asin}
+            product={pick.product.name}
+            label={`Prix Amazon — ${pick.product.name}`}
+            placement={`meilleur-index-${pick.comparatifSlug}`}
+            class="w-full shrink-0 sm:w-auto"
+          />
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <div class="mt-8 grid gap-4 md:grid-cols-2">
+    {COMPARATIFS.map((c) => (
+      <a href={`/meilleur/${c.slug}/`} class="rounded-2xl border border-stone-200 bg-white shadow-sm p-5 hover:bg-amber-50">
+        <p class="text-base font-bold">{c.h1}</p>
+        <p class="mt-2 line-clamp-2 text-sm text-stone-600">{c.description}</p>
+      </a>
+    ))}
+  </div>
+</Layout>

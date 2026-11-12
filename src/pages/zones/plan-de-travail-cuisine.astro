@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ZoneTable from '../../components/ZoneTable.astro';
+import BestPick from '../../components/BestPick.astro';
+import AwinPartner from '../../components/AwinPartner.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import { amazonProductUrl } from '../../lib/amazon';
+const rows = [
+  { name: 'DA LIGHT réglette orientable 56 cm', asin: 'B07H7HB6LG', cols: ['230 V, interrupteur', '560 lm', '1 000 lm/m', '3000 / 4000 / 6000 K', 'Oui, connectable'] },
+  { name: 'SEBSON réglette cuisine 60 cm', asin: 'B01LZEWUT7', cols: ['230 V, prise + interrupteur', '715 lm (11 W)', '1 192 lm/m', '3000 K', 'Une réglette par prise'] },
+  { name: 'Oktaplex Riga 28 cm', asin: 'B0CGRC4GQ9', cols: ['230 V', '370 lm (4 W)', '1 321 lm/m', '4000 K', 'Oui, extensible'] },
+];
+---
+<Layout type="article" title="Éclairer un plan de travail de cuisine : lumens, teinte, réglettes" description="Combien de lumens sous les meubles hauts, quelle teinte, quelle réglette ? Calcul à 500 lux, tableau de 3 réglettes (lm/m calculés) et notre choix.">
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700">Zone</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Plan de travail de cuisine</h1>
+      <figure class="mt-4">
+        <img
+          src="/pins/cuisine.png"
+          alt="Éclairage sous meuble pour plan de travail de cuisine"
+          width="1000"
+          height="1500"
+          loading="eager"
+          decoding="async"
+          class="mx-auto max-h-44 w-full max-w-md object-contain sm:max-h-52"
+        />
+      </figure>
+      <p class="mt-4 max-w-2xl text-stone-600">Le plafonnier éclaire la cuisine, mais tu cuisines dos à lui : ton propre corps fait de l’ombre sur la planche. La solution, c’est une source sous les meubles hauts, entre toi et le plan.</p>
+    </div>
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <h2>L’essentiel en 3 chiffres</h2>
+      <ul>
+        <li><strong>500 lux</strong> sur le plan pour couper et lire une recette : c’est le repère « tâche précise » de notre <a href="/tutoriels/calculer-eclairage-piece-lux/#tableau-lux">tableau des lux par pièce</a>.</li>
+        <li><strong>420 lm par mètre</strong> au minimum : pour un plan de 3,0 × 0,6 m, 500 lx × 1,8 m² × K 1,4 (source proche) = 1 260 lm, soit 420 lm/m de meuble (<a href="/tutoriels/calculer-eclairage-piece-lux/">calcul détaillé</a>).</li>
+        <li><strong>4000 K et IRC ≥ 80</strong> (90 si possible) pour voir la cuisson des aliments sans dominante : voir nos guides <a href="/guides/kelvin-temperature-couleur/">Kelvin</a> et <a href="/guides/irc-indice-rendu-couleur/">IRC</a>.</li>
+      </ul>
+      <h2>3 réglettes sur secteur comparées</h2>
+      <p>Le flux par mètre est calculé à partir du flux et de la longueur annoncés par chaque fabricant. Toutes les réglettes sur secteur dépassent largement les 420 lm/m : la différence se joue sur la teinte, la pose et la longueur. Pour un panorama à jour avec quatre modèles et boutons d’achat par ligne, voir aussi notre <a href="/meilleur/meilleure-reglette-led-sous-meuble/">comparatif réglettes LED sous meuble</a>.</p>
+      <figure class="not-prose my-6 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+        <img src="/illustrations/cuisine-zones-v4.svg?v=3" alt="Schéma des zones d’éclairage en cuisine, dont le plan de travail sous les meubles hauts" width="1200" height="675" loading="lazy" decoding="async" class="h-auto w-full" />
+        <figcaption class="border-t border-stone-100 px-4 py-2 text-xs text-stone-500">Le plan de travail se traite à part du plafonnier : source proche, vers l’avant du meuble.</figcaption>
+      </figure>
+    </div>
+    <ZoneTable head={['Alimentation', 'Flux annoncé', 'Flux par mètre (calculé)', 'Teinte', 'Mise en série']} rows={rows} source="Données : fiches produit Amazon.fr des fabricants, vérifiées le 23/10/2026. Flux par mètre = flux ÷ longueur." />
+    <BestPick title="DA LIGHT réglette orientable 56 cm" why="1 000 lm/m (plus du double du besoin), 3 teintes dont 4000 K, tête orientable vers le dosseret et réglettes connectables entre elles : on couvre tout le linéaire avec une seule prise." href={amazonProductUrl('B07H7HB6LG')} asin="B07H7HB6LG" cta="Voir le prix sur Amazon" />
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <h2>Sans prise sous les meubles ?</h2>
+      <p>La <a href="/meilleur/meilleure-lampe-detecteur-sans-fil/">réglette rechargeable OUILA 60 cm</a> (batterie 5 000 mAh, USB-C, détecteur, 3 teintes) se fixe sans fil. Son fabricant n’annonce pas de flux en lumens : on la réserve au dépannage, pas au plan de travail principal.</p>
+      <h2>Réglette ou ruban LED ?</h2>
+      <figure class="not-prose my-4 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+        <img src="/images/models/govee-rgbic-strip.webp" alt="Ruban LED dans un profilé — alternative à la réglette sous meuble" width="800" height="450" loading="lazy" decoding="async" class="h-auto w-full max-h-48 object-cover object-center" />
+        <figcaption class="border-t border-stone-100 px-4 py-2 text-xs text-stone-500">Ruban LED : ligne continue possible ; réglette 230 V : pose plus directe.</figcaption>
+      </figure>
+      <p>La réglette se visse et se branche sur une prise : 15 minutes de pose. Le ruban LED dans un profilé alu donne une ligne continue sans point lumineux, mais demande une alimentation 24 V dimensionnée. Pas à pas : <a href="/tutoriels/poser-ruban-led-sous-meuble-cuisine/">poser un ruban LED sous les meubles</a>, et notre sélection <a href="/meilleur/meilleur-ruban-led/">de rubans LED</a>.</p>
+      <h2>Où la placer</h2>
+      <ul>
+        <li>Le plus près possible de l’<strong>avant</strong> du meuble haut : la lumière tombe sur la planche et pas seulement sur la crédence.</li>
+        <li>Une réglette par tronçon de meuble, en laissant 2 à 3 cm à chaque bout pour les embouts.</li>
+        <li>Pas de luminaire au-dessus de l’évier sans indice IP adapté : vérifie l’<a href="/guides/ip-indice-protection/">indice IP</a>.</li>
+      </ul>
+      <p>Pour l’éclairage général de la pièce, voir notre page <a href="/pieces/cuisine/">cuisine</a> et la sélection <a href="/meilleur/meilleure-reglette-led-sous-meuble/">réglettes sous meuble</a>. Autres zones : <a href="/zones/">toutes les zones</a>.</p>
+    </div>
+  </section>
+  <AwinPartner />
+  <RelatedComparatifs />
+</Layout>

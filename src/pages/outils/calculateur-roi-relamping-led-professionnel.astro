@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+---
+
+<Layout type="article"
+  title="Calculateur ROI relamping LED professionnel (kWh, maintenance, retour)"
+  description="Rentabilité du relamping LED pour commerce, bureau, atelier ou copropriété : tub. Outils · calculateur Guides, comparatifs et conseils pratiques sur"
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700"><a href="/outils/" class="hover:underline">Outils</a> · calculateur</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Rentabilité relamping LED (pro & copro)</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Estimez les <strong>kWh économisés</strong>, la <strong>maintenance évitée</strong> (durée de vie LED vs anciennes lampes) et le <strong>temps de retour sur investissement</strong>
+        pour un <strong>commerce</strong>, un <strong>bureau</strong>, un <strong>atelier</strong> ou une <strong>copropriété</strong>.
+        Types de luminaires : <strong>tubes T8</strong>, <strong>dalles 60×60</strong>, <strong>spots halogènes</strong>, <strong>projecteurs parking</strong> avec détecteur (ex. réglage type Steinel).
+        Tarif kWh et coût d’installation modifiables. Voir aussi
+        <a class="font-semibold text-amber-700" href="/guides/lumens-vs-watts/">lumens vs watts</a>,
+        <a class="font-semibold text-amber-700" href="/guides/eclairage-exterieur-automatique-steinel/">éclairage extérieur avec détecteur</a> et
+        <a class="font-semibold text-amber-700" href="/marques/steinel/">projecteurs Steinel</a>.
+      </p>
+    </div>
+  </section>
+
+  <CrossLinkOutilsDepannage variant="vers-depannage" />
+
+  <section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6">
+    <h2 class="text-xl font-bold">Calculateur</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2" id="roi-tool">
+      <label class="text-sm font-semibold text-stone-800">Type de site
+        <select id="roi-site" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          <option value="commerce">Commerce / retail</option>
+          <option value="bureau">Bureau / open space</option>
+          <option value="atelier">Atelier / entrepôt</option>
+          <option value="copro">Copropriété (parties communes)</option>
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Famille de luminaire
+        <select id="roi-fix" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          <option value="t8" data-old="58" data-new="18" data-life-old="12000" data-life-new="50000" data-cost-old="4" data-cost-new="12">Tube néon T8 58 W → LED 18 W</option>
+          <option value="dalle" data-old="72" data-new="36" data-life-old="15000" data-life-new="50000" data-cost-old="25" data-cost-new="45">Dalle 60×60 fluo 4×18 W → dalles LED 36 W</option>
+          <option value="gu10" data-old="50" data-new="6" data-life-old="2000" data-life-new="25000" data-cost-old="3" data-cost-new="8">Spot halogène GU10 50 W → LED 6 W</option>
+          <option value="parking" data-old="250" data-new="80" data-life-old="8000" data-life-new="50000" data-cost-old="80" data-cost-new="120">Projecteur parking 250 W → LED 80 W + détecteur</option>
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Nombre de luminaires
+        <input id="roi-n" type="number" min="1" max="5000" step="1" value="40" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Heures d’allumage / jour
+        <input id="roi-h" type="number" min="0.5" max="24" step="0.5" value="12" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Jours / an
+        <input id="roi-days" type="number" min="200" max="365" step="1" value="300" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800" id="roi-detect-wrap">Réduction grâce au détecteur (%)
+        <input id="roi-detect" type="number" min="0" max="90" step="5" value="55" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" title="Part du temps où la lumière reste éteinte ou en veille" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Puissance actuelle (W / luminaire)
+        <input id="roi-old-w" type="number" min="1" max="2000" step="1" value="58" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Puissance LED (W / luminaire)
+        <input id="roi-new-w" type="number" min="1" max="500" step="1" value="18" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Tarif électricité (€ / kWh TTC)
+        <input id="roi-kwh" type="number" min="0.05" max="0.8" step="0.01" value="0.22" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Investissement total (€, matériel + pose)
+        <input id="roi-inv" type="number" min="100" max="500000" step="50" value="3200" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Coût lampe ancienne (€)
+        <input id="roi-cost-old" type="number" min="0" max="500" step="0.5" value="4" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Coût module LED (€)
+        <input id="roi-cost-new" type="number" min="0" max="500" step="0.5" value="12" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Durée de vie ancienne (h)
+        <input id="roi-life-old" type="number" min="500" max="50000" step="100" value="12000" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Durée de vie LED (h)
+        <input id="roi-life-new" type="number" min="10000" max="100000" step="1000" value="50000" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800 sm:col-span-2">Main-d’œuvre remplacement (€ / intervention globale)
+        <input id="roi-labor" type="number" min="0" max="5000" step="25" value="150" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+    </div>
+    <div id="roi-result" class="mt-5 space-y-3 rounded-xl border border-amber-300 bg-white p-4 text-sm text-stone-800" aria-live="polite"></div>
+    <p class="mt-3 text-xs text-stone-500">Les profils « site » pré-remplissent les heures d’usage typiques. Le parking avec détecteur applique une réduction d’heures équivalentes (capteur HF ou infrarouge). Chiffres indicatifs : faites chiffrer par un installateur pour les devis CEE ou subventions locales.</p>
+  </section>
+
+  <ToolTeaser />
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+    <ul class="mt-3 space-y-1 text-sm text-stone-600">
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/convertisseur-lux-lumens-watts-surface/">Convertisseur lux ↔ lumens</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/generateur-plan-eclairage-cuisine-pdf/">Plan d’éclairage cuisine (PDF)</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/pieces/parking/">Éclairage parking</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/meilleur/meilleur-projecteur-led-exterieur-detecteur/">Projecteurs LED avec détecteur</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/detecteurs-de-mouvement/">Détecteurs de mouvement</a></li>
+    </ul>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var SITE_HOURS = { commerce: 14, bureau: 10, atelier: 16, copro: 11 };
+      function el(id) { return document.getElementById(id); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function eur(n) { return n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }); }
+      function eurDec(n) { return n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+      function applyPreset() {
+        var fix = el('roi-fix');
+        var o = fix.options[fix.selectedIndex];
+        el('roi-old-w').value = o.getAttribute('data-old');
+        el('roi-new-w').value = o.getAttribute('data-new');
+        el('roi-life-old').value = o.getAttribute('data-life-old');
+        el('roi-life-new').value = o.getAttribute('data-life-new');
+        el('roi-cost-old').value = o.getAttribute('data-cost-old');
+        el('roi-cost-new').value = o.getAttribute('data-cost-new');
+        var isPark = fix.value === 'parking';
+        el('roi-detect-wrap').style.display = isPark ? '' : 'none';
+        if (!isPark) el('roi-detect').value = '0';
+      }
+      function effectiveHours() {
+        var h = num(el('roi-h').value);
+        var red = num(el('roi-detect').value) / 100;
+        return h * (1 - red);
+      }
+      function calc() {
+        var n = num(el('roi-n').value);
+        var oldW = num(el('roi-old-w').value);
+        var newW = num(el('roi-new-w').value);
+        var days = num(el('roi-days').value);
+        var effH = effectiveHours();
+        var kwhPrice = num(el('roi-kwh').value);
+        var inv = num(el('roi-inv').value);
+        var costOld = num(el('roi-cost-old').value);
+        var costNew = num(el('roi-cost-new').value);
+        var lifeOld = num(el('roi-life-old').value);
+        var lifeNew = num(el('roi-life-new').value);
+        var labor = num(el('roi-labor').value);
+        var hoursYear = effH * days;
+        var kwhOld = n * oldW * hoursYear / 1000;
+        var kwhNew = n * newW * hoursYear / 1000;
+        var kwhSave = kwhOld - kwhNew;
+        var eSave = kwhSave * kwhPrice;
+        var replOldPerYear = lifeOld > 0 ? (n * hoursYear) / lifeOld : 0;
+        var replNewPerYear = lifeNew > 0 ? (n * hoursYear) / lifeNew : 0;
+        var maintOld = replOldPerYear * costOld + (replOldPerYear >= 1 ? Math.floor(replOldPerYear) * (labor / Math.max(1, Math.ceil(n / 20))) : 0);
+        var maintNew = replNewPerYear * costNew + (replNewPerYear >= 1 ? Math.floor(replNewPerYear) * (labor / Math.max(1, Math.ceil(n / 20)) * 0.3) : 0);
+        var maintSave = Math.max(0, maintOld - maintNew);
+        var totalSave = eSave + maintSave;
+        var paybackYears = totalSave > 0 ? inv / totalSave : Infinity;
+        var paybackTxt = !isFinite(paybackYears) ? '—' : paybackYears < 1
+          ? Math.round(paybackYears * 12) + ' mois'
+          : paybackYears.toFixed(1).replace('.', ',') + ' an(s)';
+        el('roi-result').innerHTML =
+          '<p><strong>Consommation actuelle :</strong> ≈ ' + Math.round(kwhOld).toLocaleString('fr-FR') + ' kWh/an · <strong>après LED :</strong> ≈ ' + Math.round(kwhNew).toLocaleString('fr-FR') + ' kWh/an.</p>' +
+          '<p><strong>kWh économisés :</strong> ≈ <strong>' + Math.round(kwhSave).toLocaleString('fr-FR') + ' kWh/an</strong> (' + eurDec(eSave) + ' sur la facture, à ' + kwhPrice.toFixed(2).replace('.', ',') + ' €/kWh).</p>' +
+          '<p><strong>Maintenance évitée (estim.) :</strong> ≈ ' + eurDec(maintSave) + ' / an (lampes + part main-d’œuvre ; ancien ≈ ' + replOldPerYear.toFixed(1).replace('.', ',') + ' rempl./an vs LED ≈ ' + replNewPerYear.toFixed(2).replace('.', ',') + ').</p>' +
+          '<p class="text-base"><strong>Gain total annuel :</strong> ' + eurDec(totalSave) + ' · <strong>Retour sur investissement :</strong> <strong>' + paybackTxt + '</strong> pour ' + eur(inv) + ' investis.</p>' +
+          '<p class="text-stone-600">Sur ' + n + ' luminaires, ' + effH.toFixed(1).replace('.', ',') + ' h/jour effectives (' + days + ' j/an). Puissance : ' + oldW + ' W → ' + newW + ' W (−' + Math.round((1 - newW / oldW) * 100) + ' %).</p>';
+      }
+      el('roi-site').addEventListener('change', function () {
+        var h = SITE_HOURS[this.value];
+        if (h) el('roi-h').value = h;
+        if (this.value === 'copro') el('roi-days').value = 365;
+        calc();
+      });
+      el('roi-fix').addEventListener('change', function () { applyPreset(); calc(); });
+      ['roi-n', 'roi-h', 'roi-days', 'roi-detect', 'roi-old-w', 'roi-new-w', 'roi-kwh', 'roi-inv', 'roi-cost-old', 'roi-cost-new', 'roi-life-old', 'roi-life-new', 'roi-labor'].forEach(function (id) {
+        el(id).addEventListener('input', calc);
+        el(id).addEventListener('change', calc);
+      });
+      applyPreset();
+      calc();
+    })();
+  </script>
+</Layout>

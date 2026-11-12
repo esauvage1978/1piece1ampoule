@@ -1,0 +1,87 @@
+# Moteurs de recherche et assistants IA : tout le site est autorisé.
+User-agent: *
+Allow: /
+Disallow: /go/
+
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /go/
+
+Sitemap: https://1piece1ampoule.fr/sitemap-index.xml
+
+# Robots IA & moteurs alternatifs (exploration, recherche web, entraînement LLM)
+User-agent: Bravebot
+Allow: /
+Disallow: /go/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /go/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /go/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /go/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /go/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /go/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /go/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /go/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /go/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /go/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /go/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /go/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /go/
+
+User-agent: msnbot
+Allow: /
+Disallow: /go/
+
+User-agent: Applebot
+Allow: /
+Disallow: /go/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /go/

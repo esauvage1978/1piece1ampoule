@@ -1,37 +1,133 @@
 ---
+import ManusoOutboundClickTracker from '../components/ManusoOutboundClickTracker.astro';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ArticleQuestionForm from '../components/ArticleQuestionForm.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import { pageDates, frDate, MODIFIED_BY_PATH } from '../content/dates.mjs';
+import { langOf, groupOf } from '../content/i18n';
+import { PAGE_RATING, ratingLangOf } from '../lib/page-rating-i18n';
 
 type Props = {
   title: string;
   description?: string;
   showChrome?: boolean;
+  type?: 'website' | 'article';
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  byline?: boolean;
+  noindex?: boolean;
 };
 
-const { title, description, showChrome = true } = Astro.props;
+const { title, description, showChrome = true, type = 'website', schema, byline = true, noindex = false } = Astro.props;
+const siteUrl = 'https://1piece1ampoule.fr';
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonical = new URL(path, siteUrl).toString();
+const ogImage = `${siteUrl}/og-image.png`;
+const TR_NEW = /^\/(en|de|nl|es|it)\/(tutorial|tutoriales|tutorials|anleitungen|handleidingen)\/(striscia|interruttore-smart|illuminare-cantina|tira-led|interruptor-intel|iluminar-trastero|under-cabinet|smart-switch|light-basement|led-streifen|smarter-schalter|keller-ohne|ledstrip-onder|slimme-schakelaar|kelder-schuur)/.test(path);
+const trPublished = path.startsWith('/it/') ? '2026-10-23' : '2026-10-22';
+const trackedMod = MODIFIED_BY_PATH[path];
+const isNewGuide = /\/(e27-vs-b22|e27-oder-b22|e27-o-b22|smart-bulb-deal|smarte-lampe-angebot|slimme-lamp-aanbieding|oferta-bombilla-inteligente|offerta-lampadina-smart)\/$/.test(path);
+const dates = TR_NEW
+  ? { published: '2026-10-23', modified: '2026-10-23' }
+  : /^\/(en|de|nl|es|it)\//.test(path)
+    ? {
+        published: isNewGuide ? '2026-11-09' : trPublished,
+        modified: trackedMod && trackedMod > trPublished ? trackedMod : (isNewGuide ? '2026-11-09' : trPublished),
+      }
+    : /^\/(uk|ca)\/guides\/(e27-vs-b22|smart-bulb-deal)\//.test(path)
+      ? { published: '2026-11-09', modified: '2026-11-09' }
+      : pageDates(path);
+const lang = langOf(path);
+const pr = PAGE_RATING[ratingLangOf(lang)];
+const _p = path.endsWith('/') ? path : path + '/';
+const _fs = _p.split('/').filter(Boolean);
+const showQuestion = showChrome && (lang === 'fr'
+  ? /^\/(guides|tutoriels|meilleur|pieces|zones|peinture|marques|articles|outils|codes-promo)\//.test(_p)
+  : (_fs.length >= 3 || /^\/(en|nl)\/tools\/$|^\/de\/werkzeuge\/$|^\/it\/strumenti\/$|^\/es\/herramientas\/$/.test(_p)));
+const group = groupOf(path);
+const altLangs = ['fr', 'en', 'uk', 'ca', 'de', 'nl', 'es', 'it'] as const;
+const alts = group ? altLangs.filter((l) => group[l]).map((l) => ({ l, href: group[l] as string })) : [];
+const hasPair = alts.length > 1;
+const T = ({ fr: { home: 'Accueil' }, en: { home: 'Home' }, uk: { home: 'Home' }, ca: { home: 'Home' }, de: { home: 'Startseite' }, nl: { home: 'Home' }, es: { home: 'Inicio' }, it: { home: 'Home' } } as Record<string, { home: string }>)[lang] ?? { home: 'Home' };
+const author = { '@type': 'Person', name: 'Emmanuel Sauvage', url: `${siteUrl}/a-propos/` };
+const org = { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: '1 pièce 1 ampoule', url: `${siteUrl}/`, logo: { '@type': 'ImageObject', url: `${siteUrl}/icon-512.png`, width: 512, height: 512 } };
+const labels: Record<string, string> = { pieces: 'Pièces', guides: 'Guides', peinture: 'Peinture', zones: 'Zones', meilleur: 'Comparatifs 2026', outils: 'Outils', articles: 'Conseils', tutoriels: 'Tutoriels', 'a-propos': 'À propos', marques: 'Marques', 'codes-promo': 'Codes promo', 'black-friday-2026': 'Black Friday 2026' };
+const segs = path.split('/').filter(Boolean);
+const rootUrl = lang === 'fr' ? `${siteUrl}/` : `${siteUrl}/${lang}/`;
+const csegs = lang === 'fr' ? segs : segs.slice(1);
+const xl: Record<string, Record<string, string>> = { en: { guides: 'Guides', tutorials: 'Tutorials' }, de: { ratgeber: 'Ratgeber', anleitungen: 'Anleitungen' }, nl: {}, es: {}, it: {} };
+const crumbs = [{ name: T.home, url: rootUrl }].concat(
+  csegs.map((seg, i) => ({
+    name: i === csegs.length - 1 && i > 0 ? title.split(' — ')[0].split(' | ')[0] : labels[seg] ?? xl[lang]?.[seg] ?? seg.replace(/-/g, ' '),
+    url: `${rootUrl}${csegs.slice(0, i + 1).join('/')}/`,
+  })),
+);
+const crumbsF = lang === 'fr' ? crumbs : [crumbs[0], crumbs[crumbs.length - 1]];
+const showCrumbs = lang === 'fr' ? segs.length > 0 : csegs.length > 0;
+const baseSchema: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': type === 'article' ? 'Article' : 'WebPage',
+    ...(type === 'article' ? { headline: title.split(' — ')[0].split(' | ')[0] } : { name: title }),
+    description,
+    url: canonical,
+    inLanguage: { fr: 'fr-FR', en: 'en-GB', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', nl: 'nl', es: 'es-ES', it: 'it-IT' }[lang],
+    ...(type === 'article' ? { datePublished: dates.published, dateModified: dates.modified, image: ogImage, mainEntityOfPage: canonical, author, publisher: org } : {}),
+    isPartOf: { '@type': 'WebSite', name: 'Choisir son ampoule', url: `${siteUrl}/` },
+  },
+];
+if (showCrumbs) {
+  baseSchema.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbsF.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+  });
+} else {
+  baseSchema.push({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'Choisir son ampoule', alternateName: '1 pièce 1 ampoule', url: `${siteUrl}/`, inLanguage: 'fr-FR', publisher: { '@id': `${siteUrl}/#organization` } });
+  baseSchema.push({ '@context': 'https://schema.org', ...org, description: 'Guides indépendants pour choisir ses ampoules et son éclairage LED pièce par pièce.', founder: author });
+}
+const allSchema = baseSchema.concat(schema ? (Array.isArray(schema) ? schema : [schema]) : []);
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
+  	{Astro.url.pathname === '/' && <Fragment set:html={'<meta name="fo-verify" content="a3a0041d-980b-4951-9bc8-8a175b02a84b" />'} />}
+    <meta name="p:domain_verify" content="c462a2711034c5ccd63cf02ffe28c07a"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-v2.svg" />
+    <link rel="icon" href="/favicon-v2.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-v2.png" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {hasPair && alts.map((a) => <link rel="alternate" hreflang={a.l} href={siteUrl + a.href} />)}
+    {hasPair && group && <link rel="alternate" hreflang="x-default" href={siteUrl + group.fr} />}
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content={{ fr: 'fr_FR', en: 'en_GB', uk: 'en_GB', ca: 'en_CA', de: 'de_DE', nl: 'nl_NL', es: 'es_ES', it: 'it_IT' }[lang]} />
+    <meta property="og:site_name" content="Choisir son ampoule" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(allSchema)} />
 
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="ZpKyZugAYO-StQF5wYwIXKgFGAXNVVxtyeR8hwGwdvc" />
 
-    <!-- Google Analytics (chargé uniquement après consentement cookies "statistiques") -->
+    <!-- Google Analytics : gtag immédiat, Consent Mode v2 (analytics après accord bandeau) -->
+    <script is:inline>/*mnz-consent-adv-v1*/window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments);};gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-Q6KFL7KKJD';document.head.appendChild(s);})();gtag('js',new Date());gtag('config','G-Q6KFL7KKJD');</script>
     <script is:inline>
       (function () {
         const storageKey = 'cookie_consent_v1';
-        const tagId = 'G-Q6KFL7KKJD';
 
         function loadGtag() {
           if (window.__gtagLoaded) return;
@@ -39,33 +135,117 @@ const { title, description, showChrome = true } = Astro.props;
 
           window.dataLayer = window.dataLayer || [];
           window.gtag = function gtag() { window.dataLayer.push(arguments); };
-
-          const s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + tagId;
-          document.head.appendChild(s);
-
-          window.gtag('js', new Date());
-          window.gtag('config', tagId);
+          window.gtag('consent', 'update', { analytics_storage: 'granted' });
         }
 
         window.__enableAnalyticsConsent = loadGtag;
 
-        const existing = localStorage.getItem(storageKey);
+        let existing = null;
+        try { existing = localStorage.getItem(storageKey); } catch (e) {}
         if (existing === 'analytics') {
           loadGtag();
         }
       })();
     </script>
   </head>
-  <body class="min-h-dvh bg-slate-950 text-white antialiased">
-    {showChrome && <Header />}
-    <main class="mx-auto max-w-6xl px-4">
+  <body class="min-h-dvh overflow-x-hidden bg-[#fbf8f3] text-stone-800 antialiased">
+    {showChrome && <Header lang={lang} alts={alts} />}
+    <main class="mx-auto max-w-6xl min-w-0 overflow-x-clip px-4">
+      {type === 'article' && byline && lang === 'en' && (
+        <p class="mt-6 text-sm text-stone-500" data-byline>
+          By <a class="font-semibold text-stone-800 hover:text-amber-700" href="/en/legal-notice/" rel="author">Emmanuel Sauvage</a>
+          · Updated <time datetime={dates.modified}>{new Date(dates.modified).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+        </p>
+      )}
+      {type === 'article' && byline && lang === 'de' && (
+        <p class="mt-6 text-sm text-stone-500" data-byline>
+          Von <a class="font-semibold text-stone-800 hover:text-amber-700" href="/de/impressum/" rel="author">Emmanuel Sauvage</a>
+          · Aktualisiert am <time datetime={dates.modified}>{new Date(dates.modified).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+        </p>
+      )}
+      {type === 'article' && byline && lang === 'nl' && (
+        <p class="mt-6 text-sm text-stone-500" data-byline>
+          Door <a class="font-semibold text-stone-800 hover:text-amber-700" href="/nl/colofon/" rel="author">Emmanuel Sauvage</a>
+          · Bijgewerkt op <time datetime={dates.modified}>{new Date(dates.modified).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+        </p>
+      )}
+      {type === 'article' && byline && lang === 'es' && (
+        <p class="mt-6 text-sm text-stone-500" data-byline>
+          Por <a class="font-semibold text-stone-800 hover:text-amber-700" href="/es/aviso-legal/" rel="author">Emmanuel Sauvage</a>
+          · Actualizado el <time datetime={dates.modified}>{new Date(dates.modified).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+        </p>
+      )}
+      {type === 'article' && byline && lang === 'it' && (
+        <p class="mt-6 text-sm text-stone-500" data-byline>
+          Di <a class="font-semibold text-stone-800 hover:text-amber-700" href="/it/note-legali/" rel="author">Emmanuel Sauvage</a>
+          · Aggiornato il <time datetime={dates.modified}>{new Date(dates.modified).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+        </p>
+      )}
+      {type === 'article' && byline && lang === 'fr' && (
+        <p class="mt-6 text-sm text-stone-500" data-byline>
+          Par <a class="font-semibold text-stone-800 hover:text-amber-700" href="/a-propos/" rel="author">Emmanuel Sauvage</a>
+          · Mis à jour le <time datetime={dates.modified}>{frDate(dates.modified)}</time>
+        </p>
+      )}
       <slot />
+      {showQuestion && <!-- page-rating-v1 -->
+<section id="pr-widget" class="pr-widget" aria-labelledby="pr-title">
+<style>#pr-widget{margin:1.6rem 0 1rem;padding:1rem 1.1rem;border-radius:12px;border:1px solid rgba(43,125,233,.22);background:linear-gradient(135deg,rgba(43,125,233,.07),rgba(43,125,233,.02));max-width:100%;box-sizing:border-box}#pr-title{margin:0 0 .55rem;font-size:1.05rem;line-height:1.35;font-weight:700}#pr-stars{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem}.pr-star{font:inherit;cursor:pointer;border:1px solid rgba(0,0,0,.12);background:#fff;border-radius:8px;padding:.25rem .45rem;line-height:1;font-size:1.35rem;color:#c4c9d4;transition:transform .12s,color .12s}.pr-star.on{color:#f5b301;border-color:rgba(245,179,1,.45)}.pr-star:focus-visible{outline:2px solid #2b7de9;outline-offset:2px}#pr-avg{font-size:.88rem;opacity:.85;margin-left:.25rem}#pr-thx,#pr-feed{margin-top:.65rem;font-size:.92rem}#pr-feed[hidden],#pr-thx[hidden],#pr-stars[hidden]{display:none!important}.pr-reasons{display:flex;flex-wrap:wrap;gap:.4rem;margin:.45rem 0}.pr-reasons button{font:inherit;font-size:.82rem;padding:.35rem .55rem;border-radius:999px;border:1px solid rgba(0,0,0,.14);background:#fff;cursor:pointer}.pr-reasons button.on{background:#2b7de9;color:#fff;border-color:#2b7de9}#pr-txt{width:100%;max-width:420px;margin:.45rem 0;padding:.45rem .55rem;border-radius:8px;border:1px solid rgba(0,0,0,.15);font:inherit;font-size:.88rem}#pr-send{font:inherit;font-size:.88rem;padding:.4rem .75rem;border-radius:8px;border:0;background:#2b7de9;color:#fff;cursor:pointer}@media(max-width:600px){.pr-star{font-size:1.55rem;padding:.35rem .55rem}#pr-txt{max-width:100%}}</style>
+<p id="pr-title">{pr.title}</p>
+<div id="pr-stars" role="group" aria-label="Rating">
+<button type="button" class="pr-star" data-v="1" aria-label="1">★</button><button type="button" class="pr-star" data-v="2" aria-label="2">★</button><button type="button" class="pr-star" data-v="3" aria-label="3">★</button><button type="button" class="pr-star" data-v="4" aria-label="4">★</button><button type="button" class="pr-star" data-v="5" aria-label="5">★</button>
+<span id="pr-avg" class="mut"></span></div>
+<p id="pr-thx" hidden>{pr.thanks}</p>
+<div id="pr-feed" hidden>
+<p id="pr-im">{pr.improve}</p>
+<div class="pr-reasons">
+{pr.reasons.map((r) => <button type="button" data-reason={r.value}>{r.label}</button>)}</div>
+<textarea id="pr-txt" maxlength="180" rows="2" placeholder={pr.placeholder}></textarea>
+<button type="button" id="pr-send">{pr.send}</button></div>
+<input type="text" id="pr-hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" />
+</section>
+<script define:vars={{ prThanks: pr.thanks, prAvgLabel: pr.avgLabel, decimalSep: lang === 'fr' ? ',' : '.' }}>(function(){var A="https://manuso.fr/rating_api.php";var site=location.hostname.replace(/^www\./,""),path=location.pathname||"/";if(!/\/$/.test(path))path+="/";var w=document.getElementById("pr-widget");if(!w)return;var i=[prThanks,prAvgLabel],$=function(id){return document.getElementById(id)};var ls="pr_voted_"+site+"_"+path.replace(/\//g,"_"),tok="",t0=Date.now(),tm=0,sc=0,rs="";function avg(n,c){var e=$("pr-avg");e.textContent=c?i[1]+" "+n.toFixed(1).replace(".",decimalSep)+"/5 ("+c+")":""}function paint(n){w.querySelectorAll(".pr-star").forEach(function(b){var v=+b.dataset.v;b.classList.toggle("on",v<=n);});}function post(n,o){o=o||{};if(!tok)return Promise.resolve();return fetch(A,{method:"POST",headers:{"Content-Type":"application/json"},keepalive:1,body:JSON.stringify({action:"vote",site:site,path:path,score:n,token:tok,hp:($("pr-hp")||{}).value||"",reason:o.reason!==undefined?o.reason:rs,comment:o.comment||""})}).then(function(r){return r.json()}).then(function(d){if(d&&d.ok&&!d.ignored){avg(+d.avg||n,+d.count||1);try{localStorage.setItem(ls,n)}catch(e){}}})}function queue(n,o,cb){clearTimeout(tm);var wms=Math.max(350,3200-(Date.now()-t0));tm=setTimeout(function(){post(n,o).then(function(){if(cb)cb()})},wms)}fetch(A+"?action=token&site="+encodeURIComponent(site)+"&path="+encodeURIComponent(path)).then(function(r){return r.json()}).then(function(d){if(!d||!d.ok)return;tok=d.token;t0=Date.now();avg(+d.avg,+d.count);var o=0;try{o=+localStorage.getItem(ls)||0}catch(e){}if(o>0&&o<6){paint(o);sc=o}});w.querySelectorAll(".pr-star").forEach(function(b){b.onclick=function(){var n=+b.dataset.v;paint(n);sc=n;if(n>3){$("pr-feed").hidden=1;$("pr-thx").hidden=0;queue(n)}else{$("pr-thx").hidden=1;$("pr-feed").hidden=0;queue(n)}}});$("pr-feed").onclick=function(ev){var t=ev.target.closest("[data-reason]");if(!t||!sc)return;rs=t.dataset.reason;w.querySelectorAll("[data-reason]").forEach(function(x){x.classList.toggle("on",x===t)});queue(sc,{reason:rs,comment:($("pr-txt").value||"").slice(0,180)})};$("pr-send").onclick=function(){if(!sc)return;queue(sc,{reason:rs,comment:($("pr-txt").value||"").slice(0,180)},function(){$("pr-feed").hidden=1;$("pr-thx").hidden=0})};})();</script>
+<!-- /page-rating-v1 -->
+<ArticleQuestionForm lang={lang} title={title} topic={/^\/peinture\//.test(path) ? 'paint' : 'lighting'} />}
     </main>
-    {showChrome && <Footer />}
+    {showChrome && <Footer lang={lang} />}
 
-    <CookieConsent />
-  </body>
+    <CookieConsent lang={lang} />
+    <script is:inline>
+      // Suivi GA4 des clics affiliés (Amazon + Awin) : événement `affiliate_click`
+      // (remplace l'ancien `click_amazon`). Envoyé uniquement si gtag est chargé, donc après consentement.
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a || typeof window.gtag !== 'function') return;
+        var url;
+        try { url = new URL(a.href, location.href); } catch (err) { return; }
+        var host = url.hostname.replace(/^www\./, '');
+        var merchant = null;
+        if (/(^|\.)amazon\.[a-z.]+$/.test(host) || host === 'amzn.to') merchant = 'amazon';
+        else if (host === 'awin1.com' || a.hasAttribute('data-awin-link')) {
+          var mid = a.getAttribute('data-awin-mid') || url.searchParams.get('awinmid') || '';
+          var dest = '';
+          try { dest = new URL(url.searchParams.get('ued') || '').hostname.replace(/^www\./, ''); } catch (err) {}
+          merchant = mid === '7498' || dest === 'luminaire.fr' ? 'luminaire.fr' : 'awin:' + (dest || mid);
+        }
+        if (!merchant) return;
+        var m = url.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/);
+        var asin = a.getAttribute('data-asin');
+        var k = url.searchParams.get('k');
+        var product = a.getAttribute('data-product') || a.getAttribute('title') ||
+          (asin && asin !== 'search' ? asin : '') || (m ? m[1] : '') || (k ? 'recherche : ' + k : '') ||
+          (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100);
+        window.gtag('event', 'affiliate_click', {
+          link_url: a.href,
+          merchant: merchant,
+          product: product,
+          placement: a.getAttribute('data-placement') || (a.hasAttribute('data-awin-link') ? 'awin-block' : ''),
+          page_path: location.pathname,
+          transport_type: 'beacon',
+        });
+      });
+    </script>
+  <ManusoOutboundClickTracker />
+</body>
 </html>
 

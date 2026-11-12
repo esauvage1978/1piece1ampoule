@@ -1,0 +1,94 @@
+---
+import { activePromos } from '../content/promos';
+import {
+  ECHOIX_BY_PATH,
+  ECHOIX_MID,
+  LUMINAIRE_BY_PATH,
+  LUMINAIRE_MID,
+  OSRAM_BY_PATH,
+  OSRAM_MID,
+  awinLink,
+} from '../content/awin';
+
+const p = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const entry = LUMINAIRE_BY_PATH[p];
+const osram = OSRAM_BY_PATH[p];
+const echoix = ECHOIX_BY_PATH[p];
+const osramHref = osram ? awinLink(OSRAM_MID, `https://shop.ledvance.fr${osram.path}`) : '';
+const lumHref = entry ? awinLink(LUMINAIRE_MID, `https://www.luminaire.fr${entry.path}`) : '';
+const promoMids = new Set(activePromos().map((x) => x.mid));
+const btnClass =
+  'inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-stone-800 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-stone-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 sm:w-auto';
+---
+
+{(entry || osram) && (
+  <section class="mt-8 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm" data-awin-block>
+    <h2 class="text-lg font-bold text-stone-900">Comparer aussi chez nos partenaires</h2>
+    <p class="mt-1 text-sm text-stone-600">Même sélection de produits, catalogues spécialisés en complément d’Amazon.</p>
+    <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      {entry && (
+        <a
+          href={lumHref}
+          rel="sponsored nofollow noopener"
+          target="_blank"
+          data-awin-link
+          data-awin-mid={LUMINAIRE_MID}
+          data-product={`Luminaire.fr : ${entry.label}`}
+          class={btnClass}
+        >
+          Voir les {entry.label} sur Luminaire.fr
+          <svg viewBox="0 0 20 20" class="h-4 w-4" fill="currentColor" aria-hidden="true"
+            ><path d="M11 3h6v6h-2V6.4l-6.3 6.3-1.4-1.4L13.6 5H11V3ZM4 5h5v2H5v8h8v-4h2v6H3V5h1Z"></path></svg
+          >
+        </a>
+      )}
+      {osram && (
+        <a
+          href={osramHref}
+          rel="sponsored nofollow noopener"
+          target="_blank"
+          data-awin-link
+          data-awin-mid={OSRAM_MID}
+          data-product={`OSRAM : ${osram.label}`}
+          class={btnClass}
+        >
+          Voir les {osram.label} sur la boutique OSRAM
+          <svg viewBox="0 0 20 20" class="h-4 w-4" fill="currentColor" aria-hidden="true"
+            ><path d="M11 3h6v6h-2V6.4l-6.3 6.3-1.4-1.4L13.6 5H11V3ZM4 5h5v2H5v8h8v-4h2v6H3V5h1Z"></path></svg
+          >
+        </a>
+      )}
+    </div>
+    {promoMids.has(LUMINAIRE_MID) && entry && (
+      <p class="mt-3 text-sm">
+        <a class="font-semibold text-amber-700 underline" href="/codes-promo/">Code promo Luminaire.fr en cours</a>
+      </p>
+    )}
+    <p class="mt-3 text-xs text-stone-500">
+      Liens partenaires Awin : une commission peut m’être versée, sans surcoût pour toi.{' '}
+      <a class="underline" href="/affiliation-amazon/">En savoir plus</a>.
+    </p>
+  </section>
+)}
+{echoix && (
+  <section class="mt-4 rounded-2xl border border-stone-200 bg-stone-50 p-5" data-awin-block>
+    <p class="text-sm font-semibold text-stone-900">Petit budget : en déstockage chez 2echoix</p>
+    <ul class="mt-3 space-y-2">
+      {echoix.map((e) => (
+        <li>
+          <a
+            href={e.url}
+            rel="sponsored nofollow noopener"
+            target="_blank"
+            data-awin-link
+            data-awin-mid={ECHOIX_MID}
+            data-product={`2echoix : ${e.name}`}
+            class="inline-flex min-h-11 items-center rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 hover:border-amber-400"
+          >
+            {e.name} — {e.price}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

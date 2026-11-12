@@ -1,0 +1,66 @@
+---
+import AmazonButton from './AmazonButton.astro';
+import ProductIcon from './ProductIcon.astro';
+import { productIcon, type Product } from '../content/products';
+
+type Props = { products: Product[]; title?: string; placement?: string; labels?: string[]; sectionId?: string };
+const { products, title = 'Comparatif rapide', placement = 'table', labels = [], sectionId } = Astro.props;
+const defaultLabels = ['Meilleur choix', 'Alternative', 'Petit budget', 'Option premium', 'À considérer', 'À considérer'];
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: title,
+  // Pas de type Product : aucun prix/avis fiable disponible (pas de PA-API).
+  itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `https://www.amazon.fr/dp/${p.asin}` })),
+};
+---
+{products.length > 0 && (
+  <section class="mt-10" id={sectionId}>
+    <div class="flex flex-wrap items-end justify-between gap-2">
+      <h2 class="text-2xl text-stone-900">{title}</h2>
+      <p class="text-xs text-stone-500">Prix et disponibilité affichés sur Amazon.fr</p>
+    </div>
+    <figure class="mt-5 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <table class="w-full min-w-[520px] text-left text-sm">
+        <thead class="bg-amber-50 text-stone-700">
+          <tr>
+            <th class="p-3">Produit</th>
+            <th class="p-3">Caractéristiques</th>
+            <th class="p-3">Achat</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((p, i) => (
+            <tr id={`produit-${p.asin}`} class:list={['border-t border-stone-100 align-top scroll-mt-24', i === 0 && 'bg-amber-50/40']}>
+              <th class="p-3 text-left font-semibold text-stone-900">
+                {i === 0 && <span class="mb-1 block text-[10px] font-bold uppercase tracking-wide text-amber-700">Notre choix</span>}
+                {p.name}
+              </th>
+              <td class="p-3 text-stone-600">{p.specs}</td>
+              <td class="p-3">
+                <AmazonButton asin={p.asin} product={p.name} label="Amazon" placement={`${placement}-row`} class="min-h-11 w-full whitespace-nowrap px-3 text-xs sm:text-sm" />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
+    <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {products.map((p, i) => (
+        <article class:list={['relative flex flex-col rounded-2xl border bg-white p-5 shadow-sm', i === 0 ? 'border-amber-400 ring-2 ring-amber-200' : 'border-stone-200']}>
+          <span class:list={['absolute -top-3 left-5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide', i === 0 ? 'bg-amber-500 text-white' : 'bg-stone-800 text-white']}>{labels[i] ?? defaultLabels[i]}</span>
+          <div class="mt-2 flex items-center gap-3">
+            <div class="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-amber-50 to-orange-100 ring-1 ring-amber-200"><ProductIcon name={productIcon(p.type)} class="h-10 w-10" /></div>
+            <div class="min-w-0"><p class="text-xs font-semibold uppercase tracking-wide text-stone-500">{p.type}</p><p class="text-xs text-stone-400">{p.brand}</p></div>
+          </div>
+          <h3 class="mt-3 text-[15px] font-semibold leading-snug text-stone-900">{p.name}</h3>
+          <ul class="mt-3 space-y-1.5 text-sm text-stone-600">
+            {p.specs.split('•').map((s) => <li class="flex gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500"></span>{s.trim()}</li>)}
+          </ul>
+          <p class="mt-3 text-sm text-stone-500"><span class="font-medium text-stone-700">Idéal pour :</span> {p.usage}</p>
+          <div class="mt-auto pt-4"><AmazonButton asin={p.asin} product={p.name} label="Voir le prix sur Amazon" placement={placement} class="w-full" /></div>
+        </article>
+      ))}
+    </div>
+    <p class="mt-3 text-xs text-stone-500">Liens partenaires Amazon : une petite commission m’est reversée sans surcoût pour toi.</p>
+    <script type="application/ld+json" set:html={JSON.stringify(itemList)} />
+  </section>
+)}

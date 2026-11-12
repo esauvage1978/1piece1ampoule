@@ -1,0 +1,277 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+---
+
+<Layout type="article"
+  title="Diagnostic interactif : ampoule LED GU10 ou E27 qui scintille, grésille ou reste allumée"
+  description="Arbre de diagnostic pour LED GU10 / E27 en flicker, grésillement de variateur ou. Guide dépannage · interactif Guides, comparatifs et conseils pratiques sur"
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Guide dépannage · interactif</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Ampoule LED GU10 / E27 : scintillement, grésillement, ghosting</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Répondez aux questions ci-dessous pour obtenir une piste de réparation avec <strong>difficulté (1 à 5)</strong>, <strong>temps</strong>, <strong>coût</strong> et <strong>outils</strong>.
+        Les cas « tableau électrique » ou garantie constructeur sont signalés comme <strong>électricien ou SAV</strong>.
+        Contexte : <a class="font-semibold text-amber-700" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">matrice variateur × LED</a>,
+        <a class="font-semibold text-amber-700" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">dépannage général LED</a>.
+      </p>
+    </div>
+  </section>
+
+  <CrossLinkOutilsDepannage variant="vers-outils" />
+
+  <section class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-6" id="flicker-tree">
+    <h2 class="text-xl font-bold">Arbre de diagnostic</h2>
+    <div id="flicker-step" class="mt-4 rounded-2xl bg-white p-5 ring-1 ring-amber-200">
+      <p class="text-sm font-semibold text-stone-500" id="flicker-breadcrumb"></p>
+      <p class="mt-2 text-lg font-bold text-stone-900" id="flicker-q"></p>
+      <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap" id="flicker-choices"></div>
+      <button type="button" id="flicker-back" class="mt-4 hidden text-sm font-semibold text-amber-800 underline">← Question précédente</button>
+    </div>
+
+    <div id="flicker-result" class="mt-6 hidden rounded-2xl border border-stone-200 bg-white p-6 shadow-sm" aria-live="polite">
+      <h3 class="text-lg font-bold text-stone-900" id="flicker-result-title"></h3>
+      <p class="mt-3 text-sm text-stone-700" id="flicker-result-body"></p>
+      <dl class="mt-4 grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-xl bg-stone-50 p-3"><dt class="font-semibold text-stone-500">Difficulté</dt><dd class="mt-1 text-stone-900" id="flicker-d"></dd></div>
+        <div class="rounded-xl bg-stone-50 p-3"><dt class="font-semibold text-stone-500">Temps</dt><dd class="mt-1 text-stone-900" id="flicker-t"></dd></div>
+        <div class="rounded-xl bg-stone-50 p-3"><dt class="font-semibold text-stone-500">Coût</dt><dd class="mt-1 text-stone-900" id="flicker-c"></dd></div>
+        <div class="rounded-xl bg-stone-50 p-3 sm:col-span-2 lg:col-span-1"><dt class="font-semibold text-stone-500">Outils</dt><dd class="mt-1 text-stone-900" id="flicker-o"></dd></div>
+      </dl>
+      <p class="mt-4 rounded-xl border p-3 text-sm" id="flicker-who"></p>
+      <p class="mt-3 text-sm text-stone-600" id="flicker-links"></p>
+      <button type="button" id="flicker-restart" class="mt-4 rounded-xl border border-amber-400 bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900">Recommencer le diagnostic</button>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var nodes = {
+        start: {
+          q: 'Quel symptôme principal observez-vous ?',
+          choices: [
+            { label: 'Scintillement ou vacillement quand la lumière est allumée (surtout en bas de variateur)', next: 'on_dim' },
+            { label: 'Grésillement / bourdonnement du variateur ou de l’ampoule', next: 'buzz' },
+            { label: 'Lueur faible, flash ou clignotement quand l’interrupteur est sur OFF', next: 'ghost' },
+            { label: 'Scintillement à pleine puissance (sans variateur ou à 100 %)', next: 'full' },
+          ],
+        },
+        on_dim: {
+          q: 'Le circuit est-il sur variateur ?',
+          choices: [
+            { label: 'Oui, variateur mural', next: 'dim_type' },
+            { label: 'Non, interrupteur simple', next: 'on_simple' },
+          ],
+        },
+        dim_type: {
+          q: 'Les ampoules sont-elles marquées dimmables (dimmable) ?',
+          choices: [
+            { label: 'Oui, toutes dimmables', next: 'dim_edge' },
+            { label: 'Non ou je ne sais pas', next: 'leaf_nondim' },
+            { label: 'Mélange dimmable / non dimmable', next: 'leaf_mix' },
+          ],
+        },
+        dim_edge: {
+          q: 'Le variateur est-il un ancien modèle halogène (coupe début d’onde) ou un variateur LED récent ?',
+          choices: [
+            { label: 'Ancien / inconnu (souvent grésillement en bas de course)', next: 'leaf_leading' },
+            { label: 'Variateur LED / fin d’onde / « toutes lampes »', next: 'leaf_trail_low' },
+          ],
+        },
+        buzz: {
+          q: 'Le bruit vient surtout du variateur ou de l’ampoule ?',
+          choices: [
+            { label: 'Du variateur (mur)', next: 'dim_type' },
+            { label: 'De l’ampoule elle-même', next: 'leaf_bulb_buzz' },
+            { label: 'Pas de variateur sur ce circuit', next: 'leaf_driver' },
+          ],
+        },
+        ghost: {
+          q: 'Y a-t-il un module connecté sans neutre, un voyant sur l’interrupteur ou un variateur ?',
+          choices: [
+            { label: 'Module sans neutre (Shelly, Legrand, Sonoff…)', next: 'leaf_bypass' },
+            { label: 'Interrupteur avec voyant ou variateur', next: 'leaf_bypass' },
+            { label: 'Interrupteur simple classique', next: 'leaf_ghost_simple' },
+          ],
+        },
+        full: {
+          q: 'Quel culot ?',
+          choices: [
+            { label: 'GU10 (spot 230 V)', next: 'leaf_gu10_bad' },
+            { label: 'E27 / E14', next: 'leaf_e27_bad' },
+          ],
+        },
+        on_simple: {
+          q: 'Le scintillement disparaît-il si vous changez d’ampoule ?',
+          choices: [
+            { label: 'Oui, avec une autre ampoule', next: 'leaf_bad_bulb' },
+            { label: 'Non, sur plusieurs ampoules', next: 'leaf_supply' },
+          ],
+        },
+      };
+
+      var leaves = {
+        leaf_nondim: {
+          title: 'Ampoules non dimmables sur variateur',
+          body: 'Une LED non dimmable sur variateur provoque scintillement, extinction brutale et parfois bourdonnement. Remplacez par des ampoules <strong>dimmables</strong> du même culot ou retirez le variateur.',
+          d: '2 / 5', t: '15–30 min', c: '8–25 € / ampoule', o: 'Tournevis isolé',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/guides/ampoules-dimmables-variateur/">Guide ampoules dimmables</a>',
+        },
+        leaf_mix: {
+          title: 'Mélange dimmable / non dimmable',
+          body: 'Sur un même variateur, toutes les ampoules doivent être dimmables et de technologie proche. Remplacez les non dimmables ou séparez les circuits.',
+          d: '2 / 5', t: '20–40 min', c: '15–40 €', o: 'Tournevis isolé',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">Matrice variateur × LED</a>',
+        },
+        leaf_leading: {
+          title: 'Variateur leading edge incompatible',
+          body: 'Remplacez le variateur par un modèle <strong>trailing edge</strong> ou « toutes lampes LED », réglez le minimum après pose. Les ampoules doivent être dimmables.',
+          d: '3 / 5', t: '30–60 min', c: '25–55 €', o: 'Tournevis, testeur d’absence de tension',
+          who: 'electrician', links: '<a class="font-semibold text-amber-700" href="/guides/code-erreur/variateur-led-scintillement-bas/">Fiche scintillement basse luminosité</a>',
+        },
+        leaf_trail_low: {
+          title: 'Charge sous le minimum du variateur',
+          body: 'À basse luminosité, la charge totale (W LED) est sous le minimum du variateur : scintillement. Ajoutez des points sur le même circuit, montez la puissance des ampoules, ou réglez le minimum du variateur.',
+          d: '2 / 5', t: '15–35 min', c: '0–35 €', o: 'Tournevis, notice variateur',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/outils/equivalence-halogene-led-gu10-e27-lumens/">Équivalence halogène → LED</a>',
+        },
+        leaf_bulb_buzz: {
+          title: 'Ampoule défectueuse ou incompatible',
+          body: 'Testez une autre ampoule dimmable de marque différente. Si le bruit persiste au même emplacement, le variateur ou le câblage est en cause.',
+          d: '1 / 5', t: '5–10 min', c: '8–20 €', o: 'Aucun outil',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/articles/ampoule-led-gresille-bourdonne/">Article grésillement</a>',
+        },
+        leaf_driver: {
+          title: 'Alimentation ou driver LED',
+          body: 'Bourdonnement sans variateur : driver basse qualité, ruban LED ou transfo 12 V sous-dimensionné. Vérifiez la charge minimale du transfo (spots MR16).',
+          d: '3 / 5', t: '30–90 min', c: '15–60 €', o: 'Multimètre, notice transfo',
+          who: 'electrician', links: '<a class="font-semibold text-amber-700" href="/tutoriels/remplacer-halogene-gu10-mr16-par-led/">GU10 / MR16 sans clignotement</a>',
+        },
+        leaf_bypass: {
+          title: 'Courant résiduel (ghosting) — bypass',
+          body: 'Posez un <strong>bypass / module de compensation</strong> au plafonnier (courant coupé), ou un condensateur bipolaire 0,47 µF selon notice. Cible les modules 2 fils et interrupteurs témoin.',
+          d: '2 / 5', t: '5–15 min', c: '≈ 4–12 €', o: 'Tournevis isolé, testeur',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/guides/configurateur-kit-eclairage-connecte-sans-neutre/">Configurateur kit connecté</a>',
+        },
+        leaf_ghost_simple: {
+          title: 'Douille, câblage ou ampoule',
+          body: 'Sur interrupteur simple : douille mal serrée, neutre commun avec un autre circuit, ou ampoule HS. Échangez l’ampoule ; si la lueur reste, faites vérifier le câblage.',
+          d: '2 / 5', t: '10–30 min', c: '0–15 €', o: 'Tournevis isolé',
+          who: 'electrician', links: '<a class="font-semibold text-amber-700" href="/articles/ampoule-led-reste-allumee-faiblement/">Lueur résiduelle</a>',
+        },
+        leaf_gu10_bad: {
+          title: 'Spot GU10 instable',
+          body: 'Vérifiez la compatibilité variateur, la qualité du spot (dimmable), et la tension 230 V au culot. Un GU10 non dimmable sur variateur scintille à pleine course.',
+          d: '2 / 5', t: '15–30 min', c: '5–15 € / spot', o: 'Tournevis',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/guides/culots-e27-e14-gu10/">Culots GU10</a>',
+        },
+        leaf_e27_bad: {
+          title: 'Ampoule E27 / driver interne',
+          body: 'Scintillement à 100 % : ampoule défectueuse, réseau instable, ou ampoule connectée en mode « effet ». Testez sur un autre circuit.',
+          d: '1 / 5', t: '5–15 min', c: '5–20 €', o: 'Aucun',
+          who: 'diy', links: '<a class="font-semibold text-amber-700" href="/guides/code-erreur/hue-ampoule-variateur-grésille/">Hue et variateur</a>',
+        },
+        leaf_bad_bulb: {
+          title: 'Ampoule à remplacer',
+          body: 'Le défaut suit l’ampoule : remplacez par une LED dimmable de qualité équivalente en lumens.',
+          d: '1 / 5', t: '5 min', c: '5–15 €', o: 'Aucun',
+          who: 'diy', links: '',
+        },
+        leaf_supply: {
+          title: 'Installation ou alimentation',
+          body: 'Plusieurs ampoules scintillent : neutre perturbé, connexion lâche au plafonnier, ou variateur inadapté. Intervention tableau ou gaine : électricien.',
+          d: '4 / 5', t: '1–2 h', c: '60–150 €', o: 'Électricien qualifié',
+          who: 'electrician', links: '<a class="font-semibold text-amber-700" href="/guides/codes-erreurs-eclairage-connecte-depannage/">Codes erreurs connecté</a>',
+        },
+      };
+
+      var stack = ['start'];
+      var bc = document.getElementById('flicker-breadcrumb');
+      var qEl = document.getElementById('flicker-q');
+      var ch = document.getElementById('flicker-choices');
+      var step = document.getElementById('flicker-step');
+      var res = document.getElementById('flicker-result');
+      var back = document.getElementById('flicker-back');
+
+      function whoHtml(key) {
+        if (key === 'electrician') {
+          return '<span class="border-amber-300 bg-amber-50 text-amber-900"><strong>Électricien ou SAV constructeur recommandé</strong> — travail au tableau ou garantie en jeu.</span>';
+        }
+        return '<span class="border-emerald-300 bg-emerald-50 text-emerald-900"><strong>Intervention simple possible</strong> — hors tension, ampoule ou bypass au plafonnier.</span>';
+      }
+
+      function showNode(id) {
+        res.classList.add('hidden');
+        step.classList.remove('hidden');
+        var n = nodes[id];
+        if (!n) return;
+        bc.textContent = 'Étape ' + stack.length;
+        qEl.textContent = n.q;
+        ch.innerHTML = n.choices.map(function (c) {
+          return '<button type="button" class="flicker-choice rounded-xl border border-stone-300 bg-stone-50 px-4 py-2 text-left text-sm font-semibold hover:border-amber-400 hover:bg-amber-50" data-next="' + c.next + '">' + c.label + '</button>';
+        }).join('');
+        back.classList.toggle('hidden', stack.length <= 1);
+        ch.querySelectorAll('.flicker-choice').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var nx = btn.getAttribute('data-next');
+            if (nx.indexOf('leaf_') === 0) showLeaf(nx);
+            else { stack.push(nx); showNode(nx); }
+          });
+        });
+      }
+
+      function showLeaf(id) {
+        var L = leaves[id];
+        if (! L) return;
+        step.classList.add('hidden');
+        res.classList.remove('hidden');
+        document.getElementById('flicker-result-title').textContent = L.title;
+        document.getElementById('flicker-result-body').innerHTML = L.body;
+        document.getElementById('flicker-d').textContent = L.d;
+        document.getElementById('flicker-t').textContent = L.t;
+        document.getElementById('flicker-c').textContent = L.c;
+        document.getElementById('flicker-o').textContent = L.o;
+        document.getElementById('flicker-who').innerHTML = whoHtml(L.who);
+        document.getElementById('flicker-links').innerHTML = L.links || '';
+      }
+
+      back.addEventListener('click', function () {
+        if (stack.length > 1) { stack.pop(); showNode(stack[stack.length - 1]); }
+      });
+      document.getElementById('flicker-restart').addEventListener('click', function () {
+        stack = ['start'];
+        showNode('start');
+      });
+
+      showNode('start');
+    })();
+  </script>
+
+  <SavWave1Compliance />
+
+  <section class="mt-10">
+    <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <ProductCard title="Variateur LED trailing edge" subtitle="Remplace leading halogène" keywords="variateur led fin onde universel" badge="Variateur" />
+      <ProductCard title="Spots GU10 LED dimmables" subtitle="Cuisine et salon" keywords="gu10 led dimmable variateur" badge="GU10" />
+      <ProductCard title="Bypass lueur LED" subtitle="Sans neutre / témoin" keywords="bypass led sans neutre" badge="Bypass" />
+      <ProductCard title="Ampoule E27 dimmable" subtitle="Remplacement rapide" keywords="ampoule e27 dimmable 806 lumens" />
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+    <ul class="mt-3 space-y-1 text-sm text-stone-600">
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">Matrice variateur × LED</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/configurateur-kit-eclairage-connecte-sans-neutre/">Configurateur kit connecté</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/equivalence-halogene-led-gu10-e27-lumens/">Équivalence halogène → LED</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">Tableau dépannage LED</a></li>
+    </ul>
+  </section>
+  <RelatedComparatifs />
+</Layout>

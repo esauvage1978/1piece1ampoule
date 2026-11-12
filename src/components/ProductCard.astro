@@ -1,45 +1,62 @@
 ---
 import AmazonButton from './AmazonButton.astro';
+import ProductIcon from './ProductIcon.astro';
+import { matchProducts, productIcon } from '../content/products';
+import prixAmazon from '../data/prix-amazon.json';
 
-type Props = {
-  title: string;
-  subtitle?: string;
-  keywords: string;
-  altKeywords?: string;
-  badge?: string;
-};
-
+type Props = { title: string; subtitle?: string; keywords: string; altKeywords?: string; badge?: string };
 const { title, subtitle, keywords, altKeywords, badge } = Astro.props;
+const matches = matchProducts(keywords);
+const main = matches[0];
+const alt = matches[1];
+const icon = productIcon(main?.type ?? title);
+type FichePrix = { marches?: Record<string, { prix?: string; releve?: string }> };
+const fiche = main ? (prixAmazon as { items: Record<string, FichePrix> }).items[main.asin] : undefined;
+const PRIX_JOUR_MS = 24 * 60 * 60 * 1000;
+function prixDuJour(entree?: { prix?: string; releve?: string; releveIso?: string }) {
+  if (!entree?.prix) return '';
+  const iso = entree.releveIso || (entree.releve && /^\d{4}-\d{2}-\d{2}$/.test(entree.releve) ? `${entree.releve}T05:10:00Z` : '');
+  const age = Date.now() - Date.parse(iso);
+  if (!Number.isFinite(age) || age < 0 || age > PRIX_JOUR_MS) return '';
+  return entree.prix;
+}
+const prixFr = prixDuJour(fiche?.marches?.fr);
+const dateFr = fiche?.marches?.fr?.releve && /^\d{4}-\d{2}-\d{2}$/.test(fiche.marches.fr.releve)
+  ? new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${fiche.marches.fr.releve}T12:00:00Z`))
+  : '';
 ---
 
-<article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm backdrop-blur">
-  <div class="flex items-start justify-between gap-3">
-    <div class="min-w-0">
-      <h3 class="truncate text-base font-semibold text-white">{title}</h3>
-      {subtitle && <p class="mt-1 line-clamp-2 text-sm text-white/70">{subtitle}</p>}
+<article class="flex h-full flex-col rounded-[18px] border border-stone-200 border-l-4 border-l-amber-600 bg-white p-5 shadow-sm">
+  <div class="flex items-start gap-4">
+    <div class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber-50 to-orange-100 ring-1 ring-amber-200">
+      <ProductIcon name={icon} class="h-11 w-11" />
     </div>
-    {badge && (
-      <span class="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 ring-1 ring-inset ring-white/10">
-        {badge}
-      </span>
-    )}
-  </div>
-
-  <div class="mt-4 flex items-center justify-between gap-3">
-    <p class="text-xs text-white/50">Lien partenaire Amazon</p>
-    <div class="flex flex-col items-end gap-2">
-      <AmazonButton keywords={keywords} label="Voir sur Amazon" />
-      {altKeywords && (
-        <details class="group [&_summary::-webkit-details-marker]:hidden">
-          <summary class="cursor-pointer text-xs font-semibold text-amber-300 hover:text-amber-200">
-            Autres options
-          </summary>
-          <div class="mt-2">
-            <AmazonButton keywords={altKeywords} label="Option" class="!bg-white/10 !hover:bg-white/15" />
-          </div>
-        </details>
-      )}
+    <div class="min-w-0 flex-1">
+      <div class="flex items-start justify-between gap-2">
+        <h3 class="text-base font-semibold leading-snug text-stone-900">{title}</h3>
+        {badge && <span class="shrink-0 rounded-full bg-stone-100 px-2.5 py-0.5 text-[11px] font-semibold text-stone-600">{badge}</span>}
+      </div>
+      {subtitle && <p class="mt-0.5 text-sm text-stone-500">{subtitle}</p>}
     </div>
   </div>
+  {main ? (
+    <div class="mt-4 rounded-xl bg-stone-50 p-3 text-sm">
+      <p class="text-[11px] font-bold uppercase tracking-wide text-amber-700">Notre choix</p>
+      <p class="mt-0.5 font-medium text-stone-800">{main.name}</p>
+      <p class="mt-1 text-xs text-stone-500">{main.specs}</p>
+      <p class="mt-1 text-xs text-stone-500">ASIN {main.asin}</p>
+      {prixFr && <p class="mt-1 text-sm font-bold text-stone-900">{prixFr}{dateFr && <span class="ml-2 text-xs font-normal text-stone-500">{dateFr}</span>}</p>}
+    </div>
+  ) : (
+    <p class="mt-4 rounded-xl bg-stone-50 p-3 text-xs text-stone-500">Sélection Amazon filtrée selon les critères de ce guide.</p>
+  )}
+  <div class="mt-auto flex flex-wrap items-center justify-between gap-3 pt-4">
+    {main ? <AmazonButton asin={main.asin} product={main.name} label="Voir le prix sur Amazon" /> : <AmazonButton keywords={keywords} label="Voir la sélection" />}
+    {alt ? (
+      <a href={`https://www.amazon.fr/dp/${alt.asin}?tag=manuso06-21`} rel="sponsored nofollow noopener" target="_blank" data-amazon-link data-asin={alt.asin} data-product={alt.name} data-placement="alt" class="text-xs font-semibold text-amber-700 underline decoration-amber-300 underline-offset-2 hover:text-amber-800" title={alt.name}>Alternative →</a>
+    ) : altKeywords ? (
+      <a href={`https://www.amazon.fr/s?k=${encodeURIComponent(altKeywords)}&tag=manuso06-21`} rel="sponsored nofollow noopener" target="_blank" data-amazon-link data-asin="search" data-placement="alt" class="text-xs font-semibold text-amber-700 underline decoration-amber-300 underline-offset-2">Plus de choix →</a>
+    ) : null}
+  </div>
+  <p class="mt-3 text-[11px] text-stone-400">Lien partenaire Amazon</p>
 </article>
-

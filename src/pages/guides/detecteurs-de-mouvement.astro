@@ -1,38 +1,39 @@
 ---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 ---
 
-<Layout
-  title="Détecteurs de mouvement : où les mettre et quoi choisir — Choisir son ampoule"
-  description="Placards, escaliers, garage, extérieur : placements, réglages (temporisation, sensibilité) et sélections de détecteurs/lampes à capteur."
+<Layout type="article"
+  title="Détecteur de mouvement éclairage : placement et réglages"
+  description="Où placer un détecteur de mouvement (placard, escalier, garage, extérieur), quels réglages de temporisation et quelles lampes à capteur choisir."
 >
   <section class="mt-10">
-    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Guide technique</p>
       <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Détecteurs de mouvement</h1>
-      <p class="mt-4 max-w-2xl text-white/75">
+      <p class="mt-4 max-w-2xl text-stone-600">
         Un bon détecteur = confort (ça s’allume tout seul) + économies. La clé, c’est le placement : angle, hauteur, et temporisation.
       </p>
     </div>
 
     <div class="mt-8 grid gap-4 md:grid-cols-2">
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">Placements qui marchent (souvent)</h2>
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Couloir : au plafond, centré, temporisation courte.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Escalier : en bas ou en haut, angle couvrant les marches.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Garage : proche de la porte, évite les zones masquées.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Extérieur : sous avancée/toit, orienté vers la zone de passage.</span></li>
+        <ul class="mt-4 space-y-2 text-sm text-stone-600">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Couloir : au plafond, centré, temporisation courte.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Escalier : en bas ou en haut, angle couvrant les marches.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Garage : proche de la porte, évite les zones masquées.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Extérieur : sous avancée/toit, orienté vers la zone de passage.</span></li>
         </ul>
       </article>
 
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">Réglages utiles</h2>
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Temporisation : 30–90 s pour passage, plus long pour garage.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Crépusculaire : évite l’allumage en plein jour.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Sensibilité : baisse-la si animaux/voitures déclenchent trop.</span></li>
+        <ul class="mt-4 space-y-2 text-sm text-stone-600">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Temporisation : 30–90 s pour passage, plus long pour garage.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Crépusculaire : évite l’allumage en plein jour.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Sensibilité : baisse-la si animaux/voitures déclenchent trop.</span></li>
         </ul>
       </article>
     </div>
@@ -47,14 +48,27 @@ import ProductCard from '../../components/ProductCard.astro';
       </div>
     </section>
 
-    <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">Pour aller plus loin</h2>
-      <p class="mt-2 text-sm text-white/75">
-        Si tu veux adapter l'ambiance, pense aux ampoules <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmables</a>.
-        Pour la qualité : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> et
-        <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>.
+      <p class="mt-2 text-sm text-stone-600">
+        Si tu veux adapter l'ambiance, pense aux ampoules <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmables</a>.
+        Pour la qualité : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a> et
+        <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>.
       </p>
     </section>
   </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6 text-sm text-stone-700 space-y-3">
+    <h2 class="text-lg font-bold text-stone-900">Ampoule E27 à détecteur : sans câblage</h2>
+    <p>Une ampoule à détecteur se visse dans une douille classique et s’allume au passage, puis s’éteint après la temporisation. Pratique pour une entrée, un couloir, une cave, un garage ou une cage d’escalier.</p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li><strong>Infrarouge passif (PIR)</strong> : détecte la chaleur d’un corps en mouvement ; le capteur doit « voir » la zone (pas à travers un abat-jour). Pour une douille nue ou une applique ouverte.</li>
+      <li><strong>Radar (hyperfréquence)</strong> : détecte aussi à travers un globe en verre ; plus sensible, il peut parfois réagir à travers une cloison fine. Pour un plafonnier fermé.</li>
+    </ul>
+    <p><strong>L’interrupteur doit rester sur ON</strong> : l’ampoule doit être alimentée en permanence pour détecter.</p>
+    <p>À vérifier sur la fiche : portée de détection (plus courte suffit pour un couloir, plus longue pour un garage), temporisation réglable, capteur crépusculaire intégré, flux lumineux en lumens.</p>
+    <p>Pas de douille ? Une <a class="font-semibold text-amber-700 hover:text-amber-800" href="/meilleur/meilleure-lampe-detecteur-sans-fil/">réglette rechargeable à détecteur</a> se colle ou s’aimante. En extérieur, voir l’<a class="font-semibold text-amber-700 hover:text-amber-800" href="/articles/ampoule-crepusculaire/">ampoule crépusculaire</a>.</p>
+  </section>
+  <RelatedComparatifs />
+  <p class="mt-8 text-sm text-stone-600">À lire aussi : <a class="font-semibold text-amber-700 underline" href="/guides/eclairage-exterieur-automatique-steinel/">éclairage extérieur automatique Steinel, 4 produits comparés sur fiche</a>, et nos fiches marques <a class="font-semibold text-amber-700 underline" href="/marques/steinel/">Steinel</a> et <a class="font-semibold text-amber-700 underline" href="/marques/osram-ledvance/">OSRAM</a>.</p>
 </Layout>
 

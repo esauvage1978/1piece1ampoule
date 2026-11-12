@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { LUMINAIRE_BY_PATH, LUMINAIRE_MID, awinLink } from '../../content/awin';
+import { activePromos, frDate } from '../../content/promos';
+const promos = activePromos().filter((p) => p.mid === LUMINAIRE_MID);
+const L = (path: string) => awinLink(LUMINAIRE_MID, `https://www.luminaire.fr${path}`);
+const pieces = Object.entries(LUMINAIRE_BY_PATH);
+const schema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Luminaire.fr', url: 'https://www.luminaire.fr' };
+const cats = [
+  { p: '/c/promos', l: 'Promotions' },
+  { p: '/c/eclairage-exterieur/eclairage-jardin', l: 'Éclairage de jardin' },
+  { p: '/c/maison-connectee/ampoules-connectees-et-intelligentes', l: 'Ampoules connectées' },
+  { p: '/c/luminaires-par-piece/salon', l: 'Luminaires pour le salon' },
+];
+---
+<Layout title="Code promo Luminaire.fr : aucune offre vérifiée (novembre 2026)" description="Aucun code promo Luminaire.fr vérifié au 9 novembre 2026. La mi-saison s’est terminée le 25 octobre. Livraison, retours 30 jours et ce que couvre un code quand il existe." type="article" schema={schema}>
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marchand partenaire • codes revus le 9 novembre 2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Code promo et code réduction Luminaire.fr</h1>
+    <p class="mt-4 max-w-3xl text-stone-600"><strong>Aucun code promo Luminaire.fr n’est vérifié au 9 novembre 2026.</strong> L’offre de mi-saison s’est terminée le 25 octobre 2026. Un « code réduction » qui circule sans date de fin n’est pas une offre en cours. Les remises du moment, s’il y en a, sont sur la page Promotions du marchand, et elles doivent apparaître sur le total du panier. Quand un code existe, il exclut souvent les marques design. La livraison d’un colis encombrant est de 39,90 € : elle peut manger la remise.</p>
+    <p class="mt-4 max-w-3xl text-stone-600">Luminaire.fr est la boutique française de Lampenwelt GmbH, vendeur basé à Fulda (Allemagne). C’est un marchand multimarque, pas un fabricant : suspensions, appliques et plafonniers, utiles pour un style précis. Pour une ampoule seule, le détail d’un bon plan est dans <a class="font-semibold text-amber-800 underline" href="/articles/bon-plan-ampoule-connectee/">bon plan ampoule connectée</a>. La liste datée des codes du site est sur <a class="font-semibold text-amber-800 underline" href="/codes-promo/">codes promo</a>.</p>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Catalogue</h2>
+    <p class="mt-2 text-sm text-stone-600">Luminaires d’intérieur (suspensions, plafonniers, appliques, lampadaires, spots), éclairage extérieur (bornes, solaires, à détecteur), ampoules, maison connectée et décorations de Noël. Marques mises en avant par la boutique : ses marques propres Lindby, Lucande, Arcchio et Prios, et des fabricants comme EGLO, Paulmann, Philips, Philips Hue, Osram, SLV, <a class="underline" href="/marques/steinel/">Steinel</a>, ainsi que des marques design (Artemide, FLOS, Louis Poulsen, Foscarini…).</p>
+    <div class="mt-4 flex flex-wrap gap-3" data-awin-block>
+      {cats.map((c) => <a class="rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold hover:border-amber-400" href={L(c.p)} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={LUMINAIRE_MID} data-product={`Luminaire.fr : ${c.l} (marque)`}>{c.l}</a>)}
+    </div>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Où nous citons Luminaire.fr</h2>
+    <ul class="mt-3 grid gap-2 text-sm text-stone-600 sm:grid-cols-2">{pieces.map(([href, e]) => <li><a class="font-semibold text-amber-800 underline" href={href}>{href.split('/').filter(Boolean).pop()!.replace(/-/g, ' ')}</a> : {e.label}</li>)}</ul>
+    <p class="mt-3 text-sm text-stone-600">Et dans nos guides d’hiver, comme <a class="underline" href="/guides/eclairage-noel-guirlandes-interieur-exterieur/">le guide des guirlandes de Noël</a>.</p>
+  </section>
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Livraison</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Livraison standard par DPD, ou en point relais GLS (garde de 5 à 8 jours selon le relais).</li>
+        <li>Articles volumineux : frais de 39,90 € par commande, même si la livraison standard est gratuite ; pas de point relais pour ces articles.</li>
+        <li>France métropolitaine uniquement (pas de livraison dans les DROM-COM).</li>
+        <li>Délai selon la disponibilité ; lien de suivi envoyé par e-mail à l’expédition. Prix TTC avec TVA française.</li>
+      </ul></article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Retours et SAV</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li><strong>30 jours pour retourner</strong> sans justification : les 14 jours légaux de rétractation plus 16 jours de retour volontaire.</li>
+        <li>Frais de retour à la charge du client, indiqués sur le portail de retour.</li>
+        <li>Garantie légale de conformité due par Lampenwelt, plus les garanties des fabricants (page dédiée sur le site).</li>
+        <li>Service client : téléphone 09 77 55 39 95, e-mail ou formulaire de contact.</li>
+      </ul></article>
+  </section>
+  <p class="mt-3 text-xs text-stone-500">Sources consultées le 23/10/2026 : <a class="underline" href="https://www.luminaire.fr/frais-de-port" rel="nofollow noopener" target="_blank">frais de port</a>, <a class="underline" href="https://www.luminaire.fr/info/conditions-generales" rel="nofollow noopener" target="_blank">conditions générales de vente (art. 7)</a>, <a class="underline" href="https://www.luminaire.fr/garantie" rel="nofollow noopener" target="_blank">garanties des fabricants</a>.</p>
+  <section class="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+    <h2 class="text-lg font-bold">Codes promo Luminaire.fr</h2>
+    {promos.length > 0 ? <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-700">{promos.map((p) => <li><strong>{p.titre}</strong>{p.code && <> (code <strong>{p.code}</strong>)</>}, jusqu’au {frDate(p.fin)}.</li>)}</ul> : <p class="mt-2 text-sm text-stone-700">Aucun code réduction en cours au 9 novembre 2026. La dernière offre de mi-saison s’est terminée le 25 octobre 2026.</p>}
+    <p class="mt-2 text-sm"><a class="font-semibold text-amber-800 underline" href="/codes-promo/">Conditions et liens vérifiés sur notre page codes promo</a></p>
+  </section>
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Points forts</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600"><li>Large choix de luminaires, des entrées de gamme aux marques design.</li><li>30 jours de retour, soit deux fois plus que le minimum légal.</li><li>Point relais possible pour les petits colis.</li><li>Des promotions saisonnières, à contrôler sur la page Promotions : aucune n’est en cours au 9 novembre 2026.</li></ul></article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600"><li>Retours payants.</li><li>39,90 € de frais pour un lampadaire ou un grand luminaire.</li><li>Pas de livraison outre-mer.</li><li>Codes promo exclus sur de nombreuses marques design.</li></ul></article>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre avis</h2>
+    <p class="mt-3 text-sm text-stone-600">Luminaire.fr est notre recours quand il faut un luminaire précis (suspension de salle à manger, applique de salle de bain IP44, borne de jardin) plutôt qu’une ampoule. Le délai de retour de 30 jours compense en partie les frais de retour : mesurez avant de commander un grand modèle. Pour les ampoules seules, Amazon ou la <a class="underline" href="/marques/osram-ledvance/">boutique OSRAM</a> restent souvent plus simples.</p>
+  </section>
+</Layout>

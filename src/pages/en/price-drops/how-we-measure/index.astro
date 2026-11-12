@@ -1,0 +1,10 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import PageBaisses from '../../../../components/promos/PageBaisses.astro';
+import { metaPage } from '../../../../components/promos/meta.mjs';
+const explication = /comment-nous-mesurons|how-we-measure|wie-wir-messen|come-misuriamo|como-medimos|hoe-we-meten/.test(Astro.url.pathname);
+const meta = metaPage(Astro.url.pathname, explication);
+---
+<Layout title={meta.titre} description={meta.description} byline={false}>
+  <PageBaisses />
+</Layout>

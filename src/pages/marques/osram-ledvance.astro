@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+import { OSRAM_MID, awinLink } from '../../content/awin';
+import { activePromos, frDate } from '../../content/promos';
+const promos = activePromos().filter((p) => p.mid === OSRAM_MID);
+const shop = (path: string) => awinLink(OSRAM_MID, `https://shop.ledvance.fr${path}`);
+const pages = [
+  { href: '/zones/escaliers/', label: 'Zone Escaliers', note: 'la Star A75 Motion Sensor y est notre « meilleur choix » sans travaux' },
+  { href: '/articles/ampoule-led-chauffe-duree-de-vie/', label: 'Ampoule LED qui chauffe et durée de vie', note: 'l’ampoule radar OSRAM et les gammes classiques de la boutique' },
+  { href: '/meilleur/meilleure-ampoule-led-e27/', label: 'Comparatif ampoules E27', note: 'lien vers les ampoules E27 de la boutique OSRAM' },
+  { href: '/meilleur/meilleur-spot-gu10/', label: 'Comparatif spots GU10', note: 'lien vers les spots GU10 OSRAM' },
+  { href: '/meilleur/meilleure-ampoule-connectee/', label: 'Comparatif ampoules connectées', note: 'la gamme SMART+ en alternative' },
+  { href: '/guides/idees-cadeaux-ampoules-connectees/', label: 'Idées cadeaux : ampoules connectées', note: 'OSRAM SMART+ parmi les options' },
+];
+const schema = { '@context': 'https://schema.org', '@type': 'Brand', name: 'OSRAM', url: 'https://www.ledvance.com/fr-fr' };
+const ds = 'https://data.ledvance.com/00_Free_To_Use/asset-13285472_Product_Datasheet_--_old_version_of_Product_LED_Star_Classic_A_75_Filament_Motion_Sensor_10W_840_Frosted_E27_en.pdf';
+---
+<Layout title="OSRAM (LEDVANCE) : notre avis, ampoule radar, garantie et SAV" description="OSRAM par LEDVANCE vu par 1 pièce 1 ampoule : la Star A75 Motion Sensor (fiche f. Marque • mis à jour le 23/10/2026 Guides, comparatifs et conseils pratiques" type="article" schema={schema}>
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marque • mis à jour le 23/10/2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">OSRAM (LEDVANCE) : notre avis sur la marque</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">Les lampes OSRAM grand public sont fabriquées et garanties par LEDVANCE GmbH (Garching, Allemagne). On la connaît pour ses ampoules classiques, mais sa vraie bonne idée est l’ampoule à détecteur radar, qui automatise un palier ou une cave sans travaux. Les produits sont aussi vendus sur la boutique officielle shop.ledvance.fr.</p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Nos contenus qui parlent d’OSRAM</h2>
+    <ul class="mt-3 space-y-2 text-sm text-stone-600">{pages.map((p) => <li><a class="font-semibold text-amber-800 underline" href={p.href}>{p.label}</a> : {p.note}.</li>)}</ul>
+    <p class="mt-4 text-sm text-stone-600"><strong>Nos sources :</strong> pas de mesure au luxmètre ni au wattmètre. Les chiffres ci-dessous viennent de la fiche technique LEDVANCE.</p>
+  </section>
+
+  <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Le produit cité : OSRAM Star A75 Motion Sensor E27</h2>
+    <table class="mt-4 w-full min-w-[560px] text-left text-sm"><tbody>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Flux / puissance</th><td>1 055 lm pour 10 W (105 lm/W), équivalent 75 W</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Teinte / IRC</th><td>4 000 K (blanc froid), IRC 80</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Détecteur</th><td>Radar (micro-ondes) intégré, portée jusqu’à 3 m sur 90°, détecte aussi à travers un globe en verre ou en plastique</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Automatismes</th><td>S’allume sous 20 lx seulement, s’éteint 30 s après le dernier mouvement</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Limites</th><td>Non dimmable ; l’interrupteur doit rester en position marche</td></tr>
+    </tbody></table>
+    <p class="mt-3 text-xs text-stone-500">Source : <a class="underline" href={ds} rel="nofollow noopener" target="_blank">fiche technique LEDVANCE « LED Star Classic A 75 Motion Sensor 10W 840 E27 »</a>, consultée le 23/10/2026.</p>
+    <div class="mt-4"><AmazonButton asin="B0FGD6H3NZ" product="Osram Star A75 Motion Sensor E27 (radar)" label="Star A75 Motion Sensor sur Amazon" placement="marque" /></div>
+  </section>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Points forts</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Détecteur dans l’ampoule : aucun câblage pour automatiser une cave, une entrée ou un escalier (voir <a class="underline" href="/guides/detecteurs-de-mouvement/">notre guide des détecteurs</a>).</li>
+        <li>Le radar fonctionne derrière un globe fermé, là où un infrarouge ne voit rien.</li>
+        <li>Fiches techniques complètes et publiques (flux, IRC, scintillement, données EPREL).</li>
+        <li>Garanties commerciales de 3 à 5 ans sur de nombreuses gammes de lampes.</li>
+      </ul></article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Portée de 3 m seulement : trop courte pour un long couloir ou une allée.</li>
+        <li>4 000 K : lumière froide, peu adaptée à un séjour.</li>
+        <li>Extinction fixe après 30 s, non réglable.</li>
+        <li>La garantie commerciale dépend de la famille de produits : vérifiez qu’elle figure dans le tableau LEDVANCE.</li>
+      </ul></article>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Garantie et SAV en France</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-stone-600">
+      <li><strong>Lampes LED (particuliers)</strong> : 5 ans pour les familles LED CLASSIC Energy A, B et C, LED SPOT Energy B et LED TUBE Motion Sensor ; 4 ans pour les SUPERSTAR (Classic Filament, Classic Heatsink, Spot) ; 3 ans pour LED STAR Classic et Spot, DULUX LED, Vintage 1906, entre autres. La garantie part de la date d’achat et ne couvre que les produits neufs, en emballage d’origine, utilisés selon leurs spécifications.</li>
+      <li><strong>Luminaires LED</strong> : de 3 à 10 ans selon la gamme (10 ans en garantie partielle pour ENDURA PRO et ENDURA STYLE de marque LEDVANCE, limitée au module LED et au driver).</li>
+      <li><strong>La Star A75 Motion Sensor</strong> appartient à la famille « LED CLASSIC A Motion &amp; Daylight Sensor », qui n’apparaît pas en toutes lettres dans le tableau consulté : comptez au minimum sur la garantie légale de conformité de 2 ans auprès du vendeur.</li>
+      <li><strong>Démarche</strong> : réclamation auprès de LEDVANCE avec la preuve d’achat, ou auprès du vendeur pour la garantie légale.</li>
+    </ul>
+    <p class="mt-4 text-xs text-stone-500">Sources consultées le 23/10/2026 : <a class="underline" href="https://ledvance.com/fr-fr/home-lighting/services/garantie/conditions-de-garantie-pour-les-lampes" rel="nofollow noopener" target="_blank">conditions de garantie LEDVANCE pour les lampes</a>, <a class="underline" href="https://www.ledvance.com/fr-fr/home-lighting/services/garantie/conditions-de-garantie-pour-les-luminaires-led" rel="nofollow noopener" target="_blank">conditions pour les luminaires LED</a>.</p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6" data-awin-block>
+    <h2 class="text-lg font-bold">Boutique officielle OSRAM et codes promo</h2>
+    {promos.length > 0 ? <p class="mt-2 text-sm text-stone-700">{promos.map((p) => <span>Offre en cours : <strong>{p.titre}</strong>{p.code && <> avec le code <strong>{p.code}</strong></>}, jusqu’au {frDate(p.fin)}. </span>)}<a class="font-semibold text-amber-800 underline" href="/codes-promo/">Toutes les offres datées et vérifiées</a>.</p> : <p class="mt-2 text-sm text-stone-700">Aucun code OSRAM en cours. <a class="font-semibold underline" href="/codes-promo/">Voir nos codes promo vérifiés</a>.</p>}
+    <div class="mt-3 flex flex-wrap gap-3">
+      <a class="rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold hover:border-amber-400" href={shop('/collections/ampoules-e27')} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={OSRAM_MID} data-product="OSRAM : ampoules E27 (marque)">Ampoules E27 OSRAM</a>
+      <a class="rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold hover:border-amber-400" href={shop('/collections/ampoules-gu10')} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={OSRAM_MID} data-product="OSRAM : GU10 (marque)">Spots GU10 OSRAM</a>
+      <a class="rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold hover:border-amber-400" href={shop('/collections/ampoules-smart')} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={OSRAM_MID} data-product="OSRAM : SMART+ (marque)">Ampoules connectées SMART+</a>
+    </div>
+    <p class="mt-2 text-xs text-stone-500">Liens partenaires : une commission peut m’être versée, sans surcoût pour toi.</p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre avis</h2>
+    <p class="mt-3 text-sm text-stone-600">OSRAM est un choix sûr quand on veut des données fiables et une garantie lisible : la plupart des fiches LEDVANCE donnent même le scintillement (Pst LM 1,0, SVM 0,4 sur la Star A75). La Star A75 Motion Sensor est la façon la plus simple d’automatiser un palier ou une cave sans électricien, à condition que la zone fasse moins de 3 m et qu’une lumière froide ne gêne pas. Pour une détection plus large ou réglable, un détecteur séparé comme ceux de <a class="underline" href="/marques/steinel/">Steinel</a> reste préférable.</p>
+  </section>
+</Layout>

@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const A = (p) => `https://www.awin1.com/pclick.php?p=${p}&a=3127458&m=31151`;
+const rows = [
+  { n: 'Steinel L 12 M (réf. 069155)', role: 'Applique murale, sans détecteur', l: 'Selon l’ampoule E27 choisie (non fournie)', ip: 'IP44, IK03, classe II', k: 'Selon l’ampoule', w: 'Max. 60 W, 230–240 V', d: '–', p: '57,19 €', u: A('46381369701'), src: 'https://steinel.si/wp-content/uploads/2023/10/DATEN_EN_069155.pdf' },
+  { n: 'Steinel NightMatic 2000 blanc (réf. 550417)', role: 'Interrupteur crépusculaire mural', l: 'Ne produit pas de lumière', ip: 'IP54', k: '–', w: 'Charge 1 000 W ohmique, 4 LED/tubes max., 88 µF ; consommation 0,8 W', d: 'Seuil 2–30 lx', p: '23,39 €', u: A('46359010299'), src: 'https://www.steinel-france.fr/produits/detecteurs/detecteurs-de-mouvement-interrupteurs-crepusculaires/interrupteurs-crepusculaires/nightmatic-2000.html' },
+  { n: 'Steinel IS 360-1 DE blanc (réf. 032845)', role: 'Détecteur de mouvement encastré au plafond', l: 'Ne produit pas de lumière', ip: 'IP54, classe II', k: '–', w: 'Charge 1 000 W ohmique ; LED > 8 W : 350 W', d: '360°, Ø 8 m tangentiel / Ø 4 m radial, 8 s–35 min, 2–2 000 lx', p: '41,99 €', u: A('46381369825'), src: 'https://www.steinel.de/out/media/datasheet/295183_Fiche%20technique%20-%204007841032845%20-%20MOTION%20DETECTOR%20IS%20360-1%20DE%20V2%20WS.pdf' },
+  { n: 'Steinel XSolar LH-N anthracite (réf. 035730)', role: 'Numéro de maison solaire', l: 'Balisage (4 LED, 24 mW max.)', ip: 'IP44, IK03, classe III', k: '4 000 K, IRC 80–89', w: '0,03 W, batterie LiFePO4', d: 'Crépusculaire 2 lx, toute la nuit', p: '70,59 €', u: A('45843200190'), src: 'https://www.steinel.de/out/media/datasheet/66693_Data%20sheet%20-%204007841035730%20-%20OUTDOOR%20SENSOR%20LIGHT%20XSOLAR%20LH-N%20ANT.pdf' },
+];
+const th = 'px-3 py-2 text-left font-semibold';
+const td = 'px-3 py-2 align-top';
+---
+<Layout type="article"
+  title="Éclairage extérieur automatique Steinel : 4 produits comparés sur fiche"
+  description="Applique L 12 M, NightMatic 2000, IS 360-1 et XSolar LH-N : IP, puissance, teinte, seuils relevés sur les fiches Steinel le 23/10/2026, et les bonnes combinaisons."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Guide d’achat</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Automatiser l’éclairage d’une entrée avec Steinel</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">Quatre références Steinel vendues par 2echoix, comparées à partir des fiches techniques du fabricant (relevé du 23/10/2026, prix 2echoix du 22/10/2026). Point clé : seule la XSolar LH-N produit sa propre lumière. L’applique L 12 M n’a <strong>pas</strong> de détecteur, et les deux autres produits sont des commandes qui pilotent une lampe existante.</p>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-6">
+    <h2 class="text-lg font-bold">Notre choix</h2>
+    <p class="mt-2 text-sm text-stone-700">Pour une porte d’entrée déjà équipée d’un point lumineux, le plus simple est d’installer une <strong>L 12 M avec une ampoule LED E27 d’environ 800 lm en 2 700–3 000 K, et de la commander avec un NightMatic 2000</strong>. Le tout coûte 80,58 € hors ampoule. Si vous voulez que la lampe ne s’allume qu’au passage, remplacez le NightMatic par l’IS 360-1 sous un auvent.</p>
+    <a class="mt-3 inline-block rounded-xl bg-amber-500 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600" href={A('46381369701')} rel="sponsored nofollow" target="_blank">Voir la L 12 M chez 2echoix</a>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-xl font-bold">Comparatif sur fiches fabricant</h2>
+    <div class="mt-4 overflow-x-auto">
+      <table class="min-w-[900px] w-full text-sm">
+        <thead class="bg-stone-100"><tr><th class={th}>Produit</th><th class={th}>Rôle</th><th class={th}>Flux</th><th class={th}>Protection</th><th class={th}>Teinte</th><th class={th}>Puissance / charge</th><th class={th}>Détection</th><th class={th}>Prix 2echoix</th></tr></thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr class="border-t border-stone-200">
+              <td class={td}><strong>{r.n}</strong><br /><a class="text-xs text-amber-700 underline" href={r.src} target="_blank" rel="noopener">fiche Steinel</a></td>
+              <td class={td}>{r.role}</td><td class={td}>{r.l}</td><td class={td}>{r.ip}</td><td class={td}>{r.k}</td><td class={td}>{r.w}</td><td class={td}>{r.d}</td>
+              <td class={td}><a class="font-semibold text-amber-700 underline" href={r.u} rel="sponsored nofollow" target="_blank">{r.p}</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-xs text-stone-500">Sources : fiches techniques Steinel consultées le 23/10/2026 (liens ci-dessus). Pour la NightMatic, la fiche publiée concerne la version noire (réf. 550318) ; Steinel donne les mêmes caractéristiques pour le blanc. Le chiffre de 24 mW pour la XSolar vient de la notice Steinel. Prix relevés dans le flux 2echoix le 22/10/2026 ; ils peuvent changer. Liens affiliés Awin. Garantie et avis sur la marque : <a class="underline" href="/marques/steinel/">notre fiche Steinel</a>.</p>
+  </section>
+
+  <section class="mt-8 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Quelle combinaison selon le besoin</h2>
+      <ul class="mt-3 space-y-2 text-sm text-stone-600">
+        <li><strong>Lumière de la tombée de la nuit jusqu’au matin</strong> : L 12 M + NightMatic 2000. Le seuil se règle entre 2 et 30 lx. Placez le capteur à l’abri de la lumière de la lampe, comme le demande la notice.</li>
+        <li><strong>Lumière seulement au passage</strong> : IS 360-1 encastré dans un auvent ou un faux plafond, posé entre 2,5 et 4 m de haut. Il couvre Ø 8 m quand on passe devant lui et Ø 4 m quand on marche vers lui.</li>
+        <li><strong>Numéro visible sans tirer de câble</strong> : XSolar LH-N. C’est un balisage de quelques dizaines de mW : il ne suffit pas à éclairer une allée.</li>
+        <li><strong>Allée longue</strong> : voir les solutions solaires et sur secteur de la <a class="font-semibold text-amber-700 underline" href="/zones/entree-allee-exterieure/">zone entrée et allée</a>.</li>
+      </ul>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Points de pose (NF C 15-100)</h2>
+      <ul class="mt-3 space-y-2 text-sm text-stone-600">
+        <li>En extérieur exposé à la pluie, il faut au minimum IP44, ce que respectent les quatre produits (voir le <a class="font-semibold text-amber-700 underline" href="/guides/ip-indice-protection/">guide IP</a>).</li>
+        <li>La NightMatic et l’IS 360-1 doivent être raccordés à la phase et au neutre. Coupez le circuit au tableau avant d’intervenir. La notice NightMatic demande une protection de ligne de 10 A.</li>
+        <li>Avec une commande et des LED, vérifiez les charges LED de la fiche : 4 lampes max. pour la NightMatic, 350 W en LED de plus de 8 W pour l’IS 360-1.</li>
+        <li>Pour le réglage des détecteurs, lisez <a class="font-semibold text-amber-700 underline" href="/guides/detecteurs-de-mouvement/">notre guide des détecteurs de mouvement</a>.</li>
+      </ul>
+    </article>
+  </section>
+</Layout>

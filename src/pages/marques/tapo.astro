@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+const pages = [
+  { href: '/articles/ampoule-connectee-wifi-ou-zigbee/', label: 'Ampoule connectée : Wi-Fi (Tapo) ou Zigbee (Hue) ?', note: 'quand une ampoule Wi-Fi suffit' },
+  { href: '/articles/ampoule-led-reste-allumee-faiblement/', label: 'Ampoule LED qui reste allumée faiblement', note: 'la L530E comme solution sans recâblage' },
+  { href: '/tutoriels/interrupteur-connecte-sans-neutre/', label: 'Tutoriel : interrupteur connecté sans neutre', note: 'l’ampoule Wi-Fi quand on ne veut pas toucher au câblage' },
+  { href: '/guides/idees-cadeaux-ampoules-connectees/', label: 'Idées cadeaux : ampoules connectées', note: 'la L530E en cadeau sans pont' },
+];
+const schema = { '@context': 'https://schema.org', '@type': 'Brand', name: 'Tapo', url: 'https://www.tp-link.com/fr/' };
+const src = 'https://www.tp-link.com/fr/home-networking/smart-bulb/tapo-l530e/';
+---
+<Layout title="Tapo (TP-Link) : notre avis, ampoule L530E, garantie 2 ans et SAV" description="Tapo par TP-Link vu par 1 pièce 1 ampoule : l’ampoule Wi-Fi L530E (806 lm, 8,7 W, classe F), points forts, limites, garantie 2 ans et support en France, notre avis." type="article" schema={schema}>
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marque • mis à jour le 23/10/2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Tapo (TP-Link) : notre avis sur la marque</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">Tapo est la gamme maison connectée de TP-Link. Son ampoule Wi-Fi couleur L530E (à l’unité ou par deux) est la solution la plus simple pour débuter sans box domotique : c’est l’alternative économique et sans pont à <a class="underline" href="/marques/philips-hue/">Philips Hue</a>.</p>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Nos contenus qui parlent de Tapo</h2>
+    <ul class="mt-3 space-y-2 text-sm text-stone-600">{pages.map((p) => <li><a class="font-semibold text-amber-800 underline" href={p.href}>{p.label}</a> : {p.note}.</li>)}</ul>
+    <p class="mt-4 text-sm text-stone-600"><strong>Nos sources :</strong> pas de mesure personnelle. Chiffres de la fiche TP-Link France.</p>
+  </section>
+  <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Tapo L530E : données officielles</h2>
+    <table class="mt-4 w-full min-w-[560px] text-left text-sm"><tbody>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Flux / puissance</th><td>806 lm pour 8,7 W (≈ 93 lm/W), équivalent 60 W</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Classe énergétique (EPREL)</th><td>F</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Teinte / IRC</th><td>Blanc 2 500 à 6 500 K et 16 millions de couleurs ; IRC ≥ 80</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Connexion</th><td>Wi-Fi 2,4 GHz (802.11 b/g/n), sans pont ; Alexa et Google Assistant</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Variation</th><td>1 à 100 % depuis l’application</td></tr>
+      <tr class="border-b border-stone-100"><th class="py-2 pr-3">Durée de vie</th><td>15 000 h, 15 000 cycles de commutation</td></tr>
+    </tbody></table>
+    <p class="mt-3 text-xs text-stone-500">Source : <a class="underline" href={src} rel="nofollow noopener" target="_blank">fiche Tapo L530E, TP-Link France</a>, consultée le 23/10/2026.</p>
+    <div class="mt-4 flex flex-wrap gap-3">
+      <AmazonButton asin="B08GDC99PX" product="Tapo L530E ampoule connectée Wi-Fi E27" label="Tapo L530E sur Amazon" placement="marque" />
+      <AmazonButton asin="B08Z4KCJZY" product="Tapo L530E Wi-Fi E27 – lot de 2" label="Lot de 2 sur Amazon" placement="marque" />
+    </div>
+  </section>
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Points forts</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Aucun pont : l’ampoule se connecte directement à la box Internet.</li>
+        <li>Mode absence (simulation de présence), plannings, lever et coucher du soleil.</li>
+        <li>Mémoire du dernier état après une coupure de courant.</li>
+        <li>Prix d’entrée bas pour essayer l’éclairage connecté dans une seule pièce.</li>
+      </ul></article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Classe F : moins efficace qu’une Hue White Ambiance 1 100 lm (classe D).</li>
+        <li>Wi-Fi 2,4 GHz uniquement : chaque ampoule occupe une connexion sur la box Internet.</li>
+        <li>806 lm maximum : trop juste comme seule source d’un grand séjour.</li>
+        <li>L’interrupteur mural doit rester en position marche, comme pour toute ampoule connectée.</li>
+      </ul></article>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Garantie et SAV en France</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-stone-600">
+      <li><strong>Garantie commerciale de 2 ans</strong> sur la gamme Tapo (hors accessoires à garantie plus courte, comme les piles des détecteurs), accordée par TP-Link Enterprises France au premier acheteur, à partir de la date d’achat, sur présentation de la facture. L’achat doit avoir été fait en France métropolitaine, en Corse ou dans les DROM cités, auprès d’un vendeur qui facture et livre depuis ces territoires.</li>
+      <li><strong>Mise en œuvre</strong> : TP-Link répare ou remplace, éventuellement par un produit reconditionné de qualité égale ou supérieure.</li>
+      <li><strong>Support France</strong> : par e-mail d’abord (création d’un ticket), puis au 01 82 88 35 35 (non surtaxé), du lundi au vendredi de 9 h à 16 h 45.</li>
+      <li>La garantie légale de conformité de 2 ans reste due par le vendeur (Amazon ou boutique).</li>
+    </ul>
+    <p class="mt-4 text-xs text-stone-500">Sources consultées le 23/10/2026 : <a class="underline" href="https://www.tp-link.com/fr/support/replacement-warranty/" rel="nofollow noopener" target="_blank">conditions de garantie TP-Link France</a>, <a class="underline" href="https://www.tp-link.com/fr/support/contact-technical-support/" rel="nofollow noopener" target="_blank">contact support TP-Link France</a>.</p>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre avis</h2>
+    <p class="mt-3 text-sm text-stone-600">La Tapo L530E est la meilleure porte d’entrée dans l’éclairage connecté : pas de pont, configuration en quelques minutes, couleurs et blanc réglable. Elle se justifie pour une à trois ampoules. Au-delà, ou si l’efficacité énergétique compte, un système Zigbee comme Philips Hue devient plus cohérent (voir <a class="underline" href="/articles/ampoule-connectee-wifi-ou-zigbee/">notre comparaison Wi-Fi / Zigbee</a>). Pas de code promo Tapo en cours chez nos partenaires : <a class="underline" href="/codes-promo/">voir nos codes promo vérifiés</a>.</p>
+  </section>
+</Layout>

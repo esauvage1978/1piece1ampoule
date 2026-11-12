@@ -1,0 +1,20 @@
+---
+import { amazonProductUrl } from '../lib/amazon';
+type Row = { name: string; cols: string[]; asin?: string; href?: string; shop?: string };
+const { head, rows, source } = Astro.props as { head: string[]; rows: Row[]; source: string };
+---
+<figure class="not-prose mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+  <table class="w-full min-w-[640px] text-sm">
+    <thead class="bg-amber-50 text-left"><tr><th class="p-3">Produit</th>{head.map((h) => <th class="p-3">{h}</th>)}<th class="p-3">Où l’acheter</th></tr></thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr class="border-t border-stone-100 align-top">
+          <th class="p-3 text-left font-medium text-stone-900">{r.name}</th>
+          {r.cols.map((c) => <td class="p-3 text-stone-700">{c}</td>)}
+          <td class="p-3"><a class="font-semibold text-amber-700 underline" href={r.asin ? amazonProductUrl(r.asin) : r.href} rel="sponsored nofollow noopener" target="_blank" data-amazon-link={r.asin ? '' : undefined} data-asin={r.asin} data-awin-link={r.asin ? undefined : ''} data-product={r.name}>{r.shop ?? 'Amazon'}</a></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <figcaption class="border-t border-stone-100 p-3 text-xs text-stone-500">{source}</figcaption>
+</figure>

@@ -1,0 +1,74 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'reparer-guirlande-led-partie-eteinte')!;
+const SYMPTOMES = [
+  { s: 'Une LED sur deux éteinte, dans tous les modes', cause: 'Une des deux sorties du boîtier de commande est en panne', action: 'Remplacer le boîtier (même tension, même connecteur)', rep: 'Oui' },
+  { s: 'Un groupe de LED voisines éteint au milieu', cause: 'Une LED ou une soudure coupée dans un groupe en série', action: 'Chercher la coupure au multimètre (continuité)', rep: 'Parfois (LED accessibles)' },
+  { s: 'Tout éteint à partir d’un point', cause: 'Câble coupé ou jonction oxydée juste avant la première LED éteinte', action: 'Nettoyer la jonction ou reprendre le câble (basse tension)', rep: 'Oui' },
+  { s: 'Tout éteint', cause: 'Transformateur, boîtier, piles ou prise', action: 'Mesurer la tension en sortie du transformateur', rep: 'Oui (remplacement de pièce)' },
+  { s: 'S’éteint ou clignote quand il pleut', cause: 'Eau dans une jonction ou le transformateur', action: 'Sécher, vérifier les joints, protéger les jonctions', rep: 'Oui' },
+  { s: 'Faiblit vers la fin', cause: 'Trop de modules raccordés, ou contact oxydé', action: 'Respecter le nombre de modules indiqué, nettoyer', rep: 'Oui' },
+  { s: 'Une seule LED éteinte', cause: 'LED morte sur une guirlande montée en parallèle', action: 'Rien à faire, ce n’est pas dangereux', rep: 'Inutile' },
+];
+const GROUPES = [
+  { u: '24 V', n: '7 LED environ', calc: '24 ÷ 3,2 ≈ 7, en gardant une marge pour la résistance' },
+  { u: '31 V', n: '9 à 10 LED environ', calc: '31 ÷ 3,2 ≈ 9,7' },
+  { u: '4,5 V (3 piles AA)', n: 'Toutes en parallèle', calc: 'Une LED blanche demande à peu près 3 V : pas de place pour deux en série' },
+];
+---
+<Tutorial t={t}>
+  <p>C’est le grand classique du déballage de décembre : la guirlande rangée en parfait état l’an dernier ne s’allume plus qu’à moitié. Avant de la jeter, regarde bien quelle partie est éteinte. Une guirlande LED ne tombe pas en panne au hasard : la façon dont les LED sont reliées entre elles fait que chaque panne laisse une signature reconnaissable.</p>
+
+  <h2 id="symptomes">Le tableau des symptômes</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[680px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Ce que tu vois</th><th class="p-3">Cause la plus probable</th><th class="p-3">Que faire</th><th class="p-3">Réparable ?</th></tr></thead>
+      <tbody>{SYMPTOMES.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.s}</th><td class="p-3">{r.cause}</td><td class="p-3">{r.action}</td><td class="p-3">{r.rep}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Avant tout diagnostic : guirlande en mode fixe, piles neuves pour une guirlande à piles, et vérification de la prise avec un autre appareil.</figcaption>
+  </figure>
+
+  <h2 id="cablage">Pourquoi les LED s’éteignent par groupes</h2>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 250" role="img" aria-labelledby="grt" class="h-auto w-full">
+      <title id="grt">Schéma : sur une guirlande 31 V, les LED sont reliées par groupes en série ; une LED coupée éteint tout son groupe. Sur une guirlande à deux fils tête-bêche, une LED sur deux dépend de chaque sortie du boîtier.</title>
+      <rect x="0" y="0" width="680" height="250" fill="#fafaf9" />
+      <text x="20" y="24" font-size="12" font-weight="bold" fill="#1c1917">Guirlande 31 V : groupes en série</text>
+      <line x1="20" y1="45" x2="660" y2="45" stroke="#dc2626" stroke-width="2" /><text x="664" y="49" font-size="10" fill="#dc2626">+</text>
+      <line x1="20" y1="115" x2="660" y2="115" stroke="#1c1917" stroke-width="2" /><text x="664" y="119" font-size="10">–</text>
+      {[0, 1, 2].map((g) => (
+        <g>
+          <line x1={60 + g * 210} y1="45" x2={60 + g * 210} y2="80" stroke="#57534e" />
+          <line x1={60 + g * 210} y1="80" x2={230 + g * 210} y2="80" stroke="#57534e" />
+          <line x1={230 + g * 210} y1="80" x2={230 + g * 210} y2="115" stroke="#57534e" />
+          {[0, 1, 2, 3, 4].map((i) => <circle cx={80 + g * 210 + i * 33} cy="80" r="8" fill={g === 1 ? '#d6d3d1' : '#f59e0b'} stroke="#92400e" />)}
+        </g>
+      ))}
+      <line x1="338" y1="72" x2="350" y2="88" stroke="#dc2626" stroke-width="3" /><line x1="350" y1="72" x2="338" y2="88" stroke="#dc2626" stroke-width="3" />
+      <text x="345" y="105" font-size="10" text-anchor="middle" fill="#dc2626">une LED coupée : tout le groupe s’éteint</text>
+      <text x="20" y="150" font-size="12" font-weight="bold" fill="#1c1917">Guirlande à 2 fils et 8 jeux de lumière : LED tête-bêche</text>
+      <line x1="20" y1="175" x2="660" y2="175" stroke="#57534e" stroke-width="2" /><line x1="20" y1="215" x2="660" y2="215" stroke="#57534e" stroke-width="2" />
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+        <g>
+          <line x1={60 + i * 60} y1="175" x2={60 + i * 60} y2="215" stroke="#a8a29e" />
+          <circle cx={60 + i * 60} cy="195" r="9" fill={i % 2 === 0 ? '#f59e0b' : '#d6d3d1'} stroke="#92400e" />
+          <text x={60 + i * 60} y="199" font-size="9" text-anchor="middle" fill="#1c1917">{i % 2 === 0 ? 'A' : 'B'}</text>
+        </g>
+      ))}
+      <text x="340" y="240" font-size="10" text-anchor="middle" fill="#57534e">Les LED « A » s’allument dans un sens du courant, les « B » dans l’autre : si une sortie du boîtier lâche, une LED sur deux reste éteinte.</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma simplifié réalisé par 1 pièce 1 ampoule (les résistances de chaque groupe ne sont pas représentées).</figcaption>
+  </figure>
+  <p>Une LED blanche a besoin d’environ 3 V pour s’allumer. Avec un transformateur de 31 V, le fabricant relie donc les LED par petits groupes en série, puis branche tous les groupes en parallèle sur les deux fils principaux. Tant qu’une LED d’un groupe est coupée, le courant ne passe plus dans ce groupe, et seulement dans celui-là. Compter les LED éteintes d’affilée permet souvent de confirmer le diagnostic :</p>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[520px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Tension du transformateur</th><th class="p-3">LED par groupe en série</th><th class="p-3">Calcul</th></tr></thead>
+      <tbody>{GROUPES.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.u}</th><td class="p-3">{r.n}</td><td class="p-3 text-stone-600">{r.calc}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Ordres de grandeur : chaque fabricant choisit ses groupes. Pour des LED rouges, orange ou jaunes (environ 2 V), les groupes sont plus longs.</figcaption>
+  </figure>
+
+  <h2 id="limites">Ce qu’il ne faut pas réparer</h2>
+  <p>Tout ce qui est en amont du transformateur reste en 230 V : le câble d’alimentation, la fiche et le transformateur lui-même. Ils ne s’ouvrent pas et ne se réparent pas, même avec de la gaine thermorétractable. Une guirlande sans transformateur, branchée directement sur la prise, est entièrement en 230 V : un câble abîmé la rend dangereuse, elle se remplace. Pour une installation dehors, garde aussi en tête que la réparation doit être aussi étanche que le câble d’origine ; si ce n’est pas possible, réserve la guirlande à l’intérieur. Et si elle doit retourner sur la façade, le <a href="/tutoriels/programmer-guirlande-lumineuse-exterieure/">tutoriel pour programmer une guirlande extérieure</a> détaille le branchement étanche.</p>
+</Tutorial>

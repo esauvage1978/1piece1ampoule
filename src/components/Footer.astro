@@ -1,33 +1,266 @@
-<footer class="mt-16 border-t border-white/10 bg-slate-950">
-  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2">
-    <div>
-      <p class="text-base font-semibold text-white">Choisir son ampoule</p>
-      <p class="mt-2 text-sm text-white/70">
-        Guides d’éclairage, idées d’aménagement et sélections de produits. Certains liens sont des liens partenaires Amazon.
-      </p>
-      <p class="mt-2 text-xs text-white/60">
-        En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
-      </p>
+---
+import { COMPARATIFS } from '../content/comparatifs';
+import { ARTICLES } from '../content/articles';
+const { lang = 'fr' } = Astro.props as { lang?: string };
+const year = new Date().getFullYear();
+
+type Lien = { href: string; label: string; hreflang?: string };
+const L = (href: string, label: string, hreflang?: string): Lien => ({ href, label, hreflang });
+
+const pack = lang === 'it' ? {
+  tag: 'Guide all’illuminazione indipendenti e basate sui dati: attacchi, lumen, temperatura di colore, resa cromatica e gradi IP, secondo la CEI 64-8, la UNI EN 12464-1 e l’etichetta energetica UE.',
+  notice: '',
+  copy: `© ${year} 1piece1ampoule.fr — Edizione italiana, ottobre 2026`,
+  cols: [
+    { titre: 'Guide', aria: 'Guide', items: [
+      L('/it/guide/attacchi-e27-e14-gu10/', 'Attacchi'),
+      L('/it/guide/lumen-watt/', 'Lumen e watt'),
+      L('/it/guide/temperatura-colore-kelvin/', 'Temperatura di colore'),
+      L('/it/guide/resa-cromatica-cri-ra/', 'Resa cromatica (CRI)'),
+      L('/it/guide/grado-ip-bagno-esterno/', 'Gradi IP'),
+      L('/it/guide/lampadine-led-dimmerabili/', 'LED dimmerabili'),
+      L('/it/tutorial/calcolare-lux-lumen-per-stanza/', 'Calcolare i lux per stanza'),
+      L('/it/tutorial/sostituire-alogene-gu10-mr16-con-led/', 'Sostituire le alogene con LED'),
+    ]},
+    { titre: 'Il sito', aria: 'Il sito', items: [
+      L('/it/note-legali/', 'Note legali'),
+      L('/it/privacy/', 'Privacy'),
+      L('/it/cookie/', 'Cookie'),
+      L('/it/affiliazione/', 'Affiliazione'),
+      L('/', 'Versione francese', 'fr'),
+    ]},
+  ],
+} : lang === 'es' ? {
+  tag: 'Guías de iluminación independientes y con datos: casquillos, lúmenes, temperatura de color, reproducción cromática y grados IP, según el REBT, la UNE-EN 12464-1 y la etiqueta energética de la UE.',
+  notice: '',
+  copy: `© ${year} 1piece1ampoule.fr — Edición en español, octubre de 2026`,
+  cols: [
+    { titre: 'Guías', aria: 'Guías', items: [
+      L('/es/guias/casquillos-e27-e14-gu10/', 'Casquillos'),
+      L('/es/guias/lumenes-vatios/', 'Lúmenes y vatios'),
+      L('/es/guias/temperatura-color-kelvin/', 'Temperatura de color'),
+      L('/es/guias/reproduccion-cromatica-cri-ra/', 'Reproducción cromática (CRI)'),
+      L('/es/guias/grado-ip-bano-exterior/', 'Grados IP'),
+      L('/es/guias/bombillas-led-regulables/', 'LED regulables'),
+      L('/es/tutoriales/calcular-lux-lumenes-por-estancia/', 'Calcular lux por estancia'),
+      L('/es/tutoriales/sustituir-halogenos-gu10-mr16-por-led/', 'Sustituir halógenos por LED'),
+    ]},
+    { titre: 'El sitio', aria: 'El sitio', items: [
+      L('/es/aviso-legal/', 'Aviso legal'),
+      L('/es/privacidad/', 'Privacidad'),
+      L('/es/cookies/', 'Cookies'),
+      L('/es/afiliacion/', 'Afiliación'),
+      L('/', 'Version française', 'fr'),
+    ]},
+  ],
+} : lang === 'nl' ? {
+  tag: 'Onafhankelijke verlichtingsgidsen met data: fittingen, lumen, kleurtemperatuur, kleurweergave, IP-codes – volgens NEN 1010, AREI/RGIE en het EU-energielabel.',
+  notice: '',
+  copy: `© ${year} 1piece1ampoule.fr — Nederlandstalige editie, oktober 2026`,
+  cols: [
+    { titre: 'Gidsen', aria: 'Gidsen', items: [
+      L('/nl/gidsen/lampfittingen-e27-e14-gu10/', 'Lampfittingen'),
+      L('/nl/gidsen/lumen-watt/', 'Lumen en watt'),
+      L('/nl/gidsen/kleurtemperatuur-kelvin/', 'Kleurtemperatuur'),
+      L('/nl/gidsen/kleurweergave-cri-ra/', 'Kleurweergave (CRI)'),
+      L('/nl/gidsen/ip-beschermingsgraad-badkamer-buiten/', 'IP-codes'),
+      L('/nl/gidsen/dimbare-led-lampen/', 'Dimbare LED'),
+      L('/nl/handleidingen/lux-lumen-per-ruimte-berekenen/', 'Lux per ruimte berekenen'),
+      L('/nl/handleidingen/halogeen-gu10-mr16-vervangen-door-led/', 'Halogeen vervangen door LED'),
+    ]},
+    { titre: 'De website', aria: 'De website', items: [
+      L('/nl/colofon/', 'Colofon'),
+      L('/nl/privacy/', 'Privacy'),
+      L('/nl/cookies/', 'Cookies'),
+      L('/nl/affiliatebeleid/', 'Affiliatebeleid'),
+      L('/', 'Version française', 'fr'),
+    ]},
+  ],
+} : lang === 'de' ? {
+  tag: 'Unabhängige Lichtratgeber mit Daten: Sockel, Lumen, Farbtemperatur, Farbwiedergabe, IP-Schutzarten – nach DIN, VDE und EU-Energielabel.',
+  notice: '',
+  copy: `© ${year} 1piece1ampoule.fr — Deutsche Ausgabe, Oktober 2026`,
+  cols: [
+    { titre: 'Ratgeber', aria: 'Ratgeber', items: [
+      L('/de/ratgeber/lampensockel-e27-e14-gu10/', 'Lampensockel'),
+      L('/de/ratgeber/lumen-watt/', 'Lumen und Watt'),
+      L('/de/ratgeber/farbtemperatur-kelvin/', 'Farbtemperatur'),
+      L('/de/ratgeber/farbwiedergabe-cri-ra/', 'Farbwiedergabe (CRI)'),
+      L('/de/ratgeber/ip-schutzarten-bad-aussen/', 'IP-Schutzarten'),
+      L('/de/ratgeber/dimmbare-led-lampen/', 'Dimmbare LED'),
+      L('/de/anleitungen/lux-lumen-pro-raum-berechnen/', 'Lux pro Raum berechnen'),
+      L('/de/anleitungen/halogen-gu10-mr16-durch-led-ersetzen/', 'Halogen durch LED ersetzen'),
+    ]},
+    { titre: 'Die Website', aria: 'Die Website', items: [
+      L('/de/impressum/', 'Impressum'),
+      L('/de/datenschutz/', 'Datenschutz'),
+      L('/de/cookies/', 'Cookies'),
+      L('/de/werbehinweis/', 'Werbehinweis'),
+      L('/', 'Version française', 'fr'),
+    ]},
+  ],
+} : lang === 'en' ? {
+  tag: 'Independent, data-based lighting guides: bulb bases, lumens, colour temperature, CRI and IP ratings, with UK and US specifics.',
+  notice: 'As an Amazon Associate I earn from qualifying purchases.',
+  copy: `© ${year} 1piece1ampoule.fr — English edition, October 2026`,
+  cols: [
+    { titre: 'Guides', aria: 'Guides', items: [
+      L('/en/guides/bulb-bases-b22-e26-e27-gu10/', 'Bulb bases (B22, E26, E27, GU10)'),
+      L('/en/guides/lumens-vs-watts/', 'Lumens vs watts'),
+      L('/en/guides/colour-temperature-kelvin/', 'Colour temperature'),
+      L('/en/guides/cri-colour-rendering-index/', 'CRI'),
+      L('/en/guides/ip-ratings-bathroom-outdoor/', 'IP ratings'),
+      L('/en/guides/dimmable-led-bulbs/', 'Dimmable LEDs'),
+      L('/en/tutorials/how-much-light-per-room-lux-foot-candles/', 'How much light per room'),
+      L('/en/tutorials/replace-halogen-gu10-mr16-with-led/', 'Replace halogen GU10/MR16'),
+    ]},
+    { titre: 'The site', aria: 'The site', items: [
+      L('/en/affiliate-disclosure/', 'Affiliate disclosure'),
+      L('/en/legal-notice/', 'Legal notice'),
+      L('/en/privacy/', 'Privacy'),
+      L('/en/cookies/', 'Cookies'),
+      L('/', 'Version française', 'fr'),
+    ]},
+  ],
+} : {
+  tag: 'Des conseils d’éclairage concrets, pièce par pièce, et des sélections de produits choisis sur fiches techniques.',
+  notice: 'En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.',
+  copy: `© ${year} 1piece1ampoule.fr — Contenus mis à jour en octobre 2026`,
+  cols: [
+    { titre: 'Comparatifs 2026', aria: 'Comparatifs', items: COMPARATIFS.slice(0, 8).map((c) => L(`/meilleur/${c.slug}/`, c.h1.replace(/ en 2026$/, ''))) },
+    { titre: 'Conseils populaires', aria: 'Conseils', items: ARTICLES.slice(0, 8).map((a) => L(`/articles/${a.slug}/`, a.short)) },
+    { titre: 'Le site', aria: 'Le site', items: [
+      L('/pieces/', 'Éclairage par pièce'),
+      L('/guides/', 'Guides techniques'),
+      L('/tutoriels/', 'Tutoriels pas à pas'),
+      L('/codes-promo/', 'Codes promo et bons plans'),
+      L('/a-propos/', 'À propos & méthode'),
+      L('/marques/', 'Marques et marchands'),
+      L('/affiliation-amazon/', 'Affiliation Amazon'),
+      L('/contact/', 'Contact'),
+      L('/mentions-legales/', 'Mentions légales'),
+      L('/politique-de-confidentialite/', 'Confidentialité'),
+      L('/politique-de-cookies/', 'Cookies'),
+    ]},
+  ],
+};
+---
+<footer class="site-footer re-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand-name" href={lang === 'fr' ? '/' : `/${lang}/`}>1 pièce <span>1 ampoule</span></a>
+      <p class="footer-tagline">{pack.tag}</p>
+      {lang === 'fr' && <a class="footer-qui" href="/a-propos/">Qui suis-je ?</a>}
     </div>
-    <div class="sm:justify-self-end">
-      <div class="flex flex-wrap gap-2">
-        <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="/affiliation-amazon">
-          Affiliation Amazon
-        </a>
-        <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="/mentions-legales">
-          Mentions légales
-        </a>
-        <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="/politique-de-confidentialite">
-          Confidentialite
-        </a>
-        <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="/politique-de-cookies">
-          Cookies
-        </a>
-        <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="/a-propos">
-          À propos
-        </a>
+    <div class="footer-columns">
+      {pack.cols.map((col) => (
+        <nav class="footer-col" aria-label={col.aria}>
+          <h3>{col.titre}</h3>
+          <ul>
+            {col.items.map((item) => <li><a href={item.href} hreflang={item.hreflang} lang={item.hreflang}>{item.label}</a></li>)}
+          </ul>
+        </nav>
+      ))}
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      {pack.notice && <p class="affiliate-notice">{pack.notice}</p>}
+      <div class="footer-meta">
+        <p class="copyright">{pack.copy}</p>
+        {lang === 'fr' && (
+          <nav class="footer-francophonie" aria-label="Éditions francophones">
+            <!-- francophone-limitrophe-hubs -->
+            <p class="editions-label">Éditions locales</p>
+            <ul>
+              <li><a href="/belgique/">Belgique</a></li>
+              <li><a href="/suisse/">Suisse</a></li>
+              <li><a href="/luxembourg/">Luxembourg</a></li>
+              <li><a href="/monaco/">Monaco</a></li>
+            </ul>
+          </nav>
+        )}
       </div>
     </div>
   </div>
 </footer>
-
+<style>
+  footer.re-footer {
+    --re-accent: #b45309;
+    --re-border: #d97706;
+    --re-bg: #fffbeb;
+    --re-surface: #fff;
+    --re-ink: #1c1917;
+    --re-text: #57534e;
+    --re-line: #e7e5e4;
+    --re-heading: "Fraunces Variable", Georgia, serif;
+    background: var(--re-bg);
+    border-top: 3px solid var(--re-border);
+    color: var(--re-text);
+    margin-top: 4rem;
+    padding: 0;
+  }
+  .footer-inner {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 2.25rem clamp(1rem, 4vw, 2rem) 1.75rem;
+    display: grid;
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+    gap: 2.5rem 3rem;
+    align-items: start;
+  }
+  .footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 0.85rem; }
+  .brand-name {
+    font-family: var(--re-heading);
+    font-size: 1.45rem;
+    font-weight: 650;
+    color: var(--re-ink);
+    text-decoration: none;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .brand-name span { color: var(--re-accent); }
+  .footer-tagline { color: var(--re-ink); font-size: 0.92rem; line-height: 1.45; margin: 0; max-width: 20rem; }
+  .footer-qui { color: var(--re-accent); font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+  .footer-qui:hover { text-decoration: underline; }
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+    gap: 1.75rem 1.5rem;
+  }
+  .footer-col h3 {
+    font-family: var(--re-heading);
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: var(--re-ink);
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid color-mix(in oklab, var(--re-border) 70%, white);
+    line-height: 1.2;
+  }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+  .footer-col li { margin: 0; }
+  .footer-col a { color: var(--re-ink); text-decoration: none; font-size: 0.9rem; line-height: 1.35; font-weight: 400; }
+  .footer-col a:hover { color: var(--re-accent); }
+  .footer-bottom { background: var(--re-surface); border-top: 1px solid var(--re-line); padding: 1.1rem clamp(1rem, 4vw, 2rem) 1.35rem; }
+  .footer-bottom-inner { max-width: 74rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.7rem; }
+  .affiliate-notice { font-size: 0.78rem; line-height: 1.5; color: var(--re-text); margin: 0; max-width: 72ch; }
+  .footer-meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; }
+  .copyright { font-size: 0.82rem; color: var(--re-text); margin: 0; }
+  .footer-francophonie { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.85rem; margin: 0; padding: 0; }
+  .editions-label { margin: 0; font-size: 0.78rem; font-weight: 700; color: var(--re-text); }
+  .footer-francophonie ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.85rem; list-style: none; margin: 0; padding: 0; }
+  .footer-francophonie a { color: var(--re-accent); font-size: 0.88rem; font-weight: 700; text-decoration: none; }
+  .footer-francophonie a:hover { text-decoration: underline; }
+  .footer-col a:focus-visible, .brand-name:focus-visible, .footer-qui:focus-visible, .footer-francophonie a:focus-visible {
+    outline: 2px solid var(--re-accent);
+    outline-offset: 2px;
+  }
+  @media (max-width: 1024px) { .footer-inner { grid-template-columns: 1fr; gap: 1.75rem; } }
+  @media (max-width: 640px) {
+    .footer-inner { padding: 1.75rem 1rem 1.35rem; }
+    .footer-columns { grid-template-columns: 1fr 1fr; }
+    .footer-col:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .footer-meta { flex-direction: column; align-items: flex-start; }
+  }
+</style>

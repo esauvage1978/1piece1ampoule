@@ -1,0 +1,5713 @@
+{
+ "site": "1piece1ampoule.fr",
+ "updated": "2026-11-11T23:00:30.873Z",
+ "count": 935,
+ "links": {
+  "aw-10152-0e87c51e57": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "10152",
+   "dest": "",
+   "affid": "3127458"
+  },
+  "aw-10152-e015134f7a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10152&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.be%2Fc%2Flichtbronnen",
+   "merchant": "awin",
+   "country": "BE",
+   "mid": "10152",
+   "dest": "www.lampen24.be",
+   "affid": "3127458"
+  },
+  "aw-101825-5604956a4e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=101825&awinaffid=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "101825",
+   "dest": "",
+   "affid": "3127458"
+  },
+  "aw-101825-596d8bc63e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=101825&awinaffid=3127458&ued=https%3A%2F%2Fnl.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "101825",
+   "dest": "nl.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-102989-9737e1865a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=102989&awinaffid=3127458&ued=https%3A%2F%2Fwww.netzwerkartikel.de%2F",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "102989",
+   "dest": "www.netzwerkartikel.de",
+   "affid": "3127458"
+  },
+  "aw-10404-76b1b00d54": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fb2b-buono",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "10404",
+   "dest": "www.lampade.it",
+   "affid": "3127458"
+  },
+  "aw-10404-78a5e2291b": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Fsmart-home",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "10404",
+   "dest": "www.lampade.it",
+   "affid": "3127458"
+  },
+  "aw-10404-bf0ce751ef": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Fsconti",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "10404",
+   "dest": "www.lampade.it",
+   "affid": "3127458"
+  },
+  "aw-10404-f3ee10a8aa": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10404&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampade.it%2Fc%2Flampadine",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "10404",
+   "dest": "www.lampade.it",
+   "affid": "3127458"
+  },
+  "aw-10548-028241d4ee": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fsmart-home",
+   "merchant": "awin",
+   "country": "ES",
+   "mid": "10548",
+   "dest": "www.lampara.es",
+   "affid": "3127458"
+  },
+  "aw-10548-a813afbf67": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fofertas",
+   "merchant": "awin",
+   "country": "ES",
+   "mid": "10548",
+   "dest": "www.lampara.es",
+   "affid": "3127458"
+  },
+  "aw-10548-fb7aae5f6a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10548&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampara.es%2Fc%2Fbombillas",
+   "merchant": "awin",
+   "country": "ES",
+   "mid": "10548",
+   "dest": "www.lampara.es",
+   "affid": "3127458"
+  },
+  "aw-107822-7b6be6fc90": {
+   "url": "https://www.awin1.com/cread.php?awinmid=107822&awinaffid=3127458&ued=https%3A%2F%2Fwww.besselinklicht.nl%2Flichtbronnen",
+   "merchant": "awin",
+   "country": "NL",
+   "mid": "107822",
+   "dest": "www.besselinklicht.nl",
+   "affid": "3127458"
+  },
+  "aw-10896-41e4fe22d8": {
+   "url": "https://www.awin1.com/cread.php?awinmid=10896&awinaffid=3127458&ued=https%3A%2F%2Fwww.lights.ie%2Fc%2Flight-bulbs",
+   "merchant": "awin",
+   "country": "IE",
+   "mid": "10896",
+   "dest": "www.lights.ie",
+   "affid": "3127458"
+  },
+  "aw-115365-5f20ef82a2": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458&ued=https%3A%2F%2Fwww.trotec.com%2Fit%2Fshop%2Fdeumidificatori.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115365",
+   "dest": "www.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-115365-918252bc60": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458&ued=https%3A%2F%2Fwww.trotec.com%2Fit%2Fshop%2Fmisurazione.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115365",
+   "dest": "www.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-115365-bf850416d0": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458&ued=https%3A%2F%2Fwww.trotec.com%2Fit%2Fshop%2Flaser.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115365",
+   "dest": "www.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-115365-c2da5f0320": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458&ued=https%3A%2F%2Fwww.trotec.com%2Fit%2Fshop%2Fventilazione.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115365",
+   "dest": "www.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-115365-de559db7f1": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458&ued=https%3A%2F%2Fwww.trotec.com%2Fit%2Fshop%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115365",
+   "dest": "www.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-115365-f3ebafb242": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115365&awinaffid=3127458&ued=https%3A%2F%2Fwww.trotec.com%2Fit%2Fshop%2Friscaldamento.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115365",
+   "dest": "www.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-115373-8c207351cc": {
+   "url": "https://www.awin1.com/cread.php?awinmid=115373&awinaffid=3127458&ued=https%3A%2F%2Fen.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115373",
+   "dest": "en.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-116147-a9654830cf": {
+   "url": "https://www.awin1.com/cread.php?awinmid=116147&awinaffid=3127458&ued=https%3A%2F%2Fwww.dusbad.de%2F",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "116147",
+   "dest": "www.dusbad.de",
+   "affid": "3127458"
+  },
+  "aw-117285-0a4d4a2d8f": {
+   "url": "https://www.awin1.com/cread.php?awinmid=117285&awinaffid=3127458&ued=https%3A%2F%2Fwww.toolchest.de%2F",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "117285",
+   "dest": "www.toolchest.de",
+   "affid": "3127458"
+  },
+  "aw-117907-7bf1cff6c1": {
+   "url": "https://www.awin1.com/cread.php?awinmid=117907&awinaffid=3127458&ued=https%3A%2F%2Fwww.litones.net",
+   "merchant": "awin",
+   "country": "",
+   "mid": "117907",
+   "dest": "www.litones.net",
+   "affid": "3127458"
+  },
+  "aw-117907-ca5d1f288e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=117907&awinaffid=3127458&campaign=us+desk+lamp+boost&ued=https%3A%2F%2Fwww.litones.com",
+   "merchant": "awin",
+   "country": "",
+   "mid": "117907",
+   "dest": "www.litones.com",
+   "affid": "3127458"
+  },
+  "aw-118431-684e71e3b9": {
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458&ued=https%3A%2F%2Feur.vevor.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "118431",
+   "dest": "eur.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-118431-84857d2ffc": {
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458&ued=https%3A%2F%2Feur.vevor.com%2Fpromotion%2Fhotsale-special-10486.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "118431",
+   "dest": "eur.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-118431-d2f1a06370": {
+   "url": "https://www.awin1.com/cread.php?awinmid=118431&awinaffid=3127458&ued=https%3A%2F%2Feur.vevor.com%2Fpromotion%2FNew-Arrivals-Drop-special-10452.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "118431",
+   "dest": "eur.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-118433-4da88aa6e9": {
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.it%2F",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "118433",
+   "dest": "www.vevor.it",
+   "affid": "3127458"
+  },
+  "aw-118433-96f4abfdf1": {
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.it%2Fpromotion%2Fhotsale-special-10488.html",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "118433",
+   "dest": "www.vevor.it",
+   "affid": "3127458"
+  },
+  "aw-118433-b82f0e9484": {
+   "url": "https://www.awin1.com/cread.php?awinmid=118433&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.it%2Fpromotion%2FNew-Arrivals-Drop-special-10457.html",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "118433",
+   "dest": "www.vevor.it",
+   "affid": "3127458"
+  },
+  "aw-121796-1a26272455": {
+   "url": "https://www.awin1.com/cread.php?awinmid=121796&awinaffid=3127458&ued=https%3A%2F%2Fwww.shelly.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "121796",
+   "dest": "www.shelly.com",
+   "affid": "3127458"
+  },
+  "aw-122030-497fc67153": {
+   "url": "https://www.awin1.com/cread.php?awinmid=122030&awinaffid=3127458&ued=https%3A%2F%2Ftessan.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "122030",
+   "dest": "tessan.com",
+   "affid": "3127458"
+  },
+  "aw-125144-19c5d75c44": {
+   "url": "https://www.awin1.com/cread.php?awinmid=125144&awinaffid=3127458&ued=https%3A%2F%2Fde.anthbot.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "125144",
+   "dest": "de.anthbot.com",
+   "affid": "3127458"
+  },
+  "aw-127129-919ec4c972": {
+   "url": "https://www.awin1.com/cread.php?awinmid=127129&awinaffid=3127458&ued=https%3A%2F%2Fanthbot.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "127129",
+   "dest": "anthbot.com",
+   "affid": "3127458"
+  },
+  "aw-128973-aef447c995": {
+   "url": "https://www.awin1.com/cread.php?awinmid=128973&awinaffid=3127458&ued=https%3A%2F%2Fwww.shelly.com%2Fes",
+   "merchant": "awin",
+   "country": "",
+   "mid": "128973",
+   "dest": "www.shelly.com",
+   "affid": "3127458"
+  },
+  "aw-129487-90e35a64b1": {
+   "url": "https://www.awin1.com/cread.php?awinmid=129487&awinaffid=3127458&campaign=us+lighting+fall+promo+2026&ued=https%3A%2F%2Fbeypanstore.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "129487",
+   "dest": "beypanstore.com",
+   "affid": "3127458"
+  },
+  "aw-129497-edc2ba1913": {
+   "url": "https://www.awin1.com/cread.php?awinmid=129497&awinaffid=3127458&ued=https%3A%2F%2Forder.grabo.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "129497",
+   "dest": "order.grabo.com",
+   "affid": "3127458"
+  },
+  "aw-130023-19f753626f": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130023&awinaffid=3127458&ued=https%3A%2F%2Fformadore.nl%2Fdraadloze-lampen",
+   "merchant": "awin",
+   "country": "NL",
+   "mid": "130023",
+   "dest": "formadore.nl",
+   "affid": "3127458"
+  },
+  "aw-130023-c1447317d1": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130023&awinaffid=3127458&ued=https%3A%2F%2Fformadore.nl%2Flampen",
+   "merchant": "awin",
+   "country": "NL",
+   "mid": "130023",
+   "dest": "formadore.nl",
+   "affid": "3127458"
+  },
+  "aw-130025-3ba8f80f13": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130025&awinaffid=3127458&ued=https%3A%2F%2Fformadore.co.uk%2Flighting",
+   "merchant": "awin",
+   "country": "GB",
+   "mid": "130025",
+   "dest": "formadore.co.uk",
+   "affid": "3127458"
+  },
+  "aw-130027-4602ec2757": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130027&awinaffid=3127458&ued=https%3A%2F%2Fformadore.it%2Flampade-senza-fili",
+   "merchant": "awin",
+   "country": "IT",
+   "mid": "130027",
+   "dest": "formadore.it",
+   "affid": "3127458"
+  },
+  "aw-130113-e063a0aabf": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130113&awinaffid=3127458&campaign=home+decor+fall+boost&ued=https%3A%2F%2Fdecorbites.com",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130113",
+   "dest": "decorbites.com",
+   "affid": "3127458"
+  },
+  "aw-130277-048ec5e20c": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-claire-wall-light-9-8-in-brass-white-fabric",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-0e2fbf5d17": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-lirenda-table-lamp-20-08-in-rattan-natural-white",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-1b8d58b408": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-adam-led-ceiling-light-white-wood-dimmable-cct",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-453374e628": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-vitore-pendant-light-o-40-cm-fabric-white",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-8e671c07d6": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-dangan-pillar-light-black-and-white-height-23-in-glass",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-a3c99ad38d": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-evaine-table-lamp-chrome-white-metal-66-cm",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-b0bf43445d": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-branford-table-lamp-18-in-green-metal-marble",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-130277-c4ecd13058": {
+   "url": "https://www.awin1.com/cread.php?awinmid=130277&awinaffid=3127458&ued=https%3A%2F%2Fwww.houseoflamps.com%2Fproducts%2Flucande-mendosa-led-ceiling-light-wood-o-30-cm",
+   "merchant": "awin",
+   "country": "",
+   "mid": "130277",
+   "dest": "www.houseoflamps.com",
+   "affid": "3127458"
+  },
+  "aw-131679-afebfe21d3": {
+   "url": "https://www.awin1.com/cread.php?awinmid=131679&awinaffid=3127458&ued=https%3A%2F%2Fmylands.fr%2F",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "131679",
+   "dest": "mylands.fr",
+   "affid": "3127458"
+  },
+  "aw-14288-07896b6f3b": {
+   "url": "https://www.awin1.com/cread.php?awinmid=14288&awinaffid=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "14288",
+   "dest": "",
+   "affid": "3127458"
+  },
+  "aw-14288-12efff7b73": {
+   "url": "https://www.awin1.com/cread.php?awinmid=14288&awinaffid=3127458&ued=https%3A%2F%2Fde.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "14288",
+   "dest": "de.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-17430-662a9dd007": {
+   "url": "https://www.awin1.com/cread.php?awinmid=17430&awinaffid=3127458&ued=https%3A%2F%2Fwww.getgoods.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "17430",
+   "dest": "www.getgoods.com",
+   "affid": "3127458"
+  },
+  "aw-28831-47a1a5c6b3": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2Fpromotion%2FSpring-Outdoor-Cooking-special-10212.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "28831",
+   "dest": "www.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-28831-bdc70cc0eb": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2Fbest-sellers",
+   "merchant": "awin",
+   "country": "",
+   "mid": "28831",
+   "dest": "www.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-28831-ce066bd9e9": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2Flawn-garden-c_10007",
+   "merchant": "awin",
+   "country": "",
+   "mid": "28831",
+   "dest": "www.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-28831-ebe68fe751": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28831&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "28831",
+   "dest": "www.vevor.com",
+   "affid": "3127458"
+  },
+  "aw-28833-02f370dc23": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2Fpromotion%2Fgutschein-zentrum-special-101.html",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "28833",
+   "dest": "www.vevor.de",
+   "affid": "3127458"
+  },
+  "aw-28833-13a28f8a1f": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2F",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "28833",
+   "dest": "www.vevor.de",
+   "affid": "3127458"
+  },
+  "aw-28833-5b8633d141": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2Fpromotion%2FNew-Arrivals-Drop-special-10453.html",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "28833",
+   "dest": "www.vevor.de",
+   "affid": "3127458"
+  },
+  "aw-28833-ba912197b5": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28833&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.de%2Fpromotion%2Fhotsale-special-10437.html",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "28833",
+   "dest": "www.vevor.de",
+   "affid": "3127458"
+  },
+  "aw-28839-e5dc22b462": {
+   "url": "https://www.awin1.com/cread.php?awinmid=28839&awinaffid=3127458&ued=https%3A%2F%2Fwww.vevor.co.uk%2F",
+   "merchant": "awin",
+   "country": "GB",
+   "mid": "28839",
+   "dest": "www.vevor.co.uk",
+   "affid": "3127458"
+  },
+  "aw-46127-42775d004e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=46127&awinaffid=3127458&ued=https%3A%2F%2Fwww.rowabi.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "46127",
+   "dest": "www.rowabi.com",
+   "affid": "3127458"
+  },
+  "aw-5190-8c06f17b57": {
+   "url": "https://www.awin1.com/cread.php?awinmid=5190&awinaffid=3127458&ued=https%3A%2F%2Fwww.simplyled.co.uk%2Flightbulbs%2Fspotlight-bulbs%2Fgu10%2F",
+   "merchant": "awin",
+   "country": "GB",
+   "mid": "5190",
+   "dest": "www.simplyled.co.uk",
+   "affid": "3127458"
+  },
+  "aw-5190-951048707b": {
+   "url": "https://www.awin1.com/cread.php?awinmid=5190&awinaffid=3127458&ued=https%3A%2F%2Fwww.simplyled.co.uk%2F",
+   "merchant": "awin",
+   "country": "GB",
+   "mid": "5190",
+   "dest": "www.simplyled.co.uk",
+   "affid": "3127458"
+  },
+  "aw-5190-f3f6b0137a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=5190&awinaffid=3127458&ued=https%3A%2F%2Fwww.simplyled.co.uk%2Flightbulbs%2F",
+   "merchant": "awin",
+   "country": "GB",
+   "mid": "5190",
+   "dest": "www.simplyled.co.uk",
+   "affid": "3127458"
+  },
+  "aw-52725-2ee20133a1": {
+   "url": "https://www.awin1.com/cread.php?awinmid=52725&awinaffid=3127458&ued=https%3A%2F%2Fwww.garvee.com%2Fcollections%2Ffurniture",
+   "merchant": "awin",
+   "country": "",
+   "mid": "52725",
+   "dest": "www.garvee.com",
+   "affid": "3127458"
+  },
+  "aw-52725-438b1abc30": {
+   "url": "https://www.awin1.com/cread.php?awinmid=52725&awinaffid=3127458&ued=https%3A%2F%2Fwww.garvee.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "52725",
+   "dest": "www.garvee.com",
+   "affid": "3127458"
+  },
+  "aw-5723-11a3773408": {
+   "url": "https://www.awin1.com/cread.php?awinmid=5723&awinaffid=3127458&ued=https%3A%2F%2Fwww.lights4living.com%2Fbathroom-lights",
+   "merchant": "awin",
+   "country": "",
+   "mid": "5723",
+   "dest": "www.lights4living.com",
+   "affid": "3127458"
+  },
+  "aw-5723-e418083152": {
+   "url": "https://www.awin1.com/cread.php?awinmid=5723&awinaffid=3127458&ued=https%3A%2F%2Fwww.lights4living.com",
+   "merchant": "awin",
+   "country": "",
+   "mid": "5723",
+   "dest": "www.lights4living.com",
+   "affid": "3127458"
+  },
+  "aw-62217-b582b56202": {
+   "url": "https://www.awin1.com/cread.php?awinmid=62217&awinaffid=3127458&ued=https%3A%2F%2Fgardenreet.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "62217",
+   "dest": "gardenreet.com",
+   "affid": "3127458"
+  },
+  "aw-62319-7e3c76440e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=62319&awinaffid=3127458&ued=https%3A%2F%2Ffr.trotec.com%2Fshop%2Fblack-week-deals.html",
+   "merchant": "awin",
+   "country": "",
+   "mid": "62319",
+   "dest": "fr.trotec.com",
+   "affid": "3127458"
+  },
+  "aw-7498-02cb3b2940": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fb2b-bon-cadeau",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-04dc190072": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Fampoules-g9",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-06953bd4b6": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fescalier",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-148b52824a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Flampes-dinterieur%2Feclairage-led",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-14c39006fe": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Flampes-dinterieur%2Fspots-encastres-downlights",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-19e9afe2df": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fsalon",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-1dd98f394b": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fchambre-d-enfant",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-1e57b56451": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fchambre%2Flampes-de-chevet",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-1f2cd58c79": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fchambre",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-3600e5c38e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Fampoules-gu10",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-3c460b1893": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fsalle-de-bain",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-43dfe87acd": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fcuisine",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-4b256bfc8f": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Fampoules-filament",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-5ff30bed1c": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Flampes-dinterieur%2Flampes-sans-fil",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-70dec39573": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Flampes-dinterieur%2Flampes-sur-prise-et-veilleuses",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-837038727d": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fsalle-a-manger",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-8517807426": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Fampoules-e27",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-8d163ec8a0": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Feclairage-exterieur%2Feclairage-allees",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-91d590b787": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fcuisine%2Feclairage-meuble-cuisine",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-9287a7580c": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fmaison-connectee%2Fampoules-connectees-et-intelligentes",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-972f58d42e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fcouloir",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-99e0909ff9": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Feclairage-exterieur%2Feclairage-garage",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-ab3761cd58": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fcave",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-ac8531d239": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fbureau%2Flampes-de-table-de-travail-bureau",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-b987e0a485": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "7498",
+   "dest": "",
+   "affid": "3127458"
+  },
+  "aw-7498-ba8ffa72ec": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fbureau",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-c14a4f4d19": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fluminaires-par-piece%2Fsalle-de-bain%2Fmiroirs-lumineux",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-c463b99a22": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Feclairage-exterieur%2Fluminaires-de-terrasse",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-cb73dc3ed3": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Feclairage-exterieur%2Feclairage-jardin",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-d96293b5fe": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fpromos",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-da2f0f6749": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Feclairage-exterieur%2Feclairage-entree-de-la-maison",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-dba7292ec3": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Fampoules-gu5-3-mr16",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-e67c8b9848": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Fampoules-b22",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7498-e845d05403": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7498&awinaffid=3127458&ued=https%3A%2F%2Fwww.luminaire.fr%2Fc%2Fampoules%2Flampes-led-a-intensite-variable",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "7498",
+   "dest": "www.luminaire.fr",
+   "affid": "3127458"
+  },
+  "aw-7574-1f8cf0159b": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7574&awinaffid=3127458&ued=https%3A%2F%2Fwww.lights.co.uk%2Fc%2Flight-bulbs",
+   "merchant": "awin",
+   "country": "GB",
+   "mid": "7574",
+   "dest": "www.lights.co.uk",
+   "affid": "3127458"
+  },
+  "aw-7619-721e530d73": {
+   "url": "https://www.awin1.com/cread.php?awinmid=7619&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.de%2Fc%2Fleuchtmittel",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "7619",
+   "dest": "www.lampenwelt.de",
+   "affid": "3127458"
+  },
+  "aw-8151-55ba7eb0db": {
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fc%2Flichtbronnen",
+   "merchant": "awin",
+   "country": "NL",
+   "mid": "8151",
+   "dest": "www.lampen24.nl",
+   "affid": "3127458"
+  },
+  "aw-8151-7ef65154f6": {
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fc%2Fsale",
+   "merchant": "awin",
+   "country": "NL",
+   "mid": "8151",
+   "dest": "www.lampen24.nl",
+   "affid": "3127458"
+  },
+  "aw-8151-aa0e947c43": {
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "8151",
+   "dest": "",
+   "affid": "3127458"
+  },
+  "aw-8151-c016dfbe6d": {
+   "url": "https://www.awin1.com/cread.php?awinmid=8151&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampen24.nl%2Fb2b-waardebon",
+   "merchant": "awin",
+   "country": "NL",
+   "mid": "8151",
+   "dest": "www.lampen24.nl",
+   "affid": "3127458"
+  },
+  "aw-82955-1991f69f3a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=82955&awinaffid=3127458&ued=https%3A%2F%2Fwww.ecogearfx.com%2Fproduct-category%2Ftactical-gear%2Ftactical-backpack-shoulder-sling-bags%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "82955",
+   "dest": "www.ecogearfx.com",
+   "affid": "3127458"
+  },
+  "aw-82955-cb85c1c32a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=82955&awinaffid=3127458&ued=https%3A%2F%2Fwww.ecogearfx.com%2Fproduct%2Fimr-high-drain-18650-rechargeable-batteries%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "82955",
+   "dest": "www.ecogearfx.com",
+   "affid": "3127458"
+  },
+  "aw-9292-ddaa087655": {
+   "url": "https://www.awin1.com/cread.php?awinmid=9292&awinaffid=3127458&ued=https%3A%2F%2Fwww.lampenwelt.at%2Fc%2Fleuchtmittel",
+   "merchant": "awin",
+   "country": "AT",
+   "mid": "9292",
+   "dest": "www.lampenwelt.at",
+   "affid": "3127458"
+  },
+  "aw-9373-bf00237cfd": {
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "9373",
+   "dest": "",
+   "affid": "3127458"
+  },
+  "aw-9373-df29d32f64": {
+   "url": "https://www.awin1.com/cread.php?awinmid=9373&awinaffid=3127458&ued=https%3A%2F%2Ffr.lumories.ch%2Fc%2Fampoules",
+   "merchant": "awin",
+   "country": "CH",
+   "mid": "9373",
+   "dest": "fr.lumories.ch",
+   "affid": "3127458"
+  },
+  "aw-94223-2d1c2de7e6": {
+   "url": "https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight",
+   "merchant": "awin",
+   "country": "",
+   "mid": "94223",
+   "dest": "www.imalentstore.com",
+   "affid": "3127458"
+  },
+  "aw-94223-74e869051a": {
+   "url": "https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2F",
+   "merchant": "awin",
+   "country": "",
+   "mid": "94223",
+   "dest": "www.imalentstore.com",
+   "affid": "3127458"
+  },
+  "aw-94223-b34609e683": {
+   "url": "https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com",
+   "merchant": "awin",
+   "country": "",
+   "mid": "94223",
+   "dest": "www.imalentstore.com",
+   "affid": "3127458"
+  },
+  "aw-98739-01f266d267": {
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458&ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fall-stars",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "98739",
+   "dest": "shop.ledvance.fr",
+   "affid": "3127458"
+  },
+  "aw-98739-0be3f68423": {
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458&ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fampoules-gu10",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "98739",
+   "dest": "shop.ledvance.fr",
+   "affid": "3127458"
+  },
+  "aw-98739-31040119aa": {
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458&ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fled-osram-classique",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "98739",
+   "dest": "shop.ledvance.fr",
+   "affid": "3127458"
+  },
+  "aw-98739-afac4c17ee": {
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458&ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fampoules-e27",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "98739",
+   "dest": "shop.ledvance.fr",
+   "affid": "3127458"
+  },
+  "aw-98739-bfa2cae85e": {
+   "url": "https://www.awin1.com/cread.php?awinmid=98739&awinaffid=3127458&ued=https%3A%2F%2Fshop.ledvance.fr%2Fcollections%2Fampoules-smart",
+   "merchant": "awin",
+   "country": "FR",
+   "mid": "98739",
+   "dest": "shop.ledvance.fr",
+   "affid": "3127458"
+  },
+  "aw-x-2159e05ca4": {
+   "url": "https://www.awin1.com/pclick.php?p=46246025083&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-26173ce87f": {
+   "url": "https://www.awin1.com/pclick.php?p=45225462349&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-355bac1c5f": {
+   "url": "https://www.awin1.com/pclick.php?p=46381369825&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-435cd4347d": {
+   "url": "https://www.awin1.com/pclick.php?p=46390597656&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-50d0775c83": {
+   "url": "https://www.awin1.com/pclick.php?p=45114790907&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-50ff8675e6": {
+   "url": "https://www.awin1.com/pclick.php?p=46381369701&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-6b69ff2226": {
+   "url": "https://www.awin1.com/pclick.php?p=46246025029&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-798d9b030c": {
+   "url": "https://www.awin1.com/pclick.php?p=46317415938&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-9646692d0f": {
+   "url": "https://www.awin1.com/pclick.php?p=46317416057&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-a6a198badb": {
+   "url": "https://www.awin1.com/pclick.php?p=46359010299&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-aa10d0a22c": {
+   "url": "https://www.awin1.com/pclick.php?p=45114790555&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-e2a02a2c76": {
+   "url": "https://www.awin1.com/pclick.php?p=46387413556&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-e3439d7d2f": {
+   "url": "https://www.awin1.com/pclick.php?p=45114790889&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-e38ac65422": {
+   "url": "https://www.awin1.com/pclick.php?p=45843200190&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "aw-x-f144627578": {
+   "url": "https://www.awin1.com/pclick.php?p=45114790866&a=3127458&m=31151",
+   "merchant": "awin",
+   "country": ""
+  },
+  "az-be-6dad254c95": {
+   "url": "https://www.amazon.com.be/s?k=ampoule+LED+E27+dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "BE",
+   "tag": "manuso06-21"
+  },
+  "az-ca-02a1141a76": {
+   "url": "https://www.amazon.ca/s?k=ZOTOYI%20guirlande%20guinguette%20ext%C3%A9rieure%2015%20m%20(15%2B1%20ampoules%20S14)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-04e2d29726": {
+   "url": "https://www.amazon.ca/s?k=Hellum%20LED%20bougie%20E14%20mat%20%E2%80%93%20lot%20de%205&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-0528aabebf": {
+   "url": "https://www.amazon.ca/s?k=Unilux%20Mambo%20lampe%20de%20bureau%20LED%203000%E2%80%935000K&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-06c4bea942": {
+   "url": "https://www.amazon.ca/s?k=Annmore%20veilleuse%20nuage%20rechargeable&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-0a29fefd61": {
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20Ambiance%20E27%201100%20lm&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-0db176bba6": {
+   "url": "https://www.amazon.ca/dp/B0F18462GT?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-0e3479606b": {
+   "url": "https://www.amazon.ca/dp/B0972HH7C6?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-143946d80f": {
+   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20%E2%80%93%20barre%20lumineuse%20pour%20%C3%A9cran&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-14d9e8831c": {
+   "url": "https://www.amazon.ca/s?k=TRUMPETS%20lampe%20de%20chevet%20tactile%20sans%20fil&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-157a01d0b3": {
+   "url": "https://www.amazon.ca/s?k=OREiN%20projecteur%20LED%2024W%20%C3%A0%20d%C3%A9tecteur%2C%203%20teintes&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-16a86cd7bb": {
+   "url": "https://www.amazon.ca/s?k=Philips%20spot%20LED%20GU10%20WarmGlow%20dimmable%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-246c5582ee": {
+   "url": "https://www.amazon.ca/s?k=Guirlande%20guinguette%2010%20m%20G40%2024V%20dimmable&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-2771d36303": {
+   "url": "https://www.amazon.ca/dp/B0B272H45X?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-28d55cfe4b": {
+   "url": "https://www.amazon.ca/s?k=GY%20ampoule%20LED%20G9%203%2C2W%203000K%20520%20lm&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-2984149187": {
+   "url": "https://www.amazon.ca/s?k=Spots%20solaires%20ext%C3%A9rieurs%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%203&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-29e371b543": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20Classic%20A60%20E27%20%C3%A9q.%20100W%20%E2%80%93%20pack&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-2a7daae0e4": {
+   "url": "https://www.amazon.ca/s?k=ISOLATECH%20kit%20de%20142%20gaines%20thermor%C3%A9tractables%203%3A1%20avec%20colle&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-2a846788ef": {
+   "url": "https://www.amazon.ca/s?k=REYLAX%20alimentation%20LED%2024V%20100W%20dimmable&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-3338cdd227": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%20%C3%A9q.%20100W%20claire%2C%20compatible%20variateur&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-3755ad0e05": {
+   "url": "https://www.amazon.ca/dp/B073FT1QT2?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-3b03d62b20": {
+   "url": "https://www.amazon.ca/s?k=Wattm%C3%A8tre%20prise%207%20modes%2C%20%C3%A9cran%20LCD&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-3baefc5fb3": {
+   "url": "https://www.amazon.ca/dp/B08HV4WG3Y?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-41446ba0d2": {
+   "url": "https://www.amazon.ca/s?k=HOFTRONIC%20r%C3%A9glette%20LED%20%C3%A9tanche%20120%20cm%2036W%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-46bcc4eac3": {
+   "url": "https://www.amazon.ca/s?k=SEBSON%20r%C3%A9glette%20LED%20cuisine%2060%20cm%20avec%20interrupteur&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-48b6999f6e": {
+   "url": "https://www.amazon.ca/dp/B0BPX1ZZXJ?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-4b70e355c5": {
+   "url": "https://www.amazon.ca/dp/B0CZ9B4C2B?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-4c0371af42": {
+   "url": "https://www.amazon.ca/s?k=Bojim%20spots%20LED%20encastrables%20orientables%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-4cb5862365": {
+   "url": "https://www.amazon.ca/dp/B0B7W9VRB7?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-4fc62e57d1": {
+   "url": "https://www.amazon.ca/dp/B0CGRC4GQ9?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-53793d23b8": {
+   "url": "https://www.amazon.ca/s?k=R%C3%A9glette%20LED%20orientable%20sous%20meuble%2056%20cm%20(3000%2F4000%2F6000K)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-59729c5aa2": {
+   "url": "https://www.amazon.ca/s?k=Oktaplex%20Riga%20r%C3%A9glette%20sous%20meuble%2028%20cm%204000K&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-5ccae67d05": {
+   "url": "https://www.amazon.ca/s?k=YIIFELL%20ampoule%20four%20E14%20300%20%C2%B0C%20%E2%80%93%20lot%20de%204&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-5ceca89cb1": {
+   "url": "https://www.amazon.ca/s?k=Ampoule%20E27%207W%20%C3%A0%20d%C3%A9tecteur%20de%20mouvement%20orientable&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-61fe89798f": {
+   "url": "https://www.amazon.ca/s?k=Tapo%20L530E%20Wi-Fi%20E27%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-6266e108ba": {
+   "url": "https://www.amazon.ca/dp/B0FGD6H3NZ?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-64821b3c81": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%208W%20(%C3%A9q.%2060W)%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-6730e7c6b4": {
+   "url": "https://www.amazon.ca/dp/B0CDC1ZV8B?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-67a7b2b523": {
+   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20Halo%202%20avec%20t%C3%A9l%C3%A9commande&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-6b9851e4eb": {
+   "url": "https://www.amazon.ca/dp/B0DDK55MF7?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-6c8c06bad0": {
+   "url": "https://www.amazon.ca/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-6d602f84b6": {
+   "url": "https://www.amazon.ca/dp/B07B4CPRDQ?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-6df648aa5a": {
+   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%204%2C5W%20805%20lm%204000K%20%E2%80%93%20lot%20de%2012&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-73b2bf12bc": {
+   "url": "https://www.amazon.ca/s?k=Lampe%20frontale%20LED%20rechargeable%20%C3%A0%20capteur&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-7463b1e167": {
+   "url": "https://www.amazon.ca/dp/B01KHIM7OG?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-74b7c37e4e": {
+   "url": "https://www.amazon.ca/s?k=slochi%20plafonnier%20LED%2024W%20dimmable%20avec%20t%C3%A9l%C3%A9commande&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-76ca8d088c": {
+   "url": "https://www.amazon.ca/s?k=Lucide%20ONNO%20applique%20miroir%20LED%2011W%20IP44&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-792c395c84": {
+   "url": "https://www.amazon.ca/s?k=SANSI%20ampoule%20horticole%20LED%20E27%2024W%20spectre%20complet&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-7ab2005133": {
+   "url": "https://www.amazon.ca/s?k=Lampe%20de%20bureau%20LED%20architecte%201000%20lm%20%C3%A0%20pince&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-7c4b5f3240": {
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU5.3%20MR16%2012V%204000K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-7cec8eff49": {
+   "url": "https://www.amazon.ca/dp/B0BBLYJCFF?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-7d69e975db": {
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20ampoule%20LED%20E14%20pour%20frigo%203W%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-7f20a0d5af": {
+   "url": "https://www.amazon.ca/dp/B099NRLRG3?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-832bdad5bb": {
+   "url": "https://www.amazon.ca/s?k=Osram%20Base%20Classic%20A%20E27%20%C3%A9q.%20100W%204000K%20%E2%80%93%20lot%20de%203&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-86b9048157": {
+   "url": "https://www.amazon.ca/s?k=Lampe%20de%20chevet%20bois%20tactile%20%2B%20chargeur%20sans%20fil&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-899850a2e5": {
+   "url": "https://www.amazon.ca/dp/B09N8W4DMT?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-89fe9d53d5": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20filament%20E27%20%C3%A9q.%2060W%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-8ad3b4ffbc": {
+   "url": "https://www.amazon.ca/dp/B07MRBVNWM?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-8d0a9c5af1": {
+   "url": "https://www.amazon.ca/s?k=ARUM%20LED%20B22%208%2C5W%202700K%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-8e6cf6f7ec": {
+   "url": "https://www.amazon.ca/dp/B0DGPZCMG6?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-8fa8c083bc": {
+   "url": "https://www.amazon.ca/s?k=V-TAC%20LED%20E27%208%2C5W%20806%20lm%204000K&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-901998f078": {
+   "url": "https://www.amazon.ca/s?k=TOPAI%20ruban%20LED%20COB%2024V%205%20m%203000K%20IP65&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-91503ce83f": {
+   "url": "https://www.amazon.ca/s?k=Armytek%20Wizard%20C2%20Pro%20lampe%20frontale%20rechargeable&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-91af7f82b9": {
+   "url": "https://www.amazon.ca/s?k=Lucide%20ST64%20ampoule%20filament%20E27%20cr%C3%A9pusculaire&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-96edceac16": {
+   "url": "https://www.amazon.ca/dp/B07TSKP9JC?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-99ab056391": {
+   "url": "https://www.amazon.ca/s?k=Lumic%20Mouvement%203.0%20r%C3%A9glette%20sans%20fil%20%C3%A0%20d%C3%A9tecteur&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-9b9a1f14e5": {
+   "url": "https://www.amazon.ca/s?k=OUILA%20lampe%20de%20placard%20LED%20rechargeable%2060%20cm%20%C3%A0%20d%C3%A9tecteur&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-9c5ac89512": {
+   "url": "https://www.amazon.ca/dp/B01LZEWUT7?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-9d83af6a33": {
+   "url": "https://www.amazon.ca/s?k=Tapo%20L530E%20ampoule%20connect%C3%A9e%20Wi-Fi%20E27&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-9e53efeea8": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20flamme%20B35%20E14%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-9f3e5e5130": {
+   "url": "https://www.amazon.ca/s?k=Plafonnier%20LED%2024W%202800%20lm%20dimmable%20(%C3%9830%20cm)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-a1df151c28": {
+   "url": "https://www.amazon.ca/dp/B0D6BJZJ56?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-a395ff2132": {
+   "url": "https://www.amazon.ca/dp/B0FJ8VXHRX?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-a6424c3106": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%204%2C9W%20(%C3%A9q.%2040W)%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-a6b5c7bbf3": {
+   "url": "https://www.amazon.ca/s?k=SANSI%20lampe%20horticole%2020W%20%C3%A0%202%20t%C3%AAtes&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-a8da62803d": {
+   "url": "https://www.amazon.ca/s?k=talifoca%20wattm%C3%A8tre%20prise&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-a9bf74c20b": {
+   "url": "https://www.amazon.ca/dp/B07H7HB6LG?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-ae9f723a6d": {
+   "url": "https://www.amazon.ca/dp/B08Z4KCJZY?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-af3ffb6fa6": {
+   "url": "https://www.amazon.ca/s?k=Projecteur%20LED%2030W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%2C%203%20teintes&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-b0898199c0": {
+   "url": "https://www.amazon.ca/dp/B09F9MZ4PH?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-b13c161a43": {
+   "url": "https://www.amazon.ca/s?k=Arotelicht%20spots%20encastr%C3%A9s%20escalier%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-b14d5d13cc": {
+   "url": "https://www.amazon.ca/s?k=BTF-LIGHTING%20ruban%20LED%20COB%2024V%205%20m%203000K%20IRC%2090%2B&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-b18c72096f": {
+   "url": "https://www.amazon.ca/s?k=REYLAX%20transformateur%20LED%2024V%2060W&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-b69c2869cc": {
+   "url": "https://www.amazon.ca/dp/B0F62SG8Z9?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-b7aa43a438": {
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU10%206W%20550%20lm%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-bb4e83aac5": {
+   "url": "https://www.amazon.ca/dp/B0766441R8?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-c031ba6e48": {
+   "url": "https://www.amazon.ca/s?k=EACLL%20ampoules%20LED%20GU5.3%2012V%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-c05eb03b41": {
+   "url": "https://www.amazon.ca/s?k=Ampoule%20LED%20B22%2015W%201520%20lm%204000K&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-c0a17caeab": {
+   "url": "https://www.amazon.ca/s?k=AstroAI%20multim%C3%A8tre%20num%C3%A9rique%202000%20points&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-c220df5022": {
+   "url": "https://www.amazon.ca/s?k=AGOTD%20ampoule%20LED%20G9%202700K%20650%20lm%20%E2%80%93%20lot%20de%203&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-c41cde9c62": {
+   "url": "https://www.amazon.ca/dp/B08GDC99PX?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-cb09594fcb": {
+   "url": "https://www.amazon.ca/s?k=SONOFF%20ZBMINIL2%20module%20interrupteur%20Zigbee%20sans%20neutre&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-cf7350877a": {
+   "url": "https://www.amazon.ca/s?k=SILAMP%20applique%20salle%20de%20bain%2012W%20IP44&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-d095c18628": {
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20%26%20Color%20Ambiance%20%E2%80%93%20kit%20de%20d%C3%A9marrage%20E27&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-d3188f5f77": {
+   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%204%2C9W%20790%20lm%204000K%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-d504bc0960": {
+   "url": "https://www.amazon.ca/dp/B099NPGWCQ?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-d5a30b2f09": {
+   "url": "https://www.amazon.ca/s?k=Chesbung%20profil%C3%A9%20aluminium%20en%20V%20pour%20ruban%20LED%20(20%20%C3%97%201%20m)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-d643c046c8": {
+   "url": "https://www.amazon.ca/s?k=KOMIGANLED%20kit%20%C3%A9clairage%20escalier%20%C3%A0%20d%C3%A9tecteur%20(16%20marches)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-da1dfaf47c": {
+   "url": "https://www.amazon.ca/dp/B00MOIWOAK?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-dcc7803137": {
+   "url": "https://www.amazon.ca/s?k=STEINEL%20XSolar%20L-S%20ONE%20applique%20solaire%20%C3%A0%20d%C3%A9tecteur&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-de67876c97": {
+   "url": "https://www.amazon.ca/s?k=SILAMP%20r%C3%A9glette%20LED%20%C3%A9tanche%2036W%20120%20cm%20IP65&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-deed8ebeb9": {
+   "url": "https://www.amazon.ca/s?k=MediAcous%20veilleuse%20tactile%20rechargeable&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-df99052ff2": {
+   "url": "https://www.amazon.ca/s?k=Shelly%201L%20Gen3%20module%20Wi-Fi%20sans%20neutre%20%2B%20bypass&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-e1c337e287": {
+   "url": "https://www.amazon.ca/s?k=libtit%20r%C3%A9glette%20sans%20fil%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-e75fba72c8": {
+   "url": "https://www.amazon.ca/s?k=Philips%20spot%20LED%20GU10%204%2C6W%20blanc%20chaud%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-e7871bfd55": {
+   "url": "https://www.amazon.ca/s?k=JZK%20driver%20LED%2012V%20DC%2030W%20(2%2C5%20A)%20pour%20MR16%20%2F%20G4&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-e7c28c23a9": {
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20E27%20800%20lm%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-ed2dbe4d97": {
+   "url": "https://www.amazon.ca/s?k=Lampe%20de%20placard%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-ed55b36ed8": {
+   "url": "https://www.amazon.ca/s?k=CLY%20projecteur%20LED%2060W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-ef56bd3df9": {
+   "url": "https://www.amazon.ca/s?k=Legrand%20dooxie%20variateur%20toutes%20lampes%202%20fils%20(avec%20plaque)&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-ca-f37c24bfac": {
+   "url": "https://www.amazon.ca/s?k=Caldarax%20ampoule%20four%20E14%20T20%20300%20%C2%B0C%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducatif-20"
+  },
+  "az-de-0141d21227": {
+   "url": "https://www.amazon.de/dp/B094YKGD5N?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-0385054b4a": {
+   "url": "https://www.amazon.de/blackfriday?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-05ad7e1c6a": {
+   "url": "https://www.amazon.de/dp/B07665DHG6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-0be024f8e2": {
+   "url": "https://www.amazon.de/dp/B0DYVCTSHH?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-0c73011ef6": {
+   "url": "https://www.amazon.de/dp/B0785D93KD?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-1057f7059c": {
+   "url": "https://www.amazon.de/dp/B01LZEWUT7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-130f40d523": {
+   "url": "https://www.amazon.de/dp/B084VTQWL5?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-18abc500b0": {
+   "url": "https://www.amazon.de/dp/B0C4LCT7J7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-1cbf2f3ec8": {
+   "url": "https://www.amazon.de/dp/B0DHRX4CJZ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-20299f3a8e": {
+   "url": "https://www.amazon.de/dp/B08GDC99PX?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-209560408b": {
+   "url": "https://www.amazon.de/dp/B093C67CNV?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-2560815df4": {
+   "url": "https://www.amazon.de/dp/B073QSXXCH?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-293fbad94d": {
+   "url": "https://www.amazon.de/dp/B07B4CPRDQ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-29e2bc19c8": {
+   "url": "https://www.amazon.de/dp/B099NPGWCQ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-29e50f26a3": {
+   "url": "https://www.amazon.de/dp/B0F62SG8Z9?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-2aec8cc452": {
+   "url": "https://www.amazon.de/dp/B08P8T8LN1?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-2eff6684dc": {
+   "url": "https://www.amazon.de/dp/B0B9WSBMH4?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-31c515eab9": {
+   "url": "https://www.amazon.de/dp/B0CZ9B4C2B?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-32c1c1993e": {
+   "url": "https://www.amazon.de/dp/B0D6BJZJ56?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-3643adb896": {
+   "url": "https://www.amazon.de/dp/B0972HH7C6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-365b2f2d74": {
+   "url": "https://www.amazon.de/dp/B08MFN1S45?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-37ab594956": {
+   "url": "https://www.amazon.de/dp/B0B272H45X?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-399b86387b": {
+   "url": "https://www.amazon.de/dp/B07R48JG34?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-42509465e2": {
+   "url": "https://www.amazon.de/dp/B08R8Y6Q8Y?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-480eff0123": {
+   "url": "https://www.amazon.de/dp/B0DK59YKRS?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-5519472d0f": {
+   "url": "https://www.amazon.de/dp/B09F9MZ4PH?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-632fd6db21": {
+   "url": "https://www.amazon.de/dp/B09534N6WS?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-644d6e5a82": {
+   "url": "https://www.amazon.de/s?k=LED+Lampe+E27+warmweiss&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-64dbe6885b": {
+   "url": "https://www.amazon.de/dp/B09QLY8QFZ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-6694b7c724": {
+   "url": "https://www.amazon.de/dp/B0BN18B6F4?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-6a89971fb4": {
+   "url": "https://www.amazon.de/dp/B07VNNFBHV?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-6ba9e6fee9": {
+   "url": "https://www.amazon.de/dp/B019QJ612G?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-728bb173ec": {
+   "url": "https://www.amazon.de/dp/B07MRBVNWM?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-73b66bd100": {
+   "url": "https://www.amazon.de/dp/B08R6V74XD?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-749c9d4939": {
+   "url": "https://www.amazon.de/dp/B07T4PL4LR?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-760986508b": {
+   "url": "https://www.amazon.de/dp/B073FT1QT2?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-76cf28f2b8": {
+   "url": "https://www.amazon.de/dp/B0DDK55MF7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-79a267bd2f": {
+   "url": "https://www.amazon.de/dp/B09XMP2CPQ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-7c91ad8723": {
+   "url": "https://www.amazon.de/dp/B099NRLRG3?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-7e5b52195b": {
+   "url": "https://www.amazon.de/dp/B0F18462GT?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-7e9aac3fed": {
+   "url": "https://www.amazon.de/dp/B0BNDC7BPV?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-805d94d2ca": {
+   "url": "https://www.amazon.de/dp/B08HV4WG3Y?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-86c0a64a70": {
+   "url": "https://www.amazon.de/dp/B0B87XVX16?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-8bae33e203": {
+   "url": "https://www.amazon.de/dp/B01KHIM7OG?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-8c3aaf5ad8": {
+   "url": "https://www.amazon.de/dp/B0B7W9VRB7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-8e037713bd": {
+   "url": "https://www.amazon.de/dp/B0F1CV6R3M?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-90b693858f": {
+   "url": "https://www.amazon.de/dp/B0BZ59BD65?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-91a7daa5be": {
+   "url": "https://www.amazon.de/dp/B0FS651RKH?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-92934e498b": {
+   "url": "https://www.amazon.de/dp/B09NS944X2?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-9c1462b350": {
+   "url": "https://www.amazon.de/dp/B0C5371TQL?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-9eebf9d112": {
+   "url": "https://www.amazon.de/dp/B09V1N212P?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a016ebbea9": {
+   "url": "https://www.amazon.de/dp/B0BD3X5XGQ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a161c57939": {
+   "url": "https://www.amazon.de/dp/B0CRL387FM?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a2af755750": {
+   "url": "https://www.amazon.de/dp/B091HPTZYH?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a34eec5dbd": {
+   "url": "https://www.amazon.de/dp/B0BPX1ZZXJ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a48461b243": {
+   "url": "https://www.amazon.de/dp/B01ISAMUA6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a668df5300": {
+   "url": "https://www.amazon.de/dp/B09TQZVFY7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a804baef0f": {
+   "url": "https://www.amazon.de/dp/B07665H9B7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-aa0650bca8": {
+   "url": "https://www.amazon.de/dp/B0B1J4ZP4T?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-aef36769e9": {
+   "url": "https://www.amazon.de/dp/B0DGPZCMG6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b090bb15ba": {
+   "url": "https://www.amazon.de/dp/B0CGRC4GQ9?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b70b56f1a9": {
+   "url": "https://www.amazon.de/dp/B07H7HB6LG?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b849fc3203": {
+   "url": "https://www.amazon.de/dp/B07ZNX36QV?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b8b7a5d342": {
+   "url": "https://www.amazon.de/dp/B09ZBJPNK4?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-bc6860ea0e": {
+   "url": "https://www.amazon.de/dp/B0DLG23BNS?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-bd64adc11e": {
+   "url": "https://www.amazon.de/dp/B08Z4KCJZY?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-c6016b0e21": {
+   "url": "https://www.amazon.de/dp/B0919GN6FK?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-cbebb29ed6": {
+   "url": "https://www.amazon.de/dp/B0FJ8VXHRX?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-cddd8036a3": {
+   "url": "https://www.amazon.de/dp/B0CNCDF1TD?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-cfce4e07cb": {
+   "url": "https://www.amazon.de/dp/B0CRL78J86?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-d0f6bda952": {
+   "url": "https://www.amazon.de/dp/B0FGD6H3NZ?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-d428cd18a2": {
+   "url": "https://www.amazon.de/dp/B0B3MHF5NV?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-d45319aef6": {
+   "url": "https://www.amazon.de/dp/B0BBLYJCFF?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-dd37d74151": {
+   "url": "https://www.amazon.de/dp/B07TSKP9JC?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-de9d79bbc1": {
+   "url": "https://www.amazon.de/dp/B0CGSLZVD6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-e305176dfc": {
+   "url": "https://www.amazon.de/dp/B0F4XTC2G4?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f51af3e146": {
+   "url": "https://www.amazon.de/dp/B00MOIWOAK?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f785d6eef6": {
+   "url": "https://www.amazon.de/dp/B0CNVLRK6R?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-fa00a2c658": {
+   "url": "https://www.amazon.de/dp/B08NWLXPMC?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-es-011e76952d": {
+   "url": "https://www.amazon.es/dp/B0F62SG8Z9?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-06173ab5f1": {
+   "url": "https://www.amazon.es/dp/B099NRLRG3?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-07e6d82d5c": {
+   "url": "https://www.amazon.es/dp/B09ZBJPNK4?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-0b8cc663e0": {
+   "url": "https://www.amazon.es/dp/B07TSKP9JC?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-0e6c75a894": {
+   "url": "https://www.amazon.es/dp/B019QJ612G?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-148530339b": {
+   "url": "https://www.amazon.es/dp/B08NWF8F99?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-16e8369632": {
+   "url": "https://www.amazon.es/dp/B0C5371TQL?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-18dc2de5d5": {
+   "url": "https://www.amazon.es/dp/B0919GN6FK?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-193bf5ec75": {
+   "url": "https://www.amazon.es/dp/B0CNVLRK6R?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-1d863eb02d": {
+   "url": "https://www.amazon.es/dp/B07SW396C3?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-1f413dc4ca": {
+   "url": "https://www.amazon.es/dp/B09534N6WS?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-1fc7db9d05": {
+   "url": "https://www.amazon.es/dp/B0D6BJZJ56?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-2032050d5e": {
+   "url": "https://www.amazon.es/dp/B0DGPZCMG6?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-23b15c6ea5": {
+   "url": "https://www.amazon.es/dp/B08R6V74XD?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-31de580928": {
+   "url": "https://www.amazon.es/dp/B0BZ59BD65?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-32caa71341": {
+   "url": "https://www.amazon.es/dp/B07MRBVNWM?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-341120601d": {
+   "url": "https://www.amazon.es/dp/B0CRL78J86?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-370b2ffa0c": {
+   "url": "https://www.amazon.es/dp/B0DHRX4CJZ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-3af4eda5a1": {
+   "url": "https://www.amazon.es/dp/B0BN18B6F4?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-3b195a2c8c": {
+   "url": "https://www.amazon.es/dp/B08GDC99PX?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-3cdaddedb3": {
+   "url": "https://www.amazon.es/dp/B0FP4ZKX9Z?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-3f3889fdbf": {
+   "url": "https://www.amazon.es/dp/B0D47DF8R7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-41ed467e44": {
+   "url": "https://www.amazon.es/dp/B0DYVCTSHH?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-46e34a30f3": {
+   "url": "https://www.amazon.es/dp/B0B3MHF5NV?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-494b05458d": {
+   "url": "https://www.amazon.es/dp/B0972HH7C6?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-4a9c7fe733": {
+   "url": "https://www.amazon.es/dp/B07R48JG34?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-53114ca4f2": {
+   "url": "https://www.amazon.es/dp/B09TQZVFY7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-565871c9c7": {
+   "url": "https://www.amazon.es/dp/B0F18462GT?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-56dc586d96": {
+   "url": "https://www.amazon.es/dp/B0F1CV6R3M?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-5c275eb6df": {
+   "url": "https://www.amazon.es/dp/B093C67CNV?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-6285caeffa": {
+   "url": "https://www.amazon.es/dp/B073FT1QT2?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-692e874f86": {
+   "url": "https://www.amazon.es/dp/B0BNDC7BPV?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-6ab1ab75e4": {
+   "url": "https://www.amazon.es/dp/B0D83TX1B1?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-6accaa1d01": {
+   "url": "https://www.amazon.es/dp/B07B4CPRDQ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-6d3dffb26d": {
+   "url": "https://www.amazon.es/dp/B0FJ8VXHRX?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-6e2242c099": {
+   "url": "https://www.amazon.es/dp/B0CGRC4GQ9?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-711608bb97": {
+   "url": "https://www.amazon.es/dp/B0C4LCT7J7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-754024e957": {
+   "url": "https://www.amazon.es/dp/B0CGSLZVD6?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-7d6d267ee9": {
+   "url": "https://www.amazon.es/dp/B07665DHG6?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-7d7e4fa2c8": {
+   "url": "https://www.amazon.es/dp/B0B7W9VRB7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-83a25ae5a4": {
+   "url": "https://www.amazon.es/dp/B0B272H45X?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-83aa3eabc2": {
+   "url": "https://www.amazon.es/dp/B07H7HB6LG?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-843a4be78b": {
+   "url": "https://www.amazon.es/dp/B0DLG23BNS?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-84fc65ce16": {
+   "url": "https://www.amazon.es/dp/B09NS944X2?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-85975776c4": {
+   "url": "https://www.amazon.es/dp/B094YKGD5N?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-88d51f64f6": {
+   "url": "https://www.amazon.es/dp/B0CHB8GPHW?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-8a7f484428": {
+   "url": "https://www.amazon.es/dp/B0FS651RKH?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-8c64a2dc5c": {
+   "url": "https://www.amazon.es/dp/B08Z4KCJZY?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-8dfae2bc1e": {
+   "url": "https://www.amazon.es/dp/B01ISAMUA6?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-91c7cf0023": {
+   "url": "https://www.amazon.es/dp/B08NWLXPMC?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-946f673ea3": {
+   "url": "https://www.amazon.es/dp/B08R8Y6Q8Y?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-951922e0a9": {
+   "url": "https://www.amazon.es/dp/B077N1C7F3?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-9a17dd3042": {
+   "url": "https://www.amazon.es/dp/B08BHXPXNF?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-9c911c0258": {
+   "url": "https://www.amazon.es/dp/B00MOIWOAK?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-9ce55da487": {
+   "url": "https://www.amazon.es/dp/B0CZ9B4C2B?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-a675b945fb": {
+   "url": "https://www.amazon.es/dp/B07665H9B7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-a893ffeffc": {
+   "url": "https://www.amazon.es/dp/B07VNNFBHV?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-a9393f51f0": {
+   "url": "https://www.amazon.es/dp/B0B87XVX16?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-acd41abb98": {
+   "url": "https://www.amazon.es/dp/B09QLY8QFZ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-ae69f0e13b": {
+   "url": "https://www.amazon.es/dp/B099NPGWCQ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-ae9ef85fdc": {
+   "url": "https://www.amazon.es/dp/B09V1N212P?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-aeb63917ff": {
+   "url": "https://www.amazon.es/blackfriday?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-af607bd3cf": {
+   "url": "https://www.amazon.es/dp/B0BBLYJCFF?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b2e4e6e88b": {
+   "url": "https://www.amazon.es/dp/B0CRL387FM?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b320cc4448": {
+   "url": "https://www.amazon.es/dp/B08M69ZLQ4?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b3a6dbe5d5": {
+   "url": "https://www.amazon.es/dp/B0785D93KD?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b476daa2af": {
+   "url": "https://www.amazon.es/dp/B091HPTZYH?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b87d9ec26a": {
+   "url": "https://www.amazon.es/dp/B09XMP2CPQ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b9455c2ad2": {
+   "url": "https://www.amazon.es/dp/B0FC2WZ5VT?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-bf867e44fd": {
+   "url": "https://www.amazon.es/dp/B08SMN32HT?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-c1e6e4976f": {
+   "url": "https://www.amazon.es/dp/B01LZEWUT7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-c4af6094ca": {
+   "url": "https://www.amazon.es/dp/B08P8T8LN1?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-c821854e57": {
+   "url": "https://www.amazon.es/dp/B0CNCDF1TD?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-c8aec9f440": {
+   "url": "https://www.amazon.es/dp/B09F9MZ4PH?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-cd08988077": {
+   "url": "https://www.amazon.es/dp/B0D3VBP11G?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-cfeeacd0fc": {
+   "url": "https://www.amazon.es/dp/B084VTQWL5?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-d977cdc334": {
+   "url": "https://www.amazon.es/dp/B0DDK55MF7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-dab1d945a4": {
+   "url": "https://www.amazon.es/dp/B01KHIM7OG?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-e476fb7f5d": {
+   "url": "https://www.amazon.es/dp/B0DK59YKRS?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-e50f8e6900": {
+   "url": "https://www.amazon.es/dp/B0FGD6H3NZ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-eaa9b7ca78": {
+   "url": "https://www.amazon.es/dp/B08MFN1S45?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-ee77d02d7f": {
+   "url": "https://www.amazon.es/dp/B08HV4WG3Y?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-f0221e99e1": {
+   "url": "https://www.amazon.es/dp/B07T4PL4LR?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-f1c59fe2ba": {
+   "url": "https://www.amazon.es/dp/B0BPX1ZZXJ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-f67dec94b6": {
+   "url": "https://www.amazon.es/dp/B0FKGR2L1M?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-f8e7796a94": {
+   "url": "https://www.amazon.es/dp/B0B1J4ZP4T?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-f90ed5f674": {
+   "url": "https://www.amazon.es/dp/B073QSXXCH?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-fe50c4c5bd": {
+   "url": "https://www.amazon.es/dp/B0F8J78MVG?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-fr-0128f28b65": {
+   "url": "https://www.amazon.fr/dp/B00MOIWOAK?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-02b9e668f9": {
+   "url": "https://www.amazon.fr/s?k=spot+encastrable+led+orientable+cave+a+vin+3000k+irc+90&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0433067386": {
+   "url": "https://www.amazon.fr/s?k=bandeau+led+sol+couloir+3000k+irc+90&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-05f53b3f8c": {
+   "url": "https://www.amazon.fr/dp/B07665H9B7",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-074c3886f7": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20e14%20frigo%20led&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-078ad4b473": {
+   "url": "https://www.amazon.fr/dp/B0FGD6H3NZ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-081d3e522d": {
+   "url": "https://www.amazon.fr/dp/B09NS944X2",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-085cac5a62": {
+   "url": "https://www.amazon.fr/dp/B08Z4KCJZY?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-08f8e4bd62": {
+   "url": "https://www.amazon.fr/dp/B0BBLYJCFF?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-099a8cc43f": {
+   "url": "https://www.amazon.fr/dp/B0DGPZCMG6",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-09b02d15f5": {
+   "url": "https://www.amazon.fr/s?k=variateur+compatible+led+dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0ad4e39790": {
+   "url": "https://www.amazon.fr/s?k=variateur+led+fin+onde+universel&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0bcda35ef3": {
+   "url": "https://www.amazon.fr/dp/B09QLY8QFZ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-0c09aacb5d": {
+   "url": "https://www.amazon.fr/dp/B0BPX1ZZXJ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0c810f9a49": {
+   "url": "https://www.amazon.fr/s?k=projecteur%20led%20encastrable%20orientable%202700k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0d9af7087d": {
+   "url": "https://www.amazon.fr/dp/B0CNCDF1TD?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0d9f13e030": {
+   "url": "https://www.amazon.fr/dp/B0B87XVX16",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-0e3dbc7144": {
+   "url": "https://www.amazon.fr/s?k=condensateur+bipolaire+0.47+uf+450v+led&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0e4e45e448": {
+   "url": "https://www.amazon.fr/dp/B084VTQWL5?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0ed8c94e0b": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+dimmable+e27+2700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1116a114e4": {
+   "url": "https://www.amazon.fr/dp/B0B3MHF5NV?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-12d1ed07fb": {
+   "url": "https://www.amazon.fr/s?k=detecteur+mouvement+exterieur+mural+ip65&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-12e4a6eb98": {
+   "url": "https://www.amazon.fr/s?k=spot%20sol%20led%20doux%20cave%202700k%20dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1460f83e96": {
+   "url": "https://www.amazon.fr/s?k=capteur+ouverture+porte+detecteur+cave&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-16152b05b1": {
+   "url": "https://www.amazon.fr/dp/B0BPX1ZZXJ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-16284f5164": {
+   "url": "https://www.amazon.fr/dp/B0BZ59BD65",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-16834682b4": {
+   "url": "https://www.amazon.fr/dp/B07R48JG34?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1700d0b6c5": {
+   "url": "https://www.amazon.fr/dp/B093C67CNV?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-190b793b41": {
+   "url": "https://www.amazon.fr/dp/B0B87XVX16?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1a430333b8": {
+   "url": "https://www.amazon.fr/dp/B08P8T8LN1?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1aa29deb79": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+dimmable+e27+variateur+compatible&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1abe846e90": {
+   "url": "https://www.amazon.fr/dp/B0919GN6FK",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-1e52ef9fad": {
+   "url": "https://www.amazon.fr/dp/B0CZ9B4C2B?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1e710b57c9": {
+   "url": "https://www.amazon.fr/s?k=led%20dimmable%20e27%203000k%20variateur%20compatible%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1e84585b57": {
+   "url": "https://www.amazon.fr/s?k=Philips%20LED%20E27%208W%20(%C3%A9q.%2060W)%202700K%20%E2%80%93%20lot%20de%206&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1eb7471d4d": {
+   "url": "https://www.amazon.fr/s?k=suspension+exterieur+led+ip65+2700k+irc+90&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1ee14bc859": {
+   "url": "https://www.amazon.fr/s?k=suspension+ilot+cuisine+ampoule+e27&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-1f7f64f051": {
+   "url": "https://www.amazon.fr/dp/B0C5371TQL?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-249b6042b3": {
+   "url": "https://www.amazon.fr/dp/B0B9WSBMH4?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-25a9f2a62b": {
+   "url": "https://www.amazon.fr/s?k=applique+led+lecture+chambre+adulte+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-26af489530": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20led%20exterieur%20ip65%20dimmable%203000k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-27aeeac379": {
+   "url": "https://www.amazon.fr/s?k=spot+sol+led+exterieur+ip67+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-28f8acc964": {
+   "url": "https://www.amazon.fr/dp/B073FT1QT2",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-28fb298e2d": {
+   "url": "https://www.amazon.fr/dp/B0CGRC4GQ9?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-2a4bcc4ef5": {
+   "url": "https://www.amazon.fr/s?k=applique%20murale%20led%20indirecte%20couloir%204000k%20dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-2aadafec70": {
+   "url": "https://www.amazon.fr/dp/B099NPGWCQ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-2cbd0d5eea": {
+   "url": "https://www.amazon.fr/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-2e083f5604": {
+   "url": "https://www.amazon.fr/dp/B08HV4WG3Y?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-2e7b283e2f": {
+   "url": "https://www.amazon.fr/s?k=applique+murale+led+indirecte+couloir+entree+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-2ef6d44e7f": {
+   "url": "https://www.amazon.fr/dp/B0D3VBP11G",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-3030b73473": {
+   "url": "https://www.amazon.fr/dp/B0972HH7C6",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-31268ac279": {
+   "url": "https://www.amazon.fr/s?k=variateur+ruban+led+24v&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-3268e4a0e4": {
+   "url": "https://www.amazon.fr/dp/B09XMP2CPQ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-32b58498b8": {
+   "url": "https://www.amazon.fr/dp/B0CZ9B4C2B",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-3374316445": {
+   "url": "https://www.amazon.fr/dp/B0DYVCTSHH?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-3399914ddf": {
+   "url": "https://www.amazon.fr/s?k=spot+gu10+led+dimmable+trailing&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-36918e07ab": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20led%20dimmable%20e27%20variateur%20compatible%203000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-36ecc4cae7": {
+   "url": "https://www.amazon.fr/dp/B08R6V74XD?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-3a14607372": {
+   "url": "https://www.amazon.fr/dp/B0CRL78J86?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-3f678f0ceb": {
+   "url": "https://www.amazon.fr/dp/B0F4XTC2G4?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-43191973e1": {
+   "url": "https://www.amazon.fr/s?k=bypass+led+interrupteur+sans+neutre&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-449a84560e": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+e27+dimmable+806+lumens&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-47b2d17a32": {
+   "url": "https://www.amazon.fr/dp/B09534N6WS?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4a4f7e29ec": {
+   "url": "https://www.amazon.fr/dp/B0FJ8VXHRX",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-4b18b46da1": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+dimmable+e27+variateur+2700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4b1bbbdba6": {
+   "url": "https://www.amazon.fr/s?k=detecteur+mouvement+salle+de+bain+ip&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4bf44eed9b": {
+   "url": "https://www.amazon.fr/dp/B099NPGWCQ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4c06da2d84": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+dimmable+e14+variateur+compatible&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4d1f0c449a": {
+   "url": "https://www.amazon.fr/s?k=spot+encastrable+led+gu10+cuisine+4000k+irc+90&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4d9ad0eaf7": {
+   "url": "https://www.amazon.fr/s?k=lampadaire+lecture+led+orientable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4e2ac9e1a8": {
+   "url": "https://www.amazon.fr/s?k=variateur+trailing+edge+led+universel&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-4ee1107a5e": {
+   "url": "https://www.amazon.fr/dp/B0B272H45X",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-4f6b3278d9": {
+   "url": "https://www.amazon.fr/s?k=spot+led+salle+de+bain+ip65&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-507f425c07": {
+   "url": "https://www.amazon.fr/s?k=panneau+led+plafond+garage+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5190a4938b": {
+   "url": "https://www.amazon.fr/dp/B08P8T8LN1",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-54eeca2579": {
+   "url": "https://www.amazon.fr/dp/B0DYVCTSHH",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-554b2b23bb": {
+   "url": "https://www.amazon.fr/s?k=shelly+1l+sans+neutre&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-57aa1cc081": {
+   "url": "https://www.amazon.fr/s?k=borne+led+exterieur+all%C3%A9e+ip65+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-58bbb8cf87": {
+   "url": "https://www.amazon.fr/s?k=Shelly%201L%20Gen3%20module%20Wi-Fi%20sans%20neutre%20%2B%20bypass&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5a304f4b10": {
+   "url": "https://www.amazon.fr/dp/B07665DHG6?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5afa5655ac": {
+   "url": "https://www.amazon.fr/dp/B08R8Y6Q8Y",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-5b02f7dce2": {
+   "url": "https://www.amazon.fr/dp/B0BD3X5XGQ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-5b0459f243": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20four%20e14%20haute%20temperature%20led&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5cbab001a6": {
+   "url": "https://www.amazon.fr/dp/B07T4PL4LR?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5cffbae5f0": {
+   "url": "https://www.amazon.fr/blackfriday?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5d58a11f0b": {
+   "url": "https://www.amazon.fr/dp/B0FS651RKH",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-5d8c44db49": {
+   "url": "https://www.amazon.fr/s?k=bandeau+led+circulation+cave+ip20+2700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5dc4ef32a9": {
+   "url": "https://www.amazon.fr/dp/B07R48JG34",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-5ea7bb3e45": {
+   "url": "https://www.amazon.fr/dp/B0972HH7C6?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5efbe847a3": {
+   "url": "https://www.amazon.fr/s?k=plafonnier+led+avec+detecteur+mouvement&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-635e7464a0": {
+   "url": "https://www.amazon.fr/s?k=DiCUNO%20GU5.3%20MR16%2012V%204000K%20%E2%80%93%20lot%20de%206&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-63d7e4aecb": {
+   "url": "https://www.amazon.fr/dp/B0CNVLRK6R?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-63e0900753": {
+   "url": "https://www.amazon.fr/s?k=spot%20sol%20led%20exterieur%20ip67%204000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-6420dd850b": {
+   "url": "https://www.amazon.fr/dp/B01KHIM7OG",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-6624e337ef": {
+   "url": "https://www.amazon.fr/dp/B07B4CPRDQ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-673e47b672": {
+   "url": "https://www.amazon.fr/dp/B01LZEWUT7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-67739a935e": {
+   "url": "https://www.amazon.fr/s?k=detecteur%20mouvement%20wc%20temporisation&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-67c62dd717": {
+   "url": "https://www.amazon.fr/dp/B099NRLRG3?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-6947d4a5f2": {
+   "url": "https://www.amazon.fr/dp/B0BBLYJCFF",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-697413d15a": {
+   "url": "https://www.amazon.fr/dp/B07665H9B7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-6a4261a1e1": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+e27+806+lumens+dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-6bdc9b26b0": {
+   "url": "https://www.amazon.fr/dp/B0CGSLZVD6?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-6c840aefab": {
+   "url": "https://www.amazon.fr/dp/B09TQZVFY7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-7252ba4f2a": {
+   "url": "https://www.amazon.fr/dp/B0B1J4ZP4T",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-72e9989639": {
+   "url": "https://www.amazon.fr/dp/B0DLG23BNS",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-733c3caa9e": {
+   "url": "https://www.amazon.fr/s?k=capteur%20presence%20exterieur%20projecteur&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-74a449f484": {
+   "url": "https://www.amazon.fr/dp/B09F9MZ4PH",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-74cc376cfe": {
+   "url": "https://www.amazon.fr/dp/B0785D93KD",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-757c16efc6": {
+   "url": "https://www.amazon.fr/dp/B0FJ8VXHRX?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-76040de375": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20led%20dimmable%20e27%203000k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-7659df3b0c": {
+   "url": "https://www.amazon.fr/dp/B01LZEWUT7",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-76d008f7dd": {
+   "url": "https://www.amazon.fr/s?k=ampoule+LED+GU10&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-7903e803c3": {
+   "url": "https://www.amazon.fr/s?k=interrupteur+contact+porte+placard+eclairage&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-79ee574aa0": {
+   "url": "https://www.amazon.fr/dp/B08R8Y6Q8Y?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-7d11d39ac2": {
+   "url": "https://www.amazon.fr/dp/B08R6V74XD",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-7f775f041f": {
+   "url": "https://www.amazon.fr/dp/B0C4LCT7J7",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-7feede5a9e": {
+   "url": "https://www.amazon.fr/dp/B0B1J4ZP4T?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-801beb28ae": {
+   "url": "https://www.amazon.fr/s?k=projecteur+led+orientable+cave+voutee+3000k+ip44&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8082e11d30": {
+   "url": "https://www.amazon.fr/dp/B08GDC99PX",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-80bd5c3c80": {
+   "url": "https://www.amazon.fr/dp/B073QSXXCH?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-813e0a9674": {
+   "url": "https://www.amazon.fr/dp/B09V1N212P?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-82f304400c": {
+   "url": "https://www.amazon.fr/s?k=borne%20led%20exterieur%20ip65%204000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-82f398149d": {
+   "url": "https://www.amazon.fr/dp/B0F18462GT?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8481305da4": {
+   "url": "https://www.amazon.fr/dp/B0CNCDF1TD",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-849d17912a": {
+   "url": "https://www.amazon.fr/s?k=ampoule+connect%C3%A9e+Zigbee&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-87785d22da": {
+   "url": "https://www.amazon.fr/s?k=ampoule+pour+four+e14+haute+temperature&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-880c72cba7": {
+   "url": "https://www.amazon.fr/s?k=spot+encastrable+led+couloir+4000k+irc+90&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-893a0ad81a": {
+   "url": "https://www.amazon.fr/s?k=luminaire%20suspension%20table%20repas&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-89439c50c0": {
+   "url": "https://www.amazon.fr/dp/B0CGRC4GQ9",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-8962e6d51f": {
+   "url": "https://www.amazon.fr/dp/B0DDK55MF7",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-8d0971a61d": {
+   "url": "https://www.amazon.fr/s?k=panel%20led%20plafond%20dimmable%202700k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8d1f8ae971": {
+   "url": "https://www.amazon.fr/dp/B0FP4ZKX9Z",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-8d49bae74b": {
+   "url": "https://www.amazon.fr/s?k=spot%20encastrable%20orientable%20cave%20voutee%20irc%2090%202700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8d974e5548": {
+   "url": "https://www.amazon.fr/dp/B0B272H45X?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8f9e113ca3": {
+   "url": "https://www.amazon.fr/s?k=ampoule+e14+refrigerateur+led&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8faf6d0139": {
+   "url": "https://www.amazon.fr/s?k=bypass+legrand+sans+neutre+led&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-907b39d896": {
+   "url": "https://www.amazon.fr/dp/B0DHRX4CJZ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-91ab1f8a5d": {
+   "url": "https://www.amazon.fr/s?k=detecteur+de+mouvement+interieur+plafond+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-94a76f6b35": {
+   "url": "https://www.amazon.fr/dp/B09534N6WS",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-95cff31671": {
+   "url": "https://www.amazon.fr/dp/B0B9WSBMH4",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-969c8542e8": {
+   "url": "https://www.amazon.fr/s?k=detecteur+mouvement+exterieur+ip65&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-96bb0dd6d4": {
+   "url": "https://www.amazon.fr/dp/B0D3VBP11G?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-9703bc508c": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+e27+dimmable+2700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-9815f210a3": {
+   "url": "https://www.amazon.fr/dp/B0DGPZCMG6?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-9820f7b8fd": {
+   "url": "https://www.amazon.fr/dp/B08NWLXPMC?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-996f44c86f": {
+   "url": "https://www.amazon.fr/dp/B0BN18B6F4?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-99f1644ea3": {
+   "url": "https://www.amazon.fr/s?k=Projecteur%20LED%2030W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%2C%203%20teintes&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-9ae89d14c5": {
+   "url": "https://www.amazon.fr/dp/B09ZBJPNK4",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-9d7b9870fc": {
+   "url": "https://www.amazon.fr/s?k=gu10+led+dimmable+variateur&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-a1c66a3340": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+e27+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-a287a05a5a": {
+   "url": "https://www.amazon.fr/s?k=alimentation+led+24v+60w&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-a2c954122b": {
+   "url": "https://www.amazon.fr/dp/B0BNDC7BPV",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-a67f64aadf": {
+   "url": "https://www.amazon.fr/dp/B0CRL387FM",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-a752e34fc0": {
+   "url": "https://www.amazon.fr/s?k=plafonnier+led+dimmable+variateur+2700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-a8e63f65a9": {
+   "url": "https://www.amazon.fr/dp/B09XMP2CPQ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-a9109aeb4e": {
+   "url": "https://www.amazon.fr/dp/B0F1CV6R3M",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-aaaac6a064": {
+   "url": "https://www.amazon.fr/dp/B07ZNX36QV?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ab1bb5d394": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20led%20e27%20variable%20intensit%C3%A9%202700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ab4cb4914a": {
+   "url": "https://www.amazon.fr/dp/B09F9MZ4PH?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ab70bc37b8": {
+   "url": "https://www.amazon.fr/s?k=detecteur+mouvement+interieur+plafond+toilettes&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-abe15dc570": {
+   "url": "https://www.amazon.fr/s?k=spot+encastrable+led+salon+lot+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ae2f5c2ca8": {
+   "url": "https://www.amazon.fr/dp/B099NRLRG3",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-afb9a163fe": {
+   "url": "https://www.amazon.fr/s?k=transformateur+12v+etanche+ip67+led+salle+bain&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b14d8fea12": {
+   "url": "https://www.amazon.fr/s?k=ikea+dirigera+hub+matter&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b29ed695f8": {
+   "url": "https://www.amazon.fr/dp/B07H7HB6LG?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b2ac273f6f": {
+   "url": "https://www.amazon.fr/s?k=suspension%20au%20dessus%20ilot%20cuisine%20led%20e27&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b3a7f832a9": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+irc+90+cuisine+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b6a16727bb": {
+   "url": "https://www.amazon.fr/dp/B08MFN1S45",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-b6ba5dd9f1": {
+   "url": "https://www.amazon.fr/dp/B0FP4ZKX9Z?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b748208d01": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+e27+6500k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b80c3889a5": {
+   "url": "https://www.amazon.fr/s?k=spot+led+dimmable+gu10+variateur&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b8e213ca11": {
+   "url": "https://www.amazon.fr/s?k=OUILA%20lampe%20de%20placard%20LED%20rechargeable%2060%20cm%20%C3%A0%20d%C3%A9tecteur&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-b9c4591ec0": {
+   "url": "https://www.amazon.fr/dp/B07VNNFBHV",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-bc18daa0e2": {
+   "url": "https://www.amazon.fr/dp/B0B7W9VRB7",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-bd5e144778": {
+   "url": "https://www.amazon.fr/dp/B07TSKP9JC",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-bf59fbdf84": {
+   "url": "https://www.amazon.fr/dp/B0CRL387FM?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-bfefc72643": {
+   "url": "https://www.amazon.fr/dp/B073FT1QT2?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c22414cb89": {
+   "url": "https://www.amazon.fr/s?k=plafonnier+led+dimmable+variateur+chambre+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c290b64925": {
+   "url": "https://www.amazon.fr/s?k=Ampoule%20E27%207W%20%C3%A0%20d%C3%A9tecteur%20de%20mouvement%20orientable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c293c9d7a6": {
+   "url": "https://www.amazon.fr/s?k=lampe+lecture+led+orientable+enfant+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c3e72023d0": {
+   "url": "https://www.amazon.fr/dp/B0919GN6FK?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c4367318a4": {
+   "url": "https://www.amazon.fr/dp/B0DLG23BNS?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c4aafce297": {
+   "url": "https://www.amazon.fr/dp/B07TSKP9JC?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c4c0ea7f25": {
+   "url": "https://www.amazon.fr/dp/B0CRL78J86",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-c5595c8026": {
+   "url": "https://www.amazon.fr/s?k=detecteur%20mouvement%20interieur%20cave%20a%20vin&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c567306ed1": {
+   "url": "https://www.amazon.fr/s?k=spot+led+irc+90+4000k+encastrable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c6d2cbc925": {
+   "url": "https://www.amazon.fr/s?k=plafonnier+led+salle+de+bain+ip44+4000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-c7a87f2090": {
+   "url": "https://www.amazon.fr/dp/B0FGD6H3NZ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-c7c634c799": {
+   "url": "https://www.amazon.fr/dp/B08NWLXPMC",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-c9edb5dc46": {
+   "url": "https://www.amazon.fr/dp/B0BNDC7BPV?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ca3801f033": {
+   "url": "https://www.amazon.fr/dp/B0D6BJZJ56",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-ccacad92be": {
+   "url": "https://www.amazon.fr/dp/B0C4LCT7J7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ce16c5fd7b": {
+   "url": "https://www.amazon.fr/s?k=spots%20encastres%20led%20cuisine%204000k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ceff890086": {
+   "url": "https://www.amazon.fr/dp/B0BZ59BD65?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-cfbaee6276": {
+   "url": "https://www.amazon.fr/dp/B091HPTZYH?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d0b5f5d780": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+dimmable+e27+variateur+2700k+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d16c710821": {
+   "url": "https://www.amazon.fr/s?k=Bojim%20spots%20LED%20encastrables%20orientables%20%E2%80%93%20lot%20de%2010&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d19f4d3e1d": {
+   "url": "https://www.amazon.fr/dp/B08GDC99PX?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d320b63abd": {
+   "url": "https://www.amazon.fr/s?k=lampadaire%20enfant%20led%20dimmable%202700k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d455093749": {
+   "url": "https://www.amazon.fr/dp/B094YKGD5N?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d492faa8c9": {
+   "url": "https://www.amazon.fr/s?k=Guirlande%20guinguette%2010%20m%20G40%2024V%20dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d4c59bb9cd": {
+   "url": "https://www.amazon.fr/s?k=suspension+luminaire+salle+a+manger+au+dessus+table&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d4f507d52d": {
+   "url": "https://www.amazon.fr/dp/B0BD3X5XGQ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d5f0eb8835": {
+   "url": "https://www.amazon.fr/s?k=variateur+led+compatible+trailing+edge&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d6287ad650": {
+   "url": "https://www.amazon.fr/dp/B01KHIM7OG?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d6dcd65f91": {
+   "url": "https://www.amazon.fr/dp/B07MRBVNWM",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-d6f2aaafea": {
+   "url": "https://www.amazon.fr/dp/B0D6BJZJ56?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-dacc4d0e57": {
+   "url": "https://www.amazon.fr/dp/B0F1CV6R3M?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-dc79dfaa90": {
+   "url": "https://www.amazon.fr/dp/B0DK59YKRS",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-dd2ce2a858": {
+   "url": "https://www.amazon.fr/s?k=ruban%20led%20exterieur%20IP65%20indirect%20pergola%203000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ddc44ee7fd": {
+   "url": "https://www.amazon.fr/dp/B07H7HB6LG",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-de1b60bba1": {
+   "url": "https://www.amazon.fr/dp/B07MRBVNWM?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-df3f288bc3": {
+   "url": "https://www.amazon.fr/s?k=bypass+led+sans+neutre&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e077002d4a": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20led%20dimmable%20e27%203000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e13ad15abe": {
+   "url": "https://www.amazon.fr/s?k=applique+murale+led+exterieur+ip65+pergola+3000k&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e152711a7a": {
+   "url": "https://www.amazon.fr/s?k=ampoule%20led%20dimmable%20e14%202700k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e27d4d99e6": {
+   "url": "https://www.amazon.fr/s?k=bypass+led+sans+neutre+module&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e2e8a70be0": {
+   "url": "https://www.amazon.fr/dp/B09TQZVFY7",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-e3a4ba2d4e": {
+   "url": "https://www.amazon.fr/dp/B07ZNX36QV",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-e40f890a70": {
+   "url": "https://www.amazon.fr/dp/B091HPTZYH",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-e5024fcbb6": {
+   "url": "https://www.amazon.fr/dp/B0BN18B6F4",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-e5735a02d9": {
+   "url": "https://www.amazon.fr/dp/B0785D93KD?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e62f7f756d": {
+   "url": "https://www.amazon.fr/s?k=barre%20led%20couloir%204000k%20irc%2090&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e6c4b8672e": {
+   "url": "https://www.amazon.fr/dp/B07VNNFBHV?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e6df4cb81a": {
+   "url": "https://www.amazon.fr/s?k=balise%20led%20sol%20couloir%202700k%20dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e6f28acea7": {
+   "url": "https://www.amazon.fr/dp/B07B4CPRDQ",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-e706c7247d": {
+   "url": "https://www.amazon.fr/dp/B09QLY8QFZ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e7d39c9ec4": {
+   "url": "https://www.amazon.fr/s?k=projecteur+led+orientable+interieur+etabli&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-e85fed5c57": {
+   "url": "https://www.amazon.fr/dp/B0DDK55MF7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ecf13e849d": {
+   "url": "https://www.amazon.fr/s?k=lampe%20murale%20lecture%20orientable%202700k%20dimmable&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ed2345a9db": {
+   "url": "https://www.amazon.fr/dp/B0F18462GT",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-ed9b1d0016": {
+   "url": "https://www.amazon.fr/dp/B08Z4KCJZY",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-eeba8c28f4": {
+   "url": "https://www.amazon.fr/s?k=ampoule+e27+dimmable+806+lumens&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-f291a18c4e": {
+   "url": "https://www.amazon.fr/dp/B0DK59YKRS?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-f3b32872d1": {
+   "url": "https://www.amazon.fr/dp/B0FS651RKH?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-f5822035bb": {
+   "url": "https://www.amazon.fr/s?k=detecteur+de+mouvement+plafond+interieur&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-f58e2616c1": {
+   "url": "https://www.amazon.fr/dp/B08MFN1S45?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-f5e8972220": {
+   "url": "https://www.amazon.fr/dp/B0F62SG8Z9",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-f763e7de3f": {
+   "url": "https://www.amazon.fr/dp/B08HV4WG3Y",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-f862361e6e": {
+   "url": "https://www.amazon.fr/dp/B0B7W9VRB7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-f95230d141": {
+   "url": "https://www.amazon.fr/dp/B09NS944X2?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-fa77f4c733": {
+   "url": "https://www.amazon.fr/s?k=spot+led+salle+de+bain+ip65+ip44&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-fb977b6f3c": {
+   "url": "https://www.amazon.fr/dp/B01ISAMUA6?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-fc1504c2aa": {
+   "url": "https://www.amazon.fr/dp/B09ZBJPNK4?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-fd202f838c": {
+   "url": "https://www.amazon.fr/s?k=spot+led+gu10+500+lumens+dimmable+36+degres&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-fd4e1c9216": {
+   "url": "https://www.amazon.fr/dp/B094YKGD5N",
+   "merchant": "amazon",
+   "country": "FR"
+  },
+  "az-fr-fdcca77f75": {
+   "url": "https://www.amazon.fr/dp/B0F62SG8Z9?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-fe6e5b0df2": {
+   "url": "https://www.amazon.fr/dp/B019QJ612G?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ff2e090463": {
+   "url": "https://www.amazon.fr/s?k=ampoule+led+g9&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-gb-05763fef20": {
+   "url": "https://www.amazon.co.uk/dp/B0DYVCTSHH?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0765b83597": {
+   "url": "https://www.amazon.co.uk/dp/B0F62SG8Z9?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-08b709d4b7": {
+   "url": "https://www.amazon.co.uk/dp/B0CNCDF1TD?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0be74fbcbf": {
+   "url": "https://www.amazon.co.uk/dp/B08HV4WG3Y?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-163fb74458": {
+   "url": "https://www.amazon.co.uk/dp/B0B7W9VRB7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-1cb0b73bce": {
+   "url": "https://www.amazon.co.uk/dp/B0B272H45X?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-1da5122a3c": {
+   "url": "https://www.amazon.co.uk/dp/B0972HH7C6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2095f44602": {
+   "url": "https://www.amazon.co.uk/dp/B0CRL387FM?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-20c420dc62": {
+   "url": "https://www.amazon.co.uk/dp/B09534N6WS?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2320053dea": {
+   "url": "https://www.amazon.co.uk/dp/B0FS651RKH?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-292bcc00ae": {
+   "url": "https://www.amazon.co.uk/dp/B08MFN1S45?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2c2bec6830": {
+   "url": "https://www.amazon.co.uk/dp/B0DDK55MF7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3a1844caa3": {
+   "url": "https://www.amazon.co.uk/dp/B0BPX1ZZXJ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3ce63a5316": {
+   "url": "https://www.amazon.co.uk/dp/B09XMP2CPQ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3d5f0f6c78": {
+   "url": "https://www.amazon.co.uk/dp/B0DHRX4CJZ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-420c90d0e9": {
+   "url": "https://www.amazon.co.uk/dp/B08Z4KCJZY?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-436caea64b": {
+   "url": "https://www.amazon.co.uk/dp/B0D3VBP11G?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-43b3550478": {
+   "url": "https://www.amazon.co.uk/dp/B0FP4ZKX9Z?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-46d5c00368": {
+   "url": "https://www.amazon.co.uk/dp/B07ZNX36QV?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-4c42073831": {
+   "url": "https://www.amazon.co.uk/dp/B0CDC1ZV8B?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-4d64517e28": {
+   "url": "https://www.amazon.co.uk/dp/B0DGPZCMG6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-5475e0c415": {
+   "url": "https://www.amazon.co.uk/dp/B09V1N212P?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-5de694fceb": {
+   "url": "https://www.amazon.co.uk/dp/B0BNDC7BPV?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-5fe1e5098a": {
+   "url": "https://www.amazon.co.uk/dp/B09F9MZ4PH?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-63a41ebf2c": {
+   "url": "https://www.amazon.co.uk/dp/B07MRBVNWM?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-6646346283": {
+   "url": "https://www.amazon.co.uk/dp/B099NPGWCQ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-680aea7453": {
+   "url": "https://www.amazon.co.uk/dp/B01ISAMUA6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-6a9de0f7b9": {
+   "url": "https://www.amazon.co.uk/dp/B0C5371TQL?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-6cd54ac3f6": {
+   "url": "https://www.amazon.co.uk/dp/B09N8W4DMT?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-709b849864": {
+   "url": "https://www.amazon.co.uk/dp/B00MOIWOAK?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-70db559b93": {
+   "url": "https://www.amazon.co.uk/dp/B07B4CPRDQ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-7375f66fea": {
+   "url": "https://www.amazon.co.uk/blackfriday?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-7ae8c58d1b": {
+   "url": "https://www.amazon.co.uk/dp/B0D6BJZJ56?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-7f13529e3d": {
+   "url": "https://www.amazon.co.uk/dp/B0785D93KD?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-805eb48681": {
+   "url": "https://www.amazon.co.uk/dp/B0F1CV6R3M?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-8351799dfc": {
+   "url": "https://www.amazon.co.uk/dp/B07R48JG34?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-8523fc9f7d": {
+   "url": "https://www.amazon.co.uk/dp/B07665DHG6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-8daf894226": {
+   "url": "https://www.amazon.co.uk/dp/B099NRLRG3?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-91e39f2b3b": {
+   "url": "https://www.amazon.co.uk/dp/B0766441R8?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9987e0b926": {
+   "url": "https://www.amazon.co.uk/dp/B07TSKP9JC?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9af6785601": {
+   "url": "https://www.amazon.co.uk/dp/B0B9WSBMH4?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9b65b65735": {
+   "url": "https://www.amazon.co.uk/dp/B084VTQWL5?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9b689a30f8": {
+   "url": "https://www.amazon.co.uk/dp/B073QSXXCH?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9c9a5de48c": {
+   "url": "https://www.amazon.co.uk/dp/B01LZEWUT7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9d82aa7608": {
+   "url": "https://www.amazon.co.uk/dp/B0DK59YKRS?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a37b256905": {
+   "url": "https://www.amazon.co.uk/dp/B0FJ8VXHRX?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a68c65a6ed": {
+   "url": "https://www.amazon.co.uk/dp/B0DLG23BNS?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-abd0f22084": {
+   "url": "https://www.amazon.co.uk/dp/B08R6V74XD?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b06d32fe1b": {
+   "url": "https://www.amazon.co.uk/dp/B0BBLYJCFF?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b6fdb0dea4": {
+   "url": "https://www.amazon.co.uk/dp/B0CZ9B4C2B?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b88f5e08c5": {
+   "url": "https://www.amazon.co.uk/dp/B07665H9B7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-bd1ac47f4c": {
+   "url": "https://www.amazon.co.uk/dp/B0B87XVX16?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-be6764e857": {
+   "url": "https://www.amazon.co.uk/dp/B08R8Y6Q8Y?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c382c93ed2": {
+   "url": "https://www.amazon.co.uk/dp/B0FGD6H3NZ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c791047f87": {
+   "url": "https://www.amazon.co.uk/dp/B08GDC99PX?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c892ee914c": {
+   "url": "https://www.amazon.co.uk/dp/B019QJ612G?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-cae1064513": {
+   "url": "https://www.amazon.co.uk/dp/B0919GN6FK?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-ccc260236e": {
+   "url": "https://www.amazon.co.uk/dp/B0CGSLZVD6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-cf61ea0295": {
+   "url": "https://www.amazon.co.uk/dp/B0B3MHF5NV?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d48f88497d": {
+   "url": "https://www.amazon.co.uk/dp/B094YKGD5N?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d5fbfa1ab7": {
+   "url": "https://www.amazon.co.uk/dp/B08SMN32HT?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d7edf542ee": {
+   "url": "https://www.amazon.co.uk/dp/B073FT1QT2?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-db0577ce6b": {
+   "url": "https://www.amazon.co.uk/dp/B07H7HB6LG?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-dff1ea7861": {
+   "url": "https://www.amazon.co.uk/dp/B0BZ59BD65?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-e56670d3b1": {
+   "url": "https://www.amazon.co.uk/dp/B0B1J4ZP4T?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-efbac52d43": {
+   "url": "https://www.amazon.co.uk/dp/B01KHIM7OG?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f37b008398": {
+   "url": "https://www.amazon.co.uk/dp/B0F18462GT?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f6719c56ad": {
+   "url": "https://www.amazon.co.uk/dp/B0CGRC4GQ9?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-ffb002ad5f": {
+   "url": "https://www.amazon.co.uk/dp/B09NS944X2?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-it-00284421f4": {
+   "url": "https://www.amazon.it/dp/B07B4CPRDQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-00589aae77": {
+   "url": "https://www.amazon.it/dp/B0DK59YKRS?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-0196ca9648": {
+   "url": "https://www.amazon.it/dp/B08R8Y6Q8Y?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-0655d3e291": {
+   "url": "https://www.amazon.it/dp/B0DLG23BNS?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-0759b17bb9": {
+   "url": "https://www.amazon.it/dp/B01KHIM7OG?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-0b73271074": {
+   "url": "https://www.amazon.it/dp/B0D6BJZJ56?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-12853a37eb": {
+   "url": "https://www.amazon.it/dp/B08GDC99PX?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-1fb5e08e25": {
+   "url": "https://www.amazon.it/dp/B0CNVLRK6R?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-1ff9f30319": {
+   "url": "https://www.amazon.it/dp/B0F1CV6R3M?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-204f74755b": {
+   "url": "https://www.amazon.it/dp/B08MFN1S45?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-288cc3de95": {
+   "url": "https://www.amazon.it/dp/B0B3MHF5NV?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-29bb14e74c": {
+   "url": "https://www.amazon.it/dp/B09NS944X2?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-2de3173b44": {
+   "url": "https://www.amazon.it/dp/B0B1J4ZP4T?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-2f0a0e73b7": {
+   "url": "https://www.amazon.it/dp/B09ZBJPNK4?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-303ae1f48a": {
+   "url": "https://www.amazon.it/dp/B08VDCXDMP?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-31fa08353b": {
+   "url": "https://www.amazon.it/dp/B0CRL78J86?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-371c0f1bc7": {
+   "url": "https://www.amazon.it/dp/B07T4PL4LR?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-382b9f7adc": {
+   "url": "https://www.amazon.it/dp/B0CB8TCRXH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-38cd6f641b": {
+   "url": "https://www.amazon.it/dp/B0CGSLZVD6?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-3a56bc8138": {
+   "url": "https://www.amazon.it/dp/B07665DHG6?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4460cd128b": {
+   "url": "https://www.amazon.it/dp/B0F1D35TMT?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-49a29f695e": {
+   "url": "https://www.amazon.it/dp/B0CNCDF1TD?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4b58324f40": {
+   "url": "https://www.amazon.it/dp/B0B272H45X?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4ba3a7e385": {
+   "url": "https://www.amazon.it/dp/B07H7HB6LG?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4c8f46231d": {
+   "url": "https://www.amazon.it/dp/B099NRLRG3?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4e21b3c7e0": {
+   "url": "https://www.amazon.it/dp/B09QLY8QFZ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4e5737d8dc": {
+   "url": "https://www.amazon.it/dp/B08SMN32HT?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-5171fe1e51": {
+   "url": "https://www.amazon.it/dp/B0B9WSBMH4?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-52af61630a": {
+   "url": "https://www.amazon.it/dp/B0FGD6H3NZ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-5420e73684": {
+   "url": "https://www.amazon.it/dp/B073QSXXCH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-58ef52ee5b": {
+   "url": "https://www.amazon.it/dp/B0BPX1ZZXJ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-597d4f75a1": {
+   "url": "https://www.amazon.it/dp/B09XMP2CPQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-6c9fe893b2": {
+   "url": "https://www.amazon.it/dp/B0BN18B6F4?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-6f44d2d947": {
+   "url": "https://www.amazon.it/dp/B07TSKP9JC?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-705225c54f": {
+   "url": "https://www.amazon.it/dp/B0CGRC4GQ9?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-74ccb2e257": {
+   "url": "https://www.amazon.it/dp/B07MRBVNWM?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-773cdc6f06": {
+   "url": "https://www.amazon.it/dp/B0919GN6FK?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-7c4370c4fe": {
+   "url": "https://www.amazon.it/dp/B09TQZVFY7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-7e118f71a0": {
+   "url": "https://www.amazon.it/dp/B0CZ9B4C2B?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-8102cf9a1e": {
+   "url": "https://www.amazon.it/dp/B0B87XVX16?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-8139edd3d5": {
+   "url": "https://www.amazon.it/dp/B07QKJH3K8?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-83b98e0963": {
+   "url": "https://www.amazon.it/dp/B08NWLXPMC?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-8698486417": {
+   "url": "https://www.amazon.it/dp/B073FT1QT2?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-8bf7f5512b": {
+   "url": "https://www.amazon.it/dp/B07SW396C3?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-8c661aa767": {
+   "url": "https://www.amazon.it/dp/B094YKGD5N?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-90de945d2f": {
+   "url": "https://www.amazon.it/dp/B01LZEWUT7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-970a5d8738": {
+   "url": "https://www.amazon.it/blackfriday?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-98aa19ed5f": {
+   "url": "https://www.amazon.it/dp/B0785D93KD?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-99da04c1ca": {
+   "url": "https://www.amazon.it/dp/B0FQV8PWGT?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-9fbc62dea4": {
+   "url": "https://www.amazon.it/dp/B0BD3X5XGQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-a1826aa354": {
+   "url": "https://www.amazon.it/dp/B0C4LCT7J7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-a634cd2bcf": {
+   "url": "https://www.amazon.it/dp/B0F18462GT?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-a844cc7957": {
+   "url": "https://www.amazon.it/dp/B084VTQWL5?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-a8d53a23c6": {
+   "url": "https://www.amazon.it/dp/B09534N6WS?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-a929373f6e": {
+   "url": "https://www.amazon.it/dp/B0DDK55MF7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-aab747139f": {
+   "url": "https://www.amazon.it/dp/B07665H9B7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-ac3a9499d5": {
+   "url": "https://www.amazon.it/dp/B0BNDC7BPV?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-ad4f0af6c5": {
+   "url": "https://www.amazon.it/dp/B0FJ8VXHRX?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b0d8c15b1e": {
+   "url": "https://www.amazon.it/dp/B0F9X4GJN4?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b359abb39b": {
+   "url": "https://www.amazon.it/dp/B01ISAMUA6?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b39da0b360": {
+   "url": "https://www.amazon.it/dp/B0DYVCTSHH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b3fd1a1ba4": {
+   "url": "https://www.amazon.it/dp/B0DGPZCMG6?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b482d5342d": {
+   "url": "https://www.amazon.it/dp/B0BZ59BD65?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b5170142a8": {
+   "url": "https://www.amazon.it/dp/B07ZNX36QV?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b7cdff75fd": {
+   "url": "https://www.amazon.it/dp/B0BBLYJCFF?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b84e19bc91": {
+   "url": "https://www.amazon.it/dp/B093C67CNV?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b9125fa69d": {
+   "url": "https://www.amazon.it/dp/B0FS651RKH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b92a8f9d9c": {
+   "url": "https://www.amazon.it/dp/B0GM6WGZFN?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b9bf8df063": {
+   "url": "https://www.amazon.it/dp/B0972HH7C6?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-c494d0a398": {
+   "url": "https://www.amazon.it/dp/B0C5371TQL?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-c4d19594dd": {
+   "url": "https://www.amazon.it/dp/B019QJ612G?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-c5c682435f": {
+   "url": "https://www.amazon.it/dp/B09F9MZ4PH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-c9042cc577": {
+   "url": "https://www.amazon.it/dp/B09V1N212P?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-cc99bb8fcc": {
+   "url": "https://www.amazon.it/dp/B08Z4KCJZY?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-d0cfee896a": {
+   "url": "https://www.amazon.it/dp/B099NPGWCQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-d2cdd713e2": {
+   "url": "https://www.amazon.it/dp/B091HPTZYH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-d4bea5907e": {
+   "url": "https://www.amazon.it/dp/B0F62SG8Z9?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-d59fe5a81e": {
+   "url": "https://www.amazon.it/dp/B0FP4ZKX9Z?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-de9fc0d8bd": {
+   "url": "https://www.amazon.it/dp/B08HV4WG3Y?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-e7ad0fb18c": {
+   "url": "https://www.amazon.it/dp/B07R48JG34?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-e7cfd949a8": {
+   "url": "https://www.amazon.it/dp/B0D3VBP11G?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-eb20228adc": {
+   "url": "https://www.amazon.it/dp/B0B7W9VRB7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-f2b09b7170": {
+   "url": "https://www.amazon.it/dp/B0D83TX1B1?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-f766b2042d": {
+   "url": "https://www.amazon.it/dp/B00MOIWOAK?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-f779d0ce86": {
+   "url": "https://www.amazon.it/dp/B08R6V74XD?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-nl-03cbfd88ae": {
+   "url": "https://www.amazon.nl/s?k=Lumic%20Mouvement%203.0%20r%C3%A9glette%20sans%20fil%20%C3%A0%20d%C3%A9tecteur&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-0450aa1223": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20E27%204%2C9W%20(%C3%A9q.%2040W)%202700K%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-06f9680a34": {
+   "url": "https://www.amazon.nl/s?k=slochi%20plafonnier%20LED%2024W%20dimmable%20avec%20t%C3%A9l%C3%A9commande&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-0a08e57dfd": {
+   "url": "https://www.amazon.nl/dp/B01KHIM7OG?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-0ca6e2784b": {
+   "url": "https://www.amazon.nl/s?k=ZOTOYI%20guirlande%20guinguette%20ext%C3%A9rieure%2015%20m%20(15%2B1%20ampoules%20S14)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-0d2ddc0a15": {
+   "url": "https://www.amazon.nl/s?k=GY%20ampoule%20LED%20G9%203%2C2W%203000K%20520%20lm&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-0da914a062": {
+   "url": "https://www.amazon.nl/dp/B0FGD6H3NZ?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-11971ad067": {
+   "url": "https://www.amazon.nl/s?k=Unilux%20Mambo%20lampe%20de%20bureau%20LED%203000%E2%80%935000K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-13a220e3a4": {
+   "url": "https://www.amazon.nl/dp/B01LZEWUT7?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-176376ff34": {
+   "url": "https://www.amazon.nl/dp/B0BPX1ZZXJ?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-1796906339": {
+   "url": "https://www.amazon.nl/s?k=OREiN%20projecteur%20LED%2024W%20%C3%A0%20d%C3%A9tecteur%2C%203%20teintes&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-18d3cc1362": {
+   "url": "https://www.amazon.nl/s?k=libtit%20r%C3%A9glette%20sans%20fil%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-1a57151410": {
+   "url": "https://www.amazon.nl/s?k=Lampe%20frontale%20LED%20rechargeable%20%C3%A0%20capteur&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-1ad979ba19": {
+   "url": "https://www.amazon.nl/s?k=Caldarax%20ampoule%20four%20E14%20T20%20300%20%C2%B0C%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-1c2a3cd6b1": {
+   "url": "https://www.amazon.nl/dp/B08GDC99PX?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-1ebbbe9f07": {
+   "url": "https://www.amazon.nl/s?k=CLY%20projecteur%20LED%2060W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-222b5cd6e3": {
+   "url": "https://www.amazon.nl/s?k=AGOTD%20ampoule%20LED%20G9%202700K%20650%20lm%20%E2%80%93%20lot%20de%203&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-25d41f7db3": {
+   "url": "https://www.amazon.nl/dp/B08Z4KCJZY?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-264a96b311": {
+   "url": "https://www.amazon.nl/s?k=Lampe%20de%20chevet%20bois%20tactile%20%2B%20chargeur%20sans%20fil&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-2cef9f62a6": {
+   "url": "https://www.amazon.nl/s?k=SANSI%20ampoule%20horticole%20LED%20E27%2024W%20spectre%20complet&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-2fe98983ff": {
+   "url": "https://www.amazon.nl/s?k=Ampoule%20E27%207W%20%C3%A0%20d%C3%A9tecteur%20de%20mouvement%20orientable&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-303312912f": {
+   "url": "https://www.amazon.nl/s?k=Lampe%20de%20bureau%20LED%20architecte%201000%20lm%20%C3%A0%20pince&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-335c12bbdd": {
+   "url": "https://www.amazon.nl/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-33f0f23e11": {
+   "url": "https://www.amazon.nl/s?k=SANSI%20lampe%20horticole%2020W%20%C3%A0%202%20t%C3%AAtes&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-33f40f0d71": {
+   "url": "https://www.amazon.nl/dp/B073FT1QT2?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-426dc64954": {
+   "url": "https://www.amazon.nl/s?k=Tapo%20L530E%20ampoule%20connect%C3%A9e%20Wi-Fi%20E27&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-431eed06e3": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20filament%20E27%20%C3%A9q.%2060W%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-4578373cc2": {
+   "url": "https://www.amazon.nl/s?k=Chesbung%20profil%C3%A9%20aluminium%20en%20V%20pour%20ruban%20LED%20(20%20%C3%97%201%20m)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-4cd0ccfaa6": {
+   "url": "https://www.amazon.nl/dp/B0D6BJZJ56?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-4eea52f67a": {
+   "url": "https://www.amazon.nl/s?k=GY%20GU10%20LED%204%2C5W%20805%20lm%204000K%20%E2%80%93%20lot%20de%2012&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-50fa9e4c17": {
+   "url": "https://www.amazon.nl/dp/B0F18462GT?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-55e18c995a": {
+   "url": "https://www.amazon.nl/s?k=Wattm%C3%A8tre%20prise%207%20modes%2C%20%C3%A9cran%20LCD&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-5693b47bcf": {
+   "url": "https://www.amazon.nl/s?k=Philips%20Hue%20White%20Ambiance%20E27%201100%20lm&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-56d0abc2c7": {
+   "url": "https://www.amazon.nl/s?k=SEBSON%20r%C3%A9glette%20LED%20cuisine%2060%20cm%20avec%20interrupteur&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-5947b1e5d2": {
+   "url": "https://www.amazon.nl/s?k=Projecteur%20LED%2030W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%2C%203%20teintes&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-5988a36f21": {
+   "url": "https://www.amazon.nl/s?k=talifoca%20wattm%C3%A8tre%20prise&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-5c7bdf6a8d": {
+   "url": "https://www.amazon.nl/s?k=MediAcous%20veilleuse%20tactile%20rechargeable&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-5da3e63e7e": {
+   "url": "https://www.amazon.nl/dp/B0972HH7C6?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-5da64e6ff2": {
+   "url": "https://www.amazon.nl/dp/B09F9MZ4PH?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-5faa79c02b": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20Classic%20A60%20E27%20%C3%A9q.%20100W%20%E2%80%93%20pack&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-6036ec9e2b": {
+   "url": "https://www.amazon.nl/s?k=BenQ%20ScreenBar%20Halo%202%20avec%20t%C3%A9l%C3%A9commande&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-60d098f312": {
+   "url": "https://www.amazon.nl/dp/B099NRLRG3?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-61b5354aa9": {
+   "url": "https://www.amazon.nl/s?k=HOFTRONIC%20r%C3%A9glette%20LED%20%C3%A9tanche%20120%20cm%2036W%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-61d5d41138": {
+   "url": "https://www.amazon.nl/s?k=ARUM%20LED%20B22%208%2C5W%202700K%20%E2%80%93%20lot%20de%2010&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-623a2d0116": {
+   "url": "https://www.amazon.nl/dp/B07MRBVNWM?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-6332003567": {
+   "url": "https://www.amazon.nl/s?k=Armytek%20Wizard%20C2%20Pro%20lampe%20frontale%20rechargeable&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-64af66e9be": {
+   "url": "https://www.amazon.nl/dp/B07TSKP9JC?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-673926ac07": {
+   "url": "https://www.amazon.nl/s?k=JZK%20driver%20LED%2012V%20DC%2030W%20(2%2C5%20A)%20pour%20MR16%20%2F%20G4&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-6940d7d709": {
+   "url": "https://www.amazon.nl/s?k=BTF-LIGHTING%20ruban%20LED%20COB%2024V%205%20m%203000K%20IRC%2090%2B&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-6aacaa680c": {
+   "url": "https://www.amazon.nl/s?k=Lucide%20ONNO%20applique%20miroir%20LED%2011W%20IP44&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-6bb36bdc0c": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20E27%20%C3%A9q.%20100W%20claire%2C%20compatible%20variateur&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-6ff226ffcb": {
+   "url": "https://www.amazon.nl/s?k=DiCUNO%20GU10%206W%20550%20lm%202700K%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-7292ca1c1e": {
+   "url": "https://www.amazon.nl/s?k=Lampe%20de%20placard%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-74e11e6cfe": {
+   "url": "https://www.amazon.nl/s?k=Philips%20Hue%20White%20%26%20Color%20Ambiance%20%E2%80%93%20kit%20de%20d%C3%A9marrage%20E27&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-785ce4b472": {
+   "url": "https://www.amazon.nl/s?k=SONOFF%20ZBMINIL2%20module%20interrupteur%20Zigbee%20sans%20neutre&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-7d6f8ae8cf": {
+   "url": "https://www.amazon.nl/s?k=Lucide%20ST64%20ampoule%20filament%20E27%20cr%C3%A9pusculaire&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-83566be58a": {
+   "url": "https://www.amazon.nl/s?k=Ampoule%20LED%20B22%2015W%201520%20lm%204000K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-8419c4b1be": {
+   "url": "https://www.amazon.nl/s?k=Philips%20spot%20LED%20GU10%204%2C6W%20blanc%20chaud%20%E2%80%93%20lot%20de%2010&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-84256bc78c": {
+   "url": "https://www.amazon.nl/dp/B0CZ9B4C2B?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-859123a016": {
+   "url": "https://www.amazon.nl/s?k=Philips%20spot%20LED%20GU10%20WarmGlow%20dimmable%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-85b6075688": {
+   "url": "https://www.amazon.nl/s?k=DiCUNO%20ampoule%20LED%20E14%20pour%20frigo%203W%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-8ae042432d": {
+   "url": "https://www.amazon.nl/dp/B0CGRC4GQ9?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-8f39cf9328": {
+   "url": "https://www.amazon.nl/dp/B08HV4WG3Y?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-9146f5bcaa": {
+   "url": "https://www.amazon.nl/s?k=TRUMPETS%20lampe%20de%20chevet%20tactile%20sans%20fil&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-92b6bdf8a8": {
+   "url": "https://www.amazon.nl/s?k=KOMIGANLED%20kit%20%C3%A9clairage%20escalier%20%C3%A0%20d%C3%A9tecteur%20(16%20marches)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-9674699957": {
+   "url": "https://www.amazon.nl/s?k=SILAMP%20applique%20salle%20de%20bain%2012W%20IP44&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-9b5b165dc2": {
+   "url": "https://www.amazon.nl/s?k=R%C3%A9glette%20LED%20orientable%20sous%20meuble%2056%20cm%20(3000%2F4000%2F6000K)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-9ba8422784": {
+   "url": "https://www.amazon.nl/s?k=Philips%20Hue%20White%20E27%20800%20lm%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-9f0d9f3cd0": {
+   "url": "https://www.amazon.nl/s?k=AstroAI%20multim%C3%A8tre%20num%C3%A9rique%202000%20points&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-a019eb87ff": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20flamme%20B35%20E14%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-a941475313": {
+   "url": "https://www.amazon.nl/dp/B00MOIWOAK?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-ab0c93b848": {
+   "url": "https://www.amazon.nl/s?k=Legrand%20dooxie%20variateur%20toutes%20lampes%202%20fils%20(avec%20plaque)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-acb3a98ece": {
+   "url": "https://www.amazon.nl/dp/B0DGPZCMG6?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-ae7c9368ef": {
+   "url": "https://www.amazon.nl/s?k=Oktaplex%20Riga%20r%C3%A9glette%20sous%20meuble%2028%20cm%204000K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-af89344618": {
+   "url": "https://www.amazon.nl/dp/B0DDK55MF7?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-af93d93b27": {
+   "url": "https://www.amazon.nl/s?k=V-TAC%20LED%20E27%208%2C5W%20806%20lm%204000K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-b25e90e6cb": {
+   "url": "https://www.amazon.nl/s?k=DiCUNO%20GU5.3%20MR16%2012V%204000K%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-b2bfed7dc5": {
+   "url": "https://www.amazon.nl/dp/B07B4CPRDQ?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-b50bdc02be": {
+   "url": "https://www.amazon.nl/s?k=SILAMP%20r%C3%A9glette%20LED%20%C3%A9tanche%2036W%20120%20cm%20IP65&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-b7ca9621a9": {
+   "url": "https://www.amazon.nl/dp/B0FJ8VXHRX?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-b8f5d47eae": {
+   "url": "https://www.amazon.nl/s?k=Shelly%201L%20Gen3%20module%20Wi-Fi%20sans%20neutre%20%2B%20bypass&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-bb3070f78c": {
+   "url": "https://www.amazon.nl/s?k=OUILA%20lampe%20de%20placard%20LED%20rechargeable%2060%20cm%20%C3%A0%20d%C3%A9tecteur&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-be1607d1a8": {
+   "url": "https://www.amazon.nl/dp/B0B272H45X?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-c0900f4849": {
+   "url": "https://www.amazon.nl/s?k=Osram%20Base%20Classic%20A%20E27%20%C3%A9q.%20100W%204000K%20%E2%80%93%20lot%20de%203&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-c0ad317a40": {
+   "url": "https://www.amazon.nl/s?k=Spots%20solaires%20ext%C3%A9rieurs%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%203&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-c58652b795": {
+   "url": "https://www.amazon.nl/s?k=TOPAI%20ruban%20LED%20COB%2024V%205%20m%203000K%20IP65&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-c8e8f12c67": {
+   "url": "https://www.amazon.nl/s?k=Plafonnier%20LED%2024W%202800%20lm%20dimmable%20(%C3%9830%20cm)&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-c91c1f7d42": {
+   "url": "https://www.amazon.nl/s?k=REYLAX%20transformateur%20LED%2024V%2060W&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-cbbf9ef2ca": {
+   "url": "https://www.amazon.nl/dp/B0BBLYJCFF?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-d1efda7f34": {
+   "url": "https://www.amazon.nl/s?k=Hellum%20LED%20bougie%20E14%20mat%20%E2%80%93%20lot%20de%205&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-d371d33b13": {
+   "url": "https://www.amazon.nl/s?k=STEINEL%20XSolar%20L-S%20ONE%20applique%20solaire%20%C3%A0%20d%C3%A9tecteur&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-d98435027a": {
+   "url": "https://www.amazon.nl/dp/B0F62SG8Z9?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-d9babb296f": {
+   "url": "https://www.amazon.nl/s?k=BenQ%20ScreenBar%20%E2%80%93%20barre%20lumineuse%20pour%20%C3%A9cran&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-e045329575": {
+   "url": "https://www.amazon.nl/s?k=EACLL%20ampoules%20LED%20GU5.3%2012V%202700K%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-e363cf97e1": {
+   "url": "https://www.amazon.nl/dp/B099NPGWCQ?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-e6f2bd893c": {
+   "url": "https://www.amazon.nl/s?k=Bojim%20spots%20LED%20encastrables%20orientables%20%E2%80%93%20lot%20de%2010&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-e7cb481918": {
+   "url": "https://www.amazon.nl/dp/B0B7W9VRB7?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-ecbce8c72f": {
+   "url": "https://www.amazon.nl/s?k=REYLAX%20alimentation%20LED%2024V%20100W%20dimmable&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-f0db0d87fd": {
+   "url": "https://www.amazon.nl/s?k=Tapo%20L530E%20Wi-Fi%20E27%20%E2%80%93%20lot%20de%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-f120f011cb": {
+   "url": "https://www.amazon.nl/s?k=Arotelicht%20spots%20encastr%C3%A9s%20escalier%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-f19705c8f8": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20E27%208W%20(%C3%A9q.%2060W)%202700K%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-f34e37efe4": {
+   "url": "https://www.amazon.nl/s?k=YIIFELL%20ampoule%20four%20E14%20300%20%C2%B0C%20%E2%80%93%20lot%20de%204&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-f5ccf9a16d": {
+   "url": "https://www.amazon.nl/s?k=GY%20GU10%20LED%204%2C9W%20790%20lm%204000K%20%E2%80%93%20lot%20de%2010&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-f6aa641ced": {
+   "url": "https://www.amazon.nl/dp/B07H7HB6LG?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "roboteducat00-21"
+  },
+  "az-nl-f7dce77a4e": {
+   "url": "https://www.amazon.nl/s?k=Annmore%20veilleuse%20nuage%20rechargeable&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-fcee0e38af": {
+   "url": "https://www.amazon.nl/s?k=Guirlande%20guinguette%2010%20m%20G40%2024V%20dimmable&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-nl-fe599cfe6a": {
+   "url": "https://www.amazon.nl/s?k=ISOLATECH%20kit%20de%20142%20gaines%20thermor%C3%A9tractables%203%3A1%20avec%20colle&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL"
+  },
+  "az-us-148f010e0f": {
+   "url": "https://www.amazon.com/dp/B0B927WMTY?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-7c5163f353": {
+   "url": "https://www.amazon.com/dp/B0B8TL1FGW?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-97ace43b4c": {
+   "url": "https://www.amazon.com/blackfriday?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-9fa6250ad8": {
+   "url": "https://www.amazon.com/dp/B0B92RYSNV?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-a2b81007c3": {
+   "url": "https://www.amazon.com/dp/B01LMEQIMQ?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  }
+ }
+}

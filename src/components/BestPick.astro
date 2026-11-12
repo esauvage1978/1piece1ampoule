@@ -1,0 +1,9 @@
+---
+const { title, why, href, cta, asin } = Astro.props as { title: string; why: string; href: string; cta: string; asin?: string };
+---
+<div class="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6">
+  <p class="text-xs font-bold uppercase tracking-wide text-amber-700">Notre meilleur choix</p>
+  <p class="mt-1 text-lg font-bold text-stone-900">{title}</p>
+  <p class="mt-2 text-sm text-stone-700">{why}</p>
+  <a href={href} rel="sponsored nofollow noopener" target="_blank" data-amazon-link={asin ? '' : undefined} data-asin={asin} class="mt-3 inline-flex rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-600">{cta}</a>
+</div>

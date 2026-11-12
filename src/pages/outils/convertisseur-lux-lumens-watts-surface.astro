@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+
+const rooms = [
+  { id: 'salon', label: 'Séjour / salon', lux: 125, m2: 20 },
+  { id: 'cuisine', label: 'Cuisine', lux: 200, m2: 12 },
+  { id: 'chambre', label: 'Chambre', lux: 100, m2: 14 },
+  { id: 'sdb', label: 'Salle de bain', lux: 175, m2: 6 },
+  { id: 'bureau', label: 'Bureau', lux: 300, m2: 10 },
+  { id: 'garage', label: 'Garage / atelier', lux: 300, m2: 18 },
+  { id: 'couloir', label: 'Couloir', lux: 100, m2: 8 },
+];
+const walls = [
+  { id: 'blanc', label: 'Murs clairs / blancs', k: 2 },
+  { id: 'beige', label: 'Murs beige ou gris clair', k: 1.85 },
+  { id: 'couleur', label: 'Murs colorés moyens', k: 1.55 },
+  { id: 'sombre', label: 'Murs foncés ou bois sombre', k: 1.25 },
+];
+---
+
+<Layout type="article"
+  title="Convertisseur Lux ↔ Lumens ↔ Watts LED selon la surface"
+  description="Calculateur bidirectionnel : lux, lumens et watts LED pour votre pièce (m²), typ. Outils · calculateur Guides, comparatifs et conseils pratiques sur"
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700"><a href="/outils/" class="hover:underline">Outils</a> · calculateur</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Convertisseur Lux ↔ Lumens ↔ Watts LED</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Reliez <strong>lux</strong> (éclairement au sol), <strong>lumens</strong> (flux total des sources) et <strong>watts LED</strong> pour une surface en m².
+        Le facteur <strong>K</strong> tient compte de la réflexion des murs : murs clairs → plus de lumière utile ; murs foncés → il faut plus de lumens pour le même lux.
+        Modifiez l’une des valeurs : les autres se recalculent. Voir aussi <a class="font-semibold text-amber-700" href="/guides/lumens-vs-watts/">lumens vs watts</a> et le <a class="font-semibold text-amber-700" href="/tutoriels/calculer-eclairage-piece-lux/">tutoriel lux par pièce</a>.
+      </p>
+    </div>
+  </section>
+
+  <CrossLinkOutilsDepannage variant="vers-depannage" />
+
+  <section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6">
+    <h2 class="text-xl font-bold">Calculateur</h2>
+    <div class="mt-5 grid gap-4 sm:grid-cols-2" id="conv-lux-tool">
+      <label class="text-sm font-semibold text-stone-800 sm:col-span-2">Type de pièce
+        <select id="cv-room" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          {rooms.map((r) => <option value={r.id} data-lux={r.lux} data-m2={r.m2}>{r.label} ({r.lux} lx, {String(r.m2).replace('.', ',')} m²)</option>)}
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800 sm:col-span-2">Couleur des murs (réflexion)
+        <select id="cv-walls" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          {walls.map((w) => <option value={w.id} data-k={w.k}>{w.label} (K ≈ {w.k})</option>)}
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Lux visés
+        <input id="cv-lux" type="number" min="20" max="3000" step="5" value="125" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Surface (m²)
+        <input id="cv-m2" type="number" min="0.5" max="120" step="0.1" value="20" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Lumens (flux total)
+        <input id="cv-lm" type="number" min="50" max="150000" step="50" value="5000" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Rendement LED (lm/W)
+        <input id="cv-lmw" type="number" min="60" max="150" step="5" value="100" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800 sm:col-span-2">Puissance LED totale (W)
+        <input id="cv-w" type="number" min="1" max="5000" step="1" value="50" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+    </div>
+    <p class="mt-4 text-sm text-stone-700" id="cv-hint" aria-live="polite"></p>
+    <p class="mt-1 text-xs text-stone-500">Formule : lumens ≈ lux × surface × K. Les lux affichés supposent une répartition homogène (plafonnier seul = coins plus sombres).</p>
+  </section>
+  <script is:inline>
+    (function () {
+      var lock = null;
+      function el(id) { return document.getElementById(id); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function fmt(n) { return Math.round(n).toLocaleString('fr-FR'); }
+      function kVal() {
+        var s = el('cv-walls');
+        return parseFloat(s.options[s.selectedIndex].getAttribute('data-k')) || 2;
+      }
+      function fromLux() {
+        var lux = num(el('cv-lux').value), m2 = num(el('cv-m2').value), K = kVal(), lmw = num(el('cv-lmw').value) || 100;
+        var lm = lux * m2 * K;
+        el('cv-lm').value = Math.round(lm);
+        el('cv-w').value = Math.max(1, Math.round(lm / lmw));
+        el('cv-hint').textContent = '≈ ' + fmt(lux) + ' lx × ' + m2.toFixed(1).replace('.', ',') + ' m² × K ' + K + ' → ' + fmt(lm) + ' lm → ≈ ' + fmt(lm / lmw) + ' W LED (' + lmw + ' lm/W)';
+      }
+      function fromLm() {
+        var lm = num(el('cv-lm').value), m2 = num(el('cv-m2').value), K = kVal(), lmw = num(el('cv-lmw').value) || 100;
+        var lux = m2 > 0 && K > 0 ? lm / (m2 * K) : 0;
+        el('cv-lux').value = Math.round(lux);
+        el('cv-w').value = Math.max(1, Math.round(lm / lmw));
+        el('cv-hint').textContent = fmt(lm) + ' lm → ≈ ' + fmt(lux) + ' lx (surface ' + m2.toFixed(1).replace('.', ',') + ' m², K ' + K + ') · ≈ ' + fmt(lm / lmw) + ' W LED';
+      }
+      function fromW() {
+        var w = num(el('cv-w').value), lmw = num(el('cv-lmw').value) || 100;
+        el('cv-lm').value = Math.round(w * lmw);
+        fromLm();
+      }
+      el('cv-room').addEventListener('change', function () {
+        var o = this.options[this.selectedIndex];
+        el('cv-lux').value = o.getAttribute('data-lux');
+        el('cv-m2').value = o.getAttribute('data-m2');
+        fromLux();
+      });
+      el('cv-walls').addEventListener('change', function () { fromLux(); });
+      el('cv-lmw').addEventListener('input', function () { if (lock === 'w') fromW(); else fromLux(); });
+      el('cv-lux').addEventListener('input', function () { if (lock) return; lock = 'lux'; fromLux(); lock = null; });
+      el('cv-m2').addEventListener('input', function () { if (lock) return; lock = 'lux'; fromLux(); lock = null; });
+      el('cv-lm').addEventListener('input', function () { if (lock) return; lock = 'lm'; fromLm(); lock = null; });
+      el('cv-w').addEventListener('input', function () { if (lock) return; lock = 'w'; fromW(); lock = null; });
+      fromLux();
+    })();
+  </script>
+
+  <ToolTeaser />
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+    <ul class="mt-3 space-y-1 text-sm text-stone-600">
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/">Simulateur lumens, Kelvin et IRC</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/equivalence-halogene-led-gu10-e27-lumens/">Équivalence halogène → LED</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/calculateur-ruban-led-alimentation-24v/">Calculateur ruban LED</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/generateur-plan-eclairage-cuisine-pdf/">Plan d’éclairage cuisine (PDF)</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/calculateur-roi-relamping-led-professionnel/">ROI relamping LED pro</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">Matrice variateur × ampoule LED</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/compatibilite-interrupteur-connecte-sans-neutre/">Interrupteurs sans neutre</a></li>
+    </ul>
+  </section>
+</Layout>

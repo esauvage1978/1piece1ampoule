@@ -1,0 +1,17 @@
+---
+// Renvoie vers les pages « Marque » existantes pour les produits affichés.
+import { brandPage } from '../content/marques';
+const { brands = [] } = Astro.props as { brands?: string[] };
+const pages = [...new Set([...new Set(brands)].map((b) => brandPage(b)).filter(Boolean))].map((m) => ({ href: `/marques/${m!.slug}/`, label: m!.name }));
+---
+{pages.length > 0 && (
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">La marque en détail</h2>
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {pages.map((p) => (
+        <li><a class="inline-block rounded-xl bg-stone-100 px-3 py-2 text-sm font-semibold hover:bg-stone-200" href={p.href}>Notre avis sur {p.label} : produits, garantie, SAV</a></li>
+      ))}
+    </ul>
+    <p class="mt-3 text-sm"><a class="text-amber-700 underline" href="/marques/">Toutes nos fiches marques</a></p>
+  </section>
+)}

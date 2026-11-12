@@ -1,47 +1,68 @@
 ---
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 ---
 
-<Layout
-  title="Lumens vs Watts : comprendre la puissance utile — Choisir son ampoule"
-  description="Le bon réflexe : regarder les lumens (lumière) plutôt que les watts (consommation). Repères simples + sélections produits."
+<Layout type="article"
+  title="Lumens vs watts : tableau d’équivalence LED (2026)"
+  description="Combien de lumens pour remplacer 40, 60, 75 ou 100 W ? Tableau officiel UE 2019/2015 : 60 W = au moins 806 lm. Les watts de la LED ne sont pas ce chiffre."
 >
   <section class="mt-10">
-    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Guide technique</p>
       <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Lumens vs Watts</h1>
-      <p class="mt-4 max-w-2xl text-white/75">
+      <p class="mt-4 max-w-2xl text-stone-600">
         Les <strong>lumens</strong> mesurent la quantité de lumière émise. Les <strong>watts</strong> mesurent surtout la consommation.
         Avec la LED, deux ampoules “10 W” peuvent éclairer très différemment : compare donc en lumens.
       </p>
     </div>
 
     <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">Repères rapides</h2>
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>≈ 400–500 lm : lampe de chevet / ambiance</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>≈ 800–1000 lm : usage général (pièce moyenne)</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>≈ 1500–2000 lm : zones de travail (cuisine/garage)</span></li>
+        <ul class="mt-4 space-y-2 text-sm text-stone-600">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>≈ 400–500 lm : lampe de chevet / ambiance</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>≈ 800–1000 lm : usage général (pièce moyenne)</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>≈ 1500–2000 lm : zones de travail (cuisine/garage)</span></li>
         </ul>
       </article>
 
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6 md:col-span-2">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 md:col-span-2">
         <h2 class="text-lg font-bold">Astuce : additionne les sources</h2>
-        <p class="mt-4 text-sm text-white/75">
+        <p class="mt-4 text-sm text-stone-600">
           Pour une pièce agréable, mieux vaut <strong>plusieurs points lumineux</strong> (plafond + lampes + indirect) qu’une seule ampoule ultra-puissante.
           Tu réduis l’éblouissement et tu crées des zones (lecture, détente, déco).
         </p>
-        <p class="mt-3 text-sm text-white/75">
-          Ensuite, choisis la température de couleur (Kelvin) selon l’usage : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">voir le guide Kelvin</a>.
+        <p class="mt-3 text-sm text-stone-600">
+          Ensuite, choisis la température de couleur (Kelvin) selon l’usage : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">voir le guide Kelvin</a>.
         </p>
       </article>
     </div>
 
+    <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-xl font-bold">Tableau d’équivalence watts → lumens (LED)</h2>
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full min-w-[480px] text-left text-sm">
+          <thead class="text-xs uppercase text-stone-500"><tr><th class="py-2">Ancienne ampoule</th><th class="py-2">Lumens à viser</th><th class="py-2">LED typique</th><th class="py-2">Usage</th></tr></thead>
+          <tbody class="text-stone-600">
+            <tr class="border-t border-stone-200"><td class="py-2">25 W</td><td>≈ 249 lm</td><td>2–3 W</td><td>Veilleuse, déco</td></tr>
+            <tr class="border-t border-stone-200"><td class="py-2">40 W</td><td>≈ 470 lm</td><td>4–5 W</td><td>Chevet, lampe d’appoint</td></tr>
+            <tr class="border-t border-stone-200"><td class="py-2">60 W</td><td>≈ 806 lm</td><td>7–8 W</td><td>Usage général</td></tr>
+            <tr class="border-t border-stone-200"><td class="py-2">75 W</td><td>≈ 1055 lm</td><td>9–11 W</td><td>Séjour, cuisine</td></tr>
+            <tr class="border-t border-stone-200"><td class="py-2">100 W</td><td>≈ 1521 lm</td><td>13–15 W</td><td>Grande pièce, atelier</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-xs text-stone-500">Source des équivalences lumens : règlement délégué (UE) 2019/2015, annexe V, tableau 7 (allégations d’équivalence des sources lumineuses non dirigées) — <a class="font-semibold text-amber-700 hover:text-amber-800" href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32019R2015" rel="noopener" target="_blank">EUR-Lex</a>. Mêmes valeurs que l’ancien règlement (CE) n° 244/2009, tableau 6, abrogé le 1er septembre 2021 par le règlement (UE) 2019/2020. La colonne « LED typique » est un ordre de grandeur : le nombre de watts varie selon l’efficacité de chaque modèle.</p>
+      <p class="mt-3 text-sm text-stone-600">Voir notre <a class="font-semibold text-amber-700 hover:text-amber-800" href="/meilleur/meilleure-ampoule-led-e27/">comparatif des meilleures ampoules LED E27</a>.</p>
+    </section>
+  <ToolTeaser />
+
     <section class="mt-10">
       <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
-      <p class="mt-1 text-sm text-white/70">Chaque lien ouvre une recherche Amazon correspondant exactement au besoin.</p>
+      <p class="mt-1 text-sm text-stone-600">Recherches Amazon.fr pour chaque niveau de luminosité.</p>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
         <ProductCard title="Ampoule LED E27 ~800–1000 lm" subtitle="Usage général" keywords="ampoule led e27 1000 lumens" />
         <ProductCard title="Ampoule LED E14 ~470–600 lm" subtitle="Lampe de chevet / petite lampe" keywords="ampoule led e14 470 lumens" />
@@ -50,15 +71,16 @@ import ProductCard from '../../components/ProductCard.astro';
       </div>
     </section>
 
-    <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">Pour aller plus loin</h2>
-      <p class="mt-2 text-sm text-white/75">
-        Une fois le “bon niveau” (lumens), choisis la teinte avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>,
-        la fidélité des couleurs avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>,
-        puis la compatibilité des culots via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a>.
-        Pour régler l’intensité : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+      <p class="mt-2 text-sm text-stone-600">
+        Une fois le “bon niveau” (lumens), choisis la teinte avec <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>,
+        la fidélité des couleurs avec <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a>,
+        puis la compatibilité des culots via <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/culots-e27-e14-gu10">culots</a>.
+        Pour régler l’intensité : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
       </p>
     </section>
   </section>
+  <RelatedComparatifs />
 </Layout>
 

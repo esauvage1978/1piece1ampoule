@@ -1,0 +1,58 @@
+---
+const { lang = 'fr', title = '', topic = 'lighting' } = Astro.props as { lang?: string; title?: string; topic?: 'lighting' | 'paint' };
+const L = {
+  fr: topic === 'paint'
+    ? { h: 'Une question sur la peinture ou la préparation de vos murs ?', s: 'Précisez la pièce, le support (plâtre, bois…) et la finition souhaitée : réponse par e-mail sous 24 à 48 h ouvrées.', n: 'Nom ou pseudo', e: 'E-mail', m: 'Votre question', c1: "J'accepte que mes données soient utilisées pour me répondre (", c2: 'confidentialité', c3: ').', pv: '/politique-de-confidentialite/', b: 'Envoyer ma question', w: 'Envoi en cours…', ok: 'Merci, votre question est bien partie. Nous vous répondons par e-mail sous 24 à 48 h ouvrées.', ko: "L'envoi n'a pas abouti. Écrivez-nous directement à", ob: 'Question peinture : ' }
+    : { h: 'Une question sur cet éclairage ou votre installation ? Posez-la ici', s: 'Précisez la pièce, le culot ou votre configuration électrique : nous vous répondons par e-mail sous 24 à 48 h ouvrées.', n: 'Nom ou pseudo', e: 'E-mail', m: 'Votre question', c1: "J'accepte que mes données soient utilisées pour me répondre (", c2: 'confidentialité', c3: ').', pv: '/politique-de-confidentialite/', b: 'Envoyer ma question', w: 'Envoi en cours…', ok: 'Merci, votre question est bien partie. Nous vous répondons par e-mail sous 24 à 48 h ouvrées.', ko: "L'envoi n'a pas abouti. Écrivez-nous directement à", ob: 'Question article : ' },
+  en: { h: 'Have a question about this lighting or your wiring? Ask it here', s: 'Tell us the room, the bulb base or your electrical setup: we reply by email within 1 to 2 working days.', n: 'Name', e: 'Email', m: 'Your question', c1: 'I agree that my details are used to answer me (', c2: 'privacy policy', c3: ').', pv: '/en/privacy/', b: 'Send my question', w: 'Sending…', ok: 'Thanks, your question has been sent. We will reply by email within 1 to 2 working days.', ko: 'Sending failed. Please email us directly at', ob: 'Question article : ' },
+  uk: { h: 'Have a question about this lighting or your wiring? Ask it here', s: 'Tell us the room, the bulb base or your setup (B22, E27, GU10): we reply by email within 1 to 2 working days.', n: 'Name', e: 'Email', m: 'Your question', c1: 'I agree that my details are used to answer me (', c2: 'privacy policy', c3: ').', pv: '/uk/privacy/', b: 'Send my question', w: 'Sending…', ok: 'Thanks, your question has been sent. We will reply by email within 1 to 2 working days.', ko: 'Sending failed. Please email us directly at', ob: 'Question article : ' },
+  ca: { h: 'Have a question about this lighting or your wiring? Ask it here', s: 'Tell us the room, the bulb base or your setup (E26, E27, GU10): we reply by email within 1 to 2 working days.', n: 'Name', e: 'Email', m: 'Your question', c1: 'I agree that my details are used to answer me (', c2: 'privacy policy', c3: ').', pv: '/ca/privacy/', b: 'Send my question', w: 'Sending…', ok: 'Thanks, your question has been sent. We will reply by email within 1 to 2 working days.', ko: 'Sending failed. Please email us directly at', ob: 'Question article : ' },
+  de: { h: 'Haben Sie eine Frage zu dieser Beleuchtung oder Ihrer Installation? Schreiben Sie uns', s: 'Nennen Sie den Raum, den Sockel oder Ihre Elektroinstallation: Wir antworten per E-Mail innerhalb von 1 bis 2 Werktagen.', n: 'Name', e: 'E-Mail', m: 'Ihre Frage', c1: 'Ich bin einverstanden, dass meine Angaben zur Beantwortung genutzt werden (', c2: 'Datenschutz', c3: ').', pv: '/de/datenschutz/', b: 'Frage senden', w: 'Wird gesendet…', ok: 'Danke, Ihre Frage ist angekommen. Wir antworten per E-Mail innerhalb von 1 bis 2 Werktagen.', ko: 'Das Senden hat nicht geklappt. Schreiben Sie uns direkt an', ob: 'Question article : ' },
+  nl: { h: 'Heb je een vraag over deze verlichting of je installatie? Stel hem hier', s: 'Vermeld de ruimte, de fitting of je elektrische installatie: we antwoorden per e-mail binnen 1 à 2 werkdagen.', n: 'Naam', e: 'E-mail', m: 'Je vraag', c1: 'Ik ga akkoord dat mijn gegevens worden gebruikt om te antwoorden (', c2: 'privacybeleid', c3: ').', pv: '/nl/privacy/', b: 'Vraag versturen', w: 'Bezig met versturen…', ok: 'Bedankt, je vraag is verstuurd. We antwoorden per e-mail binnen 1 à 2 werkdagen.', ko: 'Versturen mislukt. Mail ons rechtstreeks op', ob: 'Question article : ' },
+  it: { h: 'Hai una domanda su questa illuminazione o sul tuo impianto? Scrivici qui', s: "Indica la stanza, l'attacco o il tuo impianto elettrico: ti rispondiamo via e-mail entro 1-2 giorni lavorativi.", n: 'Nome', e: 'E-mail', m: 'La tua domanda', c1: 'Accetto che i miei dati siano usati per rispondermi (', c2: 'privacy', c3: ').', pv: '/it/privacy/', b: 'Invia la domanda', w: 'Invio in corso…', ok: 'Grazie, la tua domanda è stata inviata. Ti rispondiamo via e-mail entro 1-2 giorni lavorativi.', ko: "Invio non riuscito. Scrivici direttamente a", ob: 'Question article : ' },
+  es: { h: '¿Tienes alguna pregunta sobre esta iluminación o tu instalación? Escríbenos aquí', s: 'Indica la estancia, el casquillo o tu instalación eléctrica: te respondemos por e-mail en 1 o 2 días laborables.', n: 'Nombre', e: 'E-mail', m: 'Tu pregunta', c1: 'Acepto que mis datos se usen para responderme (', c2: 'privacidad', c3: ').', pv: '/es/privacidad/', b: 'Enviar mi pregunta', w: 'Enviando…', ok: 'Gracias, tu pregunta se ha enviado. Te respondemos por e-mail en 1 o 2 días laborables.', ko: 'No se ha podido enviar. Escríbenos directamente a', ob: 'Question article : ' },
+}[lang] ?? null;
+const t = L ?? {} as any;
+const cleanTitle = title.split(' — ')[0].split(' | ')[0];
+---
+{L && (
+<section class="mx-auto mt-12 mb-4 max-w-3xl rounded-2xl border border-amber-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="aq-h" data-article-question>
+  <h2 id="aq-h" class="text-lg font-bold text-stone-900 sm:text-xl">{t.h}</h2>
+  <p class="mt-1 text-sm text-stone-600">{t.s}</p>
+  <form id="aq-form" class="mt-4 grid gap-3 sm:grid-cols-2" novalidate data-title={cleanTitle} data-ok={t.ok} data-ko={t.ko} data-wait={t.w} data-ob={t.ob}>
+    <label class="block text-sm font-medium text-stone-700">{t.n}
+      <input name="name" type="text" required maxlength="80" autocomplete="name" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-base focus:border-amber-500 focus:outline-none" />
+    </label>
+    <label class="block text-sm font-medium text-stone-700">{t.e}
+      <input name="email" type="email" required maxlength="120" autocomplete="email" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-base focus:border-amber-500 focus:outline-none" />
+    </label>
+    <label class="block text-sm font-medium text-stone-700 sm:col-span-2">{t.m}
+      <textarea name="message" required rows="4" maxlength="4000" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-base focus:border-amber-500 focus:outline-none"></textarea>
+    </label>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+    <label class="flex items-start gap-2 text-sm text-stone-600 sm:col-span-2">
+      <input name="rgpd" type="checkbox" required class="mt-1" />
+      <span>{t.c1}<a class="underline hover:text-amber-700" href={t.pv}>{t.c2}</a>{t.c3}</span>
+    </label>
+    <div class="sm:col-span-2">
+      <button type="submit" class="rounded-full bg-amber-500 px-5 py-2.5 font-semibold text-white hover:bg-amber-600 disabled:opacity-60">{t.b}</button>
+    </div>
+    <div id="aq-status" class="hidden sm:col-span-2" role="status" aria-live="polite"></div>
+  </form>
+</section>
+)}
+<script is:inline>
+(function(){
+  var f=document.getElementById('aq-form');if(!f)return;var st=document.getElementById('aq-status');
+  function show(ok,msg){st.className='sm:col-span-2 rounded-xl px-4 py-3 text-sm '+(ok?'bg-green-50 text-green-800 border border-green-200':'bg-red-50 text-red-800 border border-red-200');st.textContent='';if(ok){st.textContent=msg;}else{st.appendChild(document.createTextNode(msg+' '));var a=document.createElement('a');a.href='mailto:contact@1piece1ampoule.fr';a.className='underline font-semibold';a.textContent='contact@1piece1ampoule.fr';st.appendChild(a);}}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();if(!f.checkValidity()){f.reportValidity();return;}
+    var b=f.querySelector('button[type=submit]'),lbl=b.textContent;b.disabled=true;b.textContent=f.dataset.wait;
+    var body={name:f.elements.name.value.trim(),email:f.elements.email.value.trim(),message:f.elements.message.value.trim(),website:f.elements.website.value,objet:f.dataset.ob+(f.dataset.title||document.title),page:window.location.href,source:'1piece1ampoule.fr'};
+    fetch('/api/contact.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){if(r.ok){show(true,f.dataset.ok);f.reset();}else{show(false,f.dataset.ko);}})
+      .catch(function(){show(false,f.dataset.ko);})
+      .finally(function(){b.disabled=false;b.textContent=lbl;});
+  });
+})();
+</script>

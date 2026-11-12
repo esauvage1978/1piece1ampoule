@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+const sujets = ['Question sur une pièce ou une ampoule', 'Projet d’éclairage / domotique', 'Proposition de partenariat / marque', 'Signaler une erreur sur une page', 'Autre'];
+const inp = 'mt-1 w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200';
+---
+<Layout title="Contact — poser une question sur votre éclairage" description="Une question sur le choix d’une ampoule ou l’éclairage d’une pièce ? Une marque . Contact Guides, comparatifs et conseils pratiques sur 1piece1ampoule.fr.">
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-6 sm:p-8">
+    <p class="text-sm font-semibold text-amber-700">Contact</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Une question sur votre éclairage ?</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">Vous hésitez entre deux ampoules, votre salon reste trop sombre malgré trois plafonniers, ou vos LED scintillent depuis que vous avez posé un interrupteur connecté sans neutre ? Décrivez la pièce (surface, hauteur sous plafond, culot, ce qui vous gêne) : on vous répond avec une piste concrète.</p>
+    <p class="mt-3 max-w-3xl text-stone-600">Vous êtes une marque, un fabricant ou une boutique de luminaires et vous aimeriez qu’on teste un produit ou travailler avec nous ? Choisissez « Proposition de partenariat » : votre message arrive directement à la bonne personne.</p>
+  </section>
+
+  <section class="mt-8 grid gap-6 lg:grid-cols-3">
+    <div class="lg:col-span-2 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <form id="contact-form" class="space-y-4" novalidate>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block text-sm font-semibold text-stone-700">Nom ou prénom *
+            <input class={inp} type="text" name="name" required maxlength="100" autocomplete="name" /></label>
+          <label class="block text-sm font-semibold text-stone-700">Adresse e-mail *
+            <input class={inp} type="email" name="email" required maxlength="150" autocomplete="email" /></label>
+        </div>
+        <label class="block text-sm font-semibold text-stone-700">Sujet
+          <select class={inp} name="objet">{sujets.map((s) => <option value={s}>{s}</option>)}</select></label>
+        <label class="block text-sm font-semibold text-stone-700">Votre message *
+          <textarea class={inp} name="message" rows="7" required maxlength="5000" placeholder="Ex. : chambre de 12 m², plafond à 2,50 m, une douille E27 au centre. Quelle ampoule pour lire le soir sans lumière froide ?"></textarea></label>
+        <input type="hidden" name="page" value="" />
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+        <label class="flex items-start gap-2 text-sm text-stone-600">
+          <input type="checkbox" name="rgpd" required class="mt-1 h-4 w-4 shrink-0 accent-amber-600" />
+          <span>J’accepte que mes informations soient utilisées uniquement pour répondre à ma demande, conformément à la <a class="font-semibold text-amber-700 underline" href="/politique-de-confidentialite/">politique de confidentialité</a>. *</span>
+        </label>
+        <button type="submit" class="rounded-xl bg-amber-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-amber-700 disabled:opacity-60">Envoyer le message</button>
+        <p id="contact-status" class="hidden rounded-xl px-4 py-3 text-sm" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <aside class="space-y-4">
+      <div class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 text-sm text-stone-600">
+        <h2 class="text-lg font-bold text-stone-900">Par e-mail</h2>
+        <p class="mt-2">Vous préférez votre messagerie ? Écrivez à <a class="font-semibold text-amber-700 break-all" href="mailto:contact@1piece1ampoule.fr">contact@1piece1ampoule.fr</a>.</p>
+        <p class="mt-2">Réponse habituelle sous <strong>24 à 48 h ouvrées</strong>.</p>
+      </div>
+      <div class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 text-sm">
+        <h2 class="text-lg font-bold text-stone-900">En attendant la réponse</h2>
+        <ul class="mt-3 space-y-2">
+          <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/">Simulateur : combien de lumens pour ma pièce</a></li>
+          <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/pieces/">Conseils pièce par pièce</a></li>
+          <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/tutoriels/interrupteur-connecte-sans-neutre/">Interrupteur connecté sans neutre</a></li>
+          <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/marques/">Les marques que nous testons</a></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+  <script is:inline>
+  (function(){
+    var f=document.getElementById('contact-form'),st=document.getElementById('contact-status');
+    if(!f)return;
+    f.page.value=window.location.href;
+    function show(ok,msg){st.className='rounded-xl px-4 py-3 text-sm '+(ok?'bg-green-50 text-green-800 border border-green-200':'bg-red-50 text-red-800 border border-red-200');st.innerHTML=msg;}
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!f.checkValidity()){f.reportValidity();return;}
+      var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Envoi en cours…';
+      var body={name:f.name.value.trim(),email:f.email.value.trim(),objet:f.objet.value,message:f.message.value.trim(),page:f.page.value||document.referrer||window.location.pathname,website:f.website.value,source:'1piece1ampoule.fr'};
+      fetch('/api/contact.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+        .then(function(r){return r.json().catch(function(){return {};}).then(function(d){return r.ok&&d.ok;});})
+        .then(function(ok){
+          if(ok){show(true,'Merci, votre message est bien parti. Nous vous répondons sous 24 à 48 h ouvrées.');f.reset();f.page.value=window.location.href;}
+          else throw 0;
+        })
+        .catch(function(){show(false,'Le message n’a pas pu être envoyé. Vous pouvez nous écrire directement à <a class="font-semibold underline" href="mailto:contact@1piece1ampoule.fr">contact@1piece1ampoule.fr</a>.');})
+        .finally(function(){b.disabled=false;b.textContent='Envoyer le message';});
+    });
+  })();
+  </script>
+</Layout>

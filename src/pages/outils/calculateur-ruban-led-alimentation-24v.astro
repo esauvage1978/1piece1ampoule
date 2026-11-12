@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import ProductCard from '../../components/ProductCard.astro';
+---
+
+<Layout type="article"
+  title="Calculateur ruban LED 12V / 24V : alimentation, chute de tension, profilé"
+  description="Dimensionnez un ruban LED COB ou SMD 12V ou 24V : longueur, puissance, chute de . Outils · calculateur Guides, comparatifs et conseils pratiques sur"
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700"><a href="/outils/" class="hover:underline">Outils</a> · calculateur</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Dimensionner un ruban LED 12V / 24V</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Choisissez la tension, le type de ruban (COB ou SMD classique), la longueur et la section de câble : l’outil estime la <strong>puissance</strong>, l’<strong>alimentation</strong> (avec <strong>marge 20 %</strong>), la <strong>chute de tension</strong> et si un <strong>profilé aluminium</strong> est recommandé.
+        Tuto pose : <a class="font-semibold text-amber-700" href="/tutoriels/poser-ruban-led-sous-meuble-cuisine/">ruban sous meuble cuisine</a>.
+      </p>
+    </div>
+  </section>
+
+  <CrossLinkOutilsDepannage variant="vers-depannage" />
+
+  <section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6">
+    <h2 class="text-xl font-bold">Calculateur</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2" id="strip-tool">
+      <label class="text-sm font-semibold text-stone-800">Tension
+        <select id="st-v" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          <option value="24">24 V DC (recommandé &gt; 3 m)</option>
+          <option value="12">12 V DC</option>
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Type de ruban
+        <select id="st-type" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          <option value="cob" data-wm="14">COB 24V (~14 W/m)</option>
+          <option value="smd2835" data-wm="9">SMD 2835 (~9 W/m)</option>
+          <option value="smd5050" data-wm="14">SMD 5050 RGB (~14 W/m)</option>
+          <option value="custom" data-wm="10">Personnalisé (W/m)</option>
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Longueur (m)
+        <input id="st-len" type="number" min="0.3" max="30" step="0.1" value="3" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800" id="st-wm-wrap">Puissance (W/m)
+        <input id="st-wm" type="number" min="3" max="25" step="0.5" value="14" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Section câble (mm²)
+        <select id="st-cable" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          <option value="0.75">0,75 mm²</option>
+          <option value="1.5" selected>1,5 mm²</option>
+          <option value="2.5">2,5 mm²</option>
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Longueur câble alim → ruban (m)
+        <input id="st-run" type="number" min="0.5" max="15" step="0.5" value="2" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+    </div>
+    <div id="st-result" class="mt-5 space-y-2 rounded-xl border border-amber-300 bg-white p-4 text-sm text-stone-800" aria-live="polite"></div>
+  </section>
+  <script is:inline>
+    (function () {
+      function el(id) { return document.getElementById(id); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function wmFromType() {
+        var t = el('st-type');
+        if (t.value === 'custom') return num(el('st-wm').value);
+        return parseFloat(t.options[t.selectedIndex].getAttribute('data-wm')) || 10;
+      }
+      function calc() {
+        var V = num(el('st-v').value);
+        var len = num(el('st-len').value);
+        var wm = wmFromType();
+        var P = len * wm;
+        var Ps = Math.ceil(P * 1.2);
+        var cable = num(el('st-cable').value);
+        var run = num(el('st-run').value);
+        var I = P / V;
+        var drop = (2 * run * I * 0.0175 / cable) / V * 100;
+        var profile = wm >= 12 || len > 2 ? 'Fortement recommandé' : len > 1 ? 'Recommandé (dissipation)' : 'Optionnel sur courte longueur';
+        var feed = drop > 5 ? 'Alimentez le ruban aux <strong>deux extrémités</strong> ou montez en 24 V / 2,5 mm².' : drop > 3 ? 'Surveillez la luminosité en bout de ruban ; double alimentation si homogénéité critique.' : 'Chute de tension acceptable pour un éclairage d’appoint.';
+        el('st-wm-wrap').style.display = el('st-type').value === 'custom' ? '' : 'none';
+        el('st-result').innerHTML =
+          '<p><strong>Puissance ruban :</strong> ' + P.toFixed(1).replace('.', ',') + ' W (' + wm + ' W/m × ' + len + ' m).</p>' +
+          '<p><strong>Alimentation à prévoir (+20 %) :</strong> ≥ <strong>' + Ps + ' W</strong> en ' + V + ' V DC (courant ≈ ' + (Ps / V).toFixed(1).replace('.', ',') + ' A).</p>' +
+          '<p><strong>Chute de tension estimée :</strong> ≈ ' + drop.toFixed(1).replace('.', ',') + ' % sur ' + run + ' m (aller-retour, ' + cable + ' mm²). ' + feed + '</p>' +
+          '<p><strong>Profilé aluminium :</strong> ' + profile + '.</p>';
+      }
+      ['st-v', 'st-type', 'st-len', 'st-wm', 'st-cable', 'st-run'].forEach(function (id) {
+        el(id).addEventListener('input', calc);
+        el(id).addEventListener('change', calc);
+      });
+      calc();
+    })();
+  </script>
+
+  <SavWave1Compliance />
+
+  <section class="mt-10">
+    <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <ProductCard title="Alimentation LED 24V 60W" subtitle="Marge pour ruban cuisine" keywords="alimentation led 24v 60w" badge="24V" />
+      <ProductCard title="Profilé aluminium ruban LED" subtitle="Dissipation thermique" keywords="profilé aluminium led ruban encastré" />
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+    <ul class="mt-3 space-y-1 text-sm text-stone-600">
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/convertisseur-lux-lumens-watts-surface/">Convertisseur lux ↔ lumens</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/equivalence-halogene-led-gu10-e27-lumens/">Équivalence halogène LED</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/generateur-plan-eclairage-cuisine-pdf/">Plan d’éclairage cuisine (PDF)</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/calculateur-roi-relamping-led-professionnel/">ROI relamping LED pro</a></li>
+      <li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">Ruban qui reste allumé ou chauffe</a></li>
+    </ul>
+  </section>
+</Layout>

@@ -1,268 +1,193 @@
 ---
-type Props = {
-  defaultLumens?: number;
-  defaultKelvin?: number;
-  defaultIrc?: number;
+import { PRODUCTS } from '../content/products';
+import { TOOL_I18N } from '../content/tool-i18n';
+const { lang = 'fr' } = Astro.props as { lang?: 'fr' | 'en' | 'de' | 'nl' | 'es' | 'it' };
+const T = TOOL_I18N[lang];
+const ROOMS = [
+  { id: 'salon', label: 'Salon', img: 'salon', area: 20, lm: [1800, 3200], k: [2700, 3000], irc: 80, lx: [80, 3], products: { warm: ['B01KHIM7OG', 'B0FJ8VXHRX'], cool: ['B0DGPZCMG6', 'B0FJ8VXHRX'] } },
+  { id: 'chambre', label: 'Chambre', img: 'chambre-adulte', area: 12, lm: [900, 1800], k: [2200, 2900], irc: 80, lx: [50, 3], products: { warm: ['B01KHIM7OG', 'B0DLG23BNS'], cool: ['B01KHIM7OG', 'B0DLG23BNS'] } },
+  { id: 'cuisine', label: 'Cuisine', img: 'cuisine', area: 12, lm: [2500, 4500], k: [3000, 4000], irc: 90, lx: [55, 28], products: { warm: ['B07665H9B7', 'B09TQZVFY7'], cool: ['B07H7HB6LG', 'B0F62SG8Z9'] } },
+  { id: 'sdb', label: 'Salle de bain', img: 'salle-bain', area: 7, lm: [1400, 2800], k: [3000, 4000], irc: 90, lx: [32, 3], products: { warm: ['B07B4CPRDQ', 'B07665H9B7'], cool: ['B0BBLYJCFF', 'B0BNDC7BPV'] } },
+  { id: 'bureau', label: 'Bureau', img: 'bureau-adulte', area: 10, lm: [3000, 5000], k: [3500, 5000], irc: 90, lx: [50, 3], products: { warm: ['B08MFN1S45', 'B0785D93KD'], cool: ['B0785D93KD', 'B08MFN1S45'] } },
+  { id: 'garage', label: 'Garage', img: 'garage', area: 20, lm: [4000, 8000], k: [4000, 6500], irc: 80, lx: [50, 5], products: { warm: ['B0BZ59BD65', 'B094YKGD5N'], cool: ['B0BZ59BD65', 'B07VNNFBHV'] } },
+];
+// Sélections Amazon.it / Amazon.es : ASIN déjà contrôlés dans amz-local.ts.
+const LOCAL_NAMES: Record<string, Record<string, [string, string]>> = {
+  it: { B0DGPZCMG6: ['Philips LED Classic E27 equivalente 100 W (6 pezzi)', '1 500 lm, luce calda'], B0FJ8VXHRX: ['Philips Hue White Ambiance E27', 'Bianco regolabile da caldo a freddo'], B073QSXXCH: ['Osram LED Base Classic A E27, equivalente 100 W', 'Circa 1 500 lm, 4 000 K'], B09ZBJPNK4: ['Philips LED E27 equivalente 40 W, 2 700 K (6 pezzi)', '470 lm, luce calda'], B07665H9B7: ['Philips LED GU10 equivalente 50 W, luce calda (10 pezzi)', 'Per faretti GU10 a 230 V'] },
+  de: { B0DGPZCMG6: ['Philips LED Classic E27, ersetzt 100 W (6er-Pack)', 'Rund 1 500 lm, warmweiß'], B0FJ8VXHRX: ['Philips Hue White Ambiance E27', 'Weißton von warm bis kalt'], B073QSXXCH: ['Osram LED Base Classic A E27, ersetzt 100 W', 'Rund 1 521 lm, 4 000 K'], B09ZBJPNK4: ['Philips LED E27, ersetzt 40 W, 2 700 K (6er-Pack)', '470 lm, warmweiß'], B07665H9B7: ['Philips LED GU10, ersetzt 50 W, warmweiß (10er-Pack)', 'Für GU10-Spots mit 230 V'] },
+  es: { B0DGPZCMG6: ['Philips LED A60 E27 1 521 lm, pack de 6', 'Luz cálida, eq. 100 W'], B0FJ8VXHRX: ['Philips Hue White Ambiance E27 A60', 'Blanco regulable de cálido a frío'], B073QSXXCH: ['Osram LED Base Classic A E27, equivalente a 100 W', 'Unos 1 500 lm a 4 000 K'], B09ZBJPNK4: ['Philips LED E27 4,9 W (eq. 40 W), 2 700 K, pack de 6', '470 lm, luz cálida'], B07665H9B7: ['Philips LED GU10 eq. 50 W, luz cálida, pack de 10', 'Para focos GU10 a 230 V'] },
+  nl: { B0DGPZCMG6: ['Philips LED Classic E27, vervangt 100 W (6 stuks)', 'Ongeveer 1 500 lm, warmwit'], B0FJ8VXHRX: ['Philips Hue White Ambiance E27', 'Wit van warm tot koel'], B073QSXXCH: ['Osram LED Base Classic A E27, vervangt 100 W', 'Ongeveer 1 521 lm, 4 000 K'], B09ZBJPNK4: ['Philips LED E27, vervangt 40 W, 2 700 K (6 stuks)', '470 lm, warmwit'], B07665H9B7: ['Philips LED GU10, vervangt 50 W, warmwit (10 stuks)', 'Voor GU10-spots op 230 V'] },
 };
-
-const { defaultLumens = 800, defaultKelvin = 3000, defaultIrc = 90 } = Astro.props;
+const LOCAL_SEL: Record<string, { warm: string[]; cool: string[] }> = {
+  salon: { warm: ['B0DGPZCMG6', 'B0FJ8VXHRX'], cool: ['B073QSXXCH', 'B0FJ8VXHRX'] },
+  chambre: { warm: ['B09ZBJPNK4', 'B0FJ8VXHRX'], cool: ['B09ZBJPNK4', 'B0FJ8VXHRX'] },
+  cuisine: { warm: ['B07665H9B7', 'B0DGPZCMG6'], cool: ['B073QSXXCH', 'B07665H9B7'] },
+  sdb: { warm: ['B07665H9B7', 'B09ZBJPNK4'], cool: ['B073QSXXCH', 'B07665H9B7'] },
+  bureau: { warm: ['B0DGPZCMG6', 'B0FJ8VXHRX'], cool: ['B073QSXXCH', 'B0FJ8VXHRX'] },
+  garage: { warm: ['B073QSXXCH', 'B0DGPZCMG6'], cool: ['B073QSXXCH', 'B0DGPZCMG6'] },
+};
+const AMZ = { fr: { host: 'www.amazon.fr', tag: 'manuso06-21' }, it: { host: 'www.amazon.it', tag: 'roboteducat0f-21' }, es: { host: 'www.amazon.es', tag: 'roboteducat07-21' }, de: { host: 'www.amazon.de', tag: 'roboteducat00-21' }, nl: { host: 'www.amazon.nl', tag: 'manuso0607-21' } } as Record<string, { host: string; tag: string }>;
+const amz = AMZ[lang] ?? null;
+const rooms = ROOMS.map((r) => ({ ...r, label: T.rooms[r.id as keyof typeof T.rooms], products: lang === 'fr' ? r.products : amz ? LOCAL_SEL[r.id] : { warm: [], cool: [] } }));
+const prods = lang === 'fr'
+  ? Object.fromEntries(ROOMS.flatMap((r) => [...r.products.warm, ...r.products.cool]).map((a) => [a, { name: PRODUCTS[a].name, specs: PRODUCTS[a].specs }]))
+  : amz ? Object.fromEntries(Object.entries(LOCAL_NAMES[lang]).map(([a, [name, specs]]) => [a, { name, specs }])) : {};
+const data = JSON.stringify({ rooms, prods, t: T, amz });
+const swatches = ['#c8352b', '#d9a184', '#4d7a35', '#5b8fc9', '#e8c637', '#8a6bb5', '#9a6a43', '#d9688a'].map((c, i) => [T.sw[i], c]);
 ---
+<section id="outil" class="mt-8 overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+  <div class="p-5 sm:p-8">
+    <h2 class="text-2xl text-stone-900 sm:text-3xl">{T.h2}</h2>
+    <p class="mt-2 max-w-3xl text-stone-600">{T.intro}</p>
 
-<section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-  <h1 class="text-2xl font-extrabold tracking-tight">Outil : Lumens + Kelvin + IRC</h1>
-  <p class="mt-3 max-w-3xl text-sm text-white/75">
-    Régle les curseurs pour obtenir une recommandation rapide : intensité (lumens), teinte (Kelvin) et qualité des couleurs (IRC).
-  </p>
-
-  <div class="mt-8 grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-    <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
-      <div class="space-y-6">
-        <div class="space-y-2">
-          <div class="flex items-baseline justify-between gap-4">
-            <p class="text-sm font-semibold text-white/90">Lumens (lm)</p>
-            <p class="text-sm font-semibold text-amber-300">
-              <span id="lmValue">{defaultLumens}</span> lm
-            </p>
-          </div>
-          <input
-            id="lumens"
-            type="range"
-            min="100"
-            max="2000"
-            step="50"
-            value={defaultLumens}
-            class="w-full accent-amber-400"
-          />
-          <p id="lmLabel" class="text-xs text-white/60"></p>
-        </div>
-
-        <div class="space-y-2">
-          <div class="flex items-baseline justify-between gap-4">
-            <p class="text-sm font-semibold text-white/90">Kelvin (K)</p>
-            <p class="text-sm font-semibold text-amber-300">
-              <span id="kValue">{defaultKelvin}</span> K
-            </p>
-          </div>
-          <input
-            id="kelvin"
-            type="range"
-            min="2200"
-            max="6500"
-            step="100"
-            value={defaultKelvin}
-            class="w-full accent-amber-400"
-          />
-          <p id="kLabel" class="text-xs text-white/60"></p>
-        </div>
-
-        <div class="space-y-2">
-          <div class="flex items-baseline justify-between gap-4">
-            <p class="text-sm font-semibold text-white/90">IRC</p>
-            <p class="text-sm font-semibold text-amber-300">
-              <span id="ircValue">{defaultIrc}</span>
-            </p>
-          </div>
-          <input
-            id="irc"
-            type="range"
-            min="70"
-            max="98"
-            step="1"
-            value={defaultIrc}
-            class="w-full accent-amber-400"
-          />
-          <p id="ircLabel" class="text-xs text-white/60"></p>
-        </div>
-      </div>
+    <div class="mt-5 flex flex-wrap gap-2" role="radiogroup" aria-label={T.roomAria}>
+      {rooms.map((r, i) => (
+        <button type="button" role="radio" aria-checked={i === 0 ? 'true' : 'false'} data-room={r.id} class="room-btn rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition hover:border-amber-400 aria-checked:border-amber-500 aria-checked:bg-amber-500 aria-checked:text-white">{r.label}</button>
+      ))}
     </div>
 
-    <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <p class="text-sm font-semibold text-white/90">Résultat</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <!-- Mini-scene : teinte (Kelvin) + ombre variable selon les lumens -->
-          <div
-            id="lightScene"
-            class="relative h-14 w-14 overflow-hidden rounded-full border border-white/10"
-          >
-            <div id="sceneWall" class="absolute inset-0 bg-white" style="background: #ffffff;"></div>
-            <div
-              class="absolute left-1/2 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-transparent"
-              id="sceneBlock"
-              aria-hidden="true"
-            ></div>
+    <div class="mt-5 grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr]">
+      <div class="min-w-0">
+        <div class="relative overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-stone-200" style="aspect-ratio:1200/640">
+          <div id="sceneWrap" class="absolute inset-0 will-change-[filter]" style="transition:filter .15s linear">
+            <img id="sceneImg" src="/illustrations/salon.svg?v=3" alt="" class="absolute left-0 top-0 w-full" width="1200" height="780" />
+            <div id="tint" class="absolute inset-0" style="mix-blend-mode:multiply"></div>
+            <div id="glowL" class="absolute inset-0" style="mix-blend-mode:screen"></div>
           </div>
-          <p class="mt-2 text-xs font-semibold text-white/70 text-center" id="usageLabel"></p>
+          <div id="dark" class="pointer-events-none absolute inset-0"></div>
+          <div id="badge" class="absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-bold text-white shadow" aria-hidden="true"></div>
+        </div>
+        <p id="sceneAlt" class="sr-only" aria-live="polite"></p>
+        <div class="mt-3 rounded-2xl border border-stone-200 bg-stone-50 p-3">
+          <div class="flex items-center justify-between text-xs font-semibold text-stone-500"><span>{T.swHead}</span></div>
+          <div class="mt-2 grid grid-cols-8 gap-1">
+            {swatches.map(([n, c]) => (
+              <div class="text-center">
+                <div class="h-5 rounded-t-md sm:h-7" style={`background:${c}`}></div>
+                <div class="sw h-5 rounded-b-md sm:h-7" data-c={c}></div>
+                <div class="mt-1 truncate text-[10px] text-stone-500 sm:text-[11px]">{n}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div class="mt-5 space-y-3 text-sm">
-        <div class="flex items-center justify-between gap-4">
-          <span class="text-white/70">Votre réglage</span>
-          <span class="font-semibold text-white">
-            <span id="resultText">...</span>
-          </span>
+      <div class="min-w-0 space-y-5">
+        <div class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+          <div class="space-y-5">
+            <div>
+              <div class="flex items-baseline justify-between"><label for="lumens" class="font-semibold text-stone-800">{T.lmLabel}</label><output id="lmV" for="lumens" class="font-bold text-amber-700"></output></div>
+              <input id="lumens" type="range" min="200" max="9000" step="100" value="1200" class="mt-2 w-full accent-amber-500" />
+              <div class="relative mt-1 h-2 rounded-full bg-stone-200"><div id="lmIdeal" class="absolute h-2 rounded-full bg-emerald-400/70"></div></div>
+              <p id="lmMsg" class="mt-1.5 text-sm"></p>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between"><label for="kelvin" class="font-semibold text-stone-800">{T.kLabel}</label><output id="kV" for="kelvin" class="font-bold text-amber-700"></output></div>
+              <input id="kelvin" type="range" min="2200" max="6500" step="100" value="2700" class="mt-2 w-full" style="accent-color:#888" />
+              <div class="relative mt-1 h-2 rounded-full" style="background:linear-gradient(90deg,#ff9b3f,#ffd9a8,#fff4ea,#eaf1ff,#cddcff)"><div id="kIdeal" class="absolute -top-0.5 h-3 rounded-full ring-2 ring-emerald-500"></div></div>
+              <p id="kMsg" class="mt-1.5 text-sm"></p>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between"><label for="irc" class="font-semibold text-stone-800">{T.iLabel}</label><output id="iV" for="irc" class="font-bold text-amber-700"></output></div>
+              <input id="irc" type="range" min="60" max="98" step="1" value="82" class="mt-2 w-full accent-amber-500" />
+              <p id="iMsg" class="mt-1.5 text-sm"></p>
+            </div>
+          </div>
         </div>
-
-        <div class="flex items-center justify-between gap-4">
-          <span class="text-white/70">Estimation watts (approx.)</span>
-          <span class="font-semibold text-white">
-            <span id="wattsText">...</span>
-          </span>
-        </div>
-      </div>
-
-      <div class="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
-        <p class="text-sm font-semibold text-white">Conseil rapide</p>
-        <p id="adviceText" class="mt-2 text-sm text-white/70"></p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <a class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10" href="/guides/lumens-vs-watts">
-            lumens vs watts
-          </a>
-          <a class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10" href="/guides/kelvin-temperature-couleur">
-            Kelvin
-          </a>
-          <a class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10" href="/guides/irc-indice-rendu-couleur">
-            IRC
-          </a>
+        <div class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" aria-live="polite">
+          <div class="flex flex-wrap justify-between gap-x-2 gap-y-1 text-sm"><span class="text-stone-500">{T.recFor} <strong id="rName" class="text-stone-800"></strong></span><span id="rRange" class="font-semibold text-stone-800"></span></div>
+          <div class="mt-2 flex flex-wrap justify-between gap-x-2 text-sm"><span class="text-stone-500">{T.watt}</span><strong id="watts" class="text-stone-800"></strong></div>
+          <p id="advice" class="mt-3 text-sm text-stone-700"></p>
+          <div id="cta" class="mt-4 space-y-2"></div>
+          {amz && <p class="mt-2 text-[11px] text-stone-400">{T.note}</p>}
         </div>
       </div>
     </div>
   </div>
-
-  <script>
-    const lumens = document.getElementById('lumens');
-    const kelvin = document.getElementById('kelvin');
-    const irc = document.getElementById('irc');
-
-    const lmValue = document.getElementById('lmValue');
-    const kValue = document.getElementById('kValue');
-    const ircValue = document.getElementById('ircValue');
-
-    const lmLabel = document.getElementById('lmLabel');
-    const kLabel = document.getElementById('kLabel');
-    const ircLabel = document.getElementById('ircLabel');
-
-    const sceneWall = document.getElementById('sceneWall');
-    const sceneBlock = document.getElementById('sceneBlock');
-    const usageLabel = document.getElementById('usageLabel');
-    const resultText = document.getElementById('resultText');
-    const wattsText = document.getElementById('wattsText');
-    const adviceText = document.getElementById('adviceText');
-
-    function kelvinToRgb(k) {
-      // Approximation simple pour rendu UI. Non scientifique.
-      let temp = k / 100;
-      let r, g, b;
-      if (temp <= 66) {
-        r = 255;
-        g = temp;
-        g = 99.4708025861 * Math.log(g) - 161.1195681661;
-        b = temp <= 19 ? 0 : 138.5177312231 * Math.log(temp - 10) - 305.0447927307;
-      } else {
-        r = 329.698727446 * Math.pow(temp - 60, -0.1332047592);
-        g = 288.1221695283 * Math.pow(temp - 60, -0.0755148492);
-        b = 255;
-      }
-
-      r = Math.min(255, Math.max(0, r));
-      g = Math.min(255, Math.max(0, g));
-      b = Math.min(255, Math.max(0, b));
-      return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
-    }
-
-    function formatInt(n) {
-      return Math.round(n).toString();
-    }
-
-    function lumensCategory(lm) {
-      if (lm < 300) return { label: 'Plutot faible (ambiance/point)', score: 0 };
-      if (lm < 900) return { label: 'Moyen (usage general)', score: 1 };
-      return { label: 'Fort (travail / securite)', score: 2 };
-    }
-
-    function kelvinCategory(k) {
-      if (k < 3000) return { label: 'Chaud (cosy, salon/chambre)', band: 'warm' };
-      if (k < 4200) return { label: 'Neutre (cuisine, salle de bain)', band: 'neutral' };
-      return { label: 'Froid (garage/atelier, zones techniques)', band: 'cool' };
-    }
-
-    function ircCategory(ra) {
-      if (ra < 80) return { label: 'IRC limite (rendu moins fidele)', tier: 'low' };
-      if (ra < 90) return { label: 'IRC correct (bon rendu)', tier: 'mid' };
-      return { label: 'IRC eleve (couleurs fidele)', tier: 'high' };
-    }
-
-    function advice(lm, k, ra) {
-      const lmCat = lumensCategory(lm);
-      const kCat = kelvinCategory(k);
-      const ircCat = ircCategory(ra);
-
-      let usage = 'ambiance';
-      if (kCat.band === 'cool' && lmCat.score >= 1) usage = 'garage / atelier';
-      else if (kCat.band === 'neutral' && lmCat.score >= 1) usage = 'cuisine / salle de bain';
-      else if (kCat.band === 'warm' && lmCat.score >= 1) usage = 'salon / chambre';
-      else if (lmCat.score === 0) usage = 'point lumineux / chevet';
-
-      let adviceText = `Objectif: ${usage}.`;
-      adviceText += ' Preferer plusieurs sources pour eviter les zones sombres.';
-
-      if (ircCat.tier === 'low') {
-        adviceText += ' Si tu peux, vise un IRC plus eleve (>= 90) pour un rendu plus naturel.';
-      } else if (ircCat.tier === 'high') {
-        adviceText += ' Ton IRC eleve aide a rendre les couleurs plus fidele (visage, aliments, deco).';
-      }
-
-      return { usage, adviceText };
-    }
-
-    function update() {
-      const lm = Number(lumens.value);
-      const k = Number(kelvin.value);
-      const ra = Number(irc.value);
-
-      lmValue.textContent = formatInt(lm);
-      kValue.textContent = formatInt(k);
-      ircValue.textContent = formatInt(ra);
-
-      const lmCat = lumensCategory(lm);
-      const kCat = kelvinCategory(k);
-      const ircCat = ircCategory(ra);
-
-      lmLabel.textContent = lmCat.label;
-      kLabel.textContent = kCat.label;
-      ircLabel.textContent = ircCat.label;
-
-      const rgb = kelvinToRgb(k);
-      // Simulation "ombre portée" : on ajuste la luminosite de la "paroi" et la visibilite de l'ombre.
-      const lmNorm = Math.min(1, Math.max(0, (lm - 100) / (2000 - 100)));
-      const brightness = 0.55 + lmNorm * 0.8; // plus de lm = paroi plus claire
-      const shadowOpacity = 0.55 - lmNorm * 0.45; // plus de lm = ombre moins visible
-      const shadowBlur = 7 - lmNorm * 4; // plus de lm = ombre plus douce
-
-      sceneWall.style.background = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-      sceneWall.style.filter = `brightness(${brightness})`;
-      // On simule l'ombre portée directement dans le rond via box-shadow,
-      // sans afficher d'objet rectangulaire.
-      sceneBlock.style.boxShadow = `0px 16px ${shadowBlur}px rgba(0,0,0,${Math.max(0.06, shadowOpacity)})`;
-
-      const { usage, adviceText: adviceTextComputed } = advice(lm, k, ra);
-      usageLabel.textContent = usage;
-
-      const watts = lm / 90; // Hypothese typique LED.
-      wattsText.textContent = `${formatInt(watts)} W (approx.)`;
-
-      resultText.textContent = `${formatInt(lm)} lm + ${formatInt(k)}K + IRC ${formatInt(ra)}`;
-      adviceText.textContent = adviceTextComputed;
-    }
-
-    lumens.addEventListener('input', update);
-    kelvin.addEventListener('input', update);
-    irc.addEventListener('input', update);
-
-    update();
-  </script>
 </section>
 
+<script is:inline define:vars={{ data }}>
+(() => {
+  const D = JSON.parse(data); const t = D.t; const f = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k]);
+  const $ = (id) => document.getElementById(id);
+  const lm = $('lumens'), kv = $('kelvin'), ir = $('irc');
+  let room = D.rooms[0];
+  const fmt = (n) => n.toLocaleString(t.loc);
+  // CCT -> RGB (approximation de Tanner Helland)
+  function cct(k) {
+    const t = k / 100; let r, g, b;
+    if (t <= 66) { r = 255; g = 99.4708025861 * Math.log(t) - 161.1195681661; b = t <= 19 ? 0 : 138.5177312231 * Math.log(t - 10) - 305.0447927307; }
+    else { r = 329.698727446 * Math.pow(t - 60, -0.1332047592); g = 288.1221695283 * Math.pow(t - 60, -0.0755148492); b = 255; }
+    const c = (v) => Math.round(Math.min(255, Math.max(0, v)));
+    return [c(r), c(g), c(b)];
+  }
+  const sat = (i) => Math.max(0.35, Math.min(1.05, 0.35 + (i - 60) / 38 * 0.7));
+  function shift(hex, i) {
+    // désature et ternit la couleur selon l'IRC (simulation pédagogique)
+    let r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+    const s = sat(i), y = 0.299 * r + 0.587 * g + 0.114 * b;
+    const m = (v) => Math.round(y + (v - y) * s);
+    r = m(r); g = m(g); b = m(b);
+    const dull = (98 - i) / 38 * 0.12; // léger voile verdâtre des LED bas de gamme
+    return `rgb(${Math.round(r * (1 - dull))},${Math.round(g * (1 - dull) + 255 * dull * 0.25)},${Math.round(b * (1 - dull))})`;
+  }
+  const pos = (v, a, b) => ((v - a) / (b - a)) * 100;
+  function render() {
+    const L = +lm.value, K = +kv.value, I = +ir.value;
+    const [lo, hi] = room.lm, mid = (lo + hi) / 2, ratio = L / mid;
+    $('lmV').textContent = fmt(L) + ' lm'; $('kV').textContent = fmt(K) + ' K'; $('iV').textContent = I;
+    // exposition
+    const bright = Math.min(1.75, 0.35 + 0.75 * Math.pow(ratio, 0.75));
+    const contrast = ratio > 1.4 ? Math.max(0.75, 1 - (ratio - 1.4) * 0.15) : 1;
+    $('sceneWrap').style.filter = `brightness(${bright.toFixed(3)}) contrast(${contrast.toFixed(3)}) saturate(${sat(I).toFixed(3)})`;
+    const ref = cct(4000), raw = cct(K), rel = raw.map((v, i) => v / ref[i]), mx = Math.max(...rel); const [r, g, b] = rel.map((v) => Math.round((v / mx) * 255));
+    $('tint').style.background = `rgba(${r},${g},${b},0.85)`;
+    $('glowL').style.background = `radial-gradient(ellipse 45% 55% at ${room.lx[0]}% ${room.lx[1] + 18}%, rgba(${r},${g},${b},${Math.min(0.35, 0.12 * ratio).toFixed(2)}), transparent 70%)`;
+    // portée : coins sombres à faible flux
+    const reach = Math.max(18, Math.min(110, 30 + 55 * ratio));
+    const shade = Math.max(0, Math.min(0.85, 0.8 - 0.55 * ratio));
+    $('dark').style.background = `radial-gradient(ellipse ${reach * 1.3}% ${reach * 1.6}% at ${room.lx[0]}% ${room.lx[1] + 25}%, rgba(0,0,0,0) 35%, rgba(0,0,0,${shade.toFixed(2)}) 100%)`;
+    document.querySelectorAll('.sw').forEach((el) => (el.style.background = shift(el.dataset.c, I)));
+    // jauges
+    const lmMin = +lm.min, lmMax = +lm.max;
+    Object.assign($('lmIdeal').style, { left: pos(lo, lmMin, lmMax) + '%', width: pos(hi, lmMin, lmMax) - pos(lo, lmMin, lmMax) + '%' });
+    Object.assign($('kIdeal').style, { left: pos(room.k[0], 2200, 6500) + '%', width: Math.max(2, pos(room.k[1], 2200, 6500) - pos(room.k[0], 2200, 6500)) + '%' });
+    const st = L < lo * 0.85 ? [t.dark, '#dc2626'] : L > hi * 1.2 ? [t.strong, '#ea580c'] : [t.ideal, '#059669'];
+    const badge = $('badge'); badge.textContent = st[0]; badge.style.background = st[1];
+    $('lmMsg').innerHTML = `<strong style="color:${st[1]}">${st[0]}</strong> <span class="text-stone-500">— ${f(t.idealRange, { lo: fmt(lo), hi: fmt(hi), a: room.area })}</span>`;
+    const kOk = K >= room.k[0] - 100 && K <= room.k[1] + 100;
+    const kTxt = K < 2900 ? t.k1 : K < 3600 ? t.k2 : K < 5000 ? t.k3 : t.k4;
+    $('kMsg').innerHTML = `${kTxt} · <strong style="color:${kOk ? '#059669' : '#ea580c'}">${kOk ? t.ideal : K < room.k[0] ? t.kWarm : t.kCool}</strong> <span class="text-stone-500">(${fmt(room.k[0])}–${fmt(room.k[1])} K)</span>`;
+    const iOk = I >= room.irc;
+    $('iMsg').innerHTML = `<strong style="color:${iOk ? '#059669' : '#ea580c'}">${I >= 90 ? t.iEx : I >= 80 ? t.iOk : t.iLow}</strong> <span class="text-stone-500">— ${room.irc === 90 ? t.i90 : t.i80}</span>`;
+    $('rName').textContent = t.loc === 'de-DE' ? room.label : room.label.toLowerCase();
+    $('rRange').textContent = `${fmt(lo)}–${fmt(hi)} lm · ${fmt(room.k[0])}–${fmt(room.k[1])} K · ${t.iShort} ≥ ${room.irc}`;
+    $('watts').textContent = f(t.w, { a: Math.round(L / 105), b: Math.round(L / 13.5) });
+    const tips = [];
+    if (st[0] === t.dark) tips.push(f(t.tDark, { n: fmt(Math.round((lo - L) / 100) * 100) }));
+    if (st[0] === t.strong) tips.push(t.tStrong);
+    if (!kOk) tips.push(K < room.k[0] ? (room.k[0] >= 3000 ? t.tNeutral : t.tLessOrange) : t.tWarmer);
+    if (!iOk) tips.push(t.tIrc);
+    if (!tips.length) tips.push(t.tOk);
+    $('advice').textContent = tips.join(' ');
+    const list = room.products[K >= 3500 ? 'cool' : 'warm'];
+    $('cta').innerHTML = ! D.amz ? '' : list.map((a, i) => { const p = D.prods[a]; return `<a href="https://${D.amz.host}/dp/${a}?tag=${D.amz.tag}" target="_blank" rel="nofollow sponsored noopener" data-amazon-link data-asin="${a}" data-product="${p.name.replace(/"/g, '&quot;')}" data-placement="outil-${room.id}" class="flex flex-col gap-1 rounded-xl sm:flex-row sm:items-center sm:justify-between sm:gap-3 ${i === 0 ? 'bg-amber-500 text-white hover:bg-amber-600' : 'bg-stone-100 text-stone-800 hover:bg-stone-200'} px-4 py-3 text-sm font-semibold"><span class="min-w-0"><span class="block leading-snug sm:truncate">${p.name}</span><span class="block text-xs font-normal opacity-80">${p.specs}</span></span><span class="shrink-0">${t.cta}</span></a>`; }).join('');
+    $('sceneAlt').textContent = f(t.alt, { r: room.label, s: st[0].toLowerCase(), k: kTxt, i: I });
+  }
+  function setRoom(id, reset) {
+    room = D.rooms.find((r) => r.id === id);
+    document.querySelectorAll('.room-btn').forEach((b) => b.setAttribute('aria-checked', b.dataset.room === id ? 'true' : 'false'));
+    const url = `/illustrations/${room.img}.svg?v=3`, im = $('sceneImg');
+    if (!im.src.endsWith(url)) { const pre = new Image(); pre.onload = () => { im.src = url; }; pre.src = url; }
+    im.alt = f(t.illu, { r: room.label });
+    if (reset) { lm.value = Math.round(room.lm[0] * 0.6 / 100) * 100; }
+    render();
+  }
+  document.querySelectorAll('.room-btn').forEach((b) => b.addEventListener('click', () => setRoom(b.dataset.room, true)));
+  let raf; [lm, kv, ir].forEach((el) => el.addEventListener('input', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(render); }));
+  const q = new URLSearchParams(location.search);
+  if (q.get('piece')) setRoom(q.get('piece'), true);
+  if (q.get('lm')) lm.value = q.get('lm'); if (q.get('k')) kv.value = q.get('k'); if (q.get('irc')) ir.value = q.get('irc');
+  if (!q.get('piece')) setRoom(room.id, false); else render();
+})();
+</script>

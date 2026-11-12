@@ -1,0 +1,102 @@
+---
+import AmazonButton from './AmazonButton.astro';
+
+type Props = {
+  asin: string;
+  product: string;
+  label?: string;
+  placement?: string;
+  storageKey?: string;
+};
+
+const {
+  asin,
+  product,
+  label = 'Voir le prix sur Amazon',
+  placement = 'mobile-sticky',
+  storageKey = 'mobile_pick_dismiss',
+} = Astro.props;
+---
+
+<div
+  id="mobile-sticky-pick"
+  class="fixed inset-x-0 bottom-0 z-30 border-t border-stone-200 bg-white/95 px-4 py-3 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] backdrop-blur md:hidden"
+  style="display: none; padding-bottom: max(0.75rem, env(safe-area-inset-bottom));"
+  data-storage-key={storageKey}
+>
+  <div class="mx-auto flex max-w-lg items-center gap-2">
+    <div class="min-w-0 flex-1">
+      <p class="text-[10px] font-bold uppercase tracking-wide text-amber-700">Notre choix</p>
+      <p class="truncate text-sm font-semibold text-stone-900">{product}</p>
+    </div>
+    <AmazonButton asin={asin} product={product} label={label} placement={placement} class="min-h-11 shrink-0 px-3 text-xs sm:text-sm" />
+    <button
+      type="button"
+      id="mobile-sticky-pick-close"
+      class="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-stone-200 text-stone-500 hover:bg-stone-50"
+      aria-label="Masquer cette suggestion"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const bar = document.getElementById('mobile-sticky-pick');
+    const close = document.getElementById('mobile-sticky-pick-close');
+    if (!bar || !close) return;
+    const key = bar.getAttribute('data-storage-key') || 'mobile_pick_dismiss';
+    const pathKey = key + '_' + (location.pathname || '/');
+    let dismissed = false;
+    try {
+      dismissed = sessionStorage.getItem(pathKey) === '1';
+    } catch (e) {}
+
+    const cookieBanner = document.getElementById('cookie-banner');
+
+    function cookieVisible() {
+      if (!cookieBanner) return false;
+      const s = cookieBanner.style.display;
+      return s !== 'none' && s !== '';
+    }
+
+    function update() {
+      if (dismissed || window.matchMedia('(min-width: 768px)').matches) {
+        bar.style.display = 'none';
+        document.documentElement.style.removeProperty('--mobile-pick-pad');
+        return;
+      }
+      if (cookieVisible()) {
+        bar.style.display = 'none';
+        document.documentElement.style.removeProperty('--mobile-pick-pad');
+        return;
+      }
+      bar.style.display = 'block';
+      document.documentElement.style.setProperty('--mobile-pick-pad', '5.5rem');
+    }
+
+    close.addEventListener('click', function () {
+      dismissed = true;
+      try {
+        sessionStorage.setItem(pathKey, '1');
+      } catch (e) {}
+      update();
+    });
+
+    window.matchMedia('(min-width: 768px)').addEventListener('change', update);
+    if (cookieBanner) {
+      new MutationObserver(update).observe(cookieBanner, { attributes: true, attributeFilter: ['style'] });
+    }
+    document.addEventListener('cookie-consent-updated', update);
+    update();
+  })();
+</script>
+
+<style is:global>
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: var(--mobile-pick-pad, 0);
+    }
+  }
+</style>

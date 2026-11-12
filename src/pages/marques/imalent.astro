@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const buyUrl =
+  'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
+const promoCode = 'DZYJ10YHM';
+const pages = [
+  {
+    href: '/tests/imalent-gr35/',
+    label: 'Test Imalent GR35',
+    note: 'torche, coffret powerbank, pochette, laser vert et variateur',
+  },
+  {
+    href: '/tutoriels/eclairer-cave-sans-electricite/',
+    label: 'Tutoriel : éclairer une cave sans électricité',
+    note: 'lampes frontales et réglettes rechargeables en alternative',
+  },
+  {
+    href: '/zones/entree-allee-exterieure/',
+    label: 'Zone entrée et allée extérieure',
+    note: 'éclairage fixe du jardin et de l’accès (autre usage que la torche)',
+  },
+];
+const schema = { '@context': 'https://schema.org', '@type': 'Brand', name: 'Imalent', url: 'https://imalent.com/' };
+---
+<Layout
+  title="Imalent : notre avis, test GR35 et garantie"
+  description="Imalent sur 1 pièce 1 ampoule : torches LED puissantes, test GR35 (coffret powerbank, laser), points forts, limites, garantie à confirmer chez le vendeur."
+  type="article"
+  schema={schema}
+>
+  <nav class="breadcrumb mt-4 text-sm text-stone-500" aria-label="Fil d'Ariane">
+    <a class="font-semibold text-amber-800 hover:underline" href="/">Accueil</a>
+    <span aria-hidden="true"> › </span>
+    <a class="font-semibold text-amber-800 hover:underline" href="/marques/">Marques</a>
+    <span aria-hidden="true"> › </span>
+    <span class="text-stone-700">Imalent</span>
+  </nav>
+
+  <section class="mt-6 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marque · mis à jour le 02/11/2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Imalent : notre avis sur la marque</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">
+      Imalent se présente sur <a class="underline" href="https://imalent.com/" rel="nofollow noopener" target="_blank">imalent.com</a> comme une marque de lampes torches LED, avec des modèles très lumineux (leur baseline évoque des « flashlights » poussés au maximum). Nous ne connaissons pas encore toute la gamme sur le site : pour l’instant, notre seul retour terrain porte sur la
+      <a class="font-semibold text-amber-800 underline" href="/tests/imalent-gr35/">Imalent GR35</a>, torche compacte avec laser vert, variateur et coffret powerbank.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre test</h2>
+    <figure class="mt-4 overflow-hidden rounded-2xl border border-stone-200">
+      <img
+        src="/images/tests/imalent-gr35/imalent-gr35-torche-dans-son-coffret.webp"
+        alt="Lampe Imalent GR35 dans son coffret noir et bleu à l'ouverture"
+        width="1600"
+        height="1200"
+        loading="lazy"
+        class="h-auto w-full"
+      />
+    </figure>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <figure class="overflow-hidden rounded-xl border border-stone-200"><img src="/images/tests/imalent-gr35/imalent-gr35-contenu-pochette-powerbank-torche.webp" alt="Contenu de la boîte Imalent GR35 posé sur une table : pochette en tissu gris, powerbank et lampe" width="1600" height="1200" loading="lazy" class="h-auto w-full" /></figure>
+      <figure class="overflow-hidden rounded-xl border border-stone-200"><img src="/images/tests/imalent-gr35/imalent-gr35-coffret-ouvert-vide.webp" alt="Coffret Imalent ouvert et vide, intérieur noir et bleu" width="1600" height="1200" loading="lazy" class="h-auto w-full" /></figure>
+    </div>
+    <p class="mt-4 text-sm text-stone-600">
+      Nous avons testé la GR35 (lampe offerte par la marque, sans contrepartie sur le texte). Résumé : qualité perçue au rendez-vous, usage simple, powerbank et pochette appréciées, très forte luminosité avec chaleur ressentie sur la main, variateur facile, laser vert constant. Bémol : notice non traduite en français.
+      <a class="font-semibold text-amber-800 underline" href="/tests/imalent-gr35/">Lire le test complet</a>.
+    </p>
+    <p class="mt-3 text-sm text-stone-600">
+      Boutique officielle : <strong>72,95 $ US</strong> relevés le 02/11/2026 (94,95 $ barré). Code <code class="rounded border border-dashed border-amber-400 bg-amber-50 px-1.5 font-mono text-xs">{promoCode}</code> (−10&nbsp;%, valable jusqu’au 27/03/2027, source Awin).
+      <a class="font-semibold text-amber-800 underline" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">Fiche GR35</a> (lien affilié).
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Nos contenus liés</h2>
+    <ul class="mt-3 space-y-2 text-sm text-stone-600">
+      {pages.map((p) => (
+        <li>
+          <a class="font-semibold text-amber-800 underline" href={p.href}>{p.label}</a> : {p.note}.
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Imalent GR35 : données fabricant</h2>
+    <table class="mt-4 w-full min-w-[560px] text-left text-sm">
+      <thead>
+        <tr class="border-b border-stone-200 text-stone-500">
+          <th class="py-2 pr-3">Donnée</th>
+          <th class="py-2 pr-3">Valeur annoncée</th>
+          <th class="py-2 pr-3">Achat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-stone-100">
+          <th class="py-2 pr-3">Flux / portée</th>
+          <td class="py-2 pr-3">2 800 lumens max. · 426 m</td>
+          <td class="py-2 pr-3" rowspan="3">
+            <a
+              class="font-semibold text-amber-700 underline"
+              href={buyUrl}
+              rel="sponsored nofollow noopener"
+              target="_blank"
+              data-awin-link
+              data-awin-mid="94223"
+            >
+              imalentstore.com · 72,95 $ US
+            </a>
+            <span class="block text-xs text-stone-500">Lien affilié · prix du 02/11/2026</span>
+          </td>
+        </tr>
+        <tr class="border-b border-stone-100">
+          <th class="py-2 pr-3">Coffret</th>
+          <td class="py-2 pr-3">Boîtier de charge 6 700 mAh (fiche produit)</td>
+        </tr>
+        <tr class="border-b border-stone-100">
+          <th class="py-2 pr-3">Fonctions citées</th>
+          <td class="py-2 pr-3">Lumière blanche, laser vert, variateur</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mt-3 text-xs text-stone-500">
+      Source :
+      <a class="underline" href={buyUrl} rel="sponsored nofollow noopener" target="_blank">fiche Imalent GR35</a>, consultée le 02/11/2026. Non mesuré par 1 pièce 1 ampoule.
+    </p>
+  </section>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Points forts (d’après notre test)</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Torche facile à utiliser, finition soignée au ressenti.</li>
+        <li>Coffret avec powerbank et pochette de rangement.</li>
+        <li>Puissance élevée et variateur intuitif.</li>
+        <li>Laser vert constant.</li>
+      </ul>
+    </article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Notice pas en français sur l’exemplaire testé.</li>
+        <li>Chaleur perceptible à pleine puissance.</li>
+        <li>Peu de contenus indépendants en français en dehors de notre test.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Garantie et SAV</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      Nous n’avons pas trouvé sur imalent.com, au 02/11/2026, une page de garantie claire et applicable à la France pour la GR35. Avant achat, vérifiez les conditions auprès du vendeur (boutique officielle, marketplace ou revendeur). La garantie légale de conformité de 2 ans reste due par le vendeur en France, en plus de toute garantie commerciale éventuelle du fabricant.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre avis</h2>
+    <p class="mt-3 text-sm text-stone-600">
+      Imalent vise clairement les torches LED puissantes ; la GR35 correspond à ce positionnement d’après notre essai, avec un pack coffret + pochette qui nous a plu. Nous ne généralisons pas à toute la marque tant que nous n’avons pas d’autres modèles entre les mains. Pour l’éclairage fixe de la maison (ampoules, spots, extérieur automatique), nos repères restent plutôt
+      <a class="underline" href="/marques/steinel/">Steinel</a> ou
+      <a class="underline" href="/marques/osram-ledvance/">OSRAM</a>. Comparez avec <a class="underline" href="/marques/">les autres marques que nous suivons</a>. Codes promo : <a class="underline" href="/codes-promo/">voir ceux que nous avons vérifiés</a> (dont {promoCode} chez IMALENT).
+    </p>
+  </section>
+</Layout>

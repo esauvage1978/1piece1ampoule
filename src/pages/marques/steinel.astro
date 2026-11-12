@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+const A = (p: string) => `https://www.awin1.com/pclick.php?p=${p}&a=3127458&m=31151`;
+const rows = [
+  { n: 'XSolar L-S ONE anthracite (réf. 081973)', role: 'Applique solaire à détecteur', data: '150 lm, 3 000 K, 1,2 W ; IR 140°, 8 m tangentiel / 2 m radial ; batterie LiFePO4 3 000 mAh ; IP44, IK03', buy: 'amazon', src: 'https://www.steinel-france.fr/out/media/datasheet/219415_Fiche%20technique%20-%204007841081973%20-%20OUTDOOR%20SENSOR%20LIGHT%20XSOLAR%20L-S%20ONE%20ANT.pdf' },
+  { n: 'XSolar LH-N anthracite (réf. 035730)', role: 'Numéro de maison solaire', data: 'Balisage 4 LED (24 mW max.), 4 000 K ; crépusculaire 2 lx ; IP44, IK03', buy: A('45843200190'), price: '70,59 €', src: 'https://www.steinel.de/out/media/datasheet/66693_Data%20sheet%20-%204007841035730%20-%20OUTDOOR%20SENSOR%20LIGHT%20XSOLAR%20LH-N%20ANT.pdf' },
+  { n: 'L 12 M (réf. 069155)', role: 'Applique murale E27, sans détecteur', data: 'Ampoule E27 non fournie, max. 60 W ; IP44, IK03, classe II', buy: A('46381369701'), price: '57,19 €', src: 'https://steinel.si/wp-content/uploads/2023/10/DATEN_EN_069155.pdf' },
+  { n: 'NightMatic 2000 (réf. 550417)', role: 'Interrupteur crépusculaire', data: 'Seuil 2–30 lx ; 1 000 W ohmique, 4 lampes LED max. ; 0,8 W ; IP54', buy: A('46359010299'), price: '23,39 €', src: 'https://www.steinel-france.fr/produits/detecteurs/detecteurs-de-mouvement-interrupteurs-crepusculaires/interrupteurs-crepusculaires/nightmatic-2000.html' },
+  { n: 'IS 360-1 DE (réf. 032845)', role: 'Détecteur plafond encastré', data: '360°, Ø 8 m tangentiel / Ø 4 m radial ; 8 s–35 min ; 2–2 000 lx ; LED > 8 W : 350 W ; IP54', buy: A('46381369825'), price: '41,99 €', src: 'https://www.steinel.de/out/media/datasheet/295183_Fiche%20technique%20-%204007841032845%20-%20MOTION%20DETECTOR%20IS%20360-1%20DE%20V2%20WS.pdf' },
+];
+const pages = [
+  { href: '/guides/eclairage-exterieur-automatique-steinel/', label: 'Guide : éclairage extérieur automatique Steinel', note: '4 produits comparés sur fiche fabricant' },
+  { href: '/meilleur/meilleure-lampe-solaire-exterieur/', label: 'Comparatif lampes solaires extérieures', note: 'l’applique XSolar L-S ONE' },
+  { href: '/zones/entree-allee-exterieure/', label: 'Zone entrée et allée extérieure', note: 'XSolar, L 12 M et NightMatic dans le tableau des solutions' },
+  { href: '/articles/ampoule-crepusculaire/', label: 'Ampoule crépusculaire', note: 'l’applique solaire Steinel en alternative' },
+  { href: '/guides/detecteurs-de-mouvement/', label: 'Guide des détecteurs de mouvement', note: 'portées tangentielle et radiale, réglages' },
+];
+const schema = { '@context': 'https://schema.org', '@type': 'Brand', name: 'STEINEL', url: 'https://www.steinel-france.fr' };
+---
+<Layout title="Steinel : notre avis, produits comparés, garantie 3 ans et SAV" description="Steinel vu par 1 pièce 1 ampoule : 5 produits cités (XSolar, L 12 M, NightMatic 2000, IS 360-1) avec leurs fiches fabricant, garantie 3 ans en France, notre avis." type="article" schema={schema}>
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+    <p class="text-sm font-semibold text-amber-700">Marque • mis à jour le 23/10/2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Steinel : notre avis sur la marque</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">Steinel est un fabricant allemand (Herzebrock-Clarholz) spécialisé dans les détecteurs de mouvement, les interrupteurs crépusculaires et les luminaires extérieurs à détecteur. Si vous voulez qu’une lumière s’allume seule dans une allée, un garage ou une cave, c’est l’une des marques les plus solides : voici les cinq modèles que nous conseillons, neufs sur Amazon ou moins chers en deuxième choix chez 2echoix.</p>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Nos contenus qui parlent de Steinel</h2>
+    <ul class="mt-3 space-y-2 text-sm text-stone-600">{pages.map((p) => <li><a class="font-semibold text-amber-800 underline" href={p.href}>{p.label}</a> : {p.note}.</li>)}</ul>
+    <p class="mt-4 text-sm text-stone-600"><strong>Nos sources :</strong> pas de test sur place. Données issues des fiches techniques Steinel, consultées le 23/10/2026.</p>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Les produits Steinel cités (fiches fabricant)</h2>
+    <div class="mt-4 overflow-x-auto"><table class="w-full min-w-[720px] text-left text-sm">
+      <thead><tr class="border-b border-stone-200 text-stone-500"><th class="py-2 pr-3">Produit</th><th class="py-2 pr-3">Rôle</th><th class="py-2 pr-3">Données fabricant</th><th class="py-2 pr-3">Où l’acheter</th></tr></thead>
+      <tbody>{rows.map((r) => (
+        <tr class="border-b border-stone-100 align-top"><td class="py-2 pr-3"><strong>{r.n}</strong><br /><a class="text-xs text-amber-700 underline" href={r.src} rel="nofollow noopener" target="_blank">fiche Steinel</a></td><td class="py-2 pr-3">{r.role}</td><td class="py-2 pr-3">{r.data}</td>
+          <td class="py-2 pr-3">{r.buy === 'amazon' ? <AmazonButton asin="B0B272H45X" product="STEINEL XSolar L-S ONE applique solaire à détecteur" label="Sur Amazon" placement="marque" /> : <a class="font-semibold text-amber-700 underline" href={r.buy} rel="sponsored nofollow noopener" target="_blank">2echoix : {r.price}</a>}</td></tr>
+      ))}</tbody>
+    </table></div>
+    <p class="mt-3 text-xs text-stone-500">Prix 2echoix relevés le 22/10/2026 (produits de deuxième choix), susceptibles d’avoir changé. Liens affiliés Amazon et Awin.</p>
+  </section>
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Points forts</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>Détecteurs précis et très réglables : l’IS 360-1 va de 8 s à 35 min et de 2 à 2 000 lx.</li>
+        <li>Fiches techniques détaillées, avec les charges LED admissibles (essentiel avec des ampoules LED).</li>
+        <li>Batteries LiFePO4 sur les solaires XSolar, plus durables que le lithium-ion courant.</li>
+        <li>Garantie fabricant de 3 ans en France, au-delà des 2 ans légaux.</li>
+      </ul></article>
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6"><h2 class="text-lg font-bold">Limites</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+        <li>150 lm pour la XSolar L-S ONE : de quoi trouver sa serrure, pas d’éclairer une allée.</li>
+        <li>Noms proches pour des rôles différents : la L 12 M n’a <strong>pas</strong> de détecteur.</li>
+        <li>NightMatic et IS 360-1 se raccordent à la phase et au neutre : travail d’électricité.</li>
+        <li>Garantie limitée au premier acheteur et excluant les ampoules remplaçables.</li>
+      </ul></article>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Garantie et SAV en France</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-stone-600">
+      <li><strong>Garantie fabricant de 3 ans</strong> à compter de la date d’achat (5 ans pour la série XLED home), pour les produits Steinel achetés et utilisés en France, hors ligne Steinel Professional (5 ans sur les détecteurs et luminaires de cette ligne). Elle couvre les défauts de matériel ou de fabrication signalés dès leur constatation. Steinel choisit entre réparation, remplacement ou avoir, et prend en charge les frais de transport du retour, mais pas ses risques.</li>
+      <li><strong>Exclusions</strong> : sources lumineuses remplaçables, usure normale, mauvaise utilisation, montage non conforme à la notice, modifications, dommages de transport.</li>
+      <li><strong>Démarche</strong> : envoyer le produit complet et la preuve d’achat (date et désignation) au revendeur ou à Steinel. La garantie légale de conformité de 2 ans reste due par le vendeur, gratuitement. Attention : sur un produit de deuxième choix, lisez les conditions de 2echoix avant d’acheter.</li>
+    </ul>
+    <p class="mt-4 text-xs text-stone-500">Source : <a class="underline" href="https://m.media-amazon.com/images/I/61-N9YtTmpL.pdf" rel="nofollow noopener" target="_blank">conditions de garantie Steinel France (version du 01/03/2022)</a>, renvoyant à steinel-france.fr ; <a class="underline" href="https://www.steinel.de/de/rechtliches/herstellergarantie/" rel="nofollow noopener" target="_blank">garantie fabricant Steinel</a>. Consultées le 23/10/2026.</p>
+  </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Notre avis</h2>
+    <p class="mt-3 text-sm text-stone-600">Steinel est notre première recommandation pour automatiser l’éclairage d’une entrée : ses commandes (NightMatic, IS 360-1) transforment une applique existante en éclairage crépusculaire ou au passage, avec des réglages qu’aucune ampoule à détecteur n’offre. Pour un abri ou un portail sans câble, la XSolar L-S ONE suffit à éclairer l’accès, sans prétendre éclairer un jardin. Les produits de deuxième choix de 2echoix sont moins chers que le neuf, aux conditions du vendeur. Pour une ampoule à détecteur sans travaux, voir plutôt <a class="underline" href="/marques/osram-ledvance/">OSRAM</a>. Il n’y a pas de code promo Steinel en cours : <a class="underline" href="/codes-promo/">voir nos codes promo vérifiés</a>.</p>
+  </section>
+</Layout>

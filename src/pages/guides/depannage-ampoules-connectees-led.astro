@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RepertoireCodesErreursEclairage from '../../components/RepertoireCodesErreursEclairage.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import QuickAccessHub from '../../components/QuickAccessHub.astro';
+import { getCatalogFr } from '../../data/errors/catalog';
+
+const catalog = getCatalogFr();
+const count = catalog.errors.length;
+---
+<Layout
+  type="article"
+  title={`Codes erreurs & dépannage ampoules connectées et LED (${count} fiches)`}
+  description={`Répertoire interactif : Philips Hue, Shelly, IKEA, Govee, variateurs LED. Symptômes, codes erreur, difficulté et solutions en 1 clic.`}
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700">🔧 Dépannage &amp; codes erreurs</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Ampoules connectées &amp; LED : diagnostic et codes erreurs</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Point d’entrée unique pour toutes les pannes : pont Hue, Zigbee/Wi-Fi, modules Shelly, rubans Govee, variateurs Legrand ou Schneider, LED qui clignote ou grésille.
+        Filtrez par marque, symptôme ou code, puis ouvrez la fiche détaillée.
+      </p>
+      <p class="mt-3 text-sm text-stone-500">
+        <a class="font-semibold text-amber-700 underline" href="/guides/codes-erreurs-eclairage-connecte-depannage/">Vue répertoire complète (même contenu)</a>
+        · <a class="font-semibold text-amber-700 underline" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">LED qui clignote éteinte</a>
+        · <a class="font-semibold text-amber-700 underline" href="/pieces/">Choisir une ampoule de remplacement</a>
+      </p>
+    </div>
+  </section>
+
+  <CrossLinkOutilsDepannage variant="vers-outils" />
+
+  <QuickAccessHub mode="home" showButtons={true} id="quick-access-depannage" />
+
+  <RepertoireCodesErreursEclairage />
+</Layout>

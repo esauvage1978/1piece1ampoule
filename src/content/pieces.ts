@@ -8,7 +8,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe ta cuisine en zones (plan de travail, central, ambiance, électroménager) et choisis l’éclairage adapté : lumens, Kelvin, IRC, spots, bandeaux LED, suspensions.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/cuisine.svg',
+      image: '/illustrations/cuisine.svg?v=3',
       imageAlt: 'Illustration cuisine et éclairage',
     },
     sections: [
@@ -61,10 +61,10 @@ export const PIECES: ThematicPage[] = [
     slug: 'salon',
     title: 'Éclairage de salon : TV, lecture, ambiance — choisir les bons luminaires',
     description:
-      'Découpe ton salon en zones (TV, lecture, ambiance, circulation) pour éviter l’éblouissement et créer un rendu agréable le jour comme le soir. Ensuite, choisis les bons niveaux de lumens, la bonne teinte (Kelvin) et un IRC adapté.',
+      'Découpe ton salon en zones (TV, lecture, ambiance, circulation) pour éviter l’éblouissement et un rendu agréable jour et soir. Choisis ensuite les bons lumens, la température de couleur (Kelvin) et un indice de rendu des couleurs (IRC) adapté.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/salon.svg',
+      image: '/illustrations/salon.svg?v=3',
       imageAlt: 'Illustration salon et lumière d’ambiance',
     },
     sections: [
@@ -91,7 +91,7 @@ export const PIECES: ThematicPage[] = [
       'Pour bricoler et stationner en sécurité : plafonniers puissants, réglettes atelier, détecteurs et lumière neutre à froide.',
     hero: {
       eyebrow: 'Usage',
-      image: '/illustrations/garage.svg',
+      image: '/illustrations/garage.svg?v=3',
       imageAlt: 'Illustration garage et réglettes LED',
     },
     sections: [
@@ -129,7 +129,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe ta salle de bain en zones (miroir/vasque, douche/baignoire, toilettes, circulation) et choisis la bonne teinte (Kelvin), la bonne fidélité des couleurs (IRC) et des luminaires adaptés aux pièces humides.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/salle-bain.svg',
+      image: '/illustrations/salle-bain.svg?v=3',
       imageAlt: 'Illustration salle de bain et éclairage',
     },
     sections: [
@@ -165,7 +165,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe la salle à manger en zones (table/repas, buffet/rangement, ambiance indirecte, circulation) pour choisir les bons luminaires et la bonne teinte (Kelvin) avec un rendu agréable (IRC).',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/salle-manger.svg',
+      image: '/illustrations/salle-manger.svg?v=3',
       imageAlt: 'Illustration salle à manger et éclairage',
     },
     sections: [
@@ -201,7 +201,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe ton jardin en zones (pergola, salon de jardin, allée/circulation, zone repas/barbecue) pour choisir les bons luminaires extérieurs. Optimise la teinte (Kelvin), la fidélité des couleurs (IRC) et le dimmable pour créer une ambiance qui dure.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/jardin.svg',
+      image: '/illustrations/jardin.svg?v=3',
       imageAlt: 'Illustration jardin et éclairage',
     },
     sections: [
@@ -262,7 +262,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe ton couloir en zones : entrée (accueil), tronçon sombre (confort), angle/coude (anti-ombre) et sol (sécurité). Ajuste ensuite la teinte (Kelvin), l’IRC et éventuellement le dimmable pour une ambiance homogène.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/couloir.svg',
+      image: '/illustrations/couloir.svg?v=3',
       imageAlt: 'Illustration couloir et éclairage',
     },
     sections: [
@@ -273,6 +273,16 @@ export const PIECES: ThematicPage[] = [
           'Angle/coude : privilégie l’éclairage indirect sur les murs (lumière rebondie) plutôt qu’un seul plafonnier.',
           'Circulation au sol : sécurise le chemin avec un balisage discret et homogène.',
           'Qualité : un IRC élevé rend les portes et couleurs plus naturelles.',
+        ],
+      },
+      {
+        title: 'Couloir long et étroit : éviter l’effet tunnel',
+        points: [
+          'Découpe le trajet : entrée (repère d’accueil), tronçons réguliers sur la longueur, angle ou coude, sol.',
+          'Répartis plusieurs points sur toute la longueur : trop d’écart entre deux points donne un effet « spot par spot ».',
+          'Une lumière trop dirigée vers le bas « brûle » le milieu et laisse les murs sombres : des appliques orientées ou un ruban LED indirect le long du mur homogénéisent.',
+          'Un balisage discret au sol sécurise les déplacements de nuit.',
+          'Teinte souvent entre 3000 et 4000K pour la visibilité, avec un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC correct</a> pour des couleurs naturelles.',
         ],
       },
       {
@@ -319,10 +329,10 @@ export const PIECES: ThematicPage[] = [
     slug: 'bureau-adulte',
     title: 'Bureau adulte : découpe en zones (poste de travail, lecture, confort, anti-reflets)',
     description:
-      'Découpe ton bureau adulte en zones (poste de travail, lecture/écriture, éclairage de confort) pour obtenir un rendu net, limiter la fatigue visuelle et préserver l’ambiance. Optimise ensuite Kelvin, IRC et le dimmable selon tes besoins.',
+      'Découpe ton bureau adulte en zones (poste de travail, lecture/écriture, éclairage de confort) pour un rendu net et moins de fatigue visuelle. Ensuite règle la température de couleur (Kelvin), l’indice de rendu des couleurs (IRC) et le dimmable selon tes besoins.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/bureau-adulte.svg',
+      image: '/illustrations/bureau-adulte.svg?v=3',
       imageAlt: 'Illustration bureau adulte et éclairage',
     },
     sections: [
@@ -391,7 +401,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe le bureau enfant en zones (écriture/lecture, repos, éclairage général) pour limiter la fatigue visuelle. Objectif : une lumière confortable, une teinte adaptée et un rendu fidèle (IRC) sans éblouissement.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/bureau-enfant.svg',
+      image: '/illustrations/bureau-enfant.svg?v=3',
       imageAlt: 'Illustration bureau enfant et éclairage',
     },
     sections: [
@@ -460,7 +470,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe ta cave à vin en zones (rayonnages, entrée/cheminement, mise en valeur). Objectif : une lumière qui rend les bouteilles belles, sans surchauffer, avec des couleurs fidèles (IRC) et un bon confort d’usage (capteur si besoin).',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/cave-a-vin.svg',
+      image: '/illustrations/cave-a-vin.svg?v=3',
       imageAlt: 'Illustration cave à vin et éclairage',
     },
     sections: [
@@ -526,10 +536,10 @@ export const PIECES: ThematicPage[] = [
     slug: 'chambre-adulte',
     title: 'Chambre adulte : découpe en zones (lecture, lit/ambiance, circulation, rangement)',
     description:
-      'Découpe la chambre adulte en zones (lit/lecture, circulation, rangement/armoire, ambiance). Une bonne lumière doit être confortable la journée et relaxante le soir : Kelvin adapté, IRC correct et dimmable si possible.',
+      'Découpe la chambre adulte en zones (lit/lecture, circulation, rangement, ambiance). Vise une lumière confortable le jour et apaisante le soir : température de couleur (Kelvin) adaptée, indice de rendu des couleurs (IRC) correct et variateur si possible.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/chambre-adulte.svg',
+      image: '/illustrations/chambre-adulte.svg?v=3',
       imageAlt: 'Illustration chambre adulte et éclairage',
     },
     sections: [
@@ -598,7 +608,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe la chambre enfant en zones (travail/lecture, jeux, nuit/veille). L’objectif : limiter la fatigue visuelle et garder une ambiance apaisante le soir grâce à une teinte adaptée et du dimmable si possible.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/chambre-enfant.svg',
+      image: '/illustrations/chambre-enfant.svg?v=3',
       imageAlt: 'Illustration chambre enfant et éclairage',
     },
     sections: [
@@ -667,7 +677,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe les toilettes en zones (miroir/vasque, WC, circulation) pour un résultat propre et confortable. Optimise la teinte (Kelvin), la fidélité des couleurs (IRC) et pense au détecteur de mouvement si tu veux plus de confort.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/toilettes.svg',
+      image: '/illustrations/toilettes.svg?v=3',
       imageAlt: 'Illustration toilettes et éclairage',
     },
     sections: [
@@ -736,7 +746,7 @@ export const PIECES: ThematicPage[] = [
       'Découpe le parking en zones (entrée, cheminement, places, circulation) : l’objectif est de réduire les zones sombres, améliorer la sécurité et garder une lumière homogène. Optimise l’<a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a>, la teinte (Kelvin) et, si possible, la gestion (détecteur/dimmable).',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/parking.svg',
+      image: '/illustrations/parking.svg?v=3',
       imageAlt: 'Illustration parking et éclairage',
     },
     sections: [
@@ -805,7 +815,7 @@ export const PIECES: ThematicPage[] = [
       'Une cave voutée se traite en “lumière rebondie” et en zones : étagères, couloir de circulation et points de mise en valeur. Optimise Kelvin et IRC, et évite les ombres en plaçant des sources orientables et indirectes.',
     hero: {
       eyebrow: 'Pièce par pièce',
-      image: '/illustrations/cave-voutee.svg',
+      image: '/illustrations/cave-voutee.svg?v=3',
       imageAlt: 'Illustration cave voutée et éclairage',
     },
     sections: [
@@ -864,144 +874,6 @@ export const PIECES: ThematicPage[] = [
         keywords: 'ampoule led dimmable e27 variateur 2700k',
         altKeywords: 'ampoule led dimmable e27 3000k irc 90',
         badge: 'Confort',
-      },
-    ],
-  },
-  {
-    slug: 'couloir-long-etroit',
-    title: 'Couloir long et étroit : découpe en zones (entrée, tronçons, angle/coude, sol/sécurité)',
-    description:
-      'Découpe le couloir long et étroit en zones (entrée, tronçons, angles éventuels, sol) : l’objectif est d’obtenir une lumière homogène sur tout le trajet. Kelvin adapté, IRC correct et répartition des points pour supprimer les ombres.',
-    hero: {
-      eyebrow: 'Pièce par pièce',
-      image: '/illustrations/couloir-long-etroit.svg',
-      imageAlt: 'Illustration couloir long et étroit et éclairage',
-    },
-    sections: [
-      {
-        title: 'Découpage en zones',
-        points: [
-          'Entrée : accueil + repère pour “entrer” dans le couloir en douceur.',
-          'Tronçon central : répartition régulière pour éviter les taches sombres.',
-          'Angle/coude (si présent) : lumière indirecte sur les murs pour casser l’ombre.',
-          'Sol : un balisage discret améliore la sécurité, surtout la nuit.',
-        ],
-      },
-      {
-        title: 'Réglages recommandés',
-        points: [
-          'Teinte : souvent 3000–4000K (plus clair que du chaud pur, sans être agressif).',
-          'IRC : un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC élevé</a> rend portes/peinture plus naturelles.',
-          'Méthode : commence par les <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens</a>, puis ajuste avec la répartition des sources.',
-          'Confort : le <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable</a> aide à moduler le soir.',
-        ],
-      },
-      {
-        title: 'Erreurs fréquentes',
-        points: [
-          'Trop d’écart entre les points : effet “spot par spot” au lieu d’un couloir homogène.',
-          'Lumière trop directionnelle vers le couloir : tu “brûles” le milieu et les côtés restent sombres.',
-          'Ignorer le sol : en cas de mouvement nocturne, les accidents arrivent vite.',
-        ],
-      },
-    ],
-    products: [
-      {
-        title: 'Ruban LED indirect (bande murale)',
-        subtitle: 'Anti-ombre sur toute la longueur',
-        keywords: 'ruban led indirect couloir long 3000k irc 90',
-        altKeywords: 'bandeau led indirect couloir etroit dimmable 2700k',
-        badge: 'Anti-ombre',
-      },
-      {
-        title: 'Plafonniers/spots répartis (couloir étroit)',
-        subtitle: 'Homogénéité',
-        keywords: 'spots encastrés couloir etroit 4000k irc 90',
-        altKeywords: 'barre led couloir 4000k irc 90',
-        badge: 'Tronçons',
-      },
-      {
-        title: 'Balisage sol LED (sécurité)',
-        subtitle: 'Chemin discret',
-        keywords: 'bandeau led sol couloir 3000k irc 90',
-        altKeywords: 'balise led sol couloir 2700k dimmable',
-        badge: 'Sol',
-      },
-      {
-        title: 'Ampoules dimmables (ambiance couloir)',
-        subtitle: 'Moduler le soir',
-        keywords: 'ampoule led dimmable e27 variateur 2700k',
-        altKeywords: 'ampoule led dimmable gu10 couloir 3000k irc 90',
-        badge: 'Confort',
-      },
-    ],
-  },
-  {
-    slug: 'cave-sans-electricite',
-    title: 'Cave sans électricité : découpe en zones (accès, rangement, circulation, stockage autonome)',
-    description:
-      'Sans prise électrique, tu dois raisonner “autonomie” : recharge, capteur, et diffusion. Découpe en zones (accès, rangement, sécurité) pour choisir le bon type de lampe et créer une lumière pratique et rassurante.',
-    hero: {
-      eyebrow: 'Pièce par pièce',
-      image: '/illustrations/cave-sans-electricite.svg',
-      imageAlt: 'Illustration cave sans électricité et éclairage autonome',
-    },
-    sections: [
-      {
-        title: 'Découpage en zones',
-        points: [
-          'Accès (porte/escaliers) : priorité à une lumière immédiate dès que tu ouvres/descends.',
-          'Rangement (étagères) : besoin d’un faisceau utile et stable pour retrouver rapidement.',
-          'Circulation : un niveau bas aide à circuler sans trébucher.',
-          'Stockage “tout prêt” : un système rechargé/déposé à portée de main pour ne jamais être à court.',
-        ],
-      },
-      {
-        title: 'Choix du matériel (autonomie)',
-        points: [
-          'Capteur : un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/detecteurs-de-mouvement">détecteur de mouvement</a> (ou éclairage à activation) évite de consommer inutilement.',
-          'Teinte : vise souvent 2700–4000K selon l’ambiance souhaitée et l’usage (rangement vs lecture).',
-          'Confort : si tu veux voir les couleurs (étiquettes), privilégie un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC correct</a> quand c’est indiqué.',
-          'Praticité : pense au mode rechargeable (USB, batterie) et à l’autonomie annoncée.',
-        ],
-      },
-      {
-        title: 'Erreurs fréquentes',
-        points: [
-          'Prendre trop faible : tu fais des allers-retours au lieu de travailler/choisir.',
-          'Ignorer l’ergonomie : lampe trop lourde ou pas orientable = difficulté en cave.',
-          'Ne pas prévoir la recharge : une lampe “trop souvent vide” ne sert à rien.',
-        ],
-      },
-    ],
-    products: [
-      {
-        title: 'Lampe rechargeable LED (cave, portative)',
-        subtitle: 'Accès immédiat',
-        keywords: 'lampe rechargeable led interieur detecteur 3000k',
-        altKeywords: 'lampe torche rechargeable led 4000k',
-        badge: 'Accès',
-      },
-      {
-        title: 'Projecteur LED sur batterie (rangement)',
-        subtitle: 'Faisceau utile pour les étagères',
-        keywords: 'projecteur led batterie rechargeable 4000k',
-        altKeywords: 'spot led rechargeable detecteur interieur 3000k',
-        badge: 'Rangement',
-      },
-      {
-        title: 'Bande LED rechargeable (circulation)',
-        subtitle: 'Repères au sol',
-        keywords: 'bandeau led rechargeable usb 2700k',
-        altKeywords: 'ruban led rechargeable usb dimmable 3000k',
-        badge: 'Circulation',
-      },
-      {
-        title: 'Détecteur de mouvement portable (option)',
-        subtitle: 'Allumage à la demande',
-        keywords: 'detecteur mouvement portable lampe rechargeable',
-        altKeywords: 'capteur mouvement lampe batterie',
-        badge: 'Gestion',
       },
     ],
   },

@@ -1,0 +1,269 @@
+---
+import { HIVER_FAQ } from '../../content/hiver-faq';
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import Layout from '../../layouts/Layout.astro';
+import AwinPartner from '../../components/AwinPartner.astro';
+import AwinPartnerProminent from '../../components/AwinPartnerProminent.astro';
+import BrandLinks from '../../components/BrandLinks.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import AmazonButton from '../../components/AmazonButton.astro';
+import MobileStickyPick from '../../components/MobileStickyPick.astro';
+import PageBreadcrumb from '../../components/PageBreadcrumb.astro';
+import ProductVisual from '../../components/ProductVisual.astro';
+import { COMPARATIFS } from '../../content/comparatifs';
+import { PRODUCTS } from '../../content/products';
+import { MEILLEUR_INDEXABLES } from '../../content/meilleur-index.mjs';
+
+export function getStaticPaths() {
+  return COMPARATIFS.map((c) => ({ params: { slug: c.slug } }));
+}
+const c = COMPARATIFS.find((x) => x.slug === Astro.params.slug)!;
+const products = c.asins.map((a) => PRODUCTS[a]).filter(Boolean);
+const isConnectee = c.slug === 'meilleure-ampoule-connectee';
+const isRegletteSousMeuble = c.slug === 'meilleure-reglette-led-sous-meuble';
+const isRubanLed = c.slug === 'meilleur-ruban-led';
+const tableLabels = isConnectee
+  ? ['Notre choix', 'Wi-Fi sans pont', 'Wi-Fi lot de 2', 'Kit couleur Hue', 'Petit budget Hue']
+  : undefined;
+const faqs = [...c.faq, ...(HIVER_FAQ[c.slug] ?? [])];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const labelFor = (href: string) => {
+  const s = href.split('/').filter(Boolean);
+  const pieceLabels: Record<string, string> = {
+    'cave-voutee': 'Pièce : cave voûtée',
+    'cave-a-vin': 'Pièce : cave à vin',
+  };
+  if (s[0] === 'pieces' && pieceLabels[s[1]]) return pieceLabels[s[1]];
+  const name = s[s.length - 1].replace(/-/g, ' ');
+  return (s[0] === 'guides' ? 'Guide : ' : s[0] === 'pieces' ? 'Pièce : ' : s[0] === 'zones' ? 'Zone : ' : '') + name;
+};
+const pillarGuideHref = c.related.find((h) => h.startsWith('/guides/') || h.startsWith('/zones/') || h.startsWith('/pieces/')) ?? '/meilleur/';
+const pillarGuideLabel = labelFor(pillarGuideHref);
+const breadcrumbTitle = c.h1.replace(/ en 2026$/, '');
+---
+
+<Layout title={c.title} description={c.description} type="article" schema={faqSchema} noindex={!MEILLEUR_INDEXABLES.includes(c.slug)}>
+  <PageBreadcrumb
+    items={[
+      { href: '/', label: 'Accueil' },
+      { href: '/meilleur/', label: 'Comparatifs' },
+      { label: breadcrumbTitle },
+    ]}
+  />
+  <p class="mt-3 max-w-3xl text-sm text-stone-600">
+    Ce comparatif fait partie de nos
+    <a class="font-semibold text-amber-800 underline hover:text-amber-900" href="/meilleur/">sélections produits éclairage</a>.
+    {pillarGuideHref !== '/meilleur/' && (
+      <>
+        {' '}Pour le contexte (besoins, pose, normes), consultez aussi
+        <a class="font-semibold text-amber-800 underline hover:text-amber-900" href={pillarGuideHref}>{pillarGuideLabel}</a>.
+      </>
+    )}
+  </p>
+
+  <section class="mt-6 rounded-3xl border border-stone-200 bg-white shadow-sm p-6 sm:p-8">
+    <p class="text-sm font-semibold text-amber-700">Comparatif mis à jour en octobre 2026</p>
+    <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{c.h1}</h1>
+    {products[0] && (
+      <div class="mt-4 flex flex-col gap-4 rounded-2xl border-2 border-amber-400 bg-gradient-to-br from-amber-50 to-orange-50 p-4 shadow-sm sm:flex-row sm:items-start sm:p-5">
+        <ProductVisual product={products[0]} />
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-bold uppercase tracking-wide text-amber-700">Notre choix n°1</p>
+          <p class="mt-2 text-lg font-bold leading-snug text-stone-900">{products[0].name}</p>
+          <p class="mt-1 text-sm text-stone-600"><strong class="font-semibold text-stone-800">Points clés :</strong> {products[0].specs}</p>
+          <p class="mt-1 text-sm text-stone-600"><strong class="font-semibold text-stone-800">Idéal pour :</strong> {products[0].usage}</p>
+          <div class="mt-4">
+            <AmazonButton asin={products[0].asin} product={products[0].name} label={`Prix Amazon — ${products[0].name}`} placement="hero" class="w-full sm:w-auto" />
+          </div>
+        </div>
+      </div>
+    )}
+    <p class="mt-4 max-w-3xl text-stone-600" set:html={c.intro} />
+    {isRubanLed && (
+      <p class="mt-4 max-w-3xl text-sm text-stone-600">
+        <strong>COB</strong> (Chip on Board) : les diodes sont soudées en bande continue sur la carte, avec un diffuseur qui masque les points — la ligne paraît homogène, sans effet « guirlande » des rubans SMD classiques.
+      </p>
+    )}
+    {c.enBref && (
+      <div class="mt-5 rounded-2xl border-l-4 border-amber-500 bg-stone-50 p-4 ring-1 ring-stone-200" data-en-bref>
+        <p class="text-sm font-bold uppercase tracking-wide text-amber-700">En bref</p>
+        <p class="mt-1 text-stone-800">{c.enBref}</p>
+      </div>
+    )}
+    {isRegletteSousMeuble && (
+      <section class="mt-6 space-y-5">
+        <div>
+          <h2 class="text-lg font-bold text-stone-900">Réglette 230 V ou ruban LED sous meuble ?</h2>
+          <p class="mt-2 text-sm text-stone-600">
+            La <strong>réglette sur secteur</strong> se fixe à l’avant du meuble haut (2 à 3 cm des embouts), idéalement avec une tête <strong>orientable</strong> vers le plan et la crédence. C’est la solution la plus rapide si une prise existe sous le meuble.
+          </p>
+          <p class="mt-2 text-sm text-stone-600">
+            Le <strong>ruban LED</strong> dans un profilé aluminium convient aux longs linéaires et aux angles de meuble, avec alimentation 24 V et souvent une section <strong>IP65</strong> près de l’évier — voir notre <a class="font-semibold text-amber-700 underline" href="/tutoriels/poser-ruban-led-sous-meuble-cuisine/">tutoriel de pose sous meuble</a> et le <a class="font-semibold text-amber-700 underline" href="/meilleur/meilleur-ruban-led/">comparatif rubans LED</a>.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-stone-900">Critères avant d’acheter</h2>
+          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-600">
+            {c.criteria.map((x) => <li>{x}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-stone-900">Pose : rappels utiles</h2>
+          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-600">
+            <li>Placez la source vers l’<strong>avant</strong> du meuble pour éclairer la planche, pas seulement la crédence.</li>
+            <li>Alignez la <strong>longueur</strong> sur chaque tronçon de meuble ; reliez les réglettes connectables pour un seul interrupteur.</li>
+            <li>Au-dessus de l’évier, vérifiez l’<strong>indice IP</strong> adapté (<a class="text-amber-700 underline" href="/guides/ip-indice-protection/">guide IP</a>).</li>
+          </ul>
+        </div>
+      </section>
+    )}
+  </section>
+  {isConnectee && <AwinPartnerProminent />}
+  <ToolTeaser />
+
+  <ComparisonTable
+    products={products}
+    title={`Tableau comparatif — ${c.h1.replace(/ en 2026$/, '')}`}
+    labels={tableLabels}
+    placement={isConnectee ? 'meilleure-ampoule-connectee' : 'table'}
+    sectionId={isRegletteSousMeuble ? 'tableau-comparatif' : undefined}
+  />
+
+  {isRegletteSousMeuble && products.length > 0 && (
+    <nav class="mt-6 rounded-2xl border border-stone-200 bg-stone-50 p-5" aria-label="Accès rapide au tableau">
+      <p class="text-sm font-semibold text-stone-900">Aller au détail dans le tableau</p>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        {products.map((p, i) => (
+          <li>
+            <a class="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-amber-800 ring-1 ring-stone-200 hover:bg-amber-50" href={`#produit-${p.asin}`}>
+              {i === 0 ? 'Notre choix · ' : `${i + 1}. `}{p.name.split('—')[0].trim()}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )}
+
+  {isConnectee && (
+    <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Wi-Fi ou Zigbee : que retenir ?</h2>
+      <p class="mt-3 text-sm text-stone-600">
+        En Wi-Fi (Tapo L530E), l’ampoule rejoint directement la box : pas de pont, prix d’entrée bas, idéal pour une à six ampoules dans une pièce.
+        En Zigbee (Philips Hue), un réseau maillé via le pont Hue scale mieux pour toute la maison et les automatisations ; les ampoules Hue récentes se pilotent aussi en Bluetooth sans pont, dans la limite de dix ampoules.
+      </p>
+      <p class="mt-3 text-sm text-stone-600">
+        Évite de placer une ampoule connectée derrière un variateur mural : la variation se fait dans l’appli. L’interrupteur doit rester en position marche pour que l’ampoule reste joignable.
+        Détails et erreurs fréquentes dans notre article{' '}
+        <a class="font-semibold text-amber-700 underline" href="/articles/ampoule-connectee-wifi-ou-zigbee/">Wi-Fi ou Zigbee : Tapo vs Hue</a>.
+      </p>
+    </section>
+  )}
+
+  {!isConnectee && !isRegletteSousMeuble && (
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    {products.map((p, i) => (
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+        <div class="flex gap-3">
+          <ProductVisual product={p} size="sm" />
+          <div class="min-w-0">
+            <p class="text-xs font-semibold text-stone-500">#{i + 1} • {p.type}</p>
+            <h2 class="mt-1 text-lg font-bold">{p.name}</h2>
+          </div>
+        </div>
+        <p class="mt-2 text-sm text-stone-600"><strong>Points clés :</strong> {p.specs}</p>
+        <p class="mt-1 text-sm text-stone-600"><strong>Idéal pour :</strong> {p.usage}</p>
+        <div class="mt-4"><AmazonButton asin={p.asin} product={p.name} label={`Prix Amazon — ${p.name}`} placement="detail" /></div>
+      </article>
+    ))}
+  </section>
+  )}
+
+  {products.some((p) => p.data) && (
+    <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Données officielles (EPREL et fiches fabricant)</h2>
+      <table class="mt-4 w-full text-left text-sm">
+        <thead><tr class="border-b border-stone-200 text-stone-500"><th class="py-2 pr-3">Modèle</th><th class="py-2 pr-3">Flux</th><th class="py-2 pr-3">Puissance</th><th class="py-2 pr-3">Teinte</th><th class="py-2 pr-3">IRC</th><th class="py-2 pr-3">Classe</th><th class="py-2 pr-3">EPREL / source</th></tr></thead>
+        <tbody>
+          {products.filter((p) => p.data).map((p) => (
+            <tr class="border-b border-stone-100 align-top">
+              <td class="py-2 pr-3 font-semibold">{p.name}</td><td class="py-2 pr-3">{p.data!.lm}</td><td class="py-2 pr-3">{p.data!.w}</td><td class="py-2 pr-3">{p.data!.k}</td><td class="py-2 pr-3">{p.data!.irc}</td><td class="py-2 pr-3">{p.data!.classe}</td>
+              <td class="py-2 pr-3"><a class="underline" href={p.data!.sourceUrl} rel="nofollow noopener" target="_blank">Fiche EPREL {p.data!.eprel}</a><br /><span class="text-xs text-stone-500">{p.data!.source}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )}
+
+  {!isRegletteSousMeuble && !isRubanLed && (
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Comment choisir ?</h2>
+    <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">
+      {c.criteria.map((x) => <li>{x}</li>)}
+    </ul>
+  </section>
+  )}
+
+  {isRubanLed && (
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Comment choisir ?</h2>
+    <div class="mt-4 space-y-4 text-sm text-stone-600">
+      <div>
+        <h3 class="font-semibold text-stone-900">Alimentation 24 V</h3>
+        <p class="mt-1">Un ruban basse tension exige un bloc 24 V à tension constante, dimensionné au-delà de la puissance annoncée pour le ruban (marge habituelle d’environ 20 %). Le bloc reste accessible, ventilé, et n’est en général pas fourni avec le ruban.</p>
+        <p class="mt-1">Pour estimer la puissance avant achat, utilisez notre <a class="font-semibold text-amber-700 underline" href="/outils/calculateur-ruban-led-alimentation-24v/">calculateur d’alimentation 24 V</a>.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-stone-900">Longueur maximale et chute de tension</h3>
+        <p class="mt-1">Au-delà d’une certaine longueur, la tension chute et le bout du ruban paraît plus faible : alimentez par les deux extrémités ou découpez en tronçons avec reprise de courant.</p>
+        <p class="mt-1">Mesurez le linéaire réel (meubles, corniche, TV) avant de commander ; prévoyez des profilés et embouts aux angles.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-stone-900">Indice IP65 (humidité)</h3>
+        <p class="mt-1">En cuisine, salle de bain ou extérieur couvert, un ruban ou profilé <strong>IP65</strong> résiste aux projections et à la condensation.</p>
+        <p class="mt-1">En séjour sec, un ruban intérieur suffit ; l’IRC (indice de rendu des couleurs) ≥ 90 reste pertinent pour un rendu des teintes fidèle — voir le <a class="font-semibold text-amber-700 underline" href="/guides/irc-indice-rendu-couleur/">guide IRC</a>.</p>
+      </div>
+    </div>
+  </section>
+  )}
+
+  {c.methode && (
+    <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+      <h2 class="text-lg font-bold">Méthode</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-600">{c.methode.map((x) => <li>{x}</li>)}</ul>
+    </section>
+  )}
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Questions fréquentes</h2>
+    <div class="mt-4 space-y-3">
+      {faqs.map((f) => (
+        <details class="rounded-xl border border-stone-200 bg-stone-50 p-4">
+          <summary class="cursor-pointer text-sm font-semibold">{f.q}</summary>
+          <p class="mt-2 text-sm text-stone-600">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Pour aller plus loin</h2>
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {c.related.map((href) => (
+        <li><a class="inline-block rounded-xl bg-stone-100 px-3 py-2 text-sm font-semibold capitalize hover:bg-stone-200" href={href}>{labelFor(href)}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <BrandLinks brands={products.map((p) => p.brand)} />
+  {!isConnectee && <AwinPartner />}
+  <RelatedComparatifs slugs={COMPARATIFS.filter((x) => x.slug !== c.slug).slice(0, 6).map((x) => x.slug)} />
+  {products[0] && (
+    <MobileStickyPick asin={products[0].asin} product={products[0].name} placement={`meilleur-${c.slug}-sticky`} />
+  )}
+</Layout>

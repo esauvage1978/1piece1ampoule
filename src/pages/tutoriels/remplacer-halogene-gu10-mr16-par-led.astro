@@ -1,0 +1,124 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'remplacer-halogene-gu10-mr16-par-led')!;
+// Cas fréquents : transfo électronique d’halogène et nombre de LED raccordées.
+const transfos = [
+  { nom: '20-60 W (1 à 3 spots halogènes)', min: 20, max: 60 },
+  { nom: '35-105 VA (2 à 3 spots)', min: 35, max: 105 },
+  { nom: '50-150 VA (3 à 4 spots)', min: 50, max: 150 },
+];
+const cas = [1, 2, 3, 4].map((n) => ({ n, w: n * 5 }));
+const verdict = (w: number, min: number) => (w >= min ? 'ok' : w >= min * 0.7 ? 'limite' : 'non');
+const label = { ok: 'OK', limite: 'à risque', non: 'clignote' } as const;
+const cls = { ok: 'text-emerald-700', limite: 'text-amber-700', non: 'text-red-700 font-semibold' } as const;
+---
+<Tutorial t={t}>
+  <h2 id="identifier">GU10 ou MR16 : identifier le spot</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[560px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3"></th><th class="p-3">GU10</th><th class="p-3">GU5.3 (MR16)</th></tr></thead>
+      <tbody>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Culot</th><td class="p-3">2 ergots épais à tête ronde, quart de tour</td><td class="p-3">2 broches fines espacées de 5,3 mm, on enfonce</td></tr>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Tension</th><td class="p-3">230V direct</td><td class="p-3">12V via un transformateur</td></tr>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Ce qui fait clignoter une LED</th><td class="p-3">le variateur</td><td class="p-3">le transfo (charge minimale, sortie AC) et le variateur</td></tr>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Remplacement</th><td class="p-3">direct, en 1 minute</td><td class="p-3">direct si le transfo l’accepte, sinon driver LED 12V</td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <p>Pour aller plus loin sur les deux culots : <a href="/articles/gu10-ou-gu5-3/">GU10 ou GU5.3</a>.</p>
+
+  <h2 id="charge-minimale">Le calcul de charge minimale</h2>
+  <p>Un transformateur électronique d’halogène est un petit convertisseur qui ne régule correctement qu’au-dessus d’une puissance minimale : c’est la première valeur de sa plage (« 20-60 W » veut dire 20 W minimum). Trois halogènes de 50 W faisaient 150 W ; trois LED de 5 W ne font que 15 W. En dessous du minimum, le transfo s’arrête et redémarre en boucle : c’est le clignotement, parfois seulement au démarrage ou au bout de quelques minutes.</p>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[560px] text-sm">
+      <caption class="px-4 pt-3 text-left text-xs text-stone-500">LED GU5.3 de 5 W raccordées à un même transfo électronique d’halogène (calcul de 1 pièce 1 ampoule ; « à risque » = entre 70 et 100 % du minimum)</caption>
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Transfo</th>{cas.map((c) => <th class="p-3">{c.n} LED ({c.w} W)</th>)}</tr></thead>
+      <tbody>{transfos.map((tr) => (
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{tr.nom}</th>{cas.map((c) => { const v = verdict(c.w, tr.min); return <td class={`p-3 ${cls[v]}`}>{label[v]}</td>; })}</tr>
+      ))}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Lecture : avec des LED de 5 W, un transfo d’halogène classique n’est presque jamais assez chargé. Quelques transfos récents annoncent « 0-60 W » ou « compatible LED » : dans ce cas, le minimum est respecté.</figcaption>
+  </figure>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 250" role="img" aria-labelledby="svg4t" class="h-auto w-full">
+      <title id="svg4t">Schéma : avant, transfo électronique halogène 20-60 W alimentant 3 halogènes de 50 W ; après, driver LED 12V DC 30 W alimentant 3 LED de 5 W</title>
+      <text x="170" y="20" font-size="13" text-anchor="middle" font-weight="bold" fill="#1c1917">Avant : 150 W, transfo content</text>
+      <text x="510" y="20" font-size="13" text-anchor="middle" font-weight="bold" fill="#1c1917">Après : 15 W, il faut un driver LED</text>
+      <line x1="340" y1="10" x2="340" y2="240" stroke="#d6d3d1" stroke-dasharray="4 4" />
+      <text x="20" y="62" font-size="11" fill="#57534e">230V</text><line x1="50" y1="58" x2="90" y2="58" stroke="#1c1917" stroke-width="2" />
+      <rect x="90" y="40" width="120" height="40" rx="6" fill="#fff" stroke="#1c1917" /><text x="150" y="58" font-size="11" text-anchor="middle">transfo halogène</text><text x="150" y="72" font-size="10" text-anchor="middle" fill="#57534e">20-60 W · 12V AC</text>
+      <path d="M150 80 L150 120 L60 120 L60 150 M150 120 L150 150 M150 120 L240 120 L240 150" stroke="#1c1917" stroke-width="2" fill="none" />
+      {[60, 150, 240].map((x) => <g><circle cx={x} cy="170" r="20" fill="#fde68a" stroke="#1c1917" /><text x={x} y="174" font-size="10" text-anchor="middle">50 W</text></g>)}
+      <text x="150" y="215" font-size="11" text-anchor="middle" fill="#065f46">3 × 50 = 150 W ≥ 20 W : OK</text>
+      <text x="360" y="62" font-size="11" fill="#57534e">230V</text><line x1="390" y1="58" x2="430" y2="58" stroke="#1c1917" stroke-width="2" />
+      <rect x="430" y="40" width="120" height="40" rx="6" fill="#ecfdf5" stroke="#065f46" /><text x="490" y="58" font-size="11" text-anchor="middle">driver LED</text><text x="490" y="72" font-size="10" text-anchor="middle" fill="#57534e">12V DC · 30 W · min 0 W</text>
+      <path d="M490 80 L490 120 L400 120 L400 150 M490 120 L490 150 M490 120 L580 120 L580 150" stroke="#1c1917" stroke-width="2" fill="none" />
+      {[400, 490, 580].map((x) => <g><circle cx={x} cy="170" r="20" fill="#fef3c7" stroke="#1c1917" /><text x={x} y="174" font-size="10" text-anchor="middle">5 W</text></g>)}
+      <text x="490" y="215" font-size="11" text-anchor="middle" fill="#065f46">3 × 5 = 15 W ; 15 × 1,25 ≈ 19 W ≤ 30 W</text>
+      <text x="490" y="235" font-size="10" text-anchor="middle" fill="#57534e">(avec l’ancien transfo : 15 W &lt; 20 W, clignotement probable)</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma réalisé par 1 pièce 1 ampoule.</figcaption>
+  </figure>
+
+  <h2 id="diagnostic">Diagnostic interactif</h2>
+  <div class="not-prose my-6 rounded-2xl border border-amber-200 bg-amber-50 p-5" id="dg">
+    <div class="grid gap-3 sm:grid-cols-2">
+      <label class="text-sm">Culot<select id="dg-culot" class="mt-1 block w-full rounded-lg border-stone-300 p-2"><option value="gu53">GU5.3 / MR16 (12V)</option><option value="gu10">GU10 (230V)</option></select></label>
+      <label class="text-sm">Variateur sur le circuit ?<select id="dg-var" class="mt-1 block w-full rounded-lg border-stone-300 p-2"><option value="non">Non (simple interrupteur)</option><option value="old">Oui, ancien variateur halogène</option><option value="led">Oui, variateur LED (fin d’onde)</option></select></label>
+      <label class="text-sm dg-12">Type de transfo<select id="dg-tr" class="mt-1 block w-full rounded-lg border-stone-300 p-2"><option value="elec">Électronique (boîtier léger)</option><option value="ferro">Ferromagnétique (bloc lourd)</option><option value="led">Driver LED 12V DC</option></select></label>
+      <label class="text-sm dg-12">Puissance minimale du transfo (W)<input id="dg-min" type="number" min="0" value="20" class="mt-1 block w-full rounded-lg border-stone-300 p-2" /></label>
+      <label class="text-sm dg-12">Nombre de spots sur ce transfo<input id="dg-n" type="number" min="1" value="3" class="mt-1 block w-full rounded-lg border-stone-300 p-2" /></label>
+      <label class="text-sm dg-12">Puissance d’une LED (W)<input id="dg-w" type="number" min="1" step="0.5" value="5" class="mt-1 block w-full rounded-lg border-stone-300 p-2" /></label>
+    </div>
+    <p id="dg-out" class="mt-4 rounded-xl bg-white p-4 text-sm text-stone-800 ring-1 ring-amber-200" aria-live="polite"></p>
+  </div>
+  <script is:inline>
+    (function () {
+      const $ = (id) => document.getElementById(id);
+      function run() {
+        const culot = $('dg-culot').value, v = $('dg-var').value, tr = $('dg-tr').value;
+        document.querySelectorAll('#dg .dg-12').forEach((e) => (e.style.display = culot === 'gu53' ? '' : 'none'));
+        const out = [];
+        if (culot === 'gu53') {
+          const n = +$('dg-n').value || 0, w = +$('dg-w').value || 0, min = +$('dg-min').value || 0, P = n * w;
+          if (tr === 'elec') {
+            if (P >= min) out.push('Charge LED ' + P + ' W ≥ minimum ' + min + ' W : le transfo devrait fonctionner. Vérifie que les LED acceptent le 12V AC (mention « AC/DC »).');
+            else out.push('<strong>Charge LED ' + P + ' W &lt; minimum ' + min + ' W : risque élevé de clignotement.</strong> Remplace le transfo par un driver LED 12V DC d’au moins ' + Math.ceil(P * 1.25) + ' W.');
+          } else if (tr === 'ferro') out.push('Transfo ferromagnétique : pas de minimum strict, mais il ronronne et consomme à vide. Les LED doivent accepter le 12V AC. Un driver LED 12V DC d’au moins ' + Math.ceil(P * 1.25) + ' W est plus propre.');
+          else out.push('Driver LED : vérifie qu’il fait au moins ' + Math.ceil(P * 1.25) + ' W (charge × 1,25) et que les LED sont en 12V DC.');
+        } else out.push('GU10 : remplacement direct par une LED GU10 de flux équivalent.');
+        if (v === 'old') out.push('<strong>Ancien variateur halogène :</strong> remplace-le par un variateur LED à coupure en fin d’onde et prends des LED dimmables' + (culot === 'gu53' ? ', avec un driver 12V marqué dimmable (TRIAC).' : '.'));
+        if (v === 'led') out.push('Variateur LED : prends des LED marquées dimmable et vérifie que leur puissance totale dépasse la charge LED minimale du variateur' + (culot === 'gu53' ? ' ; le driver 12V doit être dimmable (TRIAC).' : '.'));
+        $('dg-out').innerHTML = out.join('<br />');
+      }
+      document.querySelectorAll('#dg select, #dg input').forEach((e) => e.addEventListener('input', run));
+      run();
+    })();
+  </script>
+
+  <h2 id="variateur">Variateur : quel type garder</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[560px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Variateur</th><th class="p-3">Marquage</th><th class="p-3">Avec des LED</th></tr></thead>
+      <tbody>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Coupure en début d’onde (leading edge)</th><td class="p-3">R, L, « inductif », souvent min 20 à 60 W</td><td class="p-3 text-red-700">grésillement, scintillement en bas de course : à remplacer</td></tr>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Coupure en fin d’onde (trailing edge)</th><td class="p-3">R, C, « LED »</td><td class="p-3 text-emerald-700">recommandé, avec des LED dimmables</td></tr>
+        <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">Universel « toutes lampes »</th><td class="p-3">RLC, réglage du mode</td><td class="p-3 text-emerald-700">bien, à régler en mode fin d’onde ; règle aussi le minimum si possible</td></tr>
+      </tbody>
+    </table>
+  </figure>
+
+  <h2 id="lumens">Combien de lumens en remplacement</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[520px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Halogène réflecteur</th><th class="p-3">GU10 (230V, PAR16)</th><th class="p-3">MR16 / GU5.3 (12V)</th><th class="p-3">LED de remplacement</th></tr></thead>
+      <tbody>
+        <tr class="border-t border-stone-100"><td class="p-3">20 W</td><td class="p-3">—</td><td class="p-3">180 lm</td><td class="p-3">2 à 3 W, 150 à 250 lm</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">35 W</td><td class="p-3">200 lm</td><td class="p-3">300 lm</td><td class="p-3">3 à 4 W, 250 à 350 lm</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">50 W</td><td class="p-3">300 lm</td><td class="p-3">540 lm</td><td class="p-3">4 à 6 W, 300 à 550 lm</td></tr>
+      </tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Flux de référence des lampes dirigées : règlement (UE) n° 1194/2012, annexe III, tableau 6 (repris au tableau 4 du règlement délégué (UE) 2019/2015). C’est le flux utile, dans un cône de 90° ; pour une LED, il est en plus multiplié par le facteur de conservation du flux, et par 0,8 à 0,9 sous 20° d’ouverture. La colonne « LED de remplacement » est un ordre de grandeur relevé sur des fiches de fabricants. Compare-le au flux de la LED à angle égal (36° comme 36°). Pour calculer le nombre de spots d’une pièce, voir le tuto <a class="underline" href="/tutoriels/calculer-eclairage-piece-lux/">calculer l’éclairage en lux</a>.</figcaption>
+  </figure>
+</Tutorial>

@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PeintureFigure from '../../components/PeintureFigure.astro';
+import PeintureMylandsBlock from '../../components/PeintureMylandsBlock.astro';
+import { PEINTURE_PAGES, PEINTURE_IMAGES, PEINTURE_SECTIONS, PEINTURE_GALLERY_EXTRA } from '../../content/peinture';
+
+export function getStaticPaths() {
+  return PEINTURE_PAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+const { g } = Astro.props;
+const img = g.image ? PEINTURE_IMAGES[g.image] : PEINTURE_IMAGES.roller;
+const figureCredit =
+  g.slug === 'peinture-eclairage-couleur-finition'
+    ? 'Illustration générée — application au rouleau (le rendu couleur dépend surtout de vos ampoules Kelvin et IRC).'
+    : g.slug === 'plafond'
+      ? 'Illustration générée — plafond, application au rouleau.'
+      : g.slug === 'salon'
+        ? 'Illustration générée — salon, test de teinte jour et soir.'
+        : img.credit;
+const related = PEINTURE_PAGES.filter((p) => p.section === g.section && p.slug !== g.slug).slice(0, 3);
+const faqSchema = g.faq?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: g.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : undefined;
+---
+
+<Layout type="article" title={g.title} description={g.description} schema={faqSchema}>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700"><a class="hover:underline" href="/peinture/">Guide peinture</a> · {PEINTURE_SECTIONS.find((s) => s.id === g.section)?.label}</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{g.h1}</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">{g.lead}</p>
+    </div>
+    <PeintureFigure src={img.src} alt={img.alt} credit={figureCredit} />
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {PEINTURE_GALLERY_EXTRA.map((ex) => (
+        <PeintureFigure
+          src={ex.src}
+          alt={ex.alt}
+          credit={g.slug === 'plafond' ? 'Illustration générée — préparation plafond.' : ex.credit}
+          width={640}
+          height={360}
+        />
+      ))}
+    </div>
+    <div class="prose-article en-body mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10" set:html={g.body} />
+    {g.hasCalculator && (
+      <section id="calculateur" class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6">
+        <h2 class="text-xl font-bold">Calculateur de quantité de peinture</h2>
+        <p class="mt-2 text-sm text-stone-600">Estimez les litres nécessaires : surface des murs (m²), nombre de couches et rendement du produit (m²/L/couche).</p>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2" id="peinture-qty-tool">
+          <label class="text-sm font-semibold text-stone-800 sm:col-span-2">Surface à peindre (m²)
+            <input id="pq-m2" type="number" min="1" max="500" step="0.5" value="25" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+          </label>
+          <label class="text-sm font-semibold text-stone-800">Nombre de couches
+            <input id="pq-coats" type="number" min="1" max="4" step="1" value="2" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+          </label>
+          <label class="text-sm font-semibold text-stone-800">Rendement (m²/L/couche)
+            <select id="pq-yield" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+              <option value="12">Mur lisse, peinture premium (12)</option>
+              <option value="10" selected>Moyenne courante (10)</option>
+              <option value="8">Poreux ou couleur foncée (8)</option>
+            </select>
+          </label>
+          <p class="sm:col-span-2 text-lg font-bold text-stone-900" id="pq-result" aria-live="polite">Il vous faut environ 5,0 L de peinture finie.</p>
+          <p class="sm:col-span-2 text-xs text-stone-500">Formule : litres = (m² × couches) ÷ rendement. Ajoutez 10 % pour pertes (angles, rouleau). Comparez avec la notice du pot.</p>
+        </div>
+      </section>
+    )}
+    {g.faq && (
+      <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+        <h2 class="text-lg font-bold">Questions fréquentes</h2>
+        {g.faq.map((f) => (
+          <div class="mt-4">
+            <h3 class="font-semibold">{f.q}</h3>
+            <p class="mt-1 text-sm text-stone-600">{f.a}</p>
+          </div>
+        ))}
+      </section>
+    )}
+    {g.showMylands && g.slug !== 'mylands' && <PeintureMylandsBlock />}
+    <nav class="mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8" aria-label="Autres guides peinture">
+      <h2 class="text-xl font-bold text-stone-900">Dans la même rubrique</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        {related.map((o) => (
+          <a class="block rounded-2xl border border-stone-200 bg-white p-4 hover:bg-amber-50" href={`/peinture/${o.slug}/`}>
+            <strong class="block text-stone-900">{o.h1}</strong>
+            <span class="mt-1 block text-sm text-stone-600">{o.short}</span>
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-sm">
+        <a class="font-semibold text-amber-700 underline" href="/peinture/">Guide peinture complet</a>
+        · <a class="font-semibold text-amber-700 underline" href="/peinture/peinture-eclairage-couleur-finition/">Peinture et éclairage</a>
+        · <a class="font-semibold text-amber-700 underline" href="/guides/">Guides ampoules</a>
+      </p>
+    </nav>
+  </section>
+  <script is:inline>
+    (function () {
+      var m2 = document.getElementById('pq-m2');
+      if (!m2) return;
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function recalc() {
+        var surface = num(document.getElementById('pq-m2').value);
+        var coats = num(document.getElementById('pq-coats').value) || 1;
+        var y = num(document.getElementById('pq-yield').value) || 10;
+        var litres = (surface * coats) / y;
+        var withMargin = litres * 1.1;
+        document.getElementById('pq-result').textContent =
+          'Il vous faut environ ' + withMargin.toLocaleString('fr-FR', { maximumFractionDigits: 1 }) +
+          ' L (dont ~10 % de marge). Sans marge : ' + litres.toLocaleString('fr-FR', { maximumFractionDigits: 1 }) + ' L.';
+      }
+      ['pq-m2', 'pq-coats', 'pq-yield'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', recalc);
+        if (el) el.addEventListener('change', recalc);
+      });
+      recalc();
+    })();
+  </script>
+</Layout>
+<style is:global>
+  .en-body table { display: table; width: 100%; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: .92rem; margin: 1rem 0; background: #fff; }
+  .en-body th, .en-body td { border: 1px solid #e7e5e4; padding: .45rem .6rem; text-align: left; vertical-align: top; }
+  .en-body th { background: #fef3c7; color: #1c1917; }
+  .en-body a { color: #b45309; font-weight: 600; }
+  .en-body ul, .en-body ol { padding-left: 1.3rem; list-style: disc; } .en-body ol { list-style: decimal; }
+  .en-note { font-size: .82rem !important; color: #78716c; }
+  .en-body > h2:first-child { margin-top: 0; }
+  @media (max-width: 640px) { .en-body table { display: block; overflow-x: auto; } }
+</style>

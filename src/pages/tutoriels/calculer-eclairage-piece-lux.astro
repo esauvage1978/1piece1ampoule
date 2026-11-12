@@ -1,0 +1,174 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+import FaqBlock from '../../components/FaqBlock.astro';
+import { HIVER_FAQ } from '../../content/hiver-faq';
+const t = TUTORIELS.find((x) => x.slug === 'calculer-eclairage-piece-lux')!;
+const K = [
+  { h: '≤ 2,50 m', v: [2.0, 2.4, 3.0] },
+  { h: '2,50 à 2,80 m', v: [2.2, 2.7, 3.3] },
+  { h: '2,80 à 3,20 m', v: [2.4, 2.9, 3.6] },
+  { h: '> 3,20 m', v: [2.7, 3.2, 4.0] },
+];
+const fmt = (n: number) => n.toFixed(1).replace('.', ',');
+const LUX = [
+  { p: 'Séjour, salon', g: '100 – 150', t: '300 – 500 (lecture)', n: '500 lx pour lecture-écriture (bureaux)' },
+  { p: 'Cuisine', g: '150 – 250', t: '500 (plan de travail)', n: '500 lx (cuisines de restauration)' },
+  { p: 'Chambre', g: '75 – 150', t: '300 (lecture au lit)', n: '—' },
+  { p: 'Salle de bain', g: '150 – 200', t: '300 – 500 (miroir)', n: '200 lx (vestiaires, sanitaires)' },
+  { p: 'WC', g: '100 – 200', t: '—', n: '200 lx (toilettes)' },
+  { p: 'Bureau, coin devoirs', g: '200 – 300', t: '500 (plan de travail)', n: '500 lx (écriture, lecture, traitement de données)' },
+  { p: 'Couloir, entrée', g: '100', t: '—', n: '100 lx (zones de circulation)' },
+  { p: 'Escalier', g: '150', t: '—', n: '150 lx (escaliers)' },
+  { p: 'Garage, atelier', g: '200 – 300', t: '500 – 750 (établi)', n: '300 lx (travaux grossiers) à 500 lx (travaux moyens)' },
+  { p: 'Cave, cellier, buanderie', g: '100 – 150', t: '200 – 300 (repassage, tri)', n: '100 lx (stockage)' },
+];
+---
+<Tutorial
+  t={t}
+  heroImage={{
+    src: '/pins/lumens.png',
+    alt: 'Calcul de lumens et lux pour éclairer une pièce — illustration',
+  }}
+>
+  <div class="not-prose mb-8 rounded-2xl border border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-sm">
+    <p class="text-xs font-bold uppercase tracking-wide text-amber-800">En 30 secondes</p>
+    <p class="mt-2 text-sm text-stone-800"><strong>Lumens = lux × surface (m²) × K</strong>, avec <strong>K ≥ 2</strong> dans la plupart des pièces (murs clairs, plafond 2,50 m). La formule « lux × m² » seule oublie les pertes : comptez au moins le double des lumens indiqués par ce calcul simplifié.</p>
+    <p class="mt-2 text-xs text-stone-600">Détail du coefficient K, tableau des lux par pièce et calculateur ci-dessous. Teinte et IRC : <a class="font-semibold text-amber-800 underline" href="/guides/kelvin-temperature-couleur/">Kelvin</a> et <a class="font-semibold text-amber-800 underline" href="/guides/irc-indice-rendu-couleur/">IRC</a>.</p>
+  </div>
+  <figure class="not-prose my-6 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+    <img src="/pins/lumens.png" alt="Lumens et lux : flux lumineux et éclairement d’une pièce" width="1000" height="1500" loading="lazy" decoding="async" class="mx-auto max-h-56 w-full max-w-sm object-contain p-4" />
+    <figcaption class="border-t border-stone-100 px-4 py-2 text-xs text-stone-500">Le lumen mesure ce que la lampe émet ; le lux, ce que la surface reçoit.</figcaption>
+  </figure>
+  <div class="not-prose my-6 grid gap-4 sm:grid-cols-2">
+    <figure class="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <img src="/pins/cuisine.png" alt="Cuisine : éclairage général et plan de travail à dimensionner séparément" width="1000" height="1500" loading="lazy" decoding="async" class="mx-auto max-h-48 w-full object-contain p-3" />
+      <figcaption class="border-t border-stone-100 px-3 py-2 text-xs text-stone-500">Exemple : lux général et lux « tâche » sur le plan de travail.</figcaption>
+    </figure>
+    <figure class="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <img src="/illustrations/salon.svg" alt="Salon : répartir plusieurs sources plutôt qu’un seul plafonnier" width="1200" height="780" loading="lazy" decoding="async" class="h-auto w-full p-2" />
+      <figcaption class="border-t border-stone-100 px-3 py-2 text-xs text-stone-500">Répartir le flux évite les coins sombres (voir <a class="underline" href="#repartir">répartir la lumière</a>).</figcaption>
+    </figure>
+  </div>
+  <h2 id="formule">La formule et le coefficient K</h2>
+  <p>Un lux, c’est un lumen reçu par mètre carré. Si toute la lumière d’une ampoule tombait sur le sol, il suffirait de multiplier : <strong>lumens = lux × m²</strong>. C’est la règle qu’on lit partout. Mais dans une vraie pièce, une partie de la lumière part vers le plafond et les murs, qui en absorbent une part d’autant plus grande qu’ils sont foncés et hauts. Les ampoules et les luminaires perdent aussi environ 20 % de flux en vieillissant et en s’encrassant.</p>
+  <p>Dans le corps de ce tutoriel, on utilise un seul coefficient <strong>K</strong> (entre 2 et 4) qui regroupe ces pertes pour un logement classique. La formule retenue est :</p>
+  <p class="rounded-2xl bg-amber-50 p-4 text-center text-lg ring-1 ring-amber-200"><strong>Flux (lm) = lux × surface (m²) × K</strong></p>
+  <p class="text-sm text-stone-600">Pour les curieux : les éclairagistes décomposent parfois en utilance U (part de lumière utile) et facteur de maintenance M (≈ 0,8), avec K = 1 ÷ (U × M). Le tableau ci-dessous donne K déjà calculé pour une pièce de 8 à 30 m² éclairée par des luminaires qui dirigent surtout la lumière vers le bas (plafonnier, spots, suspension ouverte).</p>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[480px] text-sm">
+      <caption class="px-4 pt-3 text-left text-xs text-stone-500">Coefficient K selon la hauteur sous plafond et la teinte des murs et du plafond (ordres de grandeur arrondis, M = 0,8)</caption>
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Hauteur sous plafond</th><th class="p-3">Murs et plafond clairs<br /><span class="font-normal text-stone-500">blanc, beige clair</span></th><th class="p-3">Teintes moyennes<br /><span class="font-normal text-stone-500">bois clair, pastel, gris clair</span></th><th class="p-3">Teintes foncées<br /><span class="font-normal text-stone-500">anthracite, brique, bois sombre</span></th></tr></thead>
+      <tbody>{K.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.h}</th>{r.v.map((v) => <td class="p-3">{fmt(v)}</td>)}</tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Corrections : +15 % si la pièce fait moins de 8 m², –15 % au-delà de 30 m², +20 % avec des abat-jour opaques ou des verres très dépolis. Pour un projet professionnel (bureau, commerce), utilise un logiciel de calcul d’éclairage comme DIALux.</figcaption>
+  </figure>
+  <p>Ce qu’on retient : <strong>K vaut au minimum 2</strong>. La règle « lux × m² » donne donc au mieux la moitié des lumens nécessaires, et le tiers seulement dans une pièce haute aux murs foncés. C’est l’écart qu’on constate souvent entre le calcul « internet » et la sensation de pièce sombre une fois les ampoules posées.</p>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 640 300" role="img" aria-labelledby="svg1t" class="h-auto w-full">
+      <title id="svg1t">Schéma : la lumière d’un plafonnier se répartit entre le plan utile, les murs et le plafond</title>
+      <rect x="40" y="30" width="560" height="230" fill="#fafaf9" stroke="#a8a29e" stroke-width="2" />
+      <rect x="40" y="30" width="18" height="230" fill="#d6d3d1" /><rect x="582" y="30" width="18" height="230" fill="#57534e" />
+      <text x="62" y="250" font-size="12" fill="#57534e">mur clair : renvoie ~70 %</text>
+      <text x="578" y="250" font-size="12" fill="#57534e" text-anchor="end">mur foncé : renvoie ~10 %</text>
+      <rect x="290" y="30" width="60" height="10" rx="3" fill="#f59e0b" />
+      <polygon points="300,40 340,40 470,200 170,200" fill="#fde68a" opacity="0.55" />
+      <line x1="320" y1="40" x2="70" y2="140" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4" />
+      <line x1="70" y1="140" x2="200" y2="200" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4" />
+      <line x1="320" y1="40" x2="575" y2="140" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4" />
+      <rect x="120" y="200" width="400" height="6" fill="#92400e" /><text x="320" y="224" font-size="13" text-anchor="middle" fill="#1c1917">plan utile (0,80 m) : c’est là qu’on compte les lux</text>
+      <line x1="20" y1="30" x2="20" y2="260" stroke="#1c1917" stroke-width="1.5" /><text x="14" y="150" font-size="12" text-anchor="middle" transform="rotate(-90 14 150)" fill="#1c1917">hauteur sous plafond</text>
+      <text x="320" y="285" font-size="13" text-anchor="middle" fill="#1c1917">Flux = lux × m² × K   (K ≈ 2 pièce basse et claire … 4 pièce haute et foncée)</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma réalisé par 1 pièce 1 ampoule. Les flèches en pointillés : lumière renvoyée par les murs ; un mur foncé en absorbe presque tout.</figcaption>
+  </figure>
+
+  <h2 id="tableau-lux">Tableau des lux par pièce</h2>
+  <p>La norme <strong>NF EN 12464-1</strong> fixe les niveaux d’éclairement des <em>lieux de travail</em> ; elle ne vise pas le logement. Les valeurs « habitat » ci-dessous sont des repères de confort couramment admis (dont les recommandations de l’AFE), et la dernière colonne indique ce que la norme demande pour une activité comparable, pour vous situer.</p>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[560px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Pièce</th><th class="p-3">Éclairage général (lux)</th><th class="p-3">Tâche précise (lux)</th><th class="p-3">EN 12464-1, activité comparable</th></tr></thead>
+      <tbody>{LUX.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.p}</th><td class="p-3">{r.g}</td><td class="p-3">{r.t}</td><td class="p-3 text-stone-600">{r.n}</td></tr>)}</tbody>
+    </table>
+  </figure>
+  <p>Le soir, on se sent souvent mieux un cran en dessous de ces valeurs dans les pièces de vie : c’est l’intérêt des ampoules dimmables ou de plusieurs circuits (général + lampes d’appoint).</p>
+
+  <h2 id="calculateur">Calculateur</h2>
+  <div class="not-prose my-6 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6" id="calc-lux">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="text-sm font-semibold text-stone-800">Pièce
+        <select id="cl-piece" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal">
+          <option value="125">Séjour, salon (125 lx)</option><option value="200" selected>Cuisine, général (200 lx)</option><option value="500">Plan de travail, bureau (500 lx)</option><option value="100">Chambre (100 lx)</option><option value="175">Salle de bain (175 lx)</option><option value="100">Couloir, entrée (100 lx)</option><option value="150">Escalier (150 lx)</option><option value="300">Garage, atelier (300 lx)</option><option value="120">Cave, cellier (120 lx)</option>
+        </select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Lux visés
+        <input id="cl-lux" type="number" min="20" max="2000" step="5" value="200" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Longueur (m)
+        <input id="cl-l" type="number" min="0.5" max="50" step="0.1" value="4" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Largeur (m)
+        <input id="cl-w" type="number" min="0.5" max="50" step="0.1" value="3" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" />
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Hauteur sous plafond
+        <select id="cl-h" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal"><option value="0" selected>2,50 m ou moins</option><option value="1">2,50 à 2,80 m</option><option value="2">2,80 à 3,20 m</option><option value="3">plus de 3,20 m</option></select>
+      </label>
+      <label class="text-sm font-semibold text-stone-800">Murs et plafond
+        <select id="cl-m" class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal"><option value="0" selected>Clairs</option><option value="1">Teintes moyennes</option><option value="2">Foncés</option></select>
+      </label>
+      <label class="flex items-center gap-2 text-sm text-stone-800 sm:col-span-2"><input id="cl-a" type="checkbox" /> Luminaires avec abat-jour opaque ou verre très dépoli (+20 %)</label>
+    </div>
+    <div class="mt-5 grid gap-3 sm:grid-cols-3" aria-live="polite">
+      <div class="rounded-2xl bg-white p-4 ring-1 ring-stone-200"><p class="text-xs uppercase tracking-wide text-stone-500">Flux nécessaire</p><p class="mt-1 text-2xl font-bold text-stone-900" id="cl-out">4 800 lm</p></div>
+      <div class="rounded-2xl bg-white p-4 ring-1 ring-stone-200"><p class="text-xs uppercase tracking-wide text-stone-500">Soit environ</p><p class="mt-1 text-lg font-semibold text-stone-900" id="cl-bulbs">6 ampoules de 806 lm</p></div>
+      <div class="rounded-2xl bg-white p-4 ring-1 ring-stone-200"><p class="text-xs uppercase tracking-wide text-stone-500">Puissance LED</p><p class="mt-1 text-lg font-semibold text-stone-900" id="cl-w-out">≈ 48 W</p></div>
+    </div>
+    <p class="mt-3 text-xs text-stone-600" id="cl-detail">200 lx × 12,0 m² × K 2,0</p>
+    <p class="mt-1 text-xs text-stone-500">Hypothèses : K du tableau ci-dessus, LED à environ 100 lm/W. Résultat indicatif pour l’éclairage général d’un logement.</p>
+  </div>
+  <script is:inline>
+    (function () {
+      var K = [[2.0, 2.4, 3.0], [2.2, 2.7, 3.3], [2.4, 2.9, 3.6], [2.7, 3.2, 4.0]];
+      function el(id) { return document.getElementById(id); }
+      function n(v) { return Math.round(v).toLocaleString('fr-FR'); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      function calc() {
+        var lux = num(el('cl-lux').value), area = num(el('cl-l').value) * num(el('cl-w').value);
+        var k = K[+el('cl-h').value][+el('cl-m').value];
+        if (area < 8) k *= 1.15; else if (area > 30) k *= 0.85;
+        if (el('cl-a').checked) k *= 1.2;
+        var lm = lux * area * k;
+        el('cl-out').textContent = n(lm) + ' lm';
+        el('cl-bulbs').textContent = Math.max(1, Math.ceil(lm / 806)) + ' ampoules de 806 lm';
+        el('cl-w-out').textContent = '≈ ' + n(lm / 100) + ' W';
+        el('cl-detail').textContent = n(lux) + ' lx × ' + area.toFixed(1).replace('.', ',') + ' m² × K ' + k.toFixed(2).replace('.', ',');
+      }
+      el('cl-piece').addEventListener('change', function () { el('cl-lux').value = this.value; calc(); });
+      ['cl-lux', 'cl-l', 'cl-w', 'cl-h', 'cl-m', 'cl-a'].forEach(function (id) { el(id).addEventListener('input', calc); el(id).addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+
+  <h2 id="exemples">3 exemples chiffrés</h2>
+  <h3>1. Cuisine de 12 m², plafond à 2,50 m, murs blancs</h3>
+  <ul>
+    <li>Éclairage général visé : 200 lux. K = 2,0 (pièce basse, claire, entre 8 et 30 m²).</li>
+    <li>Flux : 200 × 12 × 2,0 = <strong>4 800 lm</strong>, soit 6 spots GU10 de 805 lm (≈ 27 W au total) répartis en 2 rangées de 3, à environ 1,2 m d’intervalle. Voir aussi le comparatif <a href="/meilleur/meilleur-spot-gu10/">ampoules LED GU10</a>.</li>
+    <li>Plan de travail de 3,0 × 0,6 m à 500 lux avec K = 1,4 (source proche) : 500 × 1,8 × 1,4 = <strong>1 260 lm</strong>, soit un ruban LED d’au moins 420 lm/m sous les meubles hauts. Voir le tutoriel <a href="/tutoriels/poser-ruban-led-sous-meuble-cuisine/">poser un ruban LED sous les meubles</a>.</li>
+  </ul>
+  <h3>2. Salon de 25 m², plafond à 2,70 m, murs gris moyen</h3>
+  <ul>
+    <li>Ambiance visée : 100 lux (on monte localement pour lire). K = 2,7.</li>
+    <li>Flux : 100 × 25 × 2,7 = <strong>6 750 lm</strong>. Avec la règle « lux × m² », on aurait acheté 2 500 lm : un salon presque 3 fois trop sombre.</li>
+    <li>Répartition possible : un plafonnier de 2 800 lm dimmable, deux lampadaires de 1 500 lm et deux lampes de 470 lm, en 2700 K. Le dimmable permet de redescendre vers 50 lux pour un film.</li>
+  </ul>
+  <h3>3. Garage de 18 m², plafond à 2,60 m, murs en parpaing brut</h3>
+  <ul>
+    <li>Éclairage visé : 300 lux pour bricoler. Parpaing gris = teinte moyenne, hauteur 2,50–2,80 m : K = 2,7.</li>
+    <li>Flux : 300 × 18 × 2,7 = <strong>14 580 lm</strong>, soit 4 réglettes étanches de 120 cm à environ 4 000 lm (≈ 145 W).</li>
+    <li>Peindre les murs en blanc ferait passer K à 2,2 : 11 880 lm suffiraient, une réglette de moins pour le même confort. Voir l’<a href="/pieces/garage/">éclairage du garage</a>.</li>
+  </ul>
+  <h2 id="repartir">Répartir la lumière et ajuster</h2>
+  <p>Ne concentrez pas tout le flux dans un seul plafonnier : c’est éblouissant et ça écrase les volumes. Une répartition simple : environ la moitié en éclairage général, l’autre moitié en sources d’appoint (lampadaire, lampe, ruban LED), à la manière des zones décrites dans chaque <a href="/pieces/">guide pièce par pièce</a>. Les besoins en lumière augmentent avec l’âge : pour une personne âgée, prévoyez une marge et des ampoules dimmables. Pour convertir une ancienne ampoule en lumens, voir <a href="/guides/lumens-vs-watts/">lumens vs watts</a> ou le tutoriel <a href="/tutoriels/eclairage-bureau-teletravail-lux-irc-kelvin/">bureau télétravail lux et Kelvin</a>, ou le <a href="/outils/">simulateur</a>.</p>
+  <div slot="after"><FaqBlock title="Questions fréquentes : lumens par pièce" items={HIVER_FAQ['tuto-lux']} /></div>
+</Tutorial>

@@ -1,108 +1,139 @@
 ---
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import ExtraAwinPartner from '../../components/ExtraAwinPartner.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 ---
 
-<Layout
-  title="IRC : Indice de Rendu des Couleurs — Choisir son ampoule"
-  description="Définition de l'IRC (Ra), comment lire les fiches produits et quel IRC choisir pour une cuisine (couleurs fidèles, rendu naturel)."
+<Layout type="article"
+  title="Ampoule LED IRC : Ra 80, 90 ou 95, lequel choisir ?"
+  description="L’IRC, ou Ra, dit si les couleurs paraissent naturelles. Une ampoule LED à Ra 80 est le minimum légal. Ra 90 pour la cuisine, le visage et le bois. Comment lire le code 827 ou 930."
 >
   <section class="mt-10">
-    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
-      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">IRC : Indice de Rendu des Couleurs</h1>
-      <p class="mt-4 max-w-3xl text-white/75">
-        L’IRC (souvent noté <strong>Ra</strong>) indique à quel point une source lumineuse restitue les couleurs par rapport à une référence.
-        En cuisine, ça veut dire : des aliments qui ont l’air “vrais”, une cuisson mieux perçue et un rendu plus qualitatif.
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Ampoule LED IRC : que veut dire Ra 80, 90 ou 95 ?</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Une <strong>ampoule LED IRC 80</strong> (aussi écrit Ra 80 ou CRI 80) est le minimum légal pour l’éclairage général, règlement (UE) 2019/2020. Les couleurs restent acceptables dans un couloir. Pour la cuisine, le visage ou le bois, visez un IRC / Ra 90 : les aliments et la peau paraissent plus naturels. Ra 95 est réservé au travail des couleurs.
       </p>
     </div>
   </section>
+  <ToolTeaser />
 
   <section class="mt-10 grid gap-4 md:grid-cols-2">
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">Comment lire l’IRC</h2>
-      <ul class="mt-4 space-y-2 text-sm text-white/75">
+      <ul class="mt-4 space-y-2 text-sm text-stone-600">
         <li class="flex gap-2">
-          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
           <span><strong>IRC 100</strong> : rendu de référence (excellent).</span>
         </li>
         <li class="flex gap-2">
-          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-          <span><strong>IRC 80–89</strong> : correct, mais certaines couleurs peuvent paraitre ternes.</span>
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+          <span><strong>IRC 80–89</strong> : correct, mais certaines couleurs peuvent paraître ternes.</span>
         </li>
         <li class="flex gap-2">
-          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-          <span><strong>IRC ≥ 90</strong> : recommandé pour cuisine, visage, déco où tu veux un rendu naturel.</span>
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+          <span><strong>IRC ≥ 90</strong> : recommandé pour cuisine, visage, déco où vous voulez un rendu naturel.</span>
         </li>
       </ul>
     </article>
 
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">Pourquoi l’IRC compte</h2>
-      <ul class="mt-4 space-y-2 text-sm text-white/75">
+      <ul class="mt-4 space-y-2 text-sm text-stone-600">
         <li class="flex gap-2">
-          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
           <span><strong>Couleurs alimentaires</strong> : meilleure perception des plats (et des ingrédients).</span>
         </li>
         <li class="flex gap-2">
-          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
           <span><strong>Confort visuel</strong> : moins “d’aspect fatigué”.</span>
         </li>
         <li class="flex gap-2">
-          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
           <span><strong>Qualité percue</strong> : un bon rendu donne une impression plus premium.</span>
         </li>
       </ul>
     </article>
   </section>
 
-  <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
     <h2 class="text-xl font-extrabold">Quel IRC choisir en cuisine ?</h2>
-    <p class="mt-3 max-w-3xl text-sm text-white/75">
-      Pour le <strong>plan de travail</strong> (zone 1), vise généralement <strong>IRC >= 90</strong>. Pour l’ambiance, tu peux descendre selon
-      le style recherché, mais l’IRC reste un plus quand tu veux un rendu agréable et fidèle.
+    <p class="mt-3 max-w-3xl text-sm text-stone-600">
+      Pour le <strong>plan de travail</strong> (zone 1), visez généralement <strong>IRC 90 ou plus</strong>. Pour l’ambiance, vous pouvez descendre selon
+      le style recherché, mais l’IRC reste un plus quand vous voulez un rendu agréable et fidèle.
     </p>
 
     <div class="mt-5 grid gap-4 md:grid-cols-2">
-      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+      <div class="rounded-2xl border border-stone-200 bg-stone-50 p-6">
         <h3 class="text-lg font-bold">Zone 1 : travail</h3>
-        <p class="mt-2 text-sm text-white/75">IRC ≥ 90 + teinte ~4000K pour des couleurs naturelles.</p>
-        <p class="mt-3 text-sm text-white/75">
-          Pour le flux : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.
+        <p class="mt-2 text-sm text-stone-600">IRC ≥ 90 + teinte ~4000K pour des couleurs naturelles.</p>
+        <p class="mt-3 text-sm text-stone-600">
+          Pour le flux : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>.
         </p>
       </div>
-      <div class="rounded-2xl border border-white/10 bg-slate-950/30 p-6">
+      <div class="rounded-2xl border border-stone-200 bg-stone-50 p-6">
         <h3 class="text-lg font-bold">Zone 3 : ambiance</h3>
-        <p class="mt-2 text-sm text-white/75">IRC correct + Kelvin plus chaud (2700–3000K) pour le “cosy”.</p>
-        <p class="mt-3 text-sm text-white/75">
-          Pour la teinte : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>.
+        <p class="mt-2 text-sm text-stone-600">IRC correct + Kelvin plus chaud (2700–3000K) pour le “cosy”.</p>
+        <p class="mt-3 text-sm text-stone-600">
+          Pour la teinte : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>.
         </p>
       </div>
     </div>
+    <figure class="not-prose mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <table class="w-full min-w-[480px] text-sm">
+        <caption class="px-4 pt-4 text-left text-sm font-semibold text-stone-900">IRC et teinte conseillés par pièce (repères)</caption>
+        <thead class="bg-stone-50 text-left"><tr><th class="p-3">Pièce ou zone</th><th class="p-3">IRC minimum</th><th class="p-3">Kelvin indicatif</th></tr></thead>
+        <tbody class="text-stone-600">
+          <tr class="border-t border-stone-100"><td class="p-3">Couloir, garage, cave</td><td class="p-3">80</td><td class="p-3">3000–4000 K</td></tr>
+          <tr class="border-t border-stone-100"><td class="p-3">Salon, chambre</td><td class="p-3">80–90</td><td class="p-3">2700–3000 K</td></tr>
+          <tr class="border-t border-stone-100"><td class="p-3">Cuisine (plan de travail)</td><td class="p-3">90 ou plus</td><td class="p-3">4000 K</td></tr>
+          <tr class="border-t border-stone-100"><td class="p-3">Salle de bain (miroir)</td><td class="p-3">90</td><td class="p-3">3000–4000 K</td></tr>
+          <tr class="border-t border-stone-100"><td class="p-3">Maquillage, photo, atelier couleur</td><td class="p-3">95+</td><td class="p-3">4000–5000 K</td></tr>
+        </tbody>
+      </table>
+      <p class="mt-2 px-4 pb-3 text-xs text-stone-500">Sur l’emballage, l’IRC est souvent noté Ra : un « IRC 80+ » marketing peut correspondre à Ra 80–85 ; visez la valeur exacte pour les pièces sensibles.</p>
+    </figure>
   </section>
 
   <section class="mt-10">
     <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
-    <p class="mt-1 text-sm text-white/70">
-      Liens vers des recherches Amazon ciblées sur l’IRC et l’usage (cuisine/plan de travail).
+    <p class="mt-1 text-sm text-stone-600">
+      Liens vers des recherches Amazon ciblées. Chaque lien ouvre une liste filtrée (IRC ≥ 90, 4000 K ou culot adapté à la cuisine).
     </p>
     <div class="mt-6 grid gap-4 md:grid-cols-2">
-      <ProductCard title="Ampoules LED avec IRC 90+" subtitle="Cuisine / plan de travail" keywords="ampoule led irc 90 cuisine 4000k" badge="IRC ≥ 90" />
-      <ProductCard title="Spots / downlights LED IRC élevé" subtitle="Éclairage central qualitatif" keywords="spot led irc 90 4000k encastrable" badge="IRC haut" />
-      <ProductCard title="Réglettes LED IRC 90+" subtitle="Sous-meubles (zone 1)" keywords="reglette led irc 90 4000k" badge="Zone 1" />
-      <ProductCard title="Ruban LED IRC 90 (profilé)" subtitle="Lumière naturelle et déco" keywords="ruban led irc 90 4000k profilé" badge="Zone 1/3" />
+      <ProductCard title="Ampoules LED avec IRC 90+" subtitle="Flux 800 lm+, blanc neutre 4000 K" keywords="ampoule led irc 90 cuisine 4000k" badge="IRC ≥ 90" />
+      <ProductCard title="Spots / downlights LED IRC élevé" subtitle="Encastrables, faisceau moyen, 4000 K" keywords="spot led irc 90 4000k encastrable" badge="IRC haut" />
+      <ProductCard title="Réglettes LED IRC 90+" subtitle="Sous-meubles cuisine, connecteur inclus" keywords="reglette led irc 90 4000k" badge="Zone 1" />
+      <ProductCard title="Ruban LED IRC 90 (profilé)" subtitle="Bandeau continu, profil aluminium" keywords="ruban led irc 90 4000k profilé" badge="Zone 1/3" />
     </div>
   </section>
 
-  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-    <h2 class="text-lg font-bold">En complément (maillage interne)</h2>
-    <p class="mt-2 text-sm text-white/75">
-      Avant d’acheter, combine toujours avec : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens</a>,
-      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et
-      <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a>.
-      Pour régler l’intensité : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
-      Pour l’installation, pense aussi aux <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/detecteurs-de-mouvement">détecteurs</a> si tu automatises.
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">À lire aussi</h2>
+    <p class="mt-2 text-sm text-stone-600">
+      Avant d’acheter, combinez toujours avec : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens</a>,
+      <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a> et
+      <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/culots-e27-e14-gu10">culots</a>.
+      Pour régler l’intensité : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+      Pour l’installation, pensez aussi aux <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/detecteurs-de-mouvement">détecteurs</a> si vous automatisez.
+      Pour choisir une couleur de peinture au mur : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/peinture/peinture-eclairage-couleur-finition/">guide peinture et lumière</a>.
     </p>
   </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <h2 class="text-lg font-bold">Questions fréquentes sur l’IRC (CRI)</h2>
+    <h3 class="mt-4 font-semibold">Que veut dire CRI sur une ampoule ?</h3>
+    <p class="mt-1 text-sm text-stone-600">CRI est le sigle anglais de Color Rendering Index, l’équivalent de notre IRC (indice de rendu des couleurs, noté aussi Ra). Une ampoule « CRI 90 » et une ampoule « IRC 90 » rendent les couleurs de la même façon.</p>
+    <h3 class="mt-4 font-semibold">IRC 80, IRC 90 ou IRC 95+ : lequel choisir ?</h3>
+    <p class="mt-1 text-sm text-stone-600">IRC 80 suffit pour un couloir, un garage ou une cave. Visez IRC 90 dans le salon, la cuisine et la salle de bain, où l’on regarde des visages et des aliments. IRC 95 et plus sert surtout pour un plan de maquillage, un atelier de peinture ou la photo.</p>
+    <h3 class="mt-4 font-semibold">L’IRC change-t-il le nombre de lumens nécessaire ?</h3>
+    <p class="mt-1 text-sm text-stone-600">Non, mais à flux égal une pièce éclairée en IRC 90 paraît souvent plus lumineuse et plus naturelle. Pour le bon nombre de lumens, utilisez notre simulateur par pièce.</p>
+    <p class="mt-4 text-sm"><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/">Calculer les lumens de ma pièce avec le simulateur</a></p>
+  </section>
+  <script type="application/ld+json" set:html={'{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Que veut dire CRI sur une ampoule ?", "acceptedAnswer": {"@type": "Answer", "text": "CRI est le sigle anglais de Color Rendering Index, l’équivalent de notre IRC (indice de rendu des couleurs, noté aussi Ra). Une ampoule « CRI 90 » et une ampoule « IRC 90 » rendent les couleurs de la même façon."}}, {"@type": "Question", "name": "IRC 80, IRC 90 ou IRC 95+ : lequel choisir ?", "acceptedAnswer": {"@type": "Answer", "text": "IRC 80 suffit pour un couloir, un garage ou une cave. Visez IRC 90 dans le salon, la cuisine et la salle de bain, où l’on regarde des visages et des aliments. IRC 95 et plus sert surtout pour un plan de maquillage, un atelier de peinture ou la photo."}}, {"@type": "Question", "name": "L’IRC change-t-il le nombre de lumens nécessaire ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, mais à flux égal une pièce éclairée en IRC 90 paraît souvent plus lumineuse et plus naturelle. Pour le bon nombre de lumens, utilisez notre simulateur par pièce."}}]}'} />
+  <ExtraAwinPartner />
+  <RelatedComparatifs />
 </Layout>
 

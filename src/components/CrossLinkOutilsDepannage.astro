@@ -1,0 +1,32 @@
+---
+interface Props {
+  variant: 'vers-depannage' | 'vers-outils';
+  class?: string;
+}
+const { variant, class: className = '' } = Astro.props;
+const depannage = '/guides/depannage-ampoules-connectees-led/';
+const outils = '/outils/';
+---
+{variant === 'vers-depannage' ? (
+  <a
+    href={depannage}
+    class:list={['mt-6 flex flex-col gap-2 rounded-2xl border border-red-200 bg-red-50 p-4 hover:bg-red-100/80 sm:flex-row sm:items-center sm:justify-between', className]}
+  >
+    <span>
+      <strong class="block text-stone-900">🔧 Une panne ou un code erreur ?</strong>
+      <span class="block text-sm text-stone-600">Répertoire interactif : symptômes, codes constructeur et procédures pas à pas.</span>
+    </span>
+    <span class="shrink-0 rounded-xl bg-red-700 px-4 py-2 text-sm font-semibold text-white">Ouvrir le diagnostic →</span>
+  </a>
+) : (
+  <a
+    href={outils}
+    class:list={['mt-6 flex flex-col gap-2 rounded-2xl border border-amber-300 bg-amber-50 p-4 hover:bg-amber-100 sm:flex-row sm:items-center sm:justify-between', className]}
+  >
+    <span>
+      <strong class="block text-stone-900">⚡ Besoin de dimensionner votre installation ?</strong>
+      <span class="block text-sm text-stone-600">Simulateurs lumens/Kelvin, variateurs, ruban LED et plans cuisine en 1 clic.</span>
+    </span>
+    <span class="shrink-0 rounded-xl bg-amber-500 px-4 py-2 text-sm font-semibold text-white">Ouvrir le configurateur →</span>
+  </a>
+)}

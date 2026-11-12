@@ -1,7 +1,15 @@
 ---
+import { HIVER_FAQ } from '../../content/hiver-faq';
 import Layout from '../../layouts/Layout.astro';
+import AwinPartner from '../../components/AwinPartner.astro';
+import HouseOfLampsPick from '../../components/HouseOfLampsPick.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { PIECES } from '../../content/pieces';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import { matchProducts, PRODUCTS, type Product } from '../../content/products';
+import { PIECE_SEO } from '../../content/seo';
+import { COMPARATIFS } from '../../content/comparatifs';
 
 export function getStaticPaths() {
   return PIECES.map((p) => ({ params: { slug: p.slug } }));
@@ -10,6 +18,13 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const page = PIECES.find((p) => p.slug === slug);
 if (!page) throw new Error(`Pièce introuvable: ${slug}`);
+
+const seo = PIECE_SEO[slug as string];
+const tableProducts: Product[] = [];
+const pushP = (p?: Product) => { if (p && !tableProducts.some((x) => x.asin === p.asin)) tableProducts.push(p); };
+page.products.forEach((p) => pushP(matchProducts(p.keywords)[0]));
+(seo?.related ?? []).forEach((r) => { const c = COMPARATIFS.find((x) => x.slug === r); if (c) pushP(PRODUCTS[c.asins[0]]); });
+const tableTop = tableProducts.slice(0, 5);
 
 const isCuisine = slug === 'cuisine';
 const isGarage = slug === 'garage';
@@ -32,8 +47,6 @@ const zoneLayoutSlugs = new Set([
   'toilettes',
   'parking',
   'cave-voutee',
-  'couloir-long-etroit',
-  'cave-sans-electricite',
 ]);
 
 function normalizeText(input: string) {
@@ -114,55 +127,31 @@ const genericProductsPerSection = Math.max(
 const cuisineFaq = [
   {
     q: 'Combien de lumens pour une cuisine ?',
-    a: 'Ça dépend des zones. Pour le plan de travail, vise un éclairage “ciblé” puissant (souvent autour de 450 lux sur la zone). Pour l’éclairage central, vise un niveau confortable et homogène sur l’ensemble de la pièce. Le plus efficace est de répartir le flux en plusieurs sources (plafond + sous-meubles + ambiance).',
-  },
-  {
-    q: 'Combien de lumen pour une cuisine ?',
-    a: 'Le bon repère dépend des zones : plan de travail (plus puissant) vs central (homogène) vs ambiance (plus doux). Le plus simple est de répartir la lumière en plusieurs sources plutôt que de chercher “une ampoule très puissante”.',
+    a: 'Ça dépend des zones. Pour le plan de travail, vise un éclairage ciblé (souvent autour de 450 lux sur la zone). Pour l’éclairage central, cherche une lumière homogène sur toute la pièce. Le plus efficace est de répartir le flux en plusieurs sources (plafond, sous-meubles, ambiance).',
   },
   {
     q: 'Quelle température de couleur (Kelvin) pour une cuisine ?',
-    a: 'Le plus polyvalent est le blanc neutre (environ 4000K), surtout pour cuisiner et nettoyer. Pour l’ambiance/coin repas, tu peux descendre vers 2700–3000K.',
+    a: 'Le plus polyvalent est le blanc neutre (environ 4000 K), surtout pour cuisiner et nettoyer. Pour l’ambiance ou le coin repas, tu peux descendre vers 2700–3000 K.',
   },
   {
     q: 'Faut-il un IRC élevé en cuisine ?',
-    a: 'Oui si tu veux des couleurs fidèles (aliments, cuisson, déco). Cherche un IRC ≥ 90 pour les zones de travail.',
+    a: 'Oui si tu veux des couleurs fidèles (aliments, cuisson, déco). Cherche un indice de rendu des couleurs (IRC) ≥ 90 pour les zones de travail.',
   },
   {
     q: 'Spots, bandeaux ou suspensions : que choisir ?',
-    a: 'Idéalement : bandeaux/réglettes sous-meubles pour le plan de travail, un plafonnier/spots pour l’éclairage central, et une touche d’ambiance (suspension, ruban LED indirect) pour le confort.',
+    a: 'Idéalement : bandeaux ou réglettes sous meubles pour le plan de travail, un plafonnier ou des spots pour l’éclairage central, et une touche d’ambiance (suspension, ruban LED indirect) pour le confort le soir.',
   },
   {
     q: 'Quelle ampoule pour une cuisine ?',
-    a: 'Pour une cuisine, il vaut mieux combiner : une lumière ciblée pour le plan de travail et une lumière plus homogène pour circuler/repas. Une seule ampoule ne couvre généralement pas bien toutes les zones.',
+    a: 'Combine une lumière ciblée pour le plan de travail et une lumière plus homogène pour circuler et manger. Une seule ampoule au plafond ne couvre rarement bien toutes les zones.',
   },
   {
-    q: 'Ampoule cuisine',
-    a: 'Pour une cuisine efficace : (1) plan de travail = éclairage ciblé (réglettes/bandeaux), (2) central = lumière homogène, (3) ambiance = plus chaud/dimmable, (4) électroménager = ampoules spécifiques. Cette superposition évite les ombres et donne un rendu plus “vendeur”.',
-  },
-  {
-    q: 'Ampoule cuisine : que choisir ?',
-    a: 'Le meilleur choix dépend de la zone. Commence par éclairer correctement le plan de travail (ciblé, souvent blanc neutre) puis ajoute un central homogène et une ambiance plus chaude le soir.',
-  },
-  {
-    q: 'Ampoule pour cuisine',
-    a: 'Privilégie une solution par zones plutôt qu’un seul point lumineux : tu évites les ombres sur le plan de travail et tu obtiens un résultat plus confortable. Ensuite, ajuste Kelvin (souvent 4000K en travail) et IRC (>= 90 si possible).',
-  },
-  {
-    q: 'Quelle ampoule led pour cuisine ?',
-    a: 'Opte pour des LED avec une teinte blanche neutre (~4000K) pour cuisiner et un rendu fidèle (IRC élevé) sur les zones de préparation. Pour l’ambiance, ajoute du 2700–3000K (suspension ou éclairage indirect).',
-  },
-  {
-    q: 'Quelle puissance ampoule pour cuisine ?',
-    a: 'La puissance (W) seule ne suffit pas : regarde les lumens. L’idée est d’obtenir le bon niveau de lumière sur chaque zone (travail vs ambiance) plutôt que de viser un “gros nombre” partout.',
-  },
-  {
-    q: 'Quelle puissance ampoule pour cuisine',
-    a: 'Ne raisonne pas uniquement en watts : compare en lumens et répartis l’éclairage entre plan de travail, central et ambiance. Tu obtiens plus de confort et moins d’éblouissement.',
+    q: 'Quelle puissance ou combien de watts pour une cuisine ?',
+    a: 'Les watts seuls ne suffisent pas : compare surtout les lumens et répartis l’éclairage entre plan de travail, central et ambiance. Tu gagnes en confort et tu limites l’éblouissement.',
   },
   {
     q: 'Quelle couleur d’ampoule pour une cuisine ?',
-    a: 'Pour cuisiner : blanc neutre autour de 4000K. Pour le soir et l’ambiance : 2700–3000K. Le choix dépend aussi de la couleur des murs et de la lumière naturelle.',
+    a: 'Pour cuisiner : blanc neutre autour de 4000 K. Pour le soir : 2700–3000 K. Le choix dépend aussi de la couleur des murs et de la lumière naturelle.',
   },
 ];
 
@@ -236,7 +225,7 @@ const salonFaq = [
   },
   {
     q: 'Comment éviter l’éblouissement sur la TV ?',
-    a: 'Utilise de la lumière indirecte et/ou un ruban LED derrière la TV (bias light). Évite les sources directes face à l’écran et privilégie un éclairage diffus et stable.',
+    a: 'Utilise de la lumière indirecte et/ou un ruban LED derrière la TV (éclairage d’appoint anti-fatigue, parfois appelé bias light). Évite les sources directes face à l’écran et privilégie un éclairage diffus et stable.',
   },
   {
     q: 'Quel IRC choisir pour le salon ?',
@@ -248,6 +237,7 @@ const salonFaq = [
   },
 ];
 
+salonFaq.push(...HIVER_FAQ.salon);
 const salonJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -325,7 +315,7 @@ const salleMangerFaq = [
     a: 'Vise un éclairage confortable et surtout réparti : une partie pour la mise en valeur de la table, et une partie pour l’ambiance. Pour calculer précisément, pense lux sur les zones plutôt que “un chiffre” unique.',
   },
   {
-    q: 'Ampoule salle a manger : quelle intensité lumineuse ?',
+    q: 'Ampoule salle à manger : quelle intensité lumineuse ?',
     a: 'Pour le quotidien : un niveau suffisant pour voir clairement. Pour le soir : baisse l’intensité via du dimmable, afin de garder une ambiance chaleureuse et éviter un rendu trop froid.',
   },
 ];
@@ -428,16 +418,12 @@ function makeFaqJsonLd(faq: Array<{ q: string; a: string }>) {
 const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
   'bureau-adulte': [
     {
-      q: 'Quel éclairage pour un bureau ?',
-      a: 'La méthode la plus simple : découper le bureau en zones (travail, confort, anti-reflets) puis choisir une teinte (Kelvin) adaptée et un IRC suffisant. Sur la page, chaque zone propose des solutions + liens produits Amazon.',
-    },
-    {
       q: 'Quel éclairage pour un bureau adulte ?',
-      a: 'Découpe le bureau : un éclairage de travail ciblé pour l’écriture/ordinateur et une lumière plus douce pour le confort. Vise une teinte neutre (souvent 3500–5000K) et un IRC élevé si tu manipules des couleurs.',
+      a: 'Découpe le bureau en zones (travail, confort, anti-reflets) puis choisis une température de couleur (Kelvin) adaptée et un indice de rendu des couleurs (IRC) suffisant. Place la lampe perpendiculaire à l’écran et teste un reflet sur le moniteur avant de fixer la hauteur.',
     },
     {
       q: 'Quelle température de couleur pour un bureau ?',
-      a: 'Pour travailler : blanc neutre vers 4000K. Pour le soir : baisse vers 2700–3000K avec des sources dimmables ou plusieurs circuits.',
+      a: 'Pour travailler : blanc neutre vers 4000 K. Pour le soir : baisse vers 2700–3000 K avec des sources dimmables ou plusieurs circuits.',
     },
     {
       q: 'Combien de lumens pour un bureau ?',
@@ -494,12 +480,12 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
   ],
   'chambre-adulte': [
     {
-      q: 'Quelle ampoule pour une chambre ?',
-      a: 'Prévois des ambiances modulables : lumière plus douce le soir, plus nette si tu lis. Dimmable si possible.',
+      q: 'Quelle ampoule pour une chambre adulte ?',
+      a: 'Prévois des ambiances modulables : lumière plus douce le soir, plus nette si tu lis. Un variateur ou des lampes de chevet dimmables aident si l’un lit tard pendant que l’autre dort.',
     },
     {
       q: 'Ampoule chambre : quelle couleur de lumière choisir ?',
-      a: 'Souvent, une lumière chaude (environ 2700K) est idéale pour le calme. Pour la lecture, ajoute une source plus adaptée.',
+      a: 'Souvent, une lumière chaude (environ 2700 K) est idéale pour le calme. Pour la lecture, ajoute une source orientable (~470 lm par côté du lit).',
     },
     {
       q: 'Combien de lumens pour une chambre ?',
@@ -536,7 +522,7 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
   ],
   parking: [
     {
-      q: 'Un guide complet pour l’éclairage de parking : comment choisir ?',
+      q: 'Comment choisir l’éclairage d’un parking ?',
       a: 'Répartis la lumière (éviter les zones sombres), vise une teinte adaptée et utilise du matériel prévu pour l’extérieur (IP).',
     },
     {
@@ -546,10 +532,6 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
     {
       q: 'Combien de lumens pour éclairer un parking ?',
       a: 'Le repère se fait plutôt en lux sur les zones à éclairer. Puis convertis en lumens en fonction de la surface et des pertes.',
-    },
-    {
-      q: "Un guide complet pour l'eclairage de parking : comment choisir ?",
-      a: 'Répartis la lumière (pas de zones sombres), utilise du matériel pour l’extérieur (IP) et ajuste teinte/intensité pour la sécurité et le confort.',
     },
   ],
   'cave-voutee': [
@@ -570,98 +552,101 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
       a: 'Répartis plusieurs points et privilégie une lumière orientée/indirecte pour éviter les zones sombres dans les volumes.',
     },
   ],
-  'couloir-long-etroit': [
-    {
-      q: 'Eclairage couloir long et etroit : comment faire ?',
-      a: 'Répartis plusieurs sources le long du trajet pour éviter les “trous” de lumière. Une teinte plutôt neutre aide à la visibilité.',
-    },
-    {
-      q: 'Quel luminaire pour couloir long et étroit ?',
-      a: 'Spots/appuis répartis et/ou appliques orientées, avec éventuellement un balisage doux pour sécuriser le sol.',
-    },
-    {
-      q: 'Plafonnier ou applique : que choisir pour couloir étroit ?',
-      a: 'Dans un couloir étroit, une répartition sur la longueur est préférable. Les appliques orientées réduisent les ombres.',
-    },
-  ],
-  'cave-sans-electricite': [
-    {
-      q: 'Lampe pour cave sans électricité : que choisir ?',
-      a: 'Les solutions rechargeables LED autonomes sont les plus pratiques. Choisis selon l’usage et l’autonomie attendue.',
-    },
-    {
-      q: 'Lumière cave sans électricité : solutions LED rechargeables ?',
-      a: 'Oui : vérifie autonomie, teinte confortable et mode/commande (capteur, minuterie, ou plusieurs modes).',
-    },
-    {
-      q: 'Lampe pour cave sans electricite : que choisir ?',
-      a: 'Prends une solution LED autonome rechargeable. Le bon choix dépend de l’autonomie et du mode (capteur/minuterie selon usage).',
-    },
-    {
-      q: 'Lumiere cave sans electricite : solutions LED rechargeables ?',
-      a: 'Vérifie l’autonomie, la teinte confortable (souvent plus chaude) et la façon de commander l’éclairage dans la cave.',
-    },
-  ],
 };
+for (const k of ['chambre-adulte', 'bureau-adulte']) genericFaqBySlug[k] = [...(genericFaqBySlug[k] ?? []), ...HIVER_FAQ[k]];
+
+const ZONE_LINKS: Record<string, [string, string][]> = { cuisine: [['/zones/plan-de-travail-cuisine/', 'Éclairer le plan de travail']], 'salle-de-bain': [['/zones/miroir-salle-de-bain/', 'Éclairer le miroir']], toilettes: [['/zones/miroir-salle-de-bain/', 'Éclairer le miroir']], jardin: [['/zones/entree-allee-exterieure/', 'Éclairer l’entrée et l’allée']], parking: [['/zones/entree-allee-exterieure/', 'Éclairer l’entrée et l’allée']], couloir: [['/zones/escaliers/', 'Éclairer un escalier'], ['/zones/placards-dressing/', 'Éclairer un placard']], 'chambre-adulte': [['/zones/placards-dressing/', 'Éclairer un placard ou un dressing']] };
 ---
 
-<Layout title={`${page.title} — Choisir son ampoule`} description={page.description}>
-  <section class="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-    <div class="grid gap-6 p-8 md:grid-cols-[1.4fr_0.6fr] md:items-center">
+<Layout title={seo?.title ?? `${page.title} — Choisir son ampoule`} description={seo?.description ?? page.description} type="article">
+  <section class="mt-10 overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+    <div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
       <div>
-        {page.hero.eyebrow && <p class="text-sm font-semibold text-amber-300/90">{page.hero.eyebrow}</p>}
+        {page.hero.eyebrow && <p class="text-sm font-semibold text-amber-700">{page.hero.eyebrow}</p>}
         <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{page.title}</h1>
-        <p class="mt-4 max-w-2xl text-white/75">{page.description}</p>
+        <figure class="mt-4 sm:hidden">
+          <img
+            src={page.hero.image}
+            alt={page.hero.imageAlt}
+            width="1200"
+            height="780"
+            class="h-auto max-h-44 w-full rounded-2xl object-cover object-center shadow-md ring-1 ring-stone-200"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+        {isCuisine && (
+          <p class="mt-3 text-sm text-stone-600 sm:mt-4">
+            Cette fiche fait partie de nos guides
+            <a class="font-semibold text-amber-700 underline hover:text-amber-800" href="/pieces/"> pièce par pièce</a>.
+          </p>
+        )}
+        {!isCuisine && (
+          <p class="mt-3 text-sm text-stone-600 sm:mt-4">
+            Retour aux <a class="font-semibold text-amber-700 underline hover:text-amber-800" href="/pieces/">guides éclairage par pièce</a>.
+          </p>
+        )}
+        <p class="mt-4 max-w-2xl text-stone-600">{page.description}</p>
       </div>
-      <div class="justify-self-start md:justify-self-end">
+      <div class="hidden sm:block">
         <img
           src={page.hero.image}
           alt={page.hero.imageAlt}
-          class="h-28 w-28 rounded-2xl bg-white/5 p-4 ring-1 ring-inset ring-white/10"
+          width="1200" height="780"
+          class="h-auto w-full rounded-2xl shadow-md ring-1 ring-stone-200"
           loading="eager"
         />
       </div>
     </div>
   </section>
 
+  <ComparisonTable products={tableTop} title={`Sélection rapide : ${page.title.split(/[:(]/)[0].trim()}`} placement="piece-table" />
+
+
   {isCuisine && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Cuisine : découper en zones pour choisir la bonne lumière</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           La cuisine se définit en <strong>4 zones</strong> : <strong>plan de travail</strong>, <strong>éclairage central</strong>,
           <strong>ambiance</strong>, et <strong>électroménager</strong>. Chaque zone a un objectif différent (précision, confort, déco, praticité) — donc des solutions différentes.
         </p>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/cuisine-zones-v4.svg"
-            alt="Cuisine vue de dessus decoupee en zones : plan de travail, central, ambiance, electromenager"
+            src="/illustrations/cuisine-zones-v4.svg?v=3"
+            alt="Cuisine découpée en 4 zones d’éclairage : plan de travail, central, ambiance, électroménager"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
             Schéma : le plan de travail doit être éclairé “ciblé”, le central homogène, l’ambiance douce, l’électroménager spécifique.
           </figcaption>
         </figure>
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">1) Éclairage de travail (plan de travail)</h3>
-          <p class="mt-3 text-sm text-white/75">
+          <p class="mt-3 text-sm text-stone-600">
             C’est la zone où tu coupes, cuisines, lis des étiquettes, nettoies. Le piège : l’ombre créée par ton corps si la lumière vient uniquement du plafond.
           </p>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solutions top : <strong>réglettes/bandeaux sous-meubles</strong>, <strong>spots</strong> bien placés.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte conseillée : <strong>blanc neutre ~4000K</strong> (couleur des aliments plus naturelle).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solutions top : <strong>réglettes/bandeaux sous-meubles</strong>, <strong>spots</strong> bien placés.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Teinte conseillée : <strong>blanc neutre ~4000K</strong> (couleur des aliments plus naturelle).</span></li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>
-                Qualité : vise <strong><a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC >= 90</a></strong> sur cette zone.
+                Qualité : vise <strong><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC >= 90</a></strong> sur cette zone.
               </span>
             </li>
           </ul>
+
+          <p class="mt-4 text-sm text-stone-600">
+            Pour comparer des réglettes 230 V prêtes à poser (longueur, teinte, connectables), notre sélection
+            <a class="font-semibold text-amber-700 hover:text-amber-800" href="/meilleur/meilleure-reglette-led-sous-meuble/">réglettes LED sous meuble</a>
+            reprend les modèles les plus adaptés au plan de travail.
+          </p>
 
           <div class="mt-5 grid gap-3">
             <ProductCard
@@ -681,15 +666,15 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">2) Éclairage central (général)</h3>
-          <p class="mt-3 text-sm text-white/75">
+          <p class="mt-3 text-sm text-stone-600">
             Il sert à circuler confortablement et à avoir une lumière globale homogène. L’objectif n’est pas d’éclairer “à fond” le plan de travail : c’est le rôle de la zone 1.
           </p>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solutions : plafonnier LED, spots encastrés, rail de spots.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte : 3000–4000K selon ambiance souhaitée.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Astuce : plusieurs sources = moins d’éblouissement, meilleure uniformité.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solutions : plafonnier LED, spots encastrés, rail de spots.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Teinte : 3000–4000K selon ambiance souhaitée.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Astuce : plusieurs sources = moins d’éblouissement, meilleure uniformité.</span></li>
           </ul>
 
           <div class="mt-5 grid gap-3">
@@ -710,17 +695,17 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">3) Éclairage d’ambiance (cuisine = pièce de vie)</h3>
-          <p class="mt-3 text-sm text-white/75">
+          <p class="mt-3 text-sm text-stone-600">
             Pour le coin repas, une cuisine ouverte ou simplement une ambiance agréable le soir, vise une lumière plus douce et plus chaude.
           </p>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solutions : suspension au-dessus de l’îlot, ruban LED indirect, lampes d’appoint.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte : <strong>2700–3000K</strong> (plus cosy).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solutions : suspension au-dessus de l’îlot, ruban LED indirect, lampes d’appoint.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Teinte : <strong>2700–3000K</strong> (plus cosy).</span></li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Le “plus vendeur” : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur"><strong>dimmable</strong></a> ou ampoule connectée (scenes).</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Le rendu le plus convaincant à l’œil : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur"><strong>dimmable</strong></a> ou ampoule connectée (scènes).</span>
             </li>
           </ul>
 
@@ -736,20 +721,20 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
               title="Ampoule dimmable E27 2700K"
               subtitle="Ambiance modulable"
               keywords="ampoule led e27 dimmable 2700k"
-              altKeywords="ampoule led e27 variable intensite 2700k"
+              altKeywords="ampoule led e27 variable intensité 2700k"
               badge="Zone 3"
             />
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">4) Électroménager (ampoules spécifiques)</h3>
-          <p class="mt-3 text-sm text-white/75">
+          <p class="mt-3 text-sm text-stone-600">
             Frigo, hotte, four, parfois micro-ondes : il existe des ampoules dédiées, souvent compactes, avec un culot particulier (ex. E14) et des contraintes de chaleur.
           </p>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Vérifie : culot (E14/E27…), dimensions, température, compatibilité “four”.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Pour le frigo : faible puissance, allumage instantané, teinte souvent chaude/neutre.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Vérifie : culot (E14/E27…), dimensions, température, compatibilité “four”.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Pour le frigo : faible puissance, allumage instantané, teinte souvent chaude/neutre.</span></li>
           </ul>
 
           <div class="mt-5 grid gap-3">
@@ -771,38 +756,38 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Mini-checklist “cuisine réussie”</h2>
         <div class="mt-4 grid gap-4 md:grid-cols-2">
-          <ul class="space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Plan de travail : sous-meubles + 4000K + <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC >= 90</a>.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Central : homogène, sans éblouissement.</span></li>
+          <ul class="space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Plan de travail : sous-meubles + 4000K + <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC >= 90</a>.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Central : homogène, sans éblouissement.</span></li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Ambiance : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable</a> / scenes.</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Ambiance : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable</a> / scènes.</span>
             </li>
           </ul>
-          <ul class="space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Évite les ombres : multiplie les sources.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choisis le bon culot : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">guide culots</a>.</span></li>
+          <ul class="space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Évite les ombres : multiplie les sources.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Choisis le bon culot : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/culots-e27-e14-gu10">guide culots</a>.</span></li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>
-                Comprends lumens et watts : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a> — Kelvin :
-                <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">température de couleur</a>.
+                Comprends lumens et watts : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a> — Kelvin :
+                <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">température de couleur</a>.
               </span>
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO)</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {cuisineFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -814,38 +799,38 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
   {isGarage && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Garage : découpe en zones (stockage, établi, stationnement)</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           Un garage confortable, ce n’est pas “juste plus lumineux”. C’est un éclairage adapté à <strong>chaque usage</strong> : retrouver rapidement,
           travailler sans ombre, circuler en sécurité, et allumer automatiquement quand c’est utile.
           Ci-dessous, une découpe simple (comme un plan) pour choisir la bonne combinaison (réglettes, projecteurs, plafonniers, détecteurs).
         </p>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/garage-zones-v2.svg"
+            src="/illustrations/garage-zones-v2.svg?v=3"
             alt="Garage découpé en zones : stockage, établi, stationnement, entrée"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
             Découpe : stockage (étagères) = lumière diffusée, établi = faisceau dirigé, stationnement = homogène au sol, entrée = détection.
           </figcaption>
         </figure>
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 1 : stockage (étagères, boîtes, outils)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : retrouver vite, sans “ombres en face” quand tu ouvres une boîte.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : réglettes/points lumineux à diffusion (idéalement en lignes).</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : associe avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> (souvent 4000K–5000K).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : retrouver vite, sans “ombres en face” quand tu ouvres une boîte.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : réglettes/points lumineux à diffusion (idéalement en lignes).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : associe avec <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a> (souvent 4000K–5000K).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Reglette LED atelier (stockage/étagères)"
@@ -857,16 +842,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 2 : établi (précision, confort)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : voir la pièce et les détails sans ombre sur la table de travail.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : projecteur/panneau dirigé, ou réglette projetée, avec orientation.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Qualité : pense à <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> pour un rendu plus naturel.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : voir la pièce et les détails sans ombre sur la table de travail.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : projecteur/panneau dirigé, ou réglette projetée, avec orientation.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Qualité : pense à <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a> pour un rendu plus naturel.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Projecteur LED orientable (établi)"
@@ -878,16 +863,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 3 : stationnement / circulation</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les “trous de lumière” (risque, sol glissant, sécurité).</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plafonnier/panneau puissant + plusieurs sources pour homogénéiser.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : cadre lumens avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éviter les “trous de lumière” (risque, sol glissant, sécurité).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : plafonnier/panneau puissant + plusieurs sources pour homogénéiser.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : cadre lumens avec <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Panneau LED / plafonnier puissant (circulation)"
@@ -899,16 +884,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 4 : entrée (confort + automatismes)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : allumer quand tu arrives, sans manipulation.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : détecteur de mouvement (ou capteur d’ouverture selon configuration).</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Réglage : temporisation + angle pour éviter les déclenchements inutiles (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/detecteurs-de-mouvement">détecteurs</a>).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : allumer quand tu arrives, sans manipulation.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : détecteur de mouvement (ou capteur d’ouverture selon configuration).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Réglage : temporisation + angle pour éviter les déclenchements inutiles (voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/detecteurs-de-mouvement">détecteurs</a>).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Détecteur de mouvement (entrée)"
@@ -921,13 +906,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO) : garage</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes : garage</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {garageFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -938,37 +923,37 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
   {isSalon && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Salon : découpe en zones (TV, lecture, ambiance, circulation)</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           Un salon réussi, c'est une combinaison de <strong>zones</strong> : éclairage autour de la TV sans reflet, coin lecture confortable,
           ambiance chaude le soir, et lumière homogène pour circuler. Choisis ensuite les bons niveaux : lumens, Kelvin et IRC.
         </p>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/salon-zones-v2.svg"
+            src="/illustrations/salon-zones-v2.svg?v=3"
             alt="Salon découpé en zones : TV, lecture, ambiance, circulation"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
-            Découpe : TV = indirect / bias light, lecture = faisceau dirigé, ambiance = indirect + dimmable, circulation = lumière homogène.
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
+            Découpe : TV = indirect / éclairage d’appoint écran, lecture = faisceau dirigé, ambiance = indirect + dimmable, circulation = lumière homogène.
           </figcaption>
         </figure>
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 1 : TV (anti-reflets)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les reflets sur l’écran.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : lumière indirecte + ruban LED derrière la TV.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choix : Kelvin plutôt chaud (soirée) et IRC élevé pour un rendu naturel (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éviter les reflets sur l’écran.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : lumière indirecte + ruban LED derrière la TV.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Choix : Kelvin plutôt chaud (soirée) et IRC élevé pour un rendu naturel (voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Ruban LED derrière TV (bias light)"
@@ -980,16 +965,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 2 : lecture (confort)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éclairer la zone où tes yeux travaillent.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : liseuse/lampadaire orienté, ou spot dirigé.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : ajuste tes lumens via le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éclairer la zone où tes yeux travaillent.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : liseuse/lampadaire orienté, ou spot dirigé.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : ajuste tes lumens via le guide <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Liseuse/lampadaire de lecture orienté"
@@ -1007,16 +992,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 3 : ambiance (dimmable)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : créer une ambiance douce, modulable.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plusieurs sources + éclairage indirect.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Compatibilité : dimmable + variateur (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : créer une ambiance douce, modulable.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : plusieurs sources + éclairage indirect.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Compatibilité : dimmable + variateur (voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Variateur + ampoules dimmables"
@@ -1028,16 +1013,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 4 : circulation (homogène)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : circuler sans zones trop sombres.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plafonnier/panneau puissant + plusieurs sources.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Rappel : Kelvin et IRC influencent la qualité du rendu (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : circuler sans zones trop sombres.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : plafonnier/panneau puissant + plusieurs sources.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Rappel : Kelvin et IRC influencent la qualité du rendu (voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Plafonnier LED pour éclairage général"
@@ -1056,13 +1041,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO) : salon</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes : salon</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {salonFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -1073,37 +1058,37 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
   {isSalleDeBain && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Salle de bain : découpe en zones (miroir, douche, toilettes, ambiance)</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           Une salle de bain réussie, c’est <strong>la bonne lumière au bon endroit</strong> : miroir/visage (net et naturel),
           douche/zone humide (luminaire prévu pour l’humidité), toilettes (confort), et ambiance (teinte plus chaude le soir).
         </p>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/salle-bain-zones-v2.svg"
+            src="/illustrations/salle-bain-zones-v2.svg?v=3"
             alt="Salle de bain découpée en zones : miroir/vasque, douche, toilettes, circulation et ambiance"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
             Découpe : Zone 1 = miroir (IRC élevé), Zone 2 = douche (IP adapté), Zone 3 = toilettes, Zone 4 = circulation + ambiance.
           </figcaption>
         </figure>
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 1 : miroir / vasque (visage net)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les ombres sur le visage.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : lumière de face diffusée (barre/réglette/miroir LED).</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Choix : Kelvin adaptée + <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC élevé</a>.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éviter les ombres sur le visage.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : lumière de face diffusée (barre/réglette/miroir LED).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Choix : Kelvin adaptée + <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC élevé</a>.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Reglette LED pour miroir (IP44)"
@@ -1115,16 +1100,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 2 : douche / baignoire (humidité)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éclairer la zone humide sans risque.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : luminaires prévus pour salle de bain + placement conforme.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : regarde les indices <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a> et la teinte (<a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éclairer la zone humide sans risque.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : luminaires prévus pour salle de bain + placement conforme.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : regarde les indices <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ip-indice-protection">IP</a> et la teinte (<a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Ruban LED etanche IP (zone douche)"
@@ -1142,16 +1127,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 3 : toilettes (confort)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : une lumière confortable le matin/soir.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : plafonnier simple + teinte plus chaude le soir.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Option : détecteur si tu veux limiter l’allumage.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : une lumière confortable le matin/soir.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : plafonnier simple + teinte plus chaude le soir.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Option : détecteur si tu veux limiter l’allumage.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Détecteur de mouvement pour salle de bain"
@@ -1163,16 +1148,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 4 : circulation + ambiance</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les zones trop sombres en circulant.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : éclairage général + une touche dimmable si possible.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : si tu veux moduler, passe par <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éviter les zones trop sombres en circulant.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : éclairage général + une touche dimmable si possible.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : si tu veux moduler, passe par <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Ampoules dimmables E27 (ambiance)"
@@ -1191,13 +1176,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO) : salle de bain</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes : salle de bain</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {salleBainFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -1208,38 +1193,38 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
   {isSalleManger && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Salle à manger : découpe en zones (table, buffet, ambiance, circulation)</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           Pour une salle à manger qui donne envie, tu dois superposer les bons niveaux : <strong>table bien mise en valeur</strong>,
           <strong>buffet lisible</strong>, <strong>ambiance indirecte</strong> le soir, et <strong>circulation homogène</strong>.
-          Ensuite, optimise la teinte (Kelvin), la fidélité des couleurs (IRC) et éventuellement le dimmable.
+          Ensuite, optimise la teinte (Kelvin), la fidélité des couleurs (indice de rendu des couleurs, IRC) et éventuellement le dimmable.
         </p>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/salle-manger-zones-v2.svg"
+            src="/illustrations/salle-manger-zones-v2.svg?v=3"
             alt="Salle à manger découpée en zones : table, buffet, ambiance et circulation"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
             Découpe : table = mise en valeur (souvent suspension), buffet = accent / repérage, ambiance = indirect + teinte chaude, circulation = lumière uniforme.
           </figcaption>
         </figure>
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 1 : table / repas (visages flatteurs)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : éviter les ombres sur les visages pendant le repas.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : suspension au centre de la table ou spots bien répartis.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Qualité : vise un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> élevé pour des couleurs plus naturelles.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : éviter les ombres sur les visages pendant le repas.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : suspension au centre de la table ou spots bien répartis.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Qualité : vise un <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">indice de rendu des couleurs (IRC)</a> élevé pour des couleurs plus naturelles.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Suspension au-dessus de la table"
@@ -1252,16 +1237,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 2 : buffet / rangement (accent)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : rendre le buffet lisible (verres, déco, rangement).</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : ruban LED ou spots discrets (accent) plutôt qu’un éclairage agressif.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : Kelvin + IRC pour un rendu premium (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : rendre le buffet lisible (verres, déco, rangement).</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : ruban LED ou spots discrets (accent) plutôt qu’un éclairage agressif.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : Kelvin + IRC pour un rendu premium (voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a> et <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a>).</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Ruban LED pour buffet"
@@ -1274,16 +1259,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 3 : ambiance (indirect + dimmable)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : créer une ambiance chaleureuse le soir.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : indirect (mur/rideau) et teinte chaude.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Confort : pense au <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : créer une ambiance chaleureuse le soir.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : indirect (mur/rideau) et teinte chaude.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Confort : pense au <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Ampoules dimmables (ambiance)"
@@ -1296,16 +1281,16 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 4 : circulation (homogène)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Objectif : circuler sans zones trop sombres.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Solution : un éclairage général (plafonnier/panneau) + points doux.</span></li>
-            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Repère : commence par le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Objectif : circuler sans zones trop sombres.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Solution : un éclairage général (plafonnier/panneau) + points doux.</span></li>
+            <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Repère : commence par le guide <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span></li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Plafonnier LED pour éclairage général"
@@ -1319,13 +1304,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO) : salle à manger</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes : salle à manger</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {salleMangerFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -1336,22 +1321,25 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
   {isJardin && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Jardin : découpe en zones (pergola, salon de jardin, allée, repas/barbecue)</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           Pour un jardin qui donne envie, tu dois superposer les bons niveaux : une <strong>pergola en ambiance</strong> (souvent indirecte),
           un <strong>salon de jardin confortable</strong>, une <strong>allée homogène et sécurisée</strong>, et une <strong>zone repas bien mise en valeur</strong>.
           Ensuite, optimise la teinte (Kelvin), la fidélité des couleurs (IRC) et éventuellement le dimmable.
         </p>
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
+          Si une <strong>tondeuse robot</strong> tond la pelouse la nuit, garde les bornes et spots de balisage en bordure d’allée plutôt que plantés dans la zone de tonte (sinon elle les percute ou les contourne mal). Pour choisir et installer une <a class="font-semibold text-amber-700 hover:text-amber-800" href="https://piscinebot.fr/jardin/">tondeuse robot</a>, le site PiscineBot a un guide dédié.
+        </p>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/jardin-zones-v2.svg"
+            src="/illustrations/jardin-zones-v2.svg?v=3"
             alt="Jardin découpé en zones : pergola, salon de jardin, allée et zone repas/barbecue"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
             Découpe : pergola = indirect + ambiance, salon de jardin = confort (souvent dimmable), allée = homogène (sécurité + IP),
             repas/barbecue = lumière flatteuse (Kelvin + IRC).
           </figcaption>
@@ -1359,27 +1347,27 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 1 : pergola (indirect + ambiance)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : une lumière “douce” sous la pergola, sans éblouir.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : ruban ou appliques LED orientées vers des surfaces (mur/lambris) pour créer un indirect.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>
-                Repère : vise des luminaires avec un bon <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a> et une teinte agréable (voir <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>).
+                Repère : vise des luminaires avec un bon <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ip-indice-protection">IP</a> et une teinte agréable (voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>).
               </span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Applique murale LED extérieur IP65 (pergola)"
@@ -1392,27 +1380,27 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 2 : salon de jardin (confort + dimmable)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : rendre le mobilier flatteur, sans “lumière blanche”.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : guirlandes LED / suspensions extérieures + plusieurs points doux.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>
-                Confort : pense au <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a> (soir = ambiance modulée).
+                Confort : pense au <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a> (soir = ambiance modulée).
               </span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Guirlande LED extérieure dimmable (salon de jardin)"
@@ -1425,25 +1413,25 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 3 : allée / circulation (homogène + sécurité)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : éviter les zones trop sombres sur le chemin.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : bornes/sol encastré + répartition pour un rendu homogène.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Repère : vérifie l’<a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ip-indice-protection">IP</a> et ajuste la teinte via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>.</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Repère : vérifie l’<a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ip-indice-protection">IP</a> et ajuste la teinte via <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>.</span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Spot / borne LED extérieur IP67 (allée)"
@@ -1456,27 +1444,27 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 4 : repas / barbecue (Kelvin + IRC)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : une lumière flatteuse pour les visages et la table.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : suspension extérieure au-dessus de la table + points d’accent.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>
-                Optimise : Kelvin (teinte) et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> (couleurs des aliments).
+                Optimise : Kelvin (teinte) et <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a> (couleurs des aliments).
               </span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Suspension extérieure LED IP65 (repas)"
@@ -1490,13 +1478,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO) : jardin</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes : jardin</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {jardinFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -1507,59 +1495,59 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
   {isCouloir && (
     <section class="mt-10">
-      <article class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <article class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
         <h2 class="text-xl font-extrabold">Couloir : découpe en zones (sombre, angle, circulation)</h2>
-        <p class="mt-3 max-w-3xl text-sm text-white/75">
+        <p class="mt-3 max-w-3xl text-sm text-stone-600">
           Un couloir en angle ou un couloir sombre se joue sur la <strong>répartition</strong> : tu veux éviter les “taches”
           et les ombres qui cassent le parcours. Ici, on superpose des niveaux pour la <strong>circulation</strong>, le <strong>coude/angle</strong>,
           et l’<strong>éclairage d’accueil</strong>, puis on ajuste la teinte (Kelvin) et la fidélité des couleurs (IRC).
           Option bonus : le <strong>dimmable</strong> pour moduler le soir.
         </p>
 
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
+        <ul class="mt-4 space-y-2 text-sm text-stone-600">
           <li class="flex gap-2">
-            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
             <span><strong>Déclinaison sombre :</strong> préfère 3500–4000K et multiplie les points pour supprimer les zones d’ombre.</span>
           </li>
           <li class="flex gap-2">
-            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
             <span><strong>Déclinaison en angle :</strong> ajoute un éclairage indirect sur les murs au niveau du coude pour “lier” les deux parties.</span>
           </li>
         </ul>
 
-        <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+        <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
           <img
-            src="/illustrations/couloir-zones-v2.svg"
+            src="/illustrations/couloir-zones-v2.svg?v=3"
             alt="Couloir sombre en angle : découpe en zones pour éclairage"
             class="h-auto w-full"
             loading="lazy"
           />
-          <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
-            Découpe : entrée = accueil, troncon sombre = confort visuel, angle/coude = anti-ombre, sol = sécurité.
+          <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
+            Découpe : entrée = accueil, tronçon sombre = confort visuel, angle/coude = anti-ombre, sol = sécurité.
           </figcaption>
         </figure>
       </article>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 1 : entrée (accueil)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : donner une première impression chaleureuse, sans éblouir.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : applique murale orientée ou éclairage indirect sur le mur.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Repère : une teinte agréable via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a> (souvent 3000–4000K).</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Repère : une teinte agréable via <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a> (souvent 3000–4000K).</span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Applique murale LED indirecte couloir (entrée)"
@@ -1572,25 +1560,25 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 2 : tronçon sombre (confort)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : éclairer “en continu” pour que ton regard se pose bien.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : plusieurs spots encastrés (ou une barre LED) plutôt qu’un seul point.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Qualité : vise un <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a> élevé pour des couleurs fidèles (portes, peinture, objets).</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Qualité : vise un <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a> élevé pour des couleurs fidèles (portes, peinture, objets).</span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Spot encastrable LED couloir (tronçon)"
@@ -1603,25 +1591,25 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 3 : angle / coude (anti-ombre)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : casser la zone d’ombre sur l’angle.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : ruban LED ou applique orientée vers le mur (lumière “rebondie”).</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Option confort : dimmable + variateur via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Option confort : dimmable + variateur via <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.</span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Ruban LED indirect angle couloir"
@@ -1634,25 +1622,25 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           </div>
         </article>
 
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
           <h3 class="text-lg font-bold">Zone 4 : sol / sécurité (circulation)</h3>
-          <ul class="mt-4 space-y-2 text-sm text-white/75">
+          <ul class="mt-4 space-y-2 text-sm text-stone-600">
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Objectif : éviter les “trous” de lumière et améliorer la sécurité.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
               <span>Solution : bandeau LED discret en plinthe/contour ou balisage doux le long du chemin.</span>
             </li>
             <li class="flex gap-2">
-              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
-              <span>Repère : commence par les lumens avec le guide <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span>
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
+              <span>Repère : commence par les lumens avec le guide <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>.</span>
             </li>
           </ul>
 
           <div class="mt-5">
-            <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+            <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
             <div class="mt-3 grid gap-3">
               <ProductCard
                 title="Bandeau LED discret sol (couloir)"
@@ -1666,13 +1654,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
         </article>
       </div>
 
-      <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-xl font-extrabold">FAQ (SEO) : couloir</h2>
+      <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+        <h2 class="text-xl font-extrabold">Questions fréquentes : couloir</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {couloirFaq.map((f) => (
-            <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-              <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-              <p class="mt-3 text-sm text-white/75">{f.a}</p>
+            <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+              <p class="mt-3 text-sm text-stone-600">{f.a}</p>
             </details>
           ))}
         </div>
@@ -1685,18 +1673,18 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
     <>
       {zoneLayoutSlugs.has(slug) ? (
         <>
-          <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-            <h2 class="text-xl font-extrabold">{page.title}</h2>
-            <p class="mt-3 max-w-3xl text-sm text-white/75">{page.description}</p>
+          <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+            <h2 class="text-xl font-extrabold">Découpage en zones</h2>
+            <p class="mt-3 max-w-3xl text-sm text-stone-600">Chaque zone ci-dessous a un objectif d’éclairage différent ; les cartes Amazon reprennent des produits adaptés à cette zone.</p>
 
-            <figure class="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40">
+            <figure class="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
               <img
-                src={`/illustrations/${slug}-zones-v2.svg`}
+                src={`/illustrations/${slug}-zones-v2.svg?v=3`}
                 alt={`${page.title} : découpe en zones`}
                 class="h-auto w-full"
                 loading="lazy"
               />
-              <figcaption class="border-t border-white/10 px-4 py-3 text-xs text-white/60">
+              <figcaption class="border-t border-stone-200 px-4 py-3 text-xs text-stone-500">
                 {(() => {
                   const decoupage = page.sections[0];
                   const zoneTitles = decoupage?.points?.map((pt) => extractZoneTitleFromPoint(pt)) ?? [];
@@ -1724,18 +1712,18 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
             return (
               <div class="mt-6 grid gap-4 md:grid-cols-2">
                 {zones.map((z, i) => (
-                  <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
                     <h3 class="text-lg font-bold">Zone {z.idx} : {z.title}</h3>
-                    <ul class="mt-4 space-y-2 text-sm text-white/75">
+                    <ul class="mt-4 space-y-2 text-sm text-stone-600">
                       <li class="flex gap-2">
-                        <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+                        <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
                         <span set:html={z.point} />
                       </li>
                     </ul>
 
                     {grouped[i]?.length > 0 && (
                       <div class="mt-5">
-                        <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+                        <p class="text-xs font-semibold text-stone-500">Sélection recommandée</p>
                         <div class="mt-3 grid gap-3">
                           {grouped[i].map((p: any) => (
                             <ProductCard
@@ -1758,12 +1746,12 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
           {page.sections.slice(1).length > 0 && (
             <section class="mt-6 grid gap-4 md:grid-cols-2">
               {page.sections.slice(1).map((s) => (
-                <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
                   <h3 class="text-lg font-bold">{s.title}</h3>
-                  <ul class="mt-4 space-y-2 text-sm text-white/75">
+                  <ul class="mt-4 space-y-2 text-sm text-stone-600">
                     {s.points.map((pt) => (
                       <li class="flex gap-2">
-                        <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+                        <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
                         <span set:html={pt} />
                       </li>
                     ))}
@@ -1778,13 +1766,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
             if (!faq || faq.length === 0) return null;
 
             return (
-              <section class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
-                <h2 class="text-xl font-extrabold">FAQ (SEO) : {page.title}</h2>
+              <section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+                <h2 class="text-xl font-extrabold">{slug === 'bureau-adulte' ? 'Bureau : éclairage et zones' : slug === 'chambre-adulte' ? 'Chambre : ampoules, lecture et sommeil' : `Questions fréquentes : ${page.title.split(/[:(]/)[0].trim()}`}</h2>
                 <div class="mt-6 grid gap-4 md:grid-cols-2">
                   {faq.map((f) => (
-                    <details class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-                      <summary class="cursor-pointer text-sm font-semibold text-white">{f.q}</summary>
-                      <p class="mt-3 text-sm text-white/75">{f.a}</p>
+                    <details class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+                      <summary class="cursor-pointer text-sm font-semibold text-stone-900">{f.q}</summary>
+                      <p class="mt-3 text-sm text-stone-600">{f.a}</p>
                     </details>
                   ))}
                 </div>
@@ -1804,13 +1792,13 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
             const sectionProducts = page.products.slice(start, end);
 
             return (
-              <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
                 <h3 class="text-lg font-bold">{s.title}</h3>
 
-                <ul class="mt-4 space-y-2 text-sm text-white/75">
+                <ul class="mt-4 space-y-2 text-sm text-stone-600">
                   {s.points.map((pt) => (
                     <li class="flex gap-2">
-                      <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span>
+                      <span class="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-amber-500"></span>
                       <span set:html={pt} />
                     </li>
                   ))}
@@ -1818,7 +1806,7 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
 
                 {sectionProducts.length > 0 && (
                   <div class="mt-5">
-                    <p class="text-xs font-semibold text-white/60">Liens Amazon (pour acheter)</p>
+                    <p class="text-xs font-semibold text-stone-500">Liens Amazon (pour acheter)</p>
                     <div class="mt-3 grid gap-3">
                       {sectionProducts.map((p) => (
                         <ProductCard
@@ -1840,12 +1828,19 @@ const genericFaqBySlug: Record<string, Array<{ q: string; a: string }>> = {
     </>
   )}
 
-  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
     <h2 class="text-lg font-bold">À lire aussi</h2>
-    <p class="mt-2 text-sm text-white/75">
-      Besoin de comprendre les bases ? Commence par nos guides : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>, <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/kelvin-temperature-couleur">Kelvin</a>, <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a> et <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>.
-      Pour un réglage rapide, utilise aussi <a class="font-semibold text-amber-300 hover:text-amber-200" href="/outils">l&apos;outil Lumens/Kelvin/IRC</a>.
+    <p class="mt-2 text-sm text-stone-600">
+      Besoin de comprendre les bases ? Commence par nos guides : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>, <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/kelvin-temperature-couleur">Kelvin</a>, <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/culots-e27-e14-gu10">culots</a> et <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a>.
+      Pour un réglage rapide, utilise aussi <a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils">l&apos;outil Lumens/Kelvin/IRC</a>.
     </p>
   </section>
+
+  <HouseOfLampsPick />
+  <AwinPartner />
+{ZONE_LINKS[page.slug] && (
+    <aside class="mx-auto mt-8 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50 p-5"><p class="text-sm font-semibold text-stone-900">Zoom sur une zone de cette pièce</p><p class="mt-1 text-sm text-stone-700">{ZONE_LINKS[page.slug].map((z, i) => <>{i > 0 && ' · '}<a class="font-semibold text-amber-700 underline" href={z[0]}>{z[1]}</a></>)}</p></aside>
+  )}
+  <RelatedComparatifs slugs={seo?.related} />
 </Layout>
 

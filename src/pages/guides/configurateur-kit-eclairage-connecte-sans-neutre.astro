@@ -1,0 +1,241 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+const modules = [
+  { id: 'shelly-1l', name: 'Shelly 1L', neutre: false, dim: false, minW: 3, bypassLed: true, proto: 'Wi-Fi', hub: 'Aucun (cloud / local)', note: 'Micromodule 2 fils ; bypass au plafonnier si LED faible.' },
+  { id: 'shelly-d2', name: 'Shelly Dimmer 2', neutre: true, dim: true, minW: 1, bypassLed: false, proto: 'Wi-Fi', hub: 'Aucun', note: 'Nécessite le neutre en boîte ; variateur trailing intégré.' },
+  { id: 'legrand', name: 'Legrand Céliane with Netatmo', neutre: false, dim: true, minW: 5, bypassLed: true, proto: 'Zigbee', hub: 'Passerelle Netatmo', note: 'Interrupteur complet ; variateur selon référence.' },
+  { id: 'aqara-h1', name: 'Aqara H1 (sans neutre)', neutre: false, dim: false, minW: 3, bypassLed: true, proto: 'Zigbee', hub: 'Hub Aqara / Apple Maison', note: 'Variante dimmer disponible avec neutre.' },
+  { id: 'hue', name: 'Philips Hue (ampoules)', neutre: null, dim: true, minW: 0, bypassLed: false, proto: 'Zigbee / BT', hub: 'Bridge Hue (optionnel)', note: 'L’interrupteur reste en ON ; pas de module mural obligatoire.' },
+  { id: 'sonoff-l2', name: 'Sonoff ZBMini-L2', neutre: false, dim: false, minW: 3, bypassLed: true, proto: 'Zigbee', hub: 'Zigbee2MQTT / hub tiers', note: 'Module derrière interrupteur ; charge min. à respecter.' },
+];
+
+const piecesPreset = ['Salon', 'Cuisine', 'Chambre', 'Couloir', 'Salle de bain', 'Bureau', 'Garage'];
+---
+
+<Layout description="Composez votre kit d’éclairage connecté pièce par pièce (avec ou sans fil neutre. Guide interactif · domotique Guides, comparatifs et conseils pratiques sur" title="Configurateur kit éclairage connecté : sans neutre, bypass et modules Shelly, Hue, Aqara" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700">Guide interactif · domotique</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Composer son kit d’éclairage connecté pièce par pièce</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        Ajoutez chaque point lumineux : <strong>culot</strong>, puissance LED, présence du <strong>neutre</strong> en boîte d’interrupteur et type de <strong>module</strong>.
+        Le configurateur estime le nombre de <strong>bypass anti-scintillement</strong> (courant de veille des modules 2 fils) et signale les modules incompatibles avec votre installation.
+        Complétez avec la <a class="font-semibold text-amber-700" href="/guides/compatibilite-interrupteur-connecte-sans-neutre/">matrice sans neutre</a> et le <a class="font-semibold text-amber-700" href="/tutoriels/interrupteur-connecte-sans-neutre/">tutoriel pose sans neutre</a>.
+      </p>
+</div>
+</section>
+<ToolTeaser />
+<CrossLinkOutilsDepannage variant="vers-depannage" />
+<section class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-6">
+<h2 class="text-xl font-bold">Référence des modules</h2>
+<div class="mt-4 overflow-x-auto">
+<table class="min-w-[720px] w-full text-sm">
+<thead class="bg-white/80">
+<tr>
+<th class="px-3 py-2 text-left">Module</th>
+<th class="px-3 py-2 text-left">Sans neutre</th>
+<th class="px-3 py-2 text-left">Dim</th>
+<th class="px-3 py-2 text-left">Charge min.</th>
+<th class="px-3 py-2 text-left">Bypass LED</th>
+<th class="px-3 py-2 text-left">Protocole</th>
+</tr>
+</thead>
+<tbody>
+          {modules.map((m) => (
+            <tr class="border-t border-amber-200/80 text-stone-700" data-mod-ref={m.id}>
+<td class="px-3 py-2 font-semibold text-stone-900">{m.name}</td>
+<td class="px-3 py-2">{m.neutre === null ? '— (ampoules)' : m.neutre ? 'Non (N requis)' : 'Oui (2 fils)'}</td>
+<td class="px-3 py-2">{m.dim ? 'Oui' : 'ON/OFF'}</td>
+<td class="px-3 py-2">{m.minW ? `${m.minW} W` : '—'}</td>
+<td class="px-3 py-2">{m.bypassLed ? 'Souvent' : 'Rare / non'}</td>
+<td class="px-3 py-2">{m.proto}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+</section>
+<section class="mt-8 rounded-3xl border border-stone-200 bg-white shadow-sm p-6" id="kit-config">
+<h2 class="text-xl font-bold">Vos pièces et points lumineux</h2>
+<p class="mt-2 text-sm text-stone-600">Une ligne = un circuit ou un luminaire commandé par un seul module. Courant coupé au tableau avant toute pose.</p>
+<div class="mt-4 flex flex-wrap gap-2 text-sm">
+<label class="text-stone-600">Écosystème cible
+        <select class="ml-2 rounded-lg border border-stone-300 px-2 py-1" id="kit-eco">
+<option value="any">Indifférent</option>
+<option value="hue">Philips Hue</option>
+<option value="apple">Apple Maison / Aqara</option>
+<option value="wifi">Wi-Fi local (Shelly)</option>
+<option value="zigbee">Zigbee ouvert</option>
+</select>
+</label>
+</div>
+<div class="mt-4 overflow-x-auto" id="kit-rows-wrap">
+<table class="min-w-[900px] w-full text-sm" id="kit-table">
+<thead class="bg-stone-100">
+<tr>
+<th class="px-2 py-2 text-left">Pièce</th>
+<th class="px-2 py-2 text-left">Points</th>
+<th class="px-2 py-2 text-left">W LED / point</th>
+<th class="px-2 py-2 text-left">Neutre en boîte ?</th>
+<th class="px-2 py-2 text-left">Variateur ?</th>
+<th class="px-2 py-2 text-left">Module</th>
+<th class="px-2 py-2"></th>
+</tr>
+</thead>
+<tbody id="kit-tbody"></tbody>
+</table>
+</div>
+<button class="mt-4 rounded-xl border border-amber-400 bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900 hover:bg-amber-200" id="kit-add" type="button">+ Ajouter une pièce / circuit</button>
+<div aria-live="polite" class="mt-6 grid gap-4 md:grid-cols-2" id="kit-summary">
+<div class="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+<h3 class="font-bold text-stone-900">Synthèse matériel</h3>
+<ul class="mt-3 space-y-1 text-sm text-stone-700" id="kit-modules-out"></ul>
+<p class="mt-3 text-sm font-semibold text-amber-900" id="kit-bypass-out"></p>
+<p class="mt-2 text-xs text-stone-500" id="kit-hub-out"></p>
+</div>
+<div class="rounded-2xl border border-red-200 bg-red-50/60 p-5">
+<h3 class="font-bold text-red-900">Alertes compatibilité</h3>
+<ul class="mt-3 space-y-2 text-sm text-stone-700" id="kit-warn-out"></ul>
+</div>
+</div>
+</section>
+<script is:inline define:vars={{ modules, piecesPreset }}>
+    (function () {
+      var tbody = document.getElementById('kit-tbody');
+      var modOpts = modules.map(function (m) {
+        return '<option value="' + m.id + '">' + m.name + '</option>';
+      }).join('');
+      var pieceOpts = piecesPreset.map(function (p) {
+        return '<option>' + p + '</option>';
+      }).join('');
+
+      function rowHtml() {
+        return '<tr class="kit-row border-t border-stone-200">' +
+          '<td class="px-2 py-2"><select class="kit-piece w-full rounded border-stone-300 p-1">' + pieceOpts + '</select></td>' +
+          '<td class="px-2 py-2"><input type="number" class="kit-n w-16 rounded border-stone-300 p-1" min="1" value="2" /></td>' +
+          '<td class="px-2 py-2"><input type="number" class="kit-w w-16 rounded border-stone-300 p-1" min="1" step="0.5" value="5" /></td>' +
+          '<td class="px-2 py-2"><select class="kit-neutre rounded border-stone-300 p-1"><option value="non">Non</option><option value="oui">Oui</option><option value="?">Je ne sais pas</option></select></td>' +
+          '<td class="px-2 py-2"><select class="kit-dim rounded border-stone-300 p-1"><option value="non">Non</option><option value="oui">Oui</option></select></td>' +
+          '<td class="px-2 py-2"><select class="kit-mod w-full max-w-[200px] rounded border-stone-300 p-1">' + modOpts + '</select></td>' +
+          '<td class="px-2 py-2"><button type="button" class="kit-del text-red-700 text-xs font-semibold underline">Retirer</button></td></tr>';
+      }
+
+      function modById(id) {
+        return modules.find(function (m) { return m.id === id; });
+      }
+
+      function recalc() {
+        var counts = {};
+        var bypass = 0;
+        var warns = [];
+        var needsHueBridge = false;
+        var needsNetatmo = false;
+        var needsAqara = false;
+        var eco = document.getElementById('kit-eco').value;
+
+        document.querySelectorAll('.kit-row').forEach(function (tr) {
+          var n = +tr.querySelector('.kit-n').value || 1;
+          var w = +tr.querySelector('.kit-w').value || 5;
+          var P = n * w;
+          var neutre = tr.querySelector('.kit-neutre').value;
+          var wantDim = tr.querySelector('.kit-dim').value === 'oui';
+          var mid = tr.querySelector('.kit-mod').value;
+          var m = modById(mid);
+          if (!m) return;
+          counts[mid] = (counts[mid] || 0) + 1;
+
+          if (m.id === 'hue') needsHueBridge = true;
+          if (m.id === 'legrand') needsNetatmo = true;
+          if (m.id === 'aqara-h1') needsAqara = true;
+
+          if (m.neutre === true && neutre === 'non') {
+            warns.push('« ' + tr.querySelector('.kit-piece').value + ' » : ' + m.name + ' exige le neutre — choisissez Shelly 1L, Legrand 2 fils, Aqara H1 ou Sonoff L2.');
+          }
+          if (m.neutre === false && neutre === 'oui' && mid === 'shelly-1l') {
+            warns.push('« ' + tr.querySelector('.kit-piece').value + ' » : avec neutre disponible, Shelly Dimmer 2 ou un variateur filaire est souvent plus stable.');
+          }
+          if (wantDim && !m.dim && m.id !== 'hue') {
+            warns.push('« ' + tr.querySelector('.kit-piece').value + ' » : variateur demandé mais ' + m.name + ' est ON/OFF seulement.');
+          }
+          if (m.minW && P < m.minW) {
+            warns.push('« ' + tr.querySelector('.kit-piece').value + ' » : charge ' + P + ' W < minimum ' + m.minW + ' W pour ' + m.name + ' — ajoutez des points ou un bypass / ampoule plus puissante.');
+          }
+          if (m.bypassLed && (neutre === 'non' || neutre === '?') && P < 8) {
+            bypass += 1;
+          }
+        });
+
+        if (eco === 'hue' && !counts.hue && Object.keys(counts).length) {
+          warns.push('Écosystème Hue sélectionné : prévoyez des ampoules Hue ou un Bridge pour les modules Zigbee tiers.');
+        }
+        if (eco === 'wifi' && (counts['legrand'] || counts['aqara-h1'] || counts['sonoff-l2'])) {
+          warns.push('Écosystème Wi-Fi Shelly : les modules Zigbee (Legrand, Aqara, Sonoff) nécessitent un hub séparé.');
+        }
+
+        var modOut = document.getElementById('kit-modules-out');
+        modOut.innerHTML = Object.keys(counts).map(function (id) {
+          var m = modById(id);
+          return '<li><strong>' + counts[id] + '×</strong> ' + (m ? m.name : id) + '</li>';
+        }).join('') || '<li class="text-stone-500">Ajoutez au moins un circuit.</li>';
+
+        document.getElementById('kit-bypass-out').textContent = bypass
+          ? 'Bypass anti-scintillement estimés : ' + bypass + ' (un par luminaire à LED < ~8 W sur module 2 fils).'
+          : 'Aucun bypass obligatoire détecté sur la configuration actuelle.';
+
+        var hubs = [];
+        if (needsHueBridge) hubs.push('Bridge Philips Hue (si > 10 ampoules BT ou automatisations)');
+        if (needsNetatmo) hubs.push('Passerelle Legrand Netatmo');
+        if (needsAqara) hubs.push('Hub Aqara ou Apple TV / HomePod (Thread)');
+        document.getElementById('kit-hub-out').textContent = hubs.length ? 'Passerelles à prévoir : ' + hubs.join(' · ') : '';
+
+        var wEl = document.getElementById('kit-warn-out');
+        wEl.innerHTML = warns.length
+          ? warns.map(function (w) { return '<li class="flex gap-2"><span class="text-red-600">⚠</span><span>' + w + '</span></li>'; }).join('')
+          : '<li class="text-emerald-800">Aucune alerte bloquante sur les lignes saisies.</li>';
+      }
+
+      function bindRow(tr) {
+        tr.querySelectorAll('input, select').forEach(function (el) { el.addEventListener('input', recalc); el.addEventListener('change', recalc); });
+        tr.querySelector('.kit-del').addEventListener('click', function () { tr.remove(); recalc(); });
+      }
+
+      document.getElementById('kit-add').addEventListener('click', function () {
+        tbody.insertAdjacentHTML('beforeend', rowHtml());
+        bindRow(tbody.lastElementChild);
+        recalc();
+      });
+      document.getElementById('kit-eco').addEventListener('change', recalc);
+
+      tbody.insertAdjacentHTML('beforeend', rowHtml());
+      bindRow(tbody.firstElementChild);
+      recalc();
+    })();
+  </script>
+<SavWave1Compliance />
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="Shelly" keywords="shelly 1l sans neutre" subtitle="Micromodule 2 fils" title="Module Shelly sans neutre" />
+<ProductCard badge="Bypass" keywords="bypass led interrupteur sans neutre" subtitle="Anti-lueur" title="Bypass LED module sans neutre" />
+<ProductCard badge="Connecté" keywords="ampoule connectée e27 zigbee" subtitle="Écosystème unifié" title="Kit ampoules connectées E27" />
+<ProductCard badge="Hub" keywords="passerelle zigbee hub maison connectée" subtitle="Hub multi-marques" title="Passerelle domotique Zigbee" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+<ul class="mt-3 space-y-1 text-sm text-stone-600">
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/compatibilite-interrupteur-connecte-sans-neutre/">Matrice interrupteur sans neutre</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/diagnostic-flicker-gu10-variateur-led/">Diagnostic flicker GU10 / E27</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/matrice-matter-thread-philips-hue-aqara-govee/">Matrice Matter, Thread, Zigbee</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/">Simulateur lumens et Kelvin</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/marques/philips-hue/">Écosystème Philips Hue</a></li>
+</ul>
+</section>
+<RelatedComparatifs />
+</Layout>

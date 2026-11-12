@@ -1,19 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Emmanuel Sauvage', url: 'https://1piece1ampoule.fr/a-propos/', worksFor: { '@type': 'Organization', name: '1 pièce 1 ampoule' } };
 ---
-
-<Layout title="À propos — Choisir son ampoule" description="Pourquoi ce site existe et comment utiliser nos guides.">
-  <section class="mt-10">
-    <h1 class="text-3xl font-extrabold tracking-tight">À propos</h1>
-    <div class="mt-6 space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80">
-      <p>
-        <strong>Choisir son ampoule</strong> a un but simple : t’aider à éclairer chaque espace (pièces, zones, extérieur) avec les bons repères
-        techniques (lumens, Kelvin, IRC, culots…) et des idées d’aménagement.
-      </p>
-      <p>
-        Chaque page propose aussi des sélections de produits via des liens partenaires Amazon, pour comparer rapidement ce qui correspond au besoin décrit.
-      </p>
+<Layout title="À propos de 1 pièce 1 ampoule et de son auteur" description="Qui écrit 1piece1ampoule.fr, comment les produits sont sélectionnés et comment l. À propos Guides, comparatifs et conseils pratiques sur 1piece1ampoule.fr." schema={person}>
+  <section class="mx-auto mt-10 max-w-3xl">
+    <p class="text-sm font-semibold text-amber-700">À propos</p>
+    <h1 class="mt-2 text-4xl text-stone-900">Un site pour éclairer chaque pièce, sans jargon</h1>
+    <div class="prose-article mt-6">
+      <p><strong>1 pièce 1 ampoule</strong> est édité par <strong>Emmanuel Sauvage</strong>. L’idée de départ est simple : choisir une ampoule devrait prendre deux minutes, et pourtant entre les lumens, les Kelvin, l’IRC, les culots et les variateurs, on finit souvent avec la mauvaise référence. Ce site découpe chaque pièce en <strong>zones</strong> (travail, ambiance, circulation…) et donne pour chacune la bonne teinte, la bonne puissance et le bon type de luminaire.</p>
+      <h2>Comment on sélectionne les produits</h2>
+      <ul>
+        <li>On part du <strong>besoin</strong> (une zone, un problème, un culot), puis on cherche les produits qui y répondent sur Amazon.fr.</li>
+        <li>On compare les <strong>caractéristiques annoncées</strong> par les fabricants : lumens, température de couleur, IRC, indice IP, compatibilité variateur, dimensions.</li>
+        <li>On privilégie les <strong>marques reconnues</strong> et les produits bien établis, avec une alternative moins chère quand elle a du sens.</li>
+        <li>Chaque lien est <strong>vérifié</strong> (la fiche produit doit exister) au moment de la mise à jour.</li>
+      </ul>
+      <p>Soyons transparents : nous ne testons pas en laboratoire chacun des produits cités. Nos sélections reposent sur les fiches techniques, les principes d’éclairage expliqués dans nos guides et la cohérence avec l’usage décrit. Si un produit ne te convient pas, les retours Amazon s’appliquent.</p>
+      <h2>Comment le site est financé</h2>
+      <p>En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises. Concrètement : si tu achètes via un de nos liens, Amazon nous reverse une petite commission, <strong>sans surcoût pour toi</strong>. Cela n’influence pas les conseils : une page qui t’explique que tu n’as pas besoin d’acheter quoi que ce soit est aussi une bonne page. Plus de détails sur la page <a href="/affiliation-amazon/">affiliation</a>.</p>
+      <h2>Une erreur, une question ?</h2>
+      <p>Les références évoluent vite. Si tu repères une information inexacte ou un lien cassé, écris-nous via la <a href="/contact/">page contact</a> : on corrige rapidement.</p>
     </div>
   </section>
 </Layout>
-

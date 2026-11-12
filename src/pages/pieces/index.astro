@@ -1,32 +1,148 @@
 ---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
 import { PIECES } from '../../content/pieces';
+
+/** Nom court et repère déjà écrits dans la fiche (Kelvin, IP ou geste principal). */
+const META: Record<string, { nom: string; repere: string }> = {
+  cuisine: { nom: 'Cuisine', repere: '4 000 K sur le plan, 2 700–3 000 K en ambiance' },
+  salon: { nom: 'Salon', repere: '2 700–3 000 K le soir' },
+  garage: { nom: 'Garage', repere: '4 000–5 000 K, sans ombre sur l’établi' },
+  'salle-de-bain': { nom: 'Salle de bain', repere: 'Miroir de face, luminaire adapté à l’humidité' },
+  'salle-manger': { nom: 'Salle à manger', repere: 'Suspension au-dessus de la table' },
+  jardin: { nom: 'Jardin', repere: '2 700–3 000 K, luminaires prévus pour l’extérieur' },
+  couloir: { nom: 'Couloir', repere: '3 500–4 000 K, plusieurs points sur le trajet' },
+  'bureau-adulte': { nom: 'Bureau', repere: '3 500–5 000 K sur le poste' },
+  'bureau-enfant': { nom: 'Bureau enfant', repere: 'Lumière ciblée, sans éblouir' },
+  'cave-a-vin': { nom: 'Cave à vin', repere: '2 700–3 000 K, lumière peu chaude' },
+  'chambre-adulte': { nom: 'Chambre', repere: '2 700–3 000 K, lecture orientable' },
+  'chambre-enfant': { nom: 'Chambre enfant', repere: 'Neutre le jour, veille tamisée le soir' },
+  toilettes: { nom: 'Toilettes', repere: '3 000–4 000 K au visage' },
+  parking: { nom: 'Parking', repere: '4 000 K, indice de protection extérieur' },
+  'cave-voutee': { nom: 'Cave voûtée', repere: '2 700–3 000 K, lumière rebondie sur la voûte' },
+};
+
+const GROUPES = [
+  {
+    id: 'vie',
+    titre: 'Pièces de vie',
+    ids: ['salon', 'salle-manger', 'chambre-adulte', 'chambre-enfant', 'salle-de-bain', 'toilettes', 'couloir'],
+  },
+  {
+    id: 'travail',
+    titre: 'Bureau, garage et caves',
+    ids: ['bureau-adulte', 'bureau-enfant', 'garage', 'cave-a-vin', 'cave-voutee'],
+  },
+  {
+    id: 'exterieur',
+    titre: 'Extérieur',
+    ids: ['jardin', 'parking'],
+  },
+];
+
+const parSlug = Object.fromEntries(PIECES.map((p) => [p.slug, p]));
+const cuisine = parSlug.cuisine;
+const deja = new Set(['cuisine', ...GROUPES.flatMap((g) => g.ids)]);
+const reste = PIECES.filter((p) => !deja.has(p.slug));
+
+function texte(html: string) {
+  return html.replace(/<[^>]+>/g, '');
+}
+
+const liste = PIECES.map((p, i) => ({
+  '@type': 'ListItem',
+  position: i + 1,
+  name: META[p.slug]?.nom ?? p.title,
+  url: `https://1piece1ampoule.fr/pieces/${p.slug}/`,
+}));
 ---
 
 <Layout
-  title="Pièces — Choisir son ampoule"
-  description="Toutes nos pages par pièce : cuisine, salon, garage… avec conseils et sélections de produits via liens partenaires Amazon."
+  title="Éclairage par pièce : cuisine, salon, chambre, garage…"
+  description="Choisis une pièce : schéma des zones, teinte (Kelvin) et luminaires adaptés. Cuisine, salon, chambre, salle de bain, bureau, garage, cave et jardin."
+  schema={{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'Éclairage par pièce', itemListElement: liste }}
 >
   <section class="mt-10">
     <h1 class="text-3xl font-extrabold tracking-tight">Pièces</h1>
-    <p class="mt-3 max-w-2xl text-white/75">
-      Choisis une pièce pour obtenir des conseils concrets et une sélection de produits adaptés (liens partenaires Amazon).
+    <p class="mt-3 max-w-2xl text-stone-600">
+      Chaque schéma montre les zones à éclairer. Ouvre une pièce pour la teinte, les lumens et une sélection de produits (liens partenaires).
     </p>
-
-    <div class="mt-8 grid gap-4 md:grid-cols-3">
-      {PIECES.map((p) => (
-        <a class="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10" href={`/pieces/${p.slug}`}>
-          <div class="flex items-start justify-between gap-4">
-            <div class="min-w-0">
-              <p class="text-xs font-semibold text-white/60">{p.hero.eyebrow ?? 'Pièce'}</p>
-              <h2 class="mt-1 text-base font-bold text-white">{p.title}</h2>
-              <p class="mt-2 line-clamp-3 text-sm text-white/70">{p.description}</p>
-            </div>
-            <img class="h-14 w-14 shrink-0 rounded-xl bg-white/5 p-2 ring-1 ring-inset ring-white/10" src={p.hero.image} alt={p.hero.imageAlt} />
-          </div>
-        </a>
+    <nav class="mt-5 flex flex-wrap gap-2" aria-label="Aller à un groupe de pièces">
+      {GROUPES.map((g) => (
+        <a class="rounded-full border border-stone-300 bg-white px-3 py-1.5 text-sm font-semibold text-stone-800 hover:border-amber-400 hover:bg-amber-50" href={`#${g.id}`}>{g.titre}</a>
       ))}
-    </div>
-  </section>
-</Layout>
+    </nav>
 
+    {cuisine && (
+      <a class="group mt-8 block overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm transition hover:border-amber-300 hover:shadow-lg" href={`/pieces/${cuisine.slug}/`}>
+        <img
+          class="aspect-[1200/640] w-full bg-[#1b1720] object-cover object-top lg:aspect-[1200/780]"
+          src={cuisine.hero.image}
+          alt={cuisine.hero.imageAlt}
+          width="1200"
+          height="780"
+          loading="eager"
+        />
+        <div class="flex flex-wrap items-end justify-between gap-4 p-5 sm:p-6">
+          <div class="min-w-0 max-w-2xl">
+            <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">{cuisine.hero.eyebrow ?? 'Pièce'}</p>
+            <h2 class="mt-1 text-2xl font-extrabold text-stone-900 group-hover:text-amber-800">{META.cuisine.nom}</h2>
+            <p class="mt-1 text-sm font-medium text-stone-800">{META.cuisine.repere}</p>
+            <p class="mt-2 text-sm text-stone-600">{texte(cuisine.description)}</p>
+          </div>
+          <span class="inline-flex rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-white group-hover:bg-amber-600">Voir les zones</span>
+        </div>
+      </a>
+    )}
+
+    {GROUPES.map((g) => {
+      const pages = g.ids.map((id) => parSlug[id]).filter(Boolean);
+      return (
+        <div class="mt-12 scroll-mt-20" id={g.id}>
+          <h2 class="text-xl font-extrabold text-stone-900">{g.titre}</h2>
+          <ul class="mt-4 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {pages.map((p) => {
+              const meta = META[p.slug] ?? { nom: p.title, repere: '' };
+              return (
+                <li>
+                  <a class="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-lg" href={`/pieces/${p.slug}/`}>
+                    <img
+                      class="aspect-[1200/640] w-full bg-[#1b1720] object-cover object-top"
+                      src={p.hero.image}
+                      alt={p.hero.imageAlt}
+                      width="1200"
+                      height="640"
+                      loading="lazy"
+                    />
+                    <div class="flex flex-1 flex-col p-4">
+                      <h3 class="text-lg font-bold text-stone-900 group-hover:text-amber-800">{meta.nom}</h3>
+                      {meta.repere && <p class="mt-1 text-sm font-medium text-amber-800">{meta.repere}</p>}
+                      <p class="mt-2 line-clamp-2 text-sm text-stone-600">{texte(p.description)}</p>
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    })}
+
+    {reste.length > 0 && (
+      <ul class="mt-8 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {reste.map((p) => (
+          <li>
+            <a class="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm" href={`/pieces/${p.slug}/`}>
+              <img class="aspect-[1200/640] w-full bg-[#1b1720] object-cover object-top" src={p.hero.image} alt={p.hero.imageAlt} width="1200" height="640" loading="lazy" />
+              <div class="p-4">
+                <h2 class="text-lg font-bold">{META[p.slug]?.nom ?? p.title}</h2>
+                <p class="mt-2 line-clamp-2 text-sm text-stone-600">{texte(p.description)}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+  <RelatedComparatifs />
+</Layout>

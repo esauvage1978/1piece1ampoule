@@ -1,0 +1,28 @@
+---
+import { hubBase, type BFLocale } from '../content/black-friday-2026';
+
+interface Props { locale?: BFLocale; compact?: boolean }
+const { locale = 'fr', compact = false } = Astro.props;
+const href = hubBase(locale);
+const labels: Record<BFLocale, [string, string]> = {
+  fr: ['Black Friday 2026 éclairage', 'Codes promo vérifiés, dates et comparatifs'],
+  en: ['Black Friday 2026 lighting', 'Verified codes and end dates'],
+  uk: ['Black Friday 2026 UK', 'Verified lighting & DIY deals'],
+  ca: ['Black Friday 2026 Canada', 'Deals with dates verified'],
+  de: ['Black Friday 2026', 'Geprüfte Beleuchtungs-Deals'],
+  nl: ['Black Friday 2026', 'Geverifieerde verlichtingsdeals'],
+  es: ['Black Friday 2026', 'Ofertas de iluminación verificadas'],
+  it: ['Black Friday 2026', 'Offerte illuminazione verificate'],
+};
+const [t, d] = labels[locale];
+---
+<a
+  href={href}
+  class:list={[
+    'group block rounded-2xl border border-stone-800/10 bg-gradient-to-r from-stone-900 to-stone-800 text-white shadow-md transition hover:from-amber-900 hover:to-stone-900',
+    compact ? 'px-4 py-2.5' : 'px-5 py-4',
+  ]}
+>
+  <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-amber-300">🛒 {t}</span>
+  {!compact && <span class="mt-1 block text-sm text-stone-300 group-hover:text-white">{d} →</span>}
+</a>

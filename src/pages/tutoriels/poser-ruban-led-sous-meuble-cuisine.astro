@@ -1,0 +1,81 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'poser-ruban-led-sous-meuble-cuisine')!;
+const rho = 0.0172;
+const P = 30;
+const rows = [2, 3, 5].flatMap((L) => [0.5, 0.75, 1.5].map((S) => {
+  const d = (U: number) => { const I = P / U; const du = (2 * L * I * rho) / S; return { du, pct: (du / U) * 100 }; };
+  return { L, S, v12: d(12), v24: d(24) };
+}));
+const f = (n: number, d = 2) => n.toFixed(d).replace('.', ',');
+const cls = (p: number) => (p <= 3 ? 'text-emerald-700' : p <= 5 ? 'text-amber-700' : 'text-red-700 font-semibold');
+---
+<Tutorial t={t}>
+  <h2 id="schema">Le schéma de câblage</h2>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 300" role="img" aria-labelledby="svg2t" class="h-auto w-full">
+      <title id="svg2t">Schéma : prise 230V, alimentation 24V, interrupteur côté 24V, câble 2 × 0,5 mm², ruban LED dans profilé sous deux meubles hauts</title>
+      <rect x="20" y="40" width="250" height="70" fill="#f5f5f4" stroke="#a8a29e" /><text x="145" y="30" font-size="12" text-anchor="middle" fill="#57534e">meuble haut 1 (1,5 m)</text>
+      <rect x="290" y="40" width="250" height="70" fill="#f5f5f4" stroke="#a8a29e" /><text x="415" y="30" font-size="12" text-anchor="middle" fill="#57534e">meuble haut 2 (1,5 m)</text>
+      <rect x="32" y="112" width="226" height="8" rx="2" fill="#f59e0b" /><rect x="302" y="112" width="226" height="8" rx="2" fill="#f59e0b" />
+      <polygon points="32,120 258,120 280,190 10,190" fill="#fde68a" opacity="0.45" /><polygon points="302,120 528,120 550,190 280,190" fill="#fde68a" opacity="0.45" />
+      <rect x="0" y="190" width="680" height="12" fill="#a8a29e" /><text x="270" y="220" font-size="12" text-anchor="middle" fill="#1c1917">plan de travail : ruban dans un profilé à 5–8 cm du bord avant des meubles</text>
+      <path d="M258 116 C 270 116, 280 116, 302 116" stroke="#1c1917" stroke-width="2" fill="none" /><text x="280" y="140" font-size="10" text-anchor="middle" fill="#57534e">liaison soudée</text>
+      <rect x="590" y="40" width="80" height="44" rx="6" fill="#1c1917" /><text x="630" y="60" font-size="12" text-anchor="middle" fill="#fff">alim 24V</text><text x="630" y="75" font-size="11" text-anchor="middle" fill="#fde68a">60 W</text>
+      <rect x="598" y="120" width="64" height="34" rx="6" fill="#fff" stroke="#1c1917" /><text x="630" y="141" font-size="11" text-anchor="middle" fill="#1c1917">interr. 24V</text>
+      <line x1="630" y1="84" x2="630" y2="120" stroke="#dc2626" stroke-width="2" />
+      <path d="M598 137 L 560 137 L 560 116 L 528 116" stroke="#dc2626" stroke-width="2" fill="none" /><text x="566" y="168" font-size="11" fill="#dc2626">2 × 0,5 mm², 3 m</text>
+      <rect x="610" y="250" width="40" height="30" rx="4" fill="#fff" stroke="#1c1917" /><text x="630" y="270" font-size="11" text-anchor="middle">prise</text>
+      <path d="M630 250 L 630 230 L 680 230 L 680 62 L 670 62" stroke="#1c1917" stroke-width="2" fill="none" stroke-dasharray="6 4" />
+      <text x="20" y="260" font-size="12" fill="#1c1917">— rouge : très basse tension 24V (bricolage possible)</text>
+      <text x="20" y="280" font-size="12" fill="#1c1917">- - noir : 230V (cordon de l’alimentation sur une prise existante uniquement)</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma réalisé par 1 pièce 1 ampoule. Le ruban de 3 m (2 × 1,5 m) consomme 30 W ; l’interrupteur coupe le circuit 24V, jamais le 230V.</figcaption>
+  </figure>
+
+  <h2 id="12v-24v">12V ou 24V ?</h2>
+  <p>À puissance égale, un ruban 24V fait circuler <strong>deux fois moins de courant</strong> qu’un ruban 12V. Or la chute de tension dans les fils et dans les pistes du ruban est proportionnelle au courant : elle est donc deux fois plus faible en 24V, et sa part relative (en %) quatre fois plus faible. Conséquences pratiques :</p>
+  <ul>
+    <li><strong>24V</strong> : jusqu’à 5 m alimentés par un seul bout sans différence visible, câbles fins, alimentation plus petite à puissance égale. C’est le bon choix pour une cuisine.</li>
+    <li><strong>12V</strong> : utile pour de très courts tronçons (vitrine, niche de 50 cm) ou une installation sur batterie 12V. Au-delà de 2–3 m, la fin du ruban jaunit ou s’assombrit.</li>
+    <li>Le <strong>COB</strong> (LED très serrées sous une couche de phosphore) donne une ligne de lumière continue : pas de points qui se reflètent dans un plan de travail brillant ou un inox. Un ruban SMD classique demande un profilé avec diffuseur bien opaque et une distance de 1 à 2 cm.</li>
+  </ul>
+
+  <h2 id="calcul">Calcul : chute de tension, section et alimentation</h2>
+  <p>La chute de tension dans un câble à deux conducteurs (aller et retour) vaut :</p>
+  <p class="rounded-2xl bg-amber-50 p-4 text-center ring-1 ring-amber-200"><strong>ΔU = 2 × L × I × ρ ÷ S</strong><br /><span class="text-sm">L : longueur du câble (m) · I : courant (A) = puissance ÷ tension · ρ = 0,0172 Ω·mm²/m (cuivre) · S : section (mm²)</span></p>
+  <p><strong>Exemple de ce tutoriel</strong> : 3 m de ruban à 10 W/m = 30 W, alimentation à 3 m du début du ruban, câble 0,5 mm².</p>
+  <ul>
+    <li>En 24V : I = 30 ÷ 24 = 1,25 A → ΔU = 2 × 3 × 1,25 × 0,0172 ÷ 0,5 = <strong>0,26 V, soit 1,1 %</strong>. Invisible.</li>
+    <li>En 12V : I = 30 ÷ 12 = 2,5 A → ΔU = 0,52 V, soit <strong>4,3 %</strong>, à quoi s’ajoute la chute dans le ruban lui-même : la fin du ruban sera nettement moins lumineuse.</li>
+    <li>Section minimale pour rester sous 3 % : <strong>S = 2 × L × I × ρ ÷ ΔU max</strong>. En 12V (ΔU max = 0,36 V) : 2 × 3 × 2,5 × 0,0172 ÷ 0,36 = 0,72 mm², donc 0,75 mm². En 24V (ΔU max = 0,72 V) : 0,18 mm², le 0,5 mm² est largement suffisant.</li>
+  </ul>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[520px] text-sm">
+      <caption class="px-4 pt-3 text-left text-xs text-stone-500">Chute de tension dans le câble d’alimentation pour 30 W de ruban (vert ≤ 3 %, orange ≤ 5 %, rouge > 5 %)</caption>
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Longueur de câble</th><th class="p-3">Section</th><th class="p-3">Ruban 12V (2,5 A)</th><th class="p-3">Ruban 24V (1,25 A)</th></tr></thead>
+      <tbody>{rows.map((r) => <tr class="border-t border-stone-100"><td class="p-3">{r.L} m</td><td class="p-3">{f(r.S)} mm²</td><td class:list={['p-3', cls(r.v12.pct)]}>{f(r.v12.du)} V ({f(r.v12.pct, 1)} %)</td><td class:list={['p-3', cls(r.v24.pct)]}>{f(r.v24.du)} V ({f(r.v24.pct, 1)} %)</td></tr>)}</tbody>
+    </table>
+  </figure>
+  <h3>Dimensionner l’alimentation</h3>
+  <p><strong>Puissance de l’alimentation ≥ puissance du ruban × 1,25.</strong> 30 W × 1,25 = 37,5 W : un modèle de 40 W conviendrait, mais un 60 W fonctionne plus froid et te laisse la place d’ajouter plus tard un tronçon au-dessus d’un îlot ou dans une vitrine. Vérifie trois mentions sur l’alimentation : <em>tension constante</em> (« constant voltage », pas « constant current »), sortie <strong>TBTS / SELV</strong>, et classe II (double isolation, symbole ⧈). Si tu veux varier depuis un variateur mural 230V, il faut une alimentation marquée <em>dimmable TRIAC</em> ; sinon, varie côté 24V. Tu préfères une réglette prête à brancher ? Voir notre page <a href="/zones/plan-de-travail-cuisine/">éclairer un plan de travail</a> (3 réglettes comparées).</p>
+
+  <h2 id="commande">Commander l’éclairage</h2>
+  <ul>
+    <li><strong>Interrupteur en ligne 24V</strong> : le plus simple, sur le câble entre l’alimentation et le ruban, fixé sous un meuble.</li>
+    <li><strong>Capteur infrarouge à passage de main</strong> (24V) : on allume d’un geste, les mains sales ou mouillées. Place-le à l’extrémité d’un profilé, à hauteur de main.</li>
+    <li><strong>Variateur PWM 24V</strong> avec télécommande ou molette : pour passer d’un éclairage de travail à une veilleuse le soir. Choisis une fréquence de découpage élevée (plusieurs kHz) pour éviter le scintillement visible à la caméra.</li>
+    <li><strong>Contrôleur connecté</strong> (Zigbee, Wi-Fi) côté 24V : allumage avec l’éclairage principal, scénarios, assistant vocal.</li>
+    <li><strong>Interrupteur mural 230V</strong> qui commande la prise de l’alimentation : pratique, mais créer ou modifier un circuit 230V est un travail d’électricien (voir ci-dessous).</li>
+  </ul>
+
+  <h2 id="securite">Sécurité électrique (NF C 15-100)</h2>
+  <ul>
+    <li>Tout ce tutoriel se fait en <strong>très basse tension de sécurité (24V TBTS)</strong> en aval d’une alimentation branchée sur une prise existante. C’est le seul cas où le bricolage est sans risque d’électrocution.</li>
+    <li><strong>Raccorder l’alimentation en fixe</strong> (boîte de dérivation, circuit d’éclairage), <strong>ajouter une prise ou un interrupteur 230V</strong> : ces travaux relèvent de la norme NF C 15-100 (protection par disjoncteur et différentiel 30 mA, sections de conducteurs, nombre de points par circuit). Confie-les à un électricien qualifié.</li>
+    <li>Coupe toujours l’alimentation (débranche la prise) avant de souder ou de modifier le câblage 24V.</li>
+    <li>Garde l’alimentation et les connexions à l’écart des projections d’eau de l’évier et de la chaleur de la plaque, du four et de la hotte. Au-dessus d’un évier, un ruban IP65 (silicone) est plus sûr.</li>
+    <li>Une alimentation qui chauffe au point de ne plus pouvoir la toucher, qui siffle fort ou qui sent le chaud doit être remplacée.</li>
+  </ul>
+</Tutorial>

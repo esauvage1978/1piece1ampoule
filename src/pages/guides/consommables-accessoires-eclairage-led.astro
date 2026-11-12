@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+---
+<Layout
+  type="article"
+  title="Consommables & accessoires éclairage LED : douilles, variateurs, rubans"
+  description="Condensateurs de compensation, adaptateurs de culot, profilés aluminium pour ruban LED, variateurs compatibles et pièces pour finaliser une installation."
+>
+  <section class="mt-10 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+    <p class="text-sm font-semibold text-amber-700">Guides &amp; SAV</p>
+    <h1 class="mt-2 text-3xl font-extrabold text-stone-900 sm:text-4xl">Consommables &amp; accessoires pour l’éclairage LED</h1>
+    <p class="mt-4 max-w-3xl text-stone-600">
+      Au-delà de l’ampoule : variateurs trailing edge, bypass sans neutre, profilés pour ruban, détecteurs Steinel, indices IP en salle de bain.
+      Retrouvez les bons produits par pièce ou utilisez nos outils pour dimensionner avant d’acheter.
+    </p>
+  </section>
+
+  <section class="mt-8 grid gap-4 md:grid-cols-2">
+    <a href="/guides/ampoules-dimmables-variateur/" class="rounded-2xl border border-stone-200 bg-white p-5 hover:border-amber-300 hover:bg-amber-50">
+      <h2 class="font-bold text-stone-900">Variateurs &amp; ampoules dimmables</h2>
+      <p class="mt-1 text-sm text-stone-600">Éviter le scintillement : trailing edge, charge minimale, bonnes références LED.</p>
+    </a>
+    <a href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/" class="rounded-2xl border border-stone-200 bg-white p-5 hover:border-amber-300 hover:bg-amber-50">
+      <h2 class="font-bold text-stone-900">Matrice variateur × culot</h2>
+      <p class="mt-1 text-sm text-stone-600">GU10, E27, E14 : compatibilité leading / trailing en un coup d’œil.</p>
+    </a>
+    <a href="/outils/calculateur-ruban-led-alimentation-24v/" class="rounded-2xl border border-stone-200 bg-white p-5 hover:border-amber-300 hover:bg-amber-50">
+      <h2 class="font-bold text-stone-900">Ruban LED &amp; alimentation</h2>
+      <p class="mt-1 text-sm text-stone-600">Longueur, chute de tension, profilé aluminium et wattage.</p>
+    </a>
+    <a href="/guides/zones-salle-de-bain-ip44-ip65-norme-nfc-15-100/" class="rounded-2xl border border-stone-200 bg-white p-5 hover:border-amber-300 hover:bg-amber-50">
+      <h2 class="font-bold text-stone-900">IP &amp; salle de bain</h2>
+      <p class="mt-1 text-sm text-stone-600">Volumes NFC 15-100, IP44/IP65 près du miroir ou de la douche.</p>
+    </a>
+    <a href="/pieces/" class="rounded-2xl border border-stone-200 bg-white p-5 hover:border-amber-300 hover:bg-amber-50 md:col-span-2">
+      <h2 class="font-bold text-stone-900">Pièces détachées &amp; ampoules par pièce</h2>
+      <p class="mt-1 text-sm text-stone-600">Cuisine, salle de bain, couloir : lumens, Kelvin et produits vérifiés pièce par pièce.</p>
+    </a>
+  </section>
+
+  <CrossLinkOutilsDepannage variant="vers-depannage" />
+</Layout>

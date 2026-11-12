@@ -1,0 +1,15 @@
+---
+import { TR_PARTNER_BY_PATH } from '../content/awin';
+import AwinAffiliateLink from './AwinAffiliateLink.astro';
+const p = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const raw = TR_PARTNER_BY_PATH[p];
+const list = raw ? (Array.isArray(raw) ? raw : [raw]) : [];
+---
+{list.map((e) => (
+  <aside class="mx-auto mt-10 max-w-3xl rounded-2xl border border-stone-200 bg-stone-50 p-5" data-awin-block>
+    <p class="text-sm font-semibold text-stone-900">{e.title}</p>
+    <p class="mt-1 text-sm text-stone-600">{e.text}</p>
+    <AwinAffiliateLink mid={e.mid} url={e.url} cta={e.cta} name={e.name} withIcon />
+    <p class="mt-2 text-xs text-stone-500">{e.note}{' '}<a class="underline" href={e.moreHref}>{e.more}</a>.</p>
+  </aside>
+))}

@@ -1,0 +1,116 @@
+---
+import { HOME, type Lang } from '../content/home-intl';
+import { awinLink } from '../content/awin';
+import WinterBlock from './WinterBlock.astro';
+import BlackFridayStrip from './BlackFridayStrip.astro';
+interface Props { lang: Lang; pages: { path: string; article?: boolean }[] }
+const { lang, pages } = Astro.props;
+const h = HOME[lang];
+const tutoSeg = ['tutorials/', 'anleitungen/', 'tutorial/', 'tutoriales/', 'handleidingen/'];
+const tutos = pages.filter((p) => p.article && tutoSeg.some((s) => p.path.startsWith(s))).length;
+const guides = pages.filter((p) => p.article).length - tutos;
+---
+<section class="mt-8 overflow-hidden rounded-[2rem] bg-stone-900 text-white shadow-xl">
+  <div class="grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_1.1fr]">
+    <div>
+      <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-amber-300">{h.badge}</p>
+      <h1 class="mt-4 text-4xl leading-[1.05] text-white sm:text-5xl">{h.h1a}<br/><span class="text-amber-400">{h.h1b}</span></h1>
+      <p class="mt-4 max-w-xl text-lg text-stone-300">{h.lead}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="rounded-xl bg-amber-500 px-5 py-3 font-semibold text-white shadow hover:bg-amber-600" href={h.btn1[1]}>{h.btn1[0]}</a>
+        <a class="rounded-xl bg-white/10 px-5 py-3 font-semibold text-white hover:bg-white/20" href={h.btn2[1]}>{h.btn2[0]}</a>
+      </div>
+      <ul class="mt-7 grid grid-cols-3 gap-3 text-center text-xs text-stone-300">
+        <li class="rounded-xl bg-white/5 p-3"><strong class="block text-xl text-white">{guides}</strong>{h.stats[0]}</li>
+        <li class="rounded-xl bg-white/5 p-3"><strong class="block text-xl text-white">{tutos}</strong>{h.stats[1]}</li>
+        <li class="rounded-xl bg-white/5 p-3"><strong class="block text-xl text-white">6</strong>{h.stats[2]}</li>
+      </ul>
+    </div>
+    <img src="/illustrations/salon.svg?v=3" alt={h.heroAlt} width="1200" height="640" class="aspect-[1200/640] w-full rounded-2xl object-cover object-top ring-1 ring-white/10" loading="eager" />
+  </div>
+</section>
+
+<div class="mt-8">
+  <BlackFridayStrip locale={lang} />
+</div>
+
+<WinterBlock lang={lang} />
+
+<section class="mt-14" id="guides">
+  <div class="flex items-end justify-between gap-4">
+    <div><h2 class="text-3xl text-stone-900">{h.cardsH}</h2><p class="mt-1 text-stone-600">{h.cardsP}</p></div>
+    <a class="hidden text-sm font-semibold text-amber-700 hover:text-amber-800 sm:block" href={h.more[1]}>{h.more[0]}</a>
+  </div>
+  <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {h.cards.map((c) => (
+      <a href={c.href} class="group overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <img src={c.img} alt="" width="1200" height="640" loading="lazy" class="aspect-[1200/640] w-full object-cover object-top" />
+        <div class="p-4"><p class="font-semibold text-stone-900 group-hover:text-amber-800">{c.t}</p><p class="mt-1 line-clamp-2 text-sm text-stone-500">{c.d}</p></div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="mt-14 grid gap-4 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:grid-cols-3">
+  {h.trust.map(([t, d]) => { const [icon, ...rest] = t.split(' '); return (
+    <div><p class="text-2xl">{icon}</p><h3 class="mt-1 font-semibold text-stone-900">{rest.join(' ')}</h3><p class="mt-1 text-sm text-stone-600" set:html={d} /></div>
+  ); })}
+</section>
+
+<section class="mt-14">
+  <h2 class="text-3xl text-stone-900">{h.tableH}</h2>
+  <p class="mt-1 text-stone-600">{h.tableP}</p>
+  <div class="mt-5 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+    <table class="w-full min-w-[640px] text-left text-sm">
+      <thead class="bg-amber-50 text-stone-900"><tr>{h.cols.map((c) => <th class="px-4 py-3 font-semibold">{c}</th>)}</tr></thead>
+      <tbody class="divide-y divide-stone-200 text-stone-700">
+        {h.rows.map((r) => <tr><td class="px-4 py-3 font-medium text-stone-900">{r[0]}</td><td class="px-4 py-3">{r[1]}</td><td class="px-4 py-3">{r[2]}</td><td class="px-4 py-3">{r[3]}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{h.picks.length > 0 && (
+  <section class="mt-14">
+    <div class="flex flex-wrap items-end justify-between gap-2">
+      <h2 class="text-2xl text-stone-900">{h.picksH}</h2>
+      <p class="text-xs text-stone-500">{h.picksSrc}</p>
+    </div>
+    <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {h.picks.map((p, i) => (
+        <article class:list={['relative flex flex-col rounded-2xl border bg-white p-5 shadow-sm', i === 0 ? 'border-amber-400 ring-2 ring-amber-200' : 'border-stone-200']}>
+          <span class:list={['absolute -top-3 left-5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide', i === 0 ? 'bg-amber-500 text-white' : 'bg-stone-800 text-white']}>{p.label}</span>
+          <h3 class="mt-3 text-[15px] font-semibold leading-snug text-stone-900">{p.name}</h3>
+          <ul class="mt-3 space-y-1.5 text-sm text-stone-600">
+            {p.specs.map((s) => <li class="flex gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500"></span>{s}</li>)}
+          </ul>
+          <p class="mt-3 text-sm text-stone-500"><span class="font-medium text-stone-700">{h.idealFor}</span> {p.use}</p>
+          <div class="mt-auto pt-4"><a class="block w-full rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 px-4 py-2.5 text-center text-sm font-bold text-white" href={p.href} rel="sponsored nofollow noopener" target="_blank" data-amazon-link data-asin={p.asin} data-product={p.name}>{p.cta}</a></div>
+        </article>
+      ))}
+    </div>
+    <p class="mt-3 text-xs text-stone-500">{h.picksNote}</p>
+  </section>
+)}
+
+<section class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {h.partners.map((e) => (
+    <aside class="flex flex-col rounded-2xl border border-stone-200 bg-stone-50 p-5" data-awin-block>
+      <p class="text-sm font-semibold text-stone-900">{e.title}</p>
+      <p class="mt-1 flex-1 text-sm text-stone-600">{e.text}</p>
+      <a href={awinLink(e.mid, e.url)} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={e.mid} data-product={e.name} class="mt-3 inline-flex self-start rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 hover:border-amber-400">{e.cta} ↗</a>
+    </aside>
+  ))}
+</section>
+<p class="mt-2 text-xs text-stone-500">{h.partnerNote}</p>
+
+<section class="mt-14 grid gap-8 lg:grid-cols-2">
+  {[h.listA, h.listB].map(([title, items]) => (
+    <div>
+      <h2 class="text-3xl text-stone-900">{title}</h2>
+      <ul class="mt-5 divide-y divide-stone-200 rounded-2xl border border-stone-200 bg-white shadow-sm">
+        {items.map(([href, t]) => <li><a href={href} class="flex items-center justify-between gap-3 px-5 py-4 font-medium text-stone-800 hover:text-amber-800"><span>{t}</span><span class="text-amber-600">→</span></a></li>)}
+      </ul>
+    </div>
+  ))}
+</section>

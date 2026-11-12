@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+
+const halogenTable = [
+  { w: 20, lmHal: 180, lmLed: 200, gu10: '2–3 W LED', e27: '2–3 W LED' },
+  { w: 35, lmHal: 300, lmLed: 350, gu10: '3–4 W LED', e27: '4 W LED' },
+  { w: 50, lmHal: 450, lmLed: 500, gu10: '5 W LED', e27: '5–6 W LED' },
+  { w: 75, lmHal: 650, lmLed: 750, gu10: '— (rare en GU10)', e27: '8–9 W LED' },
+  { w: 100, lmHal: 1300, lmLed: 1520, gu10: '—', e27: '12–15 W LED' },
+];
+---
+
+<Layout description="Remplacer halogène ou incandescent par du LED sans perdre en luminosité : watts . Outils · équivalence Guides, comparatifs et conseils pratiques sur" title="Équivalence halogène / incandescent → LED (GU10, E27, lumens)" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700"><a class="hover:underline" href="/outils/">Outils</a> · équivalence</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Halogène ou incandescent → LED : garder la même luminosité</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        On ne compare plus les <strong>watts</strong> mais les <strong>lumens</strong>. Un spot halogène GU10 50 W délivre environ 450 lm ; une LED 5 W bien dimensionnée atteint 400–500 lm avec dix fois moins d’énergie.
+        L’<strong>angle de faisceau</strong> change la sensation : 36° concentre la lumière (cuisine, table) ; 110° diffuse (couloir, plafonnier).
+      </p>
+</div>
+</section>
+<CrossLinkOutilsDepannage variant="vers-depannage" />
+<section class="mt-10 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 sm:p-6">
+<h2 class="text-xl font-bold">Calculateur d’équivalence</h2>
+<div class="mt-4 grid gap-4 sm:grid-cols-2" id="equiv-tool">
+<label class="text-sm font-semibold text-stone-800">Technologie actuelle
+        <select class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="eq-tech">
+<option value="halogen">Halogène (GU10 / E27)</option>
+<option value="incand">Incandescent (E27 / E14)</option>
+</select>
+</label>
+<label class="text-sm font-semibold text-stone-800">Culot visé
+        <select class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="eq-base">
+<option value="gu10">GU10 (230 V)</option>
+<option value="e27">E27</option>
+<option value="e14">E14</option>
+</select>
+</label>
+<label class="text-sm font-semibold text-stone-800">Puissance actuelle (W)
+        <input class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="eq-w" max="150" min="15" step="5" type="number" value="50"/>
+</label>
+<label class="text-sm font-semibold text-stone-800">Usage du faisceau
+        <select class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="eq-beam">
+<option value="36">Focalisé ~36° (spot, plan de travail)</option>
+<option value="60">Moyen ~60°</option>
+<option value="110">Large ~110° (ambiance, couloir)</option>
+</select>
+</label>
+<label class="text-sm font-semibold text-stone-800 sm:col-span-2">IRC souhaité
+        <select class="mt-1 w-full rounded-xl border border-stone-300 bg-white p-2 font-normal" id="eq-irc">
+<option value="80">≥ 80 (standard)</option>
+<option value="90">≥ 90 (cuisine, salle de bain, bureau)</option>
+<option value="95">≥ 95 (rendu couleurs premium)</option>
+</select>
+</label>
+</div>
+<div aria-live="polite" class="mt-5 rounded-xl border border-amber-300 bg-white p-4 text-sm text-stone-800" id="eq-result"></div>
+</section>
+<script is:inline>
+    (function () {
+      function el(id) { return document.getElementById(id); }
+      function num(v) { return parseFloat(String(v).replace(',', '.')) || 0; }
+      var lmPerW = { halogen: 9, incand: 13 };
+      function calc() {
+        var tech = el('eq-tech').value;
+        var w = num(el('eq-w').value);
+        var lm = Math.round(w * (lmPerW[tech] || 9));
+        var ledW = Math.max(2, Math.round(lm / 95));
+        var beam = el('eq-beam').value;
+        var base = el('eq-base').value;
+        var irc = el('eq-irc').value;
+        var beamNote = beam === '36' ? 'Privilégiez une LED GU10 36° ou E27 réflecteur étroit pour ne pas « perdre » des lumens au plafond.' : beam === '110' ? 'Un faisceau 110° répartit mieux les lumens sur les murs ; en spot encastré, évitez 36° sauf cible précise.' : 'Angle intermédiaire : bon compromis salon et chambre.';
+        var baseNote = base === 'gu10' ? 'Vérifiez la compatibilité variateur : voir la matrice variateur × LED.' : 'E27 / E14 : vérifiez la hauteur du luminaire (ampoules globe vs réflecteur).';
+        el('eq-result').innerHTML = '<p><strong>Flux à viser :</strong> environ <strong>' + lm.toLocaleString('fr-FR') + ' lm</strong> (équivalent à votre ampoule ' + w + ' W).</p>' +
+          '<p class="mt-2"><strong>LED indicative :</strong> ≈ <strong>' + ledW + ' W LED</strong> (rendement ~95–110 lm/W sur une bonne référence).</p>' +
+          '<p class="mt-2"><strong>IRC :</strong> cherchez ≥ ' + irc + ' sur la fiche (guide <a href="/guides/irc-indice-rendu-couleur/" class="underline text-amber-800">IRC</a>).</p>' +
+          '<p class="mt-2 text-stone-600">' + beamNote + ' ' + baseNote + '</p>';
+      }
+      ['eq-tech', 'eq-base', 'eq-w', 'eq-beam', 'eq-irc'].forEach(function (id) { el(id).addEventListener('input', calc); el(id).addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+<section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-xl font-bold">Tableau de repères (halogène → LED)</h2>
+<div class="mt-4 overflow-x-auto">
+<table class="min-w-[520px] w-full text-sm">
+<thead class="bg-stone-100"><tr><th class="px-3 py-2 text-left">Halogène (W)</th><th class="px-3 py-2 text-left">Lumens ~</th><th class="px-3 py-2 text-left">Cible LED (lm)</th><th class="px-3 py-2 text-left">GU10</th><th class="px-3 py-2 text-left">E27</th></tr></thead>
+<tbody>
+          {halogenTable.map((r) => (
+            <tr class="border-t border-stone-200 text-stone-600">
+<td class="px-3 py-2 font-semibold text-stone-900">{r.w} W</td>
+<td class="px-3 py-2">{r.lmHal} lm</td>
+<td class="px-3 py-2">{r.lmLed} lm</td>
+<td class="px-3 py-2">{r.gu10}</td>
+<td class="px-3 py-2">{r.e27}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+<p class="mt-3 text-sm text-stone-600">Pose et variateur : <a class="font-semibold text-amber-700" href="/tutoriels/remplacer-halogene-gu10-mr16-par-led/">remplacer GU10 / MR16</a>, <a class="font-semibold text-amber-700" href="/guides/culots-e27-e14-gu10/">culots</a>.</p>
+</section>
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="GU10" keywords="spot led gu10 500 lumens dimmable 36 degres" subtitle="Équivalent ~50 W halogène" title="Spot LED GU10 5 W dimmable 36°" />
+<ProductCard badge="E27" keywords="ampoule led e27 806 lumens dimmable" subtitle="Équivalent ~60 W" title="Ampoule LED E27 806 lm dimmable" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+<ul class="mt-3 space-y-1 text-sm text-stone-600">
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/convertisseur-lux-lumens-watts-surface/">Convertisseur lux ↔ lumens ↔ watts</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/calculateur-ruban-led-alimentation-24v/">Calculateur ruban LED</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/generateur-plan-eclairage-cuisine-pdf/">Plan d’éclairage cuisine (PDF)</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/calculateur-roi-relamping-led-professionnel/">ROI relamping LED pro</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">Matrice variateur × LED</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur/">Ampoules dimmables</a></li>
+</ul>
+</section>
+</Layout>

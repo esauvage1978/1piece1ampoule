@@ -1,0 +1,133 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+const matrix = [
+  { dimmer: 'leading', dimLabel: 'Leading edge (coupe début d’onde)', bulb: 'gu10', bulbLabel: 'GU10 LED dimmable', score: 'risque', flicker: 'Élevé', note: 'Anciens variateurs halogène : scintillement fréquent. Remplacer par trailing edge.' },
+  { dimmer: 'leading', dimLabel: 'Leading edge', bulb: 'e27', bulbLabel: 'E27 LED dimmable', score: 'risque', flicker: 'Élevé', note: 'Même problème ; ampoules « compatible variateur » parfois OK à charge élevée uniquement.' },
+  { dimmer: 'leading', dimLabel: 'Leading edge', bulb: 'e14', bulbLabel: 'E14 LED dimmable', score: 'risque', flicker: 'Élevé', note: 'Petites charges : souvent sous le minimum du variateur → clignotement bas de course.' },
+  { dimmer: 'trailing', dimLabel: 'Trailing edge (fin d’onde)', bulb: 'gu10', bulbLabel: 'GU10 LED dimmable', score: 'ok', flicker: 'Faible', note: 'Combinaison recommandée pour spots cuisine / salon.' },
+  { dimmer: 'trailing', dimLabel: 'Trailing edge', bulb: 'e27', bulbLabel: 'E27 LED dimmable', score: 'ok', flicker: 'Faible', note: 'Régler le minimum du variateur après pose.' },
+  { dimmer: 'trailing', dimLabel: 'Trailing edge', bulb: 'e14', bulbLabel: 'E14 LED dimmable', score: 'ok', flicker: 'Faible à moyen', note: 'Additionner la charge (plusieurs ampoules) pour dépasser 5–10 W mini.' },
+  { dimmer: 'universal', dimLabel: 'Variateur « toutes lampes » LED', bulb: 'gu10', bulbLabel: 'GU10 LED dimmable', score: 'ok', flicker: 'Très faible', note: 'Référence la plus fiable pour remplacer un ancien variateur.' },
+  { dimmer: 'universal', dimLabel: 'Toutes lampes LED', bulb: 'e27', bulbLabel: 'E27 LED dimmable', score: 'ok', flicker: 'Très faible', note: 'Ne mélangez pas marques d’ampoules sur un même variateur.' },
+  { dimmer: 'universal', dimLabel: 'Toutes lampes LED', bulb: 'e14', bulbLabel: 'E14 LED dimmable', score: 'ok', flicker: 'Faible', note: 'Vérifiez charge max. du variateur (lustres nombreux).' },
+  { dimmer: 'trailing', dimLabel: 'Trailing edge', bulb: 'gu10', bulbLabel: 'GU10 LED non dimmable', score: 'non', flicker: 'N/A', note: 'Non dimmable : risque de clignotement ou destruction prématurée — ne pas utiliser.' },
+];
+---
+
+<Layout description="Compatibilité variateur dimmer leading ou trailing edge et ampoule LED dimmable GU10, E27, E14 : risque de scintillement et bonnes combinaisons." title="Matrice variateur (Leading / Trailing) × ampoule LED GU10 E14 E27" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700">Guide technique · variateur</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Variateur × ampoule LED : matrice anti-scintillement</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        Le <strong>leading edge</strong> (héritage halogène) et le <strong>trailing edge</strong> (LED) ne pilotent pas la même électronique.
+        Cette matrice croise le type de <strong>variateur</strong> et le <strong>culot</strong> (GU10, E27, E14) pour estimer le risque de <strong>scintillement</strong>.
+        Guide détaillé : <a class="font-semibold text-amber-700" href="/guides/ampoules-dimmables-variateur/">ampoules dimmables</a>.
+      </p>
+</div>
+</section>
+<ToolTeaser />
+<CrossLinkOutilsDepannage variant="vers-depannage" />
+<section class="mt-8 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-xl font-bold">Filtres interactifs</h2>
+<div class="mt-4 flex flex-wrap gap-2 text-sm" id="dim-filters">
+<span class="text-stone-500">Variateur :</span>
+<button class="dim-f rounded-full border border-stone-300 px-3 py-1 font-semibold" aria-pressed="true" data-d="all" type="button">Tous</button>
+<button class="dim-f rounded-full border border-stone-300 px-3 py-1" data-d="leading" type="button">Leading edge</button>
+<button class="dim-f rounded-full border border-stone-300 px-3 py-1" data-d="trailing" type="button">Trailing edge</button>
+<button class="dim-f rounded-full border border-stone-300 px-3 py-1" data-d="universal" type="button">Toutes lampes</button>
+<span class="ml-2 text-stone-500">Ampoule :</span>
+<button class="bulb-f rounded-full border border-stone-300 px-3 py-1 font-semibold" aria-pressed="true" data-b="all" type="button">Tous</button>
+<button class="bulb-f rounded-full border border-stone-300 px-3 py-1" data-b="gu10" type="button">GU10</button>
+<button class="bulb-f rounded-full border border-stone-300 px-3 py-1" data-b="e27" type="button">E27</button>
+<button class="bulb-f rounded-full border border-stone-300 px-3 py-1" data-b="e14" type="button">E14</button>
+</div>
+<div class="mt-6 overflow-x-auto">
+<table class="min-w-[680px] w-full text-sm">
+<thead class="bg-stone-100">
+<tr>
+<th class="px-3 py-2 text-left">Variateur</th>
+<th class="px-3 py-2 text-left">Ampoule</th>
+<th class="px-3 py-2 text-left">Compatibilité</th>
+<th class="px-3 py-2 text-left">Scintillement</th>
+<th class="px-3 py-2 text-left">Conseil</th>
+</tr>
+</thead>
+<tbody id="dim-tbody">
+          {matrix.map((r) => (
+            <tr class="border-t border-stone-200 dim-row" data-bulb={r.bulb} data-dimmer={r.dimmer} data-score={r.score}>
+<td class="px-3 py-2 text-stone-700">{r.dimLabel}</td>
+<td class="px-3 py-2 font-medium text-stone-900">{r.bulbLabel}</td>
+<td class="px-3 py-2">
+                {r.score === 'ok' && <span class="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">Bon choix</span>}
+                {r.score === 'risque' && <span class="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">Risque</span>}
+                {r.score === 'non' && <span class="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-800">À éviter</span>}
+              </td>
+<td class="px-3 py-2">{r.flicker}</td>
+<td class="px-3 py-2 text-stone-600">{r.note}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+</section>
+<script is:inline>
+    (function () {
+      var dSel = 'all', bSel = 'all';
+      function paint(btn, on) {
+        btn.classList.toggle('font-semibold', on);
+        btn.classList.toggle('bg-amber-100', on);
+        btn.classList.toggle('border-amber-400', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
+      function apply() {
+        document.querySelectorAll('.dim-row').forEach(function (tr) {
+          var d = tr.getAttribute('data-dimmer');
+          var b = tr.getAttribute('data-bulb');
+          var show = (dSel === 'all' || dSel === d) && (bSel === 'all' || bSel === b);
+          tr.style.display = show ? '' : 'none';
+        });
+      }
+      document.querySelectorAll('.dim-f').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          dSel = btn.getAttribute('data-d');
+          document.querySelectorAll('.dim-f').forEach(function (b) { paint(b, b === btn); });
+          apply();
+        });
+      });
+      document.querySelectorAll('.bulb-f').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          bSel = btn.getAttribute('data-b');
+          document.querySelectorAll('.bulb-f').forEach(function (b) { paint(b, b === btn); });
+          apply();
+        });
+      });
+      apply();
+    })();
+  </script>
+<SavWave1Compliance />
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="Variateur" keywords="variateur trailing edge led universel" subtitle="Remplace leading halogène" title="Variateur trailing edge LED" />
+<ProductCard badge="GU10" keywords="spot gu10 led dimmable trailing" subtitle="Compatible trailing" title="Spots GU10 LED dimmables" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+<ul class="mt-3 space-y-1 text-sm text-stone-600">
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/equivalence-halogene-led-gu10-e27-lumens/">Équivalence halogène → LED</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/diagnostic-flicker-gu10-variateur-led/">Diagnostic flicker interactif</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/compatibilite-interrupteur-connecte-sans-neutre/">Interrupteur sans neutre</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">Dépannage grésillement</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/culots-e27-e14-gu10/">Culots E27, E14, GU10</a></li>
+</ul>
+</section>
+<RelatedComparatifs />
+</Layout>

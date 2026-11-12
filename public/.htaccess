@@ -1,0 +1,64 @@
+# BEGIN TRUITE cache-hsts (géré par TRUITE, à garder dans public/.htaccess)
+<IfModule mod_headers.c>
+  # HSTS 1 an, sans includeSubDomains ni preload
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header unset ETag
+</IfModule>
+FileETag None
+<IfModule mod_expires.c>
+  # On supprime les Expires pour éviter les contradictions avec Cache-Control
+  ExpiresActive Off
+</IfModule>
+<IfModule mod_headers.c>
+  Header unset Expires
+  # HTML : toujours revalidé
+  <FilesMatch "\.(html?|xml|txt|json|webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Images et polices non versionnées : 30 jours
+  <FilesMatch "\.(jpe?g|png|gif|webp|avif|svg|ico|woff2?|ttf|otf)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # Fichiers versionnés (/_astro/ hashés) : 1 an immutable
+  <If "%{REQUEST_URI} =~ m#^/_astro/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>
+# END TRUITE cache-hsts
+
+# Page 404 personnalisée (build Astro → /404.html)
+ErrorDocument 404 /404.html
+
+# 1piece1ampoule.fr : URL canonique https://1piece1ampoule.fr/
+RewriteEngine On
+# publish: slashs-multiples
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/{2,}([^?\s]*)
+RewriteRule ^ https://1piece1ampoule.fr/%1 [R=301,L,QSA]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+((?:[^?\s]|/+)+?)/{2,}([^?\s]*)
+RewriteRule ^ https://1piece1ampoule.fr/%1/%2 [R=301,L,QSA]
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://1piece1ampoule.fr/$1 [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://1piece1ampoule.fr/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/(.*/)?index\.html[\s?]
+RewriteRule ^(.*/)?index\.html$ https://1piece1ampoule.fr/$1 [R=301,L]
+# --- go-links v1 : liens affiliés comptés côté serveur ---
+RewriteRule ^go/([a-z0-9-]{4,40})/?$ go.php?id=$1 [L,QSA,NC]
+RewriteRule ^go-table\.php$ - [F,L]
+RewriteRule ^go-data/ - [F,L]
+# --- fin go-links ---
+# Ancienne URL ampoules connectées
+RewriteRule ^ampoules-connectees/?$ https://1piece1ampoule.fr/meilleur/meilleure-ampoule-connectee/ [R=301,L]
+
+# BEGIN fusions audit qualité 21/10/2026 (301 vers les pages cibles)
+RewriteRule ^articles/meilleure-ampoule-e27-4000k/?(index\.html)?$ https://1piece1ampoule.fr/guides/kelvin-temperature-couleur/ [R=301,L]
+RewriteRule ^articles/meilleure-ampoule-dimmable-e27/?(index\.html)?$ https://1piece1ampoule.fr/guides/ampoules-dimmables-variateur/ [R=301,L]
+RewriteRule ^articles/2700k-ou-4000k/?(index\.html)?$ https://1piece1ampoule.fr/guides/kelvin-temperature-couleur/ [R=301,L]
+RewriteRule ^articles/combien-de-lumens-par-piece/?(index\.html)?$ https://1piece1ampoule.fr/tutoriels/calculer-eclairage-piece-lux/ [R=301,L]
+RewriteRule ^articles/meilleure-ampoule-detecteur-mouvement/?(index\.html)?$ https://1piece1ampoule.fr/guides/detecteurs-de-mouvement/ [R=301,L]
+RewriteRule ^pieces/couloir-long-etroit/?(index\.html)?$ https://1piece1ampoule.fr/pieces/couloir/ [R=301,L]
+RewriteRule ^pieces/cave-sans-electricite/?(index\.html)?$ https://1piece1ampoule.fr/tutoriels/eclairer-cave-sans-electricite/ [R=301,L]
+# END fusions audit qualité 21/10/2026

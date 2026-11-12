@@ -1,0 +1,18 @@
+---
+import { WINTER } from '../content/winter-home';
+interface Props { lang: keyof typeof WINTER }
+const w = WINTER[Astro.props.lang];
+---
+<section class="mt-10 rounded-3xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-6 shadow-sm sm:p-8" data-winter>
+  <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">🕰️ {w.kicker}</p>
+  <h2 class="mt-1 text-2xl text-stone-900 sm:text-3xl">{w.h}</h2>
+  <p class="mt-3 max-w-3xl text-stone-700">{w.p}</p>
+  <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {w.links.map(([href, t, d], i) => (
+      <a href={href} class={`block rounded-2xl border p-4 transition hover:-translate-y-0.5 hover:shadow ${i === 0 ? 'border-amber-400 bg-amber-500 text-white' : 'border-stone-200 bg-white'}`}>
+        <strong class={`block ${i === 0 ? 'text-white' : 'text-stone-900'}`}>{t} →</strong>
+        <span class={`mt-1 block text-sm ${i === 0 ? 'text-amber-50' : 'text-stone-600'}`}>{d}</span>
+      </a>
+    ))}
+  </div>
+</section>

@@ -1,40 +1,47 @@
 ---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
+import AwinPartner from '../../components/AwinPartner.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import BestPick from '../../components/BestPick.astro';
+import { amazonProductUrl } from '../../lib/amazon';
 ---
 
-<Layout
-  title="Éclairage d’escalier : balisage, sécurité, style — Choisir son ampoule"
-  description="Comment éclairer un escalier : rubans LED, spots, marches, détecteurs en bas/haut. Sélections produits via liens partenaires Amazon."
+<Layout type="article"
+  title="Éclairage escalier LED : détecteur, balisage, ruban"
+  description="Comment éclairer un escalier : kit LED automatique à détecteur, balisage encastr. Zone Guides, comparatifs et conseils pratiques sur 1piece1ampoule.fr."
 >
   <section class="mt-10">
-    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-      <p class="text-sm font-semibold text-amber-300/90">Zone</p>
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Zone</p>
       <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Escaliers</h1>
-      <p class="mt-4 max-w-2xl text-white/75">
+      <p class="mt-4 max-w-2xl text-stone-600">
         Le but : voir chaque marche sans éblouissement. Le balisage bas + détecteur est souvent la solution la plus “waouh” et la plus utile.
       </p>
     </div>
 
     <div class="mt-8 grid gap-4 md:grid-cols-2">
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">Solutions qui fonctionnent</h2>
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Ruban LED sous main courante ou sous nez de marche.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Spots muraux bas (balisage) tous les 2–3 marches.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Détecteur en bas + en haut pour allumage dans les deux sens.</span></li>
+        <ul class="mt-4 space-y-2 text-sm text-stone-600">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Ruban LED sous main courante ou sous nez de marche.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Spots muraux bas (balisage) tous les 2–3 marches.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Détecteur en bas + en haut pour allumage dans les deux sens.</span></li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">Réglages conseillés</h2>
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Teinte : 2700–3000K pour confort nocturne.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Temporisation : 30–60 s.</span></li>
-          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-300/80"></span><span>Évite la lumière directe dans les yeux : privilégie l’indirect.</span></li>
+        <ul class="mt-4 space-y-2 text-sm text-stone-600">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Teinte : 2700–3000K pour confort nocturne.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Temporisation : 30–60 s.</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-amber-500"></span><span>Évite la lumière directe dans les yeux : privilégie l’indirect.</span></li>
         </ul>
       </article>
     </div>
 
+    <BestPick title="Osram Star A75 Motion Sensor E27" why="La solution sans travaux pour une cage d’escalier déjà équipée d’une douille E27 : détecteur radar intégré (portée 3 m), 1 055 lm en 4000 K, de quoi atteindre les 150 lux repères pour un escalier (voir notre tableau des lux)." href={amazonProductUrl('B0FGD6H3NZ')} asin="B0FGD6H3NZ" cta="Voir le prix sur Amazon" />
+    <p class="mt-3 text-sm text-stone-600">Garantie, limites et boutique officielle : <a class="font-semibold text-amber-700 underline" href="/marques/osram-ledvance/">notre fiche OSRAM</a>.</p>
+    <p class="mt-4 text-sm text-stone-600">Repère : 150 lux dans un escalier (<a class="underline" href="/tutoriels/calculer-eclairage-piece-lux/#tableau-lux">tableau des lux</a>). À lire aussi : <a class="underline" href="/guides/detecteurs-de-mouvement/">régler un détecteur</a>, <a class="underline" href="/meilleur/meilleure-lampe-detecteur-sans-fil/">lampes sans fil à détecteur</a>, <a class="underline" href="/zones/">toutes les zones</a>.</p>
     <section class="mt-10">
       <h2 class="text-xl font-bold">Produits (Amazon partenaire)</h2>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
@@ -45,5 +52,7 @@ import ProductCard from '../../components/ProductCard.astro';
       </div>
     </section>
   </section>
+  <AwinPartner />
+  <RelatedComparatifs />
 </Layout>
 

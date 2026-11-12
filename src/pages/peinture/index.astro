@@ -1,0 +1,79 @@
+---
+import ExtraAwinPartner from '../../components/ExtraAwinPartner.astro';
+import Layout from '../../layouts/Layout.astro';
+import PeintureFigure from '../../components/PeintureFigure.astro';
+import { PEINTURE_PAGES, PEINTURE_SECTIONS, PEINTURE_IMAGES, PEINTURE_GALLERY_EXTRA } from '../../content/peinture';
+
+const bySection = (id: string) => PEINTURE_PAGES.filter((p) => p.section === id);
+const hero = PEINTURE_IMAGES.wall;
+---
+
+<Layout
+  type="article"
+  title="Guide peinture intérieure : types, pièces, préparation (2026)"
+  description="Choisir sa peinture murale : acrylique, finitions, pièce par pièce, préparation des murs, quantités, Mylands et lien avec l’éclairage LED."
+>
+  <section class="mt-10">
+    <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+      <p class="text-sm font-semibold text-amber-700">Rubrique peinture · <a class="underline" href="/peinture/">accueil du guide peinture</a></p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Guide complet pour choisir sa peinture</h1>
+      <p class="mt-4 max-w-3xl text-stone-600">
+        Type de peinture, finition, préparation du mur et quantité de pots : tout ce qu’il faut avant d’acheter. Et parce que nous parlons surtout d’ampoules ici, chaque guide rappelle comment la teinte se comporte sous vos luminaires (
+        <a class="font-semibold text-amber-700" href="/peinture/peinture-eclairage-couleur-finition/">peinture et éclairage</a>).
+      </p>
+    </div>
+    <PeintureFigure src={hero.src} alt={hero.alt} credit={hero.credit} />
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {PEINTURE_GALLERY_EXTRA.map((ex) => (
+        <PeintureFigure src={ex.src} alt={ex.alt} credit={ex.credit} width={640} height={360} />
+      ))}
+    </div>
+    <div class="prose-article mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10">
+      <h2>Par où commencer ?</h2>
+      <ol>
+        <li><strong>Préparer le support</strong> — <a href="/peinture/preparation-murs-poncage-enduit-sous-couche/">ponçage, enduit, sous-couche</a> et <a href="/peinture/preparation-murs-poncage-enduit-sous-couche/#calculateur">calculateur de litres</a>.</li>
+        <li><strong>Choisir le bon produit</strong> — <a href="/peinture/peinture-acrylique/">acrylique</a>, <a href="/peinture/peintures-speciales-humides-cuisine-plafond/">pièces humides</a>, <a href="/peinture/finitions-mat-satin-eggshell/">mat ou satin</a>.</li>
+        <li><strong>Tester la couleur à la lumière</strong> — température de couleur (<a href="/guides/kelvin-temperature-couleur/">Kelvin</a>, ex. 2700 K), <a href="/guides/irc-indice-rendu-couleur/">indice de rendu des couleurs (IRC)</a>, échantillons (<a href="/peinture/mylands/">Mylands</a>).</li>
+      </ol>
+      <h2>Ce que ce guide couvre</h2>
+      <p>
+        Dix-sept fiches détaillées : types (<a href="/peinture/peinture-acrylique/">acrylique</a>, <a href="/peinture/peinture-glycero-alkyde/">alkyde</a>, <a href="/peinture/peinture-minerale-chaux/">chaux</a>), finitions, pièces humides, préparation avec <a href="/peinture/preparation-murs-poncage-enduit-sous-couche/#calculateur">calculateur de litres</a>, partenaire <a href="/peinture/mylands/">Mylands</a> et surtout le lien <a href="/peinture/peinture-eclairage-couleur-finition/">peinture et éclairage</a> — cœur de métier de 1 pièce 1 ampoule.
+      </p>
+      <h2>Partenaire peinture</h2>
+      <p>
+        Nous travaillons avec <strong>Mylands</strong> (programme Awin 131679) : peintures à l’eau livrées en France sur mylands.fr. Un essai réel en salle de bain (~25 m², Pure White No.1 en finition eggshell — satinée légère entre mat et satin) est prévu — détails sur la <a href="/peinture/mylands/">page Mylands</a>.
+      </p>
+      <p class="en-note">Liens partenaires Awin : une commission peut nous être versée, sans surcoût pour vous. <a href="/affiliation-amazon/">Transparence affiliation</a>.</p>
+    </div>
+    {PEINTURE_SECTIONS.map((sec) => {
+      const items = bySection(sec.id);
+      if (!items.length) return null;
+      return (
+        <div id="sommaire" class="mt-10">
+          <h2 class="text-2xl font-bold text-stone-900">{sec.label}</h2>
+          <p class="mt-1 text-sm text-stone-600">{sec.intro}</p>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            {items.map((p) => (
+              <a class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm hover:bg-amber-50" href={`/peinture/${p.slug}/`}>
+                <h3 class="text-lg font-bold">{p.h1}</h3>
+                <p class="mt-2 text-sm text-stone-600">{p.lead}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+    <div class="mt-10 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-bold">Lien avec l’éclairage du site</h2>
+      <p class="mt-2 text-sm text-stone-600">
+        Murs foncés ou satinés changent le ressenti des ampoules : consultez le <a class="font-semibold text-amber-700" href="/tutoriels/calculer-eclairage-piece-lux/">calcul d’éclairage en lux</a>,
+        le <a class="font-semibold text-amber-700" href="/outils/convertisseur-lux-lumens-watts-surface/">convertisseur lux-lumens</a> et nos pages <a class="font-semibold text-amber-700" href="/pieces/">pièce par pièce</a>.
+      </p>
+    </div>
+  </section>
+  <ExtraAwinPartner />
+</Layout>
+<style is:global>
+  .prose-article a { color: #b45309; font-weight: 600; }
+  .en-note { font-size: .82rem; color: #78716c; }
+</style>

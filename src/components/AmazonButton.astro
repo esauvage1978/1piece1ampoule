@@ -1,25 +1,32 @@
 ---
-import { amazonSearchUrl } from '../lib/amazon';
+import { amazonSearchUrl, amazonProductUrl } from '../lib/amazon';
 
 type Props = {
-  keywords: string;
+  keywords?: string;
+  asin?: string;
   label?: string;
   class?: string;
+  placement?: string;
+  product?: string;
 };
 
-const { keywords, label = 'Voir sur Amazon', class: className } = Astro.props;
-const href = amazonSearchUrl(keywords);
+const { keywords = '', asin, label = 'Voir le prix sur Amazon', class: className, placement = 'card', product } = Astro.props;
+const href = asin ? amazonProductUrl(asin) : amazonSearchUrl(keywords);
 ---
 
 <a
   href={href}
   class:list={[
-    'inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-amber-300 hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300',
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300',
     className,
   ]}
   rel="sponsored nofollow noopener"
   target="_blank"
+  data-amazon-link
+  data-asin={asin ?? 'search'}
+  data-placement={placement}
+  data-product={product}
 >
   {label}
+  <svg viewBox="0 0 20 20" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M11 3h6v6h-2V6.4l-6.3 6.3-1.4-1.4L13.6 5H11V3ZM4 5h5v2H5v8h8v-4h2v6H3V5h1Z"/></svg>
 </a>
-

@@ -1,54 +1,111 @@
 ---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
+import { HIVER } from '../../content/hiver';
+const best = ['ZOTOYI 15 m IP65 (extérieur) ou guirlande 24 V IP44 (balcon)', 'Beurer TL 30, 10 000 lux à 10 cm', 'Veilleuse rechargeable à minuterie, blanc chaud', 'Tapo L530E sans pont, ou kit Hue White & Color'];
 ---
 
-<Layout
-  title="Guides techniques — Choisir son ampoule"
-  description="Comprendre lumens, watts, Kelvin, IRC, culots… pour choisir la bonne ampoule et le bon luminaire."
->
-  <section class="mt-10">
-    <h1 class="text-3xl font-extrabold tracking-tight">Guides techniques</h1>
-    <p class="mt-3 max-w-2xl text-white/75">
+<Layout description="Tous nos guides pour choisir une ampoule LED : lumens vs watts, température de c. Les bases pour acheter juste du premier coup. Ensuite, chaque guide propose" title="Guides éclairage LED : lumens, Kelvin, IRC, culots, IP">
+<section class="mt-10">
+<h1 class="text-3xl font-extrabold tracking-tight">Guides techniques</h1>
+<p class="mt-3 max-w-2xl text-stone-600">
       Les bases pour acheter juste du premier coup. Ensuite, chaque guide propose aussi des liens produits (Amazon partenaire).
     </p>
-
-    <div class="mt-8 grid gap-4 md:grid-cols-2">
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/outils">
-        <h2 class="text-lg font-bold">Outil : Lumens + Kelvin + IRC</h2>
-        <p class="mt-2 text-sm text-white/70">Un calculateur rapide pour choisir la bonne teinte + intensite + qualite couleurs.</p>
-      </a>
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/lumens-vs-watts">
-        <h2 class="text-lg font-bold">Lumens vs Watts : quoi regarder ?</h2>
-        <p class="mt-2 text-sm text-white/70">Le flux lumineux expliqué simplement, avec repères par pièce.</p>
-      </a>
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/kelvin-temperature-couleur">
-        <h2 class="text-lg font-bold">Kelvin : la température de couleur</h2>
-        <p class="mt-2 text-sm text-white/70">Blanc chaud, neutre, froid : quel rendu et où l’utiliser.</p>
-      </a>
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/culots-e27-e14-gu10">
-        <h2 class="text-lg font-bold">Culots E27, E14, GU10…</h2>
-        <p class="mt-2 text-sm text-white/70">Identifier le bon format et éviter les erreurs d’achat.</p>
-      </a>
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/detecteurs-de-mouvement">
-        <h2 class="text-lg font-bold">Détecteurs de mouvement : où les mettre ?</h2>
-        <p class="mt-2 text-sm text-white/70">Placards, couloirs, garage, extérieur : placements et réglages.</p>
-      </a>
-
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/ampoules-dimmables-variateur">
-        <h2 class="text-lg font-bold">Ampoules dimmables : régler l'intensité</h2>
-        <p class="mt-2 text-sm text-white/70">Définition + compatibilité variateur/ampoule.</p>
-      </a>
-
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/irc-indice-rendu-couleur">
-        <h2 class="text-lg font-bold">IRC : indice de rendu des couleurs</h2>
-        <p class="mt-2 text-sm text-white/70">Pourquoi des couleurs fideles font toute la différence.</p>
-      </a>
-
-      <a class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10" href="/guides/ip-indice-protection">
-        <h2 class="text-lg font-bold">IP : indices de protection</h2>
-        <p class="mt-2 text-sm text-white/70">IP44, IP65… comprendre pour les zones humides.</p>
-      </a>
-    </div>
-  </section>
+<div class="mt-8 rounded-3xl border border-emerald-200 bg-emerald-50/80 p-6">
+<h2 class="text-xl font-bold">Peinture intérieure</h2>
+<p class="mt-2 text-sm text-stone-600">Types, finitions, préparation, quantités et lien avec l’éclairage (Kelvin, IRC). Partenaire Mylands (Awin).</p>
+<a class="mt-4 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700" href="/peinture/">Guide peinture complet →</a>
+</div>
+<div class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-6">
+<h2 class="text-xl font-bold">Hiver et Noël : l’essentiel</h2>
+<div class="mt-4 overflow-x-auto">
+<table class="w-full min-w-[560px] text-sm">
+<thead><tr class="text-left"><th class="px-3 py-2">Guide</th><th class="px-3 py-2">Meilleur choix</th></tr></thead>
+<tbody>
+            {HIVER.map((g, i) => <tr class="border-t border-amber-200"><td class="px-3 py-2"><a class="font-semibold text-amber-800 underline" href={`/guides/${g.slug}/`}>{g.short}</a></td><td class="px-3 py-2">{best[i]}</td></tr>)}
+          </tbody>
+</table>
+</div>
+</div>
+<div class="mt-8 grid gap-4 md:grid-cols-2">
+      {HIVER.map((g) => <a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href={`/guides/${g.slug}/`}><h2 class="text-lg font-bold">{g.h1}</h2><p class="mt-2 text-sm text-stone-600">{g.lead.split('. ')[0]}.</p></a>)}
+      <a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/outils/">
+<h2 class="text-lg font-bold">Outils : simulateur et calculateurs</h2>
+<p class="mt-2 text-sm text-stone-600">Lumens/Kelvin/IRC, lux ↔ watts, équivalence halogène, ruban LED 24V.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/lumens-vs-watts">
+<h2 class="text-lg font-bold">Lumens vs Watts : quoi regarder ?</h2>
+<p class="mt-2 text-sm text-stone-600">Le flux lumineux expliqué simplement, avec repères par pièce.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/kelvin-temperature-couleur">
+<h2 class="text-lg font-bold">Kelvin : la température de couleur</h2>
+<p class="mt-2 text-sm text-stone-600">Blanc chaud, neutre, froid : quel rendu et où l’utiliser.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/culots-e27-e14-gu10">
+<h2 class="text-lg font-bold">Culots E27, B22, E14, GU10</h2>
+<p class="mt-2 text-sm text-stone-600">Vis, baïonnette ou broches : identifier le format avant d’acheter.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/articles/e27-ou-b22/">
+<h2 class="text-lg font-bold">E27 vs B22</h2>
+<p class="mt-2 text-sm text-stone-600">Vis ou baïonnette : ils ne sont pas interchangeables.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/articles/bon-plan-ampoule-connectee/">
+<h2 class="text-lg font-bold">Bon plan ampoule connectée</h2>
+<p class="mt-2 text-sm text-stone-600">Culot, protocole, lumens : ce qui fait une vraie affaire.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/detecteurs-de-mouvement">
+<h2 class="text-lg font-bold">Détecteurs de mouvement : où les mettre ?</h2>
+<p class="mt-2 text-sm text-stone-600">Placards, couloirs, garage, extérieur : placements et réglages.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/eclairage-exterieur-automatique-steinel/">
+<h2 class="text-lg font-bold">Éclairage extérieur automatique Steinel</h2>
+<p class="mt-2 text-sm text-stone-600">4 produits comparés sur fiches fabricant : IP, charge, seuils, prix.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/ampoules-dimmables-variateur">
+<h2 class="text-lg font-bold">Ampoules dimmables : régler l'intensité</h2>
+<p class="mt-2 text-sm text-stone-600">Définition + compatibilité variateur/ampoule.</p>
+</a>
+<a class="rounded-2xl border border-amber-200 bg-amber-50/80 shadow-sm p-6 hover:bg-amber-50" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">
+<h2 class="text-lg font-bold">Matrice variateur × LED GU10 / E27 / E14</h2>
+<p class="mt-2 text-sm text-stone-600">Leading vs trailing edge, risque de scintillement, filtres interactifs.</p>
+</a>
+<a class="rounded-2xl border border-amber-200 bg-amber-50/80 shadow-sm p-6 hover:bg-amber-50" href="/guides/compatibilite-interrupteur-connecte-sans-neutre/">
+<h2 class="text-lg font-bold">Interrupteur connecté sans neutre</h2>
+<p class="mt-2 text-sm text-stone-600">Shelly, Legrand Netatmo, Aqara, Sonoff, Schneider : bypass et charge min.</p>
+</a>
+<a class="rounded-2xl border border-amber-200 bg-amber-50/80 shadow-sm p-6 hover:bg-amber-50" href="/guides/configurateur-kit-eclairage-connecte-sans-neutre/">
+<h2 class="text-lg font-bold">Configurateur kit éclairage connecté</h2>
+<p class="mt-2 text-sm text-stone-600">Pièce par pièce : Shelly, Hue, Aqara, bypass anti-scintillement automatique.</p>
+</a>
+<a class="rounded-2xl border border-amber-200 bg-amber-50/80 shadow-sm p-6 hover:bg-amber-50" href="/guides/diagnostic-flicker-gu10-variateur-led/">
+<h2 class="text-lg font-bold">Diagnostic flicker GU10 / E27</h2>
+<p class="mt-2 text-sm text-stone-600">Arbre interactif : scintillement, grésillement, ghosting — difficulté, temps, coût.</p>
+</a>
+<a class="rounded-2xl border border-amber-200 bg-amber-50/80 shadow-sm p-6 hover:bg-amber-50" href="/guides/matrice-matter-thread-philips-hue-aqara-govee/">
+<h2 class="text-lg font-bold">Matrice Matter, Thread, Zigbee</h2>
+<p class="mt-2 text-sm text-stone-600">Hue, Aqara, Govee, Shelly, Nanoleaf, Dirigera × Home Assistant, Apple, Google, Alexa.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/irc-indice-rendu-couleur">
+<h2 class="text-lg font-bold">IRC : indice de rendu des couleurs</h2>
+<p class="mt-2 text-sm text-stone-600">Pourquoi des couleurs fideles font toute la différence.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/ip-indice-protection">
+<h2 class="text-lg font-bold">IP : indices de protection</h2>
+<p class="mt-2 text-sm text-stone-600">IP44, IP65… comprendre pour les zones humides.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/zones-salle-de-bain-ip44-ip65-norme-nfc-15-100">
+<h2 class="text-lg font-bold">Salle de bain : volumes NF C 15-100</h2>
+<p class="mt-2 text-sm text-stone-600">Zones 0, 1, 2, IP44/IP65 et convertisseur lux ↔ lumens.</p>
+</a>
+<a class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 hover:bg-amber-50" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage">
+<h2 class="text-lg font-bold">LED : clignotement, grésillement, dépannage</h2>
+<p class="mt-2 text-sm text-stone-600">Lueur à l’arrêt, variateur, ruban, Steinel : tableau et bypass ~4 €.</p>
+</a>
+<a class="rounded-2xl border border-amber-200 bg-amber-50/80 shadow-sm p-6 hover:bg-amber-50" href="/guides/codes-erreurs-eclairage-connecte-depannage/">
+<h2 class="text-lg font-bold">Codes erreurs éclairage connecté</h2>
+<p class="mt-2 text-sm text-stone-600">Hue, Shelly, IKEA, Govee, WiZ, Legrand, Schneider : répertoire interactif et fiches SEO.</p>
+</a>
+</div>
+</section>
+<RelatedComparatifs />
 </Layout>
-

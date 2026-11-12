@@ -1,0 +1,186 @@
+---
+export type IntlLang = 'en' | 'de' | 'nl' | 'es' | 'it';
+
+interface Props { lang: IntlLang }
+const { lang } = Astro.props;
+
+const T: Record<IntlLang, {
+  title: string; desc: string; kicker: string; h1: string; lead1: string; lead2: string;
+  name: string; email: string; subject: string; message: string; placeholder: string; send: string; sending: string;
+  rgpd: string; privacyPath: string; privacyLabel: string;
+  asideEmail: string; asideReply: string; asideWait: string; asideLinks: string;
+  subjects: string[]; links: [string, string][];
+  ok: string; err: string; source: string;
+}> = {
+  en: {
+    title: 'Contact — ask a lighting question',
+    desc: 'Questions about bulbs, room lighting or partnerships. Practical advice from 1 pièce 1 ampoule.',
+    kicker: 'Contact',
+    h1: 'A question about your lighting?',
+    lead1: 'Unsure between two bulbs, a living room that stays too dark, or LEDs flickering since you fitted a smart switch with no neutral? Describe the room (size, ceiling height, base type, what bothers you) and we will suggest a concrete next step.',
+    lead2: 'Brand, manufacturer or lighting retailer wanting us to test a product or work together? Choose “Partnership proposal” so your message reaches the right person.',
+    name: 'Name *', email: 'Email address *', subject: 'Subject', message: 'Your message *',
+    placeholder: 'E.g. 12 m² bedroom, 2.50 m ceiling, one E27 pendant. Which bulb for evening reading without cold light?',
+    send: 'Send message', sending: 'Sending…',
+    rgpd: 'I agree that my details are used only to reply to my request, in line with the',
+    privacyPath: '/en/privacy/', privacyLabel: 'privacy policy',
+    asideEmail: 'By email', asideReply: 'We usually reply within <strong>24 to 48 working hours</strong>.',
+    asideWait: 'While you wait',
+    asideLinks: 'Useful links',
+    subjects: ['Question about a room or bulb', 'Lighting / smart home project', 'Partnership / brand proposal', 'Report an error on a page', 'Other'],
+    links: [['/en/tools/', 'Simulator: how many lumens for my room'], ['/en/rooms/', 'Room-by-room advice'], ['/en/tutorials/smart-switch-no-neutral/', 'Smart switch, no neutral'], ['/en/brands/', 'Brands we cover']],
+    ok: 'Thank you — your message was sent. We will reply within 24 to 48 working hours.',
+    err: 'The message could not be sent. You can email us directly at',
+    source: '1piece1ampoule.fr',
+  },
+  de: {
+    title: 'Kontakt — Frage zur Beleuchtung',
+    desc: 'Fragen zu Lampen, Raumbeleuchtung oder Partnerschaften.',
+    kicker: 'Kontakt',
+    h1: 'Eine Frage zu Ihrer Beleuchtung?',
+    lead1: 'Sie schwanken zwischen zwei Lampen, der Raum wirkt zu dunkel oder LEDs flackern seit dem smarten Schalter ohne Neutralleiter? Beschreiben Sie Raum, Sockel und Problem — wir antworten mit einem konkreten Vorschlag.',
+    lead2: 'Marke oder Händler? Wählen Sie « Partnerschaft » für die richtige Ansprechperson.',
+    name: 'Name *', email: 'E-Mail *', subject: 'Betreff', message: 'Ihre Nachricht *',
+    placeholder: 'z. B. 12 m² Schlafzimmer, E27, warmes Licht zum Lesen.',
+    send: 'Nachricht senden', sending: 'Wird gesendet…',
+    rgpd: 'Ich willige ein, dass meine Angaben nur zur Beantwortung genutzt werden, gemäß der',
+    privacyPath: '/de/datenschutz/', privacyLabel: 'Datenschutzerklärung',
+    asideEmail: 'Per E-Mail', asideReply: 'Antwort in der Regel innerhalb von <strong>24 bis 48 Werktagen</strong>.',
+    asideWait: 'In der Zwischenzeit',
+    asideLinks: 'Nützliche Links',
+    subjects: ['Frage zu Raum oder Lampe', 'Beleuchtungs- / Smart-Home-Projekt', 'Partnerschaft / Marke', 'Fehler auf einer Seite melden', 'Sonstiges'],
+    links: [['/de/werkzeuge/', 'Simulator: Lumen pro Raum'], ['/de/raeume/', 'Raum für Raum'], ['/de/ratgeber/smarter-schalter-ohne-neutral/', 'Schalter ohne Neutral'], ['/de/marken/', 'Marken']],
+    ok: 'Danke — Ihre Nachricht wurde gesendet.',
+    err: 'Senden fehlgeschlagen. Schreiben Sie uns direkt an',
+    source: '1piece1ampoule.fr',
+  },
+  nl: {
+    title: 'Contact — vraag over verlichting',
+    desc: 'Vragen over lampen, ruimteverlichting of samenwerking.',
+    kicker: 'Contact',
+    h1: 'Een vraag over uw verlichting?',
+    lead1: 'Twijfel tussen lampen, een donkere kamer of flikkerende LEDs na een slimme schakelaar zonder nul? Beschrijf de ruimte en het probleem — wij geven een concrete tip.',
+    lead2: 'Merk of winkel? Kies « Partnerschap » voor het juiste contact.',
+    name: 'Naam *', email: 'E-mail *', subject: 'Onderwerp', message: 'Uw bericht *',
+    placeholder: 'Bijv. slaapkamer 12 m², E27, warm licht om te lezen.',
+    send: 'Bericht versturen', sending: 'Bezig met verzenden…',
+    rgpd: 'Ik ga akkoord dat mijn gegevens alleen voor mijn vraag worden gebruikt, volgens het',
+    privacyPath: '/nl/privacy/', privacyLabel: 'privacybeleid',
+    asideEmail: 'Per e-mail', asideReply: 'Meestal antwoord binnen <strong>24 tot 48 werkuren</strong>.',
+    asideWait: 'Ondertussen',
+    asideLinks: 'Handige links',
+    subjects: ['Vraag over ruimte of lamp', 'Verlichtings- / smarthome-project', 'Partnerschap / merk', 'Fout op pagina melden', 'Overig'],
+    links: [['/nl/tools/', 'Simulator: lumen per ruimte'], ['/nl/ruimtes/', 'Ruimte per ruimte'], ['/nl/gidsen/slimme-schakelaar-zonder-nul/', 'Schakelaar zonder nul'], ['/nl/merken/', 'Merken']],
+    ok: 'Bedankt — uw bericht is verzonden.',
+    err: 'Verzenden mislukt. Mail ons rechtstreeks op',
+    source: '1piece1ampoule.fr',
+  },
+  es: {
+    title: 'Contacto — pregunta sobre iluminación',
+    desc: 'Dudas sobre bombillas, estancias o colaboraciones.',
+    kicker: 'Contacto',
+    h1: '¿Una pregunta sobre su iluminación?',
+    lead1: '¿Duda entre bombillas, salón oscuro o LEDs que parpadean tras un interruptor inteligente sin neutro? Describa la estancia y le propondremos un paso concreto.',
+    lead2: '¿Marca o tienda? Elija « Propuesta de colaboración ».',
+    name: 'Nombre *', email: 'Correo *', subject: 'Asunto', message: 'Su mensaje *',
+    placeholder: 'Ej.: dormitorio 12 m², E27, luz cálida para leer.',
+    send: 'Enviar mensaje', sending: 'Enviando…',
+    rgpd: 'Acepto que mis datos se usen solo para responder, según la',
+    privacyPath: '/es/privacidad/', privacyLabel: 'política de privacidad',
+    asideEmail: 'Por correo', asideReply: 'Respuesta habitual en <strong>24 a 48 horas laborables</strong>.',
+    asideWait: 'Mientras tanto',
+    asideLinks: 'Enlaces útiles',
+    subjects: ['Pregunta sobre estancia o bombilla', 'Proyecto de iluminación / domótica', 'Colaboración / marca', 'Informar de un error', 'Otro'],
+    links: [['/es/herramientas/', 'Simulador de lúmenes'], ['/es/estancias/', 'Estancia por estancia'], ['/es/tutoriales/interruptor-inteligente-sin-neutro/', 'Interruptor sin neutro'], ['/es/marcas/', 'Marcas']],
+    ok: 'Gracias — su mensaje se ha enviado.',
+    err: 'No se pudo enviar. Escríbanos a',
+    source: '1piece1ampoule.fr',
+  },
+  it: {
+    title: 'Contatti — domanda sull’illuminazione',
+    desc: 'Domande su lampadine, stanze o partnership.',
+    kicker: 'Contatti',
+    h1: 'Una domanda sulla vostra illuminazione?',
+    lead1: 'Dubbio tra lampadine, stanza troppo scura o LED che sfarfallano dopo un interruttore smart senza neutro? Descrivete la stanza — vi suggeriamo un passo concreto.',
+    lead2: 'Marca o negozio? Scegliete « Proposta di partnership ».',
+    name: 'Nome *', email: 'Email *', subject: 'Oggetto', message: 'Il vostro messaggio *',
+    placeholder: 'Es.: camera 12 m², E27, luce calda per leggere.',
+    send: 'Invia messaggio', sending: 'Invio in corso…',
+    rgpd: 'Accetto che i miei dati siano usati solo per rispondere, secondo l’',
+    privacyPath: '/it/privacy/', privacyLabel: 'informativa privacy',
+    asideEmail: 'Via email', asideReply: 'Risposta di solito entro <strong>24–48 ore lavorative</strong>.',
+    asideWait: 'Nel frattempo',
+    asideLinks: 'Link utili',
+    subjects: ['Domanda su stanza o lampadina', 'Progetto illuminazione / smart home', 'Partnership / marca', 'Segnalare un errore', 'Altro'],
+    links: [['/it/strumenti/', 'Simulatore lumen'], ['/it/stanze/', 'Stanza per stanza'], ['/it/tutorial/interruttore-smart-senza-neutro/', 'Interruttore senza neutro'], ['/it/marchi/', 'Marchi']],
+    ok: 'Grazie — il messaggio è stato inviato.',
+    err: 'Invio non riuscito. Scriveteci a',
+    source: '1piece1ampoule.fr',
+  },
+};
+const t = T[lang] ?? T.en;
+const inp = 'mt-1 w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200';
+---
+<section class="mt-10 rounded-3xl border border-stone-200 bg-white shadow-sm p-6 sm:p-8">
+  <p class="text-sm font-semibold text-amber-700">{t.kicker}</p>
+  <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{t.h1}</h1>
+  <p class="mt-4 max-w-3xl text-stone-600">{t.lead1}</p>
+  <p class="mt-3 max-w-3xl text-stone-600">{t.lead2}</p>
+</section>
+<section class="mt-8 grid gap-6 lg:grid-cols-3">
+  <div class="lg:col-span-2 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+    <form id="contact-form" class="space-y-4" novalidate>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="block text-sm font-semibold text-stone-700">{t.name}
+          <input class={inp} type="text" name="name" required maxlength="100" autocomplete="name" /></label>
+        <label class="block text-sm font-semibold text-stone-700">{t.email}
+          <input class={inp} type="email" name="email" required maxlength="150" autocomplete="email" /></label>
+      </div>
+      <label class="block text-sm font-semibold text-stone-700">{t.subject}
+        <select class={inp} name="objet">{t.subjects.map((s) => <option value={s}>{s}</option>)}</select></label>
+      <label class="block text-sm font-semibold text-stone-700">{t.message}
+        <textarea class={inp} name="message" rows="7" required maxlength="5000" placeholder={t.placeholder}></textarea></label>
+      <input type="hidden" name="page" value="" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+      <label class="flex items-start gap-2 text-sm text-stone-600">
+        <input type="checkbox" name="rgpd" required class="mt-1 h-4 w-4 shrink-0 accent-amber-600" />
+        <span>{t.rgpd} <a class="font-semibold text-amber-700 underline" href={t.privacyPath}>{t.privacyLabel}</a>. *</span>
+      </label>
+      <button type="submit" class="rounded-xl bg-amber-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-amber-700 disabled:opacity-60">{t.send}</button>
+      <p id="contact-status" class="hidden rounded-xl px-4 py-3 text-sm" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <aside class="space-y-4">
+    <div class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 text-sm text-stone-600">
+      <h2 class="text-lg font-bold text-stone-900">{t.asideEmail}</h2>
+      <p class="mt-2"><a class="font-semibold text-amber-700 break-all" href="mailto:contact@1piece1ampoule.fr">contact@1piece1ampoule.fr</a></p>
+      <p class="mt-2" set:html={t.asideReply} />
+    </div>
+    <div class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 text-sm">
+      <h2 class="text-lg font-bold text-stone-900">{t.asideWait}</h2>
+      <ul class="mt-3 space-y-2">{t.links.map(([href, label]) => <li><a class="font-semibold text-amber-700 hover:text-amber-800" href={href}>{label}</a></li>)}</ul>
+    </div>
+  </aside>
+</section>
+<script is:inline define:vars={{ okMsg: t.ok, errMsg: t.err, sendLabel: t.send, sendingLabel: t.sending, source: t.source }}>
+(function(){
+  var f=document.getElementById('contact-form'),st=document.getElementById('contact-status');
+  if(!f)return;
+  f.page.value=window.location.href;
+  function show(ok,msg){st.className='rounded-xl px-4 py-3 text-sm '+(ok?'bg-green-50 text-green-800 border border-green-200':'bg-red-50 text-red-800 border border-red-200');st.innerHTML=msg;st.classList.remove('hidden');}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){f.reportValidity();return;}
+    var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent=sendingLabel;
+    var body={name:f.name.value.trim(),email:f.email.value.trim(),objet:f.objet.value,message:f.message.value.trim(),page:f.page.value||document.referrer||window.location.pathname,website:f.website.value,source:source};
+    fetch('/api/contact.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(d){return r.ok&&d.ok;});})
+      .then(function(ok){
+        if(ok){show(true,okMsg);f.reset();f.page.value=window.location.href;}
+        else throw 0;
+      })
+      .catch(function(){show(false,errMsg+' <a class="font-semibold underline" href="mailto:contact@1piece1ampoule.fr">contact@1piece1ampoule.fr</a>.');})
+      .finally(function(){b.disabled=false;b.textContent=sendLabel;});
+  });
+})();
+</script>

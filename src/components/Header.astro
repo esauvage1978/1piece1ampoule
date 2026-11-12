@@ -1,30 +1,265 @@
 ---
-const nav = [
-  { href: '/', label: 'Accueil' },
-  { href: '/pieces', label: 'Pièces' },
-  { href: '/guides', label: 'Guides' },
-  { href: '/outils', label: 'Outils' },
-  { href: '/zones', label: 'Zones & aménagement' },
+import Drapeau from './Drapeau.astro';
+import { groupOf } from '../content/i18n';
+import { langNavHref } from '../lib/lang-nav-href';
+
+const { lang = 'fr', alts = [] } = Astro.props as { lang?: string; alts?: { l: string; href: string }[] };
+const frPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const group = groupOf(frPath);
+const homes: Record<string, string> = { fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', nl: '/nl/', es: '/es/', it: '/it/' };
+const hreflangDe = (l: string) => (l === 'uk' ? 'en-gb' : l === 'ca' ? 'en-ca' : l);
+const langAttr = (l: string) => (l === 'uk' ? 'en-GB' : l === 'ca' ? 'en-CA' : l);
+const sw = ['fr', 'en', 'uk', 'ca', 'de', 'nl', 'es', 'it'].map((l) => ({
+  l,
+  href: langNavHref(l, frPath, group, lang),
+  hl: hreflangDe(l),
+  la: langAttr(l),
+}));
+const langLabels: Record<string, string> = {
+  fr: 'Français',
+  en: 'English',
+  uk: 'English (UK)',
+  ca: 'English (CA)',
+  de: 'Deutsch',
+  nl: 'Nederlands',
+  es: 'Español',
+  it: 'Italiano',
+};
+const langOptions = sw.map((x) => ({
+  ...x,
+  code: x.l.toUpperCase(),
+  label: langLabels[x.l] ?? x.l,
+  current: lang === x.l,
+}));
+const langNavLabel = ({ fr: 'Langue', en: 'Language', uk: 'Language', ca: 'Language', de: 'Sprache', nl: 'Taal', es: 'Idioma', it: 'Lingua' } as Record<string, string>)[lang] ?? 'Langue';
+const activeLang = langOptions.find((opt) => opt.current) ?? langOptions[0];
+const menuOpenLabel = ({ fr: 'Ouvrir le menu', en: 'Open menu', uk: 'Open menu', ca: 'Open menu', de: 'Menü öffnen', nl: 'Menu openen', es: 'Abrir el menú', it: 'Apri il menu' } as Record<string, string>)[lang] ?? 'Menu';
+const menuCloseLabel = ({ fr: 'Fermer le menu', en: 'Close menu', uk: 'Close menu', ca: 'Close menu', de: 'Menü schließen', nl: 'Menu sluiten', es: 'Cerrar el menú', it: 'Chiudi il menu' } as Record<string, string>)[lang] ?? 'Fermer';
+const navDe = [
+  { href: '/de/black-friday-2026/', label: 'BF\u00a02026', highlight: true },
+  { href: '/de/preissenkungen/', label: 'Preissenkungen' },
+  { href: '/de/ratgeber/lampensockel-e27-e14-gu10/', label: 'Sockel' },
+  { href: '/de/ratgeber/lumen-watt/', label: 'Lumen' },
+  { href: '/de/ratgeber/farbtemperatur-kelvin/', label: 'Kelvin' },
+  { href: '/de/anleitungen/lux-lumen-pro-raum-berechnen/', label: 'Lux-Rechner' },
+  { href: '/de/zubehoer/', label: 'Zubehör' },
+  { href: '/de/werkzeuge/', label: 'Simulator' },
 ];
+const navEn = [
+  { href: '/en/black-friday-2026/', label: 'BF\u00a02026', highlight: true },
+  { href: '/en/price-drops/', label: 'Price drops' },
+  { href: '/en/guides/bulb-bases-b22-e26-e27-gu10/', label: 'Bulb bases' },
+  { href: '/en/guides/lumens-vs-watts/', label: 'Lumens' },
+  { href: '/en/guides/colour-temperature-kelvin/', label: 'Kelvin' },
+  { href: '/en/tutorials/how-much-light-per-room-lux-foot-candles/', label: 'Lux calculator' },
+  { href: '/en/accessories/', label: 'Accessories' },
+  { href: '/en/tools/', label: 'Simulator' },
+];
+const navFr = [
+  { href: '/black-friday-2026/', label: 'BF\u00a02026', highlight: true },
+  { href: '/baisses-de-prix/', label: 'Baisses de prix' },
+  { href: '/accessoires/', label: 'Accessoires' },
+  { href: '/pieces/', label: 'Par pièce' },
+  { href: '/meilleur/', label: 'Comparatifs' },
+  { href: '/articles/', label: 'Conseils' },
+  { href: '/guides/', label: 'Guides' },
+  { href: '/outils/', label: '⚡ Configurateurs & Outils', highlight: true },
+  { href: '/guides/depannage-ampoules-connectees-led/', label: 'Codes erreurs et dépannage', short: 'Codes erreurs' },
+];
+const navNl = [
+  { href: '/nl/prijsdalingen/', label: 'Prijsdalingen' },
+  { href: '/nl/gidsen/lampfittingen-e27-e14-gu10/', label: 'Fittingen' },
+  { href: '/nl/gidsen/lumen-watt/', label: 'Lumen' },
+  { href: '/nl/gidsen/kleurtemperatuur-kelvin/', label: 'Kelvin' },
+  { href: '/nl/handleidingen/lux-lumen-per-ruimte-berechnen/', label: 'Lux berekenen' },
+  { href: '/nl/accessoires/', label: 'Accessoires' },
+  { href: '/nl/tools/', label: 'Simulator' },
+];
+const navEs = [
+  { href: '/es/bajadas-de-precio/', label: 'Bajadas de precio' },
+  { href: '/es/guias/casquillos-e27-e14-gu10/', label: 'Casquillos' },
+  { href: '/es/guias/lumenes-vatios/', label: 'Lúmenes' },
+  { href: '/es/guias/temperatura-color-kelvin/', label: 'Kelvin' },
+  { href: '/es/tutoriales/calcular-lux-lumenes-por-estancia/', label: 'Calcular lux' },
+  { href: '/es/accesorios/', label: 'Accesorios' },
+  { href: '/es/herramientas/', label: 'Simulador' },
+];
+const navIt = [
+  { href: '/it/ribassi-prezzo/', label: 'Ribassi di prezzo' },
+  { href: '/it/guide/attacchi-e27-e14-gu10/', label: 'Attacchi' },
+  { href: '/it/guide/lumen-watt/', label: 'Lumen' },
+  { href: '/it/guide/temperatura-colore-kelvin/', label: 'Kelvin' },
+  { href: '/it/tutorial/calcolare-lux-lumen-per-stanza/', label: 'Calcolo lux' },
+  { href: '/it/accessori/', label: 'Accessori' },
+  { href: '/it/strumenti/', label: 'Simulatore' },
+];
+const navUk = [{ href: '/uk/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, { href: '/uk/accessories/', label: 'Accessories' }, ...navEn.slice(1).filter((l) => l.href !== '/en/accessories/').map((l) => l.href === '/en/price-drops/' ? { ...l, href: '/uk/price-drops/' } : l)];
+const navCa = [{ href: '/ca/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, { href: '/ca/accessories/', label: 'Accessories' }, ...navEn.slice(1).filter((l) => l.href !== '/en/accessories/').map((l) => l.href === '/en/price-drops/' ? { ...l, href: '/ca/price-drops/' } : l)];
+const navNlBf = [{ href: '/nl/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, ...navNl];
+const navEsBf = [{ href: '/es/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, ...navEs];
+const navItBf = [{ href: '/it/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, ...navIt];
+const nav =
+  lang === 'uk'
+    ? navUk
+    : lang === 'ca'
+      ? navCa
+      : lang === 'it'
+        ? navItBf
+        : lang === 'es'
+          ? navEsBf
+          : lang === 'en'
+            ? navEn
+            : lang === 'de'
+              ? navDe
+              : lang === 'nl'
+                ? navNlBf
+                : navFr;
+const path = Astro.url.pathname;
+const isOutil = (href: string) => /\/(outils|tools|werkzeuge|herramientas|strumenti)\//.test(href);
+const cta = nav.find((item) => isOutil(item.href));
+const liens = nav.filter((item) => item !== cta);
+const navLabelText = (item: { label: string; short?: string }, compact: boolean) =>
+  (compact && item.short ? item.short : item.label).replace('BF\u00a02026', 'Black Friday');
+const currentHref = [...liens, ...(cta ? [cta] : [])]
+  .filter((item) => path === item.href || path.startsWith(item.href))
+  .sort((a, b) => b.href.length - a.href.length)[0]?.href;
+const navLabel = langNavLabel === 'Langue' ? 'Principale' : lang === 'de' ? 'Hauptnavigation' : lang === 'nl' ? 'Hoofdnavigatie' : lang === 'es' ? 'Principal' : lang === 'it' ? 'Principale' : 'Main';
+const brandLabel = ({ fr: '1 pièce 1 ampoule — accueil', en: '1 pièce 1 ampoule — home', uk: '1 pièce 1 ampoule — home', ca: '1 pièce 1 ampoule — home', de: '1 pièce 1 ampoule — Startseite', nl: '1 pièce 1 ampoule — home', es: '1 pièce 1 ampoule — inicio', it: '1 pièce 1 ampoule — home' } as Record<string, string>)[lang];
 ---
-
-<header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/75 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-    <a href="/" class="flex items-center gap-2 font-semibold text-white">
-      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-400 text-slate-900">💡</span>
-      <span class="hidden sm:inline">Choisir son ampoule</span>
+<header class:list={['site-header', lang === 'fr' && 'nav-long']}>
+  <nav class="header-bar" aria-label={navLabel}>
+    <a href={homes[lang]} class="brand" aria-label={brandLabel}>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"></path></svg>
+      </span>
+      <span class="brand-text">1 pièce <span>1 ampoule</span></span>
     </a>
-
-    <nav class="flex items-center gap-1">
-      {nav.map((item) => (
-        <a
-          href={item.href}
-          class="rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/5 hover:text-white"
-        >
-          {item.label}
-        </a>
+    <div class="internal-links desktop-only">
+      {liens.map((item) => (
+        <a href={item.href} class:list={[{ 'nav-bf': item.href.includes('black-friday') }]} aria-current={currentHref === item.href ? 'page' : undefined}>{navLabelText(item, true)}</a>
       ))}
-    </nav>
+    </div>
+    <div class="header-actions">
+      {cta && <a class="header-cta desktop-only" href={cta.href} aria-current={currentHref === cta.href ? 'page' : undefined}>{navLabelText(cta, true)}</a>}
+      <div class="lang-dropdown header-dropdown" data-header-dropdown>
+        <button type="button" class="lang-dropdown__trigger" data-dropdown-trigger aria-expanded="false" aria-controls="lang-switch-menu" aria-haspopup="true" aria-label={langNavLabel}>
+          <Drapeau code={activeLang.code} />
+          <span class="nav-dropdown__caret" aria-hidden="true">▾</span>
+        </button>
+        <div id="lang-switch-menu" class="lang-dropdown__menu" data-dropdown-panel hidden role="menu">
+          {langOptions.map((opt) => (
+            <a href={opt.href} hreflang={opt.hl} lang={opt.la} role="menuitem" aria-current={opt.current ? 'true' : undefined} class:list={[{ 'is-current': opt.current }]}><Drapeau code={opt.code} />{opt.label}</a>
+          ))}
+        </div>
+      </div>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={menuOpenLabel} data-close-label={menuCloseLabel} aria-expanded="false" aria-controls="mobile-menu"><span aria-hidden="true">☰</span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    {cta && <a class="mobile-menu-cta" href={cta.href}>{navLabelText(cta, false)}</a>}
+    {liens.map((item) => (
+      <a href={item.href} class:list={[{ 'nav-bf': item.href.includes('black-friday') }]}>{navLabelText(item, false)}</a>
+    ))}
   </div>
 </header>
-
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 40; margin: 0;
+    background: rgb(251 248 243 / .94);
+    border-bottom: 1px solid rgb(231 229 228 / .9);
+    box-shadow: 0 1px 3px rgba(28, 25, 23, .05);
+    backdrop-filter: blur(10px);
+  }
+  .header-bar { display: flex; align-items: center; gap: .65rem; max-width: 90rem; margin: 0 auto; min-height: 64px; padding: 0 clamp(.875rem, 3vw, 1.5rem); min-width: 0; }
+  .brand, .internal-links, .header-actions { order: 0; }
+  .brand { display: inline-flex; align-items: center; gap: .55rem; flex-shrink: 0; text-decoration: none; color: rgb(28 25 23); padding: .35rem 0; }
+  .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, rgb(251 191 36), rgb(249 115 22)); flex-shrink: 0; }
+  .brand-mark svg { width: 20px; height: 20px; }
+  .brand-text { font-weight: 650; font-size: 1.05rem; line-height: 1.1; max-width: none; white-space: nowrap; }
+  .brand-text span { color: rgb(217 119 6); }
+  .internal-links { display: flex; align-items: center; gap: .1rem; min-width: 0; flex: 1 1 auto; margin-left: .25rem; }
+  .internal-links > a { color: rgb(68 64 60); text-decoration: none; font-weight: 600; font-size: .9rem; padding: .35rem .5rem; border-radius: 8px; white-space: nowrap; }
+  .internal-links > a:hover, .internal-links > a[aria-current='page'] { background: rgb(254 243 199); color: rgb(146 64 14); }
+  .internal-links > a.nav-bf, .mobile-menu > a.nav-bf { background: #111827; color: #ffb020; border-radius: 999px; font-weight: 800; }
+  .internal-links > a.nav-bf:hover, .internal-links > a.nav-bf[aria-current='page'], .mobile-menu > a.nav-bf:hover { background: #1f2937; color: #ffe08a; }
+  .header-actions { display: flex; align-items: center; gap: .45rem; margin-left: auto; flex-shrink: 0; }
+  .header-cta { display: inline-flex; align-items: center; background: rgb(217 119 6); color: #fff; padding: .45rem .85rem; border-radius: 999px; font-weight: 700; font-size: .8125rem; text-decoration: none; white-space: nowrap; position: relative; z-index: 1; }
+  .header-cta:hover { background: rgb(180 83 9); color: #fff; }
+  .mobile-menu-toggle { display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgb(214 211 209); border-radius: 50%; background: #fff; color: rgb(28 25 23); font-size: 1.05rem; padding: 0; cursor: pointer; font-family: inherit; }
+  .mobile-menu { display: flex; flex-direction: column; background: #fbf8f3; border-bottom: 1px solid rgb(231 229 228); }
+  .mobile-menu[hidden] { display: none !important; }
+  .mobile-menu a { padding: .85rem clamp(.875rem, 3vw, 1.5rem); color: rgb(41 37 36); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgb(231 229 228); }
+  .mobile-menu a:hover { background: rgb(255 251 235); color: rgb(146 64 14); }
+  .mobile-menu > a.nav-bf { margin: .75rem clamp(.875rem, 3vw, 1.5rem) .15rem; padding: .55rem .9rem; width: fit-content; border-bottom: 0; }
+  .mobile-menu-cta { background: rgb(254 243 199); color: rgb(146 64 14); }
+  @media (max-width: 1100px) {
+    .desktop-only { display: none !important; }
+    .mobile-menu-toggle { display: inline-flex; }
+    .brand-text { font-size: .95rem; }
+  }
+  @media (max-width: 1340px) {
+    .nav-long .desktop-only { display: none !important; }
+    .nav-long .mobile-menu-toggle { display: inline-flex; }
+  }
+  @media (max-width: 420px) { .brand-text { display: none; } }
+</style>
+<script>
+  (() => {
+    const dropdowns = Array.from(document.querySelectorAll('[data-header-dropdown]'));
+    const focusables = (panel) => Array.from(panel.querySelectorAll('a[href], button:not([disabled])')).filter((el) => !el.closest('[hidden]'));
+    const closeDropdown = (wrapper) => {
+      const trigger = wrapper.querySelector('[data-dropdown-trigger]');
+      const panel = wrapper.querySelector('[data-dropdown-panel]');
+      if (!trigger || !panel) return;
+      panel.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    const openDropdown = (wrapper) => {
+      dropdowns.forEach((item) => { if (item !== wrapper) closeDropdown(item); });
+      const trigger = wrapper.querySelector('[data-dropdown-trigger]');
+      const panel = wrapper.querySelector('[data-dropdown-panel]');
+      if (!trigger || !panel) return;
+      panel.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    dropdowns.forEach((wrapper) => {
+      const trigger = wrapper.querySelector('[data-dropdown-trigger]');
+      const panel = wrapper.querySelector('[data-dropdown-panel]');
+      if (!trigger || !panel) return;
+      const toggle = () => (panel.hidden ? openDropdown(wrapper) : closeDropdown(wrapper));
+      trigger.addEventListener('click', toggle);
+      trigger.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle(); }
+        if (event.key === 'ArrowDown' && panel.hidden) { event.preventDefault(); openDropdown(wrapper); focusables(panel)[0]?.focus(); }
+        if (event.key === 'Escape' && !panel.hidden) { event.preventDefault(); closeDropdown(wrapper); trigger.focus(); }
+      });
+      panel.addEventListener('keydown', (event) => {
+        const items = focusables(panel);
+        const index = items.indexOf(document.activeElement);
+        if (event.key === 'Escape') { event.preventDefault(); closeDropdown(wrapper); trigger.focus(); }
+        if (event.key === 'ArrowDown') { event.preventDefault(); items[(index + 1 + items.length) % items.length]?.focus(); }
+        if (event.key === 'ArrowUp') { event.preventDefault(); items[(index - 1 + items.length) % items.length]?.focus(); }
+      });
+    });
+    document.addEventListener('click', (event) => {
+      dropdowns.forEach((wrapper) => { if (!wrapper.contains(event.target)) closeDropdown(wrapper); });
+    });
+    const button = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (button && menu) {
+      const openLabel = button.getAttribute('aria-label') || 'Menu';
+      const closeLabel = button.dataset.closeLabel || openLabel;
+      button.addEventListener('click', () => {
+        const isOpen = !menu.hidden;
+        menu.hidden = isOpen;
+        button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        button.setAttribute('aria-label', isOpen ? openLabel : closeLabel);
+      });
+      menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        menu.hidden = true;
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', openLabel);
+      }));
+    }
+  })();
+</script>

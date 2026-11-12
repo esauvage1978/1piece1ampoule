@@ -1,0 +1,72 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'interrupteur-connecte-sans-neutre')!;
+const decision = [
+  { cas: 'Je ne veux toucher à aucun fil', opt: 'Ampoule connectée + télécommande murale sans fil', budget: '15 à 40 € par point', att: 'L’interrupteur doit rester en marche ; une ampoule par douille (lustre à 5 douilles = 5 ampoules)' },
+  { cas: 'Je garde mon interrupteur, j’ai une passerelle Zigbee', opt: 'Module Zigbee sans neutre (min 3 W selon modèle)', budget: '≈ 20 € (+ passerelle 30 à 60 € si absente)', att: 'Ne relaie pas le Zigbee : un routeur à proximité aide' },
+  { cas: 'Je garde mon interrupteur, je veux du Wi-Fi sans passerelle', opt: 'Module Wi-Fi sans neutre + bypass au plafonnier', budget: '≈ 25 à 35 €', att: 'Bypass obligatoire avec des LED ; accès au plafonnier nécessaire' },
+  { cas: 'Va-et-vient (2 interrupteurs)', opt: 'Module qui gère le va-et-vient, câblé côté interrupteur qui reçoit la phase', budget: '≈ 20 à 35 €', att: 'Vérifie la notice : certains modules ne gèrent que le simple allumage' },
+  { cas: 'Lustre à plusieurs ampoules, 20 W ou plus de LED', opt: 'Module Zigbee ou Wi-Fi ; le bypass devient souvent inutile', budget: '≈ 20 à 35 €', att: 'Reste sous la charge maximale du module' },
+  { cas: 'Télérupteur avec boutons-poussoirs', opt: 'Module au tableau, ou remplacement par un télérupteur connecté', budget: 'variable', att: 'Intervention au tableau : électricien conseillé' },
+];
+---
+<Tutorial t={t}>
+  <h2 id="pourquoi">Pourquoi ça scintille sans neutre</h2>
+  <p>Un interrupteur classique ne consomme rien : il ouvre ou ferme la phase. Un module connecté, lui, doit rester alimenté en permanence pour écouter le Wi-Fi ou le Zigbee, même lumière éteinte. Sans neutre dans la boîte, la seule façon de boucler son circuit est de <strong>faire passer un petit courant à travers l’ampoule</strong>, jusqu’au neutre du plafonnier.</p>
+  <ul>
+    <li>Avec une <strong>ampoule à incandescence</strong> (filament froid de quelques dizaines d’ohms), ce courant passe sans rien allumer : c’est pour ça que les anciens variateurs 2 fils marchaient sans souci.</li>
+    <li>Avec une <strong>LED</strong>, le courant charge le condensateur de son électronique. Quand il est assez chargé, la LED s’allume une fraction de seconde (flash), ou luit en continu. Et si l’électronique de la LED bloque trop le courant, c’est le module qui manque d’énergie et se déconnecte.</li>
+  </ul>
+  <p>Ordre de grandeur : un module qui consomme 0,3 W en veille a besoin d’environ 1,5 mA sous 230V (0,3 ÷ 230). Ces quelques dixièmes de watt suffisent à faire luire une LED de 3 à 5 W. Le <strong>bypass</strong> est un petit composant posé en parallèle de l’ampoule : il offre au courant de veille un chemin vers le neutre qui ne passe plus par la LED. Les fabricants de modules récents réduisent ce courant au point que certains annoncent un fonctionnement dès 3 W de LED, sans bypass.</p>
+
+  <h2 id="decision">Tableau de décision</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[680px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Ton cas</th><th class="p-3">Option</th><th class="p-3">Budget indicatif</th><th class="p-3">À savoir</th></tr></thead>
+      <tbody>{decision.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.cas}</th><td class="p-3">{r.opt}</td><td class="p-3">{r.budget}</td><td class="p-3 text-stone-600">{r.att}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Budgets constatés en octobre 2026 sur des produits courants ; ils varient selon les marques. Pour choisir le protocole, voir <a class="underline" href="/articles/ampoule-connectee-wifi-ou-zigbee/">Wi-Fi ou Zigbee</a>.</figcaption>
+  </figure>
+
+  <h2 id="zigbee-wifi">Zigbee ou Wi-Fi : quels modules sans neutre ?</h2>
+  <p>Le choix du protocole décide presque tout le reste. Un <strong>interrupteur Zigbee sans neutre</strong> consomme très peu, ce qui limite le scintillement, mais il lui faut une passerelle (Home Assistant, Hue Bridge, Aqara, SONOFF). Le Wi-Fi se passe de passerelle, au prix d’une consommation plus forte et d’un bypass presque toujours nécessaire avec des LED.</p>
+  <ul>
+    <li><strong>SONOFF ZBMini-L2 (Zigbee)</strong> : module derrière l’interrupteur existant, dès 3 W de charge, le plus économique.</li>
+    <li><strong>Aqara T1 sans neutre (Zigbee)</strong> : module compact, s’intègre bien à l’écosystème Aqara et à Apple Maison via la passerelle.</li>
+    <li><strong>Legrand Céliane with Netatmo (Zigbee)</strong> : remplace l’interrupteur complet, finition soignée, plus cher mais sans module caché.</li>
+    <li><strong>Shelly 1L Gen3 (Wi-Fi)</strong> : sans passerelle, pilotable en local, mais bypass requis pour toute charge LED.</li>
+  </ul>
+  <h2 id="schema">Schéma de câblage</h2>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 280" role="img" aria-labelledby="svg5t" class="h-auto w-full">
+      <title id="svg5t">Schéma : la phase arrive dans la boîte d’interrupteur, le module sans neutre est placé derrière l’interrupteur, le retour lampe monte au plafonnier où le bypass est branché en parallèle de l’ampoule entre retour lampe et neutre</title>
+      <rect x="20" y="120" width="220" height="140" rx="10" fill="#f5f5f4" stroke="#a8a29e" /><text x="130" y="140" font-size="12" text-anchor="middle" fill="#57534e">boîte d’interrupteur (pas de neutre)</text>
+      <rect x="400" y="20" width="260" height="120" rx="10" fill="#f5f5f4" stroke="#a8a29e" /><text x="530" y="40" font-size="12" text-anchor="middle" fill="#57534e">plafonnier (le neutre est là)</text>
+      <text x="20" y="100" font-size="11" fill="#dc2626">phase (L) depuis le tableau</text><path d="M60 106 L60 190 L90 190" stroke="#dc2626" stroke-width="2.5" fill="none" />
+      <rect x="90" y="165" width="90" height="50" rx="6" fill="#e0f2fe" stroke="#0369a1" /><text x="135" y="186" font-size="11" text-anchor="middle">module</text><text x="135" y="200" font-size="10" text-anchor="middle" fill="#57534e">L in · O / L out</text>
+      <rect x="195" y="170" width="30" height="40" rx="4" fill="#fff" stroke="#1c1917" /><text x="210" y="228" font-size="10" text-anchor="middle">inter</text><line x1="180" y1="200" x2="195" y2="200" stroke="#57534e" /><text x="210" y="245" font-size="9" text-anchor="middle" fill="#57534e">S1/S2</text>
+      <path d="M180 178 L 300 178 L 300 90 L 470 90" stroke="#ea580c" stroke-width="2.5" fill="none" /><text x="310" y="84" font-size="11" fill="#ea580c">retour lampe (O)</text>
+      <circle cx="500" cy="90" r="22" fill="#fef3c7" stroke="#1c1917" /><text x="500" y="94" font-size="10" text-anchor="middle">LED</text>
+      <path d="M522 90 L 630 90" stroke="#2563eb" stroke-width="2.5" /><text x="630" y="82" font-size="11" text-anchor="end" fill="#2563eb">neutre (N)</text>
+      <path d="M470 90 L470 120 L 545 120" stroke="#ea580c" stroke-width="2" fill="none" /><rect x="545" y="110" width="44" height="20" rx="4" fill="#cffafe" stroke="#0e7490" /><text x="567" y="124" font-size="10" text-anchor="middle">bypass</text><path d="M589 120 L610 120 L610 90" stroke="#2563eb" stroke-width="2" fill="none" />
+      <text x="520" y="160" font-size="10" text-anchor="middle" fill="#57534e">le bypass se met en parallèle de l’ampoule,</text><text x="520" y="174" font-size="10" text-anchor="middle" fill="#57534e">jamais dans la boîte d’interrupteur</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma de principe réalisé par 1 pièce 1 ampoule. Le nom des bornes varie selon les fabricants : suis toujours le schéma de la notice de ton module.</figcaption>
+  </figure>
+
+  <h2 id="charge">Vérifier la charge minimale</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[560px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Éclairage raccordé</th><th class="p-3">Puissance réelle</th><th class="p-3">Module annoncé dès 3 W</th><th class="p-3">Module qui exige un bypass pour les LED</th></tr></thead>
+      <tbody>
+        <tr class="border-t border-stone-100"><td class="p-3">1 ampoule LED E14 de 2,5 W</td><td class="p-3">2,5 W</td><td class="p-3 text-red-700">sous le minimum : bypass</td><td class="p-3 text-amber-700">bypass</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">1 ampoule LED E27 de 8 W</td><td class="p-3">8 W</td><td class="p-3 text-emerald-700">OK</td><td class="p-3 text-amber-700">bypass</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">4 spots GU10 de 5 W</td><td class="p-3">20 W</td><td class="p-3 text-emerald-700">OK</td><td class="p-3 text-amber-700">bypass</td></tr>
+        <tr class="border-t border-stone-100"><td class="p-3">Lustre 5 × 40 W filament</td><td class="p-3">200 W</td><td class="p-3 text-emerald-700">OK</td><td class="p-3 text-emerald-700">OK sans bypass (incandescence)</td></tr>
+      </tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">D’après les fiches SONOFF ZBMINIL2 (dès 3 W) et Shelly 1L Gen3 (bypass requis pour toute charge LED). Même au-dessus du minimum, certaines LED bon marché scintillent : le bypass reste la solution de secours.</figcaption>
+  </figure>
+  <p>Ton circuit est en GU5.3 12V derrière un transfo ? Les modules sans neutre fonctionnent mal avec les transfos ferromagnétiques (charge inductive). Commence par le tuto <a href="/tutoriels/remplacer-halogene-gu10-mr16-par-led/">halogène vers LED sans clignotement</a>.</p>
+</Tutorial>

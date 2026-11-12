@@ -1,0 +1,11 @@
+---
+import BlackFridayHub from '../../../components/BlackFridayHub.astro';
+import { categoryPaths } from '../../../content/black-friday-2026';
+
+export function getStaticPaths() {
+  return categoryPaths('uk');
+}
+
+const { catId } = Astro.props;
+---
+<BlackFridayHub locale="uk" catId={catId} />

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LumensKelvinIrcTool from '../../components/LumensKelvinIrcTool.astro';
+---
+<Layout title="Lichtsimulator: Lumen, Kelvin und Farbwiedergabe für jeden Raum | 1 pièce 1 ampoule" description="Sehen Sie vor dem Kauf, wie Lumen, Farbtemperatur (Kelvin) und Farbwiedergabe (CRI) Wohnzimmer, Schlafzimmer, Küche, Bad, Arbeitszimmer oder Garage verändern.">
+  <section class="mt-10">
+    <p class="text-sm font-semibold text-amber-700">Kostenloses Werkzeug</p>
+    <h1 class="mt-2 text-3xl text-stone-900 sm:text-4xl">Lichtsimulator für jeden Raum</h1>
+    <p class="mt-3 max-w-3xl text-stone-600">Erst ansehen, dann kaufen: wie viele Lumen, welches Weiß und welche Farbwiedergabe Ihr Raum braucht. Die Hintergründe: <a class="font-semibold text-amber-700" href="/de/ratgeber/lumen-watt/">Lumen und Watt</a>, <a class="font-semibold text-amber-700" href="/de/ratgeber/farbtemperatur-kelvin/">Farbtemperatur</a>, <a class="font-semibold text-amber-700" href="/de/ratgeber/farbwiedergabe-cri-ra/">Farbwiedergabe</a>, <a class="font-semibold text-amber-700" href="/de/anleitungen/lux-lumen-pro-raum-berechnen/">Lux pro Raum berechnen</a>.</p>
+  </section>
+  <LumensKelvinIrcTool lang="de" />
+  <section class="mt-10 grid gap-4 md:grid-cols-3">
+    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"><h2 class="text-lg text-stone-900">Garage und Werkstatt</h2><p class="mt-2 text-sm text-stone-600">Viel Licht, neutral- oder kaltweiß, und ein hoher CRI-Wert, wenn Details zählen: Werkzeug, Markierungen, Farbe.</p></div>
+    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"><h2 class="text-lg text-stone-900">Wohn- und Schlafzimmer</h2><p class="mt-2 text-sm text-stone-600">Warmweiß bei mittlerer Helligkeit, abends mit Dimmer. Mehrere Lichtquellen sind besser als eine starke Deckenleuchte.</p></div>
+    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"><h2 class="text-lg text-stone-900">Woher die Werte kommen</h2><p class="mt-2 text-sm text-stone-600">Die Bereiche beruhen auf üblichen Beleuchtungsstärken (Lux) mal einer typischen Raumfläche. Der Bildschirm zeigt echtes Licht nur annähernd.</p></div>
+  </section>
+</Layout>

@@ -1,0 +1,57 @@
+---
+import Tutorial from '../../components/Tutorial.astro';
+import { TUTORIELS } from '../../content/tutoriels';
+const t = TUTORIELS.find((x) => x.slug === 'eclairage-bureau-teletravail-lux-irc-kelvin')!;
+const NIVEAUX = [
+  { z: 'Plan de travail (clavier, documents)', lux: '500 lux', k: '4000K le jour, 3000K le soir', irc: '≥ 90 conseillé (≥ 80 minimum)' },
+  { z: 'Reste de la pièce', lux: '200 à 300 lux', k: '3000 à 4000K', irc: '≥ 80' },
+  { z: 'Visioconférence (visage)', lux: '300 à 500 lux sur le visage, de face ou de côté', k: 'Même teinte que la pièce', irc: '≥ 90 pour un teint naturel' },
+  { z: 'Pause, fin de soirée', lux: '100 à 150 lux', k: '2700K', irc: '≥ 80' },
+];
+const CALC = [
+  { e: 'Surface', v: '3 m × 3 m = 9 m²' },
+  { e: 'Objectif d’ambiance', v: '250 lux' },
+  { e: 'Coefficient K (murs clairs, plafond à 2,50 m)', v: '2,5' },
+  { e: 'Lumens pour la pièce', v: '250 × 9 × 2,5 ≈ 5 600 lm' },
+  { e: 'Solution', v: 'plafonnier 2 800 lm + lampadaire indirect 2 500 lm, ou 4 spots GU10 de 450 lm + lampadaire' },
+  { e: 'Plan de travail', v: 'lampe de bureau qui apporte 500 à 900 lux à 40 cm, en plus de l’ambiance' },
+];
+---
+<Tutorial t={t}>
+  <p>Travailler chez soi, c’est souvent travailler dans une pièce pensée pour autre chose : une chambre d’amis, un coin du salon, une mezzanine. L’éclairage y est réglé pour la détente, autour de 100 à 200 lux. Pour huit heures d’écran, il faut changer deux choses : beaucoup plus de lumière sur le plan de travail, et une pièce qui ne reste pas dans la pénombre autour.</p>
+
+  <h2 id="niveaux">Les bons niveaux de lumière</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[600px] text-sm">
+      <thead class="bg-stone-50 text-left"><tr><th class="p-3">Zone</th><th class="p-3">Lux visés</th><th class="p-3">Teinte</th><th class="p-3">IRC</th></tr></thead>
+      <tbody>{NIVEAUX.map((r) => <tr class="border-t border-stone-100"><th class="p-3 text-left font-medium">{r.z}</th><td class="p-3">{r.lux}</td><td class="p-3">{r.k}</td><td class="p-3">{r.irc}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">D’après la norme EN 12464-1 pour le travail sur écran, adaptée à un bureau à la maison.</figcaption>
+  </figure>
+
+  <h2 id="placement">Placer la lampe et l’écran</h2>
+  <figure class="not-prose my-6 rounded-2xl border border-stone-200 bg-white p-4">
+    <svg viewBox="0 0 680 260" role="img" aria-labelledby="bt" class="h-auto w-full">
+      <title id="bt">Vue de dessus d’un bureau de télétravail : fenêtre sur le côté, écran face à l’utilisateur, lampe à gauche pour un droitier</title>
+      <rect x="0" y="0" width="680" height="260" fill="#fafaf9" />
+      <rect x="620" y="40" width="16" height="180" fill="#bae6fd" /><text x="610" y="135" font-size="12" text-anchor="end" fill="#075985">fenêtre sur le côté</text>
+      <rect x="180" y="70" width="320" height="120" rx="8" fill="#e7e5e4" stroke="#78716c" /><text x="340" y="182" font-size="11" text-anchor="middle" fill="#57534e">bureau</text>
+      <rect x="270" y="80" width="140" height="12" rx="3" fill="#1c1917" /><text x="340" y="110" font-size="11" text-anchor="middle">écran (perpendiculaire à la fenêtre)</text>
+      <circle cx="210" cy="100" r="16" fill="#f59e0b" /><text x="210" y="60" font-size="11" text-anchor="middle">lampe à gauche</text>
+      <path d="M210 116 L 300 165 L 230 175 Z" fill="#fde68a" opacity="0.7" /><text x="250" y="155" font-size="10" fill="#92400e">500 lux</text>
+      <circle cx="340" cy="225" r="18" fill="#a8a29e" /><text x="340" y="252" font-size="11" text-anchor="middle">toi (droitier)</text>
+      <line x1="60" y1="40" x2="60" y2="220" stroke="#d6d3d1" stroke-width="10" /><text x="60" y="30" font-size="11" text-anchor="middle" fill="#57534e">lampadaire indirect</text>
+    </svg>
+    <figcaption class="mt-2 text-xs text-stone-500">Schéma réalisé par 1 pièce 1 ampoule. Gaucher : on inverse simplement la lampe.</figcaption>
+  </figure>
+  <p>La règle d’or : <strong>aucune source lumineuse dans l’axe de l’écran</strong>, ni devant toi (éblouissement), ni derrière toi (reflets). La fenêtre se place sur le côté. Si ce n’est pas possible, un voilage ou un store suffit à casser le contre-jour en journée.</p>
+
+  <h2 id="calcul">Exemple chiffré : bureau de 9 m²</h2>
+  <figure class="not-prose my-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+    <table class="w-full min-w-[520px] text-sm">
+      <tbody>{CALC.map((r) => <tr class="border-t border-stone-100 first:border-t-0"><th class="p-3 text-left font-medium">{r.e}</th><td class="p-3">{r.v}</td></tr>)}</tbody>
+    </table>
+    <figcaption class="border-t border-stone-100 px-4 py-3 text-xs text-stone-500">Méthode détaillée (et le coefficient K) dans le <a class="underline" href="/tutoriels/calculer-eclairage-piece-lux/">tutoriel sur le calcul en lux</a>. Le <a class="underline" href="/outils/">simulateur</a> fait le calcul pour ta pièce.</figcaption>
+  </figure>
+  <p>Le chiffre surprend souvent : 5 600 lumens, c’est l’équivalent de cinq ou six ampoules de 100 W d’autrefois. C’est pourtant ce qu’il faut pour que la pièce entière soit agréable en hiver, quand la lumière du jour disparaît en milieu d’après-midi. Pour le choix des ampoules, notre <a href="/meilleur/meilleure-ampoule-led-e27/">comparatif des ampoules E27</a> indique l’IRC de chaque modèle, et celui des <a href="/meilleur/meilleure-lampe-de-bureau-led/">lampes de bureau LED</a> leur teinte réglable, leur mode de fixation et leur usage conseillé.</p>
+</Tutorial>

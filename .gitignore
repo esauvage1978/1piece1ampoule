@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+public/cron/historique.json
+public/cron/*.tmp
+prive/
+
+# Sauvegardes locales
+*.bak-*

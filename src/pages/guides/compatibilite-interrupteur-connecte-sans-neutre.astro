@@ -1,0 +1,112 @@
+---
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
+import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
+import Layout from '../../layouts/Layout.astro';
+import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+const products = [
+  { id: 'shelly-1l', name: 'Shelly 1L', proto: 'Wi-Fi', neutre: 'Non (2 fils)', minW: '3 W LED', bypass: 'Oui avec LED', dim: 'Non (ON/OFF)', note: 'Bypass au plafonnier ; pilotage local et cloud.' },
+  { id: 'shelly-d2', name: 'Shelly Dimmer 2', proto: 'Wi-Fi', neutre: 'Oui (N requis)', minW: '1 W', bypass: 'Parfois (LED faible)', dim: 'Oui', note: 'Nécessite le neutre en boîte — pas un vrai 2 fils.' },
+  { id: 'legrand-netatmo', name: 'Legrand Céliane with Netatmo', proto: 'Zigbee', neutre: 'Non (module 2 fils)', minW: '5 W', bypass: 'Souvent oui (LED)', dim: 'Variateur selon réf.', note: 'Finition interrupteur complet ; passerelle Netatmo.' },
+  { id: 'aqara-h1', name: 'Aqara H1 (sans neutre)', proto: 'Zigbee', neutre: 'Non', minW: '3 W', bypass: 'Souvent oui', dim: 'ON/OFF ou variante dim', note: 'Écosystème Aqara / Apple Maison via passerelle.' },
+  { id: 'sonoff-zbmini-l2', name: 'Sonoff ZBMini-L2', proto: 'Zigbee', neutre: 'Non', minW: '3 W', bypass: 'Recommandé LED', dim: 'Non', note: 'Module derrière interrupteur ; économique.' },
+  { id: 'schneider-wiser', name: 'Schneider Wiser', proto: 'Zigbee', neutre: 'Selon réf. (2 ou 3 fils)', minW: '5–10 W', bypass: 'Selon charge LED', dim: 'Variateur sur certaines refs', note: 'Vérifier la fiche exacte (interrupteur vs micromodule).' },
+];
+---
+
+<Layout description="Interrupteur connecté sans neutre : module deux fils, charge minimale LED et bypass au plafonnier. Matrice Shelly 1L, Legrand, Aqara, Sonoff et Schneider." title="Interrupteur connecté sans neutre : matrice Shelly, Legrand, Aqara, Sonoff, Schneider" type="article">
+<section class="mt-10">
+<div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+<p class="text-sm font-semibold text-amber-700">Guide technique · domotique</p>
+<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Matrice : interrupteur connecté sans neutre</h1>
+<p class="mt-4 max-w-3xl text-stone-600">
+        En France, beaucoup de boîtes d’interrupteur n’ont <strong>pas de neutre</strong>. Les modules « 2 fils » bouclent un courant de veille à travers l’ampoule : avec des <strong>LED</strong>, il faut souvent un <strong>bypass</strong> au plafonnier.
+        Filtrez la matrice, puis lisez le <a class="font-semibold text-amber-700" href="/tutoriels/interrupteur-connecte-sans-neutre/">tutoriel sans neutre</a> et le <a class="font-semibold text-amber-700" href="/guides/ampoule-led-clignote-eteinte-gresille-depannage/">dépannage lueur résiduelle</a>.
+      </p>
+</div>
+</section>
+<CrossLinkOutilsDepannage variant="vers-depannage" />
+<section class="mt-8 rounded-3xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-xl font-bold">Filtres</h2>
+<div class="mt-4 flex flex-wrap gap-3 text-sm" id="nn-filters">
+<label class="flex items-center gap-2 rounded-full border border-stone-300 px-3 py-1.5"><input checked="" id="f-wifi" type="checkbox"/> Wi-Fi</label>
+<label class="flex items-center gap-2 rounded-full border border-stone-300 px-3 py-1.5"><input checked="" id="f-zigbee" type="checkbox"/> Zigbee</label>
+<label class="flex items-center gap-2 rounded-full border border-stone-300 px-3 py-1.5"><input id="f-nobypass" type="checkbox"/> Sans bypass obligatoire (charge ≥ 5 W)</label>
+<label class="flex items-center gap-2 rounded-full border border-stone-300 px-3 py-1.5"><input id="f-dim" type="checkbox"/> Variation / dimmer</label>
+</div>
+<div class="mt-6 overflow-x-auto">
+<table class="min-w-[720px] w-full text-sm" id="nn-table">
+<thead class="bg-stone-100">
+<tr>
+<th class="px-3 py-2 text-left">Produit</th>
+<th class="px-3 py-2 text-left">Protocole</th>
+<th class="px-3 py-2 text-left">Sans neutre</th>
+<th class="px-3 py-2 text-left">Charge min.</th>
+<th class="px-3 py-2 text-left">Bypass LED</th>
+<th class="px-3 py-2 text-left">Dim</th>
+<th class="px-3 py-2 text-left">Note</th>
+</tr>
+</thead>
+<tbody>
+          {products.map((p) => (
+            <tr class="border-t border-stone-200 nn-row text-stone-600" data-bypass={p.bypass} data-dim={p.dim} data-id={p.id} data-proto={p.proto}>
+<td class="px-3 py-2 font-semibold text-stone-900">{p.name}</td>
+<td class="px-3 py-2">{p.proto}</td>
+<td class="px-3 py-2">{p.neutre}</td>
+<td class="px-3 py-2">{p.minW}</td>
+<td class="px-3 py-2">{p.bypass}</td>
+<td class="px-3 py-2">{p.dim}</td>
+<td class="px-3 py-2">{p.note}</td>
+</tr>
+          ))}
+        </tbody>
+</table>
+</div>
+<p class="mt-3 text-xs text-stone-500">Données indicatives d’après notices fabricants ; vérifiez la référence exacte avant achat. Coupez le courant au tableau pour toute pose.</p>
+</section>
+<script is:inline>
+    (function () {
+      function apply() {
+        var wifi = document.getElementById('f-wifi').checked;
+        var zig = document.getElementById('f-zigbee').checked;
+        var noBp = document.getElementById('f-nobypass').checked;
+        var dim = document.getElementById('f-dim').checked;
+        document.querySelectorAll('.nn-row').forEach(function (tr) {
+          var proto = tr.getAttribute('data-proto') || '';
+          var bypass = (tr.getAttribute('data-bypass') || '').toLowerCase();
+          var d = (tr.getAttribute('data-dim') || '').toLowerCase();
+          var okProto = (wifi && proto.indexOf('Wi-Fi') >= 0) || (zig && proto.indexOf('Zigbee') >= 0);
+          var okBp = !noBp || bypass.indexOf('souvent') < 0 && bypass.indexOf('oui') < 0;
+          var okDim = !dim || d.indexOf('oui') >= 0 || d.indexOf('variateur') >= 0;
+          tr.style.display = okProto && okBp && okDim ? '' : 'none';
+        });
+      }
+      ['f-wifi', 'f-zigbee', 'f-nobypass', 'f-dim'].forEach(function (id) {
+        document.getElementById(id).addEventListener('change', apply);
+      });
+      apply();
+    })();
+  </script>
+<SavWave1Compliance />
+<section class="mt-10">
+<h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+<div class="mt-6 grid gap-4 md:grid-cols-2">
+<ProductCard badge="Zigbee" keywords="module zigbee sans neutre interrupteur" subtitle="Derrière interrupteur" title="Module sans neutre Zigbee" />
+<ProductCard badge="Bypass" keywords="bypass led sans neutre module" subtitle="Lueur et scintillement" title="Bypass LED interrupteur sans neutre" />
+</div>
+</section>
+<section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
+<h2 class="text-lg font-bold">Maillage : outils et guides</h2>
+<ul class="mt-3 space-y-1 text-sm text-stone-600">
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/outils/convertisseur-lux-lumens-watts-surface/">Convertisseur lux ↔ lumens</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/configurateur-kit-eclairage-connecte-sans-neutre/">Configurateur kit connecté</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">Matrice variateur × LED</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/matrice-matter-thread-philips-hue-aqara-govee/">Matrice Matter / Thread</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/articles/ampoule-connectee-wifi-ou-zigbee/">Wi-Fi ou Zigbee</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/tutoriels/appairer-module-zigbee-sans-neutre-sonoff-aqara/">Appairer un module Zigbee sans neutre</a></li>
+<li><a class="font-semibold text-amber-700 hover:text-amber-800" href="/marques/philips-hue/">Écosystème Hue</a></li>
+</ul>
+</section>
+<RelatedComparatifs />
+</Layout>

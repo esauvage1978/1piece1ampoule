@@ -1,0 +1,22 @@
+---
+import ProductIcon from './ProductIcon.astro';
+import { productIcon, type Product } from '../content/products';
+
+type Props = { product: Product; size?: 'sm' | 'md' };
+const { product, size = 'md' } = Astro.props;
+const icon = productIcon(product.type);
+const alt = `${product.type} — ${product.name}`;
+const box = size === 'sm' ? 'h-16 w-16' : 'h-20 w-20';
+const iconCls = size === 'sm' ? 'h-12 w-12' : 'h-14 w-14';
+---
+
+<figure class="shrink-0">
+  <div
+    class:list={['mx-auto grid place-items-center rounded-xl bg-gradient-to-br from-amber-50 to-orange-100 ring-1 ring-amber-200', box]}
+    role="img"
+    aria-label={alt}
+  >
+    <ProductIcon name={icon} class={iconCls} />
+  </div>
+  <figcaption class="mt-1 max-w-[9rem] text-center text-[10px] leading-snug text-stone-500">{product.brand}</figcaption>
+</figure>

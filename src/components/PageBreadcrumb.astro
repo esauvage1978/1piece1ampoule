@@ -1,0 +1,20 @@
+---
+type Crumb = { href?: string; label: string };
+type Props = { items: Crumb[] };
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumb mt-4 text-sm text-stone-500" aria-label="Fil d'Ariane">
+  {
+    items.map((item, i) => (
+      <>
+        {i > 0 && <span aria-hidden="true"> › </span>}
+        {item.href ? (
+          <a class="font-semibold text-amber-800 hover:underline" href={item.href}>{item.label}</a>
+        ) : (
+          <span class="text-stone-700">{item.label}</span>
+        )}
+      </>
+    ))
+  }
+</nav>

@@ -1,38 +1,44 @@
 ---
+import ToolTeaser from '../../components/ToolTeaser.astro';
+import ExtraAwinPartner from '../../components/ExtraAwinPartner.astro';
+import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 ---
 
-<Layout
-  title="Kelvin : température de couleur (blanc chaud/neutre/froid) — Choisir son ampoule"
-  description="Comprendre les Kelvin pour choisir le bon blanc : 2700K cosy, 4000K neutre, 6500K très froid. Exemples + sélections produits."
+<Layout type="article"
+  title="2700 kelvin : blanc chaud, et la différence avec 3000 K et 4000 K"
+  description="2700 K est un blanc chaud, proche d’une ancienne ampoule à incandescence, pour le séjour, la chambre et la table. 3000 K, 4000 K et 6500 K changent la teinte, pas les lumens."
 >
   <section class="mt-10">
-    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-      <p class="text-sm font-semibold text-amber-300/90">Guide technique</p>
-      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Kelvin : la température de couleur</h1>
-      <p class="mt-4 max-w-2xl text-white/75">
-        Les Kelvin (\(K\)) décrivent la “teinte” du blanc. En pratique : plus c’est bas, plus c’est chaleureux (jaune/orangé). Plus c’est haut, plus c’est froid (blanc bleuté).
+    <div class="rounded-3xl border border-stone-200 bg-white shadow-sm p-8">
+      <p class="text-sm font-semibold text-amber-700">Guide technique</p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">2700 kelvin : blanc chaud</h1>
+      <p class="mt-4 max-w-2xl text-stone-600">
+        <strong>2700 K</strong>, c’est un blanc chaud, jaune, proche d’une ancienne ampoule à incandescence. Il va au séjour, à la chambre et à la table. Il n’éclaire pas plus qu’un 4000 K : à lumens égaux, seule la teinte change. 3000 K reste chaud, 4000 K est neutre, 6500 K tire vers le bleu.
       </p>
     </div>
 
+    <ToolTeaser />
+
     <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">2700–3000 K</h2>
-        <p class="mt-2 text-sm text-white/75">Blanc chaud. Salon, chambre, zones détente.</p>
+        <p class="mt-2 text-sm text-stone-600">Blanc chaud. Salon, chambre, zones détente.</p>
       </article>
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">3500–4500 K</h2>
-        <p class="mt-2 text-sm text-white/75">Blanc neutre. Cuisine, bureau, salle de bain.</p>
+        <p class="mt-2 text-sm text-stone-600">Blanc neutre. Cuisine, bureau, salle de bain.</p>
       </article>
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <article class="rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
         <h2 class="text-lg font-bold">5000–6500 K</h2>
-        <p class="mt-2 text-sm text-white/75">Blanc froid. Garage/atelier, zones techniques.</p>
+        <p class="mt-2 text-sm text-stone-600">Blanc froid. Garage/atelier, zones techniques.</p>
       </article>
     </div>
 
     <section class="mt-10">
       <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
+      <p class="mt-1 text-sm text-stone-600">Sur une ampoule connectée Hue ou Tapo, le blanc réglable s’appelle souvent <strong>CCT</strong> (température de couleur réglable) : vous choisissez la teinte dans l’application, de 2700 K à 6500 K selon les modèles.</p>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
         <ProductCard title="Ampoule E27 2700K" subtitle="Ambiance cosy (salon/chambre)" keywords="ampoule led e27 2700k" />
         <ProductCard title="Ampoule E27 4000K" subtitle="Blanc neutre (cuisine/bureau)" keywords="ampoule led e27 4000k" />
@@ -41,15 +47,47 @@ import ProductCard from '../../components/ProductCard.astro';
       </div>
     </section>
 
-    <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
       <h2 class="text-lg font-bold">Pour aller plus loin</h2>
-      <p class="mt-2 text-sm text-white/75">
-        Après la teinte (Kelvin), pense à la qualité des couleurs avec <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/irc-indice-rendu-couleur">IRC</a>,
-        et à la puissance utile via <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/lumens-vs-watts">lumens vs watts</a>.
-        Pour choisir le bon format : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/culots-e27-e14-gu10">culots</a>.
-        Et si tu veux régler l'intensité : <a class="font-semibold text-amber-300 hover:text-amber-200" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+      <p class="mt-2 text-sm text-stone-600">
+        Après la teinte (Kelvin), pensez à la qualité des couleurs avec <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur">IRC</a>,
+        et à la puissance utile via <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts">lumens vs watts</a>.
+        Pour choisir le bon format : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/culots-e27-e14-gu10">culots</a>.
+        Et si vous voulez régler l'intensité : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/ampoules-dimmables-variateur">dimmable & variateur</a>.
+        Vous repeignez ? <a class="font-semibold text-amber-700 hover:text-amber-800" href="/peinture/peinture-eclairage-couleur-finition/">peinture et éclairage</a>.
       </p>
     </section>
   </section>
+  <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6 text-sm text-stone-700 space-y-3">
+    <h2 class="text-lg font-bold text-stone-900">2700K ou 4000K : quelle teinte pour quelle pièce ?</h2>
+    <div class="rounded-xl bg-amber-50/80 p-4 text-sm space-y-2 ring-1 ring-amber-100">
+      <p><strong>Salon :</strong> 2700 K pour le canapé, 4000 K seulement sur une lampe de lecture si vous lisez souvent.</p>
+      <p><strong>Cuisine :</strong> 4000 K sous les meubles hauts ; 2700–3000 K au-dessus de la table.</p>
+      <p><strong>Salle de bain :</strong> 4000 K au miroir pour se raser ou se maquiller ; 3000 K en plafonnier pour le bain.</p>
+    </div>
+    <div class="overflow-x-auto mt-4"><table class="w-full text-sm"><thead><tr class="text-left"><th class="py-1 pr-3">Teinte</th><th class="py-1 pr-3">Rendu</th><th class="py-1 pr-3">Pièces typiques</th><th class="py-1">Ambiance</th></tr></thead><tbody>
+      <tr class="border-t border-stone-100"><td class="py-1 pr-3">2200–2700K</td><td class="pr-3">blanc chaud, proche de l’incandescence</td><td class="pr-3">salon, chambre, salle à manger</td><td>cocon, détente, soirée</td></tr>
+      <tr class="border-t border-stone-100"><td class="py-1 pr-3">3000K</td><td class="pr-3">blanc chaud « propre »</td><td class="pr-3">salle de bain, cuisine conviviale</td><td>compromis confort / clarté</td></tr>
+      <tr class="border-t border-stone-100"><td class="py-1 pr-3">4000K</td><td class="pr-3">blanc neutre</td><td class="pr-3">plan de travail, bureau, garage</td><td>travail, précision</td></tr>
+      <tr class="border-t border-stone-100"><td class="py-1 pr-3">5000–6500K</td><td class="pr-3">blanc froid, bleuté (peau paraît pâle en séjour)</td><td class="pr-3">atelier, buanderie, cave technique</td><td>éclairage technique — évitez en pièce de vie le soir</td></tr>
+    </tbody></table></div>
+    <p><strong>2700K</strong> : salon, chambre, salle à manger, couloir le soir. Elle flatte les visages et le bois. <strong>4000K</strong> : plan de travail de cuisine, bureau, miroir de salle de bain, garage, buanderie, cave. Dans un salon, elle donne vite un effet « bureau ».</p>
+    <h3 class="font-bold text-stone-900">Mixer par zones</h3>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>Cuisine : 4000K sous les meubles hauts, 2700–3000K en suspension au-dessus de la table ou de l’îlot.</li>
+      <li>Salle de bain : 4000K au miroir, 3000K en plafonnier.</li>
+      <li>Bureau : 4000K sur le poste de travail, 2700K en lampe d’appoint pour le soir.</li>
+    </ul>
+    <p>Dans une même zone, garde la même teinte : une 4000K à côté d’une 2700K donne un effet patchwork. Une 4000K avec un IRC de 80 est souvent moins agréable qu’une 3000K à IRC 90 : voir le guide <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/irc-indice-rendu-couleur/">IRC</a>.</p>
+    <h3 class="font-bold text-stone-900">Choisir une ampoule E27 en 4000K</h3>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>Flux : environ 806 lm (équivalent 60 W) pour une petite pièce ou une lampe, 1055 à 1521 lm (équivalent 75 à 100 W) pour un plafonnier qui éclaire seul une cuisine ou un garage (équivalences : <a class="font-semibold text-amber-700 hover:text-amber-800" href="/guides/lumens-vs-watts/">lumens vs watts</a>).</li>
+      <li>Une forme standard A60 diffuse largement : bien pour un plafonnier nu ou un abat-jour ouvert.</li>
+      <li>Pour équiper une cuisine ou un garage, les lots de plusieurs ampoules réduisent le prix unitaire.</li>
+    </ul>
+    <p>Les ampoules connectées à blanc réglable (de 2200K à 6500K selon les modèles) conviennent aux pièces polyvalentes : voir <a class="font-semibold text-amber-700 hover:text-amber-800" href="/articles/ampoule-connectee-wifi-ou-zigbee/">Wi-Fi ou Zigbee</a>.</p>
+  </section>
+  <ExtraAwinPartner />
+  <RelatedComparatifs />
 </Layout>
 
