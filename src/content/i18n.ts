@@ -3,6 +3,7 @@ import { PRIORITY_GROUPS } from './i18n-priority';
 import { LOT3_EN_GROUPS } from './tr-lot3-en';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
 import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
+import { LOT6_EN_GROUPS } from './tr-lot6-en';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 export type Group = { fr: string; en?: string; uk?: string; ca?: string; de?: string; nl?: string; es?: string; it?: string };
 export const GROUPS: Group[] = [
@@ -77,6 +78,7 @@ export const GROUPS: Group[] = [
   ...LOT3_EN_GROUPS,
   ...LOT4_EN_GROUPS,
   ...LOT5_EN_GROUPS_ALL,
+  ...LOT6_EN_GROUPS,
   ...(PAIRES_PARTENAIRES as Group[]),
 ];
 export const langOf = (p: string) =>

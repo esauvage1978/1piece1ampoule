@@ -305,7 +305,7 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
 <tr><td>Single low-power LED below dimmer minimum → add load or “low load” dimmer</td><td>2–3</td><td>25–50 min</td><td>£10–50</td></tr>
 <tr><td>Smart switch without neutral + ghosting → manufacturer bypass at rose</td><td>3–4</td><td>30–90 min</td><td>£4–15 parts (+ electrician)</td></tr>
 </tbody></table>
-<p>Matrix: <a href="https://1piece1ampoule.fr/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">dimmer × LED</a> (FR). Smart bulbs: <a href="/en/guides/smart-led-troubleshooting/">troubleshooting hub</a>.</p>`,
+<p>Matrix: <a href="/en/guides/dimmer-led-bulb-matrix-gu10-e27-e14/">dimmer × LED</a>. Smart bulbs: <a href="/en/guides/smart-led-troubleshooting/">troubleshooting hub</a>.</p>`,
   }),
   {
     path: 'guides/matter-thread-matrix-philips-hue-aqara-govee',
