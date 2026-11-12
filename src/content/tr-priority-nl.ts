@@ -43,7 +43,7 @@ export const TR_PRIORITY_NL: EnPage[] = [
 <li>Eén balk per keukenlijn, met 2–3 cm marge aan elk einde voor eindkappen.</li>
 <li>Geen armatuur boven de gootsteen zonder de juiste <a href="/nl/gidsen/ip-beschermingsgraad-badkamer-buiten/">IP-classificatie</a>.</li>
 </ul>
-<p>Algemene keukenverlichting: <a href="/nl/ruimtes/kitchen/">keukengids</a> (wanneer gepubliceerd). Meer zones op het Franse <a href="https://1piece1ampoule.fr/zones/">zone-overzicht</a>.</p>`,
+<p>Algemene keukenverlichting: <a href="https://1piece1ampoule.fr/pieces/cuisine/">keukengids</a> (Franse versie, de Nederlandse pagina volgt). Meer zones op het Franse <a href="https://1piece1ampoule.fr/zones/">zone-overzicht</a>.</p>`,
   },
   {
     path: 'merken/luminaire-fr',
@@ -177,7 +177,7 @@ export const TR_PRIORITY_NL: EnPage[] = [
 <li>2-year manufacturer warranty on 3 h/day average use; software not covered.</li>
 </ul>
 <p>Support: Philips Hue help line 00800 7445 4775 (EU). Our picks: <a class="en-amz" href="https://www.amazon.nl/dp/B099NPGWCQ?tag=manuso0607-21" rel="nofollow sponsored noopener" target="_blank" data-asin="B099NPGWCQ" data-product="Hue White 2-pack">Prijs op Amazon.nl bekijken</a> <a class="en-amz" href="https://www.amazon.nl/dp/B0FJ8VXHRX?tag=manuso0607-21" rel="nofollow sponsored noopener" target="_blank" data-asin="B0FJ8VXHRX" data-product="White Ambiance">Prijs op Amazon.nl bekijken</a> <a class="en-amz" href="https://www.amazon.nl/dp/B099NRLRG3?tag=manuso0607-21" rel="nofollow sponsored noopener" target="_blank" data-asin="B099NRLRG3" data-product="Color starter kit">Prijs op Amazon.nl bekijken</a><p class="en-note">Listing data from manufacturer/Amazon pages checked 23 October 2026. Prices change — verify before buying. As an Amazon Associate I earn from qualifying purchases.</p>
-<p>Compare Wi-Fi: <a href="/nl/guides/smart-bulb-gift-ideas/">gift guide</a>. Zigbee vs Wi-Fi on the French <a href="https://1piece1ampoule.fr/articles/ampoule-connectee-wifi-ou-zigbee/">article</a>.</p>`,
+<p>Compare Wi-Fi: <a href="/nl/gidsen/smarte-lampen-cadeau-ideeen/">cadeaugids slimme lampen</a>. Zigbee vs Wi-Fi on the French <a href="https://1piece1ampoule.fr/articles/ampoule-connectee-wifi-ou-zigbee/">article</a>.</p>`,
   },
   {
     path: 'merken/osram-ledvance',
@@ -363,15 +363,8 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     h1: "Ruimtes",
     lead: "Ruimtetype kiezen voor lumen, kelvin, CRI en fittingen.",
     body: `<div class="en-grid">
-<a class="en-tile" href="/nl/ruimtes/kitchen/"><strong>Kitchen</strong><span>Worktop zones, ceiling and dining area.</span></a>
-<a class="en-tile" href="/nl/ruimtes/living-room/"><strong>Living room</strong><span>Layered light, dimming, 2700 K evenings.</span></a>
-<a class="en-tile" href="/nl/ruimtes/hallway/"><strong>Hallway</strong><span>Narrow corridors, 3500–4000 K, anti-shadow.</span></a>
-<a class="en-tile" href="/nl/ruimtes/dining-room/"><strong>Dining room</strong><span>Pendant over table, CRI for food.</span></a>
-<a class="en-tile" href="/nl/ruimtes/bathroom/"><strong>Bathroom</strong><span>IP zones, mirror light, CRI 90.</span></a>
-<a class="en-tile" href="/nl/ruimtes/bedroom/"><strong>Bedroom</strong><span>Warm dim light, reading spots.</span></a>
-<a class="en-tile" href="/nl/ruimtes/home-office/"><strong>Home office</strong><span>4000 K task light, anti-glare.</span></a>
-<a class="en-tile" href="/nl/ruimtes/garage/"><strong>Garage</strong><span>IP fittings, 4000 K, high lumens.</span></a>
-<a class="en-tile" href="/nl/ruimtes/garden/"><strong>Garden</strong><span>Outdoor IP, solar and motion.</span></a>
+<a class="en-tile" href="/nl/ruimtes/gang/"><strong>Gang</strong><span>Smalle gangen, 3500–4000 K, minder schaduw.</span></a>
+<a class="en-tile" href="/nl/ruimtes/eetkamer/"><strong>Eetkamer</strong><span>Hanglamp boven de tafel, hoge kleurweergave voor het eten.</span></a>
 </div>
 <p>Method: <a href="/nl/handleidingen/lux-lumen-per-ruimte-berekenen/">lux and lumens per room</a>. French full index: <a href="https://1piece1ampoule.fr/pieces/">1piece1ampoule.fr/pieces</a>.</p>`,
   },
@@ -508,20 +501,20 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     body: `<p>The full interactive directory (filter by brand, symptom, difficulty) lives on the French site with <strong>44 step-by-step sheets</strong> sourced from <code>catalog-fr.json</code>.</p>
 <h2>Priority sheets in English</h2>
 <ul>
-<li><a href="/nl/guides/error-code/wiz-bulb-offline/">WiZ bulb offline</a></li>
-<li><a href="/nl/guides/error-code/nanoleaf-wifi-2g/">Nanoleaf Wi-Fi (2.4 GHz)</a></li>
-<li><a href="/nl/guides/error-code/hue-bulb-blinking-reset/">Hue bulb blinking / reset</a></li>
-<li><a href="/nl/guides/error-code/hue-sync-box-hdmi-no-signal/">Hue Sync Box HDMI no signal</a></li>
-<li><a href="/nl/guides/error-code/schneider-wiser-offline/">Schneider Wiser offline</a></li>
-<li><a href="/nl/guides/error-code/govee-bulb-firmware-brick/">Govee bulb bricked after OTA</a></li>
-<li><a href="/nl/guides/error-code/govee-strip-overheating/">Govee strip overheating</a></li>
+<li><a href="/nl/gidsen/foutcode/wiz-bulb-offline/">WiZ-lamp offline</a></li>
+<li><a href="/nl/gidsen/foutcode/nanoleaf-wifi-2g/">Nanoleaf en wifi 2,4 GHz</a></li>
+<li><a href="/nl/gidsen/foutcode/hue-lamp-knippert-reset/">Hue-lamp knippert / reset</a></li>
+<li><a href="/nl/gidsen/foutcode/hue-sync-box-hdmi-geen-signaal/">Hue Sync Box: geen HDMI-signaal</a></li>
+<li><a href="/nl/gidsen/foutcode/schneider-wiser-offline/">Schneider Wiser offline</a></li>
+<li><a href="/nl/gidsen/foutcode/govee-bulb-firmware-brick/">Govee-lamp geblokkeerd na een update</a></li>
+<li><a href="/nl/gidsen/foutcode/govee-strip-oververhitting/">Govee-strip te warm</a></li>
 </ul>
 <h2>Related tools</h2>
 <ul>
 <li><a href="/nl/gidsen/gu10-led-flikker-dimmer-diagnose/">GU10/E27 flicker diagnosis</a></li>
 <li><a href="/nl/gidsen/slimme-schakelaar-zonder-nul-compatibiliteit/">Smart switch without neutral</a></li>
-<li><a href="/nl/guides/matter-thread-matrix-philips-hue-aqara-govee/">Matter / Thread / Zigbee matrix</a></li>
-<li><a href="/nl/ruimtes/">Choose a replacement bulb by room</a></li>
+<li><a href="/nl/gidsen/matter-thread-matrix-philips-hue-aqara-govee/">Matrix Matter, Thread en Zigbee</a></li>
+<li><a href="/nl/ruimtes/">Een lamp kiezen per ruimte</a></li>
 </ul>
 <p>Complete French repertoire: <a href="https://1piece1ampoule.fr/guides/depannage-ampoules-connectees-led/">depannage hub</a>.</p>`,
   },
