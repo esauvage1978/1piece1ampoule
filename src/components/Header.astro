@@ -71,7 +71,7 @@ const navNl = [
   { href: '/nl/gidsen/lampfittingen-e27-e14-gu10/', label: 'Fittingen' },
   { href: '/nl/gidsen/lumen-watt/', label: 'Lumen' },
   { href: '/nl/gidsen/kleurtemperatuur-kelvin/', label: 'Kelvin' },
-  { href: '/nl/handleidingen/lux-lumen-per-ruimte-berechnen/', label: 'Lux berekenen' },
+  { href: '/nl/handleidingen/lux-lumen-per-ruimte-berekenen/', label: 'Lux berekenen' },
   { href: '/nl/accessoires/', label: 'Accessoires' },
   { href: '/nl/tools/', label: 'Simulator' },
 ];
@@ -93,8 +93,8 @@ const navIt = [
   { href: '/it/accessori/', label: 'Accessori' },
   { href: '/it/strumenti/', label: 'Simulatore' },
 ];
-const navUk = [{ href: '/uk/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, { href: '/uk/accessories/', label: 'Accessories' }, ...navEn.slice(1).filter((l) => l.href !== '/en/accessories/').map((l) => l.href === '/en/price-drops/' ? { ...l, href: '/uk/price-drops/' } : l)];
-const navCa = [{ href: '/ca/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, { href: '/ca/accessories/', label: 'Accessories' }, ...navEn.slice(1).filter((l) => l.href !== '/en/accessories/').map((l) => l.href === '/en/price-drops/' ? { ...l, href: '/ca/price-drops/' } : l)];
+const navUk = navEn.map((l) => ({ ...l, href: l.href.replace(/^\/en\//, '/uk/') }));
+const navCa = navEn.map((l) => ({ ...l, href: l.href.replace(/^\/en\//, '/ca/') }));
 const navNlBf = [{ href: '/nl/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, ...navNl];
 const navEsBf = [{ href: '/es/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, ...navEs];
 const navItBf = [{ href: '/it/black-friday-2026/', label: 'BF\u00a02026', highlight: true }, ...navIt];

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev --port 4323",
-    "build": "node scripts/export-errors-artifacts.mjs && astro build && node scripts/gen-llms.mjs && node scripts/check-schema.mjs && node scripts/copy-dist-api.mjs && node scripts/go-links.mjs dist --site 1piece1ampoule.fr --table scripts/go-table.json",
+    "build": "node scripts/export-errors-artifacts.mjs && astro build && node scripts/mirror-en-uk-ca.mjs dist --site https://1piece1ampoule.fr && node scripts/gen-llms.mjs && node scripts/check-schema.mjs && node scripts/copy-dist-api.mjs && node scripts/go-links.mjs dist --site 1piece1ampoule.fr --table scripts/go-table.json",
     "preview": "astro preview",
     "astro": "astro",
     "routine": "node public/cron/routine.mjs",

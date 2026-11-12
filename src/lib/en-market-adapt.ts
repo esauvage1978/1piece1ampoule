@@ -14,7 +14,7 @@ export function adaptEnHtml(html: string, market: EnMarket): string {
 
   if (market === 'ca') {
     out = out.replace(/www\.amazon\.co\.uk/g, 'www.amazon.ca');
-    out = out.replace(/tag=roboteducatif-21/g, 'tag=roboteducatif-20');
+    out = out.replace(/tag=roboteducatif-21/g, 'tag=roboteducat03-20');
     out = out.replace(/Check price on Amazon UK/g, 'Check price on Amazon.ca');
     out = out.replace(/Amazon Associate I earn/g, 'Amazon Associate I earn');
     out = out.replace(/· £/g, '· approx. CA$ ');

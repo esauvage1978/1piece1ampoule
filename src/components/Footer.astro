@@ -158,7 +158,7 @@ const pack = lang === 'it' ? {
           <h3>{col.titre}</h3>
           <ul>
             {col.items.map((item) => <li><a href={item.href} hreflang={item.hreflang} lang={item.hreflang}>{item.label}</a></li>)}
-            {col === pack.cols[pack.cols.length - 1] && <li data-nav="partenaires"><a href={lang === 'de' ? '/de/partner/' : lang === 'it' ? '/it/partner/' : lang === 'es' ? '/es/socios/' : lang === 'nl' ? '/nl/partners/' : lang === 'en' || lang === 'uk' || lang === 'ca' ? '/en/partners/' : '/partenaires/'}>{lang === 'es' ? 'Socios' : lang === 'de' || lang === 'it' ? 'Partner' : lang === 'en' || lang === 'uk' || lang === 'ca' || lang === 'nl' ? 'Partners' : 'Partenaires'}</a></li>}
+            {col === pack.cols[pack.cols.length - 1] && <li data-nav="partenaires"><a href={lang === 'de' ? '/de/partner/' : lang === 'it' ? '/it/partner/' : lang === 'es' ? '/es/socios/' : lang === 'nl' ? '/nl/partners/' : lang === 'uk' ? '/uk/partners/' : lang === 'ca' ? '/ca/partners/' : lang === 'en' ? '/en/partners/' : '/partenaires/'}>{lang === 'es' ? 'Socios' : lang === 'de' || lang === 'it' ? 'Partner' : lang === 'en' || lang === 'uk' || lang === 'ca' || lang === 'nl' ? 'Partners' : 'Partenaires'}</a></li>}
           </ul>
         </nav>
       ))}

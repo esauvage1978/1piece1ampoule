@@ -46,6 +46,8 @@ const dates = LOT3_NEW
       ? { published: '2026-11-09', modified: '2026-11-09' }
       : pageDates(path);
 const lang = langOf(path);
+const htmlLang = ({ fr: 'fr', en: 'en', uk: 'en-GB', ca: 'en-CA', de: 'de', nl: 'nl', es: 'es', it: 'it' } as Record<string, string>)[lang] ?? lang;
+const hrefLang = (l: string) => ({ fr: 'fr', en: 'en', uk: 'en-GB', ca: 'en-CA', de: 'de', nl: 'nl', es: 'es', it: 'it' } as Record<string, string>)[l] ?? l;
 const pr = PAGE_RATING[ratingLangOf(lang)];
 const _p = path.endsWith('/') ? path : path + '/';
 const _fs = _p.split('/').filter(Boolean);
@@ -98,7 +100,7 @@ const allSchema = baseSchema.concat(schema ? (Array.isArray(schema) ? schema : [
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
   	{Astro.url.pathname === '/' && <Fragment set:html={'<meta name="fo-verify" content="a3a0041d-980b-4951-9bc8-8a175b02a84b" />'} />}
     <meta name="p:domain_verify" content="c462a2711034c5ccd63cf02ffe28c07a"/>
@@ -111,7 +113,7 @@ const allSchema = baseSchema.concat(schema ? (Array.isArray(schema) ? schema : [
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
-    {hasPair && alts.map((a) => <link rel="alternate" hreflang={a.l} href={siteUrl + a.href} />)}
+    {hasPair && alts.map((a) => <link rel="alternate" hreflang={hrefLang(a.l)} href={siteUrl + a.href} />)}
     {hasPair && group && <link rel="alternate" hreflang="x-default" href={siteUrl + group.fr} />}
     <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
     <meta property="og:type" content={type} />
