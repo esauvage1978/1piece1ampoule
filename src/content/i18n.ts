@@ -2,6 +2,7 @@
 import { PRIORITY_GROUPS } from './i18n-priority';
 import { LOT3_EN_GROUPS } from './tr-lot3-en';
 import { LOT3_NL_GROUPS } from './tr-lot3-nl';
+import { LOT3_DE_GROUPS } from './tr-lot3-de';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
 import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
 import { LOT6_EN_GROUPS } from './tr-lot6-en';
@@ -78,7 +79,8 @@ export const GROUPS: Group[] = [
   ...PRIORITY_GROUPS,
   ...LOT3_EN_GROUPS.map((g) => {
     const nl = LOT3_NL_GROUPS.find((x) => x.fr === g.fr)?.nl;
-    return nl ? { ...g, nl } : g;
+    const de = LOT3_DE_GROUPS.find((x) => x.fr === g.fr)?.de;
+    return { ...g, ...(nl ? { nl } : {}), ...(de ? { de } : {}) };
   }),
   ...LOT4_EN_GROUPS,
   ...LOT5_EN_GROUPS_ALL,
