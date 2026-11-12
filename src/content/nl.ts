@@ -2,6 +2,7 @@
 import { TUTOS_TR } from './tr-tutos';
 import { TR_PRIORITY_NL } from './tr-priority-nl';
 import { TR_PRIORITY_LOT2_NL } from './tr-priority-lot2-nl';
+import { TR_LOT3_NL } from './tr-lot3-nl';
 import { INTENT_NL } from './intentions-gsc';
 import type { EnPage } from './en';
 export const NL_PAGES: EnPage[] = [
@@ -186,4 +187,5 @@ body: `<table><thead><tr><th>Naam</th><th>Doel</th><th>Duur</th><th>Toestemming<
 NL_PAGES.splice(NL_PAGES.findIndex((p) => p.path === 'handleidingen/halogeen-gu10-mr16-vervangen-door-led') + 1, 0, ...TUTOS_TR.nl);
 NL_PAGES.push(...TR_PRIORITY_NL);
 NL_PAGES.push(...TR_PRIORITY_LOT2_NL);
+NL_PAGES.push(...TR_LOT3_NL);
 NL_PAGES.push(...INTENT_NL);

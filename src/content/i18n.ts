@@ -1,6 +1,7 @@
 // Groupes de pages traduites (fr / en / de) pour hreflang, sélecteur de langue.
 import { PRIORITY_GROUPS } from './i18n-priority';
 import { LOT3_EN_GROUPS } from './tr-lot3-en';
+import { LOT3_NL_GROUPS } from './tr-lot3-nl';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
 import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
 import { LOT6_EN_GROUPS } from './tr-lot6-en';
@@ -75,7 +76,10 @@ export const GROUPS: Group[] = [
   { fr: '/mentions-legales/', en: '/en/legal-notice/', de: '/de/impressum/', nl: '/nl/colofon/', es: '/es/aviso-legal/', it: '/it/note-legali/' },
   { fr: '/politique-de-cookies/', en: '/en/cookies/', de: '/de/cookies/', nl: '/nl/cookies/', es: '/es/cookies/', it: '/it/cookie/' },
   ...PRIORITY_GROUPS,
-  ...LOT3_EN_GROUPS,
+  ...LOT3_EN_GROUPS.map((g) => {
+    const nl = LOT3_NL_GROUPS.find((x) => x.fr === g.fr)?.nl;
+    return nl ? { ...g, nl } : g;
+  }),
   ...LOT4_EN_GROUPS,
   ...LOT5_EN_GROUPS_ALL,
   ...LOT6_EN_GROUPS,

@@ -498,7 +498,7 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     description: "Startpunt Hue, Govee, WiZ — 44 stappen op FR-site.",
     h1: "Slimme lampen: diagnose",
     lead: "Storingen verbonden verlichting: bridge, Zigbee/Wi-Fi, strips, dimmers.",
-    body: `<p>The full interactive directory (filter by brand, symptom, difficulty) lives on the French site with <strong>44 step-by-step sheets</strong> sourced from <code>catalog-fr.json</code>.</p>
+    body: `<p>Het volledige overzicht, per merk, staat op <a href="/nl/gidsen/foutcodes/">de foutcodes</a> (44 stappenplannen).</p>
 <h2>Priority sheets in English</h2>
 <ul>
 <li><a href="/nl/gidsen/foutcode/wiz-bulb-offline/">WiZ-lamp offline</a></li>
