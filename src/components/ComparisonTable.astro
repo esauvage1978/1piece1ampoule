@@ -9,7 +9,7 @@ const defaultLabels = ['Meilleur choix', 'Alternative', 'Petit budget', 'Option 
 const itemList = {
   '@context': 'https://schema.org', '@type': 'ItemList', name: title,
   // Pas de type Product : aucun prix/avis fiable disponible (pas de PA-API).
-  itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `https://www.amazon.fr/dp/${p.asin}` })),
+  itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `https://www.amazon.fr/dp/${p.asin}?tag=manuso06-21` })),
 };
 ---
 {products.length > 0 && (

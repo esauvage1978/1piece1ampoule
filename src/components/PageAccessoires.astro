@@ -80,7 +80,7 @@ function prixDuJour(entree?: { prix?: string; releve?: string; releveIso?: strin
   return entree.prix;
 }
 const hote = { fr: 'www.amazon.fr', en: 'www.amazon.co.uk', uk: 'www.amazon.co.uk', ca: 'www.amazon.ca', de: 'www.amazon.de', nl: 'www.amazon.nl', it: 'www.amazon.it', es: 'www.amazon.es' }[lang];
-const tg = { fr: 'manuso06-21', en: 'roboteducatif-21', uk: 'roboteducatif-21', ca: 'roboteducatif-20', de: 'roboteducat00-21', nl: 'manuso0607-21', it: 'roboteducat0f-21', es: 'roboteducat07-21' } as Record<string, string>;
+const tg = { fr: 'manuso06-21', en: 'roboteducatif-21', uk: 'roboteducatif-21', ca: 'roboteducat03-20', de: 'roboteducat00-21', nl: 'manuso0607-21', it: 'roboteducat0f-21', es: 'roboteducat07-21' } as Record<string, string>;
 const recherche = (nom: string) => {
   const q = `https://${hote}/s?k=${encodeURIComponent(nom)}`;
   return tg[lang] ? `${q}&tag=${tg[lang]}` : q;
