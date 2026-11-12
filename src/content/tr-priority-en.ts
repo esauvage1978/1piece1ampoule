@@ -425,6 +425,7 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
 <tr><td><a href="/en/brands/luminaire-fr/">Luminaire.fr</a></td><td>Merchant (Lampenwelt)</td><td>Wide fitting catalogue</td><td>30-day return (FR), paid return postage</td><td>When you need a specific pendant or outdoor fitting</td></tr>
 <tr><td><a href="/en/brands/steinel/">Steinel</a></td><td>Motion / outdoor</td><td>5 datasheet products</td><td>3-year manufacturer (FR terms)</td><td>Best for dedicated motion/dusk hardware</td></tr>
 <tr><td>Tapo (TP-Link)</td><td>Wi-Fi smart</td><td>L530E in gift guide</td><td>2-year TP-Link</td><td>Cheap entry without hub; class F efficiency</td></tr>
+<tr><td><a href="/en/brands/imalent/">Imalent</a></td><td>LED torches</td><td>GR35 tested (supplied free)</td><td>To confirm with the seller</td><td>Powerful torch; not for fixed home lighting</td></tr>
 </tbody></table>
 <p class="en-note">UK consumers always have statutory rights against the seller; EU/FR pages cite French legal conformity (2 years).</p>
 <p>Deals: <a href="/en/promo-codes/">promo codes</a>.</p>`,

@@ -556,7 +556,9 @@ ${note}
 <a class="en-tile" href="/en/guides/steinel-automatic-outdoor-lighting/"><strong>Steinel automatic outdoor lighting</strong><span>Products compared on their spec sheets.</span></a>
 <a class="en-tile" href="/en/guides/christmas-lights-indoor-outdoor/"><strong>Christmas lights indoors and out</strong><span>IP, low voltage, consumption.</span></a>
 <a class="en-tile" href="/en/guides/morning-light-therapy-winter/"><strong>Morning light therapy in winter</strong><span>Light boxes and wake-up lights.</span></a>
+<a class="en-tile" href="/en/guides/long-winter-evenings-night-lights/"><strong>Long evenings and night lights</strong><span>Warm white, safe night lights.</span></a>
 </div>
+<h2>Paint and comparisons</h2><div class="en-grid"><a class="en-tile" href="/en/paint/"><strong>Interior paint guide</strong><span>Types, rooms, preparation, paint and light.</span></a><a class="en-tile" href="/en/best/"><strong>Best LED picks</strong><span>Bulbs, spotlights, strips, sensors.</span></a></div>
 <p>Tools: <a href="/en/tools/lux-lumen-watt-room-converter/">lux, lumen and watt converter</a> and <a href="/en/tools/halogen-led-equivalence-gu10-e27-lumens/">halogen to LED equivalence</a>. Step-by-step: <a href="/en/tutorials/">tutorials</a>.</p>`,
   },
 ];

@@ -2,6 +2,7 @@
 import { PRIORITY_GROUPS } from './i18n-priority';
 import { LOT3_EN_GROUPS } from './tr-lot3-en';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
+import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 export type Group = { fr: string; en?: string; uk?: string; ca?: string; de?: string; nl?: string; es?: string; it?: string };
 export const GROUPS: Group[] = [
@@ -66,7 +67,7 @@ export const GROUPS: Group[] = [
     es: '/es/guias/luminoterapia-luz-manana-invierno/',
     it: '/it/guide/fototerapia-luce-mattino-inverno/',
   },
-  { fr: '/guides/eclairage-soirees-longues-veilleuses/', es: '/es/guias/noches-largas-luces-nocturnas/', it: '/it/guide/serate-lunghe-luci-notturne/' },
+  { fr: '/guides/eclairage-soirees-longues-veilleuses/', en: '/en/guides/long-winter-evenings-night-lights/', es: '/es/guias/noches-largas-luces-nocturnas/', it: '/it/guide/serate-lunghe-luci-notturne/' },
   { fr: '/outils/', en: '/en/tools/', de: '/de/werkzeuge/', nl: '/nl/tools/', es: '/es/herramientas/', it: '/it/strumenti/' },
   { fr: '/affiliation-amazon/', en: '/en/affiliate-disclosure/', de: '/de/werbehinweis/', nl: '/nl/affiliatebeleid/', es: '/es/afiliacion/', it: '/it/affiliazione/' },
   { fr: '/politique-de-confidentialite/', en: '/en/privacy/', de: '/de/datenschutz/', nl: '/nl/privacy/', es: '/es/privacidad/', it: '/it/privacy/' },
@@ -75,6 +76,7 @@ export const GROUPS: Group[] = [
   ...PRIORITY_GROUPS,
   ...LOT3_EN_GROUPS,
   ...LOT4_EN_GROUPS,
+  ...LOT5_EN_GROUPS_ALL,
   ...(PAIRES_PARTENAIRES as Group[]),
 ];
 export const langOf = (p: string) =>
