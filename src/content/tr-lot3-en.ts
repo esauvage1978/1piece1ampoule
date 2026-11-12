@@ -792,7 +792,8 @@ export const TR_LOT3_EN: EnPage[] = [ERROR_DIRECTORY_EN, ...ERR_LOT3.map(errPage
 /** hreflang FR ↔ EN pairs for lot 3 (no DE/IT/ES/NL yet). */
 export const LOT3_EN_GROUPS: { fr: string; en: string }[] = [
   { fr: '/guides/codes-erreurs-eclairage-connecte-depannage/', en: '/en/guides/error-codes/' },
-  ...ERR_LOT3.map((e) => ({ fr: `/guides/code-erreur/${e.fr}/`, en: `/en/guides/error-code/${e.slug}/` })),
+  // encodeURI: Astro gives the page path percent-encoded (é → %C3%A9), so the group must match that form.
+  ...ERR_LOT3.map((e) => ({ fr: encodeURI(`/guides/code-erreur/${e.fr}/`), en: `/en/guides/error-code/${e.slug}/` })),
   { fr: '/tutoriels/appairer-module-zigbee-sans-neutre-sonoff-aqara/', en: '/en/tutorials/pair-zigbee-no-neutral-module-sonoff-aqara/' },
   { fr: '/tutoriels/eclairage-bureau-teletravail-lux-irc-kelvin/', en: '/en/tutorials/home-office-lighting-lux-cri-kelvin/' },
   { fr: '/tutoriels/programmer-guirlande-lumineuse-exterieure/', en: '/en/tutorials/outdoor-christmas-lights-timer-dusk-smart-plug/' },
