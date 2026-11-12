@@ -359,9 +359,9 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     path: 'rooms',
     kicker: 'Room guides',
     title: 'Lighting by room: kitchen, hallway, dining room, bathroom…',
-    description: 'Choose a room for practical lux/lumen advice and product angles. Links to hallway and dining room guides in this edition.',
+    description: 'Choose a room for practical lux/lumen advice and product angles. Guides for every main room of the house.',
     h1: 'Rooms',
-    lead: 'Pick a room type for concrete guidance on lumens, colour temperature (Kelvin), CRI and typical fittings. More room pages are added to the English edition over time.',
+    lead: 'Pick a room type for concrete guidance on lumens, colour temperature (Kelvin), CRI and typical fittings.',
     body: `<div class="en-grid">
 <a class="en-tile" href="/en/rooms/kitchen/"><strong>Kitchen</strong><span>Worktop zones, ceiling and dining area.</span></a>
 <a class="en-tile" href="/en/rooms/living-room/"><strong>Living room</strong><span>Layered light, dimming, 2700 K evenings.</span></a>
@@ -372,6 +372,12 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
 <a class="en-tile" href="/en/rooms/home-office/"><strong>Home office</strong><span>4000 K task light, anti-glare.</span></a>
 <a class="en-tile" href="/en/rooms/garage/"><strong>Garage</strong><span>IP fittings, 4000 K, high lumens.</span></a>
 <a class="en-tile" href="/en/rooms/garden/"><strong>Garden</strong><span>Outdoor IP, solar and motion.</span></a>
+<a class="en-tile" href="/en/rooms/kids-bedroom/"><strong>Children's bedroom</strong><span>Study, play, night light.</span></a>
+<a class="en-tile" href="/en/rooms/kids-study/"><strong>Children's desk</strong><span>Writing light without glare.</span></a>
+<a class="en-tile" href="/en/rooms/toilet/"><strong>Toilet</strong><span>Mirror, WC, sensor.</span></a>
+<a class="en-tile" href="/en/rooms/wine-cellar/"><strong>Wine cellar</strong><span>Racks, low heat, 2700 K.</span></a>
+<a class="en-tile" href="/en/rooms/vaulted-cellar/"><strong>Vaulted cellar</strong><span>Bounced light, accents.</span></a>
+<a class="en-tile" href="/en/rooms/parking/"><strong>Driveway and parking</strong><span>IP, 4000 K, sensors.</span></a>
 </div>
 <p>Method: <a href="/en/tutorials/how-much-light-per-room-lux-foot-candles/">lux and lumens per room</a>. French full index: <a href="https://1piece1ampoule.fr/pieces/">1piece1ampoule.fr/pieces</a>.</p>`,
   },
