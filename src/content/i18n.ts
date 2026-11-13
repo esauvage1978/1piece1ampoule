@@ -8,6 +8,7 @@ import { LOT3_ES_GROUPS } from './tr-lot3-es';
 import { LOT4_EN_GROUPS } from './tr-lot4-en';
 import { LOT5_EN_GROUPS_ALL } from './tr-lot5-en';
 import { LOT_COMP_GROUPS } from './tr-comparatifs';
+import { LOT_PAINT_A_GROUPS } from './tr-peinture-a';
 import { LOT6_EN_GROUPS } from './tr-lot6-en';
 import { LOT6_NL_GROUPS } from './tr-lot6-nl';
 import { LOT6_DE_GROUPS } from './tr-lot6-de';
@@ -93,7 +94,7 @@ export const GROUPS: Group[] = [
   }),
   ...LOT4_EN_GROUPS,
   ...LOT5_EN_GROUPS_ALL.map((g) => {
-    const extra = LOT_COMP_GROUPS.find((x) => x.fr === g.fr);
+    const extra = LOT_COMP_GROUPS.find((x) => x.fr === g.fr) ?? LOT_PAINT_A_GROUPS.find((x) => x.fr === g.fr);
     return extra ? { ...g, nl: extra.nl, de: extra.de, it: extra.it, es: extra.es } : g;
   }),
   ...LOT6_EN_GROUPS.map((g) => {
