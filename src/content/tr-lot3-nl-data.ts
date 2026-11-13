@@ -57,7 +57,7 @@ export const ERR_NL: Err[] = [
     difficulty: 2, time: '10–25 min', cost: 'gratis', support: HUE, supportLabel: 'Philips Hue-support',
   },
   {
-    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-grésille', brand: 'Philips Hue',
+    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-gresille', brand: 'Philips Hue',
     title: 'Hue-lamp zoemt of flikkert op een wanddimmer', code: 'Zoemen / flikkeren op een dimmer',
     symptom: 'De dimmer bromt, het licht flikkert bij lage helderheid, of de lamp gaat halverwege vanzelf uit.',
     cause: 'Een faseaansnijdende dimmer die niet geschikt is voor led, een kring onder de minimale belasting van de dimmer, of een oude draaidimmer zonder bypass.',
@@ -361,7 +361,7 @@ export const ERR_NL: Err[] = [
     difficulty: 2, time: '15–30 min', cost: 'gratis', support: LEGRAND, supportLabel: 'Legrand-support (Franse site)',
   },
   {
-    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-grésille', brand: 'Legrand Netatmo',
+    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-gresille', brand: 'Legrand Netatmo',
     title: 'Céliane with Netatmo: dimmer zoemt bij leds', code: 'Céliane-dimmer zoemt',
     symptom: 'De afdekplaat van de schakelaar bromt, en de leds flikkeren bij lage helderheid.',
     cause: 'Lampen die niet dimbaar zijn, de minimale belasting wordt niet gehaald, of er is geen nuldraad en het bijpassende accessoire van Legrand ontbreekt.',

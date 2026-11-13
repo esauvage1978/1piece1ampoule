@@ -133,7 +133,7 @@ const rawErrors = [
     solution_fr: '1. Si vous vouliez l’ajouter : lancez « Ajouter un luminaire » dans l’app.\n2. Si c’était déjà installée : éteignez 5 s, rallumez 5 s, répétez 5 fois pour sortir du pairing (voir notice Hue pour votre modèle).\n3. Évitez les variateurs non listés « Works with Hue ».\n4. Réassociez l’ampoule au Bridge si elle n’apparaît plus.\n5. Clignotement permanent après chute : testez sur une douille nue hors variateur.',
   },
   {
-    slug: 'hue-ampoule-variateur-grésille',
+    slug: 'hue-ampoule-variateur-gresille',
     error_code: 'Grésillement / scintillement sur variateur',
     product_slug: 'philips-hue-white-color-e27',
     difficulty: 2,
@@ -569,7 +569,7 @@ const rawErrors = [
     solution_fr: '1. Vérifiez alimentation neutre/phase au module.\n2. Reconfigurez le Wi-Fi depuis l’app Legrand Netatmo.\n3. Rapprochez le routeur pour le test.\n4. Mettez à jour firmware module via l’app.\n5. Assistance Legrand si LED d’erreur fixe.',
   },
   {
-    slug: 'legrand-netatmo-variateur-grésille',
+    slug: 'legrand-netatmo-variateur-gresille',
     error_code: 'Grésillement variateur Céliane',
     product_slug: 'legrand-celiane-netatmo-variateur',
     difficulty: 3,

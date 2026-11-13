@@ -56,7 +56,7 @@ export const ERR_ES: Err[] = [
     difficulty: 2, time: '10–25 min', cost: 'gratis', support: HUE, supportLabel: 'Soporte Philips Hue',
   },
   {
-    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-grésille', brand: 'Philips Hue',
+    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-gresille', brand: 'Philips Hue',
     title: 'Bombilla Hue que zumba o parpadea con un regulador de pared', code: 'Zumbido / parpadeo con un regulador',
     symptom: 'El regulador zumba, la luz parpadea a baja intensidad, o la bombilla se apaga a media carrera.',
     cause: 'Un regulador de corte de fase no compatible con LED, un circuito por debajo de la carga mínima del regulador, o un regulador giratorio antiguo sin bypass.',
@@ -360,7 +360,7 @@ export const ERR_ES: Err[] = [
     difficulty: 2, time: '15–30 min', cost: 'gratis', support: 'https://www.legrand.fr/nous-contacter', supportLabel: 'Soporte Legrand (sitio francés)',
   },
   {
-    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-grésille', brand: 'Legrand Netatmo',
+    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-gresille', brand: 'Legrand Netatmo',
     title: 'Céliane with Netatmo: el regulador zumba con LED', code: 'Regulador Céliane que zumba',
     symptom: 'Un zumbido en la placa del interruptor, y LED que parpadean a baja intensidad.',
     cause: 'Bombillas no regulables, carga mínima no alcanzada, o ausencia de neutro sin el accesorio Legrand correspondiente.',
