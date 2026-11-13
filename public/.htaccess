@@ -31,6 +31,8 @@ ErrorDocument 404 /404.html
 
 # 1piece1ampoule.fr : URL canonique https://1piece1ampoule.fr/
 RewriteEngine On
+# 13/11/2026 : slugs accentues -> ASCII (l'envoi FTP ne mettait pas a jour les dossiers accentues)
+RewriteRule ^guides/code-erreur/(hue-ampoule|legrand-netatmo)-variateur-gr[^e/][^/]*sille/?$ /guides/code-erreur/$1-variateur-gresille/ [R=301,L]
 # publish: slashs-multiples
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/{2,}([^?\s]*)
 RewriteRule ^ https://1piece1ampoule.fr/%1 [R=301,L,QSA]

@@ -65,7 +65,7 @@ export const ERR_LOT3: Err[] = [
     difficulty: 2, time: '10–25 min', cost: 'free', support: HUE, supportLabel: 'Philips Hue support',
   },
   {
-    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-grésille', brand: 'Philips Hue',
+    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-gresille', brand: 'Philips Hue',
     title: 'Hue bulb buzzing or flickering on a wall dimmer', code: 'Buzzing / flicker on a dimmer',
     symptom: 'The dimmer hums, the light flickers at low brightness, or the bulb switches itself off halfway down.',
     cause: 'A phase-cut dimmer that is not LED-compatible, a circuit below the dimmer’s minimum load, or an old rotary dimmer with no bypass.',
@@ -369,7 +369,7 @@ export const ERR_LOT3: Err[] = [
     difficulty: 2, time: '15–30 min', cost: 'free', support: 'https://www.legrand.fr/nous-contacter', supportLabel: 'Legrand support (French site)',
   },
   {
-    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-grésille', brand: 'Legrand Netatmo',
+    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-gresille', brand: 'Legrand Netatmo',
     title: 'Céliane with Netatmo: dimmer buzzing with LEDs', code: 'Céliane dimmer buzzing',
     symptom: 'A hum from the switch plate, and LEDs that flicker at low brightness.',
     cause: 'Non-dimmable bulbs, minimum load not reached, or no neutral without the matching Legrand accessory.',

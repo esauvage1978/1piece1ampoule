@@ -56,7 +56,7 @@ export const ERR_IT: Err[] = [
     difficulty: 2, time: '10–25 min', cost: 'gratis', support: HUE, supportLabel: 'Assistenza Philips Hue',
   },
   {
-    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-grésille', brand: 'Philips Hue',
+    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-gresille', brand: 'Philips Hue',
     title: 'Lampadina Hue che ronza o sfarfalla su un variatore a parete', code: 'Ronzio / sfarfallio su un variatore',
     symptom: 'Il variatore ronza, la luce sfarfalla a bassa luminosità, oppure la lampadina si spegne a metà corsa.',
     cause: 'Un variatore a taglio di fase non compatibile con i LED, un circuito sotto il carico minimo del variatore, oppure un vecchio variatore rotativo senza bypass.',
@@ -360,7 +360,7 @@ export const ERR_IT: Err[] = [
     difficulty: 2, time: '15–30 min', cost: 'gratis', support: 'https://www.legrand.fr/nous-contacter', supportLabel: 'Assistenza Legrand (sito francese)',
   },
   {
-    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-grésille', brand: 'Legrand Netatmo',
+    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-gresille', brand: 'Legrand Netatmo',
     title: 'Céliane with Netatmo: il variatore ronza con i LED', code: 'Variatore Céliane che ronza',
     symptom: 'Un ronzio dalla placca dell\'interruttore, e LED che sfarfallano a bassa luminosità.',
     cause: 'Lampadine non dimmerabili, carico minimo non raggiunto, oppure assenza di neutro senza l\'accessorio Legrand corrispondente.',

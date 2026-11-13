@@ -54,7 +54,7 @@ export const ERR_DE: Err[] = [
     difficulty: 2, time: '10–25 min', cost: 'kostenlos', support: HUE, supportLabel: 'Philips-Hue-Support',
   },
   {
-    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-grésille', brand: 'Philips Hue',
+    slug: 'hue-bulb-dimmer-buzzing', fr: 'hue-ampoule-variateur-gresille', brand: 'Philips Hue',
     title: 'Hue-Lampe brummt oder flackert an einem Wanddimmer', code: 'Brummen / Flackern am Dimmer',
     symptom: 'Der Dimmer brummt, das Licht flackert bei geringer Helligkeit, oder die Lampe schaltet sich auf halber Stellung von selbst aus.',
     cause: 'Ein nicht LED-tauglicher Dimmer mit Phasenan- oder Phasenabschnitt, ein Stromkreis unter der Mindestlast des Dimmers oder ein alter Drehdimmer ohne Bypass.',
@@ -358,7 +358,7 @@ export const ERR_DE: Err[] = [
     difficulty: 2, time: '15–30 min', cost: 'kostenlos', support: 'https://www.legrand.fr/nous-contacter', supportLabel: 'Legrand-Support (französische Website)',
   },
   {
-    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-grésille', brand: 'Legrand Netatmo',
+    slug: 'legrand-netatmo-dimmer-buzzing', fr: 'legrand-netatmo-variateur-gresille', brand: 'Legrand Netatmo',
     title: 'Céliane mit Netatmo: der Dimmer brummt mit LEDs', code: 'Céliane-Dimmer brummt',
     symptom: 'Ein Brummen aus der Schalterblende, und LEDs, die bei geringer Helligkeit flackern.',
     cause: 'Nicht dimmbare Lampen, eine nicht erreichte Mindestlast oder kein Neutralleiter ohne das passende Zubehör von Legrand.',
