@@ -5,6 +5,7 @@ import { TR_PRIORITY_ES } from './tr-priority-es';
 import { TR_PRIORITY_LOT2_ES } from './tr-priority-lot2-es';
 import { TR_LOT3_ES } from './tr-lot3-es';
 import { TR_LOT6_ES } from './tr-lot6-es';
+import { TR_COMP_ES } from './tr-comparatifs';
 import { INTENT_ES } from './intentions-gsc';
 import type { EnPage } from './en';
 export const ES_PAGES: EnPage[] = [
@@ -193,4 +194,5 @@ ES_PAGES.push(...TR_PRIORITY_ES);
 ES_PAGES.push(...TR_PRIORITY_LOT2_ES);
 ES_PAGES.push(...TR_LOT3_ES);
 ES_PAGES.push(...TR_LOT6_ES);
+ES_PAGES.push(...TR_COMP_ES);
 ES_PAGES.push(...INTENT_ES);
