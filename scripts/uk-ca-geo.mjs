@@ -131,7 +131,7 @@ for (const file of walk(DIST)) {
 // 4. Reciprocite des hreflang (13/11/2026) : une cible sans aucun hreflang recoit le groupe de la page source
 //    (si elle est indexable et canonique) ; puis tout lien vers une page absente ou qui ne renvoie pas est retire.
 const dec = (p) => { try { return decodeURIComponent(p); } catch { return p; } };
-const keyOf = (p) => dec(p).replace(/index\.html?$/, '').replace(/\/+$/, '') || '/';
+const keyOf = (p) => dec(p).replace(/index\.html?$/, '').replace(/\.html?$/, '').replace(/\/+$/, '') || '/';
 function readPages() {
   const pages = new Map();
   for (const file of walk(DIST)) {
