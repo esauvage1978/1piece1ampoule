@@ -4,6 +4,8 @@ import { TR_PRIORITY_NL } from './tr-priority-nl';
 import { TR_PRIORITY_LOT2_NL } from './tr-priority-lot2-nl';
 import { TR_LOT3_NL } from './tr-lot3-nl';
 import { TR_LOT6_NL } from './tr-lot6-nl';
+import { TR_COMP_NL } from './tr-comparatifs';
+import { TR_PAINT_A_NL } from './tr-peinture-a';
 import { INTENT_NL } from './intentions-gsc';
 import type { EnPage } from './en';
 export const NL_PAGES: EnPage[] = [
@@ -190,4 +192,6 @@ NL_PAGES.push(...TR_PRIORITY_NL);
 NL_PAGES.push(...TR_PRIORITY_LOT2_NL);
 NL_PAGES.push(...TR_LOT3_NL);
 NL_PAGES.push(...TR_LOT6_NL);
+NL_PAGES.push(...TR_COMP_NL);
+NL_PAGES.push(...TR_PAINT_A_NL);
 NL_PAGES.push(...INTENT_NL);
