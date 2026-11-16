@@ -181,9 +181,29 @@ for (const f of readdirSync(DIST).filter((n) => /^sitemap.*\.xml$/.test(n) && !/
   }
   if (ajout.length) {
     xml = xml.replace(/<\/urlset>\s*$/, `${ajout.join('')}</urlset>`);
-    writeFileSync(p, xml);
     stats.sitemap += ajout.length;
+    for (const u of ajout) {
+      const m = u.match(/<loc>([^<]+)<\/loc>/);
+      if (m) existing.add(m[1]);
+    }
   }
+  const xhtmlTag = (lang, href) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${href}"/>`;
+  xml = xml.replace(/<url>\s*<loc>([^<]+)<\/loc>([\s\S]*?)<\/url>/g, (full, loc, body) => {
+    const links = body.match(/<xhtml:link\b[^>]*\/>/g) || [];
+    if (links.length < 2) return full;
+    const enLoc = loc === `${SITE}/en/` || loc.startsWith(`${SITE}/en/`)
+      ? loc
+      : links.find((l) => /hreflang="en(?:-US)?"/.test(l))?.match(/href="([^"]+)"/)?.[1];
+    if (!enLoc) return full;
+    const uk = enLoc === `${SITE}/en/` ? `${SITE}/uk/` : enLoc.replace(`${SITE}/en/`, `${SITE}/uk/`);
+    const ca = enLoc === `${SITE}/en/` ? `${SITE}/ca/` : enLoc.replace(`${SITE}/en/`, `${SITE}/ca/`);
+    const have = new Set(links.map((l) => l.match(/hreflang="([^"]+)"/)?.[1]));
+    let extra = '';
+    if (existing.has(uk) && !have.has('en-GB')) extra += xhtmlTag('en-GB', uk);
+    if (existing.has(ca) && !have.has('en-CA')) extra += xhtmlTag('en-CA', ca);
+    return extra ? `<url><loc>${loc}</loc>${body}${extra}</url>` : full;
+  });
+  writeFileSync(p, xml);
 }
 console.log(
   `[mirror-en-uk-ca] ${SITE} : ${enFiles.length} pages EN, ${stats.crees} miroirs créés, ${stats.normalises} pages UK/CA existantes normalisées, hreflang en-GB/en-CA ajoutés sur ${stats.hreflang} pages, ${stats.sitemap} URL ajoutées aux sitemaps`,
