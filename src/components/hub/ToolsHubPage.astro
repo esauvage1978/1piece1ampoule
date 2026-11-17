@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LumensKelvinIrcTool from '../LumensKelvinIrcTool.astro';
+import FaqBlock from '../FaqBlock.astro';
+import CrossLinkOutilsDepannage from '../CrossLinkOutilsDepannage.astro';
+import PageFreshness from './PageFreshness.astro';
+import { HIVER_FAQ } from '../../content/hiver-faq';
+import { HUB_TOOLS, hubToolLang, type HubLang } from '../../content/hub-pages-i18n';
+
+interface Props { lang: HubLang; pathname: string; fullIndex?: boolean }
+const { lang, pathname, fullIndex = false } = Astro.props;
+const t = HUB_TOOLS[lang];
+const toolLang = hubToolLang(lang);
+const prefix = lang === 'fr' ? '' : `/${lang}`;
+const g = t.linksGuide;
+---
+<Layout title={t.title} description={t.description}>
+  <section class="mt-10">
+    <figure class="not-prose mb-6 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <img src="/pins/lumens.png" alt={t.illuAlt} width="640" height="400" loading="lazy" class="mx-auto max-h-48 w-auto object-contain p-6" />
+    </figure>
+    <p class="text-sm font-semibold text-amber-700">{t.kicker}</p>
+    <h1 class="mt-2 text-3xl text-stone-900 sm:text-4xl">{t.h1}</h1>
+    <PageFreshness pathname={pathname} lang={lang} />
+    <p class="mt-3 max-w-3xl text-stone-600">
+      {t.lead}
+      {' '}
+      <a class="font-semibold text-amber-700" href={g.lumens}>{lang === 'fr' ? 'lumens vs watts' : 'lumens'}</a>,
+      <a class="font-semibold text-amber-700" href={g.kelvin}> Kelvin</a>,
+      <a class="font-semibold text-amber-700" href={g.cri}> {lang === 'fr' ? 'IRC' : 'CRI'}</a>,
+      <a class="font-semibold text-amber-700" href={g.lux}> {lang === 'fr' ? 'calculer l’éclairage d’une pièce' : '…'}</a>.
+    </p>
+    <p class="mt-2 text-xs text-stone-500">
+      {t.affNote} — <a class="font-semibold text-amber-700 underline" href={t.affHref}>{lang === 'fr' ? 'transparence affiliation' : '…'}</a>.
+      {lang === 'fr' ? '' : <> · <a class="font-semibold text-amber-700 underline" href={t.depannageHref}>{t.depannageLabel}</a></>}
+    </p>
+  </section>
+  {fullIndex && lang === 'fr' && <CrossLinkOutilsDepannage variant="vers-depannage" />}
+  <LumensKelvinIrcTool lang={toolLang} />
+  <section class="mt-10 grid gap-4 md:grid-cols-3">
+    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"><h2 class="text-lg text-stone-900">{lang === 'fr' ? 'Garage / atelier' : lang === 'de' ? 'Garage und Werkstatt' : 'Garage'}</h2><p class="mt-2 text-sm text-stone-600">{t.garage}</p></div>
+    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"><h2 class="text-lg text-stone-900">{lang === 'fr' ? 'Salon / chambre' : 'Living / bedroom'}</h2><p class="mt-2 text-sm text-stone-600">{t.living}</p></div>
+    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"><h2 class="text-lg text-stone-900">{lang === 'fr' ? 'Comment c’est calculé ?' : 'How it is calculated'}</h2><p class="mt-2 text-sm text-stone-600">{t.calc}</p></div>
+  </section>
+  <section class="mt-10 overflow-x-auto rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+    <h2 class="text-lg font-bold text-stone-900">{t.otherTitle}</h2>
+    <table class="mt-4 w-full min-w-[480px] text-left text-sm">
+      <thead class="bg-stone-50"><tr><th class="p-3">{lang === 'fr' ? 'Outil' : 'Tool'}</th><th class="p-3">{lang === 'fr' ? 'À quoi ça sert' : 'Purpose'}</th></tr></thead>
+      <tbody>
+        {t.tools.map((o) => (
+          <tr class="border-t border-stone-100">
+            <td class="p-3"><a class="font-semibold text-amber-800 underline" href={o.href}>{o.title}</a></td>
+            <td class="p-3 text-stone-600">{o.desc}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    {lang === 'fr' && (
+      <p class="mt-4 text-sm text-stone-600">
+        Dépannage : <a class="font-semibold text-amber-700" href="/guides/codes-erreurs-eclairage-connecte-depannage/">codes erreurs connectées</a>,
+        <a class="font-semibold text-amber-700" href="/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/"> variateur × ampoule</a>.
+      </p>
+    )}
+  </section>
+  {fullIndex && lang === 'fr' && (
+    <p class="mt-4 text-sm text-stone-600">
+      Voir aussi le <a class="font-semibold text-amber-700 underline" href={`${prefix}/outils/`}>hub outils complet</a> avec la liste détaillée.
+    </p>
+  )}
+  <FaqBlock title={t.faqTitle} items={HIVER_FAQ.outils} />
+</Layout>

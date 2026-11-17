@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Layout from '../../../layouts/Layout.astro';
 import SavWave1Compliance from '../../../components/SavWave1Compliance.astro';
 import CrossLinkOutilsDepannage from '../../../components/CrossLinkOutilsDepannage.astro';
-import FaqBlock from '../../../components/FaqBlock.astro';
+import ErrorCodeExtras from '../../../components/hub/ErrorCodeExtras.astro';
 import { getCatalogFr, urlFicheErreur } from '../../../data/errors/catalog';
 import { COPY } from '../../../data/savWave1.mjs';
 import { techArticle } from '../../../lib/errors-schema.mjs';
@@ -24,17 +24,6 @@ const publieDate = new Date('2026-10-24');
 
 const steps = fiche.solution.split(/\n/).map((l) => l.replace(/^\d+\.\s*/, '').trim()).filter(Boolean);
 const bars = '●'.repeat(fiche.difficulty) + '○'.repeat(5 - fiche.difficulty);
-
-const faqItems = [
-  {
-    q: `Que signifie « ${fiche.error_code} » sur ce modèle ?`,
-    a: `${fiche.symptom}${fiche.cause ? ` Cause fréquente : ${fiche.cause}` : ''}`,
-  },
-  {
-    q: 'Puis-je réparer moi-même sans perdre la garantie ?',
-    a: COPY.assist,
-  },
-];
 
 const schemas = [
   techArticle({
@@ -86,8 +75,16 @@ const schemas = [
       )}
     </div>
   </article>
-  <CrossLinkOutilsDepannage variant="vers-outils" />
-  <FaqBlock title="Questions fréquentes" items={faqItems} />
+  <ErrorCodeExtras
+    lang="fr"
+    slug={fiche.slug}
+    title={fiche.title}
+    code={fiche.error_code}
+    symptom={fiche.symptom}
+    difficulty={fiche.difficulty}
+    time={fiche.estimated_time}
+    cost={fiche.estimated_cost}
+  />
   <SavWave1Compliance />
 </Layout>
 <style>

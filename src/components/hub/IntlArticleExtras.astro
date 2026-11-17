@@ -1,0 +1,39 @@
+---
+import ErrorCodeExtras from './ErrorCodeExtras.astro';
+import LegalPageExtras from './LegalPageExtras.astro';
+import type { HubLang } from '../../content/hub-pages-i18n';
+
+interface Props {
+  lang: HubLang;
+  path: string;
+  pathname: string;
+  h1: string;
+  lead: string;
+}
+
+const { lang, path, pathname, h1, lead } = Astro.props;
+
+const legalPrivacy = new Set(['privacy', 'datenschutz', 'privacidad', 'privacy-policy']);
+const legalAff = new Set(['affiliate-disclosure', 'werbehinweis', 'affiliatebeleid', 'afiliacion', 'affiliazione', 'affiliate-disclosure']);
+const isError = /(^|\/)(error-code|fehlercode|foutcode|codigo-error|codice-errore)(\/|$)/.test(path);
+const tail = path.split('/').pop() ?? path;
+const isPrivacy = legalPrivacy.has(tail) || path.endsWith('privacidad') || path.endsWith('datenschutz') || path === 'privacy';
+const isAff = legalAff.has(tail) || path.includes('werbehinweis') || path.includes('affiliate');
+---
+
+{isError && (
+  <ErrorCodeExtras
+    lang={lang}
+    slug={tail}
+    title={h1}
+    code={h1}
+    symptom={lead}
+  />
+)}
+{(isPrivacy || (isAff && !isPrivacy)) && (
+  <LegalPageExtras
+    lang={lang}
+    kind={isPrivacy ? 'privacy' : 'affiliate'}
+    pathname={pathname}
+  />
+)}

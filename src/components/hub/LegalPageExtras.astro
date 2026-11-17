@@ -1,0 +1,177 @@
+---
+import FaqBlock from '../FaqBlock.astro';
+import PageFreshness from './PageFreshness.astro';
+import { awinLink } from '../../content/awin';
+import type { HubLang } from '../../content/hub-pages-i18n';
+
+interface Props { lang: HubLang; kind: 'privacy' | 'affiliate'; pathname: string }
+const { lang, kind, pathname } = Astro.props;
+
+const osram = awinLink('98739', 'https://shop.ledvance.fr/collections/all-stars');
+const amazonSample: Record<string, { href: string; tag: string }> = {
+  fr: { href: 'https://www.amazon.fr/s?k=ampoule+LED+E27&tag=manuso06-21', tag: 'manuso06-21' },
+  en: { href: 'https://www.amazon.co.uk/s?k=LED+bulb+E27&tag=roboteducatif-21', tag: 'roboteducatif-21' },
+  uk: { href: 'https://www.amazon.co.uk/s?k=LED+bulb+E27&tag=roboteducatif-21', tag: 'roboteducatif-21' },
+  ca: { href: 'https://www.amazon.ca/s?k=LED+bulb+E27&tag=roboteducat03-20', tag: 'roboteducat03-20' },
+  de: { href: 'https://www.amazon.de/s?k=LED+Lampe+E27&tag=roboteducat00-21', tag: 'roboteducat00-21' },
+  nl: { href: 'https://www.amazon.nl/s?k=LED+lamp+E27&tag=manuso0607-21', tag: 'manuso0607-21' },
+  es: { href: 'https://www.amazon.es/s?k=bombilla+LED+E27&tag=roboteducat07-21', tag: 'roboteducat07-21' },
+  it: { href: 'https://www.amazon.it/s?k=lampadina+LED+E27&tag=roboteducat0f-21', tag: 'roboteducat0f-21' },
+};
+const amz = amazonSample[lang] ?? amazonSample.en;
+
+const copy: Record<string, Record<'privacy' | 'affiliate', { nav: string; toc: [string, string][]; tableCap: string; faqTitle: string; faq: { q: string; a: string }[]; affTitle: string; affBody: string; amzCta: string; awinCta: string }>> = {
+  fr: {
+    privacy: {
+      nav: 'Sur cette page',
+      toc: [['#donnees', 'Données'], ['#droits', 'Vos droits'], ['#affiliation', 'Liens affiliés']],
+      tableCap: 'Cookies et stockage',
+      faqTitle: 'Confidentialité : FAQ',
+      faq: [
+        { q: 'Google Analytics est-il chargé sans mon accord ?', a: 'Non : le Consent Mode v2 bloque l’analyse tant que vous n’avez pas accepté via le bandeau cookies.' },
+        { q: 'Les liens affiliés transmettent-ils mes données bancaires ?', a: 'Non : le paiement a lieu chez le marchand (Amazon, Awin, etc.). Ce site ne reçoit pas vos coordonnées bancaires.' },
+      ],
+      affTitle: 'Liens affiliés',
+      affBody: 'Certains liens vers Amazon.fr et des marchands partenaires (OSRAM LEDVANCE via Awin) sont des liens sponsorisés.',
+      amzCta: 'Exemple de lien Amazon (recherche ampoule E27)',
+      awinCta: 'Boutique OSRAM LEDVANCE (partenaire)',
+    },
+    affiliate: {
+      nav: 'Sommaire',
+      toc: [['#amazon', 'Amazon'], ['#awin', 'Awin'], ['#sav', 'SAV']],
+      tableCap: 'Programmes et balises',
+      faqTitle: 'Affiliation : FAQ',
+      faq: [
+        { q: 'Un lien partenaire change-t-il le prix ?', a: 'Non : la commission est versée par le marchand, pas par vous.' },
+        { q: 'Comment sont signalés les liens ?', a: 'Attribut rel="sponsored nofollow" et mention sur la page d’affiliation.' },
+      ],
+      affTitle: 'Exemples de liens actifs',
+      affBody: 'Les liens ci-dessous illustrent le format utilisé dans les guides et comparatifs.',
+      amzCta: 'Rechercher une ampoule LED E27 sur Amazon.fr',
+      awinCta: 'Voir la boutique OSRAM (LEDVANCE)',
+    },
+  },
+  de: {
+    privacy: {
+      nav: 'Inhalt',
+      toc: [['#daten', 'Daten'], ['#rechte', 'Rechte'], ['#partner', 'Partnerlinks']],
+      tableCap: 'Cookies und Speicher',
+      faqTitle: 'Datenschutz: FAQ',
+      faq: [
+        { q: 'Wird Google Analytics ohne Zustimmung geladen?', a: 'Nein — Consent Mode v2 blockiert Analytics bis Sie im Banner zustimmen.' },
+        { q: 'Erhalten Partnerlinks Zahlungsdaten?', a: 'Nein. Zahlung erfolgt beim Händler; diese Website sieht keine Bankdaten.' },
+      ],
+      affTitle: 'Partnerlinks',
+      affBody: 'Einige Links zu Amazon.de und Awin-Händlern sind als Werbung gekennzeichnet (rel="sponsored").',
+      amzCta: 'LED-Lampe E27 bei Amazon.de suchen',
+      awinCta: 'OSRAM LEDVANCE Shop (Partner)',
+    },
+    affiliate: {
+      nav: 'Inhalt',
+      toc: [['#amazon', 'Amazon'], ['#awin', 'Awin'], ['#hinweis', 'Kennzeichnung']],
+      tableCap: 'Programme und Tags',
+      faqTitle: 'Werbehinweis: FAQ',
+      faq: [
+        { q: 'Erhöhen Partnerlinks den Preis?', a: 'Nein — die Provision zahlt der Händler.' },
+        { q: 'Wie erkenne ich Werbung?', a: 'rel="sponsored nofollow" und dieser Werbehinweis.' },
+      ],
+      affTitle: 'Beispiel-Partnerlinks',
+      affBody: 'So kennzeichnen wir Kauf-Links in Ratgebern und Vergleichen.',
+      amzCta: 'LED E27 auf Amazon.de',
+      awinCta: 'OSRAM Shop ansehen',
+    },
+  },
+  es: {
+    privacy: {
+      nav: 'En esta página',
+      toc: [['#datos', 'Datos'], ['#derechos', 'Derechos'], ['#afiliacion', 'Afiliación']],
+      tableCap: 'Cookies y almacenamiento',
+      faqTitle: 'Privacidad: preguntas frecuentes',
+      faq: [
+        { q: '¿Analytics sin consentimiento?', a: 'No: Consent Mode v2 bloquea Google Analytics hasta que acepta en el banner.' },
+        { q: '¿Los enlaces de afiliación reciben mis datos de pago?', a: 'No: el pago es con el comercio; este sitio no procesa tarjetas.' },
+      ],
+      affTitle: 'Enlaces de afiliación',
+      affBody: 'Algunos enlaces a Amazon y socios Awin (OSRAM) llevan rel="sponsored nofollow".',
+      amzCta: 'Buscar bombilla LED E27 en Amazon.es',
+      awinCta: 'Tienda OSRAM LEDVANCE (socio)',
+    },
+    affiliate: {
+      nav: 'Índice',
+      toc: [['#amazon', 'Amazon'], ['#awin', 'Awin']],
+      tableCap: 'Programas',
+      faqTitle: 'Afiliación: FAQ',
+      faq: [
+        { q: '¿Sube el precio con un enlace de afiliación?', a: 'No, la comisión la paga el comercio.' },
+        { q: '¿Cómo se marcan los enlaces?', a: 'Con rel="sponsored" y la página de divulgación de afiliados.' },
+      ],
+      affTitle: 'Ejemplos',
+      affBody: 'Enlaces de muestra con el mismo formato que en las guías.',
+      amzCta: 'Bombilla E27 en Amazon.es',
+      awinCta: 'Tienda OSRAM',
+    },
+  },
+  en: {
+    privacy: {
+      nav: 'On this page',
+      toc: [['#data', 'Data'], ['#rights', 'Rights'], ['#affiliate', 'Affiliate links']],
+      tableCap: 'Cookies and storage',
+      faqTitle: 'Privacy FAQ',
+      faq: [
+        { q: 'Is Google Analytics loaded without consent?', a: 'No — Consent Mode v2 keeps analytics denied until you accept in the cookie banner.' },
+        { q: 'Do affiliate links get my card details?', a: 'No — checkout happens on the merchant site.' },
+      ],
+      affTitle: 'Affiliate links',
+      affBody: 'Some links to Amazon and Awin merchants (OSRAM LEDVANCE) use rel="sponsored nofollow".',
+      amzCta: 'Search E27 LED bulbs on Amazon UK',
+      awinCta: 'OSRAM LEDVANCE shop (partner)',
+    },
+    affiliate: {
+      nav: 'Contents',
+      toc: [['#amazon', 'Amazon'], ['#awin', 'Awin']],
+      tableCap: 'Programmes and tags',
+      faqTitle: 'Affiliate disclosure FAQ',
+      faq: [
+        { q: 'Do partner links increase the price?', a: 'No — the commission is paid by the merchant.' },
+        { q: 'How are links marked?', a: 'rel="sponsored nofollow" plus this disclosure page.' },
+      ],
+      affTitle: 'Sample partner links',
+      affBody: 'Same format as in guides and comparison pages.',
+      amzCta: 'E27 LED bulbs on Amazon UK',
+      awinCta: 'OSRAM shop',
+    },
+  },
+};
+
+const loc = lang === 'uk' || lang === 'ca' ? 'en' : (copy[lang] ? lang : 'en');
+const c = copy[loc]?.[kind] ?? copy.en[kind];
+---
+<div class="mt-4">
+  <PageFreshness pathname={pathname} lang={lang} />
+</div>
+<nav class="mt-6 rounded-2xl border border-stone-200 bg-stone-50 p-4 text-sm" aria-label={c.nav}>
+  <p class="font-semibold text-stone-900">{c.nav}</p>
+  <ol class="mt-2 list-decimal space-y-1 pl-5">
+    {c.toc.map(([href, label]) => <li><a class="text-amber-800 underline" href={href}>{label}</a></li>)}
+  </ol>
+</nav>
+<section id={kind === 'privacy' ? 'donnees' : 'amazon'} class="mt-8 overflow-x-auto rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+  <table class="w-full min-w-[400px] text-sm">
+    <caption class="mb-2 text-left font-semibold">{c.tableCap}</caption>
+    <thead class="bg-stone-50"><tr><th class="p-2 text-left">Key</th><th class="p-2 text-left">Purpose</th></tr></thead>
+    <tbody>
+      <tr class="border-t border-stone-100"><td class="p-2"><code>cookie_consent_v1</code></td><td class="p-2">{lang === 'fr' ? 'Mémorise votre choix cookies' : 'Stores cookie choice'}</td></tr>
+      <tr class="border-t border-stone-100"><td class="p-2"><code>_ga</code></td><td class="p-2">Google Analytics 4 (if accepted)</td></tr>
+      <tr class="border-t border-stone-100"><td class="p-2">Amazon tag</td><td class="p-2"><code>{amz.tag}</code></td></tr>
+    </tbody>
+  </table>
+</section>
+<section id={kind === 'privacy' ? 'affiliation' : 'awin'} class="mt-8 rounded-2xl border border-amber-200 bg-amber-50/70 p-6 text-sm">
+  <h2 class="text-lg font-bold text-stone-900">{c.affTitle}</h2>
+  <p class="mt-2 text-stone-700">{c.affBody}</p>
+  <p class="mt-4 space-x-2 space-y-2">
+    <a class="inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white" href={amz.href} rel="sponsored nofollow noopener" target="_blank">{c.amzCta}</a>
+    <a class="inline-flex rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold" href={osram} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="98739">{c.awinCta}</a>
+  </p>
+</section>
+<FaqBlock title={c.faqTitle} items={c.faq} />

@@ -5,12 +5,14 @@ import Layout from '../../layouts/Layout.astro';
 import { activePromos, frDate, frDateTime } from '../../content/promos';
 import { awinLink } from '../../content/awin';
 import BlackFridayStrip from '../../components/BlackFridayStrip.astro';
+import PageFreshness from '../../components/hub/PageFreshness.astro';
 const promos = activePromos();
 ---
 <Layout title="Codes promo éclairage : offres datées (novembre 2026)" description="Codes promo éclairage vérifiés, avec date de fin. Au 9 novembre 2026, aucun code Luminaire.fr ni code ampoule connectée n’est en cours sur cette page.">
   <section class="mt-10 max-w-3xl mx-auto">
     <BlackFridayStrip locale="fr" />
     <h1 class="mt-8 text-3xl font-extrabold tracking-tight">Codes promo et bons plans éclairage</h1>
+    <PageFreshness pathname="/codes-promo/" lang="fr" />
     <p class="mt-3 text-stone-600">Les remises du moment chez les marchands d’éclairage que nous recommandons, avec le code à saisir, les conditions et la date de fin de chaque offre. Avant d’acheter, consultez les <a class="font-semibold text-amber-700 underline" href="/guides/lumens-vs-watts/">lumens et watts</a>, l’<a class="font-semibold text-amber-700 underline" href="/guides/irc-indice-rendu-couleur/">IRC d’une ampoule LED</a> et le guide <a class="font-semibold text-amber-700 underline" href="/articles/bon-plan-ampoule-connectee/">bon plan ampoule connectée</a>.</p>
     <p class="mt-3 text-stone-600"><strong>Code promo Luminaire.fr, code réduction Luminaire.fr :</strong> aucun code vérifié au 9 novembre 2026. L’offre de mi-saison s’est terminée le 25 octobre 2026. Le détail livraison, retours et exclusions est sur la <a class="font-semibold text-amber-700 underline" href="/marques/luminaire-fr/">fiche Luminaire.fr</a>. Une remise ne compte que si elle s’affiche sur le total.</p>
     <div class="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-5 text-sm text-stone-700">

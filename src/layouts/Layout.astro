@@ -93,7 +93,9 @@ const baseSchema: Record<string, unknown>[] = [
     description,
     url: canonical,
     inLanguage: { fr: 'fr-FR', en: 'en-GB', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', nl: 'nl', es: 'es-ES', it: 'it-IT' }[lang],
-    ...(type === 'article' ? { datePublished: dates.published, dateModified: dates.modified, image: ogImage, mainEntityOfPage: canonical, author, publisher: org } : {}),
+    ...(type === 'article'
+      ? { datePublished: dates.published, dateModified: dates.modified, image: ogImage, mainEntityOfPage: canonical, author, publisher: org }
+      : { datePublished: dates.published, dateModified: dates.modified }),
     isPartOf: { '@type': 'WebSite', name: 'Choisir son ampoule', url: `${siteUrl}/` },
   },
 ];
