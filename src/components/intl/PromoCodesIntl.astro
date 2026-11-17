@@ -1,11 +1,22 @@
 ---
+import FaqBlock from '../FaqBlock.astro';
+import BlackFridayStrip from '../BlackFridayStrip.astro';
+import PageFreshness from '../hub/PageFreshness.astro';
 import { activePromos } from '../../content/promos';
 import { awinLink } from '../../content/awin';
+import type { BFLocale } from '../../content/black-friday-2026';
+import type { HubLang } from '../../content/hub-pages-i18n';
 
 export type IntlLang = 'en' | 'de' | 'nl' | 'es' | 'it';
-interface Props { lang: IntlLang }
-const { lang } = Astro.props;
+interface Props {
+  lang: IntlLang;
+  pathname: string;
+  displayLang?: HubLang;
+  bfLocale?: BFLocale;
+}
+const { lang, pathname, displayLang = lang, bfLocale = (displayLang === 'uk' || displayLang === 'ca' ? displayLang : lang) as BFLocale } = Astro.props;
 const promos = activePromos();
+const osramShop = awinLink('98739', 'https://shop.ledvance.fr/collections/all-stars');
 
 const tz: Record<IntlLang, string> = { en: 'Europe/London', de: 'Europe/Berlin', nl: 'Europe/Amsterdam', es: 'Europe/Madrid', it: 'Europe/Rome' };
 const loc: Record<IntlLang, string> = { en: 'en-GB', de: 'de-DE', nl: 'nl-NL', es: 'es-ES', it: 'it-IT' };
@@ -13,15 +24,33 @@ const fmtDate = (iso: string) => new Date(iso).toLocaleDateString(loc[lang] ?? '
 const fmtDateTime = (iso: string) => new Date(iso).toLocaleString(loc[lang] ?? 'en-GB', { timeZone: tz[lang] ?? 'Europe/London', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
 const T: Record<IntlLang, {
-  title: string; desc: string; h1: string; lead: string; code: string; noCode: string; valid: string; verified: string; cta: string; brandLink: string;
+  title: string; desc: string; h1: string; lead: string; extra: string; howTitle: string; steps: string[];
+  tableCap: string; th: [string, string, string, string]; offersH2: string;
+  code: string; noCode: string; valid: string; verified: string; cta: string; brandLink: string;
   trotecKicker: string; trotecTitle: string; trotecBody: string; trotecCta: string;
-  empty: string; compare: string; affiliate: string; affiliatePath: string; brandsPath: string;
+  osramK: string; osramH: string; osramBody: string; osramCta: string;
+  empty: string; emptyOsram: string; compare: string; brandsLabel: string;
+  affiliate: string; affiliateLink: string;
+  faqTitle: string; faq: { q: string; a: string }[];
+  illuAlt: string;
+  affiliatePath: string; brandsPath: string; bfPath: string;
 }> = {
   en: {
-    title: 'Lighting promo codes and deals — October 2026',
+    title: 'Lighting promo codes and deals — November 2026',
     desc: 'Verified lighting partner offers with codes, conditions and end dates.',
     h1: 'Lighting promo codes and deals',
     lead: 'Current discounts from lighting merchants we recommend: copy the code, read the conditions and note each offer’s end date.',
+    extra: 'Before you buy, compare lumens and colour temperature in our guides. A promo only counts if the discount appears in the merchant basket before payment.',
+    howTitle: 'How to use a promo code',
+    steps: [
+      'Tap “Get the deal” to open the merchant shop.',
+      'Add products to the basket and open checkout.',
+      'Paste the code in the promo field before paying.',
+      'Check the discount on the total; if missing, read exclusions (minimum spend, eligible SKUs).',
+    ],
+    tableCap: 'Active lighting offers (summary)',
+    th: ['Merchant', 'Code', 'Deal', 'Ends'],
+    offersH2: 'Dated partner offers',
     code: 'Code:', noCode: 'No code needed — the discount applies automatically.',
     valid: 'Valid from', verified: 'Checked on', cta: 'Get the deal at',
     brandLink: 'Our review of {m}: delivery, warranty, support',
@@ -29,16 +58,41 @@ const T: Record<IntlLang, {
     trotecTitle: 'Climate, measurement and ventilation (IT store)',
     trotecBody: 'Dehumidifiers, heaters, fans and measuring tools on the Trotec Italy shop. No verified promo code today — see current deals on the merchant site.',
     trotecCta: 'View Trotec IT offers',
-    empty: 'No active offers right now. Check back soon.',
-    compare: 'Before buying, compare warranties and support on our',
-    affiliate: 'Partner links: we may earn a commission if you buy, at no extra cost to you. Full terms on the merchant site.',
-    affiliatePath: '/en/affiliate-disclosure/', brandsPath: '/en/brands/',
+    osramK: 'OSRAM LEDVANCE shop',
+    osramH: 'LED bulbs and luminaires',
+    osramBody: 'Official “All Stars” selection on the LEDVANCE shop. No verified code today (last dated offer ended late October 2026).',
+    osramCta: 'View OSRAM shop (partner)',
+    empty: 'No active dated offers right now.',
+    emptyOsram: 'Browse the OSRAM LEDVANCE shop or our OSRAM brand page.',
+    compare: 'Compare warranties on our',
+    brandsLabel: 'brand pages',
+    affiliate: 'Partner links: we may earn a commission if you buy, at no extra cost to you.',
+    affiliateLink: 'Affiliate disclosure',
+    faqTitle: 'Black Friday 2026 and lighting deals',
+    faq: [
+      { q: 'When is Black Friday 2026?', a: 'Friday 27 November 2026, then Cyber Monday on 30 November. We add confirmed merchant deals here with end dates.' },
+      { q: 'Is there a Philips Hue starter kit deal yet?', a: 'Not on our partners today. Compare regular kit prices and check base type (E27, GU10) before any future discount.' },
+      { q: 'Which deals are valid right now?', a: 'Those listed with an end date at the top of this page. Expired offers are removed automatically.' },
+    ],
+    illuAlt: 'Illustration: promo codes for lighting retailers',
+    affiliatePath: '/en/affiliate-disclosure/', brandsPath: '/en/brands/', bfPath: '/en/black-friday-2026/',
   },
   de: {
-    title: 'Aktionscodes Beleuchtung — Oktober 2026',
+    title: 'Aktionscodes Beleuchtung — November 2026',
     desc: 'Geprüfte Partnerangebote mit Codes und Enddatum.',
     h1: 'Aktionscodes und Angebote Beleuchtung',
     lead: 'Aktuelle Rabatte unserer empfohlenen Händler — Code, Bedingungen und Gültigkeit.',
+    extra: 'Vergleichen Sie Lumen und Kelvin in unseren Ratgebern. Ein Rabatt zählt nur, wenn er im Warenkorb vor der Zahlung erscheint.',
+    howTitle: 'Aktionscode einlösen',
+    steps: [
+      '„Angebot sichern“ öffnet den Händlershop.',
+      'Produkte in den Warenkorb, zur Kasse gehen.',
+      'Code im Gutscheinfeld eingeben.',
+      'Rabatt im Gesamtbetrag prüfen; sonst Bedingungen lesen.',
+    ],
+    tableCap: 'Aktuelle Beleuchtungsangebote (Übersicht)',
+    th: ['Händler', 'Code', 'Vorteil', 'Ende'],
+    offersH2: 'Datierte Partnerangebote',
     code: 'Code:', noCode: 'Kein Code nötig — Rabatt wird automatisch angewendet.',
     valid: 'Gültig vom', verified: 'Geprüft am', cta: 'Angebot bei',
     brandLink: 'Unser Test zu {m}: Lieferung, Garantie, Service',
@@ -46,16 +100,41 @@ const T: Record<IntlLang, {
     trotecTitle: 'Klima, Messung und Lüftung (IT-Shop)',
     trotecBody: 'Entfeuchter, Heizgeräte und Messgeräte im Trotec Italien Shop. Kein geprüfter Code — Angebote auf der Händlerseite.',
     trotecCta: 'Trotec IT Angebote',
-    empty: 'Derzeit keine Angebote.',
-    compare: 'Vergleichen Sie Garantien auf unserer',
+    osramK: 'OSRAM LEDVANCE Shop',
+    osramH: 'LED-Lampen und Leuchten',
+    osramBody: 'Offizielle Auswahl im LEDVANCE Shop. Kein geprüfter Code heute.',
+    osramCta: 'OSRAM Shop (Partner)',
+    empty: 'Derzeit keine datierten Angebote.',
+    emptyOsram: 'OSRAM LEDVANCE Shop oder unsere Markenseite.',
+    compare: 'Garantien vergleichen auf unseren',
+    brandsLabel: 'Markenseiten',
     affiliate: 'Partnerlinks: Provision möglich, ohne Mehrkosten für Sie.',
-    affiliatePath: '/de/affiliate-offenlegung/', brandsPath: '/de/marken/',
+    affiliateLink: 'Affiliate-Offenlegung',
+    faqTitle: 'Black Friday 2026 und Beleuchtungsdeals',
+    faq: [
+      { q: 'Wann ist Black Friday 2026?', a: 'Freitag, 27. November 2026, danach Cyber Monday am 30. November.' },
+      { q: 'Gibt es schon ein Hue-Starterkit-Angebot?', a: 'Bei unseren Partnern derzeit nicht. Sockel und Lumen vor jedem Rabatt prüfen.' },
+      { q: 'Welche Angebote gelten jetzt?', a: 'Alle mit Enddatum oben auf dieser Seite.' },
+    ],
+    illuAlt: 'Illustration: Aktionscodes für Beleuchtung',
+    affiliatePath: '/de/affiliate-offenlegung/', brandsPath: '/de/marken/', bfPath: '/de/black-friday-2026/',
   },
   nl: {
-    title: 'Actiecodes verlichting — oktober 2026',
+    title: 'Actiecodes verlichting — november 2026',
     desc: 'Gecontroleerde partneraanbiedingen met codes en einddatum.',
     h1: 'Actiecodes en deals verlichting',
     lead: 'Huidige kortingen bij aanbevolen verlichtingswinkels — code, voorwaarden en einddatum.',
+    extra: 'Vergelijk lumen en kelvin in onze gidsen. Een korting telt alleen als die in de winkelwagen staat vóór betaling.',
+    howTitle: 'Actiecode gebruiken',
+    steps: [
+      'Klik op de dealknop om de winkel te openen.',
+      'Voeg producten toe en ga naar afrekenen.',
+      'Plak de code in het kortingsveld.',
+      'Controleer het totaal; anders de voorwaarden nalopen.',
+    ],
+    tableCap: 'Actieve verlichtingsdeals (overzicht)',
+    th: ['Winkel', 'Code', 'Voordeel', 'Einde'],
+    offersH2: 'Gedateerde partnerdeals',
     code: 'Code:', noCode: 'Geen code nodig — korting wordt automatisch toegepast.',
     valid: 'Geldig van', verified: 'Gecontroleerd op', cta: 'Profiteer bij',
     brandLink: 'Onze review van {m}: levering, garantie, service',
@@ -63,16 +142,41 @@ const T: Record<IntlLang, {
     trotecTitle: 'Klimaat, meten en ventilatie (IT-winkel)',
     trotecBody: 'Ontvochtigers en meetapparatuur in de Trotec Italië shop. Geen geverifieerde code vandaag.',
     trotecCta: 'Trotec IT aanbiedingen',
-    empty: 'Geen actieve aanbiedingen.',
+    osramK: 'OSRAM LEDVANCE shop',
+    osramH: 'LED-lampen en armaturen',
+    osramBody: 'Officiële selectie in de LEDVANCE shop. Geen geverifieerde code vandaag.',
+    osramCta: 'OSRAM shop (partner)',
+    empty: 'Geen actieve gedateerde aanbiedingen.',
+    emptyOsram: 'OSRAM LEDVANCE shop of onze merkenpagina.',
     compare: 'Vergelijk garanties op onze',
+    brandsLabel: 'merkenpagina’s',
     affiliate: 'Partnerlinks: commissie mogelijk, zonder meerprijs voor u.',
-    affiliatePath: '/nl/affiliatebeleid/', brandsPath: '/nl/merken/',
+    affiliateLink: 'Affiliatebeleid',
+    faqTitle: 'Black Friday 2026 en verlichtingsdeals',
+    faq: [
+      { q: 'Wanneer is Black Friday 2026?', a: 'Vrijdag 27 november 2026, daarna Cyber Monday op 30 november.' },
+      { q: 'Is er al een Hue-starterkitdeal?', a: 'Nog niet bij onze partners. Controleer fitting en lumen vóór u koopt.' },
+      { q: 'Welke deals gelden nu?', a: 'Alles met einddatum bovenaan deze pagina.' },
+    ],
+    illuAlt: 'Illustratie: actiecodes verlichting',
+    affiliatePath: '/nl/affiliatebeleid/', brandsPath: '/nl/merken/', bfPath: '/nl/black-friday-2026/',
   },
   es: {
-    title: 'Códigos promo iluminación — octubre 2026',
+    title: 'Códigos promo iluminación — noviembre 2026',
     desc: 'Ofertas verificadas de socios con códigos y fecha de fin.',
     h1: 'Códigos promo y ofertas de iluminación',
     lead: 'Descuentos actuales de comercios que recomendamos: código, condiciones y caducidad.',
+    extra: 'Antes de comprar, compare lúmenes y temperatura de color en nuestras guías. El descuento solo cuenta si aparece en el carrito antes del pago.',
+    howTitle: 'Cómo usar un código promo',
+    steps: [
+      'Pulse el botón de la oferta para abrir la tienda.',
+      'Añada productos y vaya al pago.',
+      'Introduzca el código en el campo promo.',
+      'Compruebe el total; si falta el descuento, lea las exclusiones.',
+    ],
+    tableCap: 'Ofertas activas de iluminación (resumen)',
+    th: ['Comercio', 'Código', 'Ventaja', 'Fin'],
+    offersH2: 'Ofertas socios con fecha',
     code: 'Código:', noCode: 'Sin código: el descuento se aplica solo.',
     valid: 'Válido del', verified: 'Verificado el', cta: 'Aprovechar en',
     brandLink: 'Nuestra opinión sobre {m}: envío, garantía, SAV',
@@ -80,16 +184,41 @@ const T: Record<IntlLang, {
     trotecTitle: 'Climatización y medición (tienda IT)',
     trotecBody: 'Deshumidificadores y ventilación en Trotec Italia. Sin código verificado hoy.',
     trotecCta: 'Ver ofertas Trotec IT',
-    empty: 'No hay ofertas activas.',
+    osramK: 'Tienda OSRAM LEDVANCE',
+    osramH: 'Bombillas y luminarias LED',
+    osramBody: 'Selección oficial en la tienda LEDVANCE. Sin código verificado hoy.',
+    osramCta: 'Tienda OSRAM (socio)',
+    empty: 'No hay ofertas datadas activas.',
+    emptyOsram: 'Tienda OSRAM LEDVANCE o nuestra ficha de marca.',
     compare: 'Compare garantías en nuestras',
+    brandsLabel: 'páginas de marcas',
     affiliate: 'Enlaces de afiliación: posible comisión sin coste extra.',
-    affiliatePath: '/es/divulgacion-afiliados/', brandsPath: '/es/marcas/',
+    affiliateLink: 'Divulgación de afiliados',
+    faqTitle: 'Black Friday 2026 y ofertas de iluminación',
+    faq: [
+      { q: '¿Cuándo es el Black Friday 2026?', a: 'Viernes 27 de noviembre de 2026; Cyber Monday el 30 de noviembre.' },
+      { q: '¿Hay oferta de kit Philips Hue?', a: 'Aún no en nuestros socios. Compare culot y lúmenes antes de cualquier rebaja.' },
+      { q: '¿Qué ofertas están vigentes?', a: 'Las que figuran arriba con fecha de fin.' },
+    ],
+    illuAlt: 'Ilustración: códigos promo iluminación',
+    affiliatePath: '/es/divulgacion-afiliados/', brandsPath: '/es/marcas/', bfPath: '/es/black-friday-2026/',
   },
   it: {
-    title: 'Codici promo illuminazione — ottobre 2026',
+    title: 'Codici promo illuminazione — novembre 2026',
     desc: 'Offerte partner verificate con codici e scadenza.',
     h1: 'Codici promo e offerte illuminazione',
     lead: 'Sconti attuali dai negozi consigliati: codice, condizioni e data di fine.',
+    extra: 'Prima dell’acquisto, confrontate lumen e temperatura colore nelle nostre guide. Lo sconto vale solo se compare nel carrello prima del pagamento.',
+    howTitle: 'Come usare un codice promo',
+    steps: [
+      'Cliccate sul pulsante dell’offerta per aprire il negozio.',
+      'Aggiungete i prodotti e andate al checkout.',
+      'Inserite il codice nel campo promo.',
+      'Verificate lo sconto sul totale; altrimenti leggete le condizioni.',
+    ],
+    tableCap: 'Offerte illuminazione attive (sintesi)',
+    th: ['Negozio', 'Codice', 'Vantaggio', 'Fine'],
+    offersH2: 'Offerte partner con data',
     code: 'Codice:', noCode: 'Senza codice: lo sconto si applica da solo.',
     valid: 'Valido dal', verified: 'Verificato il', cta: 'Approfitta su',
     brandLink: 'La nostra recensione su {m}: consegna, garanzia, assistenza',
@@ -97,41 +226,102 @@ const T: Record<IntlLang, {
     trotecTitle: 'Clima, misura e ventilazione (shop IT)',
     trotecBody: 'Deumidificatori e strumenti sullo shop Trotec Italia. Nessun codice verificato oggi.',
     trotecCta: 'Offerte Trotec IT',
-    empty: 'Nessuna offerta attiva.',
+    osramK: 'Shop OSRAM LEDVANCE',
+    osramH: 'Lampadine e lampade LED',
+    osramBody: 'Selezione ufficiale nello shop LEDVANCE. Nessun codice verificato oggi.',
+    osramCta: 'Shop OSRAM (partner)',
+    empty: 'Nessuna offerta datata attiva.',
+    emptyOsram: 'Shop OSRAM LEDVANCE o la nostra scheda marchio.',
     compare: 'Confrontate garanzie sulle nostre',
+    brandsLabel: 'schede marchi',
     affiliate: 'Link partner: possibile commissione senza costi extra.',
-    affiliatePath: '/it/informativa-affiliazione/', brandsPath: '/it/marchi/',
+    affiliateLink: 'Informativa affiliazione',
+    faqTitle: 'Black Friday 2026 e offerte illuminazione',
+    faq: [
+      { q: 'Quando è il Black Friday 2026?', a: 'Venerdì 27 novembre 2026, poi Cyber Monday il 30 novembre.' },
+      { q: 'C’è già un’offerta kit Philips Hue?', a: 'Non ancora sui nostri partner. Controllate attacco e lumen prima di ogni sconto.' },
+      { q: 'Quali offerte sono valide ora?', a: 'Quelle in alto con data di scadenza.' },
+    ],
+    illuAlt: 'Illustrazione: codici promo illuminazione',
+    affiliatePath: '/it/informativa-affiliazione/', brandsPath: '/it/marchi/', bfPath: '/it/black-friday-2026/',
   },
 };
 const t = T[lang] ?? T.en;
 const marqueEn = (p: string) => p.replace(/^\/marques\//, '/en/brands/').replace(/\/$/, '') + '/';
+const brandHrefForPromo = (marquePage: string) => {
+  if (lang === 'en') return marqueEn(marquePage);
+  if (lang === 'de') return marquePage.replace(/^\/marques\//, '/de/marken/');
+  if (lang === 'nl') return marquePage.replace(/^\/marques\//, '/nl/merken/');
+  if (lang === 'es') return marquePage.replace(/^\/marques\//, '/es/marcas/');
+  if (lang === 'it') return marquePage.replace(/^\/marques\//, '/it/marchi/');
+  return marquePage;
+};
 ---
 <section class="mt-10 max-w-3xl mx-auto">
+  <BlackFridayStrip locale={bfLocale} />
+  <figure class="not-prose mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+    <img src="/pins/e27-b22.png" alt={t.illuAlt} width="560" height="280" loading="lazy" class="mx-auto max-h-32 object-contain" />
+  </figure>
   <h1 class="mt-8 text-3xl font-extrabold tracking-tight">{t.h1}</h1>
+  <PageFreshness pathname={pathname} lang={displayLang} />
   <p class="mt-3 text-stone-600">{t.lead}</p>
-  <div class="mt-6 space-y-4">
+  <p class="mt-3 text-stone-600">{t.extra}</p>
+  <div class="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-5 text-sm text-stone-700">
+    <p class="font-semibold text-stone-900">{t.howTitle}</p>
+    <ol class="mt-2 list-decimal space-y-1 pl-5">
+      {t.steps.map((s) => <li>{s}</li>)}
+    </ol>
+    <p class="mt-3 text-xs text-stone-600"><a class="font-semibold text-amber-800 underline" href={t.bfPath}>{t.faqTitle}</a></p>
+  </div>
+  {promos.length > 0 && (
+    <figure class="not-prose mt-8 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <table class="w-full min-w-[520px] text-sm">
+        <caption class="px-4 pt-4 text-left text-sm font-semibold text-stone-900">{t.tableCap}</caption>
+        <thead class="bg-stone-50 text-left"><tr>{t.th.map((h) => <th class="p-3">{h}</th>)}</tr></thead>
+        <tbody>
+          {promos.map((p) => (
+            <tr class="border-t border-stone-100">
+              <td class="p-3 font-medium">{p.marchand}</td>
+              <td class="p-3 font-mono text-xs">{p.code ?? '—'}</td>
+              <td class="p-3 text-stone-600">{p.titre}</td>
+              <td class="p-3 text-stone-600">{fmtDateTime(p.fin)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
+  )}
+  <h2 class="mt-10 text-xl font-bold text-stone-900">{t.offersH2}</h2>
+  <div class="mt-4 space-y-4">
     {promos.map((p) => (
       <article class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" data-promo data-fin={p.fin}>
         <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">{p.marchand}</p>
-        <h2 class="mt-1 text-lg font-bold text-stone-900">{p.titre}</h2>
+        <h3 class="mt-1 text-lg font-bold text-stone-900">{p.titre}</h3>
         <p class="mt-2 text-sm text-stone-600">{p.details}</p>
         {p.code ? <p class="mt-3 text-sm">{t.code} <strong class="rounded-lg border border-dashed border-amber-500 bg-amber-50 px-2 py-1 font-mono text-stone-900">{p.code}</strong></p> : <p class="mt-3 text-sm text-stone-700">{t.noCode}</p>}
         <p class="mt-3 text-xs text-stone-500">{t.valid} {fmtDate(p.debut)} — {fmtDateTime(p.fin)}. {t.verified} {p.verifie}.</p>
         <a href={p.lien} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={p.mid} data-product={`Promo ${p.marchand}`} class="mt-3 inline-flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">{t.cta} {p.marchand}</a>
-        {p.marquePage && <p class="mt-2 text-sm"><a class="text-amber-700 underline" href={lang === 'en' ? marqueEn(p.marquePage) : p.marquePage}>{t.brandLink.replace('{m}', p.marchand)}</a></p>}
+        {p.marquePage && <p class="mt-2 text-sm"><a class="text-amber-700 underline" href={brandHrefForPromo(p.marquePage)}>{t.brandLink.replace('{m}', p.marchand)}</a></p>}
       </article>
     ))}
   </div>
+  <article class="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+    <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">{t.osramK}</p>
+    <h2 class="mt-1 text-lg font-bold text-stone-900">{t.osramH}</h2>
+    <p class="mt-2 text-sm text-stone-600">{t.osramBody}</p>
+    <a href={osramShop} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="98739" class="mt-3 inline-flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">{t.osramCta}</a>
+  </article>
   <article class="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
     <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">{t.trotecKicker}</p>
     <h2 class="mt-1 text-lg font-bold text-stone-900">{t.trotecTitle}</h2>
     <p class="mt-2 text-sm text-stone-600">{t.trotecBody}</p>
     <a href={awinLink('115365', 'https://www.trotec.com/it/shop/')} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="115365" class="mt-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600">{t.trotecCta}</a>
   </article>
-  <p class="mt-6 text-sm text-stone-500" id="promo-empty" hidden>{t.empty}</p>
-  <p class="mt-6 text-sm text-stone-600">{t.compare} <a class="font-semibold text-amber-700 underline" href={t.brandsPath}>{lang === 'en' ? 'brand pages' : t.brandsPath}</a>.</p>
-  <p class="mt-6 text-xs text-stone-500">{t.affiliate} <a class="underline" href={t.affiliatePath}>{lang === 'en' ? 'Affiliate disclosure' : '…'}</a>.</p>
+  <p class="mt-6 text-sm text-stone-500" id="promo-empty" hidden>{t.empty} {t.emptyOsram}</p>
+  <p class="mt-6 text-sm text-stone-600">{t.compare} <a class="font-semibold text-amber-700 underline" href={t.brandsPath}>{t.brandsLabel}</a>.</p>
+  <p class="mt-6 text-xs text-stone-500">{t.affiliate} <a class="underline" href={t.affiliatePath}>{t.affiliateLink}</a>.</p>
 </section>
+<FaqBlock title={t.faqTitle} items={t.faq} />
 <script is:inline>
   (function(){var n=Date.now(),v=0;document.querySelectorAll('[data-promo]').forEach(function(e){if(new Date(e.dataset.fin).getTime()<=n){e.remove();}else v++;});if(!v){var m=document.getElementById('promo-empty');if(m)m.hidden=false;}})();
 </script>

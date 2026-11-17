@@ -63,7 +63,13 @@ const copyLabels = JSON.stringify({ copy: t.copy, copied: t.copied });
     </p>
     <h1 class="mt-6 text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl">{h1}</h1>
     <p class="mt-3 text-stone-600">{t.intro}</p>
-    <p class="mt-2 text-sm text-stone-500">{t.updatedLabel} {updatedFmt}</p>
+    <p class="mt-2 text-sm text-stone-500">{t.updatedLabel} <time datetime={BF_UPDATED}>{updatedFmt}</time></p>
+
+    {activeCat && (
+      <figure class="not-prose mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+        <img src="/pins/lumens.png" alt={t.categoryLabels[activeCat.id] ?? activeCat.id} width="640" height="360" loading="lazy" class="mx-auto max-h-44 object-contain p-6" />
+      </figure>
+    )}
 
     <div class="mt-6 grid gap-3 sm:grid-cols-2" data-bf-countdown data-bf={bfEnd} data-cm={cmEnd}>
       <div class="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
@@ -121,6 +127,16 @@ const copyLabels = JSON.stringify({ copy: t.copy, copied: t.copied });
             </li>
           ) : null,
         )}
+      </ul>
+    </nav>
+  )}
+
+  {activeCat && (
+    <nav class="mt-8 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm" aria-label={t.navCategories}>
+      <h2 class="text-sm font-bold text-stone-900">{t.navCategories}</h2>
+      <p class="mt-2 text-sm text-stone-600">{h1}</p>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-700">
+        {displayOffers.slice(0, 8).map((o) => <li>{o.title}</li>)}
       </ul>
     </nav>
   )}

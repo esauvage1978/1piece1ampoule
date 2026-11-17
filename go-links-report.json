@@ -1,11 +1,11 @@
 {
  "site": "1piece1ampoule.fr",
- "generated": "2026-11-12T10:58:42.205Z",
+ "generated": "2026-11-17T01:34:02.520Z",
  "stats": {
-  "files": 1165,
-  "filesChanged": 750,
-  "amazon": 1875,
-  "awin": 919,
+  "files": 1859,
+  "filesChanged": 1173,
+  "amazon": 2667,
+  "awin": 1195,
   "repaired": 0,
   "relFixed": 60,
   "collisions": 0,
@@ -185,6 +185,14 @@
    "merchant": "awin",
    "country": "",
    "mid": "10896",
+   "dest": "",
+   "affid": ""
+  },
+  "aw-115363-baf4bca100": {
+   "url": "https://www.awin1.com/awclick.php?mid=115363&id=3127458",
+   "merchant": "awin",
+   "country": "",
+   "mid": "115363",
    "dest": "",
    "affid": ""
   },
@@ -1621,668 +1629,1448 @@
    "country": "BE",
    "tag": "manuso06-21"
   },
-  "az-ca-02a1141a76": {
-   "url": "https://www.amazon.ca/s?k=ZOTOYI%20guirlande%20guinguette%20ext%C3%A9rieure%2015%20m%20(15%2B1%20ampoules%20S14)&tag=roboteducatif-20",
+  "az-ca-01888622cc": {
+   "url": "https://www.amazon.ca/s?k=aluminium%20LED%20profile%20V%20corner%20opal%20diffuser&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-02a1141a76": {
+   "url": "https://www.amazon.ca/s?k=ZOTOYI%20guirlande%20guinguette%20ext%C3%A9rieure%2015%20m%20(15%2B1%20ampoules%20S14)&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-04e2d29726": {
-   "url": "https://www.amazon.ca/s?k=Hellum%20LED%20bougie%20E14%20mat%20%E2%80%93%20lot%20de%205&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Hellum%20LED%20bougie%20E14%20mat%20%E2%80%93%20lot%20de%205&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-0528aabebf": {
-   "url": "https://www.amazon.ca/s?k=Unilux%20Mambo%20lampe%20de%20bureau%20LED%203000%E2%80%935000K&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Unilux%20Mambo%20lampe%20de%20bureau%20LED%203000%E2%80%935000K&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-06c4bea942": {
-   "url": "https://www.amazon.ca/s?k=Annmore%20veilleuse%20nuage%20rechargeable&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Annmore%20veilleuse%20nuage%20rechargeable&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-072752d5af": {
+   "url": "https://www.amazon.ca/s?k=CLY%2060W%20LED%20floodlight%20motion%20sensor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-0a29fefd61": {
-   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20Ambiance%20E27%201100%20lm&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20Ambiance%20E27%201100%20lm&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-0a37b01448": {
+   "url": "https://www.amazon.ca/s?k=GY%20G9%20LED%203.2W%20520lm%203000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-0a7f9ed5e2": {
+   "url": "https://www.amazon.ca/s?k=GU10%20LED%20805lm%204000K%20pack&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-0b64c96a1b": {
+   "url": "https://www.amazon.ca/dp/B0B927WMTY?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-0d5159374a": {
+   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%20805lm%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-0db176bba6": {
-   "url": "https://www.amazon.ca/dp/B0F18462GT?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0F18462GT?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-0e3479606b": {
-   "url": "https://www.amazon.ca/dp/B0972HH7C6?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0972HH7C6?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-0f3f651127": {
+   "url": "https://www.amazon.ca/s?k=outdoor%20LED%20wall%20light%20IP65%203000K%20up%20down&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-11f73d3376": {
+   "url": "https://www.amazon.ca/s?k=waterproof%20LED%20strip%20workshop&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-136953cc31": {
+   "url": "https://www.amazon.ca/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote%203600lm&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-143946d80f": {
-   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20%E2%80%93%20barre%20lumineuse%20pour%20%C3%A9cran&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20%E2%80%93%20barre%20lumineuse%20pour%20%C3%A9cran&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-14d9e8831c": {
-   "url": "https://www.amazon.ca/s?k=TRUMPETS%20lampe%20de%20chevet%20tactile%20sans%20fil&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=TRUMPETS%20lampe%20de%20chevet%20tactile%20sans%20fil&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-157a01d0b3": {
-   "url": "https://www.amazon.ca/s?k=OREiN%20projecteur%20LED%2024W%20%C3%A0%20d%C3%A9tecteur%2C%203%20teintes&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=OREiN%20projecteur%20LED%2024W%20%C3%A0%20d%C3%A9tecteur%2C%203%20teintes&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-16a86cd7bb": {
-   "url": "https://www.amazon.ca/s?k=Philips%20spot%20LED%20GU10%20WarmGlow%20dimmable%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20spot%20LED%20GU10%20WarmGlow%20dimmable%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-18491170d0": {
+   "url": "https://www.amazon.ca/s?k=LED%20ceiling%20light%20kids%20room%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-185ce04e95": {
+   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-1fb2261250": {
+   "url": "https://www.amazon.ca/s?k=SANSI%20full%20spectrum%20E27%20grow%20light%20bulb&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-21e71f1b76": {
+   "url": "https://www.amazon.ca/s?k=30W%20LED%20floodlight%20PIR%20motion%20sensor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-246c5582ee": {
-   "url": "https://www.amazon.ca/s?k=Guirlande%20guinguette%2010%20m%20G40%2024V%20dimmable&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Guirlande%20guinguette%2010%20m%20G40%2024V%20dimmable&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-249744718c": {
+   "url": "https://www.amazon.ca/s?k=LED%20architect%20desk%20lamp%20clamp%203%20colour%2010%20brightness&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-25cedacd14": {
+   "url": "https://www.amazon.ca/s?k=aluminium%20LED%20profile%20recessed%20diffuser&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-26825b0f0b": {
+   "url": "https://www.amazon.ca/s?k=ceiling%20PIR%20motion%20sensor%20indoor%20time%20delay&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-26fbfbaa96": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%2060W%20warm%20white&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-26ff4e4feb": {
+   "url": "https://www.amazon.ca/s?k=LED%20batten%20workshop%20garage%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-2771d36303": {
-   "url": "https://www.amazon.ca/dp/B0B272H45X?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0B272H45X?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-278a708c48": {
+   "url": "https://www.amazon.ca/s?k=door%20contact%20switch%20wardrobe%20light&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-289a8750ba": {
+   "url": "https://www.amazon.ca/s?k=24V%2060W%20LED%20driver%20power%20supply&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-28d55cfe4b": {
-   "url": "https://www.amazon.ca/s?k=GY%20ampoule%20LED%20G9%203%2C2W%203000K%20520%20lm&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=GY%20ampoule%20LED%20G9%203%2C2W%203000K%20520%20lm&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-2984149187": {
-   "url": "https://www.amazon.ca/s?k=Spots%20solaires%20ext%C3%A9rieurs%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%203&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Spots%20solaires%20ext%C3%A9rieurs%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%203&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-29e371b543": {
-   "url": "https://www.amazon.ca/s?k=Philips%20LED%20Classic%20A60%20E27%20%C3%A9q.%20100W%20%E2%80%93%20pack&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20Classic%20A60%20E27%20%C3%A9q.%20100W%20%E2%80%93%20pack&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-2a7daae0e4": {
-   "url": "https://www.amazon.ca/s?k=ISOLATECH%20kit%20de%20142%20gaines%20thermor%C3%A9tractables%203%3A1%20avec%20colle&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=ISOLATECH%20kit%20de%20142%20gaines%20thermor%C3%A9tractables%203%3A1%20avec%20colle&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-2a846788ef": {
-   "url": "https://www.amazon.ca/s?k=REYLAX%20alimentation%20LED%2024V%20100W%20dimmable&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=REYLAX%20alimentation%20LED%2024V%20100W%20dimmable&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-2e3f14c530": {
+   "url": "https://www.amazon.ca/s?k=LED%20reading%20wall%20light%20bedroom%203000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-3338cdd227": {
-   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%20%C3%A9q.%20100W%20claire%2C%20compatible%20variateur&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%20%C3%A9q.%20100W%20claire%2C%20compatible%20variateur&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-335164343f": {
+   "url": "https://www.amazon.ca/s?k=LED%20bollard%20light%20outdoor%20IP67%203000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-3414e49411": {
+   "url": "https://www.amazon.ca/s?k=COB%20LED%20strip%20IP65%2024V&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-349aa94e73": {
+   "url": "https://www.amazon.ca/s?k=LED%20strip%20wine%20cellar%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-35b28692cb": {
+   "url": "https://www.amazon.ca/s?k=rechargeable%20LED%20wardrobe%20light%20motion%20sensor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-35df4c6eac": {
+   "url": "https://www.amazon.ca/s?k=AGOTD%20G9%20LED%202700K%20650lm&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-3755ad0e05": {
-   "url": "https://www.amazon.ca/dp/B073FT1QT2?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B073FT1QT2?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-39bf8d2fa7": {
+   "url": "https://www.amazon.ca/s?k=LED%20bathroom%20wall%20light%20IP44&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-3b03d62b20": {
-   "url": "https://www.amazon.ca/s?k=Wattm%C3%A8tre%20prise%207%20modes%2C%20%C3%A9cran%20LCD&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Wattm%C3%A8tre%20prise%207%20modes%2C%20%C3%A9cran%20LCD&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-3baefc5fb3": {
-   "url": "https://www.amazon.ca/dp/B08HV4WG3Y?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B08HV4WG3Y?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-3f576bf42a": {
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU10%20550lm%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-3fc5fa894e": {
+   "url": "https://www.amazon.ca/s?k=ceiling%20PIR%20motion%20sensor%20stairs&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-402da192ae": {
+   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20Halo%202&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-41446ba0d2": {
-   "url": "https://www.amazon.ca/s?k=HOFTRONIC%20r%C3%A9glette%20LED%20%C3%A9tanche%20120%20cm%2036W%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=HOFTRONIC%20r%C3%A9glette%20LED%20%C3%A9tanche%20120%20cm%2036W%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-41b9158450": {
+   "url": "https://www.amazon.ca/s?k=MediAcous%20rechargeable%20touch%20night%20light&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-43e3abea6c": {
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20E27%20800%20lm%202%20pack&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-44ca24d133": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20E27%20LED%20bulb%20806%20lumens&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-464d470694": {
+   "url": "https://www.amazon.ca/s?k=24V%20high%20density%20LED%20strip%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-46bcc4eac3": {
-   "url": "https://www.amazon.ca/s?k=SEBSON%20r%C3%A9glette%20LED%20cuisine%2060%20cm%20avec%20interrupteur&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=SEBSON%20r%C3%A9glette%20LED%20cuisine%2060%20cm%20avec%20interrupteur&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-48b6999f6e": {
-   "url": "https://www.amazon.ca/dp/B0BPX1ZZXJ?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0BPX1ZZXJ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-490ab3a873": {
+   "url": "https://www.amazon.ca/s?k=LED+bulb+E27&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-4a39af7f15": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20LED%20ceiling%20light%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-4b70e355c5": {
-   "url": "https://www.amazon.ca/dp/B0CZ9B4C2B?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0CZ9B4C2B?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-4c0371af42": {
-   "url": "https://www.amazon.ca/s?k=Bojim%20spots%20LED%20encastrables%20orientables%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Bojim%20spots%20LED%20encastrables%20orientables%20%E2%80%93%20lot%20de%2010&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-4c6905e8cd": {
+   "url": "https://www.amazon.ca/s?k=aluminium%20LED%20profile%20wardrobe%20diffuser&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-4cb5862365": {
-   "url": "https://www.amazon.ca/dp/B0B7W9VRB7?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0B7W9VRB7?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-4ebd3f56f2": {
+   "url": "https://www.amazon.ca/s?k=E27%20LED%20bulb%20CRI%2090%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-4fc62e57d1": {
-   "url": "https://www.amazon.ca/dp/B0CGRC4GQ9?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0CGRC4GQ9?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-502893da97": {
+   "url": "https://www.amazon.ca/s?k=Steinel%20XSolar%20L-S%20ONE&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-530c5a3867": {
+   "url": "https://www.amazon.ca/s?k=24V%2060W%20LED%20power%20supply&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-53793d23b8": {
-   "url": "https://www.amazon.ca/s?k=R%C3%A9glette%20LED%20orientable%20sous%20meuble%2056%20cm%20(3000%2F4000%2F6000K)&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=R%C3%A9glette%20LED%20orientable%20sous%20meuble%2056%20cm%20(3000%2F4000%2F6000K)&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-54e54ca8fd": {
+   "url": "https://www.amazon.ca/s?k=LED%20step%20marker%20light%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-56611cd976": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20E27%20LED%20bulb&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-59729c5aa2": {
-   "url": "https://www.amazon.ca/s?k=Oktaplex%20Riga%20r%C3%A9glette%20sous%20meuble%2028%20cm%204000K&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Oktaplex%20Riga%20r%C3%A9glette%20sous%20meuble%2028%20cm%204000K&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-59abf43343": {
+   "url": "https://www.amazon.ca/s?k=MR16%20GU5.3%20LED%2012V%20bulbs&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-5b7381cc7e": {
+   "url": "https://www.amazon.ca/s?k=SEBSON%20LED%20under%20cabinet%20light%2060cm%20switch&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-5c00a6cf3f": {
+   "url": "https://www.amazon.ca/s?k=SONOFF%20ZBMINIL2&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-5ccae67d05": {
-   "url": "https://www.amazon.ca/s?k=YIIFELL%20ampoule%20four%20E14%20300%20%C2%B0C%20%E2%80%93%20lot%20de%204&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=YIIFELL%20ampoule%20four%20E14%20300%20%C2%B0C%20%E2%80%93%20lot%20de%204&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-5ceca89cb1": {
-   "url": "https://www.amazon.ca/s?k=Ampoule%20E27%207W%20%C3%A0%20d%C3%A9tecteur%20de%20mouvement%20orientable&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Ampoule%20E27%207W%20%C3%A0%20d%C3%A9tecteur%20de%20mouvement%20orientable&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-5d136a2c52": {
+   "url": "https://www.amazon.ca/s?k=LED%20reading%20floor%20lamp%20adjustable&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-5dd3ce58d8": {
+   "url": "https://www.amazon.ca/s?k=Unilux%20Mambo%20LED%20desk%20lamp&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-5e4ed71065": {
+   "url": "https://www.amazon.ca/s?k=LED%20dimmer%20switch%20trailing%20edge&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-609d31d97c": {
+   "url": "https://www.amazon.ca/s?k=Chesbung%20aluminium%20V%20profile%20LED%20strip&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-61fe89798f": {
-   "url": "https://www.amazon.ca/s?k=Tapo%20L530E%20Wi-Fi%20E27%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Tapo%20L530E%20Wi-Fi%20E27%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-6266e108ba": {
-   "url": "https://www.amazon.ca/dp/B0FGD6H3NZ?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0FGD6H3NZ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-63df37833d": {
+   "url": "https://www.amazon.ca/s?k=adjustable%20LED%20work%20light%20indoor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-64821b3c81": {
-   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%208W%20(%C3%A9q.%2060W)%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%208W%20(%C3%A9q.%2060W)%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-64d302152f": {
+   "url": "https://www.amazon.ca/blackfriday?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-6730e7c6b4": {
-   "url": "https://www.amazon.ca/dp/B0CDC1ZV8B?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0CDC1ZV8B?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-67a7b2b523": {
-   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20Halo%202%20avec%20t%C3%A9l%C3%A9commande&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=BenQ%20ScreenBar%20Halo%202%20avec%20t%C3%A9l%C3%A9commande&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-67fa348963": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20outdoor%20LED%20spot%20IP65&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-688d30c530": {
+   "url": "https://www.amazon.ca/s?k=IP65%20LED%20strip%20bathroom%2024V&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-69733a5aae": {
+   "url": "https://www.amazon.ca/s?k=LED%20strip%2024V%20aluminium%20profile%20diffuser%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-69e83c9b49": {
+   "url": "https://www.amazon.ca/s?k=trailing%20edge%20LED%20dimmer%20switch&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-6a5be2cdcf": {
+   "url": "https://www.amazon.ca/s?k=wooden%20bedside%20lamp%20wireless%20charger%20touch&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-6b9851e4eb": {
-   "url": "https://www.amazon.ca/dp/B0DDK55MF7?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0DDK55MF7?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-6c22f13040": {
+   "url": "https://www.amazon.ca/s?k=Zigbee%20smart%20bulb%20E27&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-6c8c06bad0": {
-   "url": "https://www.amazon.ca/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-6cd22133bc": {
+   "url": "https://www.amazon.ca/s?k=plug%20in%20power%20meter%20energy%20monitor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-6d602f84b6": {
-   "url": "https://www.amazon.ca/dp/B07B4CPRDQ?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B07B4CPRDQ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-6df648aa5a": {
-   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%204%2C5W%20805%20lm%204000K%20%E2%80%93%20lot%20de%2012&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%204%2C5W%20805%20lm%204000K%20%E2%80%93%20lot%20de%2012&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-6f1fb612ae": {
+   "url": "https://www.amazon.ca/dp/B01LMEQIMQ?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-70ea3aae3b": {
+   "url": "https://www.amazon.ca/s?k=LED%20mirror%20light%20bar%20IP44%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-73b2bf12bc": {
-   "url": "https://www.amazon.ca/s?k=Lampe%20frontale%20LED%20rechargeable%20%C3%A0%20capteur&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lampe%20frontale%20LED%20rechargeable%20%C3%A0%20capteur&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-7463b1e167": {
-   "url": "https://www.amazon.ca/dp/B01KHIM7OG?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B01KHIM7OG?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-74b7c37e4e": {
-   "url": "https://www.amazon.ca/s?k=slochi%20plafonnier%20LED%2024W%20dimmable%20avec%20t%C3%A9l%C3%A9commande&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=slochi%20plafonnier%20LED%2024W%20dimmable%20avec%20t%C3%A9l%C3%A9commande&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-7680ee6587": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20GU10%20LED%20bulbs&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-76ca8d088c": {
-   "url": "https://www.amazon.ca/s?k=Lucide%20ONNO%20applique%20miroir%20LED%2011W%20IP44&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lucide%20ONNO%20applique%20miroir%20LED%2011W%20IP44&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-78f30999d2": {
+   "url": "https://www.amazon.ca/s?k=Zigbee%20hub%20smart%20home&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-792c395c84": {
-   "url": "https://www.amazon.ca/s?k=SANSI%20ampoule%20horticole%20LED%20E27%2024W%20spectre%20complet&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=SANSI%20ampoule%20horticole%20LED%20E27%2024W%20spectre%20complet&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-7ab2005133": {
-   "url": "https://www.amazon.ca/s?k=Lampe%20de%20bureau%20LED%20architecte%201000%20lm%20%C3%A0%20pince&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lampe%20de%20bureau%20LED%20architecte%201000%20lm%20%C3%A0%20pince&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-7c0fa6d11d": {
+   "url": "https://www.amazon.ca/s?k=LED%20mirror%20light%20bar%20bathroom%20IP44&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-7c2eae3bfa": {
+   "url": "https://www.amazon.ca/s?k=Shelly+Dimmer+2&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-7c4b5f3240": {
-   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU5.3%20MR16%2012V%204000K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU5.3%20MR16%2012V%204000K%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-7cec8eff49": {
-   "url": "https://www.amazon.ca/dp/B0BBLYJCFF?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0BBLYJCFF?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-7d69e975db": {
-   "url": "https://www.amazon.ca/s?k=DiCUNO%20ampoule%20LED%20E14%20pour%20frigo%203W%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20ampoule%20LED%20E14%20pour%20frigo%203W%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-7e5e12c35b": {
+   "url": "https://www.amazon.ca/s?k=under%20cabinet%20LED%20light%20bar%20kitchen%204000K%20CRI%2090&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-7ee22f4457": {
+   "url": "https://www.amazon.ca/s?k=12V%20LED%20driver%20waterproof%20IP67&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-7f1572a6e1": {
+   "url": "https://www.amazon.ca/s?k=TRUMPETS%20cordless%20touch%20bedside%20lamp&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-7f20a0d5af": {
-   "url": "https://www.amazon.ca/dp/B099NRLRG3?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B099NRLRG3?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-82d3a844ec": {
+   "url": "https://www.amazon.ca/s?k=digital%20multimeter%20continuity%20buzzer&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-831647e19d": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20LED%20bulb%202700K%20E14&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-832bdad5bb": {
-   "url": "https://www.amazon.ca/s?k=Osram%20Base%20Classic%20A%20E27%20%C3%A9q.%20100W%204000K%20%E2%80%93%20lot%20de%203&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Osram%20Base%20Classic%20A%20E27%20%C3%A9q.%20100W%204000K%20%E2%80%93%20lot%20de%203&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-8519bfb39b": {
+   "url": "https://www.amazon.ca/s?k=GU10%20LED%20790lm%204000K%20120%20degree&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-857b82a870": {
+   "url": "https://www.amazon.ca/s?k=Bojim%20LED%20tilting%20downlight%20650lm%20dimmable%2068mm&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-86b9048157": {
-   "url": "https://www.amazon.ca/s?k=Lampe%20de%20chevet%20bois%20tactile%20%2B%20chargeur%20sans%20fil&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lampe%20de%20chevet%20bois%20tactile%20%2B%20chargeur%20sans%20fil&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-8718ca501c": {
+   "url": "https://www.amazon.ca/s?k=indirect%20LED%20strip%202700K%20bedroom&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-886aaf5d1e": {
+   "url": "https://www.amazon.ca/s?k=Shelly%20bypass%20LED%20no%20neutral&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-899850a2e5": {
-   "url": "https://www.amazon.ca/dp/B09N8W4DMT?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B09N8W4DMT?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-89e76cc70f": {
+   "url": "https://www.amazon.ca/dp/B0B92RYSNV?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-89fe9d53d5": {
-   "url": "https://www.amazon.ca/s?k=Philips%20LED%20filament%20E27%20%C3%A9q.%2060W%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20filament%20E27%20%C3%A9q.%2060W%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-8ad3b4ffbc": {
-   "url": "https://www.amazon.ca/dp/B07MRBVNWM?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B07MRBVNWM?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-8d0a9c5af1": {
-   "url": "https://www.amazon.ca/s?k=ARUM%20LED%20B22%208%2C5W%202700K%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=ARUM%20LED%20B22%208%2C5W%202700K%20%E2%80%93%20lot%20de%2010&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-8e460aa6f9": {
+   "url": "https://www.amazon.ca/s?k=Oktaplex%20Riga%20under%20cabinet%20light%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-8e6cf6f7ec": {
-   "url": "https://www.amazon.ca/dp/B0DGPZCMG6?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0DGPZCMG6?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-8eb3203e12": {
+   "url": "https://www.amazon.ca/s?k=libtit%20wireless%20motion%20sensor%20light%2030cm&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-8fa8c083bc": {
-   "url": "https://www.amazon.ca/s?k=V-TAC%20LED%20E27%208%2C5W%20806%20lm%204000K&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=V-TAC%20LED%20E27%208%2C5W%20806%20lm%204000K&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-901998f078": {
-   "url": "https://www.amazon.ca/s?k=TOPAI%20ruban%20LED%20COB%2024V%205%20m%203000K%20IP65&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=TOPAI%20ruban%20LED%20COB%2024V%205%20m%203000K%20IP65&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-91503ce83f": {
-   "url": "https://www.amazon.ca/s?k=Armytek%20Wizard%20C2%20Pro%20lampe%20frontale%20rechargeable&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Armytek%20Wizard%20C2%20Pro%20lampe%20frontale%20rechargeable&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-91af7f82b9": {
-   "url": "https://www.amazon.ca/s?k=Lucide%20ST64%20ampoule%20filament%20E27%20cr%C3%A9pusculaire&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lucide%20ST64%20ampoule%20filament%20E27%20cr%C3%A9pusculaire&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-9389b228ea": {
+   "url": "https://www.amazon.ca/s?k=outdoor%20PIR%20motion%20sensor%20wall%20IP65&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-954d826e8c": {
+   "url": "https://www.amazon.ca/s?k=adjustable%20LED%20spotlight%20indoor%203000K%20IP44&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-96edceac16": {
-   "url": "https://www.amazon.ca/dp/B07TSKP9JC?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B07TSKP9JC?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-9717e80f0c": {
+   "url": "https://www.amazon.ca/s?k=door%20contact%20sensor%20light%20switch&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-971d6f8781": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20E27%20LED%20bulb%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-99ab056391": {
-   "url": "https://www.amazon.ca/s?k=Lumic%20Mouvement%203.0%20r%C3%A9glette%20sans%20fil%20%C3%A0%20d%C3%A9tecteur&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lumic%20Mouvement%203.0%20r%C3%A9glette%20sans%20fil%20%C3%A0%20d%C3%A9tecteur&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-9a88051ae0": {
+   "url": "https://www.amazon.ca/s?k=LED%20desk%20lamp%20adjustable%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-9b77ec879a": {
+   "url": "https://www.amazon.ca/s?k=LED%20ceiling%20light%20with%20motion%20sensor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-9b9a1f14e5": {
-   "url": "https://www.amazon.ca/s?k=OUILA%20lampe%20de%20placard%20LED%20rechargeable%2060%20cm%20%C3%A0%20d%C3%A9tecteur&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=OUILA%20lampe%20de%20placard%20LED%20rechargeable%2060%20cm%20%C3%A0%20d%C3%A9tecteur&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-9c5889ef12": {
+   "url": "https://www.amazon.ca/?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-9c5ac89512": {
-   "url": "https://www.amazon.ca/dp/B01LZEWUT7?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B01LZEWUT7?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-9d83af6a33": {
-   "url": "https://www.amazon.ca/s?k=Tapo%20L530E%20ampoule%20connect%C3%A9e%20Wi-Fi%20E27&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Tapo%20L530E%20ampoule%20connect%C3%A9e%20Wi-Fi%20E27&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-9e53efeea8": {
-   "url": "https://www.amazon.ca/s?k=Philips%20LED%20flamme%20B35%20E14%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20flamme%20B35%20E14%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-9f3e5e5130": {
-   "url": "https://www.amazon.ca/s?k=Plafonnier%20LED%2024W%202800%20lm%20dimmable%20(%C3%9830%20cm)&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Plafonnier%20LED%2024W%202800%20lm%20dimmable%20(%C3%9830%20cm)&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-a1276c3d77": {
+   "url": "https://www.amazon.ca/s?k=LED%20ceiling%20panel%20garage%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-a1df151c28": {
-   "url": "https://www.amazon.ca/dp/B0D6BJZJ56?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0D6BJZJ56?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-a2c24a0c87": {
+   "url": "https://www.amazon.ca/s?k=LED%20bollard%20outdoor%20IP65%203000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-a376e76b1b": {
+   "url": "https://www.amazon.ca/s?k=wardrobe%20LED%20strip%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-a395ff2132": {
-   "url": "https://www.amazon.ca/dp/B0FJ8VXHRX?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0FJ8VXHRX?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-a426b45d6e": {
+   "url": "https://www.amazon.ca/s?k=LED%20stair%20wall%20light%20recessed&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-a4e2a4014c": {
+   "url": "https://www.amazon.ca/s?k=dimmable%20LED%20ceiling%20light%20bedroom%203000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-a6424c3106": {
-   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%204%2C9W%20(%C3%A9q.%2040W)%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%204%2C9W%20(%C3%A9q.%2040W)%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-a6b5c7bbf3": {
-   "url": "https://www.amazon.ca/s?k=SANSI%20lampe%20horticole%2020W%20%C3%A0%202%20t%C3%AAtes&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=SANSI%20lampe%20horticole%2020W%20%C3%A0%202%20t%C3%AAtes&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-a7664863a3": {
+   "url": "https://www.amazon.ca/s?k=outdoor%20LED%20floodlight%20IP65%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-a8da62803d": {
-   "url": "https://www.amazon.ca/s?k=talifoca%20wattm%C3%A8tre%20prise&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=talifoca%20wattm%C3%A8tre%20prise&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-a9bf74c20b": {
-   "url": "https://www.amazon.ca/dp/B07H7HB6LG?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B07H7HB6LG?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-ae9f723a6d": {
-   "url": "https://www.amazon.ca/dp/B08Z4KCJZY?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B08Z4KCJZY?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-af3ffb6fa6": {
-   "url": "https://www.amazon.ca/s?k=Projecteur%20LED%2030W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%2C%203%20teintes&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Projecteur%20LED%2030W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%2C%203%20teintes&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b032151301": {
+   "url": "https://www.amazon.ca/s?k=Lumic%20wireless%20motion%20sensor%20light%20bar&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-b0898199c0": {
-   "url": "https://www.amazon.ca/dp/B09F9MZ4PH?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B09F9MZ4PH?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-b13c161a43": {
-   "url": "https://www.amazon.ca/s?k=Arotelicht%20spots%20encastr%C3%A9s%20escalier%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Arotelicht%20spots%20encastr%C3%A9s%20escalier%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-b14d5d13cc": {
-   "url": "https://www.amazon.ca/s?k=BTF-LIGHTING%20ruban%20LED%20COB%2024V%205%20m%203000K%20IRC%2090%2B&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=BTF-LIGHTING%20ruban%20LED%20COB%2024V%205%20m%203000K%20IRC%2090%2B&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-b18c72096f": {
-   "url": "https://www.amazon.ca/s?k=REYLAX%20transformateur%20LED%2024V%2060W&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=REYLAX%20transformateur%20LED%2024V%2060W&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b21dcff97b": {
+   "url": "https://www.amazon.ca/dp/B0B8TL1FGW?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b24693a5aa": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20E27%2040W%20equivalent%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b4ef197517": {
+   "url": "https://www.amazon.ca/s?k=0.47uF%20450V%20capacitor%20LED&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-b69c2869cc": {
-   "url": "https://www.amazon.ca/dp/B0F62SG8Z9?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0F62SG8Z9?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b7445de4ef": {
+   "url": "https://www.amazon.ca/s?k=ceiling%20PIR%20motion%20sensor%20indoor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-b7aa43a438": {
-   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU10%206W%20550%20lm%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=DiCUNO%20GU10%206W%20550%20lm%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b809fd27f5": {
+   "url": "https://www.amazon.ca/s?k=indirect%20LED%20strip%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b876daeac5": {
+   "url": "https://www.amazon.ca/s?k=LED%20mirror%20light%20bar%20IP44&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-b9f51f6766": {
+   "url": "https://www.amazon.ca/s?k=LED%20bathroom%20mirror%20wall%20light%20IP44&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-bb4e83aac5": {
-   "url": "https://www.amazon.ca/dp/B0766441R8?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0766441R8?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-bba76a5152": {
+   "url": "https://www.amazon.ca/s?k=BTF-LIGHTING%20COB%20LED%20strip%2024V%203000K%20CRI%2090&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-bc97ffbffe": {
+   "url": "https://www.amazon.ca/s?k=rechargeable%20LED%20night%20light%20warm%20white&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-bcfdeadd75": {
+   "url": "https://www.amazon.ca/s?k=outdoor%20festoon%20lights%20dimmable%20IP65%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-bd2c0a3641": {
+   "url": "https://www.amazon.ca/s?k=TOPAI%20COB%20LED%20strip%2024V%20IP65&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-c031ba6e48": {
-   "url": "https://www.amazon.ca/s?k=EACLL%20ampoules%20LED%20GU5.3%2012V%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=EACLL%20ampoules%20LED%20GU5.3%2012V%202700K%20%E2%80%93%20lot%20de%206&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-c05eb03b41": {
-   "url": "https://www.amazon.ca/s?k=Ampoule%20LED%20B22%2015W%201520%20lm%204000K&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Ampoule%20LED%20B22%2015W%201520%20lm%204000K&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-c0a17caeab": {
-   "url": "https://www.amazon.ca/s?k=AstroAI%20multim%C3%A8tre%20num%C3%A9rique%202000%20points&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=AstroAI%20multim%C3%A8tre%20num%C3%A9rique%202000%20points&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-c220df5022": {
-   "url": "https://www.amazon.ca/s?k=AGOTD%20ampoule%20LED%20G9%202700K%20650%20lm%20%E2%80%93%20lot%20de%203&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=AGOTD%20ampoule%20LED%20G9%202700K%20650%20lm%20%E2%80%93%20lot%20de%203&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c25ce79c78": {
+   "url": "https://www.amazon.ca/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-c41cde9c62": {
-   "url": "https://www.amazon.ca/dp/B08GDC99PX?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B08GDC99PX?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c5a2bf3549": {
+   "url": "https://www.amazon.ca/s?k=under%20shelf%20LED%20light%20bar%204000K%20CRI%2090&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c5e7c940d0": {
+   "url": "https://www.amazon.ca/s?k=E27%20LED%20bulb%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c64d06f302": {
+   "url": "https://www.amazon.ca/s?k=anti%20glare%20LED%20ceiling%20light%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c7492d4942": {
+   "url": "https://www.amazon.ca/s?k=rechargeable%20cabinet%20light%20motion%20sensor%20remote%2030cm%202%20pack&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c7c0969885": {
+   "url": "https://www.amazon.ca/s?k=adjustable%20recessed%20LED%20spot%203000K%20CRI%2090&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c90ea5260c": {
+   "url": "https://www.amazon.ca/s?k=outdoor%20PIR%20motion%20sensor%20IP65&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-cb09594fcb": {
-   "url": "https://www.amazon.ca/s?k=SONOFF%20ZBMINIL2%20module%20interrupteur%20Zigbee%20sans%20neutre&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=SONOFF%20ZBMINIL2%20module%20interrupteur%20Zigbee%20sans%20neutre&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-cf7350877a": {
-   "url": "https://www.amazon.ca/s?k=SILAMP%20applique%20salle%20de%20bain%2012W%20IP44&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=SILAMP%20applique%20salle%20de%20bain%2012W%20IP44&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-d095c18628": {
-   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20%26%20Color%20Ambiance%20%E2%80%93%20kit%20de%20d%C3%A9marrage%20E27&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20%26%20Color%20Ambiance%20%E2%80%93%20kit%20de%20d%C3%A9marrage%20E27&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-d3188f5f77": {
-   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%204%2C9W%20790%20lm%204000K%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=GY%20GU10%20LED%204%2C9W%20790%20lm%204000K%20%E2%80%93%20lot%20de%2010&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-d40a8f5e05": {
+   "url": "https://www.amazon.ca/s?k=solar%20spike%20lights%20motion%20sensor%20IP65&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-d504bc0960": {
-   "url": "https://www.amazon.ca/dp/B099NPGWCQ?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B099NPGWCQ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-d512bb8155": {
+   "url": "https://www.amazon.ca/s?k=24V%20LED%20strip%20dimmer&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-d51ae25860": {
+   "url": "https://www.amazon.ca/s?k=outdoor%20pendant%20light%20IP65%202700K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-d5a30b2f09": {
-   "url": "https://www.amazon.ca/s?k=Chesbung%20profil%C3%A9%20aluminium%20en%20V%20pour%20ruban%20LED%20(20%20%C3%97%201%20m)&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Chesbung%20profil%C3%A9%20aluminium%20en%20V%20pour%20ruban%20LED%20(20%20%C3%97%201%20m)&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-d643c046c8": {
-   "url": "https://www.amazon.ca/s?k=KOMIGANLED%20kit%20%C3%A9clairage%20escalier%20%C3%A0%20d%C3%A9tecteur%20(16%20marches)&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=KOMIGANLED%20kit%20%C3%A9clairage%20escalier%20%C3%A0%20d%C3%A9tecteur%20(16%20marches)&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-da1dfaf47c": {
-   "url": "https://www.amazon.ca/dp/B00MOIWOAK?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B00MOIWOAK?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-db58ba2fd7": {
+   "url": "https://www.amazon.ca/s?k=TV%20bias%20lighting%20LED%20strip&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-dcc7803137": {
-   "url": "https://www.amazon.ca/s?k=STEINEL%20XSolar%20L-S%20ONE%20applique%20solaire%20%C3%A0%20d%C3%A9tecteur&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=STEINEL%20XSolar%20L-S%20ONE%20applique%20solaire%20%C3%A0%20d%C3%A9tecteur&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-de67876c97": {
-   "url": "https://www.amazon.ca/s?k=SILAMP%20r%C3%A9glette%20LED%20%C3%A9tanche%2036W%20120%20cm%20IP65&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=SILAMP%20r%C3%A9glette%20LED%20%C3%A9tanche%2036W%20120%20cm%20IP65&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ded53e1489": {
+   "url": "https://www.amazon.ca/s?k=Steinel%20XSolar&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-deed8ebeb9": {
-   "url": "https://www.amazon.ca/s?k=MediAcous%20veilleuse%20tactile%20rechargeable&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=MediAcous%20veilleuse%20tactile%20rechargeable&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-df59ed94e1": {
+   "url": "https://www.amazon.ca/s?k=rechargeable%20LED%20cabinet%20light%20motion%20sensor&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-df99052ff2": {
-   "url": "https://www.amazon.ca/s?k=Shelly%201L%20Gen3%20module%20Wi-Fi%20sans%20neutre%20%2B%20bypass&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Shelly%201L%20Gen3%20module%20Wi-Fi%20sans%20neutre%20%2B%20bypass&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e0aa365b90": {
+   "url": "https://www.amazon.ca/s?k=Annmore%20cloud%20night%20light%20rechargeable&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e141df3f86": {
+   "url": "https://www.amazon.ca/s?k=GU10%20recessed%20downlight%20kitchen%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-e1c337e287": {
-   "url": "https://www.amazon.ca/s?k=libtit%20r%C3%A9glette%20sans%20fil%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=libtit%20r%C3%A9glette%20sans%20fil%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e1f804d598": {
+   "url": "https://www.amazon.ca/s?k=Philips%20LED%20GU10%20warm%20white%2010%20pack&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e22d91c07f": {
+   "url": "https://www.amazon.ca/s?k=bathroom%20downlight%20IP65&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-e75fba72c8": {
-   "url": "https://www.amazon.ca/s?k=Philips%20spot%20LED%20GU10%204%2C6W%20blanc%20chaud%20%E2%80%93%20lot%20de%2010&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20spot%20LED%20GU10%204%2C6W%20blanc%20chaud%20%E2%80%93%20lot%20de%2010&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-e7871bfd55": {
-   "url": "https://www.amazon.ca/s?k=JZK%20driver%20LED%2012V%20DC%2030W%20(2%2C5%20A)%20pour%20MR16%20%2F%20G4&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=JZK%20driver%20LED%2012V%20DC%2030W%20(2%2C5%20A)%20pour%20MR16%20%2F%20G4&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-e7c28c23a9": {
-   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20E27%20800%20lm%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20White%20E27%20800%20lm%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e8503fe3d8": {
+   "url": "https://www.amazon.ca/s?k=cordless%20touch%20bedside%20lamp%20rechargeable%20dimmable%203%20colour&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e884cc9fb9": {
+   "url": "https://www.amazon.ca/s?k=LED%20strip%203000K%20CRI%2090&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ea846b0037": {
+   "url": "https://www.amazon.ca/s?k=LED%20task%20lamp%20workbench%20adjustable&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-eb9c9776b2": {
+   "url": "https://www.amazon.ca/s?k=LED%20strip%20aluminium%20profile%20stairs%20diffuser&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ebef3a8f05": {
+   "url": "https://www.amazon.ca/s?k=SANSI%20clip%20grow%20light%202%20heads&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ebf13e1a7a": {
+   "url": "https://www.amazon.ca/s?k=LED%20ceiling%20light%203000K%20small&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-ed2dbe4d97": {
-   "url": "https://www.amazon.ca/s?k=Lampe%20de%20placard%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Lampe%20de%20placard%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-ed55b36ed8": {
-   "url": "https://www.amazon.ca/s?k=CLY%20projecteur%20LED%2060W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=CLY%20projecteur%20LED%2060W%20%C3%A0%20d%C3%A9tecteur%20%2B%20t%C3%A9l%C3%A9commande&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-edb0698f92": {
+   "url": "https://www.amazon.ca/s?k=solar%20spike%20lights%20motion%20sensor%203%20pack&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-ef56bd3df9": {
-   "url": "https://www.amazon.ca/s?k=Legrand%20dooxie%20variateur%20toutes%20lampes%202%20fils%20(avec%20plaque)&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Legrand%20dooxie%20variateur%20toutes%20lampes%202%20fils%20(avec%20plaque)&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-f37c24bfac": {
-   "url": "https://www.amazon.ca/s?k=Caldarax%20ampoule%20four%20E14%20T20%20300%20%C2%B0C%20%E2%80%93%20lot%20de%202&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Caldarax%20ampoule%20four%20E14%20T20%20300%20%C2%B0C%20%E2%80%93%20lot%20de%202&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-f823f79a7f": {
+   "url": "https://www.amazon.ca/s?k=kids%20LED%20desk%20lamp%20adjustable%204000K&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-f83c73dc2f": {
+   "url": "https://www.amazon.ca/s?k=heat%20shrink%20tubing%203%3A1%20adhesive%20lined%20kit&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-fe89f8b571": {
+   "url": "https://www.amazon.ca/s?k=LED%20architect%20lamp%20clamp%201000%20lumen&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-feea4dd6e1": {
+   "url": "https://www.amazon.ca/s?k=Shelly%201L%20no%20neutral&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-de-0141d21227": {
    "url": "https://www.amazon.de/dp/B094YKGD5N?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-02afdbcce2": {
+   "url": "https://www.amazon.de/s?k=TOPAI%20COB%20LED%20strip%2024V%20IP65&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2295,6 +3083,12 @@
   },
   "az-de-05ad7e1c6a": {
    "url": "https://www.amazon.de/dp/B07665DHG6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-0a1596e3cb": {
+   "url": "https://www.amazon.de/s?k=libtit%20wireless%20motion%20sensor%20light%2030cm&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2371,6 +3165,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-2a3a62b920": {
+   "url": "https://www.amazon.de/s?k=Oktaplex%20Riga%20under%20cabinet%20light%204000K&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-2aec8cc452": {
    "url": "https://www.amazon.de/dp/B08P8T8LN1?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -2379,6 +3179,18 @@
   },
   "az-de-2eff6684dc": {
    "url": "https://www.amazon.de/dp/B0B9WSBMH4?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-2f2b010373": {
+   "url": "https://www.amazon.de/s?k=Zigbee%20smarte%20Lampe%20E27&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-3012319f3d": {
+   "url": "https://www.amazon.de/s?k=LED%20Dimmer%20Phasenabschnitt&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2419,6 +3231,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-3ba8fe4b25": {
+   "url": "https://www.amazon.de/s?k=LED%20Spiegelleuchte%20Bad%20IP44&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-42509465e2": {
    "url": "https://www.amazon.de/dp/B08R8Y6Q8Y?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -2431,14 +3249,44 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-499fc18501": {
+   "url": "https://www.amazon.de/s?k=Einbaustrahler%20Bad%20IP65&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-4e51f4c8be": {
+   "url": "https://www.amazon.de/s?k=LED+Lampe+E27&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-53619b9908": {
+   "url": "https://www.amazon.de/s?k=12V%20LED%20Trafo%20wasserdicht%20IP67&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-5519472d0f": {
    "url": "https://www.amazon.de/dp/B09F9MZ4PH?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-5f787d6415": {
+   "url": "https://www.amazon.de/s?k=Shelly%20Bypass%20LED%20ohne%20Neutralleiter&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-632fd6db21": {
    "url": "https://www.amazon.de/dp/B09534N6WS?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-636e862fe9": {
+   "url": "https://www.amazon.de/s?k=Shelly+Dimmer+2&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2461,6 +3309,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-68631610f2": {
+   "url": "https://www.amazon.de/s?k=dimmbare%20GU10%20LED%20Lampen&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-6a89971fb4": {
    "url": "https://www.amazon.de/dp/B07VNNFBHV?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -2469,6 +3323,12 @@
   },
   "az-de-6ba9e6fee9": {
    "url": "https://www.amazon.de/dp/B019QJ612G?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-719c059b35": {
+   "url": "https://www.amazon.de/s?k=LED%20architect%20lamp%20clamp%201000%20lumen&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2491,6 +3351,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-75574506fa": {
+   "url": "https://www.amazon.de/s?k=Shelly%201L%20ohne%20Neutralleiter&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-760986508b": {
    "url": "https://www.amazon.de/dp/B073FT1QT2?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -2509,8 +3375,20 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-7c41425618": {
+   "url": "https://www.amazon.de/s?k=Unilux%20Mambo%20LED%20desk%20lamp&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-7c91ad8723": {
    "url": "https://www.amazon.de/dp/B099NRLRG3?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-7dc376a150": {
+   "url": "https://www.amazon.de/s?k=CLY%2060W%20LED%20floodlight%20motion%20sensor&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2533,8 +3411,32 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-81eda29373": {
+   "url": "https://www.amazon.de/s?k=Chesbung%20aluminium%20V%20profile%20LED%20strip&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-82a5f283f7": {
+   "url": "https://www.amazon.de/s?k=BenQ%20ScreenBar&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-86c0a64a70": {
    "url": "https://www.amazon.de/dp/B0B87XVX16?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-87a5af55e0": {
+   "url": "https://www.amazon.de/s?k=GU10%20LED%20790lm%204000K%20120%20degree&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-8b5e9a8e8c": {
+   "url": "https://www.amazon.de/s?k=BTF-LIGHTING%20COB%20LED%20strip%2024V%203000K%20CRI%2090&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2611,6 +3513,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-a47c59be98": {
+   "url": "https://www.amazon.de/s?k=Philips%20Hue%20White%20E27%20800%20lm%202%20pack&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-a48461b243": {
    "url": "https://www.amazon.de/dp/B01ISAMUA6?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -2619,6 +3527,12 @@
   },
   "az-de-a668df5300": {
    "url": "https://www.amazon.de/dp/B09TQZVFY7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a6ac9c2982": {
+   "url": "https://www.amazon.de/s?k=BenQ%20ScreenBar%20Halo%202&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2643,6 +3557,24 @@
   },
   "az-de-b090bb15ba": {
    "url": "https://www.amazon.de/dp/B0CGRC4GQ9?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b30ca86325": {
+   "url": "https://www.amazon.de/s?k=0.47uF%20450V%20Kondensator%20LED&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b42ae53191": {
+   "url": "https://www.amazon.de/s?k=DiCUNO%20GU10%20550lm%202700K&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-b5bf1cd7eb": {
+   "url": "https://www.amazon.de/s?k=LED%20Spiegelleiste%20IP44&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2679,6 +3611,12 @@
   },
   "az-de-c6016b0e21": {
    "url": "https://www.amazon.de/dp/B0919GN6FK?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-c9e7228905": {
+   "url": "https://www.amazon.de/s?k=Philips%20LED%20GU10%20warm%20white%2010%20pack&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2725,6 +3663,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-d9ed12c550": {
+   "url": "https://www.amazon.de/s?k=Zigbee%20Hub%20Smart%20Home&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-dd37d74151": {
    "url": "https://www.amazon.de/dp/B07TSKP9JC?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -2743,8 +3687,38 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-ef0ae762fd": {
+   "url": "https://www.amazon.de/s?k=dimmbare%20E27%20LED%20Lampe%20806%20Lumen&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f2c8aa5747": {
+   "url": "https://www.amazon.de/s?k=Philips%20LED%20E27%2040W%20equivalent%202700K&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-f51af3e146": {
    "url": "https://www.amazon.de/dp/B00MOIWOAK?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f62c86f5b3": {
+   "url": "https://www.amazon.de/s?k=GY%20GU10%20LED%20805lm%204000K&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f696e2be39": {
+   "url": "https://www.amazon.de/s?k=Lumic%20wireless%20motion%20sensor%20light%20bar&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f6e515534a": {
+   "url": "https://www.amazon.de/s?k=SEBSON%20LED%20under%20cabinet%20light%2060cm%20switch&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2757,6 +3731,18 @@
   },
   "az-de-fa00a2c658": {
    "url": "https://www.amazon.de/dp/B08NWLXPMC?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-fa1ce1815c": {
+   "url": "https://www.amazon.de/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote%203600lm&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-fb14bdcf16": {
+   "url": "https://www.amazon.de/s?k=rechargeable%20cabinet%20light%20motion%20sensor%20remote%2030cm%202%20pack&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -2793,6 +3779,12 @@
   },
   "az-es-0e6c75a894": {
    "url": "https://www.amazon.es/dp/B019QJ612G?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-12a4706900": {
+   "url": "https://www.amazon.es/s?k=BenQ%20ScreenBar%20Halo%202&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -2851,6 +3843,24 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-29ea0c0cf6": {
+   "url": "https://www.amazon.es/s?k=GY%20GU10%20LED%20805lm%204000K&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-2eba9d0954": {
+   "url": "https://www.amazon.es/s?k=bombilla%20LED%20E27%20regulable%20806%20lumenes&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-2f1eff4e32": {
+   "url": "https://www.amazon.es/s?k=regulador%20LED%20trailing%20edge&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-31de580928": {
    "url": "https://www.amazon.es/dp/B0BZ59BD65?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -2863,14 +3873,38 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-3394ef6959": {
+   "url": "https://www.amazon.es/s?k=bombilla+LED+E27&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-341120601d": {
    "url": "https://www.amazon.es/dp/B0CRL78J86?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-3632262086": {
+   "url": "https://www.amazon.es/s?k=rechargeable%20cabinet%20light%20motion%20sensor%20remote%2030cm%202%20pack&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-370b2ffa0c": {
    "url": "https://www.amazon.es/dp/B0DHRX4CJZ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-37429e131f": {
+   "url": "https://www.amazon.es/s?k=bombillas%20LED%20GU10%20regulables&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-398b7947d5": {
+   "url": "https://www.amazon.es/s?k=Shelly%201L%20sin%20neutro&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -2889,6 +3923,12 @@
   },
   "az-es-3cdaddedb3": {
    "url": "https://www.amazon.es/dp/B0FP4ZKX9Z?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-3e44afbf5b": {
+   "url": "https://www.amazon.es/s?k=TOPAI%20COB%20LED%20strip%2024V%20IP65&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -2923,6 +3963,24 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-4b82ae3569": {
+   "url": "https://www.amazon.es/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote%203600lm&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-4b836528ae": {
+   "url": "https://www.amazon.es/s?k=foco%20empotrado%20ba%C3%B1o%20IP65&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-4d4d00c347": {
+   "url": "https://www.amazon.es/s?k=GU10%20LED%20790lm%204000K%20120%20degree&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-53114ca4f2": {
    "url": "https://www.amazon.es/dp/B09TQZVFY7?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -2935,8 +3993,20 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-5680a23d90": {
+   "url": "https://www.amazon.es/s?k=transformador%20LED%2012V%20IP67%20estanco&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-56dc586d96": {
    "url": "https://www.amazon.es/dp/B0F1CV6R3M?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-5a1b52826c": {
+   "url": "https://www.amazon.es/s?k=LED%20architect%20lamp%20clamp%201000%20lumen&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -2947,8 +4017,20 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-5d64c5553d": {
+   "url": "https://www.amazon.es/s?k=Unilux%20Mambo%20LED%20desk%20lamp&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-6285caeffa": {
    "url": "https://www.amazon.es/dp/B073FT1QT2?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-649be6b8be": {
+   "url": "https://www.amazon.es/s?k=Shelly%20bypass%20LED%20sin%20neutro&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -2995,6 +4077,18 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-7775151923": {
+   "url": "https://www.amazon.es/s?k=CLY%2060W%20LED%20floodlight%20motion%20sensor&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-7a60737c33": {
+   "url": "https://www.amazon.es/s?k=bombilla%20inteligente%20Zigbee%20E27&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-7d6d267ee9": {
    "url": "https://www.amazon.es/dp/B07665DHG6?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3031,6 +4125,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-858ec70ed4": {
+   "url": "https://www.amazon.es/s?k=condensador%200.47uF%20450V%20LED&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-85975776c4": {
    "url": "https://www.amazon.es/dp/B094YKGD5N?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3049,6 +4149,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-8aac52bd27": {
+   "url": "https://www.amazon.es/s?k=aplique%20LED%20espejo%20ba%C3%B1o%20IP44&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-8c64a2dc5c": {
    "url": "https://www.amazon.es/dp/B08Z4KCJZY?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3057,6 +4163,12 @@
   },
   "az-es-8dfae2bc1e": {
    "url": "https://www.amazon.es/dp/B01ISAMUA6?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-8e38db6aed": {
+   "url": "https://www.amazon.es/s?k=BenQ%20ScreenBar&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -3115,6 +4227,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-abc01ee36b": {
+   "url": "https://www.amazon.es/s?k=Lumic%20wireless%20motion%20sensor%20light%20bar&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-acd41abb98": {
    "url": "https://www.amazon.es/dp/B09QLY8QFZ?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3141,6 +4259,12 @@
   },
   "az-es-af607bd3cf": {
    "url": "https://www.amazon.es/dp/B0BBLYJCFF?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b079d54797": {
+   "url": "https://www.amazon.es/s?k=Oktaplex%20Riga%20under%20cabinet%20light%204000K&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -3181,6 +4305,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-bf5bedcefd": {
+   "url": "https://www.amazon.es/s?k=Chesbung%20aluminium%20V%20profile%20LED%20strip&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-bf867e44fd": {
    "url": "https://www.amazon.es/dp/B08SMN32HT?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3195,6 +4325,12 @@
   },
   "az-es-c4af6094ca": {
    "url": "https://www.amazon.es/dp/B08P8T8LN1?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-c5255ac197": {
+   "url": "https://www.amazon.es/s?k=SEBSON%20LED%20under%20cabinet%20light%2060cm%20switch&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -3223,6 +4359,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-d0c68ab8f2": {
+   "url": "https://www.amazon.es/s?k=Philips%20Hue%20White%20E27%20800%20lm%202%20pack&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-d977cdc334": {
    "url": "https://www.amazon.es/dp/B0DDK55MF7?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3231,6 +4373,12 @@
   },
   "az-es-dab1d945a4": {
    "url": "https://www.amazon.es/dp/B01KHIM7OG?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-df4c1e4751": {
+   "url": "https://www.amazon.es/s?k=DiCUNO%20GU10%20550lm%202700K&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -3247,8 +4395,26 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-e5509d2013": {
+   "url": "https://www.amazon.es/s?k=hub%20Zigbee%20hogar%20inteligente&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-e6d10e1232": {
+   "url": "https://www.amazon.es/s?k=BTF-LIGHTING%20COB%20LED%20strip%2024V%203000K%20CRI%2090&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-eaa9b7ca78": {
    "url": "https://www.amazon.es/dp/B08MFN1S45?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-eaab69ba38": {
+   "url": "https://www.amazon.es/s?k=regleta%20LED%20espejo%20IP44&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -3271,6 +4437,18 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-f2b695bf6d": {
+   "url": "https://www.amazon.es/s?k=Shelly+Dimmer+2&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-f66c57b4f8": {
+   "url": "https://www.amazon.es/s?k=Philips%20LED%20E27%2040W%20equivalent%202700K&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-f67dec94b6": {
    "url": "https://www.amazon.es/dp/B0FKGR2L1M?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -3289,8 +4467,20 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-fa748a4f7f": {
+   "url": "https://www.amazon.es/s?k=libtit%20wireless%20motion%20sensor%20light%2030cm&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-fe50c4c5bd": {
    "url": "https://www.amazon.es/dp/B0F8J78MVG?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-fe775af7f4": {
+   "url": "https://www.amazon.es/s?k=Philips%20LED%20GU10%20warm%20white%2010%20pack&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -3314,9 +4504,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-05f53b3f8c": {
-   "url": "https://www.amazon.fr/dp/B07665H9B7",
+   "url": "https://www.amazon.fr/dp/B07665H9B7?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-074c3886f7": {
    "url": "https://www.amazon.fr/s?k=ampoule%20e14%20frigo%20led&tag=manuso06-21",
@@ -3331,9 +4522,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-081d3e522d": {
-   "url": "https://www.amazon.fr/dp/B09NS944X2",
+   "url": "https://www.amazon.fr/dp/B09NS944X2?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-085cac5a62": {
    "url": "https://www.amazon.fr/dp/B08Z4KCJZY?tag=manuso06-21",
@@ -3348,9 +4540,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-099a8cc43f": {
-   "url": "https://www.amazon.fr/dp/B0DGPZCMG6",
+   "url": "https://www.amazon.fr/dp/B0DGPZCMG6?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-09b02d15f5": {
    "url": "https://www.amazon.fr/s?k=variateur+compatible+led+dimmable&tag=manuso06-21",
@@ -3365,12 +4558,19 @@
    "tag": "manuso06-21"
   },
   "az-fr-0bcda35ef3": {
-   "url": "https://www.amazon.fr/dp/B09QLY8QFZ",
+   "url": "https://www.amazon.fr/dp/B09QLY8QFZ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-0c09aacb5d": {
    "url": "https://www.amazon.fr/dp/B0BPX1ZZXJ?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-0c735e83b0": {
+   "url": "https://www.amazon.fr/s?k=ampoule+LED+E27&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -3388,9 +4588,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-0d9f13e030": {
-   "url": "https://www.amazon.fr/dp/B0B87XVX16",
+   "url": "https://www.amazon.fr/dp/B0B87XVX16?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-0e3dbc7144": {
    "url": "https://www.amazon.fr/s?k=condensateur+bipolaire+0.47+uf+450v+led&tag=manuso06-21",
@@ -3435,14 +4636,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-16152b05b1": {
-   "url": "https://www.amazon.fr/dp/B0BPX1ZZXJ",
+   "url": "https://www.amazon.fr/dp/B0BPX1ZZXJ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-16284f5164": {
-   "url": "https://www.amazon.fr/dp/B0BZ59BD65",
+   "url": "https://www.amazon.fr/dp/B0BZ59BD65?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-16834682b4": {
    "url": "https://www.amazon.fr/dp/B07R48JG34?tag=manuso06-21",
@@ -3475,9 +4678,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-1abe846e90": {
-   "url": "https://www.amazon.fr/dp/B0919GN6FK",
+   "url": "https://www.amazon.fr/dp/B0919GN6FK?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-1e52ef9fad": {
    "url": "https://www.amazon.fr/dp/B0CZ9B4C2B?tag=manuso06-21",
@@ -3540,9 +4744,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-28f8acc964": {
-   "url": "https://www.amazon.fr/dp/B073FT1QT2",
+   "url": "https://www.amazon.fr/dp/B073FT1QT2?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-28fb298e2d": {
    "url": "https://www.amazon.fr/dp/B0CGRC4GQ9?tag=manuso06-21",
@@ -3557,9 +4762,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-2aadafec70": {
-   "url": "https://www.amazon.fr/dp/B099NPGWCQ",
+   "url": "https://www.amazon.fr/dp/B099NPGWCQ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-2cbd0d5eea": {
    "url": "https://www.amazon.fr/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=manuso06-21",
@@ -3580,14 +4786,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-2ef6d44e7f": {
-   "url": "https://www.amazon.fr/dp/B0D3VBP11G",
+   "url": "https://www.amazon.fr/dp/B0D3VBP11G?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-3030b73473": {
-   "url": "https://www.amazon.fr/dp/B0972HH7C6",
+   "url": "https://www.amazon.fr/dp/B0972HH7C6?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-31268ac279": {
    "url": "https://www.amazon.fr/s?k=variateur+ruban+led+24v&tag=manuso06-21",
@@ -3602,9 +4810,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-32b58498b8": {
-   "url": "https://www.amazon.fr/dp/B0CZ9B4C2B",
+   "url": "https://www.amazon.fr/dp/B0CZ9B4C2B?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-3374316445": {
    "url": "https://www.amazon.fr/dp/B0DYVCTSHH?tag=manuso06-21",
@@ -3661,9 +4870,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-4a4f7e29ec": {
-   "url": "https://www.amazon.fr/dp/B0FJ8VXHRX",
+   "url": "https://www.amazon.fr/dp/B0FJ8VXHRX?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-4b18b46da1": {
    "url": "https://www.amazon.fr/s?k=ampoule+led+dimmable+e27+variateur+2700k&tag=manuso06-21",
@@ -3708,9 +4918,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-4ee1107a5e": {
-   "url": "https://www.amazon.fr/dp/B0B272H45X",
+   "url": "https://www.amazon.fr/dp/B0B272H45X?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-4f6b3278d9": {
    "url": "https://www.amazon.fr/s?k=spot+led+salle+de+bain+ip65&tag=manuso06-21",
@@ -3725,14 +4936,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-5190a4938b": {
-   "url": "https://www.amazon.fr/dp/B08P8T8LN1",
+   "url": "https://www.amazon.fr/dp/B08P8T8LN1?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-54eeca2579": {
-   "url": "https://www.amazon.fr/dp/B0DYVCTSHH",
+   "url": "https://www.amazon.fr/dp/B0DYVCTSHH?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-554b2b23bb": {
    "url": "https://www.amazon.fr/s?k=shelly+1l+sans+neutre&tag=manuso06-21",
@@ -3759,14 +4972,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-5afa5655ac": {
-   "url": "https://www.amazon.fr/dp/B08R8Y6Q8Y",
+   "url": "https://www.amazon.fr/dp/B08R8Y6Q8Y?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-5b02f7dce2": {
-   "url": "https://www.amazon.fr/dp/B0BD3X5XGQ",
+   "url": "https://www.amazon.fr/dp/B0BD3X5XGQ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-5b0459f243": {
    "url": "https://www.amazon.fr/s?k=ampoule%20four%20e14%20haute%20temperature%20led&tag=manuso06-21",
@@ -3787,9 +5002,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-5d58a11f0b": {
-   "url": "https://www.amazon.fr/dp/B0FS651RKH",
+   "url": "https://www.amazon.fr/dp/B0FS651RKH?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-5d8c44db49": {
    "url": "https://www.amazon.fr/s?k=bandeau+led+circulation+cave+ip20+2700k&tag=manuso06-21",
@@ -3798,9 +5014,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-5dc4ef32a9": {
-   "url": "https://www.amazon.fr/dp/B07R48JG34",
+   "url": "https://www.amazon.fr/dp/B07R48JG34?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-5ea7bb3e45": {
    "url": "https://www.amazon.fr/dp/B0972HH7C6?tag=manuso06-21",
@@ -3833,9 +5050,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-6420dd850b": {
-   "url": "https://www.amazon.fr/dp/B01KHIM7OG",
+   "url": "https://www.amazon.fr/dp/B01KHIM7OG?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-6624e337ef": {
    "url": "https://www.amazon.fr/dp/B07B4CPRDQ?tag=manuso06-21",
@@ -3862,9 +5080,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-6947d4a5f2": {
-   "url": "https://www.amazon.fr/dp/B0BBLYJCFF",
+   "url": "https://www.amazon.fr/dp/B0BBLYJCFF?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-697413d15a": {
    "url": "https://www.amazon.fr/dp/B07665H9B7?tag=manuso06-21",
@@ -3891,14 +5110,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-7252ba4f2a": {
-   "url": "https://www.amazon.fr/dp/B0B1J4ZP4T",
+   "url": "https://www.amazon.fr/dp/B0B1J4ZP4T?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-72e9989639": {
-   "url": "https://www.amazon.fr/dp/B0DLG23BNS",
+   "url": "https://www.amazon.fr/dp/B0DLG23BNS?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-733c3caa9e": {
    "url": "https://www.amazon.fr/s?k=capteur%20presence%20exterieur%20projecteur&tag=manuso06-21",
@@ -3907,14 +5128,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-74a449f484": {
-   "url": "https://www.amazon.fr/dp/B09F9MZ4PH",
+   "url": "https://www.amazon.fr/dp/B09F9MZ4PH?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-74cc376cfe": {
-   "url": "https://www.amazon.fr/dp/B0785D93KD",
+   "url": "https://www.amazon.fr/dp/B0785D93KD?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-757c16efc6": {
    "url": "https://www.amazon.fr/dp/B0FJ8VXHRX?tag=manuso06-21",
@@ -3929,9 +5152,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-7659df3b0c": {
-   "url": "https://www.amazon.fr/dp/B01LZEWUT7",
+   "url": "https://www.amazon.fr/dp/B01LZEWUT7?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-76d008f7dd": {
    "url": "https://www.amazon.fr/s?k=ampoule+LED+GU10&tag=manuso06-21",
@@ -3952,14 +5176,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-7d11d39ac2": {
-   "url": "https://www.amazon.fr/dp/B08R6V74XD",
+   "url": "https://www.amazon.fr/dp/B08R6V74XD?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-7f775f041f": {
-   "url": "https://www.amazon.fr/dp/B0C4LCT7J7",
+   "url": "https://www.amazon.fr/dp/B0C4LCT7J7?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-7feede5a9e": {
    "url": "https://www.amazon.fr/dp/B0B1J4ZP4T?tag=manuso06-21",
@@ -3974,12 +5200,19 @@
    "tag": "manuso06-21"
   },
   "az-fr-8082e11d30": {
-   "url": "https://www.amazon.fr/dp/B08GDC99PX",
+   "url": "https://www.amazon.fr/dp/B08GDC99PX?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-80bd5c3c80": {
    "url": "https://www.amazon.fr/dp/B073QSXXCH?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-8123ee7d7e": {
+   "url": "https://www.amazon.fr/s?k=Shelly+Dimmer+2&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -4003,9 +5236,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-8481305da4": {
-   "url": "https://www.amazon.fr/dp/B0CNCDF1TD",
+   "url": "https://www.amazon.fr/dp/B0CNCDF1TD?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-849d17912a": {
    "url": "https://www.amazon.fr/s?k=ampoule+connect%C3%A9e+Zigbee&tag=manuso06-21",
@@ -4032,14 +5266,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-89439c50c0": {
-   "url": "https://www.amazon.fr/dp/B0CGRC4GQ9",
+   "url": "https://www.amazon.fr/dp/B0CGRC4GQ9?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-8962e6d51f": {
-   "url": "https://www.amazon.fr/dp/B0DDK55MF7",
+   "url": "https://www.amazon.fr/dp/B0DDK55MF7?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-8d0971a61d": {
    "url": "https://www.amazon.fr/s?k=panel%20led%20plafond%20dimmable%202700k%20irc%2090&tag=manuso06-21",
@@ -4048,9 +5284,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-8d1f8ae971": {
-   "url": "https://www.amazon.fr/dp/B0FP4ZKX9Z",
+   "url": "https://www.amazon.fr/dp/B0FP4ZKX9Z?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-8d49bae74b": {
    "url": "https://www.amazon.fr/s?k=spot%20encastrable%20orientable%20cave%20voutee%20irc%2090%202700k&tag=manuso06-21",
@@ -4089,14 +5326,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-94a76f6b35": {
-   "url": "https://www.amazon.fr/dp/B09534N6WS",
+   "url": "https://www.amazon.fr/dp/B09534N6WS?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-95cff31671": {
-   "url": "https://www.amazon.fr/dp/B0B9WSBMH4",
+   "url": "https://www.amazon.fr/dp/B0B9WSBMH4?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-969c8542e8": {
    "url": "https://www.amazon.fr/s?k=detecteur+mouvement+exterieur+ip65&tag=manuso06-21",
@@ -4141,9 +5380,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-9ae89d14c5": {
-   "url": "https://www.amazon.fr/dp/B09ZBJPNK4",
+   "url": "https://www.amazon.fr/dp/B09ZBJPNK4?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-9d7b9870fc": {
    "url": "https://www.amazon.fr/s?k=gu10+led+dimmable+variateur&tag=manuso06-21",
@@ -4164,14 +5404,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-a2c954122b": {
-   "url": "https://www.amazon.fr/dp/B0BNDC7BPV",
+   "url": "https://www.amazon.fr/dp/B0BNDC7BPV?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-a67f64aadf": {
-   "url": "https://www.amazon.fr/dp/B0CRL387FM",
+   "url": "https://www.amazon.fr/dp/B0CRL387FM?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-a752e34fc0": {
    "url": "https://www.amazon.fr/s?k=plafonnier+led+dimmable+variateur+2700k&tag=manuso06-21",
@@ -4180,14 +5422,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-a8e63f65a9": {
-   "url": "https://www.amazon.fr/dp/B09XMP2CPQ",
+   "url": "https://www.amazon.fr/dp/B09XMP2CPQ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-a9109aeb4e": {
-   "url": "https://www.amazon.fr/dp/B0F1CV6R3M",
+   "url": "https://www.amazon.fr/dp/B0F1CV6R3M?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-aaaac6a064": {
    "url": "https://www.amazon.fr/dp/B07ZNX36QV?tag=manuso06-21",
@@ -4220,9 +5464,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-ae2f5c2ca8": {
-   "url": "https://www.amazon.fr/dp/B099NRLRG3",
+   "url": "https://www.amazon.fr/dp/B099NRLRG3?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-afb9a163fe": {
    "url": "https://www.amazon.fr/s?k=transformateur+12v+etanche+ip67+led+salle+bain&tag=manuso06-21",
@@ -4255,9 +5500,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-b6a16727bb": {
-   "url": "https://www.amazon.fr/dp/B08MFN1S45",
+   "url": "https://www.amazon.fr/dp/B08MFN1S45?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-b6ba5dd9f1": {
    "url": "https://www.amazon.fr/dp/B0FP4ZKX9Z?tag=manuso06-21",
@@ -4284,19 +5530,22 @@
    "tag": "manuso06-21"
   },
   "az-fr-b9c4591ec0": {
-   "url": "https://www.amazon.fr/dp/B07VNNFBHV",
+   "url": "https://www.amazon.fr/dp/B07VNNFBHV?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-bc18daa0e2": {
-   "url": "https://www.amazon.fr/dp/B0B7W9VRB7",
+   "url": "https://www.amazon.fr/dp/B0B7W9VRB7?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-bd5e144778": {
-   "url": "https://www.amazon.fr/dp/B07TSKP9JC",
+   "url": "https://www.amazon.fr/dp/B07TSKP9JC?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-bf59fbdf84": {
    "url": "https://www.amazon.fr/dp/B0CRL387FM?tag=manuso06-21",
@@ -4347,9 +5596,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-c4c0ea7f25": {
-   "url": "https://www.amazon.fr/dp/B0CRL78J86",
+   "url": "https://www.amazon.fr/dp/B0CRL78J86?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-c5595c8026": {
    "url": "https://www.amazon.fr/s?k=detecteur%20mouvement%20interieur%20cave%20a%20vin&tag=manuso06-21",
@@ -4370,14 +5620,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-c7a87f2090": {
-   "url": "https://www.amazon.fr/dp/B0FGD6H3NZ",
+   "url": "https://www.amazon.fr/dp/B0FGD6H3NZ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-c7c634c799": {
-   "url": "https://www.amazon.fr/dp/B08NWLXPMC",
+   "url": "https://www.amazon.fr/dp/B08NWLXPMC?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-c7ef6092fb": {
    "url": "https://www.amazon.fr/?tag=manuso06-21",
@@ -4392,9 +5644,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-ca3801f033": {
-   "url": "https://www.amazon.fr/dp/B0D6BJZJ56",
+   "url": "https://www.amazon.fr/dp/B0D6BJZJ56?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-ccacad92be": {
    "url": "https://www.amazon.fr/dp/B0C4LCT7J7?tag=manuso06-21",
@@ -4481,9 +5734,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-d6dcd65f91": {
-   "url": "https://www.amazon.fr/dp/B07MRBVNWM",
+   "url": "https://www.amazon.fr/dp/B07MRBVNWM?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-d6f2aaafea": {
    "url": "https://www.amazon.fr/dp/B0D6BJZJ56?tag=manuso06-21",
@@ -4498,9 +5752,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-dc79dfaa90": {
-   "url": "https://www.amazon.fr/dp/B0DK59YKRS",
+   "url": "https://www.amazon.fr/dp/B0DK59YKRS?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-dd2ce2a858": {
    "url": "https://www.amazon.fr/s?k=ruban%20led%20exterieur%20IP65%20indirect%20pergola%203000k&tag=manuso06-21",
@@ -4509,9 +5764,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-ddc44ee7fd": {
-   "url": "https://www.amazon.fr/dp/B07H7HB6LG",
+   "url": "https://www.amazon.fr/dp/B07H7HB6LG?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-de1b60bba1": {
    "url": "https://www.amazon.fr/dp/B07MRBVNWM?tag=manuso06-21",
@@ -4550,24 +5806,28 @@
    "tag": "manuso06-21"
   },
   "az-fr-e2e8a70be0": {
-   "url": "https://www.amazon.fr/dp/B09TQZVFY7",
+   "url": "https://www.amazon.fr/dp/B09TQZVFY7?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-e3a4ba2d4e": {
-   "url": "https://www.amazon.fr/dp/B07ZNX36QV",
+   "url": "https://www.amazon.fr/dp/B07ZNX36QV?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-e40f890a70": {
-   "url": "https://www.amazon.fr/dp/B091HPTZYH",
+   "url": "https://www.amazon.fr/dp/B091HPTZYH?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-e5024fcbb6": {
-   "url": "https://www.amazon.fr/dp/B0BN18B6F4",
+   "url": "https://www.amazon.fr/dp/B0BN18B6F4?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-e5735a02d9": {
    "url": "https://www.amazon.fr/dp/B0785D93KD?tag=manuso06-21",
@@ -4594,9 +5854,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-e6f28acea7": {
-   "url": "https://www.amazon.fr/dp/B07B4CPRDQ",
+   "url": "https://www.amazon.fr/dp/B07B4CPRDQ?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-e706c7247d": {
    "url": "https://www.amazon.fr/dp/B09QLY8QFZ?tag=manuso06-21",
@@ -4623,14 +5884,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-ed2345a9db": {
-   "url": "https://www.amazon.fr/dp/B0F18462GT",
+   "url": "https://www.amazon.fr/dp/B0F18462GT?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-ed9b1d0016": {
-   "url": "https://www.amazon.fr/dp/B08Z4KCJZY",
+   "url": "https://www.amazon.fr/dp/B08Z4KCJZY?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-eeba8c28f4": {
    "url": "https://www.amazon.fr/s?k=ampoule+e27+dimmable+806+lumens&tag=manuso06-21",
@@ -4663,14 +5926,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-f5e8972220": {
-   "url": "https://www.amazon.fr/dp/B0F62SG8Z9",
+   "url": "https://www.amazon.fr/dp/B0F62SG8Z9?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-f763e7de3f": {
-   "url": "https://www.amazon.fr/dp/B08HV4WG3Y",
+   "url": "https://www.amazon.fr/dp/B08HV4WG3Y?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-f862361e6e": {
    "url": "https://www.amazon.fr/dp/B0B7W9VRB7?tag=manuso06-21",
@@ -4709,9 +5974,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-fd4e1c9216": {
-   "url": "https://www.amazon.fr/dp/B094YKGD5N",
+   "url": "https://www.amazon.fr/dp/B094YKGD5N?tag=manuso06-21",
    "merchant": "amazon",
-   "country": "FR"
+   "country": "FR",
+   "tag": "manuso06-21"
   },
   "az-fr-fdcca77f75": {
    "url": "https://www.amazon.fr/dp/B0F62SG8Z9?tag=manuso06-21",
@@ -4731,6 +5997,24 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-gb-001eaca92f": {
+   "url": "https://www.amazon.co.uk/s?k=30W%20LED%20floodlight%20PIR%20motion%20sensor&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-039e8954cd": {
+   "url": "https://www.amazon.co.uk/s?k=24V%20high%20density%20LED%20strip%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-03d94de623": {
+   "url": "https://www.amazon.co.uk/s?k=outdoor%20LED%20wall%20light%20IP65%203000K%20up%20down&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-05763fef20": {
    "url": "https://www.amazon.co.uk/dp/B0DYVCTSHH?tag=roboteducatif-21",
    "merchant": "amazon",
@@ -4739,6 +6023,12 @@
   },
   "az-gb-0765b83597": {
    "url": "https://www.amazon.co.uk/dp/B0F62SG8Z9?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0810574489": {
+   "url": "https://www.amazon.co.uk/s?k=outdoor%20festoon%20lights%20dimmable%20IP65%202700K&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4755,8 +6045,74 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-0c09de6639": {
+   "url": "https://www.amazon.co.uk/s?k=ceiling%20PIR%20motion%20sensor%20stairs&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0e20fd05e5": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20E27%20LED%20bulb%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0f1fc38928": {
+   "url": "https://www.amazon.co.uk/s?k=GU10%20LED%20790lm%204000K%20120%20degree&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0f8eb2f018": {
+   "url": "https://www.amazon.co.uk/s?k=wardrobe%20LED%20strip%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-0fd355b4d5": {
+   "url": "https://www.amazon.co.uk/s?k=24V%20LED%20strip%20dimmer&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-1415cd61dc": {
+   "url": "https://www.amazon.co.uk/s?k=bathroom%20downlight%20IP65&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-163fb74458": {
    "url": "https://www.amazon.co.uk/dp/B0B7W9VRB7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-171b7a9771": {
+   "url": "https://www.amazon.co.uk/s?k=Chesbung%20aluminium%20V%20profile%20LED%20strip&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-19d1d78936": {
+   "url": "https://www.amazon.co.uk/s?k=aluminium%20LED%20profile%20V%20corner%20opal%20diffuser&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-1a14a1a217": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20LED%20ceiling%20light%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-1a78d7b424": {
+   "url": "https://www.amazon.co.uk/s?k=BenQ%20ScreenBar%20Halo%202&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-1bd7dd6388": {
+   "url": "https://www.amazon.co.uk/s?k=Zigbee%20hub%20smart%20home&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4767,8 +6123,20 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-1d90a71fe2": {
+   "url": "https://www.amazon.co.uk/s?k=BTF-LIGHTING%20COB%20LED%20strip%2024V%203000K%20CRI%2090&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-1da5122a3c": {
    "url": "https://www.amazon.co.uk/dp/B0972HH7C6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-202a7a846f": {
+   "url": "https://www.amazon.co.uk/s?k=rechargeable%20LED%20cabinet%20light%20motion%20sensor&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4791,8 +6159,44 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-221fc42174": {
+   "url": "https://www.amazon.co.uk/s?k=E27%20LED%20bulb%20CRI%2090%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-2320053dea": {
    "url": "https://www.amazon.co.uk/dp/B0FS651RKH?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-246ef7234f": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20reading%20floor%20lamp%20adjustable&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-261caac9b4": {
+   "url": "https://www.amazon.co.uk/s?k=anti%20glare%20LED%20ceiling%20light%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-28364154a2": {
+   "url": "https://www.amazon.co.uk/s?k=outdoor%20LED%20floodlight%20IP65%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-284db88be4": {
+   "url": "https://www.amazon.co.uk/s?k=ceiling%20PIR%20motion%20sensor%20indoor%20time%20delay&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-28829e9586": {
+   "url": "https://www.amazon.co.uk/s?k=libtit%20wireless%20motion%20sensor%20light%2030cm&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4803,8 +6207,86 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-29b6faba1f": {
+   "url": "https://www.amazon.co.uk/s?k=TV%20bias%20lighting%20LED%20strip&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2a5535dba0": {
+   "url": "https://www.amazon.co.uk/s?k=indirect%20LED%20strip%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2a6788618d": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20mirror%20light%20bar%20bathroom%20IP44&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2bb5227262": {
+   "url": "https://www.amazon.co.uk/s?k=rechargeable%20LED%20wardrobe%20light%20motion%20sensor&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-2c2bec6830": {
    "url": "https://www.amazon.co.uk/dp/B0DDK55MF7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2da359de1a": {
+   "url": "https://www.amazon.co.uk/s?k=outdoor%20PIR%20motion%20sensor%20IP65&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-2ec4fd2f9a": {
+   "url": "https://www.amazon.co.uk/s?k=Shelly%201L%20no%20neutral&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-31fccae67e": {
+   "url": "https://www.amazon.co.uk/s?k=MediAcous%20rechargeable%20touch%20night%20light&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3496e11786": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20E27%20LED%20bulb&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-36a5d8a162": {
+   "url": "https://www.amazon.co.uk/s?k=aluminium%20LED%20profile%20wardrobe%20diffuser&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3730d379c4": {
+   "url": "https://www.amazon.co.uk/s?k=GU10%20LED%20805lm%204000K%20pack&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-38184eae4d": {
+   "url": "https://www.amazon.co.uk/dp/B0B92RYSNV?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3922655e45": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20batten%20workshop%20garage%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3a050424dd": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20ceiling%20light%203000K%20small&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4823,6 +6305,18 @@
   },
   "az-gb-3d5f0f6c78": {
    "url": "https://www.amazon.co.uk/dp/B0DHRX4CJZ?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-3f8fee03fc": {
+   "url": "https://www.amazon.co.uk/dp/B0B8TL1FGW?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-401153fb73": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20bollard%20outdoor%20IP65%203000K&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4851,8 +6345,50 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-4747086c24": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20GU10%20LED%20bulbs&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-48863b7a6b": {
+   "url": "https://www.amazon.co.uk/s?k=aluminium%20LED%20profile%20recessed%20diffuser&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-4915484b1c": {
+   "url": "https://www.amazon.co.uk/s?k=IP65%20LED%20strip%20bathroom%2024V&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-49ddc4710d": {
+   "url": "https://www.amazon.co.uk/s?k=SEBSON%20LED%20under%20cabinet%20light%2060cm%20switch&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-4ad968eeea": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20reading%20wall%20light%20bedroom%203000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-4bce87c290": {
+   "url": "https://www.amazon.co.uk/s?k=SONOFF%20ZBMINIL2&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-4c42073831": {
    "url": "https://www.amazon.co.uk/dp/B0CDC1ZV8B?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-4d2e084e2b": {
+   "url": "https://www.amazon.co.uk/s?k=COB%20LED%20strip%20IP65%2024V&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4863,8 +6399,56 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-4feb9409a7": {
+   "url": "https://www.amazon.co.uk/s?k=solar%20spike%20lights%20motion%20sensor%20IP65&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-50319499b7": {
+   "url": "https://www.amazon.co.uk/s?k=Zigbee%20smart%20bulb%20E27&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-50efa93224": {
+   "url": "https://www.amazon.co.uk/s?k=Steinel%20XSolar%20L-S%20ONE&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-5475e0c415": {
    "url": "https://www.amazon.co.uk/dp/B09V1N212P?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-55161c6053": {
+   "url": "https://www.amazon.co.uk/s?k=Philips%20LED%20E27%2060W%20warm%20white&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-556faf7d59": {
+   "url": "https://www.amazon.co.uk/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-583164524f": {
+   "url": "https://www.amazon.co.uk/s?k=MR16%20GU5.3%20LED%2012V%20bulbs&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-5afb3b503f": {
+   "url": "https://www.amazon.co.uk/s?k=digital%20multimeter%20continuity%20buzzer&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-5cf3e3b4f8": {
+   "url": "https://www.amazon.co.uk/s?k=ceiling%20PIR%20motion%20sensor%20indoor&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4881,8 +6465,32 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-632f1e8a77": {
+   "url": "https://www.amazon.co.uk/s?k=plug%20in%20power%20meter%20energy%20monitor&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-63a41ebf2c": {
    "url": "https://www.amazon.co.uk/dp/B07MRBVNWM?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-641550e2d6": {
+   "url": "https://www.amazon.co.uk/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote%203600lm&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-652d65f02b": {
+   "url": "https://www.amazon.co.uk/s?k=rechargeable%20LED%20night%20light%20warm%20white&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-6563acf32c": {
+   "url": "https://www.amazon.co.uk/s?k=waterproof%20LED%20strip%20workshop&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4929,8 +6537,32 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-75d184bb89": {
+   "url": "https://www.amazon.co.uk/s?k=SANSI%20clip%20grow%20light%202%20heads&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-7808418b02": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20dimmer%20switch%20trailing%20edge&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-7953a97a7d": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20outdoor%20LED%20spot%20IP65&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-7ae8c58d1b": {
    "url": "https://www.amazon.co.uk/dp/B0D6BJZJ56?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-7d74f3c465": {
+   "url": "https://www.amazon.co.uk/s?k=GY%20GU10%20LED%20805lm%204000K&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4941,8 +6573,26 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-802a6272b9": {
+   "url": "https://www.amazon.co.uk/s?k=wooden%20bedside%20lamp%20wireless%20charger%20touch&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-805eb48681": {
    "url": "https://www.amazon.co.uk/dp/B0F1CV6R3M?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-821d1db55c": {
+   "url": "https://www.amazon.co.uk/s?k=LED+bulb+E27&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-8331838d7c": {
+   "url": "https://www.amazon.co.uk/s?k=adjustable%20LED%20spotlight%20indoor%203000K%20IP44&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4953,8 +6603,26 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-84bb52c1ac": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20architect%20lamp%20clamp%201000%20lumen&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-8523fc9f7d": {
    "url": "https://www.amazon.co.uk/dp/B07665DHG6?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-853edc3b7c": {
+   "url": "https://www.amazon.co.uk/s?k=solar%20spike%20lights%20motion%20sensor%203%20pack&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-8c899c94a9": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20E27%20LED%20bulb%20806%20lumens&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4971,14 +6639,68 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-93673863bc": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20strip%2024V%20aluminium%20profile%20diffuser%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-936c1ca19c": {
+   "url": "https://www.amazon.co.uk/s?k=Unilux%20Mambo%20LED%20desk%20lamp&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-93ec3277b0": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20desk%20lamp%20adjustable%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-94bec0f410": {
+   "url": "https://www.amazon.co.uk/s?k=under%20cabinet%20LED%20light%20bar%20kitchen%204000K%20CRI%2090&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-957fa53daa": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20mirror%20light%20bar%20IP44%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-97c92f8f4a": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20bollard%20light%20outdoor%20IP67%203000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-9987e0b926": {
    "url": "https://www.amazon.co.uk/dp/B07TSKP9JC?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-99c6586fec": {
+   "url": "https://www.amazon.co.uk/s?k=Shelly+Dimmer+2&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9ab0e09404": {
+   "url": "https://www.amazon.co.uk/dp/B0B927WMTY?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-9af6785601": {
    "url": "https://www.amazon.co.uk/dp/B0B9WSBMH4?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9b63a27f5a": {
+   "url": "https://www.amazon.co.uk/s?k=TOPAI%20COB%20LED%20strip%2024V%20IP65&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -4995,8 +6717,20 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-9b798bd0a0": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20strip%203000K%20CRI%2090&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-9c9a5de48c": {
    "url": "https://www.amazon.co.uk/dp/B01LZEWUT7?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-9cff071305": {
+   "url": "https://www.amazon.co.uk/s?k=Philips%20LED%20GU10%20warm%20white%2010%20pack&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5007,8 +6741,38 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-a09ec99211": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20ceiling%20panel%20garage%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a10af39dbd": {
+   "url": "https://www.amazon.co.uk/s?k=Lumic%20wireless%20motion%20sensor%20light%20bar&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a32b95ce3b": {
+   "url": "https://www.amazon.co.uk/s?k=door%20contact%20switch%20wardrobe%20light&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-a37b256905": {
    "url": "https://www.amazon.co.uk/dp/B0FJ8VXHRX?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a41427cb3e": {
+   "url": "https://www.amazon.co.uk/s?k=DiCUNO%20GU10%20550lm%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a42bcc5163": {
+   "url": "https://www.amazon.co.uk/s?k=Shelly%20bypass%20LED%20no%20neutral&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5019,8 +6783,32 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-a9d8726e00": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20stair%20wall%20light%20recessed&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-aaa43f26cd": {
+   "url": "https://www.amazon.co.uk/s?k=trailing%20edge%20LED%20dimmer%20switch&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-abb8f504e5": {
+   "url": "https://www.amazon.co.uk/s?k=Bojim%20LED%20tilting%20downlight%20650lm%20dimmable%2068mm&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-abd0f22084": {
    "url": "https://www.amazon.co.uk/dp/B08R6V74XD?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-ac0c456a50": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20mirror%20light%20bar%20IP44&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5031,8 +6819,38 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-b291fbf152": {
+   "url": "https://www.amazon.co.uk/s?k=door%20contact%20sensor%20light%20switch&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b330c3d6fc": {
+   "url": "https://www.amazon.co.uk/s?k=adjustable%20LED%20work%20light%20indoor&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b3ea9073be": {
+   "url": "https://www.amazon.co.uk/s?k=outdoor%20PIR%20motion%20sensor%20wall%20IP65&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-b6fdb0dea4": {
    "url": "https://www.amazon.co.uk/dp/B0CZ9B4C2B?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b72f413564": {
+   "url": "https://www.amazon.co.uk/s?k=AGOTD%20G9%20LED%202700K%20650lm&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b87fd061c1": {
+   "url": "https://www.amazon.co.uk/s?k=CLY%2060W%20LED%20floodlight%20motion%20sensor&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5043,8 +6861,38 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-b8f78c418b": {
+   "url": "https://www.amazon.co.uk/s?k=Annmore%20cloud%20night%20light%20rechargeable&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-bcb0ea0c0b": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20bathroom%20wall%20light%20IP44&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-bcd78fffe6": {
+   "url": "https://www.amazon.co.uk/s?k=kids%20LED%20desk%20lamp%20adjustable%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-bcded8c57e": {
+   "url": "https://www.amazon.co.uk/s?k=TRUMPETS%20cordless%20touch%20bedside%20lamp&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-bd1ac47f4c": {
    "url": "https://www.amazon.co.uk/dp/B0B87XVX16?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-be35b0536e": {
+   "url": "https://www.amazon.co.uk/dp/B01LMEQIMQ?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5055,14 +6903,50 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-c293e84b63": {
+   "url": "https://www.amazon.co.uk/s?k=E27%20LED%20bulb%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c2f03c77b9": {
+   "url": "https://www.amazon.co.uk/s?k=rechargeable%20cabinet%20light%20motion%20sensor%20remote%2030cm%202%20pack&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-c382c93ed2": {
    "url": "https://www.amazon.co.uk/dp/B0FGD6H3NZ?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-c66f6ff30b": {
+   "url": "https://www.amazon.co.uk/s?k=adjustable%20recessed%20LED%20spot%203000K%20CRI%2090&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c67aef0766": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20architect%20desk%20lamp%20clamp%203%20colour%2010%20brightness&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c6de69c1eb": {
+   "url": "https://www.amazon.co.uk/s?k=GU10%20recessed%20downlight%20kitchen%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-c791047f87": {
    "url": "https://www.amazon.co.uk/dp/B08GDC99PX?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-c82e51998f": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20LED%20ceiling%20light%20bedroom%203000K&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5091,6 +6975,36 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-cfd77f55b4": {
+   "url": "https://www.amazon.co.uk/s?k=GY%20G9%20LED%203.2W%20520lm%203000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d1fb45eb56": {
+   "url": "https://www.amazon.co.uk/s?k=12V%20LED%20driver%20waterproof%20IP67&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d22f4216df": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20task%20lamp%20workbench%20adjustable&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d24eb812af": {
+   "url": "https://www.amazon.co.uk/s?k=Oktaplex%20Riga%20under%20cabinet%20light%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d30082c123": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20step%20marker%20light%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-d48f88497d": {
    "url": "https://www.amazon.co.uk/dp/B094YKGD5N?tag=roboteducatif-21",
    "merchant": "amazon",
@@ -5099,6 +7013,30 @@
   },
   "az-gb-d5fbfa1ab7": {
    "url": "https://www.amazon.co.uk/dp/B08SMN32HT?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d643a7b538": {
+   "url": "https://www.amazon.co.uk/s?k=SANSI%20full%20spectrum%20E27%20grow%20light%20bulb&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d6593f4d7f": {
+   "url": "https://www.amazon.co.uk/s?k=BenQ%20ScreenBar&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d715b01eff": {
+   "url": "https://www.amazon.co.uk/s?k=24V%2060W%20LED%20driver%20power%20supply&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-d7701e9330": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20strip%20wine%20cellar%202700K&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5115,8 +7053,38 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-db4a16ca09": {
+   "url": "https://www.amazon.co.uk/s?k=Philips%20Hue%20White%20E27%20800%20lm%202%20pack&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-dff1ea7861": {
    "url": "https://www.amazon.co.uk/dp/B0BZ59BD65?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-e06ffa18e3": {
+   "url": "https://www.amazon.co.uk/s?k=cordless%20touch%20bedside%20lamp%20rechargeable%20dimmable%203%20colour&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-e254696ee1": {
+   "url": "https://www.amazon.co.uk/s?k=0.47uF%20450V%20capacitor%20LED&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-e33aa119af": {
+   "url": "https://www.amazon.co.uk/s?k=indirect%20LED%20strip%202700K%20bedroom&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-e3b99b77b7": {
+   "url": "https://www.amazon.co.uk/s?k=dimmable%20LED%20bulb%202700K%20E14&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5127,8 +7095,50 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-e7520c3330": {
+   "url": "https://www.amazon.co.uk/s?k=Philips%20LED%20E27%2040W%20equivalent%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-ea0d579863": {
+   "url": "https://www.amazon.co.uk/s?k=heat%20shrink%20tubing%203%3A1%20adhesive%20lined%20kit&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-eb53bac3a1": {
+   "url": "https://www.amazon.co.uk/s?k=outdoor%20pendant%20light%20IP65%202700K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-ecef7294a6": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20ceiling%20light%20with%20motion%20sensor&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-efb555d9df": {
+   "url": "https://www.amazon.co.uk/s?k=Steinel%20XSolar&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-efbac52d43": {
    "url": "https://www.amazon.co.uk/dp/B01KHIM7OG?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f0296f4676": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20ceiling%20light%20kids%20room%204000K&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f2f3e2d36d": {
+   "url": "https://www.amazon.co.uk/s?k=24V%2060W%20LED%20power%20supply&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5139,8 +7149,26 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-f528f14ba1": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20bathroom%20mirror%20wall%20light%20IP44&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f5dcca69c1": {
+   "url": "https://www.amazon.co.uk/s?k=LED%20strip%20aluminium%20profile%20stairs%20diffuser&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-f6719c56ad": {
    "url": "https://www.amazon.co.uk/dp/B0CGRC4GQ9?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f92737a350": {
+   "url": "https://www.amazon.co.uk/s?k=under%20shelf%20LED%20light%20bar%204000K%20CRI%2090&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -5175,8 +7203,32 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-06796557e0": {
+   "url": "https://www.amazon.it/s?k=condensatore%200.47uF%20450V%20LED&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-0759b17bb9": {
    "url": "https://www.amazon.it/dp/B01KHIM7OG?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-07c30a6944": {
+   "url": "https://www.amazon.it/s?k=GU10%20LED%20790lm%204000K%20120%20degree&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-08529ac00c": {
+   "url": "https://www.amazon.it/s?k=Philips%20Hue%20White%20E27%20800%20lm%202%20pack&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-0adf794ac4": {
+   "url": "https://www.amazon.it/s?k=Shelly%20bypass%20LED%20senza%20neutro&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5187,8 +7239,26 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-0c1b8f1465": {
+   "url": "https://www.amazon.it/s?k=BTF-LIGHTING%20COB%20LED%20strip%2024V%203000K%20CRI%2090&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-12853a37eb": {
    "url": "https://www.amazon.it/dp/B08GDC99PX?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-145cacdd3c": {
+   "url": "https://www.amazon.it/s?k=Lumic%20wireless%20motion%20sensor%20light%20bar&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-1deb3d0aa5": {
+   "url": "https://www.amazon.it/s?k=faretto%20incasso%20bagno%20IP65&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5207,6 +7277,18 @@
   },
   "az-it-204f74755b": {
    "url": "https://www.amazon.it/dp/B08MFN1S45?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-21e57fd65d": {
+   "url": "https://www.amazon.it/s?k=SEBSON%20LED%20under%20cabinet%20light%2060cm%20switch&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-2497c8f577": {
+   "url": "https://www.amazon.it/s?k=CLY%2060W%20LED%20floodlight%20motion%20sensor&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5271,8 +7353,20 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-3f70f31bc1": {
+   "url": "https://www.amazon.it/s?k=lampadina+LED+E27&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-4460cd128b": {
    "url": "https://www.amazon.it/dp/B0F1D35TMT?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-4930e966f6": {
+   "url": "https://www.amazon.it/s?k=GY%20GU10%20LED%20805lm%204000K&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5331,6 +7425,12 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-579c272848": {
+   "url": "https://www.amazon.it/s?k=hub%20Zigbee%20domotica&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-58ef52ee5b": {
    "url": "https://www.amazon.it/dp/B0BPX1ZZXJ?tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -5339,6 +7439,18 @@
   },
   "az-it-597d4f75a1": {
    "url": "https://www.amazon.it/dp/B09XMP2CPQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-5b409be99d": {
+   "url": "https://www.amazon.it/s?k=Oktaplex%20Riga%20under%20cabinet%20light%204000K&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-5e36494130": {
+   "url": "https://www.amazon.it/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote%203600lm&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5357,6 +7469,12 @@
   },
   "az-it-705225c54f": {
    "url": "https://www.amazon.it/dp/B0CGRC4GQ9?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-743fe66818": {
+   "url": "https://www.amazon.it/s?k=lampadina%20smart%20Zigbee%20E27&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5409,6 +7527,12 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-86f7298fc3": {
+   "url": "https://www.amazon.it/s?k=Unilux%20Mambo%20LED%20desk%20lamp&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-8bf7f5512b": {
    "url": "https://www.amazon.it/dp/B07SW396C3?tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -5445,8 +7569,20 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-9f52b37c40": {
+   "url": "https://www.amazon.it/s?k=applique%20LED%20specchio%20bagno%20IP44&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-9fbc62dea4": {
    "url": "https://www.amazon.it/dp/B0BD3X5XGQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-9fdfa2c455": {
+   "url": "https://www.amazon.it/s?k=lampadina%20LED%20E27%20dimmerabile%20806%20lumen&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5459,6 +7595,12 @@
   },
   "az-it-a634cd2bcf": {
    "url": "https://www.amazon.it/dp/B0F18462GT?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-a6fd49ac9b": {
+   "url": "https://www.amazon.it/s?k=BenQ%20ScreenBar%20Halo%202&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5505,8 +7647,20 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-af777fceb7": {
+   "url": "https://www.amazon.it/s?k=Shelly+Dimmer+2&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-b0d8c15b1e": {
    "url": "https://www.amazon.it/dp/B0F9X4GJN4?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-b1ecd5fceb": {
+   "url": "https://www.amazon.it/s?k=Shelly%201L%20senza%20neutro&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5571,6 +7725,18 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-ba67a6e1ac": {
+   "url": "https://www.amazon.it/s?k=barra%20LED%20specchio%20IP44&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-bba5498704": {
+   "url": "https://www.amazon.it/s?k=BenQ%20ScreenBar&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-c494d0a398": {
    "url": "https://www.amazon.it/dp/B0C5371TQL?tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -5595,6 +7761,18 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-cace32fa91": {
+   "url": "https://www.amazon.it/s?k=Chesbung%20aluminium%20V%20profile%20LED%20strip&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-cbd409f0c7": {
+   "url": "https://www.amazon.it/s?k=alimentatore%20LED%2012V%20IP67%20stagno&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-cc99bb8fcc": {
    "url": "https://www.amazon.it/dp/B08Z4KCJZY?tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -5607,8 +7785,20 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-d1c4441941": {
+   "url": "https://www.amazon.it/s?k=DiCUNO%20GU10%20550lm%202700K&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-d2cdd713e2": {
    "url": "https://www.amazon.it/dp/B091HPTZYH?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-d3670de761": {
+   "url": "https://www.amazon.it/s?k=faretti%20LED%20GU10%20dimmerabili&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5625,8 +7815,44 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-d94b38a23c": {
+   "url": "https://www.amazon.it/s?k=rechargeable%20cabinet%20light%20motion%20sensor%20remote%2030cm%202%20pack&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-de9fc0d8bd": {
    "url": "https://www.amazon.it/dp/B08HV4WG3Y?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-df72f99b87": {
+   "url": "https://www.amazon.it/s?k=Philips%20LED%20E27%2040W%20equivalent%202700K&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-dfc7cda324": {
+   "url": "https://www.amazon.it/s?k=libtit%20wireless%20motion%20sensor%20light%2030cm&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-e12372c120": {
+   "url": "https://www.amazon.it/s?k=LED%20architect%20lamp%20clamp%201000%20lumen&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-e52e0f254b": {
+   "url": "https://www.amazon.it/s?k=variatore%20LED%20trailing%20edge&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-e5596e1171": {
+   "url": "https://www.amazon.it/s?k=TOPAI%20COB%20LED%20strip%2024V%20IP65&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5651,6 +7877,12 @@
   },
   "az-it-f2b09b7170": {
    "url": "https://www.amazon.it/dp/B0D83TX1B1?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-f61d5320bd": {
+   "url": "https://www.amazon.it/s?k=Philips%20LED%20GU10%20warm%20white%2010%20pack&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -5682,6 +7914,12 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-0960c19be6": {
+   "url": "https://www.amazon.nl/s?k=led%20spiegellamp%20badkamer%20IP44&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-0a08e57dfd": {
    "url": "https://www.amazon.nl/dp/B01KHIM7OG?tag=manuso0607-21",
    "merchant": "amazon",
@@ -5697,6 +7935,12 @@
    "url": "https://www.amazon.nl/s?k=GY%20ampoule%20LED%20G9%203%2C2W%203000K%20520%20lm&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-0d39e9248a": {
+   "url": "https://www.amazon.nl/s?k=DiCUNO%20GU10%20550lm%202700K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-0da914a062": {
    "url": "https://www.amazon.nl/dp/B0FGD6H3NZ?tag=manuso0607-21",
@@ -5725,6 +7969,12 @@
    "url": "https://www.amazon.nl/s?k=OREiN%20projecteur%20LED%2024W%20%C3%A0%20d%C3%A9tecteur%2C%203%20teintes&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-17baff7e0b": {
+   "url": "https://www.amazon.nl/s?k=led%20spiegellamp%20balk%20IP44&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-18d3cc1362": {
    "url": "https://www.amazon.nl/s?k=libtit%20r%C3%A9glette%20sans%20fil%2030%20cm%20%C3%A0%20d%C3%A9tecteur%20%E2%80%93%20lot%20de%204&tag=manuso0607-21",
@@ -5783,6 +8033,12 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-333ff0bbe2": {
+   "url": "https://www.amazon.nl/s?k=Zigbee%20hub%20slim%20huis&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-335c12bbdd": {
    "url": "https://www.amazon.nl/s?k=Osram%20Star%20A75%20Motion%20Sensor%20E27%20(radar)&tag=manuso0607-21",
    "merchant": "amazon",
@@ -5798,6 +8054,30 @@
    "merchant": "amazon",
    "country": "NL",
    "tag": "roboteducat00-21"
+  },
+  "az-nl-3a6f089489": {
+   "url": "https://www.amazon.nl/s?k=CLY%2060W%20LED%20floodlight%20motion%20sensor&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-3ace76820e": {
+   "url": "https://www.amazon.nl/s?k=Lumic%20wireless%20motion%20sensor%20light%20bar&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-3b7df14ee8": {
+   "url": "https://www.amazon.nl/s?k=Chesbung%20aluminium%20V%20profile%20LED%20strip&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-3bb5b3a007": {
+   "url": "https://www.amazon.nl/s?k=BTF-LIGHTING%20COB%20LED%20strip%2024V%203000K%20CRI%2090&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-40f8f5eb62": {
    "url": "https://www.amazon.nl/?tag=manuso0607-21",
@@ -5815,10 +8095,22 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-4492a0446c": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20E27%2040W%20equivalent%202700K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-4578373cc2": {
    "url": "https://www.amazon.nl/s?k=Chesbung%20profil%C3%A9%20aluminium%20en%20V%20pour%20ruban%20LED%20(20%20%C3%97%201%20m)&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-487af1d38f": {
+   "url": "https://www.amazon.nl/s?k=Unilux%20Mambo%20LED%20desk%20lamp&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-4cd0ccfaa6": {
    "url": "https://www.amazon.nl/dp/B0D6BJZJ56?tag=manuso0607-21",
@@ -5836,6 +8128,24 @@
    "merchant": "amazon",
    "country": "NL",
    "tag": "roboteducat00-21"
+  },
+  "az-nl-51b128cbdf": {
+   "url": "https://www.amazon.nl/s?k=30W%20LED%20floodlight%20motion%20sensor%20remote%203600lm&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-5420e2acd5": {
+   "url": "https://www.amazon.nl/s?k=dimbare%20E27%20ledlamp%20806%20lumen&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-54b77ecda7": {
+   "url": "https://www.amazon.nl/s?k=LED%20architect%20lamp%20clamp%201000%20lumen&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-55e18c995a": {
    "url": "https://www.amazon.nl/s?k=Wattm%C3%A8tre%20prise%207%20modes%2C%20%C3%A9cran%20LCD&tag=manuso0607-21",
@@ -5861,6 +8171,18 @@
    "url": "https://www.amazon.nl/s?k=talifoca%20wattm%C3%A8tre%20prise&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-5ac484dc47": {
+   "url": "https://www.amazon.nl/s?k=Philips%20Hue%20White%20E27%20800%20lm%202%20pack&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-5c394fa68a": {
+   "url": "https://www.amazon.nl/s?k=SEBSON%20LED%20under%20cabinet%20light%2060cm%20switch&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-5c7bdf6a8d": {
    "url": "https://www.amazon.nl/s?k=MediAcous%20veilleuse%20tactile%20rechargeable&tag=manuso0607-21",
@@ -5937,6 +8259,12 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-6b949c149a": {
+   "url": "https://www.amazon.nl/s?k=dimbare%20GU10%20ledlamp&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-6bb36bdc0c": {
    "url": "https://www.amazon.nl/s?k=Philips%20LED%20E27%20%C3%A9q.%20100W%20claire%2C%20compatible%20variateur&tag=manuso0607-21",
    "merchant": "amazon",
@@ -5956,6 +8284,18 @@
    "url": "https://www.amazon.nl/s?k=Philips%20Hue%20White%20%26%20Color%20Ambiance%20%E2%80%93%20kit%20de%20d%C3%A9marrage%20E27&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-76b0cb8b10": {
+   "url": "https://www.amazon.nl/s?k=Shelly%20bypass%20led%20zonder%20nul&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-7781dc2751": {
+   "url": "https://www.amazon.nl/s?k=GU10%20LED%20790lm%204000K%20120%20degree&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-785ce4b472": {
    "url": "https://www.amazon.nl/s?k=SONOFF%20ZBMINIL2%20module%20interrupteur%20Zigbee%20sans%20neutre&tag=manuso0607-21",
@@ -5999,6 +8339,12 @@
    "country": "NL",
    "tag": "roboteducat00-21"
   },
+  "az-nl-8e93b5a5f8": {
+   "url": "https://www.amazon.nl/s?k=Philips%20LED%20GU10%20warm%20white%2010%20pack&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-8f39cf9328": {
    "url": "https://www.amazon.nl/dp/B08HV4WG3Y?tag=manuso0607-21",
    "merchant": "amazon",
@@ -6039,6 +8385,30 @@
    "url": "https://www.amazon.nl/s?k=Philips%20LED%20flamme%20B35%20E14%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-a07689289a": {
+   "url": "https://www.amazon.nl/s?k=TOPAI%20COB%20LED%20strip%2024V%20IP65&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-a49fd23c78": {
+   "url": "https://www.amazon.nl/s?k=Shelly%201L%20zonder%20nul&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-a7c75ffb02": {
+   "url": "https://www.amazon.nl/s?k=12V%20led%20driver%20waterdicht%20IP67&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-a80954dc1e": {
+   "url": "https://www.amazon.nl/s?k=BenQ%20ScreenBar&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-a941475313": {
    "url": "https://www.amazon.nl/dp/B00MOIWOAK?tag=manuso0607-21",
@@ -6084,6 +8454,12 @@
    "country": "NL",
    "tag": "roboteducat00-21"
   },
+  "az-nl-b3eaa824b8": {
+   "url": "https://www.amazon.nl/s?k=Zigbee%20slimme%20lamp%20E27&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-b50bdc02be": {
    "url": "https://www.amazon.nl/s?k=SILAMP%20r%C3%A9glette%20LED%20%C3%A9tanche%2036W%20120%20cm%20IP65&tag=manuso0607-21",
    "merchant": "amazon",
@@ -6095,6 +8471,12 @@
    "country": "NL",
    "tag": "roboteducat00-21"
   },
+  "az-nl-b7fc1a91ff": {
+   "url": "https://www.amazon.nl/s?k=GY%20GU10%20LED%20805lm%204000K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-b8f5d47eae": {
    "url": "https://www.amazon.nl/s?k=Shelly%201L%20Gen3%20module%20Wi-Fi%20sans%20neutre%20%2B%20bypass&tag=manuso0607-21",
    "merchant": "amazon",
@@ -6104,6 +8486,12 @@
    "url": "https://www.amazon.nl/s?k=OUILA%20lampe%20de%20placard%20LED%20rechargeable%2060%20cm%20%C3%A0%20d%C3%A9tecteur&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-bc5177b708": {
+   "url": "https://www.amazon.nl/s?k=libtit%20wireless%20motion%20sensor%20light%2030cm&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-be1607d1a8": {
    "url": "https://www.amazon.nl/dp/B0B272H45X?tag=manuso0607-21",
@@ -6126,6 +8514,12 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-c5b0782e42": {
+   "url": "https://www.amazon.nl/s?k=inbouwspot%20badkamer%20IP65&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-c8e8f12c67": {
    "url": "https://www.amazon.nl/s?k=Plafonnier%20LED%2024W%202800%20lm%20dimmable%20(%C3%9830%20cm)&tag=manuso0607-21",
    "merchant": "amazon",
@@ -6136,11 +8530,23 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-c949266e12": {
+   "url": "https://www.amazon.nl/s?k=Oktaplex%20Riga%20under%20cabinet%20light%204000K&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-cbbf9ef2ca": {
    "url": "https://www.amazon.nl/dp/B0BBLYJCFF?tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL",
    "tag": "roboteducat00-21"
+  },
+  "az-nl-ceb523be8b": {
+   "url": "https://www.amazon.nl/s?k=LED+lamp+E27&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-d1efda7f34": {
    "url": "https://www.amazon.nl/s?k=Hellum%20LED%20bougie%20E14%20mat%20%E2%80%93%20lot%20de%205&tag=manuso0607-21",
@@ -6163,10 +8569,28 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-da8d7fe573": {
+   "url": "https://www.amazon.nl/s?k=BenQ%20ScreenBar%20Halo%202&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-de6e2c4261": {
+   "url": "https://www.amazon.nl/s?k=Shelly+Dimmer+2&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-e045329575": {
    "url": "https://www.amazon.nl/s?k=EACLL%20ampoules%20LED%20GU5.3%2012V%202700K%20%E2%80%93%20lot%20de%206&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-e1b16c925b": {
+   "url": "https://www.amazon.nl/s?k=rechargeable%20cabinet%20light%20motion%20sensor%20remote%2030cm%202%20pack&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-e363cf97e1": {
    "url": "https://www.amazon.nl/dp/B099NPGWCQ?tag=manuso0607-21",
@@ -6215,6 +8639,12 @@
    "merchant": "amazon",
    "country": "NL"
   },
+  "az-nl-f63fee33ed": {
+   "url": "https://www.amazon.nl/s?k=led%20dimmer%20fase-afsnijding&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-f6aa641ced": {
    "url": "https://www.amazon.nl/dp/B07H7HB6LG?tag=manuso0607-21",
    "merchant": "amazon",
@@ -6225,6 +8655,12 @@
    "url": "https://www.amazon.nl/s?k=Annmore%20veilleuse%20nuage%20rechargeable&tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL"
+  },
+  "az-nl-fc87fbb71f": {
+   "url": "https://www.amazon.nl/s?k=condensator%200.47uF%20450V%20led&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-nl-fcee0e38af": {
    "url": "https://www.amazon.nl/s?k=Guirlande%20guinguette%2010%20m%20G40%2024V%20dimmable&tag=manuso0607-21",

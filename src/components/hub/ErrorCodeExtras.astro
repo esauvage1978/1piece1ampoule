@@ -1,0 +1,79 @@
+---
+import FaqBlock from '../FaqBlock.astro';
+import CrossLinkOutilsDepannage from '../CrossLinkOutilsDepannage.astro';
+import { awinLink } from '../../content/awin';
+import type { HubLang } from '../../content/hub-pages-i18n';
+
+interface Props {
+  lang: HubLang;
+  slug: string;
+  title: string;
+  code: string;
+  symptom: string;
+  difficulty?: number;
+  time?: string;
+  cost?: string;
+}
+
+const { lang, slug, title, code, symptom, difficulty = 2, time = '15–30 min', cost = '0 €' } = Astro.props;
+const showShelly = slug.includes('shelly');
+const shellyMid = '121796';
+const shellyUrl = awinLink(shellyMid, 'https://www.shelly.com/');
+
+const T: Record<string, { illuAlt: string; sum: string; diff: string; tim: string; cst: string; tools: string; shop: string; cta: string; faq: string; q1: string; a1: string; q2: string; a2: string }> = {
+  fr: { illuAlt: 'Schéma : module variateur connecté hors ligne', sum: 'Synthèse', diff: 'Difficulté', tim: 'Temps', cst: 'Coût', tools: 'Outils', shop: 'Remplacement module', cta: 'Boutique Shelly (partenaire)', faq: 'Questions fréquentes', q1: `Que signifie « ${code} » ?`, a1: symptom, q2: 'Puis-je réparer sans perdre la garantie ?', a2: 'Ces étapes n’ouvrent pas le produit. En cas de doute, contactez le SAV constructeur avant toute réparation.' },
+  en: { illuAlt: 'Diagram: connected dimmer module offline', sum: 'At a glance', diff: 'Difficulty', tim: 'Time', cst: 'Cost', tools: 'Tools', shop: 'Replacement module', cta: 'Shelly official shop (partner)', faq: 'FAQ', q1: `What does “${code}” mean on this model?`, a1: symptom, q2: 'Can I fix this without voiding warranty?', a2: 'These steps do not involve opening the product. If unsure, contact the manufacturer before repairing.' },
+  uk: { illuAlt: 'Diagram: connected dimmer module offline', sum: 'At a glance', diff: 'Difficulty', tim: 'Time', cst: 'Cost', tools: 'Tools', shop: 'Replacement module', cta: 'Shelly official shop (partner)', faq: 'FAQ', q1: `What does “${code}” mean?`, a1: symptom, q2: 'Can I fix this without voiding warranty?', a2: 'These steps do not involve opening the product.' },
+  de: { illuAlt: 'Schema: Smart-Modul offline', sum: 'Kurzüberblick', diff: 'Schwierigkeit', tim: 'Zeit', cst: 'Kosten', tools: 'Werkzeug', shop: 'Ersatzmodul', cta: 'Shelly Shop (Partner)', faq: 'FAQ', q1: `Was bedeutet „${code}“?`, a1: symptom, q2: 'Kann ich selbst reparieren?', a2: 'Kein Öffnen des Geräts. Bei Zweifel Hersteller-Support.' },
+  nl: { illuAlt: 'Schema: slim module offline', sum: 'Overzicht', diff: 'Moeilijkheid', tim: 'Tijd', cst: 'Kosten', tools: 'Gereedschap', shop: 'Vervangmodule', cta: 'Shelly shop (partner)', faq: 'FAQ', q1: `Wat betekent „${code}“?`, a1: symptom, q2: 'Zelf repareren?', a2: 'Product niet openen bij twijfel.' },
+  es: { illuAlt: 'Esquema: módulo conectado sin conexión', sum: 'Resumen', diff: 'Dificultad', tim: 'Tiempo', cst: 'Coste', tools: 'Herramientas', shop: 'Módulo de sustitución', cta: 'Tienda Shelly (socio)', faq: 'Preguntas frecuentes', q1: `¿Qué significa «${code}»?`, a1: symptom, q2: '¿Reparar sin perder la garantía?', a2: 'No abra el producto; consulte al fabricante.' },
+  it: { illuAlt: 'Schema: modulo connesso offline', sum: 'Sintesi', diff: 'Difficoltà', tim: 'Tempo', cst: 'Costo', tools: 'Attrezzi', shop: 'Modulo sostitutivo', cta: 'Shop Shelly (partner)', faq: 'Domande frequenti', q1: `Cosa significa «${code}»?`, a1: symptom, q2: 'Riparare senza perdere la garanzia?', a2: 'Non aprire il prodotto se avete dubbi.' },
+};
+const loc = lang === 'uk' || lang === 'ca' ? 'en' : lang;
+const u = T[loc] ?? T.en;
+const bars = '●'.repeat(difficulty) + '○'.repeat(5 - difficulty);
+const amazonByLang: Record<string, { href: string; label: string }> = {
+  fr: { href: 'https://www.amazon.fr/s?k=Shelly+Dimmer+2&tag=manuso06-21', label: 'Rechercher un Shelly Dimmer 2 sur Amazon.fr' },
+  en: { href: 'https://www.amazon.co.uk/s?k=Shelly+Dimmer+2&tag=roboteducatif-21', label: 'Search Shelly Dimmer 2 on Amazon UK' },
+  uk: { href: 'https://www.amazon.co.uk/s?k=Shelly+Dimmer+2&tag=roboteducatif-21', label: 'Search Shelly Dimmer 2 on Amazon UK' },
+  de: { href: 'https://www.amazon.de/s?k=Shelly+Dimmer+2&tag=roboteducat00-21', label: 'Shelly Dimmer 2 bei Amazon.de' },
+  it: { href: 'https://www.amazon.it/s?k=Shelly+Dimmer+2&tag=roboteducat0f-21', label: 'Shelly Dimmer 2 su Amazon.it' },
+  es: { href: 'https://www.amazon.es/s?k=Shelly+Dimmer+2&tag=roboteducat07-21', label: 'Shelly Dimmer 2 en Amazon.es' },
+  nl: { href: 'https://www.amazon.nl/s?k=Shelly+Dimmer+2&tag=manuso0607-21', label: 'Shelly Dimmer 2 op Amazon.nl' },
+};
+const amz = amazonByLang[lang] ?? amazonByLang.en;
+---
+<figure class="not-prose my-8 overflow-hidden rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+  <img src="/pins/led-clignote.png" alt={u.illuAlt} width="520" height="320" loading="lazy" class="mx-auto max-h-40 object-contain" />
+  <figcaption class="mt-2 text-center text-xs text-stone-500">{title}</figcaption>
+</figure>
+<div class="not-prose overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+  <table class="w-full min-w-[420px] text-sm">
+    <caption class="px-4 pt-4 text-left font-semibold text-stone-900">{u.sum}</caption>
+    <tbody>
+      <tr class="border-t border-stone-100"><th class="p-3 text-left text-stone-500">{u.diff}</th><td class="p-3">{bars} ({difficulty}/5)</td></tr>
+      <tr class="border-t border-stone-100"><th class="p-3 text-left text-stone-500">{u.tim}</th><td class="p-3">{time}</td></tr>
+      <tr class="border-t border-stone-100"><th class="p-3 text-left text-stone-500">{u.cst}</th><td class="p-3">{cost}</td></tr>
+    </tbody>
+  </table>
+</div>
+{showShelly && (
+  <aside class="mt-6 rounded-2xl border border-amber-200 bg-amber-50/80 p-5 text-sm text-stone-700">
+    <p class="font-semibold text-stone-900">{u.shop}</p>
+    <p class="mt-2">Shelly Dimmer 2 — {code}</p>
+    <a class="mt-3 mr-3 inline-flex rounded-xl bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600" href={shellyUrl} rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid={shellyMid}>{u.cta}</a>
+    <a class="mt-3 inline-flex rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-900 hover:bg-stone-50" href={amz.href} rel="sponsored nofollow noopener" target="_blank">{amz.label}</a>
+  </aside>
+)}
+{lang === 'fr' ? (
+  <CrossLinkOutilsDepannage variant="vers-outils" />
+) : (
+  <nav class="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm">
+    <p class="font-semibold text-stone-900">{lang === 'de' ? 'Weiterführende Tools' : 'Related tools'}</p>
+    <ul class="mt-2 list-disc pl-5 text-stone-700">
+      <li><a class="font-semibold text-amber-800" href={lang === 'en' || lang === 'uk' ? `/${lang}/tools/` : lang === 'de' ? '/de/werkzeuge/' : lang === 'it' ? '/it/strumenti/' : lang === 'es' ? '/es/herramientas/' : '/nl/tools/'}>{lang === 'de' ? 'Lichtsimulator' : 'Lighting simulator'}</a></li>
+      <li><a class="font-semibold text-amber-800" href={lang === 'en' || lang === 'uk' ? `/${lang}/guides/error-codes/` : lang === 'de' ? '/de/ratgeber/fehlercodes-eclairage-connecte/' : lang === 'it' ? '/it/guide/codici-errore/' : lang === 'es' ? '/es/guias/codigos-error/' : '/nl/gidsen/foutcodes-eclairage-connecte/'}>{lang === 'de' ? 'Fehlercode-Übersicht' : 'Error code directory'}</a></li>
+    </ul>
+  </nav>
+)}
+<FaqBlock title={u.faq} items={[{ q: u.q1, a: u.a1 }, { q: u.q2, a: u.a2 }]} />

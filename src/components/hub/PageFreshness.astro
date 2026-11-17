@@ -1,0 +1,26 @@
+---
+import { pageDates, frDate } from '../../content/dates.mjs';
+
+interface Props { pathname: string; lang: string }
+const { pathname, lang } = Astro.props;
+const path = pathname.endsWith('/') ? pathname : `${pathname}/`;
+const { modified } = pageDates(path);
+const loc: Record<string, string> = {
+  fr: 'fr-FR', en: 'en-GB', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', nl: 'nl-NL', es: 'es-ES', it: 'it-IT',
+};
+const labels: Record<string, string> = {
+  fr: 'Mis à jour le',
+  en: 'Updated',
+  uk: 'Updated',
+  ca: 'Updated',
+  de: 'Aktualisiert am',
+  nl: 'Bijgewerkt op',
+  es: 'Actualizado el',
+  it: 'Aggiornato il',
+};
+const label = labels[lang] ?? labels.en;
+const display = lang === 'fr' ? frDate(modified) : new Date(`${modified}T12:00:00Z`).toLocaleDateString(loc[lang] ?? 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<p class="text-sm text-stone-500" data-page-freshness>
+  {label} <time datetime={modified}>{display}</time>
+</p>
