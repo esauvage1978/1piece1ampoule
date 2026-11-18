@@ -1,5 +1,6 @@
 // Prioritätsseiten DE (Okt. 2026). Übersetzt aus FR-Quellen, geprüft 23.10.2026.
 import type { EnPage } from './en';
+import { gu10FlickerBody } from './intl-guide-enrich';
 
 const amz = (asin: string, label: string) => `<a class="en-amz" href="https://www.amazon.de/dp/${asin}?tag=roboteducat00-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Preis auf Amazon.de prüfen</a>`;
 const note = `<p class="en-note">Produktdaten von Hersteller/Amazon, geprüft am 23.10.2026. Preise ändern sich. Als Amazon-Partner verdienen wir an qualifizierten Käufen.</p>`;
@@ -292,21 +293,7 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     description: "Systematische Diagnose: Flimmern am Dimmer, Brummen, Geisterlicht, Flackern bei 100 %. Schwierigkeit, Zeit, Kosten.",
     h1: "GU10/E27-LED: Flimmern, Brummen, Nachleuchten",
     lead: "Entscheidungsweg wie auf unserer französischen Seite. Bei Brandgeruch oder Verteiler: Elektriker rufen.",
-    body: `<h2>1 — Main symptom</h2>
-<ul>
-<li><strong>Flicker when on</strong>, especially at low dimmer setting → check dimmable marking, trailing vs leading edge, minimum load, replace incompatible dimmer.</li>
-<li><strong>Buzz from dimmer or lamp</strong> → halogen-era dimmer on LED, under-minimum load, mix of dimmable and non-dimmable — use LED-rated dimmer and matched bulbs.</li>
-<li><strong>Glow or flash when “off”</strong> → standby current through smart/no-neutral switch or dimmer leakage — bypass, compatible dimmable LED, or smart bulb with switch locked ON.</li>
-<li><strong>Flicker at 100 %</strong> on a simple switch → loose lamp, failing driver, or bad contact in GU10 holder — try another bulb, check lampholder.</li>
-</ul>
-<h2>Typical fixes (from our tree leaves)</h2>
-<table><thead><tr><th>Case</th><th>Schwierigkeit</th><th>Time</th><th>Cost</th></tr></thead><tbody>
-<tr><td>Non-dimmable LED on dimmer → swap for dimmable or remove dimmer</td><td>1</td><td>5–15 min</td><td>£5–25</td></tr>
-<tr><td>Leading-edge dimmer + dimmable LED → trailing-edge LED dimmer</td><td>2–3</td><td>20–45 min</td><td>£25–55</td></tr>
-<tr><td>Single low-power LED below dimmer minimum → add load or “low load” dimmer</td><td>2–3</td><td>25–50 min</td><td>£10–50</td></tr>
-<tr><td>Smart switch without neutral + ghosting → manufacturer bypass at rose</td><td>3–4</td><td>30–90 min</td><td>£4–15 parts (+ electrician)</td></tr>
-</tbody></table>
-<p>Matrix: <a href="https://1piece1ampoule.fr/guides/matrice-variateur-dimmer-ampoule-led-gu10-e27/">dimmer × LED</a> (FR). Smart bulbs: <a href="/de/ratgeber/smart-led-stoerungen/">troubleshooting hub</a>.</p>`,
+    body: `${gu10FlickerBody('de')}<p>Übersicht: <a href="/de/ratgeber/smart-led-stoerungen/">Smart-LED-Störungen</a>.</p>`,
   }),
   {
     path: 'ratgeber/matter-thread-matrix-philips-hue-aqara-govee',

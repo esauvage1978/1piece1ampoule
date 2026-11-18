@@ -2,8 +2,8 @@
 import RelatedComparatifs from '../../components/RelatedComparatifs.astro';
 import SavWave1Compliance from '../../components/SavWave1Compliance.astro';
 import Layout from '../../layouts/Layout.astro';
-import ProductCard from '../../components/ProductCard.astro';
 import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.astro';
+import { FR_GU10_STATIC } from '../../content/intl-guide-enrich';
 ---
 
 <Layout type="article"
@@ -24,6 +24,8 @@ import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.
   </section>
 
   <CrossLinkOutilsDepannage variant="vers-outils" />
+
+  <section class="prose-article en-body mt-8 rounded-3xl border border-stone-200 bg-white p-6 shadow-sm sm:p-10" set:html={`${FR_GU10_STATIC.intro}${FR_GU10_STATIC.toc}${FR_GU10_STATIC.sections}`} />
 
   <section class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-6" id="flicker-tree">
     <h2 class="text-xl font-bold">Arbre de diagnostic</h2>
@@ -253,16 +255,6 @@ import CrossLinkOutilsDepannage from '../../components/CrossLinkOutilsDepannage.
   </script>
 
   <SavWave1Compliance />
-
-  <section class="mt-10">
-    <h2 class="text-xl font-bold">Sélections produits (Amazon partenaire)</h2>
-    <div class="mt-6 grid gap-4 md:grid-cols-2">
-      <ProductCard title="Variateur LED trailing edge" subtitle="Remplace leading halogène" keywords="variateur led fin onde universel" badge="Variateur" />
-      <ProductCard title="Spots GU10 LED dimmables" subtitle="Cuisine et salon" keywords="gu10 led dimmable variateur" badge="GU10" />
-      <ProductCard title="Bypass lueur LED" subtitle="Sans neutre / témoin" keywords="bypass led sans neutre" badge="Bypass" />
-      <ProductCard title="Ampoule E27 dimmable" subtitle="Remplacement rapide" keywords="ampoule e27 dimmable 806 lumens" />
-    </div>
-  </section>
 
   <section class="mt-10 rounded-2xl border border-stone-200 bg-white shadow-sm p-6">
     <h2 class="text-lg font-bold">Maillage : outils et guides</h2>

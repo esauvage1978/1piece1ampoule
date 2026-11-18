@@ -1,5 +1,6 @@
 // Páginas prioritarias IT (oct. 2026). Fuente FR. Amazon tag roboteducat0f-21.
 import type { EnPage } from './en';
+import { gu10FlickerBody } from './intl-guide-enrich';
 
 export const TR_PRIORITY_IT: EnPage[] = [
 {
@@ -145,12 +146,11 @@ body: `<p class="en-note">Codice: <strong>Wi-Fi connection failed</strong> · Di
 path: 'guide/sfarfallio-gu10-led-dimmer-diagnosi',
 article: true,
 kicker: 'Guida tecnica',
-title: `Sfarfallio GU10 LED con regulador: diagnóstico paso a paso`,
-description: `Flicker con dimmer y GU10: corte de fase, carga mínima, lista de comprobación en 230 V.`,
-h1: `GU10 LED que lampeggia con el regulador`,
-lead: `El parpadeo casi siempre viene de un regulador diseñado para halógenos o de una carga LED por debajo del mínimo del dimmer.`,
-body: `<h2>Checklist</h2><ol><li>¿Lampadina marcada <strong>dimmable</strong> y regulador marcado <strong>LED</strong>?</li><li>¿Carga total en el circuito ≥ mínimo del dimmer (a menudo 40–60 W equivalentes)?</li><li>Pruebe a 100 %: si deja de lampeggiar, el problema es la zona baja del dimmer.</li><li>GU10 a 230 V: no confundir con MR16 12 V en transformador.</li><li>Sustituya por regulador trailing edge si el fabricante lo indica.</li></ol>
-<p>Ver <a href="/it/guide/lampadine-led-regulables/">LED regulables</a> y <a href="/it/tutorial/sustituir-halogenos-gu10-mr16-por-led/">sustituir halógenos</a>.</p>`,
+title: `Sfarfallio GU10 / E27 LED con variatore: diagnosi passo passo`,
+description: `Sfarfallio con variatore e GU10 o E27: leading/trailing edge, carico minimo, lampadine dimmerabili e interventi tipici.`,
+h1: `GU10 / E27 LED: sfarfallio, ronzio e luce residua`,
+lead: `Lo sfarfallio viene spesso da un variatore alogeno, da una lampadina non dimmerabile o da un carico LED sotto il minimo del dimmer.`,
+body: `${gu10FlickerBody('it')}<p>Indice: <a href="/it/guide/risoluzione-lampadine-smart-led/">risoluzione lampadine smart LED</a>.</p>`,
 },
 {
 path: 'guide/matter-thread-matrice-philips-hue-aqara-govee',

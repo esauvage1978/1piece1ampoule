@@ -30,6 +30,13 @@ h2 { font-weight: 600; }
 .prose-article th { background: #fef3c7; color: #1c1917; text-align: left; padding: 0.6rem 0.75rem; font-weight: 650; }
 .prose-article td { border-top: 1px solid #e7e5e4; padding: 0.6rem 0.75rem; vertical-align: top; }
 .prose-article tr:nth-child(even) td { background: #fafaf9; }
+.en-toc { margin: 1.2rem 0 1.6rem; padding: 1rem 1.2rem; border: 1px solid #e7e5e4; border-radius: 1rem; background: #fafaf9; font-size: 0.95rem; }
+.en-toc-title { margin: 0 0 0.5rem; }
+.en-toc ul { margin: 0; padding-left: 1.2rem; list-style: disc; }
+.en-toc li { margin: 0.25rem 0; }
+.en-fig { margin: 1rem 0 1.4rem; text-align: center; }
+.en-fig img { max-width: 100%; height: auto; border-radius: 1rem; border: 1px solid #e7e5e4; }
+.en-body .en-toc a { font-weight: 600; }
 
 /* Audit Manu 2026-10-24 — alignement colonne éditoriale + formulaires outils */
 .wrap > .article,
