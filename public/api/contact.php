@@ -139,6 +139,73 @@ if ($privacyAt === '') {
     $privacyAt = $submittedAt;
 }
 
+function contact_journal_dir(): ?string
+{
+    $candidates = [dirname(__DIR__, 2) . '/contact-journal', __DIR__ . '/_contact-journal'];
+    foreach ($candidates as $dir) {
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0700, true);
+        }
+        if (is_dir($dir) && is_writable($dir)) {
+            if (str_starts_with($dir, __DIR__)) {
+                if (!is_file($dir . '/.htaccess')) {
+                    @file_put_contents($dir . '/.htaccess', "Require all denied\nDeny from all\n");
+                }
+                if (!is_file($dir . '/index.html')) {
+                    @file_put_contents($dir . '/index.html', '');
+                }
+            }
+            return $dir;
+        }
+    }
+
+    return null;
+}
+
+function contact_journal_write(array $entry): void
+{
+    try {
+        $dir = contact_journal_dir();
+        if ($dir === null) {
+            error_log('[contact-journal] dossier non inscriptible');
+
+            return;
+        }
+        $file = $dir . '/demandes-' . gmdate('Y-m') . '.jsonl';
+        $ok = @file_put_contents(
+            $file,
+            json_encode($entry, JSON_UNESCAPED_UNICODE) . "\n",
+            FILE_APPEND | LOCK_EX
+        );
+        if ($ok === false) {
+            error_log('[contact-journal] écriture impossible: ' . $file);
+        }
+        $limit = gmdate('Y-m', strtotime('first day of -2 months'));
+        foreach ((array) glob($dir . '/demandes-*.jsonl') as $old) {
+            if (preg_match('/demandes-(\d{4}-\d{2})\.jsonl$/', (string) $old, $m) && $m[1] < $limit) {
+                @unlink((string) $old);
+            }
+        }
+    } catch (Throwable $e) {
+        error_log('[contact-journal] ' . $e->getMessage());
+    }
+}
+
+$journalId = bin2hex(random_bytes(6));
+contact_journal_write([
+    'id' => $journalId,
+    'etape' => 'recue',
+    'ip' => $ip,
+    'host' => $host,
+    'name' => $name,
+    'email' => $email,
+    'company' => $company,
+    'objet' => $objet,
+    'message' => $message,
+    'page' => $page,
+    'submitted_at' => $submittedAt,
+]);
+
 // 1. Relais Webhooky dédié au domaine (POST application/x-www-form-urlencoded, timeout 5 s)
 $webhookUrl = $webhookUrls[$host] ?? 'https://webhooky.builders/webhook/form/0b40160efaa3d0a7b357-6d27-4652-95f5-3aa3e74da565';
 $formPayload = http_build_query([
@@ -155,6 +222,9 @@ $formPayload = http_build_query([
 ], '', '&', PHP_QUERY_RFC3986);
 
 $webhookOk = false;
+$httpCode = 0;
+$curlError = '';
+$resp = false;
 if (function_exists('curl_init')) {
     $ch = curl_init($webhookUrl);
     curl_setopt_array($ch, [
@@ -169,6 +239,7 @@ if (function_exists('curl_init')) {
     ]);
     $resp = curl_exec($ch);
     $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
     curl_close($ch);
     if ($resp !== false && $httpCode >= 200 && $httpCode < 400) {
         $webhookOk = true;
@@ -183,9 +254,34 @@ if (function_exists('curl_init')) {
         ],
     ]);
     $resp = @file_get_contents($webhookUrl, false, $ctx);
-    if ($resp !== false) {
+    if (isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', (string) $http_response_header[0], $m)) {
+        $httpCode = (int) $m[1];
+    }
+    if ($resp === false) {
+        $last = error_get_last();
+        $curlError = is_array($last) ? (string) ($last['message'] ?? '') : '';
+    }
+    if ($resp !== false && ($httpCode === 0 || ($httpCode >= 200 && $httpCode < 400))) {
         $webhookOk = true;
     }
+}
+
+if ($webhookOk) {
+    contact_journal_write([
+        'id' => $journalId,
+        'etape' => 'envoyee',
+        'at' => gmdate('c'),
+        'http' => $httpCode,
+    ]);
+} else {
+    contact_journal_write([
+        'id' => $journalId,
+        'etape' => 'echec',
+        'at' => gmdate('c'),
+        'http' => $httpCode,
+        'curl' => $curlError,
+        'reponse' => substr((string) $resp, 0, 300),
+    ]);
 }
 
 // 2. Envoi du mail local en UTF-8 vers la boîte du site (relevé IMAP 3h)

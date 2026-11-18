@@ -25,6 +25,8 @@ pnpm-debug.log*
 public/cron/historique.json
 public/cron/*.tmp
 prive/
+contact-journal/
+public/api/_contact-journal/
 
 # Sauvegardes locales
 *.bak-*
