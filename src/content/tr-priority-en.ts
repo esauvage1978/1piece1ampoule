@@ -1,5 +1,6 @@
 // Priority EN pages (Oct 2026 lot). Sources: FR pages in src/pages/, hiver.ts, marques.ts, catalog-fr.json — checked 23/10/2026.
 import type { EnPage } from './en';
+import { gu10FlickerBody } from './intl-guide-enrich';
 
 const uk = (asin: string, label: string) =>
   `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
@@ -291,21 +292,7 @@ el('eq-result').innerHTML='<p><strong>Target flux:</strong> about <strong>'+lm.t
     description: 'Structured diagnosis for LED flicker on dimmers, buzzing, ghost glow when off, or flicker at full power. Difficulty, time and cost bands.',
     h1: 'GU10 / E27 LED: flicker, buzzing, ghosting',
     lead: 'Use this decision path (same logic as our French interactive tree). If the fault involves the consumer unit or burning smell, stop and call a registered electrician.',
-    body: `<h2>1 — Main symptom</h2>
-<ul>
-<li><strong>Flicker when on</strong>, especially at low dimmer setting → check dimmable marking, trailing vs leading edge, minimum load, replace incompatible dimmer.</li>
-<li><strong>Buzz from dimmer or lamp</strong> → halogen-era dimmer on LED, under-minimum load, mix of dimmable and non-dimmable — use LED-rated dimmer and matched bulbs.</li>
-<li><strong>Glow or flash when “off”</strong> → standby current through smart/no-neutral switch or dimmer leakage — bypass, compatible dimmable LED, or smart bulb with switch locked ON.</li>
-<li><strong>Flicker at 100 %</strong> on a simple switch → loose lamp, failing driver, or bad contact in GU10 holder — try another bulb, check lampholder.</li>
-</ul>
-<h2>Typical fixes (from our tree leaves)</h2>
-<table><thead><tr><th>Case</th><th>Difficulty</th><th>Time</th><th>Cost</th></tr></thead><tbody>
-<tr><td>Non-dimmable LED on dimmer → swap for dimmable or remove dimmer</td><td>1</td><td>5–15 min</td><td>£5–25</td></tr>
-<tr><td>Leading-edge dimmer + dimmable LED → trailing-edge LED dimmer</td><td>2–3</td><td>20–45 min</td><td>£25–55</td></tr>
-<tr><td>Single low-power LED below dimmer minimum → add load or “low load” dimmer</td><td>2–3</td><td>25–50 min</td><td>£10–50</td></tr>
-<tr><td>Smart switch without neutral + ghosting → manufacturer bypass at rose</td><td>3–4</td><td>30–90 min</td><td>£4–15 parts (+ electrician)</td></tr>
-</tbody></table>
-<p>Matrix: <a href="/en/guides/dimmer-led-bulb-matrix-gu10-e27-e14/">dimmer × LED</a>. Smart bulbs: <a href="/en/guides/smart-led-troubleshooting/">troubleshooting hub</a>.</p>`,
+    body: `${gu10FlickerBody('en')}<p>Hub: <a href="/en/guides/smart-led-troubleshooting/">smart LED troubleshooting</a>. Matrix: <a href="/en/guides/dimmer-led-bulb-matrix-gu10-e27-e14/">dimmer × LED</a>.</p>`,
   }),
   {
     path: 'guides/matter-thread-matrix-philips-hue-aqara-govee',

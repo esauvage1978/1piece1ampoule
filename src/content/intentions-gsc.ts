@@ -1,7 +1,10 @@
 import type { EnPage } from './en';
+import { e27GuideBody, type GuideLocale } from './intl-guide-enrich';
 
 const note = (lang: string) =>
   `<p class="en-note">${lang}</p>`;
+
+const e27 = (locale: GuideLocale) => e27GuideBody(locale);
 
 export const INTENT_EN: EnPage[] = [
   {
@@ -12,23 +15,7 @@ export const INTENT_EN: EnPage[] = [
     description: 'E27 screws in (27 mm). B22 pushes and twists (22 mm bayonet). They are not interchangeable. How to tell them apart, when an adapter is a bad idea, and what to buy once you know the base.',
     h1: 'E27 vs B22',
     lead: 'E27 and B22 do not swap. E27 is an Edison screw, 27 mm. B22 is a bayonet cap: two lugs, push and a quarter turn, 22 mm. In the UK the pendant is usually B22. In France it is usually E27. The fitting you already have decides.',
-    body: `<h2>Tell them apart</h2>
-<table><thead><tr><th></th><th>E27</th><th>B22</th></tr></thead><tbody>
-<tr><td>Also called</td><td>ES, Edison screw</td><td>BC, bayonet cap</td></tr>
-<tr><td>How it fits</td><td>Screw</td><td>Push, then quarter turn</td></tr>
-<tr><td>What you see</td><td>A metal thread</td><td>A smooth cap and two side lugs</td></tr>
-<tr><td>Diameter</td><td>27 mm</td><td>22 mm</td></tr>
-<tr><td>Typical home</td><td>France, most of Europe, newer UK lamps</td><td>UK ceiling pendants, some older French fittings</td></tr>
-</tbody></table>
-<p>Diameter is not enough. E14 is a smaller screw (14 mm). GU10 is a spotlight with two pins. The full list is on <a href="/en/guides/bulb-bases-b22-e26-e27-gu10/">bulb bases</a>.</p>
-<h2>Which one to buy</h2>
-<p>Match the bulb you remove. If you are choosing a new fitting, E27 has the wider range of smart, filament and dimmable lamps in Europe. In a UK ceiling rose that is already B22, stay with B22 unless you are happy to change the lampholder.</p>
-<p>Brightness is lumens, not the cap. The official swap for an old 60 W incandescent is at least 806 lm, on either base. See <a href="/en/guides/lumens-vs-watts/">lumens vs watts</a>. Warm white for a living room is <a href="/en/guides/colour-temperature-kelvin/">2700 K</a>.</p>
-<h2>B22 to E27 adapters</h2>
-<p>The adapter locks into the B22 holder and you screw an E27 bulb into it. It adds length, often on the order of 2 to 3 cm depending on the model, and it adds a contact. In a closed shade that already runs warm, changing the lampholder is cleaner than stacking an adapter. An adapter does not change the voltage and does not make a non-dimmable bulb dimmable.</p>
-<h2>Do not confuse them with E26</h2>
-<p>E26 is the US medium screw, 26 mm, built for 120 V. It almost fits an E27 socket. A 120 V bulb on 230 V mains is the wrong lamp. Read the voltage printed on the cap. Only a bulb marked for your mains (or a wide-range 100–240 V driver) belongs there.</p>
-${note('Figures for the 806 lm equivalence come from Commission Delegated Regulation (EU) 2019/2015, Annex V, table 7. Cap names follow IEC 60061 designations (E27, B22d).')}`,
+    body: e27('en'),
   },
   {
     path: 'guides/smart-bulb-deal',
@@ -69,18 +56,7 @@ export const INTENT_DE: EnPage[] = [
     description: 'E27 wird geschraubt (27 mm). B22 wird gesteckt und um eine Vierteldrehung verriegelt (Bajonett 22 mm). Die Fassungen sind nicht austauschbar. So erkennen Sie sie, und wann ein Adapter stört.',
     h1: 'E27 oder B22',
     lead: 'E27 und B22 passen nicht in dieselbe Fassung. E27 ist ein Edisongewinde, 27 mm. B22 ist ein Bajonett mit zwei Nasen: eindrücken, Vierteldrehung, 22 mm. In Deutschland ist E27 der Normalfall. B22 findet sich in älteren Leuchten und in britischen Fassungen.',
-    body: `<h2>Unterscheiden</h2>
-<table><thead><tr><th></th><th>E27</th><th>B22</th></tr></thead><tbody>
-<tr><td>Griff</td><td>Schrauben</td><td>Drücken, dann Vierteldrehung</td></tr>
-<tr><td>Zu sehen</td><td>Metallgewinde</td><td>Glatter Sockel, zwei seitliche Nasen</td></tr>
-<tr><td>Durchmesser</td><td>27 mm</td><td>22 mm</td></tr>
-</tbody></table>
-<p>E14 ist die kleine Schraube (14 mm). GU10 ist ein Strahler mit zwei Stiften. Die Übersicht steht unter <a href="/de/ratgeber/lampensockel-e27-e14-gu10/">Lampensockel</a>.</p>
-<h2>Was Sie kaufen</h2>
-<p>Nehmen Sie denselben Sockel wie die alte Lampe. Bei einer neuen Leuchte ist E27 die größere Auswahl, auch bei <a href="/de/ratgeber/farbtemperatur-kelvin/">2700 K</a> und bei hohem <a href="/de/ratgeber/farbwiedergabe-cri-ra/">Ra</a>. Die Helligkeit steht in Lumen: eine alte 60-W-Glühlampe entspricht mindestens 806 lm, Sockel egal. Tabelle: <a href="/de/ratgeber/lumen-watt/">Lumen statt Watt</a>.</p>
-<h2>Adapter B22 auf E27</h2>
-<p>Der Adapter rastet in die B22-Fassung, danach schrauben Sie eine E27 hinein. Er macht die Lampe länger, je nach Modell oft um 2 bis 3 cm, und er setzt einen Kontakt dazu. In einer geschlossenen, warmen Leuchte ist ein Fassungswechsel sauberer. Der Adapter ändert weder die Spannung noch macht er eine nicht dimmbare Lampe dimmbar.</p>
-<p class="en-note">806 lm: Delegierte Verordnung (EU) 2019/2015, Anhang V, Tabelle 7. Sockelbezeichnungen nach IEC 60061 (E27, B22d).</p>`,
+    body: e27('de'),
   },
   {
     path: 'ratgeber/smarte-lampe-angebot',
@@ -114,18 +90,7 @@ export const INTENT_NL: EnPage[] = [
     description: 'E27 schroeft u in (27 mm). B22 duwt u in en draait u een kwartslag (bajonet 22 mm). Ze passen niet in dezelfde fitting. Zo herkent u ze, en wanneer een verloop lastig is.',
     h1: 'E27 vs B22',
     lead: 'E27 en B22 zijn niet uitwisselbaar. E27 is een Edisonschroef van 27 mm. B22 is een bajonet met twee nokken: indrukken, kwartslag, 22 mm. In Nederland en Vlaanderen is E27 de gewone fitting. B22 zit in oudere armaturen en in Britse lampen.',
-    body: `<h2>Herkennen</h2>
-<table><thead><tr><th></th><th>E27</th><th>B22</th></tr></thead><tbody>
-<tr><td>Beweging</td><td>Schraaien</td><td>Drukken, dan kwartslag</td></tr>
-<tr><td>Wat u ziet</td><td>Metalen schroefdraad</td><td>Gladde huls, twee nokken opzij</td></tr>
-<tr><td>Diameter</td><td>27 mm</td><td>22 mm</td></tr>
-</tbody></table>
-<p>E14 is de kleine schroef (14 mm). GU10 is een spot met twee pinnen. Overzicht: <a href="/nl/gidsen/lampfittingen-e27-e14-gu10/">lampfittingen</a>.</p>
-<h2>Wat u koopt</h2>
-<p>Neem dezelfde fitting als de lamp die u eruit haalt. Bij een nieuw armatuur heeft E27 meer keuze, ook in <a href="/nl/gidsen/kleurtemperatuur-kelvin/">2700 K</a> en een hoge <a href="/nl/gidsen/kleurweergave-cri-ra/">Ra-waarde</a>. Helderheid staat in lumen: een oude gloeilamp van 60 W is minstens 806 lm, fitting maakt niet uit. Tabel: <a href="/nl/gidsen/lumen-watt/">watt naar lumen</a>.</p>
-<h2>Verloop van B22 naar E27</h2>
-<p>Het verloop klikt in de B22-fitting, daarna schroeft u een E27 erin. Het maakt de lamp langer, vaak zo’n 2 tot 3 cm afhankelijk van het model, en het voegt een contact toe. In een dichte, warme kap is een nieuwe fitting netter. Het verloop verandert de netspanning niet en maakt een niet-dimbare lamp niet dimbaar.</p>
-<p class="en-note">806 lm: Gedelegeerde Verordening (EU) 2019/2015, bijlage V, tabel 7. Fittingnamen volgens IEC 60061 (E27, B22d).</p>`,
+    body: e27('nl'),
   },
   {
     path: 'gidsen/slimme-lamp-aanbieding',
@@ -159,18 +124,7 @@ export const INTENT_ES: EnPage[] = [
     description: 'La E27 se enrosca (27 mm). La B22 se empuja y gira un cuarto de vuelta (bayoneta de 22 mm). No son intercambiables. Cómo distinguirlas y cuándo un adaptador estorba.',
     h1: 'E27 o B22',
     lead: 'E27 y B22 no entran en el mismo portalámparas. E27 es una rosca Edison de 27 mm. B22 es una bayoneta con dos tetones: empujar y un cuarto de vuelta, 22 mm. En España lo habitual es E27. La B22 aparece en lámparas antiguas y en casquillos británicos.',
-    body: `<h2>Distinguirlas</h2>
-<table><thead><tr><th></th><th>E27</th><th>B22</th></tr></thead><tbody>
-<tr><td>Gesto</td><td>Enroscar</td><td>Empujar y un cuarto de vuelta</td></tr>
-<tr><td>Qué se ve</td><td>Rosca metálica</td><td>Casquillo liso y dos tetones</td></tr>
-<tr><td>Diámetro</td><td>27 mm</td><td>22 mm</td></tr>
-</tbody></table>
-<p>E14 es la rosca pequeña (14 mm). GU10 es un foco de dos pines. Lista: <a href="/es/guias/casquillos-e27-e14-gu10/">casquillos</a>.</p>
-<h2>Qué comprar</h2>
-<p>Compre el mismo casquillo que la bombilla que quita. En una lámpara nueva, E27 tiene más modelos, también en <a href="/es/guias/temperatura-color-kelvin/">2700 K</a> y con <a href="/es/guias/reproduccion-cromatica-cri-ra/">Ra alto</a>. La luz se mide en lúmenes: una incandescente de 60 W son como mínimo 806 lm. Tabla: <a href="/es/guias/lumenes-vatios/">lúmenes y vatios</a>.</p>
-<h2>Adaptador de B22 a E27</h2>
-<p>Encaja en el portalámparas B22 y después se enrosca una E27. Alarga la bombilla, a menudo del orden de 2 a 3 cm según el modelo, y añade un contacto. En una pantalla cerrada que se calienta, cambiar el portalámparas es más limpio. El adaptador no cambia la tensión ni vuelve regulable una bombilla que no lo es.</p>
-<p class="en-note">806 lm: Reglamento Delegado (UE) 2019/2015, anexo V, tabla 7. Nombres de casquillo según IEC 60061 (E27, B22d).</p>`,
+    body: e27('es'),
   },
   {
     path: 'guias/oferta-bombilla-inteligente',
@@ -204,18 +158,7 @@ export const INTENT_IT: EnPage[] = [
     description: 'L’E27 si avvita (27 mm). Il B22 si spinge e si gira di un quarto di giro (baionetta 22 mm). Non sono intercambiabili. Come riconoscerli e quando un adattatore è una cattiva idea.',
     h1: 'E27 o B22',
     lead: 'E27 e B22 non entrano nello stesso portalampada. E27 è una vite Edison da 27 mm. B22 è una baionetta con due nottolini: si spinge e si gira di un quarto, 22 mm. In Italia lo standard è l’E27. Il B22 resta su lampade vecchie e su portalampada britannici.',
-    body: `<h2>Riconoscerli</h2>
-<table><thead><tr><th></th><th>E27</th><th>B22</th></tr></thead><tbody>
-<tr><td>Gesto</td><td>Avvitare</td><td>Spingere, poi un quarto di giro</td></tr>
-<tr><td>Cosa si vede</td><td>Filettatura metallica</td><td>Attacco liscio e due nottolini</td></tr>
-<tr><td>Diametro</td><td>27 mm</td><td>22 mm</td></tr>
-</tbody></table>
-<p>E14 è la vite piccola (14 mm). GU10 è un faretto a due piedini. Elenco: <a href="/it/guide/attacchi-e27-e14-gu10/">attacchi</a>.</p>
-<h2>Cosa comprare</h2>
-<p>Prenda lo stesso attacco della lampadina che toglie. Su un apparecchio nuovo l’E27 ha più scelta, anche a <a href="/it/guide/temperatura-colore-kelvin/">2700 K</a> e con <a href="/it/guide/resa-cromatica-cri-ra/">Ra alto</a>. La luce si legge in lumen: una vecchia da 60 W è almeno 806 lm. Tabella: <a href="/it/guide/lumen-watt/">lumen e watt</a>.</p>
-<h2>Adattatore da B22 a E27</h2>
-<p>Si innesta nel portalampada B22, poi si avvita una E27. Allunga la lampadina, spesso di circa 2–3 cm secondo il modello, e aggiunge un contatto. In un paralume chiuso che scalda, cambiare il portalampada è più pulito. L’adattatore non cambia la tensione e non rende dimmerabile una lampadina che non lo è.</p>
-<p class="en-note">806 lm: regolamento delegato (UE) 2019/2015, allegato V, tabella 7. Nomi degli attacchi secondo IEC 60061 (E27, B22d).</p>`,
+    body: e27('it'),
   },
   {
     path: 'guide/offerta-lampadina-smart',

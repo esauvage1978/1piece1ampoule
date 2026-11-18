@@ -1,5 +1,6 @@
 // Páginas prioritarias ES (oct. 2026). Fuente FR. Amazon tag roboteducat07-21.
 import type { EnPage } from './en';
+import { gu10FlickerBody } from './intl-guide-enrich';
 
 export const TR_PRIORITY_ES: EnPage[] = [
 {
@@ -146,11 +147,10 @@ path: 'guias/parpadeo-gu10-led-regulador-diagnostico',
 article: true,
 kicker: 'Guía técnica',
 title: `Parpadeo GU10 LED con regulador: diagnóstico paso a paso`,
-description: `Flicker con dimmer y GU10: corte de fase, carga mínima, lista de comprobación en 230 V.`,
-h1: `GU10 LED que parpadea con el regulador`,
-lead: `El parpadeo casi siempre viene de un regulador diseñado para halógenos o de una carga LED por debajo del mínimo del dimmer.`,
-body: `<h2>Checklist</h2><ol><li>¿Bombilla marcada <strong>dimmable</strong> y regulador marcado <strong>LED</strong>?</li><li>¿Carga total en el circuito ≥ mínimo del dimmer (a menudo 40–60 W equivalentes)?</li><li>Pruebe a 100 %: si deja de parpadear, el problema es la zona baja del dimmer.</li><li>GU10 a 230 V: no confundir con MR16 12 V en transformador.</li><li>Sustituya por regulador trailing edge si el fabricante lo indica.</li></ol>
-<p>Ver <a href="/es/guias/bombillas-led-regulables/">LED regulables</a> y <a href="/es/tutoriales/sustituir-halogenos-gu10-mr16-por-led/">sustituir halógenos</a>.</p>`,
+description: `Parpadeo con regulador y GU10 o E27: leading/trailing edge, carga mínima, síntomas y bombillas dimmables compatibles.`,
+h1: `GU10 / E27 LED: parpadeo, zumbido y brillo residual`,
+lead: `El parpadeo casi siempre viene de un regulador halógeno, de una bombilla no regulable o de una carga LED por debajo del mínimo del dimmer.`,
+body: `${gu10FlickerBody('es')}<p>Índice: <a href="/es/guias/averias-bombillas-inteligentes-led/">averías LED y conectadas</a>.</p>`,
 },
 {
 path: 'guias/matter-thread-matriz-philips-hue-aqara-govee',
