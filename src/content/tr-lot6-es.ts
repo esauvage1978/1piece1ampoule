@@ -235,6 +235,7 @@ ${inp('kp-gu10-lm', 'Flujo por foco GU10 (lm)', 'max="800" min="250" step="25" v
 
 const GR35_BUY = 'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
 const img = (f: string, alt: string, w: number, h: number) => `<img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" />`;
+const fig = (f: string, alt: string, cap: string, w = 1200, h = 1600) => `<figure class="en-fig"><img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" /><figcaption style="margin:.4rem 0 0;font-size:.9rem;color:#57534e">${cap}</figcaption></figure>`;
 const GR35_FAQ: [string, string][] = [
   ['¿La linterna se calienta al usarla?', 'Sí. A plena potencia se nota claramente el calor en la mano cuando se ilumina la palma. Es coherente con una linterna muy luminosa: parte de la energía eléctrica se convierte en calor en el LED y en el cuerpo.'],
   ['¿El láser verde es estable?', 'Sí: el puntero láser verde se mantiene constante durante el uso.'],
@@ -243,7 +244,7 @@ const GR35_FAQ: [string, string][] = [
   ['¿Qué incluye la linterna?', 'Además de la linterna, el estuche incluye un power bank y una funda de tela gris: dos accesorios que apreciamos.'],
 ];
 const GR35_TEST_ES: EnPage = {
-  path: 'pruebas/imalent-gr35', article: true, kicker: 'Prueba de producto · actualizada el 2 de noviembre de 2026',
+  path: 'pruebas/imalent-gr35', article: true, kicker: 'Prueba de producto · actualizada el 19 de noviembre de 2026',
   title: 'Prueba Imalent GR35: linterna, láser verde y estuche power bank',
   description: 'Imalent GR35 probada: linterna muy potente, regulador sencillo, láser verde, estuche power bank y funda. Manual no en francés. Linterna cedida gratis; prueba independiente.',
   h1: 'Prueba Imalent GR35: linterna, láser verde y estuche power bank',
@@ -260,6 +261,18 @@ const GR35_TEST_ES: EnPage = {
 <h2>Flujo, regulador y láser verde</h2>
 <p>La linterna es <strong>muy potente</strong>. Si se apunta el haz a la palma de la mano se nota el calor, y no es poco para una linterna de bolsillo. Imalent declara un flujo máximo de <strong>2.800 lúmenes</strong> y un alcance de <strong>426 m</strong> (datos del fabricante, no medidos por nosotros). Para situarlo: una bombilla LED típica de salón ronda los <strong>800 lm</strong>, así que 2.800 lm son varias veces eso, en un haz concentrado. De ahí su uso para alumbrar lejos, y de ahí el calor: parte de la energía que usa el LED se convierte en calor en el cuerpo de la linterna, sobre todo a plena potencia.</p>
 <p>El <strong>regulador es sencillo</strong> de usar para ajustar el brillo sin recorrer cada vez modos fijos. El puntero <strong>láser verde</strong> se mantiene <strong>estable</strong> durante el uso. Recordatorio de seguridad: no lo apunte nunca a los ojos, a personas, animales, vehículos o aeronaves; mantenga el aparato fuera del alcance de los niños.</p>
+<p>Aquí el pasillo con la luz roja, después el láser verde apuntando a la puerta del fondo: el punto verde del centro es el puntero láser, no un foco verde. La foto siguiente muestra la luz azul de la linterna sobre las dos puertas.</p>
+${fig('imalent-gr35-couloir-mode-rouge.webp', 'Pasillo a oscuras iluminado por el modo de luz roja de la Imalent GR35', 'Modo de luz roja de la Imalent GR35, en el pasillo y a oscuras.')}
+${fig('imalent-gr35-couloir-laser-vert.webp', 'Láser verde de la Imalent GR35 apuntando a la puerta del fondo, con el punto verde visible en el centro', 'Láser verde apuntando a la puerta del fondo: el punto verde se ve en el centro. Es el puntero láser, no un foco verde.')}
+${fig('imalent-gr35-couloir-lumiere-bleue.webp', 'Pasillo iluminado por la luz azul de la Imalent GR35 sobre dos puertas blancas', 'Luz azul de la Imalent GR35 iluminando dos puertas del pasillo.')}
+<p>El regulador permite ajustar la potencia del haz blanco. La serie de abajo, siempre en el mismo pasillo, muestra la subida de potencia, desde el nivel más bajo hasta la intensidad más alta.</p>
+<div class="en-grid">
+${fig('imalent-gr35-couloir-variateur-plus-faible.webp', 'El mismo pasillo iluminado por el haz blanco de la Imalent GR35 en el nivel más bajo del regulador', 'Haz blanco, nivel más bajo del regulador.')}
+${fig('imalent-gr35-couloir-variateur-niveau-2.webp', 'El mismo pasillo iluminado por el haz blanco de la Imalent GR35 en el segundo nivel del regulador', 'Haz blanco, segundo nivel del regulador.')}
+${fig('imalent-gr35-couloir-variateur-niveau-3.webp', 'El mismo pasillo iluminado por el haz blanco de la Imalent GR35 en el tercer nivel del regulador', 'Haz blanco, tercer nivel del regulador.')}
+${fig('imalent-gr35-couloir-variateur-niveau-4.webp', 'El mismo pasillo iluminado por el haz blanco de la Imalent GR35 en el cuarto nivel del regulador', 'Haz blanco, cuarto nivel del regulador.')}
+${fig('imalent-gr35-couloir-variateur-pleine-puissance.webp', 'El mismo pasillo muy iluminado por el haz blanco de la Imalent GR35 a plena potencia del regulador', 'Haz blanco a plena potencia del regulador.')}
+</div>
 <h2>Power bank y funda</h2><p>Aparte de la linterna, lo que más nos gustó del pack es la combinación <strong>power bank + funda</strong> integrada en el estuche.</p>
 <h2>El inconveniente: el manual</h2><p>El único reparo de verdad: el manual no estaba traducido al francés. No es obligatorio, pero una versión en francés habría sido bienvenida para los lectores del sitio.</p>
 <h2>Puntos fuertes</h2><ul><li>Buena calidad percibida, sencillo de usar.</li><li>Power bank y funda bien pensados en el estuche.</li><li>Muy potente; regulador sencillo.</li><li>Láser verde estable.</li></ul>

@@ -236,6 +236,7 @@ ${inp('kp-gu10-lm', 'Lichtstroom per GU10-spot (lm)', 'max="800" min="250" step=
 
 const GR35_BUY = 'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
 const img = (f: string, alt: string, w: number, h: number) => `<img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" />`;
+const fig = (f: string, alt: string, cap: string, w = 1200, h = 1600) => `<figure class="en-fig"><img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" /><figcaption style="margin:.4rem 0 0;font-size:.9rem;color:#57534e">${cap}</figcaption></figure>`;
 const GR35_FAQ: [string, string][] = [
   ['Wordt de zaklamp warm in gebruik?', 'Ja. Op vol vermogen voelt u de warmte duidelijk in de hand als u de bundel op uw handpalm richt. Dat past bij een zeer felle zaklamp: een deel van de elektrische energie wordt warmte in de led en in de behuizing.'],
   ['Blijft de groene laser stabiel?', 'Ja: de groene laserpointer blijft tijdens het gebruik constant.'],
@@ -244,7 +245,7 @@ const GR35_FAQ: [string, string][] = [
   ['Wat zit er bij de zaklamp?', 'Naast de zaklamp zitten in de koffer een powerbank en een grijze stoffen opbergetui: twee accessoires die we goed vonden.'],
 ];
 const GR35_TEST_NL: EnPage = {
-  path: 'tests/imalent-gr35', article: true, kicker: 'Producttest · bijgewerkt 2 november 2026',
+  path: 'tests/imalent-gr35', article: true, kicker: 'Producttest · bijgewerkt 19 november 2026',
   title: 'Test Imalent GR35: zaklamp, groene laser en powerbankkoffer',
   description: 'Imalent GR35 getest: zeer sterke zaklamp, eenvoudige dimmer, groene laser, powerbankkoffer en etui. Handleiding niet in het Frans. Zaklamp gratis geleverd; onafhankelijke test.',
   h1: 'Test Imalent GR35: zaklamp, groene laser en powerbankkoffer',
@@ -261,6 +262,18 @@ const GR35_TEST_NL: EnPage = {
 <h2>Lichtopbrengst, dimmer en groene laser</h2>
 <p>De zaklamp is <strong>zeer sterk</strong>. Richt de bundel op uw handpalm en u voelt de warmte. Voor een zaklamp uit de broekzak is dat niet niks. Imalent noemt een maximale lichtstroom van <strong>2.800 lumen</strong> en een reikwijdte van <strong>426 m</strong> (cijfers van de fabrikant, niet door ons gemeten). Ter vergelijking: een gewone ledlamp voor de woonkamer zit rond <strong>800 lm</strong>, dus 2.800 lm is een veelvoud daarvan in een gebundelde straal. Vandaar het gebruik om ver te verlichten, en vandaar de warmte: een deel van de energie die de led verbruikt, wordt warmte in de behuizing, vooral op vol vermogen.</p>
 <p>De <strong>dimmer is eenvoudig</strong> in gebruik: u regelt de helderheid zonder telkens vaste standen langs te lopen. De pointer met <strong>groene laser</strong> blijft tijdens het gebruik <strong>stabiel</strong>. Veiligheid: richt nooit op ogen, personen, dieren, voertuigen of luchtvaartuigen, en houd het toestel buiten het bereik van kinderen.</p>
+<p>Hier de gang in rood licht, daarna de groene laser op de deur achterin: de groene stip in het midden is de laserpointer, geen groene schijnwerper. De volgende foto toont het blauwe licht van de zaklamp op de twee deuren.</p>
+${fig('imalent-gr35-couloir-mode-rouge.webp', 'Gang in het donker, verlicht door de rode lichtstand van de Imalent GR35', 'Rode lichtstand van de Imalent GR35, in de gang en in het donker.')}
+${fig('imalent-gr35-couloir-laser-vert.webp', 'Groene laser van de Imalent GR35 gericht op de deur achterin de gang, met de groene stip zichtbaar in het midden', 'Groene laser gericht op de deur achterin: de groene stip is in het midden te zien. Dit is de laserpointer, geen groene schijnwerper.')}
+${fig('imalent-gr35-couloir-lumiere-bleue.webp', 'Gang verlicht door het blauwe licht van de Imalent GR35 op twee witte deuren', 'Blauw licht van de Imalent GR35 dat twee deuren in de gang verlicht.')}
+<p>Met de dimmer past u het vermogen van de witte bundel aan. De reeks hieronder, steeds in dezelfde gang, toont de toename van het vermogen, van de laagste stand tot de hoogste intensiteit.</p>
+<div class="en-grid">
+${fig('imalent-gr35-couloir-variateur-plus-faible.webp', 'Dezelfde gang, verlicht door de witte bundel van de Imalent GR35 op de laagste dimmerstand', 'Witte bundel, laagste dimmerstand.')}
+${fig('imalent-gr35-couloir-variateur-niveau-2.webp', 'Dezelfde gang, verlicht door de witte bundel van de Imalent GR35 op de tweede dimmerstand', 'Witte bundel, tweede dimmerstand.')}
+${fig('imalent-gr35-couloir-variateur-niveau-3.webp', 'Dezelfde gang, verlicht door de witte bundel van de Imalent GR35 op de derde dimmerstand', 'Witte bundel, derde dimmerstand.')}
+${fig('imalent-gr35-couloir-variateur-niveau-4.webp', 'Dezelfde gang, verlicht door de witte bundel van de Imalent GR35 op de vierde dimmerstand', 'Witte bundel, vierde dimmerstand.')}
+${fig('imalent-gr35-couloir-variateur-pleine-puissance.webp', 'Dezelfde gang, fel verlicht door de witte bundel van de Imalent GR35 op vol dimmervermogen', 'Witte bundel op vol dimmervermogen.')}
+</div>
 <h2>Powerbank en etui</h2><p>Los van de zaklamp zelf vonden we in de set de combinatie van <strong>powerbank en opbergetui</strong> in de koffer het sterkst.</p>
 <h2>Het minpunt: de handleiding</h2><p>Ons enige echte minpunt: de handleiding was niet in het Frans vertaald. Dat is niet verplicht, maar een Franse versie was welkom geweest voor onze lezers.</p>
 <h2>Sterke punten</h2><ul><li>Degelijke indruk van de afwerking, eenvoudig in gebruik.</li><li>Powerbank en etui doordacht in de koffer verwerkt.</li><li>Zeer sterk; eenvoudige dimmer.</li><li>Stabiele groene laser.</li></ul>

@@ -22,7 +22,7 @@ export const MODIFIED_BY_PATH = {
   '/nl/gidsen/gu10-led-flikker-dimmer-diagnose/': '2026-11-18',
   '/es/guias/parpadeo-gu10-led-regulador-diagnostico/': '2026-11-18',
   '/it/guide/sfarfallio-gu10-led-dimmer-diagnosi/': '2026-11-18',
-  '/tests/imalent-gr35/': '2026-11-02',
+  '/tests/imalent-gr35/': '2026-11-19',
   '/marques/imalent/': '2026-11-02',
   // 26/10/2026 : tutoriels 6 et 7, comparatifs ouverts à l'indexation, codes promo
   '/tutoriels/appairer-module-zigbee-sans-neutre-sonoff-aqara/': '2026-10-26',
@@ -578,7 +578,7 @@ const TUTO_PUBLISHED = {
   '/it/zone/': '2026-10-30',
   '/it/zone/specchio-bagno/': '2026-10-30',
   '/marques/tapo/': '2026-10-30',
-  '/tests/imalent-gr35/': '2026-11-02',
+  '/tests/imalent-gr35/': '2026-11-19',
   '/marques/imalent/': '2026-11-02',
   '/nl/artikelen/': '2026-10-30',
   '/nl/artikelen/dimbare-of-niet-dimbare-lamp/': '2026-10-30',

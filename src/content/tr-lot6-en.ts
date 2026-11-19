@@ -238,6 +238,7 @@ ${inp('kp-gu10-lm', 'Output per GU10 spot (lm)', 'max="800" min="250" step="25" 
 
 const GR35_BUY = 'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
 const img = (f: string, alt: string, w: number, h: number) => `<img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" />`;
+const fig = (f: string, alt: string, cap: string, w = 1200, h = 1600) => `<figure class="en-fig"><img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" /><figcaption style="margin:.4rem 0 0;font-size:.9rem;color:#57534e">${cap}</figcaption></figure>`;
 const GR35_FAQ: [string, string][] = [
   ['Does the torch get hot in use?', 'Yes. At full power you clearly feel the heat on your hand when you shine it on your palm. That is consistent with a very bright torch: part of the electrical energy turns into heat in the LED and the body.'],
   ['Is the green laser steady?', 'Yes: the green laser pointer stays constant during use.'],
@@ -246,7 +247,7 @@ const GR35_FAQ: [string, string][] = [
   ['What comes with the torch?', 'Besides the torch, the case includes a powerbank and a grey fabric storage pouch: two accessories we appreciated.'],
 ];
 const GR35_TEST_EN: EnPage = {
-  path: 'tests/imalent-gr35', article: true, kicker: 'Product test · updated 2 November 2026',
+  path: 'tests/imalent-gr35', article: true, kicker: 'Product test · updated 19 November 2026',
   title: 'Imalent GR35 test: torch, green laser and powerbank case',
   description: 'Imalent GR35 tested: a very powerful torch, easy dimmer, green laser, powerbank case and pouch. Manual not in French. Torch supplied free; independent review.',
   h1: 'Imalent GR35 test: torch, green laser and powerbank case',
@@ -263,6 +264,18 @@ const GR35_TEST_EN: EnPage = {
 <h2>Output, dimmer and green laser</h2>
 <p>The torch is <strong>very powerful</strong>. Shine the beam on the palm of your hand and you feel the heat, which is no small thing for a pocket torch. Imalent states a maximum output of <strong>2,800 lumens</strong> and a range of <strong>426 m</strong> (manufacturer figures, not measured by us). For scale: a typical living-room LED bulb is around <strong>800 lm</strong>, so 2,800 lm is several times that in a concentrated beam. Hence its use for lighting far away, and hence the warmth: part of the energy used by the LED becomes heat in the body of the torch, especially at full power.</p>
 <p>The <strong>dimmer is easy</strong> to use to adjust brightness without cycling through fixed modes each time. The <strong>green laser</strong> pointer stays <strong>steady</strong> during use. Safety reminder: never aim at eyes, people, animals, vehicles or aircraft; keep the device out of children’s reach.</p>
+<p>Here is the hallway in red light, then the green laser aimed at the far door — the green dot in the centre is the laser pointer, not a green floodlight. The next photo shows the torch’s blue light on the two doors.</p>
+${fig('imalent-gr35-couloir-mode-rouge.webp', 'Hallway in the dark lit by the red light mode of the Imalent GR35', 'Red light mode of the Imalent GR35, in the hallway and in the dark.')}
+${fig('imalent-gr35-couloir-laser-vert.webp', 'Green laser of the Imalent GR35 aimed at the far door, with the green dot visible in the centre', 'Green laser aimed at the far door: the green dot is visible in the centre. This is the laser pointer, not a green floodlight.')}
+${fig('imalent-gr35-couloir-lumiere-bleue.webp', 'Hallway lit by the blue light of the Imalent GR35 on two white doors', 'Blue light from the Imalent GR35 lighting two doors in the hallway.')}
+<p>The dimmer adjusts the power of the white beam. The series below, always in the same hallway, shows the brightness ramping up from the lowest setting to full power.</p>
+<div class="en-grid">
+${fig('imalent-gr35-couloir-variateur-plus-faible.webp', 'Same hallway lit by the Imalent GR35 white beam at the lowest dimmer setting', 'White beam, lowest dimmer setting.')}
+${fig('imalent-gr35-couloir-variateur-niveau-2.webp', 'Same hallway lit by the Imalent GR35 white beam at the second dimmer level', 'White beam, second dimmer level.')}
+${fig('imalent-gr35-couloir-variateur-niveau-3.webp', 'Same hallway lit by the Imalent GR35 white beam at the third dimmer level', 'White beam, third dimmer level.')}
+${fig('imalent-gr35-couloir-variateur-niveau-4.webp', 'Same hallway lit by the Imalent GR35 white beam at the fourth dimmer level', 'White beam, fourth dimmer level.')}
+${fig('imalent-gr35-couloir-variateur-pleine-puissance.webp', 'Same hallway brightly lit by the Imalent GR35 white beam at full dimmer power', 'White beam at full dimmer power.')}
+</div>
 <h2>Powerbank and pouch</h2><p>Apart from the torch itself, what we liked most in the pack is the <strong>powerbank + storage pouch</strong> combination built into the case.</p>
 <h2>The downside: the manual</h2><p>Our only real regret: the manual was not translated into French. That is not mandatory, but a French version would have been welcome for our readers.</p>
 <h2>Strengths</h2><ul><li>Good perceived quality, simple to use.</li><li>Powerbank and pouch well thought out in the case.</li><li>Very powerful; easy dimmer.</li><li>Steady green laser.</li></ul>
