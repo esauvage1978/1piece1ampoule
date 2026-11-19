@@ -235,6 +235,7 @@ ${inp('kp-gu10-lm', 'Flusso per faretto GU10 (lm)', 'max="800" min="250" step="2
 
 const GR35_BUY = 'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
 const img = (f: string, alt: string, w: number, h: number) => `<img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" />`;
+const fig = (f: string, alt: string, cap: string, w = 1200, h = 1600) => `<figure class="en-fig"><img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" /><figcaption style="margin:.4rem 0 0;font-size:.9rem;color:#57534e">${cap}</figcaption></figure>`;
 const GR35_FAQ: [string, string][] = [
   ['La torcia scalda durante l’uso?', 'Sì. A piena potenza si sente chiaramente il calore sulla mano quando si illumina il palmo. È coerente con una torcia molto luminosa: parte dell’energia elettrica diventa calore nel LED e nel corpo.'],
   ['Il laser verde è stabile?', 'Sì: il puntatore laser verde resta costante durante l’uso.'],
@@ -243,7 +244,7 @@ const GR35_FAQ: [string, string][] = [
   ['Che cosa è incluso con la torcia?', 'Oltre alla torcia, la custodia comprende un power bank e una pochette in tessuto grigio: due accessori che abbiamo apprezzato.'],
 ];
 const GR35_TEST_IT: EnPage = {
-  path: 'test/imalent-gr35', article: true, kicker: 'Prova prodotto · aggiornata il 2 novembre 2026',
+  path: 'test/imalent-gr35', article: true, kicker: 'Prova prodotto · aggiornata il 19 novembre 2026',
   title: 'Prova Imalent GR35: torcia, laser verde e custodia power bank',
   description: 'Imalent GR35 provata: torcia molto potente, variatore semplice, laser verde, custodia power bank e pochette. Manuale non in francese. Torcia fornita gratis; prova indipendente.',
   h1: 'Prova Imalent GR35: torcia, laser verde e custodia power bank',
@@ -260,6 +261,18 @@ const GR35_TEST_IT: EnPage = {
 <h2>Flusso, variatore e laser verde</h2>
 <p>La torcia è <strong>molto potente</strong>. Se si punta il fascio sul palmo della mano si sente il calore, e non è poco per una torcia da tasca. Imalent dichiara un flusso massimo di <strong>2.800 lumen</strong> e una portata di <strong>426 m</strong> (dati del costruttore, non misurati da noi). Per dare un ordine di grandezza: una lampadina LED da soggiorno tipica è intorno agli <strong>800 lm</strong>, quindi 2.800 lm sono diverse volte tanto, in un fascio concentrato. Da qui l’uso per illuminare lontano, e da qui il calore: parte dell’energia usata dal LED diventa calore nel corpo della torcia, soprattutto a piena potenza.</p>
 <p>Il <strong>variatore è semplice</strong> da usare per regolare la luminosità senza scorrere ogni volta modalità fisse. Il puntatore <strong>laser verde</strong> resta <strong>stabile</strong> durante l’uso. Promemoria di sicurezza: non puntarlo mai verso occhi, persone, animali, veicoli o aeromobili; tenga l’apparecchio fuori dalla portata dei bambini.</p>
+<p>Ecco il corridoio con la luce rossa, poi il laser verde puntato sulla porta in fondo: il punto verde al centro è il puntatore laser, non un fascio di luce verde. La foto successiva mostra la luce blu della torcia sulle due porte.</p>
+${fig('imalent-gr35-couloir-mode-rouge.webp', 'Corridoio al buio illuminato dalla modalità luce rossa dell’Imalent GR35', 'Modalità luce rossa dell’Imalent GR35, nel corridoio e al buio.')}
+${fig('imalent-gr35-couloir-laser-vert.webp', 'Laser verde dell’Imalent GR35 puntato sulla porta in fondo al corridoio, con il punto verde visibile al centro', 'Laser verde puntato sulla porta in fondo: il punto verde è visibile al centro. È il puntatore laser, non un fascio di luce verde.')}
+${fig('imalent-gr35-couloir-lumiere-bleue.webp', 'Corridoio illuminato dalla luce blu dell’Imalent GR35 su due porte bianche', 'Luce blu dell’Imalent GR35 che illumina due porte del corridoio.')}
+<p>Il variatore permette di regolare la potenza del fascio bianco. La serie qui sotto, sempre nello stesso corridoio, mostra la salita di potenza, dal livello più basso fino all’intensità più alta.</p>
+<div class="en-grid">
+${fig('imalent-gr35-couloir-variateur-plus-faible.webp', 'Lo stesso corridoio illuminato dal fascio bianco dell’Imalent GR35 al livello più basso del variatore', 'Fascio bianco, livello più basso del variatore.')}
+${fig('imalent-gr35-couloir-variateur-niveau-2.webp', 'Lo stesso corridoio illuminato dal fascio bianco dell’Imalent GR35 al secondo livello del variatore', 'Fascio bianco, secondo livello del variatore.')}
+${fig('imalent-gr35-couloir-variateur-niveau-3.webp', 'Lo stesso corridoio illuminato dal fascio bianco dell’Imalent GR35 al terzo livello del variatore', 'Fascio bianco, terzo livello del variatore.')}
+${fig('imalent-gr35-couloir-variateur-niveau-4.webp', 'Lo stesso corridoio illuminato dal fascio bianco dell’Imalent GR35 al quarto livello del variatore', 'Fascio bianco, quarto livello del variatore.')}
+${fig('imalent-gr35-couloir-variateur-pleine-puissance.webp', 'Lo stesso corridoio molto illuminato dal fascio bianco dell’Imalent GR35 a piena potenza del variatore', 'Fascio bianco a piena potenza del variatore.')}
+</div>
 <h2>Power bank e pochette</h2><p>A parte la torcia, ciò che ci è piaciuto di più nella confezione è la combinazione <strong>power bank + pochette</strong> integrata nella custodia.</p>
 <h2>Il limite: il manuale</h2><p>L’unico vero rammarico: il manuale non era tradotto in francese. Non è obbligatorio, ma una versione francese sarebbe stata gradita ai lettori del sito.</p>
 <h2>Punti di forza</h2><ul><li>Buona qualità percepita, semplice da usare.</li><li>Power bank e pochette ben pensati nella custodia.</li><li>Molto potente; variatore semplice.</li><li>Laser verde stabile.</li></ul>

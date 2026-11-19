@@ -243,6 +243,7 @@ ${inp('kp-gu10-lm', 'Lichtstrom je GU10-Spot (lm)', 'max="800" min="250" step="2
 
 const GR35_BUY = 'https://www.awin1.com/cread.php?awinmid=94223&awinaffid=3127458&ued=https%3A%2F%2Fwww.imalentstore.com%2Fproducts%2Fimalent-gr35-4-in-1-edc-flashlight';
 const img = (f: string, alt: string, w: number, h: number) => `<img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" />`;
+const fig = (f: string, alt: string, cap: string, w = 1200, h = 1600) => `<figure class="en-fig"><img src="/images/tests/imalent-gr35/${f}" alt="${alt}" width="${w}" height="${h}" loading="lazy" style="max-width:100%;height:auto" /><figcaption style="margin:.4rem 0 0;font-size:.9rem;color:#57534e">${cap}</figcaption></figure>`;
 const GR35_FAQ: [string, string][] = [
   ['Wird die Taschenlampe im Betrieb heiß?', 'Ja. Bei voller Leistung spüren Sie die Wärme deutlich in der Hand, wenn Sie den Strahl auf die Handfläche richten. Das passt zu einer sehr hellen Taschenlampe: Ein Teil der elektrischen Energie wird in der LED und im Gehäuse zu Wärme.'],
   ['Ist der grüne Laser stabil?', 'Ja: Der grüne Laserpointer bleibt während der Nutzung konstant.'],
@@ -251,7 +252,7 @@ const GR35_FAQ: [string, string][] = [
   ['Was liegt der Taschenlampe bei?', 'Neben der Taschenlampe enthält der Koffer eine Powerbank und eine graue Stofftasche zur Aufbewahrung: zwei Zubehörteile, die uns gefallen haben.'],
 ];
 const GR35_TEST_DE: EnPage = {
-  path: 'tests/imalent-gr35', article: true, kicker: 'Produkttest · aktualisiert am 2. November 2026',
+  path: 'tests/imalent-gr35', article: true, kicker: 'Produkttest · aktualisiert am 19. November 2026',
   title: 'Imalent GR35 im Test: Taschenlampe, grüner Laser und Powerbank-Koffer',
   description: 'Imalent GR35 getestet: sehr starke Taschenlampe, einfacher Dimmer, grüner Laser, Powerbank-Koffer und Tasche. Anleitung nicht auf Französisch. Taschenlampe kostenlos gestellt; unabhängiger Test.',
   h1: 'Imalent GR35 im Test: Taschenlampe, grüner Laser und Powerbank-Koffer',
@@ -268,6 +269,18 @@ const GR35_TEST_DE: EnPage = {
 <h2>Lichtstrom, Dimmer und grüner Laser</h2>
 <p>Die Taschenlampe ist <strong>sehr stark</strong>. Richten Sie den Strahl auf die Handfläche, spüren Sie die Wärme — für eine Taschenlampe im Taschenformat keine Kleinigkeit. Imalent gibt einen maximalen Lichtstrom von <strong>2.800 Lumen</strong> und eine Reichweite von <strong>426 m</strong> an (Herstellerangaben, von uns nicht gemessen). Zum Vergleich: Eine typische LED-Lampe im Wohnzimmer liegt bei etwa <strong>800 lm</strong>. 2.800 lm sind also ein Mehrfaches davon in einem gebündelten Strahl. Daher der Einsatz, um weit entfernte Stellen auszuleuchten, und daher die Wärme: Ein Teil der Energie, die die LED aufnimmt, wird im Gehäuse der Taschenlampe zu Wärme, besonders bei voller Leistung.</p>
 <p>Der <strong>Dimmer lässt sich einfach</strong> bedienen, um die Helligkeit einzustellen, ohne jedes Mal feste Modi durchzuschalten. Der Zeiger des <strong>grünen Lasers</strong> bleibt während der Nutzung <strong>stabil</strong>. Sicherheitshinweis: niemals auf Augen, Menschen, Tiere, Fahrzeuge oder Luftfahrzeuge richten; das Gerät außerhalb der Reichweite von Kindern aufbewahren.</p>
+<p>Hier der Flur im roten Licht, danach der grüne Laser auf die Tür am Ende — der grüne Punkt in der Mitte ist der Laserpointer, kein grünes Flutlicht. Das nächste Foto zeigt das blaue Licht der Taschenlampe auf den beiden Türen.</p>
+${fig('imalent-gr35-couloir-mode-rouge.webp', 'Flur im Dunkeln, erhellt vom roten Lichtmodus der Imalent GR35', 'Rotes Licht der Imalent GR35 im Flur, bei Dunkelheit.')}
+${fig('imalent-gr35-couloir-laser-vert.webp', 'Grüner Laser der Imalent GR35 auf die Tür am Ende des Flurs gerichtet, mit sichtbarem grünem Punkt in der Mitte', 'Grüner Laser auf die Tür am Ende gerichtet: der grüne Punkt ist in der Mitte zu sehen. Das ist der Laserpointer, kein grünes Flutlicht.')}
+${fig('imalent-gr35-couloir-lumiere-bleue.webp', 'Flur, erhellt vom blauen Licht der Imalent GR35 auf zwei weißen Türen', 'Blaues Licht der Imalent GR35, das zwei Türen im Flur erhellt.')}
+<p>Mit dem Dimmer lässt sich die Stärke des weißen Strahls anpassen. Die folgende Serie, immer im selben Flur, zeigt die Zunahme der Helligkeit vom niedrigsten bis zum höchsten Niveau.</p>
+<div class="en-grid">
+${fig('imalent-gr35-couloir-variateur-plus-faible.webp', 'Derselbe Flur, erhellt vom weißen Strahl der Imalent GR35 auf der niedrigsten Dimmerstufe', 'Weißer Strahl, niedrigste Dimmerstufe.')}
+${fig('imalent-gr35-couloir-variateur-niveau-2.webp', 'Derselbe Flur, erhellt vom weißen Strahl der Imalent GR35 auf der zweiten Dimmerstufe', 'Weißer Strahl, zweite Dimmerstufe.')}
+${fig('imalent-gr35-couloir-variateur-niveau-3.webp', 'Derselbe Flur, erhellt vom weißen Strahl der Imalent GR35 auf der dritten Dimmerstufe', 'Weißer Strahl, dritte Dimmerstufe.')}
+${fig('imalent-gr35-couloir-variateur-niveau-4.webp', 'Derselbe Flur, erhellt vom weißen Strahl der Imalent GR35 auf der vierten Dimmerstufe', 'Weißer Strahl, vierte Dimmerstufe.')}
+${fig('imalent-gr35-couloir-variateur-pleine-puissance.webp', 'Derselbe Flur, hell erleuchtet vom weißen Strahl der Imalent GR35 auf voller Dimmerleistung', 'Weißer Strahl auf voller Dimmerleistung.')}
+</div>
 <h2>Powerbank und Tasche</h2><p>Abgesehen von der Taschenlampe selbst hat uns im Set vor allem die Kombination aus <strong>Powerbank und Aufbewahrungstasche</strong> im Koffer gefallen.</p>
 <h2>Der Nachteil: die Anleitung</h2><p>Unser einziges echtes Bedauern: Die Anleitung war nicht ins Französische übersetzt. Das ist nicht vorgeschrieben, eine französische Fassung wäre für unsere Leserinnen und Leser aber willkommen gewesen.</p>
 <h2>Stärken</h2><ul><li>Gute wahrgenommene Qualität, einfache Bedienung.</li><li>Powerbank und Tasche im Koffer durchdacht.</li><li>Sehr stark; einfacher Dimmer.</li><li>Stabiler grüner Laser.</li></ul>
