@@ -9,7 +9,7 @@ const L = (href: string, label: string, hreflang?: string): Lien => ({ href, lab
 
 const pack = lang === 'it' ? {
   tag: 'Guide all’illuminazione indipendenti e basate sui dati: attacchi, lumen, temperatura di colore, resa cromatica e gradi IP, secondo la CEI 64-8, la UNI EN 12464-1 e l’etichetta energetica UE.',
-  notice: '',
+  notice: 'In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.',
   copy: `© ${year} 1piece1ampoule.fr — Edizione italiana, ottobre 2026`,
   cols: [
     { titre: 'Guide', aria: 'Guide', items: [
@@ -32,7 +32,7 @@ const pack = lang === 'it' ? {
   ],
 } : lang === 'es' ? {
   tag: 'Guías de iluminación independientes y con datos: casquillos, lúmenes, temperatura de color, reproducción cromática y grados IP, según el REBT, la UNE-EN 12464-1 y la etiqueta energética de la UE.',
-  notice: '',
+  notice: 'Como Asociado de Amazon, obtengo ingresos por las compras que cumplen los requisitos.',
   copy: `© ${year} 1piece1ampoule.fr — Edición en español, octubre de 2026`,
   cols: [
     { titre: 'Guías', aria: 'Guías', items: [
@@ -55,7 +55,7 @@ const pack = lang === 'it' ? {
   ],
 } : lang === 'nl' ? {
   tag: 'Onafhankelijke verlichtingsgidsen met data: fittingen, lumen, kleurtemperatuur, kleurweergave, IP-codes – volgens NEN 1010, AREI/RGIE en het EU-energielabel.',
-  notice: '',
+  notice: 'Als Amazon-partner verdienen wij aan in aanmerking komende aankopen.',
   copy: `© ${year} 1piece1ampoule.fr — Nederlandstalige editie, oktober 2026`,
   cols: [
     { titre: 'Gidsen', aria: 'Gidsen', items: [
@@ -78,7 +78,7 @@ const pack = lang === 'it' ? {
   ],
 } : lang === 'de' ? {
   tag: 'Unabhängige Lichtratgeber mit Daten: Sockel, Lumen, Farbtemperatur, Farbwiedergabe, IP-Schutzarten – nach DIN, VDE und EU-Energielabel.',
-  notice: '',
+  notice: 'Als Amazon-Partner verdiene ich an qualifizierten Käufen.',
   copy: `© ${year} 1piece1ampoule.fr — Deutsche Ausgabe, Oktober 2026`,
   cols: [
     { titre: 'Ratgeber', aria: 'Ratgeber', items: [
@@ -96,6 +96,29 @@ const pack = lang === 'it' ? {
       L('/de/datenschutz/', 'Datenschutz'),
       L('/de/cookies/', 'Cookies'),
       L('/de/werbehinweis/', 'Werbehinweis'),
+      L('/', 'Version française', 'fr'),
+    ]},
+  ],
+} : lang === 'uk' || lang === 'ca' ? {
+  tag: lang === 'uk'
+    ? 'Independent, data-based lighting guides with UK-specific fittings, regulations and retail context.'
+    : 'Independent, data-based lighting guides with Canadian fittings, codes and retail context.',
+  notice: 'As an Amazon Associate I earn from qualifying purchases.',
+  copy: `© ${year} 1piece1ampoule.fr — ${lang === 'uk' ? 'UK' : 'Canadian'} edition, October 2026`,
+  cols: [
+    { titre: 'Guides', aria: 'Guides', items: [
+      L(`/${lang}/guides/bulb-bases-b22-e26-e27-gu10/`, 'Bulb bases'),
+      L(`/${lang}/guides/lumens-vs-watts/`, 'Lumens vs watts'),
+      L(`/${lang}/guides/colour-temperature-kelvin/`, 'Colour temperature'),
+      L(`/${lang}/guides/cri-colour-rendering-index/`, 'CRI'),
+      L(`/${lang}/guides/ip-ratings-bathroom-outdoor/`, 'IP ratings'),
+      L(`/${lang}/guides/dimmable-led-bulbs/`, 'Dimmable LEDs'),
+    ]},
+    { titre: 'The site', aria: 'The site', items: [
+      L(`/${lang}/affiliate-disclosure/`, 'Affiliate disclosure'),
+      L(`/${lang}/legal-notice/`, 'Legal notice'),
+      L(`/${lang}/privacy/`, 'Privacy'),
+      L(`/${lang}/cookies/`, 'Cookies'),
       L('/', 'Version française', 'fr'),
     ]},
   ],

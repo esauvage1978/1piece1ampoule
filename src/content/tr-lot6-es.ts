@@ -3,7 +3,7 @@
 import type { EnPage } from './en';
 
 const esS = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.es/s?k=${encodeURIComponent(q)}&tag=roboteducat07-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Buscar en Amazon.es</a>`;
+  '';
 const card = (flag: string, title: string, text: string, link: string) => `<div class="en-card"><p class="en-flag">${flag}</p><h3>${title}</h3><p>${text}</p>${link}</div>`;
 const note = `<p class="en-note">Los precios y la disponibilidad cambian: compruébelos antes de comprar. Como Asociado de Amazon, obtengo ingresos por las compras que cumplen los requisitos.</p>`;
 const SAFETY = `<p class="en-note"><strong>Tensión de red:</strong> cualquier trabajo en una luminaria de techo, un regulador o el cuadro eléctrico se hace <strong>con la corriente cortada</strong> (magnetotérmico abierto, ausencia de tensión comprobada). Si no es competente, no toque los bornes de red: llame a un electricista.</p>`;

@@ -7,7 +7,7 @@ import { TR_LOT4_EN } from './tr-lot4-en';
 import { TR_LOT5_EN_ALL } from './tr-lot5-en';
 import { TR_LOT6_EN } from './tr-lot6-en';
 import { INTENT_EN } from './intentions-gsc';
-const uk = (asin: string, label: string) => `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
+const uk = (asin: string, label: string) => `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon</a>`;
 const us = (asin: string, label: string) => `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon US</a>`;
 const note = `<p class="en-note">Product data below is taken from the manufacturer's listing on Amazon, checked on 22 October 2026. Prices change: check the current price before buying. As an Amazon Associate I earn from qualifying purchases.</p>`;
 

@@ -26,12 +26,10 @@ const SHOP: Record<Loc, { host: string; tag: string; dp: string; search: string;
   },
 };
 const buy = (loc: Loc, label: string, link: { dp?: string; q?: string }) => {
+  if (!link.dp) return '';
   const s = SHOP[loc];
-  const href = link.dp
-    ? `https://${s.host}/dp/${link.dp}?tag=${s.tag}`
-    : `https://${s.host}/s?k=${encodeURIComponent(link.q || label)}&tag=${s.tag}`;
-  const text = link.dp ? s.dp : s.search;
-  return `<a class="en-amz" href="${href}" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">${text}</a>`;
+  const href = `https://${s.host}/dp/${link.dp}?tag=${s.tag}`;
+  return `<a class="en-amz" href="${href}" rel="nofollow sponsored noopener" target="_blank" data-asin="${link.dp}" data-product="${label}">${s.dp}</a>`;
 };
 const note = (loc: Loc) => `<p class="en-note">${SHOP[loc].note}</p>`;
 
@@ -77,30 +75,30 @@ const e27: Cmp = {
     nl: [
       { name: 'Philips LED E27 8 W (equivalent 60 W) 2700 K, 6 stuks', type: 'E27-lamp', specs: '806 lm • 2700 K • Ra 80', best: 'Woonkamer en slaapkamer', link: { dp: 'B01KHIM7OG' } },
       { name: 'Philips LED Classic A60 E27, equivalent 100 W', type: 'Heldere E27', specs: 'ongeveer 1.500 lm • wit', best: 'Grote kamers, keuken, garage', link: { dp: 'B0DGPZCMG6' } },
-      { name: 'Philips LED E27 4,9 W (equivalent 40 W) 2700 K, 6 stuks', type: 'E27-lamp', specs: '470 lm • 2700 K', best: 'Bijzetlamp en nachtkastje', link: { q: 'Philips LED E27 40W equivalent 2700K' } },
+      { name: 'Philips LED E27 4,9 W (equivalent 40 W) 2700 K, 6 stuks', type: 'E27-lamp', specs: '470 lm • 2700 K', best: 'Bijzetlamp en nachtkastje', link: { dp: 'B09ZBJPNK4' } },
       { name: 'Philips LED-gloeidraad E27, equivalent 60 W, 2 stuks', type: 'Gloeidraad E27', specs: '806 lm • warmwit', best: 'Zichtbare lampen en hanglampen', link: { dp: 'B08HV4WG3Y' } },
-      { name: 'Philips Hue White E27 800 lm, 2 stuks', type: 'Slimme lamp', specs: '806 lm • 2700 K • dimbaar', best: 'Eerste stap naar slim licht', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, 2 stuks', type: 'Slimme lamp', specs: '806 lm • 2700 K • dimbaar', best: 'Eerste stap naar slim licht', link: { dp: 'B099NPGWCQ' } },
     ],
     de: [
       { name: 'Philips LED E27 8 W (60-W-Ersatz) 2700 K, 6er-Pack', type: 'E27-Lampe', specs: '806 lm • 2700 K • Ra 80', best: 'Wohnzimmer und Schlafzimmer', link: { dp: 'B01KHIM7OG' } },
       { name: 'Philips LED Classic A60 E27, 100-W-Ersatz', type: 'Helle E27', specs: 'ca. 1.500 lm • weiß', best: 'Große Räume, Küche, Garage', link: { dp: 'B0DGPZCMG6' } },
-      { name: 'Philips LED E27 4,9 W (40-W-Ersatz) 2700 K, 6er-Pack', type: 'E27-Lampe', specs: '470 lm • 2700 K', best: 'Nebenlampe und Nachttisch', link: { q: 'Philips LED E27 40W equivalent 2700K' } },
+      { name: 'Philips LED E27 4,9 W (40-W-Ersatz) 2700 K, 6er-Pack', type: 'E27-Lampe', specs: '470 lm • 2700 K', best: 'Nebenlampe und Nachttisch', link: { dp: 'B09ZBJPNK4' } },
       { name: 'Philips LED-Filament E27, 60-W-Ersatz, 2er-Pack', type: 'Filament E27', specs: '806 lm • warmweiß', best: 'Sichtbare Lampen und Pendel', link: { dp: 'B08HV4WG3Y' } },
-      { name: 'Philips Hue White E27 800 lm, 2er-Pack', type: 'Smarte Lampe', specs: '806 lm • 2700 K • dimmbar', best: 'Einstieg ins smarte Licht', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, 2er-Pack', type: 'Smarte Lampe', specs: '806 lm • 2700 K • dimmbar', best: 'Einstieg ins smarte Licht', link: { dp: 'B099NPGWCQ' } },
     ],
     it: [
       { name: 'Philips LED E27 8 W (equivalente 60 W) 2700 K, conf. da 6', type: 'Lampadina E27', specs: '806 lm • 2700 K • Ra 80', best: 'Soggiorno e camera', link: { dp: 'B01KHIM7OG' } },
       { name: 'Philips LED Classic A60 E27, equivalente 100 W', type: 'E27 luminosa', specs: 'circa 1.500 lm • bianca', best: 'Stanze grandi, cucina, garage', link: { dp: 'B0DGPZCMG6' } },
-      { name: 'Philips LED E27 4,9 W (equivalente 40 W) 2700 K, conf. da 6', type: 'Lampadina E27', specs: '470 lm • 2700 K', best: 'Abat-jour e comodino', link: { q: 'Philips LED E27 40W equivalent 2700K' } },
+      { name: 'Philips LED E27 4,9 W (equivalente 40 W) 2700 K, conf. da 6', type: 'Lampadina E27', specs: '470 lm • 2700 K', best: 'Abat-jour e comodino', link: { dp: 'B09ZBJPNK4' } },
       { name: 'Philips LED a filamento E27, equivalente 60 W, conf. da 2', type: 'Filamento E27', specs: '806 lm • bianco caldo', best: 'Lampade a vista e sospensioni', link: { dp: 'B08HV4WG3Y' } },
-      { name: 'Philips Hue White E27 800 lm, conf. da 2', type: 'Lampadina smart', specs: '806 lm • 2700 K • dimmerabile', best: 'Primo passo verso la luce smart', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, conf. da 2', type: 'Lampadina smart', specs: '806 lm • 2700 K • dimmerabile', best: 'Primo passo verso la luce smart', link: { dp: 'B099NPGWCQ' } },
     ],
     es: [
       { name: 'Philips LED E27 8 W (equivalente a 60 W) 2700 K, pack de 6', type: 'Bombilla E27', specs: '806 lm • 2700 K • Ra 80', best: 'Salón y dormitorio', link: { dp: 'B01KHIM7OG' } },
       { name: 'Philips LED Classic A60 E27, equivalente a 100 W', type: 'E27 luminosa', specs: 'unos 1.500 lm • blanca', best: 'Estancias grandes, cocina, garaje', link: { dp: 'B0DGPZCMG6' } },
-      { name: 'Philips LED E27 4,9 W (equivalente a 40 W) 2700 K, pack de 6', type: 'Bombilla E27', specs: '470 lm • 2700 K', best: 'Lámpara auxiliar y mesilla', link: { q: 'Philips LED E27 40W equivalent 2700K' } },
+      { name: 'Philips LED E27 4,9 W (equivalente a 40 W) 2700 K, pack de 6', type: 'Bombilla E27', specs: '470 lm • 2700 K', best: 'Lámpara auxiliar y mesilla', link: { dp: 'B09ZBJPNK4' } },
       { name: 'Philips LED de filamento E27, equivalente a 60 W, pack de 2', type: 'Filamento E27', specs: '806 lm • blanco cálido', best: 'Bombillas a la vista y colgantes', link: { dp: 'B08HV4WG3Y' } },
-      { name: 'Philips Hue White E27 800 lm, pack de 2', type: 'Bombilla inteligente', specs: '806 lm • 2700 K • regulable', best: 'Primer paso hacia la luz inteligente', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, pack de 2', type: 'Bombilla inteligente', specs: '806 lm • 2700 K • regulable', best: 'Primer paso hacia la luz inteligente', link: { dp: 'B099NPGWCQ' } },
     ],
   },
   criteria: A(
@@ -147,28 +145,28 @@ const gu10: Cmp = {
   ),
   products: {
     nl: [
-      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, 12 stuks', type: 'GU10', specs: '805 lm • 4000 K • klasse A • 36°', best: 'Keuken, aanrecht, gang', link: { q: 'GY GU10 LED 805lm 4000K' } },
-      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, 10 stuks', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Breed, gelijkmatig licht', link: { q: 'GU10 LED 790lm 4000K 120 degree' } },
-      { name: 'Philips LED GU10 4,6 W warmwit, 10 stuks', type: 'GU10', specs: '355 lm • 2700 K', best: 'Woonkamer en sfeer', link: { q: 'Philips LED GU10 warm white 10 pack' } },
-      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, 6 stuks', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Sfeerspots', link: { q: 'DiCUNO GU10 550lm 2700K' } },
+      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, 12 stuks', type: 'GU10', specs: '805 lm • 4000 K • klasse A • 36°', best: 'Keuken, aanrecht, gang', link: { dp: 'B0F62SG8Z9' } },
+      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, 10 stuks', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Breed, gelijkmatig licht', link: { dp: 'B0BNDC7BPV' } },
+      { name: 'Philips LED GU10 4,6 W warmwit, 10 stuks', type: 'GU10', specs: '355 lm • 2700 K', best: 'Woonkamer en sfeer', link: { dp: 'B07665H9B7' } },
+      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, 6 stuks', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Sfeerspots', link: { dp: 'B0919GN6FK' } },
     ],
     de: [
-      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, 12er-Pack', type: 'GU10', specs: '805 lm • 4000 K • Klasse A • 36°', best: 'Küche, Arbeitsplatte, Flur', link: { q: 'GY GU10 LED 805lm 4000K' } },
-      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, 10er-Pack', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Breites, gleichmäßiges Licht', link: { q: 'GU10 LED 790lm 4000K 120 degree' } },
-      { name: 'Philips LED GU10 4,6 W warmweiß, 10er-Pack', type: 'GU10', specs: '355 lm • 2700 K', best: 'Wohnzimmer und Stimmung', link: { q: 'Philips LED GU10 warm white 10 pack' } },
-      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, 6er-Pack', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Stimmungs-Spots', link: { q: 'DiCUNO GU10 550lm 2700K' } },
+      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, 12er-Pack', type: 'GU10', specs: '805 lm • 4000 K • Klasse A • 36°', best: 'Küche, Arbeitsplatte, Flur', link: { dp: 'B0F62SG8Z9' } },
+      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, 10er-Pack', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Breites, gleichmäßiges Licht', link: { dp: 'B0BNDC7BPV' } },
+      { name: 'Philips LED GU10 4,6 W warmweiß, 10er-Pack', type: 'GU10', specs: '355 lm • 2700 K', best: 'Wohnzimmer und Stimmung', link: { dp: 'B07665H9B7' } },
+      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, 6er-Pack', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Stimmungs-Spots', link: { dp: 'B0919GN6FK' } },
     ],
     it: [
-      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, conf. da 12', type: 'GU10', specs: '805 lm • 4000 K • classe A • 36°', best: 'Cucina, piano di lavoro, corridoio', link: { q: 'GY GU10 LED 805lm 4000K' } },
-      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, conf. da 10', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Luce ampia e uniforme', link: { q: 'GU10 LED 790lm 4000K 120 degree' } },
-      { name: 'Philips LED GU10 4,6 W bianco caldo, conf. da 10', type: 'GU10', specs: '355 lm • 2700 K', best: 'Soggiorno e atmosfera', link: { q: 'Philips LED GU10 warm white 10 pack' } },
-      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, conf. da 6', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Faretti d’ambiente', link: { q: 'DiCUNO GU10 550lm 2700K' } },
+      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, conf. da 12', type: 'GU10', specs: '805 lm • 4000 K • classe A • 36°', best: 'Cucina, piano di lavoro, corridoio', link: { dp: 'B0F62SG8Z9' } },
+      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, conf. da 10', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Luce ampia e uniforme', link: { dp: 'B0BNDC7BPV' } },
+      { name: 'Philips LED GU10 4,6 W bianco caldo, conf. da 10', type: 'GU10', specs: '355 lm • 2700 K', best: 'Soggiorno e atmosfera', link: { dp: 'B07665H9B7' } },
+      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, conf. da 6', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Faretti d’ambiente', link: { dp: 'B0919GN6FK' } },
     ],
     es: [
-      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, pack de 12', type: 'GU10', specs: '805 lm • 4000 K • clase A • 36°', best: 'Cocina, encimera, pasillo', link: { q: 'GY GU10 LED 805lm 4000K' } },
-      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, pack de 10', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Luz amplia y uniforme', link: { q: 'GU10 LED 790lm 4000K 120 degree' } },
-      { name: 'Philips LED GU10 4,6 W blanco cálido, pack de 10', type: 'GU10', specs: '355 lm • 2700 K', best: 'Salón y ambiente', link: { q: 'Philips LED GU10 warm white 10 pack' } },
-      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, pack de 6', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Focos de ambiente', link: { q: 'DiCUNO GU10 550lm 2700K' } },
+      { name: 'GY GU10 LED 4,5 W 805 lm 4000 K, pack de 12', type: 'GU10', specs: '805 lm • 4000 K • clase A • 36°', best: 'Cocina, encimera, pasillo', link: { dp: 'B0F62SG8Z9' } },
+      { name: 'GY GU10 LED 4,9 W 790 lm 4000 K, pack de 10', type: 'GU10', specs: '790 lm • 4000 K • 120°', best: 'Luz amplia y uniforme', link: { dp: 'B0BNDC7BPV' } },
+      { name: 'Philips LED GU10 4,6 W blanco cálido, pack de 10', type: 'GU10', specs: '355 lm • 2700 K', best: 'Salón y ambiente', link: { dp: 'B07665H9B7' } },
+      { name: 'DiCUNO GU10 6 W 550 lm 2700 K, pack de 6', type: 'GU10', specs: '550 lm • 2700 K • 120°', best: 'Focos de ambiente', link: { dp: 'B0919GN6FK' } },
     ],
   },
   criteria: A(
@@ -213,28 +211,28 @@ const smart: Cmp = {
       { name: 'Tapo L530E wifi-kleurlamp E27', type: 'Wifi-lamp', specs: '806 lm • kleuren • geen bridge', best: 'Eerste slimme lamp', link: { dp: 'B08GDC99PX' } },
       { name: 'Tapo L530E wifi E27, 2 stuks', type: 'Wifi-lamp', specs: '806 lm • kleuren • Alexa/Google', best: 'Woon- en slaapkamer', link: { dp: 'B08Z4KCJZY' } },
       { name: 'Philips Hue White & Color Ambiance E27-startset', type: 'Kleurenset', specs: '1.100 lm • kleuren • bridge + afstandsbediening', best: 'Sfeer bij de televisie', link: { dp: 'B099NRLRG3' } },
-      { name: 'Philips Hue White E27 800 lm, 2 stuks', type: 'Slimme lamp', specs: '800 lm • 2700 K • dimbaar', best: 'Instap', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, 2 stuks', type: 'Slimme lamp', specs: '800 lm • 2700 K • dimbaar', best: 'Instap', link: { dp: 'B099NPGWCQ' } },
     ],
     de: [
       { name: 'Philips Hue White Ambiance E27 1.100 lm', type: 'Smarte Lampe', specs: '1.100 lm • einstellbares Weiß • Bluetooth/Zigbee', best: 'Wohnzimmer, Schlafzimmer, Szenen', link: { dp: 'B0FJ8VXHRX' } },
       { name: 'Tapo L530E WLAN-Farbbirne E27', type: 'WLAN-Lampe', specs: '806 lm • Farben • ohne Bridge', best: 'Erste smarte Lampe', link: { dp: 'B08GDC99PX' } },
       { name: 'Tapo L530E WLAN E27, 2er-Pack', type: 'WLAN-Lampe', specs: '806 lm • Farben • Alexa/Google', best: 'Wohn- und Schlafzimmer', link: { dp: 'B08Z4KCJZY' } },
       { name: 'Philips Hue White & Color Ambiance E27 Starter-Set', type: 'Farb-Set', specs: '1.100 lm • Farben • Bridge + Fernbedienung', best: 'Stimmung am Fernseher', link: { dp: 'B099NRLRG3' } },
-      { name: 'Philips Hue White E27 800 lm, 2er-Pack', type: 'Smarte Lampe', specs: '800 lm • 2700 K • dimmbar', best: 'Einstieg', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, 2er-Pack', type: 'Smarte Lampe', specs: '800 lm • 2700 K • dimmbar', best: 'Einstieg', link: { dp: 'B099NPGWCQ' } },
     ],
     it: [
       { name: 'Philips Hue White Ambiance E27 1.100 lm', type: 'Lampadina smart', specs: '1.100 lm • bianco variabile • Bluetooth/Zigbee', best: 'Soggiorno, camera, scene', link: { dp: 'B0FJ8VXHRX' } },
       { name: 'Tapo L530E lampadina Wi-Fi a colori E27', type: 'Lampadina Wi-Fi', specs: '806 lm • colori • senza bridge', best: 'Prima lampadina smart', link: { dp: 'B08GDC99PX' } },
       { name: 'Tapo L530E Wi-Fi E27, conf. da 2', type: 'Lampadina Wi-Fi', specs: '806 lm • colori • Alexa/Google', best: 'Soggiorno e camera', link: { dp: 'B08Z4KCJZY' } },
       { name: 'Philips Hue White & Color Ambiance E27 kit di partenza', type: 'Kit colore', specs: '1.100 lm • colori • bridge + telecomando', best: 'Atmosfera vicino alla TV', link: { dp: 'B099NRLRG3' } },
-      { name: 'Philips Hue White E27 800 lm, conf. da 2', type: 'Lampadina smart', specs: '800 lm • 2700 K • dimmerabile', best: 'Ingresso nella gamma', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, conf. da 2', type: 'Lampadina smart', specs: '800 lm • 2700 K • dimmerabile', best: 'Ingresso nella gamma', link: { dp: 'B099NPGWCQ' } },
     ],
     es: [
       { name: 'Philips Hue White Ambiance E27 1.100 lm', type: 'Bombilla inteligente', specs: '1.100 lm • blanco variable • Bluetooth/Zigbee', best: 'Salón, dormitorio, escenas', link: { dp: 'B0FJ8VXHRX' } },
       { name: 'Tapo L530E bombilla Wi-Fi de color E27', type: 'Bombilla Wi-Fi', specs: '806 lm • colores • sin puente', best: 'Primera bombilla inteligente', link: { dp: 'B08GDC99PX' } },
       { name: 'Tapo L530E Wi-Fi E27, pack de 2', type: 'Bombilla Wi-Fi', specs: '806 lm • colores • Alexa/Google', best: 'Salón y dormitorio', link: { dp: 'B08Z4KCJZY' } },
       { name: 'Philips Hue White & Color Ambiance E27 kit de inicio', type: 'Kit de color', specs: '1.100 lm • colores • puente + mando', best: 'Ambiente junto al televisor', link: { dp: 'B099NRLRG3' } },
-      { name: 'Philips Hue White E27 800 lm, pack de 2', type: 'Bombilla inteligente', specs: '800 lm • 2700 K • regulable', best: 'Entrada en la gama', link: { q: 'Philips Hue White E27 800 lm 2 pack' } },
+      { name: 'Philips Hue White E27 800 lm, pack de 2', type: 'Bombilla inteligente', specs: '800 lm • 2700 K • regulable', best: 'Entrada en la gama', link: { dp: 'B099NPGWCQ' } },
     ],
   },
   criteria: A(

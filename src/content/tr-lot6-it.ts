@@ -3,7 +3,7 @@
 import type { EnPage } from './en';
 
 const itS = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.it/s?k=${encodeURIComponent(q)}&tag=roboteducat0f-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Cerca su Amazon.it</a>`;
+  '';
 const card = (flag: string, title: string, text: string, link: string) => `<div class="en-card"><p class="en-flag">${flag}</p><h3>${title}</h3><p>${text}</p>${link}</div>`;
 const note = `<p class="en-note">Prezzi e disponibilità cambiano: li controlli prima dell’acquisto. In qualità di Affiliato Amazon ricevo un guadagno dagli acquisti idonei.</p>`;
 const SAFETY = `<p class="en-note"><strong>Tensione di rete:</strong> ogni intervento su un punto luce a soffitto, un variatore o il quadro elettrico si fa <strong>a corrente staccata</strong> (interruttore generale aperto, assenza di tensione verificata). Se non è competente, non tocchi i morsetti di rete: chiami un elettricista.</p>`;

@@ -6,9 +6,9 @@ type Shop = { host: string; tag: string; cta: string; aff: string };
 
 const SHOP: Record<Exclude<GuideLocale, 'fr'>, Shop> = {
   en: {
-    host: 'www.amazon.co.uk',
-    tag: 'roboteducatif-21',
-    cta: 'Check price on Amazon UK',
+    host: 'www.amazon.com',
+    tag: 'roboteducatif-20',
+    cta: 'Check price on Amazon',
     aff: 'As an Amazon Associate I earn from qualifying purchases — <a href="/en/affiliate-disclosure/">affiliate disclosure</a>.',
   },
   de: {
@@ -118,7 +118,7 @@ const E27_LINKS: Record<
     kelvin: '/de/ratgeber/farbtemperatur-kelvin/',
     culots: '/de/ratgeber/lampensockel-e27-e14-gu10/',
     dimmer: '/de/ratgeber/dimmbare-led-lampen/',
-    gu10: '/de/artikel/gu10-oder-gu5-3/',
+    gu10: '/de/anleitungen/halogen-gu10-mr16-durch-led-ersetzen/',
     affiliate: '/de/werbehinweis/',
     reg: '806 lm: Delegierte Verordnung (EU) 2019/2015, Anhang V, Tabelle 7. Sockel nach IEC 60061 (E27, B22d). Amazon-Angaben vom 22. Oktober 2026.',
   },

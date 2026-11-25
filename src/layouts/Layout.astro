@@ -65,7 +65,9 @@ const _fs = _p.split('/').filter(Boolean);
 const showQuestion = showChrome && (lang === 'fr'
   ? /^\/(guides|tutoriels|meilleur|pieces|zones|peinture|marques|articles|outils|codes-promo)\//.test(_p)
   : (_fs.length >= 3 || /^\/(en|nl)\/tools\/$|^\/de\/werkzeuge\/$|^\/it\/strumenti\/$|^\/es\/herramientas\/$/.test(_p)));
-const group = groupOf(path);
+let group = groupOf(path);
+if (group?.en && !group.uk) group = { ...group, uk: group.en.replace(/^\/en(\/|$)/, '/uk$1') };
+if (group?.en && !group.ca) group = { ...group, ca: group.en.replace(/^\/en(\/|$)/, '/ca$1') };
 const altLangs = ['fr', 'en', 'uk', 'ca', 'de', 'nl', 'es', 'it'] as const;
 const alts = group ? altLangs.filter((l) => group[l]).map((l) => ({ l, href: group[l] as string })) : [];
 const hasPair = alts.length > 1;
