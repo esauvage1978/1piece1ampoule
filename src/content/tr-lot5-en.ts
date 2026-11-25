@@ -131,9 +131,9 @@ export const LOT5_EN_GROUPS: { fr: string; en: string }[] = [
 
 // ---- Comparisons (/meilleur/ → /en/best/), winter evenings guide, LED strip calculator, Imalent brand page ----
 const ukDp = (asin: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
+  `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon</a>`;
 const ukS = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Search on Amazon UK</a>`;
+  '';
 const amzNote = `<p class="en-note">Product data from the manufacturers' listings (Amazon.fr, checked October 2026); UK listings may differ. Prices change: the Amazon button shows today's price. As an Amazon Associate I earn from qualifying purchases.</p>`;
 /** [name, type, key specs, best for, ASIN if already used on co.uk in the EN edition, else search query] */
 type Prod = [string, string, string, string, { dp?: string; q?: string }];

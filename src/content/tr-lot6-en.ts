@@ -3,10 +3,9 @@
 // French cost figures are labelled as French prices. No SVG reproduced.
 import type { EnPage } from './en';
 
-const ukS = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Search on Amazon UK</a>`;
+const ukS = (_q: string, _label: string) => '';
 const ukDp = (asin: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
+  `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon</a>`;
 const card = (flag: string, title: string, text: string, link: string) => `<div class="en-card"><p class="en-flag">${flag}</p><h3>${title}</h3><p>${text}</p>${link}</div>`;
 const note = `<p class="en-note">Prices and availability change: check them before buying. As an Amazon Associate I earn from qualifying purchases.</p>`;
 const SAFETY = `<p class="en-note"><strong>Mains voltage:</strong> any work on a ceiling light, dimmer or consumer unit is done <strong>with the power off</strong> (breaker off, absence of voltage checked). If you are not competent, do not touch mains terminals: call an electrician.</p>`;

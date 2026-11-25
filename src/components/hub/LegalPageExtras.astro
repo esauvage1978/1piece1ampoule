@@ -9,14 +9,14 @@ const { lang, kind, pathname } = Astro.props;
 
 const osram = awinLink('98739', 'https://shop.ledvance.fr/collections/all-stars');
 const amazonSample: Record<string, { href: string; tag: string }> = {
-  fr: { href: 'https://www.amazon.fr/s?k=ampoule+LED+E27&tag=manuso06-21', tag: 'manuso06-21' },
-  en: { href: 'https://www.amazon.co.uk/s?k=LED+bulb+E27&tag=roboteducatif-21', tag: 'roboteducatif-21' },
-  uk: { href: 'https://www.amazon.co.uk/s?k=LED+bulb+E27&tag=roboteducatif-21', tag: 'roboteducatif-21' },
-  ca: { href: 'https://www.amazon.ca/s?k=LED+bulb+E27&tag=roboteducat03-20', tag: 'roboteducat03-20' },
-  de: { href: 'https://www.amazon.de/s?k=LED+Lampe+E27&tag=roboteducat00-21', tag: 'roboteducat00-21' },
-  nl: { href: 'https://www.amazon.nl/s?k=LED+lamp+E27&tag=manuso0607-21', tag: 'manuso0607-21' },
-  es: { href: 'https://www.amazon.es/s?k=bombilla+LED+E27&tag=roboteducat07-21', tag: 'roboteducat07-21' },
-  it: { href: 'https://www.amazon.it/s?k=lampadina+LED+E27&tag=roboteducat0f-21', tag: 'roboteducat0f-21' },
+  fr: { href: 'https://www.amazon.fr/dp/B01KHIM7OG?tag=manuso06-21', tag: 'manuso06-21' },
+  en: { href: 'https://www.amazon.com/dp/B01KHIM7OG?tag=roboteducatif-20', tag: 'roboteducatif-20' },
+  uk: { href: 'https://www.amazon.co.uk/dp/B01KHIM7OG?tag=roboteducatif-21', tag: 'roboteducatif-21' },
+  ca: { href: 'https://www.amazon.ca/dp/B01KHIM7OG?tag=roboteducat03-20', tag: 'roboteducat03-20' },
+  de: { href: 'https://www.amazon.de/dp/B01KHIM7OG?tag=roboteducat00-21', tag: 'roboteducat00-21' },
+  nl: { href: 'https://www.amazon.nl/dp/B01KHIM7OG?tag=manuso0607-21', tag: 'manuso0607-21' },
+  es: { href: 'https://www.amazon.es/dp/B01KHIM7OG?tag=roboteducat07-21', tag: 'roboteducat07-21' },
+  it: { href: 'https://www.amazon.it/dp/B01KHIM7OG?tag=roboteducat0f-21', tag: 'roboteducat0f-21' },
 };
 const amz = amazonSample[lang] ?? amazonSample.en;
 

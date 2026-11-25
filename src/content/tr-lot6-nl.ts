@@ -4,7 +4,7 @@
 import type { EnPage } from './en';
 
 const nlS = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.nl/s?k=${encodeURIComponent(q)}&tag=manuso0607-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Zoeken op Amazon.nl</a>`;
+  '';
 const card = (flag: string, title: string, text: string, link: string) => `<div class="en-card"><p class="en-flag">${flag}</p><h3>${title}</h3><p>${text}</p>${link}</div>`;
 const note = `<p class="en-note">Prijzen en beschikbaarheid wijzigen: controleer ze voor u koopt. Als Amazon-partner verdienen wij aan in aanmerking komende aankopen.</p>`;
 const SAFETY = `<p class="en-note"><strong>Netspanning:</strong> werk aan een plafondlamp, een dimmer of de groepenkast (zekeringkast) doet u <strong>met de stroom uit</strong> (automaat uit, spanningsloosheid gecontroleerd). Bent u daar niet bekwaam voor, raak de netklemmen dan niet aan: schakel een elektricien in.</p>`;

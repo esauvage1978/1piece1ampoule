@@ -3,7 +3,7 @@ import type { EnPage } from './en';
 import { gu10FlickerBody } from './intl-guide-enrich';
 
 const uk = (asin: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
+  `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon</a>`;
 const note = `<p class="en-note">Listing data from manufacturer/Amazon pages checked 23 October 2026. Prices change — verify before buying. As an Amazon Associate I earn from qualifying purchases.</p>`;
 
 const err = (p: Omit<EnPage, 'article'> & { kicker?: string }): EnPage => ({

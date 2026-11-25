@@ -66,7 +66,7 @@ const UI = {
   es: { title: 'Bombillas y accesorios de iluminación', description: 'El catálogo verificado, filtrable por tipo y marca, con ASIN y precio de Amazon cuando existe la ficha.', cat: 'Tipo', marque: 'Marca', tous: 'Todos los tipos', toutes: 'Todas las marcas', prix: 'Consultar el precio', chercher: 'Buscar este producto', photo: 'Foto: Amazon', note: 'Precio de Amazon del {date}. El stock puede haber cambiado.', noteFiche: 'El botón abre la ficha de Amazon.', noteRecherche: 'Búsqueda con el nombre del producto. El precio es el de la tienda.', intro: 'Cada ficha es un producto que ya está en el catálogo. El precio es el importe de Amazon en este mercado en la fecha indicada. Los anuncios ausentes de este mercado no se muestran.' },
 } as const;
 const t = UI[ui];
-const marcheId = lang === 'en' || lang === 'uk' ? 'uk' : lang === 'ca' || lang === 'nl' ? '' : lang;
+const marcheId = lang === 'en' ? 'uk' : lang === 'uk' ? 'uk' : lang === 'ca' || lang === 'nl' ? '' : lang;
 type Fiche = { image?: string; w?: number; h?: number; marches?: Record<string, { url?: string; prix?: string; titre?: string; releve?: string }> };
 const fiches = (prix as { items: Record<string, Fiche> }).items;
 const localeDate = { fr: 'fr-FR', en: 'en-GB', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', nl: 'nl-NL', it: 'it-IT', es: 'es-ES' }[lang];
@@ -79,12 +79,9 @@ function prixDuJour(entree?: { prix?: string; releve?: string; releveIso?: strin
   if (!Number.isFinite(age) || age < 0 || age > PRIX_JOUR_MS) return '';
   return entree.prix;
 }
-const hote = { fr: 'www.amazon.fr', en: 'www.amazon.co.uk', uk: 'www.amazon.co.uk', ca: 'www.amazon.ca', de: 'www.amazon.de', nl: 'www.amazon.nl', it: 'www.amazon.it', es: 'www.amazon.es' }[lang];
-const tg = { fr: 'manuso06-21', en: 'roboteducatif-21', uk: 'roboteducatif-21', ca: 'roboteducat03-20', de: 'roboteducat00-21', nl: 'manuso0607-21', it: 'roboteducat0f-21', es: 'roboteducat07-21' } as Record<string, string>;
-const recherche = (nom: string) => {
-  const q = `https://${hote}/s?k=${encodeURIComponent(nom)}`;
-  return tg[lang] ? `${q}&tag=${tg[lang]}` : q;
-};
+const hote = { fr: 'www.amazon.fr', en: 'www.amazon.com', uk: 'www.amazon.co.uk', ca: 'www.amazon.ca', de: 'www.amazon.de', nl: 'www.amazon.nl', it: 'www.amazon.it', es: 'www.amazon.es' }[lang];
+const tg = { fr: 'manuso06-21', en: 'roboteducatif-20', uk: 'roboteducatif-21', ca: 'roboteducat03-20', de: 'roboteducat00-21', nl: 'manuso0607-21', it: 'roboteducat0f-21', es: 'roboteducat07-21' } as Record<string, string>;
+const ficheUrl = (asin: string) => `https://${hote}/dp/${asin}?tag=${tg[lang]}`;
 const cartes = Object.values(PRODUCTS).flatMap((p) => {
   const fiche = fiches[p.asin];
   const marche = marcheId ? fiche?.marches?.[marcheId] : undefined;
@@ -118,7 +115,7 @@ const marques = [...new Set(cartes.map((c) => c.brand))].sort((a, b) => a.locale
         const date = dateDe(c.marche?.releve);
         const montant = prixDuJour(c.marche);
         const ficheLien = Boolean(c.marche?.url);
-        const href = c.marche?.url || recherche(c.name);
+        const href = c.marche?.url || ficheUrl(c.asin);
         return (
           <li data-cat={c.type} data-marque={c.brand} class="rounded-2xl border border-stone-200 bg-white p-4">
             <p class="text-xs font-bold uppercase tracking-wide text-amber-700">{libType(c.type)} · {c.brand}</p>

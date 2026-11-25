@@ -139,15 +139,15 @@ export const HUB_TOOLS: Record<HubLang, {
     linksGuide: { lumens: '/de/ratgeber/lumen-watt/', kelvin: '/de/ratgeber/farbtemperatur-kelvin/', cri: '/de/ratgeber/farbwiedergabe-cri-ra/', lux: '/de/anleitungen/lux-lumen-pro-raum-berechnen/' },
     affNote: 'Der Simulator kann am Ende Amazon-Lampen vorschlagen: Partnerlinks',
     affHref: '/de/werbehinweis/',
-    depannageHref: '/de/ratgeber/fehlercodes-eclairage-connecte/',
+    depannageHref: '/de/ratgeber/fehlercodes/',
     depannageLabel: 'Fehlercode-Verzeichnis',
     illuAlt: 'Schema: Lumen-, Kelvin- und CRI-Regler für einen Beispielraum',
     tools: [
       { href: '/de/werkzeuge/lux-lumen-watt-raum-umrechner/', title: 'Lux ↔ Lumen ↔ Watt', desc: 'Fläche, Raumtyp und Wandfarbe.' },
       { href: '/de/werkzeuge/halogen-led-aequivalenz-gu10-e27-lumen/', title: 'Halogen-LED-Äquivalenz', desc: 'Halogenwatt zu echten LED-Lumen.' },
-      { href: '/de/werkzeuge/led-streifen-netzteil-rechner/', title: 'LED-Streifen-Netzteil', desc: 'Länge, Spannungsabfall und Reserve.' },
-      { href: '/de/werkzeuge/kuechen-beleuchtungsplan-pdf/', title: 'Küchenlichtplan (PDF)', desc: 'Arbeitsflächen-Lux, GU10, 24-V-Streifen.' },
-      { href: '/de/werkzeuge/roi-relamping-led/', title: 'ROI LED-Umrüstung', desc: 'Amortisation für Gewerbe und Büros.' },
+      { href: '/de/werkzeuge/halogen-led-aequivalenz-gu10-e27-lumen/', title: 'Halogen-LED-Äquivalenz', desc: 'GU10, E27 und Lumen für Relamping.' },
+      { href: '/de/werkzeuge/kuechenbeleuchtung-plan-pdf/', title: 'Küchenlichtplan (PDF)', desc: 'Arbeitsflächen-Lux, GU10, 24-V-Streifen.' },
+      { href: '/de/werkzeuge/led-relamping-roi/', title: 'ROI LED-Umrüstung', desc: 'Amortisation für Gewerbe und Büros.' },
     ],
   },
   nl: {
@@ -164,7 +164,7 @@ export const HUB_TOOLS: Record<HubLang, {
     linksGuide: { lumens: '/nl/gidsen/lumen-watt/', kelvin: '/nl/gidsen/kleurtemperatuur-kelvin/', cri: '/nl/gidsen/kleurweergave-cri-ra/', lux: '/nl/handleidingen/lux-lumen-per-ruimte-berekenen/' },
     affNote: 'De simulator kan Amazon-lampen voorstellen: partnerlinks',
     affHref: '/nl/affiliatebeleid/',
-    depannageHref: '/nl/gidsen/foutcodes-eclairage-connecte/',
+    depannageHref: '/nl/gidsen/foutcodes/',
     depannageLabel: 'foutcode-overzicht',
     illuAlt: 'Schema: lumen-, kelvin- en CRI-regelaars voor een voorbeeldruimte',
     tools: [

@@ -5,10 +5,8 @@
 import type { EnPage } from './en';
 
 const uk = (asin: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
-/** Amazon UK search: the FR ASINs have not been checked on amazon.co.uk. */
-const ukSearch = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Search on Amazon UK</a>`;
+  `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon</a>`;
+const ukSearch = (_q: string, _label: string) => '';
 const note = `<p class="en-note">Product notes come from the manufacturer's listing. Prices and availability change: check them before buying. As an Amazon Associate I earn from qualifying purchases.</p>`;
 const card = (flag: string, title: string, text: string, q: string) =>
   `<div class="en-card"><p class="en-flag">${flag}</p><h3>${title}</h3><p>${text}</p>${ukSearch(q, title)}</div>`;

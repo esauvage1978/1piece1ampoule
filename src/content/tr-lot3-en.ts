@@ -3,11 +3,11 @@
 // Prices: parts costs are kept as shown on the French pages (EUR); no figure added.
 import type { EnPage } from './en';
 
-const uk = (asin: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/dp/${asin}?tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon UK</a>`;
-/** Search link on Amazon UK: used when the French ASIN has not been checked on amazon.co.uk. */
-const ukSearch = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.co.uk/s?k=${encodeURIComponent(q)}&tag=roboteducatif-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Search on Amazon UK</a>`;
+const enAmz = (asin: string, label: string) =>
+  `<a class="en-amz" href="https://www.amazon.com/dp/${asin}?tag=roboteducatif-20" rel="nofollow sponsored noopener" target="_blank" data-asin="${asin}" data-product="${label}">Check price on Amazon</a>`;
+/** @deprecated Remplacer par enAmz(asin) ; sans ASIN fiable, ne pas insérer de lien. */
+const ukSearch = (_q: string, _label: string) => '';
+const uk = enAmz;
 const note = `<p class="en-note">Product notes come from the manufacturer's listing. Prices and availability change: check them before buying. As an Amazon Associate I earn from qualifying purchases.</p>`;
 
 type Err = {
@@ -573,7 +573,7 @@ export const TUTOS_LOT3_EN: EnPage[] = [
 <p><strong>Do I need one hub per brand?</strong> No. One Zigbee 3.0 hub handles most modules. Home Assistant with a USB dongle accepts SONOFF, Aqara, IKEA and Hue; brand hubs are simpler but less tolerant of other brands.</p>
 <p><strong>Zigbee or Wi-Fi for a no-neutral switch?</strong> Zigbee uses less power and often works from 3 W of LED, but needs a hub. Wi-Fi does without a hub but almost always needs a bypass. See <a href="/en/articles/smart-bulb-wifi-or-zigbee/">Wi-Fi or Zigbee</a>.</p>
 <h2>Products mentioned</h2>
-<div class="en-card"><p class="en-flag">Zigbee 3.0 · no neutral</p><h3>SONOFF ZBMINIL2</h3><p>No-neutral Zigbee 3.0 module, works with Home Assistant (ZHA and Zigbee2MQTT) and SONOFF hubs. The easiest to get recognised.</p>${ukSearch('SONOFF ZBMINIL2', 'SONOFF ZBMINIL2')}</div>
+<div class="en-card"><p class="en-flag">Zigbee 3.0 · no neutral</p><h3>SONOFF ZBMINIL2</h3><p>No-neutral Zigbee 3.0 module, works with Home Assistant (ZHA and Zigbee2MQTT) and SONOFF hubs. The easiest to get recognised.</p>${enAmz('B0C5371TQL', 'SONOFF ZBMINIL2')}</div>
 <div class="en-card"><p class="en-flag">Zigbee router</p><h3>Philips Hue White Ambiance E27</h3><p>A Zigbee bulb that stays powered also works as a router to strengthen the network in the next room.</p>${uk('B0FJ8VXHRX', 'Philips Hue White Ambiance E27')}</div>
 ${note}
 <h2>Sources</h2><ul>
@@ -636,8 +636,8 @@ ${note}
 <p><strong>Monitor light bar or desk lamp?</strong> The bar lights the keyboard and nearby papers without glare and takes no space; a desk lamp covers a larger area and is better for writing or drawing. On a desk deeper than 70 cm, the lamp works better.</p>
 <p><strong>I get reflections on the screen.</strong> A light is behind or above you, in line with the screen. Move the lamp to the side, tilt the screen down slightly, or replace the ceiling light with indirect light.</p>
 <h2>Products mentioned</h2>
-<div class="en-card"><p class="en-flag">Desk lamp</p><h3>Unilux Mambo LED desk lamp, 3000–5000K</h3><p>Clamp and base, adjustable colour from 3000 to 5000K: reaches the 500 lux target on a standard desk.</p>${ukSearch('Unilux Mambo LED desk lamp', 'Unilux Mambo')}</div>
-<div class="en-card"><p class="en-flag">Monitor light bar</p><h3>BenQ ScreenBar</h3><p>Anti-glare light bar: lights the keyboard and papers without taking space, ideal on a small desk.</p>${ukSearch('BenQ ScreenBar', 'BenQ ScreenBar')}</div>
+<div class="en-card"><p class="en-flag">Desk lamp</p><h3>Unilux Mambo LED desk lamp, 3000–5000K</h3><p>Clamp and base, adjustable colour from 3000 to 5000K: reaches the 500 lux target on a standard desk.</p>${enAmz('B08MFN1S45', 'Unilux Mambo')}</div>
+<div class="en-card"><p class="en-flag">Monitor light bar</p><h3>BenQ ScreenBar</h3><p>Anti-glare light bar: lights the keyboard and papers without taking space, ideal on a small desk.</p>${enAmz('B0785D93KD', 'BenQ ScreenBar')}</div>
 <div class="en-card"><p class="en-flag">Architect lamp</p><h3>Clamp-on LED architect lamp, 3 colours, 10 levels</h3><p>Long arm for a large desk.</p>${ukSearch('LED architect desk lamp clamp 3 colour 10 brightness', 'LED architect lamp')}</div>
 ${note}
 <h2>Sources</h2><ul>
@@ -776,8 +776,8 @@ ${note}
 <p><strong>My battery lights do not light at all.</strong> Leaking alkaline batteries leave a deposit: clean the contacts with a cotton bud barely dampened with white vinegar, dry well, then fit new batteries. A wire broken right at the box is easy to resolder.</p>
 <p><strong>Only one LED is out.</strong> On parallel-wired micro LED lights, a dead LED only switches itself off. It is not dangerous: you can leave it.</p>
 <h2>Products mentioned</h2>
-<div class="en-card"><p class="en-flag">Diagnosis</p><h3>Basic digital multimeter</h3><p>A simple meter with an audible continuity test is enough to find a break or measure the transformer output.</p>${ukSearch('digital multimeter continuity buzzer', 'digital multimeter')}</div>
-<div class="en-card"><p class="en-flag">Repair</p><h3>3:1 adhesive-lined heat-shrink kit</h3><p>Makes a low-voltage repair watertight, unlike tape.</p>${ukSearch('heat shrink tubing 3:1 adhesive lined kit', 'adhesive heat shrink kit')}</div>
+<div class="en-card"><p class="en-flag">Diagnosis</p><h3>Basic digital multimeter</h3><p>A simple meter with an audible continuity test is enough to find a break or measure the transformer output.</p>${enAmz('B01ISAMUA6', 'digital multimeter')}</div>
+<div class="en-card"><p class="en-flag">Repair</p><h3>3:1 adhesive-lined heat-shrink kit</h3><p>Makes a low-voltage repair watertight, unlike tape.</p>${enAmz('B019QJ612G', 'adhesive heat shrink kit')}</div>
 ${note}
 <h2>Sources</h2><ul>
 <li>EN 60598-2-20: luminaires, particular requirements, lighting chains (including safety extra-low voltage for outdoor chains).</li>

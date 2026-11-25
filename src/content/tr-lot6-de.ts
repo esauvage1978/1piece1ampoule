@@ -4,7 +4,7 @@
 import type { EnPage } from './en';
 
 const deS = (q: string, label: string) =>
-  `<a class="en-amz" href="https://www.amazon.de/s?k=${encodeURIComponent(q)}&tag=roboteducat00-21" rel="nofollow sponsored noopener" target="_blank" data-product="${label}">Auf Amazon.de suchen</a>`;
+  '';
 const card = (flag: string, title: string, text: string, link: string) => `<div class="en-card"><p class="en-flag">${flag}</p><h3>${title}</h3><p>${text}</p>${link}</div>`;
 const note = `<p class="en-note">Preise und Verfügbarkeit ändern sich: Prüfen Sie beides vor dem Kauf. Als Amazon-Partner verdiene ich an qualifizierten Käufen.</p>`;
 const SAFETY = `<p class="en-note"><strong>Netzspannung:</strong> Arbeiten an einer Deckenleuchte, einem Dimmer oder dem Sicherungskasten nur <strong>im spannungsfreien Zustand</strong> (Sicherung aus, Spannungsfreiheit geprüft). Wenn Sie sich das nicht zutrauen, fassen Sie keine Netzanschlüsse an: Beauftragen Sie eine Elektrofachkraft.</p>`;

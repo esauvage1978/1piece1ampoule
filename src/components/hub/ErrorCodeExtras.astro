@@ -31,15 +31,19 @@ const T: Record<string, { illuAlt: string; sum: string; diff: string; tim: strin
 };
 const loc = lang === 'uk' || lang === 'ca' ? 'en' : lang;
 const u = T[loc] ?? T.en;
+const errorDir: Record<string, string> = {
+  en: '/en/guides/error-codes/', uk: '/uk/guides/error-codes/', ca: '/ca/guides/error-codes/',
+  de: '/de/ratgeber/fehlercodes/', nl: '/nl/gidsen/foutcodes/', it: '/it/guide/codici-errore/', es: '/es/guias/codigos-error/',
+};
 const bars = '●'.repeat(difficulty) + '○'.repeat(5 - difficulty);
 const amazonByLang: Record<string, { href: string; label: string }> = {
-  fr: { href: 'https://www.amazon.fr/s?k=Shelly+Dimmer+2&tag=manuso06-21', label: 'Rechercher un Shelly Dimmer 2 sur Amazon.fr' },
-  en: { href: 'https://www.amazon.co.uk/s?k=Shelly+Dimmer+2&tag=roboteducatif-21', label: 'Search Shelly Dimmer 2 on Amazon UK' },
-  uk: { href: 'https://www.amazon.co.uk/s?k=Shelly+Dimmer+2&tag=roboteducatif-21', label: 'Search Shelly Dimmer 2 on Amazon UK' },
-  de: { href: 'https://www.amazon.de/s?k=Shelly+Dimmer+2&tag=roboteducat00-21', label: 'Shelly Dimmer 2 bei Amazon.de' },
-  it: { href: 'https://www.amazon.it/s?k=Shelly+Dimmer+2&tag=roboteducat0f-21', label: 'Shelly Dimmer 2 su Amazon.it' },
-  es: { href: 'https://www.amazon.es/s?k=Shelly+Dimmer+2&tag=roboteducat07-21', label: 'Shelly Dimmer 2 en Amazon.es' },
-  nl: { href: 'https://www.amazon.nl/s?k=Shelly+Dimmer+2&tag=manuso0607-21', label: 'Shelly Dimmer 2 op Amazon.nl' },
+  fr: { href: 'https://www.amazon.fr/dp/B09534N6WS?tag=manuso06-21', label: 'Shelly Dimmer 2 sur Amazon.fr' },
+  en: { href: 'https://www.amazon.com/dp/B09534N6WS?tag=roboteducatif-20', label: 'Shelly Dimmer 2 on Amazon' },
+  uk: { href: 'https://www.amazon.co.uk/dp/B09534N6WS?tag=roboteducatif-21', label: 'Shelly Dimmer 2 on Amazon UK' },
+  de: { href: 'https://www.amazon.de/dp/B09534N6WS?tag=roboteducat00-21', label: 'Shelly Dimmer 2 bei Amazon.de' },
+  it: { href: 'https://www.amazon.it/dp/B09534N6WS?tag=roboteducat0f-21', label: 'Shelly Dimmer 2 su Amazon.it' },
+  es: { href: 'https://www.amazon.es/dp/B09534N6WS?tag=roboteducat07-21', label: 'Shelly Dimmer 2 en Amazon.es' },
+  nl: { href: 'https://www.amazon.nl/dp/B09534N6WS?tag=manuso0607-21', label: 'Shelly Dimmer 2 op Amazon.nl' },
 };
 const amz = amazonByLang[lang] ?? amazonByLang.en;
 ---
@@ -72,7 +76,7 @@ const amz = amazonByLang[lang] ?? amazonByLang.en;
     <p class="font-semibold text-stone-900">{lang === 'de' ? 'Weiterführende Tools' : 'Related tools'}</p>
     <ul class="mt-2 list-disc pl-5 text-stone-700">
       <li><a class="font-semibold text-amber-800" href={lang === 'en' || lang === 'uk' ? `/${lang}/tools/` : lang === 'de' ? '/de/werkzeuge/' : lang === 'it' ? '/it/strumenti/' : lang === 'es' ? '/es/herramientas/' : '/nl/tools/'}>{lang === 'de' ? 'Lichtsimulator' : 'Lighting simulator'}</a></li>
-      <li><a class="font-semibold text-amber-800" href={lang === 'en' || lang === 'uk' ? `/${lang}/guides/error-codes/` : lang === 'de' ? '/de/ratgeber/fehlercodes-eclairage-connecte/' : lang === 'it' ? '/it/guide/codici-errore/' : lang === 'es' ? '/es/guias/codigos-error/' : '/nl/gidsen/foutcodes-eclairage-connecte/'}>{lang === 'de' ? 'Fehlercode-Übersicht' : 'Error code directory'}</a></li>
+      <li><a class="font-semibold text-amber-800" href={errorDir[lang] ?? errorDir.en}>{lang === 'de' ? 'Fehlercode-Übersicht' : 'Error code directory'}</a></li>
     </ul>
   </nav>
 )}
